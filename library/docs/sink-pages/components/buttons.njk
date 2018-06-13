@@ -1,0 +1,7 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    {% filter markdown %}
+        # Buttons Sink
+    {% endfilter %} 
+    {{ library.button() }}
+{% endblock body %}

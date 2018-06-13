@@ -1,0 +1,7 @@
+{% macro button(
+          class=false,
+          text="Button Text") %}
+  <button class="spirit-button{{ ' ' + class if class }}">
+    {{ text }}
+  </button>
+{% endmacro %}

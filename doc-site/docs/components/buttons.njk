@@ -1,0 +1,14 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  <h1>Buttons Documentation Page</h1>
+  {% filter markdown %}
+      ## Markdown works within this filter
+
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, culpa eos laudantium voluptatem, ea alias autem earum esse ipsam, quo nemo quas modi velit sunt voluptatum ut eum suscipit sed?
+  {% endfilter %}
+
+  {% set button_example %}
+    {{ library.button() }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_example ) }}
+{% endblock body %}

@@ -1,0 +1,39 @@
+{% import 'node_modules/spirit/components/spirit.njk' as library with context %}
+{% import 'node_modules/esds-doc/components/esds-doc.njk' as esds_doc with context %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block head_content_prepend %}{% endblock head_content_prepend %}
+        <link rel="stylesheet" href="/styles/dependencies/esds-doc.css">
+        <link rel="stylesheet" href="/styles/dependencies/prism.css">
+        <link rel="stylesheet" href="/styles/dependencies/spirit.css">
+        <link rel="stylesheet" href="/styles/spirit_doc_site.css">
+        <script src="/scripts/[your-main-script].js"></script>
+        {% block head_content_append %}{% endblock head_content_append %}
+    </head>
+    <body>
+        {% block body %}{% endblock body %}
+
+        <script src="/scripts/dependencies/prism.js"></script>
+        <script src="/scripts/dependencies/prism-json.min.js"></script>
+        <script src="/scripts/dependencies/prism-scss.min.js"></script>
+        <script src="/scripts/dependencies/prism-twig.min.js"></script>
+        <script src="/scripts/dependencies/svg4everybody.min.js"></script>
+        <script src="/scripts/dependencies/scrollmonitor.js"></script>
+        <script src="/scripts/dependencies/smoothscroll.min.js"></script>
+        <script>
+            svg4everybody();
+        </script>
+        <script src="/scripts/dependencies/esds-doc.js"></script>
+        <script>
+            Esds.CodeSnippet.init();
+            Esds.PageNavigation.init();
+        </script>
+        {% block closing_body_assets %}{% endblock closing_body_assets %}
+    </body>
+</html>

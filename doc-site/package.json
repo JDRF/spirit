@@ -1,0 +1,15 @@
+{
+  "name": "spirit-doc-site",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "link-local-library": "cd ../library && npm install && gulp build:all && npm link && cd ../doc-site && npm link spirit",
+    "unlink-local-library": "npm unlink spirit --no-save && npm install"
+  },
+  "author": "Kevin Powell <kevinmpowell@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "esds-build": "^0.33.0",
+    "esds-doc": "^0.10.0-alpha.5"
+  }
+}
