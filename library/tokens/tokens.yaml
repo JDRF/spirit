@@ -19,9 +19,9 @@ color :
   red :
     default : &color-red-100 "#F40050"
     light :   &color-red-35 "#FFA6C4"
-box-shadow-color : # === structure change ===
-  default :  &box-shadow-color-default  rgba(0,8,26,16)   # based on color-black
-  blue :     &box-shadow-color-blue     rgba(0,85,255,16) # based on color-blue-default
+elevation-color : # === structure change ===
+  default :  &elevation-color-default  rgba(0,8,26,16)   # based on color-black
+  blue :     &elevation-color-blue     rgba(0,85,255,16) # based on color-blue-default
 # ====== assignments ======= #
 brand : 
   primary :   *color-blue-default
@@ -31,7 +31,9 @@ text-color :
   secondary : *color-grey-35
   link :      *color-blue-default
   disabled :  *color-grey-70
-icon-color :  *color-blue-default
+icon-color :
+  blue : *color-blue-default
+  grey : *color-grey-35
 interactive-color :
   focus:      *color-blue-30
   disabled :
@@ -40,25 +42,25 @@ interactive-color :
   primary : #also covers icon-only
     text :    *color-white
     fill :    *color-blue-default
-    glow :    *box-shadow-color-blue
+    glow :    *elevation-color-blue
   secondary :
     text :    *color-blue-default
     fill :    *color-white
-    glow :    *box-shadow-color-default
-    border :  "#EDEFF2" # unique to secondary
-  secondary-gray :          # QUESTION: Deprecated from button, but still used in tabs??
+    glow :    *elevation-color-default
+    border :  *color-grey-95
+  secondary-grey :          # QUESTION: Deprecated from button, but still used in tabs??
     text :    *color-grey-35
-    fill :    "#EDEFF2"
-    glow :    *box-shadow-color-default
+    fill :    *color-grey-95
+    glow :    *elevation-color-default
   on-dark : #also covers icon-only-on-dark
     text :    *color-blue-default
     fill :    *color-white
-    glow :    *box-shadow-color-default
+    glow :    *elevation-color-default
   toggle :
-    text :    *text-color-link
+    text :    *color-blue-default
     fill :    *color-white
     hover :   *color-blue-15 # unique to toggle
-    glow :    *box-shadow-color-default
+    glow :    *elevation-color-default
     border :  *color-blue-default # unique to toggle
   input :
     focus :   *color-blue-default
@@ -74,13 +76,14 @@ feedback-color :
 box-shadow : 
   focus :     4px
 border :
-  card :      1px
-  button :    2px
-  input :     1px
+  card :           1px
+  button :         2px
+  input-focus :    2px # check this one in final version
+  input-feedback : 2px
   radius :
     s : 4px # checkbox
     m : 6px # buttons, inputs
-    l : 8px # cards
+    l : 8px # cards, media, tiles
 elevation :
   0 : "0 0 0 0"
   1 : "0 2 4 0"
@@ -90,7 +93,7 @@ elevation :
   5 : "0 24 48 0"
 size :
   icon :
-    m : 20px
+    m : 20px # may change
     l : 32px
 space :
   generic : 
@@ -155,8 +158,8 @@ space :
     half-x : 0 0 0 4px  
 font :
   family :
-    sans-serif: "'Graphik', sans-serif"    # FALLBACKS NEEDED
-    monospace: "monospace"                 # DEFINITION NEEDED
+    sans-serif: "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
+    monospace: "monospace"  # DEFINITION NEEDED
   weight :
     regular : 400
     bold : 600
@@ -186,10 +189,10 @@ font :
     heading-level-6-largescreen:  16px
     code: 13px
   line-height:
-    body: 1.5
-    prose: 1.33
-    controls: 1.25
-    display-level-1: 1.25
+    body: 1.5          # check this in Sketch
+    prose: 1.5         # check this in Sketch
+    controls: 1
+    display-level-1: 1.25 # reload the branch before doing these, check mobile sizes too
     display-level-2: 1.25
     heading-level-1: 1.25
     heading-level-2: 1.25
@@ -197,6 +200,4 @@ font :
     heading-level-4: 1.25
     heading-level-5: 1.25
     heading-level-6: 1.25
-
-
 
