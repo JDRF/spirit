@@ -1,7 +1,14 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-    {% filter markdown %}
+    {% filter markdown(true, "hostile-sink-reset") %}
         # Buttons Sink
+        ## Default Button
     {% endfilter %} 
     {{ library.button() }}
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ## Secondary Button
+    {% endfilter %} 
+    {{ library.button(class="spirit-button--secondary", text="A secondary button") }}
+
 {% endblock body %}
