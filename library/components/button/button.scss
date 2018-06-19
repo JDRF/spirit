@@ -1,23 +1,49 @@
 .spirit-button {
-  background: blue;
-  border-radius: 5px;
-  border: 0;
-  color: white;
+  //font-family: $spirit-font-family-sans-serif-2; Font family Overpass not avilable
+  font-size: $spirit-font-size-m;
+  font-weight: $spirit-font-weight-bold;
+  line-height: $spirit-font-line-height-controls;
+  display: inline-block;
+  //letter-spacing: $spirit-font-letter-spacing-15; Letter spacing variables not available -- 0.15em
+  margin: 0;
+  margin-bottom: $spirit-space-generic-2-x;
+  padding: $spirit-space-inset-squish-2-x;
   cursor: pointer;
-  font-size: 16px;
-  padding: 10px 20px;
-
+  transition: box-shadow 0.3s ease-out, border 0.3s ease-out; // not transition vars available ( i.e. 0.3s ease-out );
+  text-align: center;
+  color: $spirit-interactive-color-primary-text;
+  border: 4px solid $spirit-interactive-color-primary-fill; // spirit-border-button - 4px insteand of 2px? / interactive color primary border color needed (perhaps redundant)?
+  border-radius: $spirit-border-radius-m;
+  background: $spirit-interactive-color-primary-fill;
+  box-shadow: 0 2px 4px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
   &:hover {
-    background: darken(blue, 20%);
+    box-shadow: 0 8px 16px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
+  }
+  &:active {
+    box-shadow: 0 4px 8px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
+  }
+  &:focus {
+    border-color: $spirit-color-blue-30; // interactive color primary border focus color needed?
+    outline: 0;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    color: $spirit-interactive-color-disabled-text;
+    border-color: $spirit-interactive-color-disabled-fill;
+    background: $spirit-interactive-color-disabled-fill;
+    box-shadow: none;
+    &:hover {
+      // box-shadow: 0 2px 4px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
+    }
   }
 }
 
 .spirit-button--secondary {
-  background: lightgray;
   color: black;
+  background: lightgray;
 
   &:hover {
-    background: gray;
     color: white;
+    background: gray;
   }
 }

@@ -1,7 +1,8 @@
 {% macro button(
           class=false,
+          disabled=false,
           text="Button Text") %}
-  <button class="spirit-button{{ ' ' + class if class }}">
+  <button class="spirit-button{{ ' ' + class if class }}" {{ 'disabled' if disabled }}>
     {{ text }}
   </button>
 {% endmacro %}

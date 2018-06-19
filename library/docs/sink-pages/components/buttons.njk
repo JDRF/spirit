@@ -3,12 +3,18 @@
     {% filter markdown(true, "hostile-sink-reset") %}
         # Buttons Sink
         ## Default Button
-    {% endfilter %} 
-    {{ library.button() }}
+    {% endfilter %}
+    {{ library.button(text="Default Button") }}
+	{{ library.button(text="Default Button Disabled", disabled="true") }}
 
     {% filter markdown(true, "hostile-sink-reset") %}
         ## Secondary Button
-    {% endfilter %} 
+    {% endfilter %}
     {{ library.button(class="spirit-button--secondary", text="A secondary button") }}
+
+	{% filter markdown(true, "hostile-sink-reset") %}
+        ## Tertiary Button
+    {% endfilter %}
+    {{ library.button(class="spirit-button--tertiary", text="A tertiary button") }}
 
 {% endblock body %}
