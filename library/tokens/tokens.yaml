@@ -23,7 +23,7 @@ elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,16)   # based on color-black
   blue :     &elevation-color-blue     rgba(0,85,255,16) # based on color-blue-default
 # ====== assignments ======= #
-brand : 
+brand-color : 
   primary :   *color-blue-default
 text-color :
   primary :   *color-black
