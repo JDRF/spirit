@@ -14,7 +14,7 @@
      {% filter markdown(true, "hostile-sink-reset") %}
         ## Default Button Link
     {% endfilter %}
-    {{ library.button(text="Default Button Link", tag="a", type="button", href="#") }}
+    {{ library.button(text="Default Button Link", tag="a", href="#") }}
 
     {% filter markdown(true, "hostile-sink-reset") %}
         ## Default Button Submit
@@ -42,7 +42,7 @@
         ## On Dark Disabled
     {% endfilter %}
 	<section class="button-wrap-dark-test">
-    	{{ library.button(class="spirit-button--on-dark", text="On Dark Button", disabled="true") }}
+    	{{ library.button(class="spirit-button--on-dark", text="On Dark Button Disabled", disabled="true") }}
 	</section>
 
 {% endblock body %}

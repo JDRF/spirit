@@ -7,8 +7,64 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, culpa eos laudantium voluptatem, ea alias autem earum esse ipsam, quo nemo quas modi velit sunt voluptatum ut eum suscipit sed?
   {% endfilter %}
 
-  {% set button_example %}
-    {{ library.button() }}
+  {% filter markdown %}
+      ### Default Button
+  {% endfilter %}
+
+  {% set button_default %}
+    {{ library.button(text="Default Button") }}
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_example ) }}
+  {{ esds_doc.code_example_pair( example=button_default ) }}
+
+  {% set button_default_disabled %}
+    {{ library.button(text="Default Button Disabled", disabled="true") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_disabled ) }}
+
+  {% set button_default_link %}
+    {{ library.button(text="Default Button Link", tag="a", href="#") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_link ) }}
+
+  {% set button_default_submit %}
+    {{ library.button(text="Default Button Submit", tag="input", type="submit") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_submit ) }}
+
+  {% filter markdown %}
+      ### Secondary Button
+  {% endfilter %}
+
+  {% set button_default_secondary %}
+    {{ library.button(class="spirit-button--secondary", text="Secondary Button") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_secondary ) }}
+
+  {% filter markdown %}
+      ### Secondary Grey Button
+  {% endfilter %}
+
+  {% set button_default_secondary_gray %}
+    {{ library.button(class="spirit-button--secondary-gray", text="Secondary Gray Button") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_secondary_gray ) }}
+
+    {% filter markdown %}
+      ### Secondary On Dark Button
+  {% endfilter %}
+
+  {% set button_default_secondary_on_dark %}
+    	<section class="button-wrap-dark-test">
+    	{{ library.button(class="spirit-button--on-dark", text="On Dark Button") }}
+	</section>
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_secondary_on_dark ) }}
+
+  {% set button_default_secondary_on_dark_disabled %}
+    	<section class="button-wrap-dark-test">
+    	{{ library.button(class="spirit-button--on-dark", text="On Dark Button Disabled", disabled="true") }}
+	</section>
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_default_secondary_on_dark_disabled ) }}
+
 {% endblock body %}
