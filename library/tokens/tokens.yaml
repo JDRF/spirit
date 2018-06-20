@@ -23,7 +23,7 @@ elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
   blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-default
 # ====== assignments ======= #
-brand :
+brand-color : 
   primary :   *color-blue-default
 text-color :
   primary :   *color-black
@@ -35,7 +35,7 @@ icon-color :
   blue : *color-blue-default
   grey : *color-grey-35
 interactive-color :
-  focus:      *color-blue-30
+  focus :      *color-blue-30
   disabled :
     text :    *color-grey-70
     fill :    *color-grey-98
@@ -159,46 +159,57 @@ space :
     half-x : 0 0 0 4px
 font :
   family :
-    sans-serif: "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
-    monospace: "monospace"  # DEFINITION NEEDED
+    sans-serif : "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
+    monospace : "monospace"  # DEFINITION NEEDED
   weight :
     regular : 400
     bold : 600
   size :
-    base: &font-size-base 16px
     xs : 13px
     s :  14px
     m :  16px
     l :  18px
-    subhead:                      16px
-    subhead-largescreen:          24px
-    display-level-1:              56px
-    display-level-1-largescreen:  96px
-    display-level-2:              42px
-    display-level-2-largescreen:  72px
-    heading-level-1:              32px
-    heading-level-1-largescreen:  56px
-    heading-level-2:              24px
-    heading-level-2-largescreen:  44px
-    heading-level-3:              18px
-    heading-level-3-largescreen:  32px
-    heading-level-4:              16px
-    heading-level-4-largescreen:  24px
-    heading-level-5:              14px
-    heading-level-5-largescreen:  18px
-    heading-level-6:              13px
-    heading-level-6-largescreen:  16px
-    code: 13px
-  line-height:
-    body: 1.5          # check this in Sketch
-    prose: 1.5         # check this in Sketch
-    controls: 1
-    display-level-1: 1.25 # reload the branch before doing these, check mobile sizes too
-    display-level-2: 1.25
-    heading-level-1: 1.25
-    heading-level-2: 1.25
-    heading-level-3: 1.25
-    heading-level-4: 1.25
-    heading-level-5: 1.25
-    heading-level-6: 1.25
-
+    subhead :                      16px #use body line height
+    subhead-breakpoint-l :         24px
+    display-level-1 :              56px
+    display-level-1-breakpoint-l : 96px
+    display-level-2 :              42px
+    display-level-2-breakpoint-l : 72px
+    heading-level-1 :              32px
+    heading-level-1-breakpoint-l : 56px
+    heading-level-2 :              24px
+    heading-level-2-breakpoint-l : 44px
+    heading-level-3 :              18px
+    heading-level-3-breakpoint-l : 32px
+    heading-level-4 :              16px
+    heading-level-4-breakpoint-l : 24px
+    heading-level-5 :              14px
+    heading-level-5-breakpoint-l : 18px
+    heading-level-6 :              13px
+    heading-level-6-breakpoint-l : 16px
+    code : 13px
+  line-height :
+    body : 1.5    # use for prose and anything with paragraphs
+    controls : 1  # use inside components for labels and microcopy
+    display-level-1 :               1.071
+    display-level-1-breakpoint-l :  1.125
+    display-level-2 :               1.048
+    display-level-2-breakpoint-l :  1.056
+    heading-level-1 :               1.25
+    heading-level-1-breakpoint-l :  1.285
+    heading-level-2 :               1.333
+    heading-level-2-breakpoint-l :  1.272
+    heading-level-3 :               1.333
+    heading-level-3-breakpoint-l :  1.25
+    heading-level-4 :               1.25
+    heading-level-4-breakpoint-l :  1.333
+    heading-level-5 :               1.429
+    heading-level-5-breakpoint-l :  1.333
+    heading-level-6 :               1.231
+    heading-level-6-breakpoint-l :  1.25
+breakpoint : 
+  xs : 0
+  s  : 375px
+  m  : 768px
+  l  : 1024px
+  xl : 1248px

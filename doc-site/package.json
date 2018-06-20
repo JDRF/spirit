@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "link-local-library": "cd ../library && npm install && gulp build:all && npm link && cd ../doc-site && npm link spirit",
-    "unlink-local-library": "npm unlink spirit --no-save && npm install"
+    "unlink-local-library": "npm unlink spirit --no-save && npm install",
+    "prepack": "npm install && gulp build:all"
   },
   "author": "Kevin Powell <kevinmpowell@gmail.com>",
   "license": "ISC",
