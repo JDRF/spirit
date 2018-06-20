@@ -1,49 +1,133 @@
+// spirit Button Variables
+
+// Letter Spacing
+$spirit-button-font-letter-spacing-15: .15em;
+
+// Transitions
+$spirit-button-transition-duration: .3s;
+$spirit-button-transition-timing-function: ease-out;
+$spirit-button-border-width: 4px;
+$spirit-button-elevation-1: 0 2px 4px 0;
+$spirit-button-elevation-2: 0 4px 8px 0;
+$spirit-button-elevation-3: 0 8px 16px 0;
+$spirit-button-border-color-focus: $spirit-color-blue-30;
+$spirit-button-border-width-secondary: $spirit-border-button;
+
 .spirit-button {
-  //font-family: $spirit-font-family-sans-serif-2; Font family Overpass not avilable
-  font-size: $spirit-font-size-m;
-  font-weight: $spirit-font-weight-bold;
-  line-height: $spirit-font-line-height-controls;
+  background: $spirit-interactive-color-primary-fill;
+  border: $spirit-button-border-width solid $spirit-interactive-color-primary-fill;
+  border-radius: $spirit-border-radius-m;
+  box-shadow: $spirit-button-elevation-1 $spirit-interactive-color-primary-glow;
+  box-sizing: border-box; // does not inset the border ignoring the padding ( can use inset shadow or pseudo element )
+  color: $spirit-interactive-color-primary-text;
+  cursor: pointer;
   display: inline-block;
-  //letter-spacing: $spirit-font-letter-spacing-15; Letter spacing variables not available -- 0.15em
+  font-family: $spirit-font-family-sans-serif;
+  font-size: $spirit-font-size-m;
+  font-style: normal;
+  font-weight: $spirit-font-weight-bold;
+  letter-spacing: $spirit-button-font-letter-spacing-15;
+  line-height: $spirit-font-line-height-controls;
   margin: 0;
   margin-bottom: $spirit-space-generic-2-x;
-  padding: $spirit-space-inset-squish-2-x;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease-out, border 0.3s ease-out; // not transition vars available ( i.e. 0.3s ease-out );
+  padding: $spirit-space-inset-squish-4-x;
   text-align: center;
-  color: $spirit-interactive-color-primary-text;
-  border: 4px solid $spirit-interactive-color-primary-fill; // spirit-border-button - 4px insteand of 2px? / interactive color primary border color needed (perhaps redundant)?
-  border-radius: $spirit-border-radius-m;
-  background: $spirit-interactive-color-primary-fill;
-  box-shadow: 0 2px 4px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
+  text-decoration: none;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  transition: box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function, border $spirit-button-transition-duration $spirit-button-transition-timing-function;
+  user-select: none;
+
   &:hover {
-    box-shadow: 0 8px 16px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
+    box-shadow: $spirit-button-elevation-3 $spirit-interactive-color-primary-glow;
   }
+
   &:active {
-    box-shadow: 0 4px 8px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
+    box-shadow: $spirit-button-elevation-2 $spirit-interactive-color-primary-glow;
   }
-  &:focus {
-    border-color: $spirit-color-blue-30; // interactive color primary border focus color needed?
+
+  &:focus,
+  &:focus-within {
+    border-color: $spirit-button-border-color-focus;
     outline: 0;
   }
+
   &:disabled {
-    cursor: not-allowed;
-    color: $spirit-interactive-color-disabled-text;
-    border-color: $spirit-interactive-color-disabled-fill;
     background: $spirit-interactive-color-disabled-fill;
+    border-color: $spirit-interactive-color-disabled-fill;
     box-shadow: none;
-    &:hover {
-      // box-shadow: 0 2px 4px 0 rgba( $spirit-interactive-color-primary-fill, 0.16 ); // elevation token not set correctly - using a mixin?
-    }
+    color: $spirit-interactive-color-disabled-text;
+    cursor: not-allowed;
   }
 }
 
 .spirit-button--secondary {
-  color: black;
-  background: lightgray;
+  background: $spirit-interactive-color-secondary-fill;
+  border: $spirit-button-border-width-secondary solid $spirit-interactive-color-secondary-border;
+  box-shadow: $spirit-button-elevation-1 transparent;
+  color: $spirit-interactive-color-secondary-text;
 
   &:hover {
-    color: white;
-    background: gray;
+    box-shadow: $spirit-button-elevation-3 $spirit-interactive-color-secondary-glow;
   }
+
+  &:active {
+    box-shadow: $spirit-button-elevation-2 $spirit-interactive-color-secondary-glow;
+  }
+
+  &:focus,
+  &:focus-within {
+    border: $spirit-button-border-width solid $spirit-button-border-color-focus;
+  }
+}
+
+.spirit-button--secondary-gray {
+  background: $spirit-interactive-color-secondary-grey-fill;
+  border: $spirit-button-border-width solid transparent;
+  box-shadow: $spirit-button-elevation-1 transparent;
+  color: $spirit-interactive-color-secondary-grey-text;
+
+  &:hover {
+    box-shadow: $spirit-button-elevation-3 $spirit-interactive-color-secondary-glow;
+  }
+
+  &:active {
+    box-shadow: $spirit-button-elevation-2 $spirit-interactive-color-secondary-glow;
+  }
+
+  &:focus,
+  &:focus-within {
+    border: $spirit-button-border-width solid $spirit-button-border-color-focus;
+  }
+}
+
+.spirit-button--on-dark {
+  background: $spirit-interactive-color-secondary-fill;
+  border: $spirit-button-border-width solid transparent;
+  box-shadow: $spirit-button-elevation-1 transparent;
+  color: $spirit-interactive-color-secondary-text;
+
+  &:hover {
+    box-shadow: $spirit-button-elevation-3 $spirit-interactive-color-secondary-glow;
+  }
+
+  &:active {
+    box-shadow: $spirit-button-elevation-2 $spirit-interactive-color-secondary-glow;
+  }
+
+  &:focus,
+  &:focus-within {
+    border: $spirit-button-border-width solid $spirit-button-border-color-focus;
+  }
+}
+
+// for testing - to be replaced with section component - need direction
+.button-wrap-dark-test {
+  background: $spirit-brand-primary;
+  box-sizing: border-box;
+  color: $spirit-color-white;
+  display: block;
+  padding: $spirit-space-inset-squish-4-x;
+  width: 100%;
 }

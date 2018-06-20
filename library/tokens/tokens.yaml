@@ -20,10 +20,10 @@ color :
     default : &color-red-100 "#F40050"
     light :   &color-red-35 "#FFA6C4"
 elevation-color : # === structure change ===
-  default :  &elevation-color-default  rgba(0,8,26,16)   # based on color-black
-  blue :     &elevation-color-blue     rgba(0,85,255,16) # based on color-blue-default
+  default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
+  blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-default
 # ====== assignments ======= #
-brand : 
+brand :
   primary :   *color-blue-default
 text-color :
   primary :   *color-black
@@ -73,7 +73,7 @@ feedback-color :
     danger :    *color-red-35
     info :      *color-blue-15
     success :   *color-green-20
-box-shadow : 
+box-shadow :
   focus :     4px
 border :
   card :           1px
@@ -96,7 +96,7 @@ size :
     m : 20px # may change
     l : 32px
 space :
-  generic : 
+  generic :
     24-x :   192px
     12-x :   96px
     8-x :    64px
@@ -120,9 +120,9 @@ space :
     6-x :    24px 48px
     4-x :    16px 32px
     3-x :    12px 24px
-    2-x :    8px 16px  
-    1-x :    4px 8px 
-    half-x : 2px 4px 
+    2-x :    8px 16px
+    1-x :    4px 8px
+    half-x : 2px 4px
   stack :
     24-x :   0 0 192px 0
     12-x :   0 0 96px  0
@@ -147,15 +147,15 @@ space :
     half-x : 0 4px   0 0
   inline-right : # right-aligned text means space on the left
     24-x :   0 0 0 192px
-    12-x :   0 0 0 96px 
-    8-x :    0 0 0 64px 
-    6-x :    0 0 0 48px 
-    5-x :    0 0 0 40px 
-    4-x :    0 0 0 32px 
-    3-x :    0 0 0 24px 
-    2-x :    0 0 0 16px 
-    1-x :    0 0 0 8px  
-    half-x : 0 0 0 4px  
+    12-x :   0 0 0 96px
+    8-x :    0 0 0 64px
+    6-x :    0 0 0 48px
+    5-x :    0 0 0 40px
+    4-x :    0 0 0 32px
+    3-x :    0 0 0 24px
+    2-x :    0 0 0 16px
+    1-x :    0 0 0 8px
+    half-x : 0 0 0 4px
 font :
   family :
     sans-serif: "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED

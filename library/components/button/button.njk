@@ -1,8 +1,15 @@
 {% macro button(
           class=false,
           disabled=false,
-          text="Button Text") %}
-  <button class="spirit-button{{ ' ' + class if class }}" {{ 'disabled' if disabled }}>
-    {{ text }}
-  </button>
+          text="Button Text",
+		  tag="button",
+		  type=false,
+		  href=false) %}
+	{% if 'input' === tag  %}
+		<{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}" value="{{text}}" />
+	{% else %}
+		<{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}" {{ 'href=' + href if href }} {{ 'disabled' if disabled }}>
+			{{ text }}
+		</{{tag}}>
+  	{% endif %}
 {% endmacro %}

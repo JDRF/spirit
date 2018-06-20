@@ -5,16 +5,44 @@
         ## Default Button
     {% endfilter %}
     {{ library.button(text="Default Button") }}
-	{{ library.button(text="Default Button Disabled", disabled="true") }}
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ## Default Button Disabled
+    {% endfilter %}
+    {{ library.button(text="Default Button Disabled", disabled="true") }}
+
+     {% filter markdown(true, "hostile-sink-reset") %}
+        ## Default Button Link
+    {% endfilter %}
+    {{ library.button(text="Default Button Link", tag="a", type="button", href="#") }}
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ## Default Button Submit
+    {% endfilter %}
+    {{ library.button(text="Default Button Submit", tag="input", type="submit") }}
 
     {% filter markdown(true, "hostile-sink-reset") %}
         ## Secondary Button
     {% endfilter %}
-    {{ library.button(class="spirit-button--secondary", text="A secondary button") }}
+    {{ library.button(class="spirit-button--secondary", text="Secondary Button") }}
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ## Secondary Grey
+    {% endfilter %}
+    {{ library.button(class="spirit-button--secondary-gray", text="Secondary Gray Button") }}
 
 	{% filter markdown(true, "hostile-sink-reset") %}
-        ## Tertiary Button
+        ## On Dark
     {% endfilter %}
-    {{ library.button(class="spirit-button--tertiary", text="A tertiary button") }}
+	<section class="button-wrap-dark-test">
+    	{{ library.button(class="spirit-button--on-dark", text="On Dark Button") }}
+	</section>
+
+	{% filter markdown(true, "hostile-sink-reset") %}
+        ## On Dark Disabled
+    {% endfilter %}
+	<section class="button-wrap-dark-test">
+    	{{ library.button(class="spirit-button--on-dark", text="On Dark Button", disabled="true") }}
+	</section>
 
 {% endblock body %}
