@@ -24,8 +24,7 @@ $spirit-interactive-color-focus: $spirit-color-blue-30;
   font-weight: $spirit-font-weight-bold;
   letter-spacing: $spirit-button-font-letter-spacing-15;
   line-height: $spirit-font-line-height-controls;
-  margin: 0;
-  margin-bottom: $spirit-space-generic-2-x;
+  margin: $spirit-space-stack-2-x;
   padding: $spirit-space-inset-squish-4-x;
   text-align: center;
   text-decoration: none;
@@ -55,6 +54,27 @@ $spirit-interactive-color-focus: $spirit-color-blue-30;
     box-shadow: none;
     color: $spirit-interactive-color-disabled-text;
     cursor: not-allowed;
+  }
+
+  // Spirit Button on Dark
+  .spirit-container--dark & {
+    background: $spirit-interactive-color-secondary-fill;
+    border: $spirit-border-button solid transparent;
+    box-shadow: $spirit-elevation-1 transparent;
+    color: $spirit-interactive-color-secondary-text;
+
+    &:hover {
+      box-shadow: $spirit-elevation-3 $spirit-interactive-color-secondary-glow;
+    }
+
+    &:active {
+      box-shadow: $spirit-elevation-2 $spirit-interactive-color-secondary-glow;
+    }
+
+    &:focus,
+    &:focus-within {
+      border: $spirit-border-button solid $spirit-interactive-color-focus;
+    }
   }
 }
 
@@ -102,27 +122,27 @@ $spirit-interactive-color-focus: $spirit-color-blue-30;
 
 // Spririt Button - On Dark
 .spirit-button--on-dark {
-  background: $spirit-interactive-color-secondary-fill;
-  border: $spirit-border-button solid transparent;
-  box-shadow: $spirit-elevation-1 transparent;
-  color: $spirit-interactive-color-secondary-text;
+  // background: $spirit-interactive-color-secondary-fill;
+  // border: $spirit-border-button solid transparent;
+  // box-shadow: $spirit-elevation-1 transparent;
+  // color: $spirit-interactive-color-secondary-text;
 
-  &:hover {
-    box-shadow: $spirit-elevation-3 $spirit-interactive-color-secondary-glow;
-  }
+  // &:hover {
+  //   box-shadow: $spirit-elevation-3 $spirit-interactive-color-secondary-glow;
+  // }
 
-  &:active {
-    box-shadow: $spirit-elevation-2 $spirit-interactive-color-secondary-glow;
-  }
+  // &:active {
+  //   box-shadow: $spirit-elevation-2 $spirit-interactive-color-secondary-glow;
+  // }
 
-  &:focus,
-  &:focus-within {
-    border: $spirit-border-button solid $spirit-interactive-color-focus;
-  }
+  // &:focus,
+  // &:focus-within {
+  //   border: $spirit-border-button solid $spirit-interactive-color-focus;
+  // }
 }
 
 // for testing - to be replaced with section component - need direction here
-.button-wrap-dark-test {
+.spirit-container--dark {
   background: $spirit-brand-color-primary;
   box-sizing: border-box;
   color: $spirit-color-white;
