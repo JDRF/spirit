@@ -76,21 +76,22 @@ feedback-color :
 box-shadow :
   focus :     4px
 border :
-  card :           1px
-  button :         2px
-  input-focus :    2px # check this one in final version
-  input-feedback : 2px
+  card :             1px
+  button :           4px
+  button-secondary : 2px
+  input-focus :      2px # check this one in final version
+  input-feedback :   2px
   radius :
     s : 4px # checkbox
     m : 6px # buttons, inputs
     l : 8px # cards, media, tiles
 elevation :
   0 : "0 0 0 0"
-  1 : "0 2 4 0"
-  2 : "0 4 8 0"
-  3 : "0 8 16 0"
-  4 : "0 12 24 0"
-  5 : "0 24 48 0"
+  1 : "0 2px 4px 0"
+  2 : "0 4px 8px 0"
+  3 : "0 8px 16px 0"
+  4 : "0 12px 24px 0"
+  5 : "0 24px 48px 0"
 size :
   icon :
     m : 20px # may change
