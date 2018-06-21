@@ -14,7 +14,7 @@
   {% else %}
     <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}" {{ 'href=' + href if href }} {{ 'disabled' if disabled }}>
       {% if icon %}
-        <svg class="spirit-icon--chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path d="M8 18c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l5.3-5.3-5.3-5.3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l6 6c.4.4.4 1 0 1.4l-6 6c-.2.2-.4.3-.7.3z"/></svg>
+        <svg role="img" aria-label="Open This" class="spirit-icon--chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><title>Open This</title><path d="M8 18c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l5.3-5.3-5.3-5.3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l6 6c.4.4.4 1 0 1.4l-6 6c-.2.2-.4.3-.7.3z"/></svg>
       {% endif %}
       {{ text if text }}
     </{{tag}}>

@@ -108,18 +108,22 @@ $spirit-interactive-color-toggle-hover: $spirit-color-blue-15;
 
   &:hover,
   &.spirit-button--hover {
-    box-shadow: $spirit-elevation-3 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary-border;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary-border;
   }
 
   &:active,
   &.spirit-button--active {
-    box-shadow: $spirit-elevation-2 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary-border;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary-border;
   }
 
   &:focus,
   &:focus-within,
   &.spirit-button--focus {
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus;
+  }
+
+  &:disabled {
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary-border;
   }
 }
 
