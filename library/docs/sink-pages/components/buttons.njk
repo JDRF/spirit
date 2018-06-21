@@ -2,47 +2,223 @@
 {% block body %}
     {% filter markdown(true, "hostile-sink-reset") %}
         # Buttons Sink
-        ## Default Button
     {% endfilter %}
-    {{ library.button(text="Default Button") }}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
 
-    {% filter markdown(true, "hostile-sink-reset") %}
-        ## Default Button Disabled
-    {% endfilter %}
-    {{ library.button(text="Default Button Disabled", disabled="true") }}
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Primary
+                {% endfilter %}
 
-     {% filter markdown(true, "hostile-sink-reset") %}
-        ## Default Button Link
-    {% endfilter %}
-    {{ library.button(text="Default Button Link", href="#") }}
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Normal
+                {% endfilter %}
+                {{ library.button(text="Default Button") }}
 
-    {% filter markdown(true, "hostile-sink-reset") %}
-        ## Default Button Submit
-    {% endfilter %}
-    {{ library.button(text="Default Button Submit", tag="input", type="submit") }}
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Hover
+                {% endfilter %}
+                {{ library.button(class="spirit-button--hover", text="Default Button Hover") }}
 
-    {% filter markdown(true, "hostile-sink-reset") %}
-        ## Secondary Button
-    {% endfilter %}
-    {{ library.button(class="spirit-button--secondary", text="Secondary Button") }}
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Active
+                {% endfilter %}
+                {{ library.button(class="spirit-button--active", text="Default Button Active") }}
 
-    {% filter markdown(true, "hostile-sink-reset") %}
-        ## Secondary Grey
-    {% endfilter %}
-    {{ library.button(class="spirit-button--secondary-gray", text="Secondary Gray Button") }}
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Disabled
+                {% endfilter %}
+                {{ library.button(text="Default Button Disabled", disabled="true") }}
 
-	{% filter markdown(true, "hostile-sink-reset") %}
-        ## On Dark
-    {% endfilter %}
-	<div class="spirit-container--dark">
-    	{{ library.button(text="Default Button On Dark") }}
-	</div>
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Focus
+                {% endfilter %}
+                {{ library.button(class="spirit-button--focus", text="Default Button Focus") }}
 
-	{% filter markdown(true, "hostile-sink-reset") %}
-        ## On Dark Disabled
-    {% endfilter %}
-	<div class="spirit-container--dark">
-    	{{ library.button(text="Default Button Disabled On Dark", disabled="true") }}
-	</div>
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Default Button Link
+                {% endfilter %}
+                {{ library.button(text="Default Button Link", href="#") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Default Button Submit
+                {% endfilter %}
+                {{ library.button(text="Default Button Submit", tag="input", type="submit") }}
+
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Secondary
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Normal
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary", text="Secondary Button") }}
+
+                {% filter markdown(class="spirit-button--secondary", true, "hostile-sink-reset") %}
+                    ## Hover
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary spirit-button--hover", text="Secondary Button Hover") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Active
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary spirit-button--active", text="Secondary Button Active") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Disabled
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary", text="Secondary Button Disabled", disabled="true") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Focus
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary spirit-button--focus", text="Secondary Button Focus") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Default Button Link
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary", text="Secondary Button Link", href="#") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Default Button Submit
+                {% endfilter %}
+                {{ library.button(class="spirit-button--secondary", text="Secondary Button Submit", tag="input", type="submit") }}
+
+            </div>
+
+            <div class="spirit-col spirit-col--dark spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## On Dark
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Normal
+                {% endfilter %}
+                {{ library.button(text="Default Button") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Hover
+                {% endfilter %}
+                {{ library.button(class="spirit-button--hover", text="Default Button Hover") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Active
+                {% endfilter %}
+                {{ library.button(class="spirit-button--active", text="Default Button Active") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Disabled
+                {% endfilter %}
+                {{ library.button(text="Default Button Disabled", disabled="true") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Focus
+                {% endfilter %}
+                {{ library.button(class="spirit-button--focus", text="Default Button Focus") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Default Button Link
+                {% endfilter %}
+                {{ library.button(text="Default Button Link", href="#") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Default Button Submit
+                {% endfilter %}
+                {{ library.button(text="Default Button Submit", tag="input", type="submit") }}
+
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Icon Only
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Normal
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only", icon="spirit-chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Hover
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--hover", icon="spirit-chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Active
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--active", icon="spirit-chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Disabled
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only", icon="spirit-chevron-right", disabled="true") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Focus
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--focus", icon="spirit-chevron-right") }}
+
+            </div>
+
+            <div class="spirit-col spirit-col--dark spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Icon Only
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Normal
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only", icon="spirit-chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Hover
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--hover", icon="spirit-chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Active
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--active", icon="spirit-chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Disabled
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only", icon="spirit-chevron-right", disabled="true") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Focus
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--focus", icon="spirit-chevron-right") }}
+
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Sizes
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Small
+                {% endfilter %}
+                {{ library.button(class="spirit-button--small", text="Default Button Small") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Large
+                {% endfilter %}
+                {{ library.button(class="spirit-button--large", text="Default Button Large") }}
+
+            </div>
+
+        </div>
+    </div>
 
 {% endblock body %}

@@ -48,10 +48,6 @@ interactive-color :
     fill :    *color-white
     glow :    *elevation-color-default
     border :  *color-grey-95
-  secondary-grey :          # QUESTION: Deprecated from button, but still used in tabs??
-    text :    *color-grey-35
-    fill :    *color-grey-95
-    glow :    *elevation-color-default
   on-dark : #also covers icon-only-on-dark
     text :    *color-blue-default
     fill :    *color-white
@@ -60,7 +56,9 @@ interactive-color :
     text :    *color-blue-default
     fill :    *color-white
     hover :   *color-blue-15 # unique to toggle
-    glow :    *elevation-color-default
+    active-text :  *color-white
+    active-fill :  *color-blue-default
+    glow :    *elevation-color-blue
     border :  *color-blue-default # unique to toggle
   input :
     focus :   *color-blue-default
@@ -79,6 +77,7 @@ border :
   card :             1px
   button :           4px
   button-secondary : 2px
+  button-toggle :    2px
   input-focus :      2px # check this one in final version
   input-feedback :   2px
   radius :
