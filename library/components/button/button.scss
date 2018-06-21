@@ -5,10 +5,6 @@ $spirit-button-font-letter-spacing-15: .15em;
 $spirit-button-transition-duration: .3s;
 $spirit-button-transition-timing-function: ease-out;
 
-// tokens.yaml not tranlating correct colors for blues to tokens.scss
-$spirit-interactive-color-focus: $spirit-color-blue-30;
-$spirit-interactive-color-toggle-hover: $spirit-color-blue-15;
-
 // Spririt Button - Default
 .spirit-button {
   background: $spirit-interactive-color-primary-fill;
