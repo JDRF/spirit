@@ -10,9 +10,9 @@ color :
     98  : &color-grey-98 "#F5F7FA"
   white : &color-white      "#ffffff"
   blue :
-    default : &color-blue-default "#0055FF"
-    30 :      &color-blue-30      "#B3CCFF"
     15 :      &color-blue-15      "#D9E5FF"
+    30 :      &color-blue-30  "#B3CCFF"
+    default : &color-blue-default "#0055FF"
   green :
     default : &color-green-67 "#37A941"
     light :   &color-green-20 "#BBE9BF"
@@ -35,7 +35,7 @@ icon-color :
   blue : *color-blue-default
   grey : *color-grey-35
 interactive-color :
-  focus :      *color-blue-30
+  focus :     *color-blue-30
   disabled :
     text :    *color-grey-70
     fill :    *color-grey-98
