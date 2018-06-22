@@ -36,16 +36,16 @@ $spirit-button-transition-timing-function: ease-out;
     box-shadow: $spirit-elevation-3 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-button $spirit-interactive-color-primary-fill;
   }
 
-  &:active,
-  &--active {
-    box-shadow: $spirit-elevation-2 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-button $spirit-interactive-color-primary-fill;
-  }
-
   &:focus,
   &:focus-within,
   &--focus {
     box-shadow: $spirit-elevation-1 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus;
     outline: 0;
+  }
+
+  &:active,
+  &--active {
+    box-shadow: $spirit-elevation-2 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-button $spirit-interactive-color-primary-fill;
   }
 
   &:disabled {
@@ -91,9 +91,34 @@ $spirit-button-transition-timing-function: ease-out;
   padding: $spirit-space-inset-squish-3-x;
 }
 
+// Spririt Button - Default ( breakpoint sizing ) 
+.spirit-button--default-md {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    padding: $spirit-space-inset-squish-4-x;
+  }
+}
+
+.spirit-button--default-lg {
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    padding: $spirit-space-inset-squish-4-x;
+  }
+}
+
 // Spririt Button - Large
 .spirit-button--large {
   padding: $spirit-space-inset-squish-6-x;
+}
+
+.spirit-button--large-md {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    padding: $spirit-space-inset-squish-6-x;
+  }
+}
+
+.spirit-button--large-lg {
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    padding: $spirit-space-inset-squish-6-x;
+  }
 }
 
 // Spririt Button - Secondary

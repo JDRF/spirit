@@ -157,11 +157,47 @@
   {{ esds_doc.code_example_pair( example=button_small ) }}
 
   {% filter markdown %}
+      ### Small to Default MD
+  {% endfilter %}
+
+  {% set button_small %}
+    {{ library.button(class="spirit-button--small spirit-button--default-md", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {% filter markdown %}
+      ### Small to Default LG
+  {% endfilter %}
+
+  {% set button_small %}
+    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {% filter markdown %}
       ### Large
   {% endfilter %}
 
   {% set button_large %}
     {{ library.button(class="spirit-button--large", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_large ) }}
+
+  {% filter markdown %}
+      ### Default to Large MD
+  {% endfilter %}
+
+  {% set button_large %}
+    {{ library.button(class="spirit-button--large-md", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_large ) }}
+
+    {% filter markdown %}
+      ### Default to Large LG
+  {% endfilter %}
+
+  {% set button_large %}
+    {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_large ) }}
 

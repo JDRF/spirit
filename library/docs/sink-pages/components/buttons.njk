@@ -212,9 +212,29 @@
                 {{ library.button(class="spirit-button--small", text="Learn More") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Small to Default MD
+                {% endfilter %}
+                {{ library.button(class="spirit-button--small spirit-button--default-md", text="Learn More") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Small to Default LG
+                {% endfilter %}
+                {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Learn More") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
                     ## Large
                 {% endfilter %}
                 {{ library.button(class="spirit-button--large", text="Learn More") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Default to Large MD
+                {% endfilter %}
+                {{ library.button(class="spirit-button--large-md", text="Learn More") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Default to Large LG
+                {% endfilter %}
+                {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
 
             </div>
 
