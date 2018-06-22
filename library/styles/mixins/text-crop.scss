@@ -1,9 +1,13 @@
-@mixin text-crop($line-height: 1.3, $top-adjustment: 0, $bottom-adjustment: 0) {
+// For reference: http://text-crop.eightshapes.com/
+
+@mixin text-crop($line-height: 1.3, $top-adjustment: 1px, $bottom-adjustment: 1px) {
   // Configured in Step 1
   $top-crop: 0;
   $bottom-crop: 8;
   $crop-font-size: 36;
   $crop-line-height: 1.2;
+
+  // 48px;
 
   // Apply values to calculate em-based margins that work with any font size
   $dynamic-top-crop: max(($top-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)), 0) / $crop-font-size;
@@ -28,37 +32,3 @@
     margin-top: calc(-#{$dynamic-bottom-crop}em + #{$bottom-adjustment});
   }
 }
-// Mixin generated at: http://text-crop.eightshapes.com/?typeface-selection=custom-font&typeface=Lato&custom-typeface-name='Graphik%20LCG%20Web'&custom-typeface-url=https%3A%2F%2Fcommercialtype.com%2F%3Ffont%3Dhttps%3A%2F%2Fcommercialtype.com%2Fwebfonts%2Fgraphik%2FGraphik-Bold%2FGraphik-Bold-Cy-Gr-Web&custom-typeface-weight=400&custom-typeface-style=normal&weight-and-style=100&size=36&line-height=1.2&top-crop=0&bottom-crop=8
-
-/* Usage Examples
-  .my-level-1-heading-class {
-      @include text-crop; // Will use default line height of 1.3
-      font-size: 48px;
-      margin: 0 0 0 16px;
-  }
-
-  .my-level-2-heading-class {
-      @include text-crop; // Will use default line height of 1.3
-      font-size: 32px; // Don't need to change any settings, will work with any font size automatically
-      margin: 0 0 0 16px;
-  }
-
-  .my-body-copy-class {
-      @include text-crop($line-height: 2); // Larger line height desired, set the line height via the mixin
-      font-size: 16px;
-  }
-
-  // Sometimes depending on the font-size, the rendering, the browser, etc. you may need to tweak the output. 
-  // You can adjust the top and bottom cropping when invoking the component using the $top-adjustment and $bottom-adjustment settings 
-  
-  .slight-adjustment-needed {
-      @include text-crop($top-adjustment: -0.5px, $bottom-adjustment: 2px);
-      font-size: 17px;
-  }
-
-  .dont-do-this {
-      @include text-crop;
-      font-size: 16px;
-      line-height: 3; // DO NOT set line height outside of the mixin, the mixin needs the line height value to calculate the crop correctly
-  }
-*/
