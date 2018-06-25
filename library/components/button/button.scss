@@ -14,8 +14,7 @@ $spirit-button-transition-timing-function: ease-out;
   color: $spirit-interactive-color-primary-text;
   cursor: pointer;
   display: inline-block;
-  // font-family: $spirit-font-family-sans-serif;
-  font-family: 'Graphik Web';
+  font-family: $spirit-font-family-sans-serif;
   font-size: $spirit-font-size-m;
   font-style: normal;
   font-weight: $spirit-font-weight-bold;
@@ -28,7 +27,7 @@ $spirit-button-transition-timing-function: ease-out;
   text-indent: 0;
   text-shadow: none;
   text-transform: none;
-  transition: box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function;
+  transition: box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function, background $spirit-button-transition-duration $spirit-button-transition-timing-function;
 
   user-select: none;
 
@@ -87,31 +86,57 @@ $spirit-button-transition-timing-function: ease-out;
   }
 }
 
+// Spririt Button - Extra Small
+.spirit-button--extra-small {
+  font-size: $spirit-font-size-s;
+  line-height: 1.1429;
+  padding: $spirit-space-inset-squish-2-x;
+}
+
 // Spririt Button - Small
 .spirit-button--small {
+  font-size: $spirit-font-size-m;
+  line-height: $spirit-font-line-height-controls;
   padding: $spirit-space-inset-squish-3-x;
+}
+
+// Spririt Button - Default ( breakpoint sizing ) 
+.spirit-button--small-md {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    font-size: $spirit-font-size-m;
+    line-height: $spirit-font-line-height-controls;
+    padding: $spirit-space-inset-squish-3-x;
+  }
 }
 
 // Spririt Button - Default ( breakpoint sizing ) 
 .spirit-button--default-md {
   @media screen and (min-width: $spirit-breakpoint-m) {
+    font-size: $spirit-font-size-m;
+    line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-4-x;
   }
 }
 
 .spirit-button--default-lg {
   @media screen and (min-width: $spirit-breakpoint-l) {
+    font-size: $spirit-font-size-m;
+    line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-4-x;
   }
 }
 
 // Spririt Button - Large
 .spirit-button--large {
+  font-size: $spirit-font-size-m;
+  line-height: $spirit-font-line-height-controls;
   padding: $spirit-space-inset-squish-6-x;
 }
 
 .spirit-button--large-md {
   @media screen and (min-width: $spirit-breakpoint-m) {
+    font-size: $spirit-font-size-m;
+    line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-6-x;
   }
 }
@@ -149,6 +174,70 @@ $spirit-button-transition-timing-function: ease-out;
   }
 }
 
+// Spririt Button - Minimal
+.spirit-button--minimal {
+  background: $spirit-interactive-color-minimal-fill;
+  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+  color: $spirit-interactive-color-minimal-text;
+
+  &:hover,
+  &.spirit-button--hover {
+    background: $spirit-interactive-color-minimal-fill-hover;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+  }
+
+  &:active,
+  &.spirit-button--active {
+    background: $spirit-interactive-color-minimal-fill-active;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+  }
+
+  &:focus,
+  &:focus-within,
+  &.spirit-button--focus {
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus;
+  }
+
+  &:disabled {
+    background: $spirit-interactive-color-minimal-fill;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+  }
+
+  // Spirit Button Minimal on Dark
+  .spirit-container--dark &,
+  .spirit-col--dark & {
+    background: $spirit-interactive-color-minimal-on-dark-fill;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+    color: $spirit-interactive-color-minimal-on-dark-text;
+
+    &:hover,
+    &.spirit-button--hover {
+      background: $spirit-interactive-color-minimal-on-dark-fill-hover;
+      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+      color: $spirit-interactive-color-minimal-on-dark-text-hover;
+    }
+
+    &:active,
+    &.spirit-button--active {
+      background: $spirit-interactive-color-minimal-on-dark-fill-active;
+      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+      color: $spirit-interactive-color-minimal-on-dark-text-active;
+    }
+
+    &:focus,
+    &:focus-within,
+    &.spirit-button--focus {
+      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus;
+    }
+
+    &:disabled {
+      background: $spirit-interactive-color-minimal-on-dark-fill;
+      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
+      color: $spirit-interactive-color-disabled-text;
+    }
+  }
+}
+
 // Spririt Button - Secondary
 .spirit-button--icon-only {
   border-radius: 100%;
@@ -157,5 +246,31 @@ $spirit-button-transition-timing-function: ease-out;
   [class^='spirit-icon-'] {
     height: $spirit-size-icon-l;
     width: $spirit-size-icon-l;
+  }
+  // Spririt Button - Small
+  &.spirit-button--small {
+    [class^='spirit-icon-'] {
+      height: $spirit-size-icon-m;
+      width: $spirit-size-icon-m;
+    }
+  }
+
+  // Spririt Button - Default ( breakpoint sizing ) 
+  &.spirit-button--default-md {
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      [class^='spirit-icon-'] {
+        height: $spirit-size-icon-l;
+        width: $spirit-size-icon-l;
+      }
+    }
+  }
+
+  &.spirit-button--default-lg {
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      [class^='spirit-icon-'] {
+        height: $spirit-size-icon-l;
+        width: $spirit-size-icon-l;
+      }
+    }
   }
 }

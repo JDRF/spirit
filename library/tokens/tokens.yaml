@@ -59,9 +59,11 @@ interactive-color :
     glow :    *elevation-color-default
   minimal-on-dark : 
     fill :    *color-blue-default
-    fill-hover :   *color-blue-30
-    fill-active :  *color-blue-15
+    fill-hover :   *color-white
+    fill-active :  *color-white
     text :    *color-white
+    text-hover : *color-blue-default
+    text-active : *color-black
   toggle :
     text :    *color-blue-default
     fill :    *color-white
@@ -101,7 +103,7 @@ elevation :
   5 : "0 24px 48px 0"
 size :
   icon :
-    m : 20px # may change
+    m : 24px #button small
     l : 32px
 space :
   generic :
@@ -170,7 +172,9 @@ font :
     monospace : "monospace"  # DEFINITION NEEDED
   weight :
     regular : 400
-    bold : 600
+    medium : 500
+    semibold : 600
+    bold : 700
   size :
     xs : 13px
     s :  14px
