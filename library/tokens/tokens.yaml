@@ -2,23 +2,23 @@
 ##--------------------------------------------------
 # ====== palette ======= #
 color :
-  black : &color-black      "#00081A"
+  black : &color-black   "#00081A"
   grey :
     35  : &color-grey-35 "#575859"
     70  : &color-grey-70 "#AFB0B3"
     95  : &color-grey-95 "#EDEFF2"
     98  : &color-grey-98 "#F5F7FA"
-  white : &color-white      "#ffffff"
+  white : &color-white   "#ffffff"
   blue :
     15 :      &color-blue-15      "#D9E5FF"
-    30 :      &color-blue-30  "#B3CCFF"
+    30 :      &color-blue-30      "#B3CCFF"
     default : &color-blue-default "#0055FF"
   green :
     default : &color-green-67 "#37A941"
     light :   &color-green-20 "#BBE9BF"
   red :
-    default : &color-red-100 "#F40050"
-    light :   &color-red-35 "#FFA6C4"
+    default : &color-red-100  "#F40050"
+    light :   &color-red-35   "#FFA6C4"
 elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
   blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-default
@@ -48,18 +48,26 @@ interactive-color :
     fill :    *color-white
     glow :    *elevation-color-default
     border :  *color-grey-95
+  minimal : 
+    fill :    *color-white
+    fill-hover :   *color-blue-15
+    fill-active :  *color-blue-30
+    text :    *color-blue-default
   on-dark : #also covers icon-only-on-dark
     text :    *color-blue-default
     fill :    *color-white
     glow :    *elevation-color-default
+  minimal-on-dark : 
+    fill :    *color-blue-default
+    fill-hover :   *color-blue-30
+    fill-active :  *color-blue-15
+    text :    *color-white
   toggle :
     text :    *color-blue-default
     fill :    *color-white
-    hover :   *color-blue-15 # unique to toggle
-    active-text :  *color-white
-    active-fill :  *color-blue-default
-    glow :    *elevation-color-blue
-    border :  *color-blue-default # unique to toggle
+    fill-hover :   *color-blue-15
+    glow :    *elevation-color-default
+    border :  *color-blue-default
   input :
     focus :   *color-blue-default
 feedback-color :
