@@ -4,26 +4,51 @@
 
 // Regular
 @font-face {
-  font-family: 'Graphik';
-  src: url('../assets/fonts/Graphik-Regular-Web.eot');
-  src: url('../assets/fonts/Graphik-Regular-Web.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/Graphik-Regular-Web.woff2') format('woff2'),
-  url('../assets/fonts/Graphik-Regular-Web.woff') format('woff');
+  font-family: 'Graphik Web';
+  src: url('../fonts/Graphik-Regular-Web.eot');
+  src: url('../fonts/Graphik-Regular-Web.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Graphik-Regular-Web.woff2') format('woff2'),
+  url('../fonts/Graphik-Regular-Web.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 
-// Italic
+// Medium
 @font-face {
-  font-family: 'Graphik';
-  src: url('../assets/fonts/Graphik-RegularItalic-Web.eot');
-  src: url('../assets/fonts/Graphik-RegularItalic-Web.eot?#iefix') format('embedded-opentype'),
-  url('../assets/fonts/Graphik-RegularItalic-Web.woff2') format('woff2'),
-  url('../assets/fonts/Graphik-RegularItalic-Web.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-stretch: normal;
+  // font-family: 'Graphik Web';
+  // src: url('../fonts/Graphik-Medium-Web.eot');
+  // src: url('../fonts/Graphik-Medium-Web.eot?#iefix') format('embedded-opentype'),
+  //      url('../fonts/Graphik-Medium-Web.woff2') format('woff2'),
+  //      url('../fonts/Graphik-Medium-Web.woff') format('woff');
+  // font-weight:  500;
+  // font-style:   normal;
+  // font-stretch: normal;
 }
+
+// Semibold
+@font-face {
+  // font-family: 'Graphik Web';
+  // src: url('../fonts/Graphik-Semibold-Web.eot');
+  // src: url('../fonts/Graphik-Semibold-Web.eot?#iefix') format('embedded-opentype'),
+  // url('../fonts/Graphik-Semibold-Web.woff2') format('woff2'),
+  // url('../fonts/Graphik-Semibold-Web.woff') format('woff');
+  // font-weight: 600;
+  // font-style: normal;
+  // font-stretch: normal;
+}
+
+// Bold
+@font-face {
+  // font-family: 'Graphik Web';
+  // src: url('../fonts/Graphik-Bold-Web.eot');
+  // src: url('../fonts/Graphik-Bold-Web.eot?#iefix') format('embedded-opentype'),
+  // url('../fonts/Graphik-Bold-Web.woff2') format('woff2'),
+  // url('../fonts/Graphik-Bold-Web.woff') format('woff');
+  // font-weight: 700;
+  // font-style: normal;
+  // font-stretch: normal;
+}
+
 
 // sass-lint:enable-all
