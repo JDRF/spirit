@@ -57,6 +57,7 @@ interactive-color :
     text :    *color-blue-default
     fill :    *color-white
     glow :    *elevation-color-default
+    textsuccess : *color-white
   minimal-on-dark : 
     fill :    *color-blue-default
     fill-hover :   *color-white
@@ -72,6 +73,10 @@ interactive-color :
     border :  *color-blue-default
   input :
     focus :   *color-blue-default
+  success :
+    fill : *color-green-67
+  danger :
+    fill : *color-red-100
 feedback-color :
   foreground :
     danger :    *color-red-100
@@ -103,8 +108,11 @@ elevation :
   5 : "0 24px 48px 0"
 size :
   icon :
+    xs : 16px #button icons extra small ( spinner / check )
+    s : 20px #button icons ( spinner / check )
     m : 24px #button small
     l : 32px
+    buttonwidth : 130px
 space :
   generic :
     24-x :   192px

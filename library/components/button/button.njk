@@ -5,18 +5,78 @@
       icon=false,
       tag="button",
       type=false,
-      href=false) %}
+      href=false,
+      loader=false,
+      success=false,
+      danger=false,
+      feedbackText=false) %}
   {% if href %}
     {% set tag = 'a' %}
   {% endif %}
+  {% if success %}
+    {% set feedbackType = 'success' %}
+  {% elif danger %}
+    {% set feedbackType = 'danger' %}
+  {% endif %}
   {% if 'input' === tag  %}
-    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}" value="{{icon if icon}}{{text if text}}" />
+    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{icon if icon}}{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-success=' + success if success }} />
   {% else %}
-    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}" {{ 'href=' + href if href }} {{ 'disabled' if disabled }}>
+    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
       {% if icon %}
-        <svg role="img" aria-label="Open This" class="spirit-icon--chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><title>Open This</title><path d="M8 18c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l5.3-5.3-5.3-5.3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l6 6c.4.4.4 1 0 1.4l-6 6c-.2.2-.4.3-.7.3z"/></svg>
+        <svg role="img" aria-label="{{icon if icon}}" class="spirit-icon--{{icon if icon }}" xmlns="http://www.w3.org/2000/svg" >
+            <use xlink:href="/icons/spirit.svg#{{icon if icon}}"></use>
+        </svg>
       {% endif %}
-      {{ text if text }}
-    </{{tag}}>
+      {% if loader %}
+        {% if class and 'spirit-button--loading' in class %}
+          {% set loaderHidden = 'false' %}
+          {% set loaderTextHidden = 'true' %}
+          {% set feedbackTextHidden = 'true' %}
+        {% elif success or danger %}
+          {% set loaderHidden = 'true' %}
+          {% set loaderTextHidden = 'true' %}
+          {% set feedbackTextHidden = 'false' %}
+        {% else %}
+          {% set loaderHidden = 'true' %}
+          {% set loaderTextHidden = 'false' %}
+          {% set feedbackTextHidden = 'true' %}
+        {% endif %}
+        <span class="spirit-button__icon-contain" data-icon="spinner" aria-hidden="{{loaderHidden if loaderHidden}}">
+          <span class="spirit-screenreader-only">Loading</span>
+          <svg class="spirit-icon--spinner" viewBox="25 25 50 50" xmlns="http://www.w3.org/2000/svg"><circle class="spirit-icon--spinner__path" cx="50" cy="50" r="20" stroke-width="4" stroke-miterlimit="10"/></svg>
+        </span>
+        {% if feedbackText %}
+          <span class="spirit-button__success-text" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
+            {{ feedbackText if feedbackText }}
+          </span>
+        {% else %}
+          <span class="spirit-button__icon-contain" data-icon="success" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
+            <svg aria-label="Success" class="spirit-icon--check">
+              <use xlink:href="/icons/spirit.svg#check"></use>
+            </svg>
+          </span>
+        {% endif %}
+        <span class="spirit-button__default-text" aria-hidden="{{loaderTextHidden if loaderTextHidden}}">
+          {{ text if text }}
+        </span>
+      {% elif success %}
+        {% if feedbackText %}
+          <span class="spirit-button__success-text" aria-hidden="false">
+            {{ feedbackText if feedbackText }}
+          </span>
+        {% else %}
+          <span class="spirit-button__icon-contain" data-icon="success" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
+            <svg aria-label="Success" class="spirit-icon--check">
+              <use xlink:href="/icons/spirit.svg#check"></use>
+            </svg>
+          </span>
+        {% endif %}
+        <span class="spirit-button__default-text" aria-hidden="{{success if success}}">
+          {{ text if text }}
+        </span>
+      {% else %}
+        {{ text if text }}  
+      {% endif %}
+      </{{tag}}>
     {% endif %}
 {% endmacro %}
