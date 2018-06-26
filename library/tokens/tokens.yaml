@@ -179,10 +179,10 @@ font :
     sans-serif : "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
     monospace : "monospace"  # DEFINITION NEEDED
   weight :
-    regular : 400
-    medium : 500
+    regular :  400
+    medium :   500
     semibold : 600
-    bold : 700
+    bold :     700
   size :
     xs : 13px
     s :  14px
