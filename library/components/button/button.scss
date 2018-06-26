@@ -7,6 +7,7 @@ $spirit-button-transition-timing-function: ease-out;
 
 // Spririt Button - Default
 .spirit-button {
+  // sass-lint:disable property-sort-order, no-vendor-prefixes
   background: $spirit-interactive-color-primary-fill;
   border: 0;
   border-radius: $spirit-border-radius-m;
@@ -29,8 +30,9 @@ $spirit-button-transition-timing-function: ease-out;
   text-shadow: none;
   text-transform: none;
   transition: box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function, background $spirit-button-transition-duration $spirit-button-transition-timing-function;
-
   user-select: none;
+  -webkit-appearance: none;
+  // sass-lint:enable property-sort-order, no-vendor-prefixes
 
   &:hover,
   &--hover {
