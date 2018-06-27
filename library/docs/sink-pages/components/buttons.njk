@@ -425,22 +425,22 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - with Loader
                 {% endfilter %}
-                {{ library.button(loader="true", success="true", text="Submit Donation") }}
+                {{ library.button(loader="true", feedbackType="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - no Loader
                 {% endfilter %}
-                {{ library.button(success="true", text="Submit Donation") }}
+                {{ library.button(feedbackType="success", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - with Loader and Success Text
                 {% endfilter %}
-                {{ library.button(loader="true", success="true", text="Submit Donation", feedbackText="Success") }}
+                {{ library.button(loader="true", feedbackType="success", text="Submit Donation", feedbackText="Success") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - no Loader and Success Text
                 {% endfilter %}
-                {{ library.button(success="true", text="Submit Donation", feedbackText="Success") }}
+                {{ library.button(feedbackType="success", text="Submit Donation", feedbackText="Success") }}
 
             </div>
 
@@ -462,22 +462,22 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - with Loader
                 {% endfilter %}
-                {{ library.button(loader="true", success="true", text="Submit Donation") }}
+                {{ library.button(loader="true", feedbackType="success", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - no Loader
                 {% endfilter %}
-                {{ library.button(success="true", text="Submit Donation") }}
+                {{ library.button(feedbackType="success", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - with Loader and Success Text
                 {% endfilter %}
-                {{ library.button(loader="true", success="true", text="Submit Donation", feedbackText="Success") }}
+                {{ library.button(loader="true", feedbackType="success", text="Submit Donation", feedbackText="Success") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - no Loader and Success Text
                 {% endfilter %}
-                {{ library.button(success="true", text="Submit Donation", feedbackText="Success") }}
+                {{ library.button(feedbackType="success", text="Submit Donation", feedbackText="Success") }}
 
             </div>
 
@@ -553,7 +553,7 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success Icon Only
                 {% endfilter %}
-                {{ library.button(class="spirit-button--success", icon="check", iconlabel="Success") }}
+                {{ library.button(class="spirit-button--success", icon="check", iconLabel="Success") }}
 
             </div>
 
