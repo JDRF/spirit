@@ -57,7 +57,6 @@ interactive-color :
     text :    *color-blue-default
     fill :    *color-white
     glow :    *elevation-color-default
-    textsuccess : *color-white
   minimal-on-dark : 
     fill :    *color-blue-default
     fill-hover :   *color-white
@@ -74,8 +73,10 @@ interactive-color :
   input :
     focus :   *color-blue-default
   success :
+    text : *color-white
     fill : *color-green-67
   danger :
+    text : *color-white
     fill : *color-red-100
 feedback-color :
   foreground :

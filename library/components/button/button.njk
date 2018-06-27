@@ -3,6 +3,7 @@
       disabled=false,
       text=false,
       icon=false,
+      iconlabel=false,
       tag="button",
       type=false,
       href=false,
@@ -23,7 +24,10 @@
   {% else %}
     <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
       {% if icon %}
-        <svg role="img" aria-label="{{icon if icon}}" class="spirit-icon--{{icon if icon }}" xmlns="http://www.w3.org/2000/svg" >
+        {% if not iconlabel %}
+          {% set iconlabel = icon %}
+        {% endif %}
+        <svg role="img" aria-label="{{iconlabel if iconlabel}}" class="spirit-icon--{{icon if icon }}" xmlns="http://www.w3.org/2000/svg" >
             <use xlink:href="/icons/spirit.svg#{{icon if icon}}"></use>
         </svg>
       {% endif %}
@@ -42,8 +46,7 @@
           {% set feedbackTextHidden = 'true' %}
         {% endif %}
         <span class="spirit-button__icon-contain" data-icon="spinner" aria-hidden="{{loaderHidden if loaderHidden}}">
-          <span class="spirit-screenreader-only">Loading</span>
-          <svg class="spirit-icon--spinner" viewBox="25 25 50 50" xmlns="http://www.w3.org/2000/svg"><circle class="spirit-icon--spinner__path" cx="50" cy="50" r="20" stroke-width="4" stroke-miterlimit="10"/></svg>
+          <svg aria-label="Loading" role="img" class="spirit-icon--spinner" viewBox="25 25 50 50" xmlns="http://www.w3.org/2000/svg"><circle class="spirit-icon--spinner__path" cx="50" cy="50" r="20" stroke-width="4" stroke-miterlimit="10"/></svg>
         </span>
         {% if feedbackText %}
           <span class="spirit-button__success-text" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
@@ -51,7 +54,7 @@
           </span>
         {% else %}
           <span class="spirit-button__icon-contain" data-icon="success" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
-            <svg aria-label="Success" class="spirit-icon--check">
+            <svg aria-label="Success" class="spirit-icon--check" role="img">
               <use xlink:href="/icons/spirit.svg#check"></use>
             </svg>
           </span>
@@ -66,7 +69,7 @@
           </span>
         {% else %}
           <span class="spirit-button__icon-contain" data-icon="success" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
-            <svg aria-label="Success" class="spirit-icon--check">
+            <svg aria-label="Success" class="spirit-icon--check" role="img">
               <use xlink:href="/icons/spirit.svg#check"></use>
             </svg>
           </span>
