@@ -1,5 +1,7 @@
 @import '../tokens/tokens'; 
 
+@import 'mixins/mixins-control';
+
 @import 'helpers/helpers-control';
 
 @import '../components/button/button';

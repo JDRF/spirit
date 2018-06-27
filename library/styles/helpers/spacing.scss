@@ -16,17 +16,24 @@ $spacestack: (
 
 @each $space in $spacestack {
   $control: $spirit-space-generic-1-x;
-  $multiplier: $control;
+  $multiplier: $space / $control;
 
   @if $multiplier < 1 {
-    $multiplier: 'half';
-  }
+    .spirit-space-stack-half-x {
+      margin: 0 0 $space;
+    }
 
-  .spirit-space-stack-#{$multiplier}-x {
-    margin: 0 0 $space;
-  }
+    .spirit-space-inline-right-half-x {
+      margin: 0 0 0 $space;
+    }
 
-  .spirit-space-inline-right-#{$multiplier}-x {
-    margin: 0 0 0 $space;
+  } @else {
+    .spirit-space-stack-#{$multiplier}-x {
+      margin: 0 0 $space;
+    }
+
+    .spirit-space-inline-right-#{$multiplier}-x {
+      margin: 0 0 0 $space;
+    }
   }
 }

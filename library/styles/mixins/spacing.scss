@@ -1,0 +1,10 @@
+// Mixin to set Spirit spacing stack style
+// Default classes are available - see helpers/spacing.scss
+
+// Usage:
+// @include spacestack($spirit-space-inline-right-24-x);
+// results in: margin: 0 0 0 192px;
+
+@mixin spacestack($token) {
+  margin: $token;
+}
