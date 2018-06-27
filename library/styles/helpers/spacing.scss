@@ -1,0 +1,32 @@
+
+// Create Space Stack classes using tokens.scss
+
+$spacestack: (
+  $spirit-space-generic-24-x,
+  $spirit-space-generic-12-x,
+  $spirit-space-generic-8-x,
+  $spirit-space-generic-6-x,
+  $spirit-space-generic-5-x,
+  $spirit-space-generic-4-x,
+  $spirit-space-generic-3-x,
+  $spirit-space-generic-2-x,
+  $spirit-space-generic-1-x,
+  $spirit-space-generic-half-x,
+);
+
+@each $space in $spacestack {
+  $control: $spirit-space-generic-1-x;
+  $multiplier: $control;
+
+  @if $multiplier < 1 {
+    $multiplier: 'half';
+  }
+
+  .spirit-space-stack-#{$multiplier}-x {
+    margin: 0 0 $space;
+  }
+
+  .spirit-space-inline-right-#{$multiplier}-x {
+    margin: 0 0 0 $space;
+  }
+}
