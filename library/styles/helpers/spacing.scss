@@ -23,6 +23,10 @@ $spacestack: (
       margin: 0 0 $space;
     }
 
+    .spirit-space-inline-left-half-x {
+      margin: 0 0 0 $space;
+    }
+
     .spirit-space-inline-right-half-x {
       margin: 0 0 0 $space;
     }
@@ -30,6 +34,10 @@ $spacestack: (
   } @else {
     .spirit-space-stack-#{$multiplier}-x {
       margin: 0 0 $space;
+    }
+
+    .spirit-space-inline-left-#{$multiplier}-x {
+      margin: 0 0 0 $space;
     }
 
     .spirit-space-inline-right-#{$multiplier}-x {

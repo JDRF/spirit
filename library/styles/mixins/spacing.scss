@@ -1,12 +1,14 @@
-/// Spacestack Mixin
-/// @example @include spacestack( 4, left );
+/// setspace Mixin
+/// @example @include setspace( 4, left );
 /// @output margin: 0 0 0 32px;
 /// @param {int} $size [2] - Spirit size multiplier
 /// @param {string} $side [left] - Side of margin
-@mixin spacestack($size: 2, $side: bottom) {
+@mixin setspace($size: 2, $side: bottom) {
   $margin: $size * $spirit-space-inset-1-x;
 
   @if $side == left {
+    margin: 0 $margin 0 0;
+  } @else if $side == right {
     margin: 0 0 0 $margin;
   } @else {
     margin: 0 0 $margin;
