@@ -8,6 +8,7 @@ $spirit-button-transition-timing-function: ease-out;
 // Spririt Button - Default
 .spirit-button {
   @include box-sizing(border-box);
+  @include setspace();
   // sass-lint:disable property-sort-order, no-vendor-prefixes
   background-color: $spirit-interactive-color-primary-fill;
   border: 0;
@@ -22,7 +23,6 @@ $spirit-button-transition-timing-function: ease-out;
   font-weight: $spirit-font-weight-bold;
   letter-spacing: $spirit-button-font-letter-spacing-15;
   line-height: $spirit-font-line-height-controls;
-  margin: $spirit-space-stack-2-x;
   padding: $spirit-space-inset-squish-4-x;
   text-align: center;
   text-decoration: none;
