@@ -14,7 +14,7 @@
     {% set tag = 'a' %}
   {% endif %}
   {% if tag === 'input'  %}
-    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{icon if icon}}{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
+    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
   {% else %}
     <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
       {% if icon %}
