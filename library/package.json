@@ -10,6 +10,6 @@
   "author": "Kevin Powell <kevinmpowell@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "esds-build": "^0.33.0"
+    "esds-build": "^0.34.0"
   }
 }

@@ -20,8 +20,8 @@ color :
     default : &color-red-100  "#F40050"
     light :   &color-red-35   "#FFA6C4"
 elevation-color : # === structure change ===
-  default :  &elevation-color-default  rgba(0,8,26,16)   # based on color-black
-  blue :     &elevation-color-blue     rgba(0,85,255,16) # based on color-blue-default
+  default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
+  blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-default
 # ====== assignments ======= #
 brand-color : 
   primary :   *color-blue-default
@@ -59,9 +59,11 @@ interactive-color :
     glow :    *elevation-color-default
   minimal-on-dark : 
     fill :    *color-blue-default
-    fill-hover :   *color-blue-30
-    fill-active :  *color-blue-15
+    fill-hover :   *color-white
+    fill-active :  *color-white
     text :    *color-white
+    text-hover : *color-blue-default
+    text-active : *color-black
   toggle :
     text :    *color-blue-default
     fill :    *color-white
@@ -70,6 +72,12 @@ interactive-color :
     border :  *color-blue-default
   input :
     focus :   *color-blue-default
+  success :
+    text : *color-white
+    fill : *color-green-67
+  danger :
+    text : *color-white
+    fill : *color-red-100
 feedback-color :
   foreground :
     danger :    *color-red-100
@@ -79,30 +87,35 @@ feedback-color :
     danger :    *color-red-35
     info :      *color-blue-15
     success :   *color-green-20
-box-shadow : 
+box-shadow :
   focus :     4px
 border :
-  card :           1px
-  button :         2px
-  input-focus :    2px # check this one in final version
-  input-feedback : 2px
+  card :             1px
+  button :           4px
+  button-secondary : 2px
+  button-toggle :    2px
+  input-focus :      2px # check this one in final version
+  input-feedback :   2px
   radius :
     s : 4px # checkbox
     m : 6px # buttons, inputs
     l : 8px # cards, media, tiles
 elevation :
   0 : "0 0 0 0"
-  1 : "0 2 4 0"
-  2 : "0 4 8 0"
-  3 : "0 8 16 0"
-  4 : "0 12 24 0"
-  5 : "0 24 48 0"
+  1 : "0 2px 4px 0"
+  2 : "0 4px 8px 0"
+  3 : "0 8px 16px 0"
+  4 : "0 12px 24px 0"
+  5 : "0 24px 48px 0"
 size :
   icon :
-    m : 20px # may change
+    xs : 16px #button icons extra small ( spinner / check )
+    s : 20px #button icons ( spinner / check )
+    m : 24px #button small
     l : 32px
+    buttonwidth : 130px
 space :
-  generic : 
+  generic :
     24-x :   192px
     12-x :   96px
     8-x :    64px
@@ -126,9 +139,9 @@ space :
     6-x :    24px 48px
     4-x :    16px 32px
     3-x :    12px 24px
-    2-x :    8px 16px  
-    1-x :    4px 8px 
-    half-x : 2px 4px 
+    2-x :    8px 16px
+    1-x :    4px 8px
+    half-x : 2px 4px
   stack :
     24-x :   0 0 192px 0
     12-x :   0 0 96px  0
@@ -153,22 +166,24 @@ space :
     half-x : 0 4px   0 0
   inline-right : # right-aligned text means space on the left
     24-x :   0 0 0 192px
-    12-x :   0 0 0 96px 
-    8-x :    0 0 0 64px 
-    6-x :    0 0 0 48px 
-    5-x :    0 0 0 40px 
-    4-x :    0 0 0 32px 
-    3-x :    0 0 0 24px 
-    2-x :    0 0 0 16px 
-    1-x :    0 0 0 8px  
-    half-x : 0 0 0 4px  
+    12-x :   0 0 0 96px
+    8-x :    0 0 0 64px
+    6-x :    0 0 0 48px
+    5-x :    0 0 0 40px
+    4-x :    0 0 0 32px
+    3-x :    0 0 0 24px
+    2-x :    0 0 0 16px
+    1-x :    0 0 0 8px
+    half-x : 0 0 0 4px
 font :
   family :
     sans-serif : "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
     monospace : "monospace"  # DEFINITION NEEDED
   weight :
-    regular : 400
-    bold : 600
+    regular :  400
+    medium :   500
+    semibold : 600
+    bold :     700
   size :
     xs : 13px
     s :  14px

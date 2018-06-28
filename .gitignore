@@ -1,2 +1,5 @@
 node_modules
+# Default webroot
+docs
+v
 .DS_Store
