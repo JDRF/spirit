@@ -1,5 +1,8 @@
 'use strict';
 module.exports = {
+    webroot: '../docs',
+    forceCleanWebroot: true, // Use if the webroot is outside the default project directory
+    latestVersionPath: '',
     copyTasks: [
         {
             name: 'script-dependencies',
@@ -12,7 +15,7 @@ module.exports = {
                         'node_modules/scrollmonitor/scrollMonitor.js',
                         'node_modules/scrollmonitor/scrollMonitor.js.map',
                         `node_modules/esds-doc/dist/esds-doc.js`],
-            destination: `_site/latest/scripts/dependencies`,
+            destination: `../docs/scripts/dependencies`,
             watch: true
         },
         {
@@ -21,7 +24,7 @@ module.exports = {
                     'node_modules/spirit/dist/spirit.css',
                     'node_modules/esds-doc/dist/esds-doc.css', // required by esds-do,
                     'node_modules/prismjs/themes/prism.css'], // required by esds-doc
-            destination: '_site/latest/styles/dependencies',
+            destination: '../docs/styles/dependencies',
             watch: true
         }
     ],
