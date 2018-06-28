@@ -7,8 +7,198 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, culpa eos laudantium voluptatem, ea alias autem earum esse ipsam, quo nemo quas modi velit sunt voluptatum ut eum suscipit sed?
   {% endfilter %}
 
-  {% set button_example %}
-    {{ library.button() }}
+  {% filter markdown %}
+      ### Primary
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: library.button(text="Learn More"),
+        label: "Default State"
+      },
+      {
+        example: library.button(class="spirit-button--hover", text="Learn More"),
+        label: "Hover"
+      },
+      {
+        example: library.button(class="spirit-button--active", text="Learn More"),
+        label: "Active"
+      },
+      {
+        example: library.button(text="Learn More", disabled="true"),
+        label: "Disabled"
+      },
+      {
+        example: library.button(class="spirit-button--focus", text="Learn More"),
+        label: "Focus"
+      }
+    ])
+  }}
+
+  {% filter markdown %}
+      ### Secondary
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: library.button(class="spirit-button--secondary", text="Learn More"),
+        label: "Default State"
+      },
+      {
+        example: library.button(class="spirit-button--secondary spirit-button--hover", text="Learn More"),
+        label: "Hover"
+      },
+      {
+        example: library.button(class="spirit-button--secondary spirit-button--active", text="Learn More"),
+        label: "Active"
+      },
+      {
+        example: library.button(class="spirit-button--secondary", text="Learn More", disabled="true"),
+        label: "Disabled"
+      },
+      {
+        example: library.button(class="spirit-button--secondary spirit-button--focus", text="Learn More"),
+        label: "Focus"
+      }
+    ])
+  }}
+
+  {% filter markdown %}
+      ### On Dark
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(text="Learn More") + '</div>',
+        label: "Default State"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--hover", text="Learn More") + '</div>',
+        label: "Hover"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--active", text="Learn More") + '</div>',
+        label: "Active"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(text="Learn More", disabled="true") + '</div>',
+        label: "Disabled"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--focus", text="Learn More") + '</div>',
+        label: "Focus"
+      }
+    ])
+  }}
+
+  {% filter markdown %}
+      ### Icon Only
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: library.button(class="spirit-button--icon-only", icon="spirit-chevron-right"),
+        label: "Default State"
+      },
+      {
+        example: library.button(class="spirit-button--icon-only spirit-button--hover", icon="spirit-chevron-right"),
+        label: "Hover"
+      },
+      {
+        example: library.button(class="spirit-button--icon-only spirit-button--active", icon="spirit-chevron-right"),
+        label: "Active"
+      },
+      {
+        example: library.button(class="spirit-button--icon-only", icon="spirit-chevron-right", disabled="true"),
+        label: "Disabled"
+      },
+      {
+        example: library.button(class="spirit-button--icon-only spirit-button--focus", icon="spirit-chevron-right"),
+        label: "Focus"
+      }
+    ])
+  }}
+
+  {% filter markdown %}
+      ### Icon Only On Dark
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only", icon="spirit-chevron-right") + '</div>',
+        label: "Default State"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only spirit-button--hover", icon="spirit-chevron-right") + '</div>',
+        label: "Hover"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only spirit-button--active", icon="spirit-chevron-right") + '</div>',
+        label: "Active"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only", icon="spirit-chevron-right", disabled="true") + '</div>',
+        label: "Disabled"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only spirit-button--focus", icon="spirit-chevron-right") + '</div>',
+        label: "Focus"
+      }
+    ])
+  }}
+
+  {% filter markdown %}
+      ### Small
+  {% endfilter %}
+
+  {% set button_small %}
+    {{ library.button(class="spirit-button--small", text="Learn More") }}
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_example ) }}
+  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {% filter markdown %}
+      ### Small to Default MD
+  {% endfilter %}
+
+  {% set button_small %}
+    {{ library.button(class="spirit-button--small spirit-button--default-md", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {% filter markdown %}
+      ### Small to Default LG
+  {% endfilter %}
+
+  {% set button_small %}
+    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {% filter markdown %}
+      ### Large
+  {% endfilter %}
+
+  {% set button_large %}
+    {{ library.button(class="spirit-button--large", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_large ) }}
+
+  {% filter markdown %}
+      ### Default to Large MD
+  {% endfilter %}
+
+  {% set button_large %}
+    {{ library.button(class="spirit-button--large-md", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_large ) }}
+
+    {% filter markdown %}
+      ### Default to Large LG
+  {% endfilter %}
+
+  {% set button_large %}
+    {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
+  {% endset %}
+  {{ esds_doc.code_example_pair( example=button_large ) }}
+
 {% endblock body %}
