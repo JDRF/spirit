@@ -1,0 +1,34 @@
+.spirit-screenreader-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  // sass-lint:disable no-important
+  position: absolute !important;
+  // sass-lint:enable no-important
+  width: 1px;
+
+  &:focus {
+    background-color: $spirit-color-grey-98;
+    border-radius: $spirit-border-radius-s;
+    // sass-lint:disable no-important
+    clip: auto !important;
+    // sass-lint:enable no-important
+    color: $spirit-brand-color-primary;
+    display: block;
+    font-size: $spirit-font-size-s;
+    font-weight: $spirit-font-weight-bold;
+    height: auto;
+    left: $spirit-box-shadow-focus;
+    line-height: normal;
+    padding: $spirit-space-inset-squish-3-x;
+    text-decoration: none;
+    top: $spirit-box-shadow-focus;
+    width: auto;
+    // Above all the things
+    z-index: 100000;
+  }
+}
+
+.spirit-screenreader-hidden {
+  display: none;
+}
