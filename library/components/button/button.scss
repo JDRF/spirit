@@ -9,8 +9,7 @@ $spirit-button-transition-timing-function: ease-out;
 .spirit-button {
   @include box-sizing(border-box);
   // sass-lint:disable property-sort-order, no-vendor-prefixes
-  background-color: hotpink; // intentionally wrong to test versioning
-  // background-color: $spirit-interactive-color-primary-fill;
+  background-color: $spirit-interactive-color-primary-fill;
   border: 0;
   border-radius: $spirit-border-radius-m;
   box-shadow: $spirit-elevation-1 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-button $spirit-interactive-color-primary-fill;
