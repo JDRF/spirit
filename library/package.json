@@ -1,6 +1,7 @@
 {
   "name": "spirit",
   "version": "0.1.0",
+  "versionReleaseDate": "07/02/2018",
   "description": "",
   "main": "index.js",
   "scripts": {
