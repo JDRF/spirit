@@ -1,0 +1,64 @@
+@import '../tokens/tokens';
+@import 'mixins/mixins-control';
+@import 'base/base-control';
+
+.elevation-example {
+  width: 200px;
+  height: 200px;
+}
+
+.elevation-example--0 {
+  @include elevation($spirit-elevation-0, $spirit-elevation-color-default, $spirit-elevation-1);
+}
+
+.elevation-example--1 {
+  @include elevation($spirit-elevation-1, $spirit-elevation-color-default, $spirit-elevation-2);
+}
+
+.elevation-example--2 {
+  @include elevation($spirit-elevation-2, $spirit-elevation-color-default, $spirit-elevation-3);
+}
+
+.elevation-example--3 {
+  @include elevation($spirit-elevation-3, $spirit-elevation-color-default, $spirit-elevation-4);
+}
+
+.elevation-example--4 {
+  @include elevation($spirit-elevation-4, $spirit-elevation-color-default, $spirit-elevation-5);
+}
+
+.elevation-example--5 {
+  @include elevation($spirit-elevation-4, $spirit-elevation-color-default, $spirit-elevation-1);
+}
+
+.elevation-example--0-blue {
+  @include elevation($spirit-elevation-0, $spirit-elevation-color-blue, $spirit-elevation-5);
+}
+
+.elevation-example--1-blue {
+  @include elevation($spirit-elevation-1, $spirit-elevation-color-blue, $spirit-elevation-5);
+}
+
+.elevation-example--2-blue {
+  @include elevation($spirit-elevation-2, $spirit-elevation-color-blue, $spirit-elevation-5);
+}
+
+.elevation-example--3-blue {
+  @include elevation($spirit-elevation-3, $spirit-elevation-color-blue, $spirit-elevation-5);
+}
+
+.elevation-example--4-blue {
+  @include elevation($spirit-elevation-4, $spirit-elevation-color-blue, $spirit-elevation-5);
+}
+
+.elevation-example--5-blue {
+  @include elevation($spirit-elevation-5, $spirit-elevation-color-blue, $spirit-elevation-0);
+}
+
+.elevation-example--right-purple {
+  @include elevation(8px 0 8px 0, purple, 8px 2px 18px 0);
+}
+
+.elevation-example--left-orange-tab {
+  @include elevation( -30px 0 0 -15px, orange, 30px 0 0 -15px);
+}

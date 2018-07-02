@@ -1,0 +1,101 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <link rel="stylesheet" href="/styles/elevation-sink-page.css">
+    {% filter markdown(true, "hostile-sink-reset") %}
+        # Elevations Sink
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    Default color. Hover elevation is +1.
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 0
+                {% endfilter %}
+                <div class="elevation-example elevation-example--0"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 1
+                {% endfilter %}
+                <div class="elevation-example elevation-example--1"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 2
+                {% endfilter %}
+                <div class="elevation-example elevation-example--2"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 3
+                {% endfilter %}
+                <div class="elevation-example elevation-example--3"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 4
+                {% endfilter %}
+                <div class="elevation-example elevation-example--4"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 5
+                {% endfilter %}
+                <div class="elevation-example elevation-example--5"></div>
+
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    Blue shadow. Hover elevation is 5.
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 0
+                {% endfilter %}
+                <div class="elevation-example elevation-example--0-blue"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 1
+                {% endfilter %}
+                <div class="elevation-example elevation-example--1-blue"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 2
+                {% endfilter %}
+                <div class="elevation-example elevation-example--2-blue"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 3
+                {% endfilter %}
+                <div class="elevation-example elevation-example--3-blue"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 4
+                {% endfilter %}
+                <div class="elevation-example elevation-example--4-blue"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Elevation 5
+                {% endfilter %}
+                <div class="elevation-example elevation-example--5-blue"></div>
+            </div>
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    Custom settings
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Right, purple shadow
+                {% endfilter %}
+                <div class="elevation-example elevation-example--right-purple"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Bottom orange tab
+                {% endfilter %}
+                <div class="elevation-example elevation-example--left-orange-tab"></div>
+            </div>
+
+        </div>
+    </div>
+{% endblock body %}
