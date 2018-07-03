@@ -1,40 +1,44 @@
-$spirit-elevation-transition-speed: 0.3s !default;
+$spirit-elevation-transition-speed: .3s !default;
 
 /// setspace Mixin
 /// Output an elevation
-/// @example @include elevation( $spirit-elevation-1, $spirit-elevation-color-blue );
+/// @example @include spirit-elevation( $elevation: $spirit-elevation-1, $color: $spirit-elevation-color-blue );
 /// @output box-shadow: 0 2px 4px 0 rgba(0,8,26,0.16);
-/// @param {list} $level [$spirit-elevation-1] - A list of attributes for the first part of the `box-shadow` property.
+/// @param {list} $elevation [$spirit-elevation-1] - A list of attributes for the first part of the `box-shadow` property.
 /// @param {color} $color [$spirit-elevation-color-default] - The shadow color
-/// @param {list | false} $hover-elevation [false] - Optional: An elevation to transition to on hover/focus
-/// @param {color | false} $hover-color [false] - Optional: A color to transition to on hover/focus
-@mixin elevation(
-  $level: $spirit-elevation-1,
-  $color: $spirit-elevation-color-default,
-  $hover-elevation: false,
-  $hover-color: false
+@mixin spirit-elevation(
+  $elevation: $spirit-elevation-1,
+  $color: $spirit-elevation-color-default
 ) {
-  // First test compulsory parameters
-  @if type-of($level) != list {
-    @error 'Received #{$level} for $level.It looks like you\'ve supplied an incorrect $level value for the elevation mixin. It should be in the form of a list of lengths as per the box-shadow CSS property. See https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow for more info.'
+  @if type-of($elevation) != list {
+    @error 'Received #{$elevation} for $elevation.It looks like you\'ve supplied an incorrect $elevation value for the elevation mixin. It should be in the form of a list of lengths as per the box-shadow CSS property. See https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow for more info.';
   }
   @if type-of($color) != color {
-    @error 'Received: #{$color} for $color. The $color attribute must receive a valid CSS color. '
+    @error 'Received: #{$color} for $color. The $color attribute must receive a valid CSS color.';
   }
-  // Now test optional parameters
-  @if $hover-elevation != false and type-of($hover-elevation) != list {
-    @error 'Received #{$hover-elevation} for $hover-elevation.It looks like you\'ve supplied an incorrect $level value for the elevation mixin. It should be in the form of a list of lengths as per the box-shadow CSS property. See https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow for more info.'
-  }
-  @if $hover-color != false and type-of($hover-color) != color {
-    @error 'Received: #{$hover-color} for $hover-color. The $color attribute must receive a valid CSS color. '
-  }
+  box-shadow: $elevation $color;
+}
 
-  box-shadow: $level $color;
-  @if $hover-elevation != false or $hover-color != false {
-    transition: box-shadow $spirit-elevation-transition-speed;
-    &:hover,
-    &:focus {
-      box-shadow: if($hover-elevation, $hover-elevation, $color) if($hover-color, $hover-color, $color);
-    }
+/// setspace Mixin
+/// Output an elevation hover/focus effect
+/// @example @include spirit-elevation-hover(  $spirit-elevation-1,$spirit-elevation-color-blue );
+/// @output Adds a transition property, and sets hover and focus pseudo-selectors with the supplied settings.
+/// @param {list} $hover-elevation [$spirit-elevation-5] - An elevation to transition to on hover/focus
+/// @param {color} $hover-color [$spirit-elevation-color-default] - A color to transition to on hover/focus
+@mixin spirit-elevation-hover(
+  $hover-elevation: $spirit-elevation-5,
+  $hover-color: $spirit-elevation-color-default
+) {
+  @if type-of($hover-elevation) != list {
+    @error 'Received #{$hover-elevation} for $hover-elevation.It looks like you\'ve supplied an incorrect $level value for the elevation mixin. It should be in the form of a list of lengths as per the box-shadow CSS property. See https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow for more info.';
+  }
+  @if type-of($hover-color) != color {
+    @error 'Received: #{$hover-color} for $hover-color. The $color attribute must receive a valid CSS color.';
+  }
+  transition: box-shadow $spirit-elevation-transition-speed;
+
+  &:hover,
+  &:focus {
+    box-shadow: $hover-elevation $hover-color;
   }
 }
