@@ -1,0 +1,102 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    {% filter markdown(true, "hostile-sink-reset") %}
+        # Icons Sink
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Example Icons
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### On it's own
+                {% endfilter %}
+                {{ library.icon(
+                    icon="activity",
+                    iconLabel="Activity"
+                ) }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### As a stand-alone link
+                {% endfilter %}
+                <a href="#">
+                    {{ library.icon(
+                        icon="camera",
+                        iconLabel="View Photos"
+                    ) }}
+                </a>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### In a row
+                {% endfilter %}
+                {{ library.icon(
+                    icon="arrow-left-circle",
+                    iconLabel="Left"
+                ) }}
+                {{ library.icon(
+                    icon="arrow-right-circle",
+                    iconLabel="Right"
+                ) }}
+                {{ library.icon(
+                    icon="arrow-up-circle",
+                    iconLabel="Up"
+                ) }}
+                {{ library.icon(
+                    icon="arrow-down-circle",
+                    iconLabel="Down"
+                ) }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### In a paragraph
+                {% endfilter %}
+                <p style="font-size: 16px;
+                    letter-spacing: initial;
+                    font-style: normal;
+                    text-shadow: none;
+                    text-align: left;
+                    text-indent: 0;
+                    text-transform: initial;
+                    color: black;
+                    line-height: 1.5;
+                    font-weight: normal;
+                    font-family: sans-serif;"
+                >It is 5pm{{ library.icon(
+                        icon="clock",
+                        iconLabel="Clock",
+                        decorative=true
+                    ) }}, and <a href="#">this is a link {{ library.icon(
+                            icon="arrow-right-circle",
+                            iconLabel="Go Right",
+                            decorative=true
+                        ) }}</a></p>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### In larger text
+                {% endfilter %}
+                <h2 style="font-size: 32px;
+                    letter-spacing: initial;
+                    font-style: normal;
+                    text-shadow: none;
+                    text-align: left;
+                    text-indent: 0;
+                    text-transform: initial;
+                    color: black;
+                    line-height: 1.3;
+                    font-weight: normal;
+                    font-family: sans-serif;"
+                >It is 5pm{{ library.icon(
+                        icon="clock",
+                        iconLabel="Clock",
+                        decorative=true
+                    ) }}, and <a href="#">this is a link {{ library.icon(
+                            icon="arrow-right-circle",
+                            iconLabel="Go Right",
+                            decorative=true
+                        ) }}</a></h2>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

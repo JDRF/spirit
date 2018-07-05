@@ -3,3 +3,4 @@ node_modules
 ./docs
 ./v
 .DS_Store
+.idea

@@ -1,0 +1,25 @@
+{% macro icon(
+    icon=false,
+    iconLabel=false,
+    class=false,
+    decorative=false
+    ) %}
+    {% if icon %}
+        {% if not iconLabel %}
+            {% set iconLabel = icon %}
+        {% endif %}
+        <svg
+            aria-label="{{ iconLabel if iconLabel }}"
+            class="spirit-icon{{ ' ' + class if class }}"
+            {% if decorative %}
+                aria-hidden="true"
+            {% endif %}
+        >
+            <use xlink:href="/icons/spirit.svg#{{ icon if icon }}">
+                {% if iconLabel %}
+                    <title>{{ iconLabel }}</title>
+                {% endif %}
+            </use>
+        </svg>
+    {% endif %}
+{% endmacro %}
