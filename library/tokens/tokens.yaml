@@ -144,7 +144,7 @@ space :
     half-x : 0 0 0 4px
 font :
   family :
-    sans-serif : "'Graphik', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
+    sans-serif : "'Graphik Web', 'Graphik Web Subset', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
     monospace : "monospace"  # DEFINITION NEEDED
   weight :
     regular :  400

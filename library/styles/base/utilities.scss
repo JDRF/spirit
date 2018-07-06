@@ -44,6 +44,13 @@
   }
 }
 
+.spirit-col--lg-6 {
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    flex: 1 0 50%;
+    max-width: 50%;
+  }
+}
+
 //SVG -- need to move to svg / icon component when constructed
 [class^='spirit-icon-'] {
   @include spirit-box-sizing(border-box);

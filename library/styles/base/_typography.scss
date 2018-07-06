@@ -134,7 +134,6 @@
   $line-height: spirit-get-nested-token($line-height-base, $font-type);
 
   @include spirit-responsive-value($line-height, 'line-height', $breakpoint, $breakpoint-width);
-
 }
 
 h1,
