@@ -86,14 +86,19 @@
                 {% endfilter %}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ### Right, purple shadow
+                    ### Success
                 {% endfilter %}
-                <div class="elevation-example elevation-example--right-purple"></div>
+                <div class="elevation-example elevation-example--success"></div>
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ### Bottom orange tab
+                    ### Info
                 {% endfilter %}
-                <div class="elevation-example elevation-example--left-orange-tab"></div>
+                <div class="elevation-example elevation-example--info"></div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Danger
+                {% endfilter %}
+                <div class="elevation-example elevation-example--danger"></div>
             </div>
 
         </div>
