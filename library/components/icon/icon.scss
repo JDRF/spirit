@@ -1,8 +1,8 @@
 .spirit-icon {
-  @include box-sizing(border-box); // just in case some extra styling gets applied to the icon.
+  @include spirit-box-sizing; // just in case some extra styling gets applied to the icon.
   display: inline-block;
-  height: 1em;
   fill: currentColor;
+  height: 1em;
   line-height: 1em;
   vertical-align: middle;
   width: 1em;

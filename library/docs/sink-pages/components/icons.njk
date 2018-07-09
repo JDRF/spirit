@@ -15,8 +15,8 @@
                     ### On it's own
                 {% endfilter %}
                 {{ library.icon(
-                    icon="activity",
-                    iconLabel="Activity"
+                    name="activity",
+                    label="Activity"
                 ) }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
@@ -24,8 +24,8 @@
                 {% endfilter %}
                 <a href="#">
                     {{ library.icon(
-                        icon="camera",
-                        iconLabel="View Photos"
+                        name="camera",
+                        label="View Photos"
                     ) }}
                 </a>
 
@@ -33,20 +33,20 @@
                     ### In a row
                 {% endfilter %}
                 {{ library.icon(
-                    icon="arrow-left-circle",
-                    iconLabel="Left"
+                    name="arrow-left-circle",
+                    label="Left"
                 ) }}
                 {{ library.icon(
-                    icon="arrow-right-circle",
-                    iconLabel="Right"
+                    name="arrow-right-circle",
+                    label="Right"
                 ) }}
                 {{ library.icon(
-                    icon="arrow-up-circle",
-                    iconLabel="Up"
+                    name="arrow-up-circle",
+                    label="Up"
                 ) }}
                 {{ library.icon(
-                    icon="arrow-down-circle",
-                    iconLabel="Down"
+                    name="arrow-down-circle",
+                    label="Down"
                 ) }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
@@ -64,12 +64,12 @@
                     font-weight: normal;
                     font-family: sans-serif;"
                 >It is 5pm{{ library.icon(
-                        icon="clock",
-                        iconLabel="Clock",
+                        name="clock",
+                        label="Clock",
                         decorative=true
                     ) }}, and <a href="#">this is a link {{ library.icon(
-                            icon="arrow-right-circle",
-                            iconLabel="Go Right",
+                            name="arrow-right-circle",
+                            label="Go Right",
                             decorative=true
                         ) }}</a></p>
 
@@ -88,12 +88,12 @@
                     font-weight: normal;
                     font-family: sans-serif;"
                 >It is 5pm{{ library.icon(
-                        icon="clock",
-                        iconLabel="Clock",
+                        name="clock",
+                        label="Clock",
                         decorative=true
                     ) }}, and <a href="#">this is a link {{ library.icon(
-                            icon="arrow-right-circle",
-                            iconLabel="Go Right",
+                            name="arrow-right-circle",
+                            label="Go Right",
                             decorative=true
                         ) }}</a></h2>
             </div>

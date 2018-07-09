@@ -112,8 +112,8 @@
             {% if value %} value="{{ value }}" {% endif %}/>
         <span class="spirit-form__checkbox-inner">
             <span class="spirit-form__checkbox-visual">
-                {{ icon(name='check', class='spirit-form__checkbox-checked-icon', path=icon_path)}}
-                {{ icon(name='minus', class='spirit-form__checkbox-indeterminate-icon', path=icon_path)}}
+                {{ icon(name='check', class='spirit-form__checkbox-checked-icon')}}
+                {{ icon(name='minus', class='spirit-form__checkbox-indeterminate-icon')}}
             </span>
             <span class="spirit-form__checkbox-label">
                 {{ label | safe }}
@@ -214,7 +214,7 @@
         </select>
         <div class="spirit-form__select-inner"></div>
         <span class="spirit-form__select-open-indicator">
-            {{ icon(name='caret-down', class='spirit-form__select-open-icon', path=icon_path) }}
+            {{ icon(name='chevron-down', class='spirit-form__select-open-icon') }}
         </span>
     </div>
 {% endmacro %}
@@ -264,7 +264,7 @@
             text='This field is required',
             icon_path=false) %}
     <span class="spirit-form__field-error{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %} role="alert">
-        {# {{ icon(name='message-error', class='spirit-form__field-error-icon', path=icon_path) }} #}
+        {# {{ icon(name='message-error', class='spirit-form__field-error-icon') }} #}
         <span class="spirit-form__field-error-text">
             {{ text }}
         </span>

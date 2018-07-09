@@ -3,9 +3,11 @@
 @import 'mixins/accessibility';
 @import 'mixins/box-sizing';
 @import 'mixins/text-crop';
+@import 'mixins/typography';
 
 @import 'base/fonts';
 @import 'base/utilities';
 
 @import '../components/button/button';
+@import '../components/form/form';
 @import '../components/icon/icon';
