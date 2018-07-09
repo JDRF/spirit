@@ -3,3 +3,4 @@ node_modules
 # ./docs # We want to commit ./docs on the master branch so Github Pages deployment works
 ./v
 .DS_Store
+.idea
