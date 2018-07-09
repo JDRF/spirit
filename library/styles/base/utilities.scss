@@ -1,6 +1,6 @@
 // STYLES FOR TESTING -- SHOULD BE REPACED BY ACTUAL SPIRIT COMPONENTS
 .spirit-container {
-  @include box-sizing(border-box);
+  @include spirit-box-sizing(border-box);
   display: block;
   overflow: hidden;
   padding: $spirit-space-inset-squish-4-x;
@@ -9,7 +9,7 @@
 }
 
 .spirit-row {
-  @include box-sizing(border-box);
+  @include spirit-box-sizing(border-box);
   display: flex;
   flex-flow: row wrap;
   margin-left: -$spirit-space-generic-2-x;
@@ -17,7 +17,7 @@
 }
 
 .spirit-col {
-  @include box-sizing(border-box);
+  @include spirit-box-sizing(border-box);
   flex: 1 0 100%;
   max-width: 100%;
   padding-left: $spirit-space-generic-2-x;
@@ -46,7 +46,7 @@
 
 //SVG -- need to move to svg / icon component when constructed
 [class^='spirit-icon-'] {
-  @include box-sizing(border-box);
+  @include spirit-box-sizing(border-box);
   display: block;
   fill: currentColor;
   height: 1em;

@@ -1,7 +1,10 @@
 @import '../tokens/tokens';
 
-@import 'mixins/mixins-control';
+@import 'mixins/accessibility';
+@import 'mixins/box-sizing';
+@import 'mixins/text-crop';
 
-@import 'base/base-control';
+@import 'base/fonts';
+@import 'base/utilities';
 
 @import '../components/button/button';
