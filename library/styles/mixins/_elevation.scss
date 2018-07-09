@@ -18,27 +18,3 @@ $spirit-elevation-transition-speed: .3s !default;
   }
   box-shadow: $elevation $color;
 }
-
-/// setspace Mixin
-/// Output an elevation hover/focus effect
-/// @example @include spirit-elevation-hover(  $spirit-elevation-1,$spirit-elevation-color-blue );
-/// @output Adds a transition property, and sets hover and focus pseudo-selectors with the supplied settings.
-/// @param {list} $hover-elevation [$spirit-elevation-5] - An elevation to transition to on hover/focus
-/// @param {color} $hover-color [$spirit-elevation-color-default] - A color to transition to on hover/focus
-@mixin spirit-elevation-hover(
-  $hover-elevation: $spirit-elevation-5,
-  $hover-color: $spirit-elevation-color-default
-) {
-  @if type-of($hover-elevation) != list {
-    @error 'Received #{$hover-elevation} for $hover-elevation.It looks like you\'ve supplied an incorrect $level value for the elevation mixin. It should be in the form of a list of lengths as per the box-shadow CSS property. See https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow for more info.';
-  }
-  @if type-of($hover-color) != color {
-    @error 'Received: #{$hover-color} for $hover-color. The $color attribute must receive a valid CSS color.';
-  }
-  transition: box-shadow $spirit-elevation-transition-speed;
-
-  &:hover,
-  &:focus {
-    box-shadow: $hover-elevation $hover-color;
-  }
-}
