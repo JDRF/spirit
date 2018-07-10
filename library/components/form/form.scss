@@ -1,3 +1,4 @@
+@import '../../styles/mixins/accessibility';
 @import '../../styles/mixins/typography';
 
 // ********************** Shared form variables, affect multiple form components by changing this "palette"
@@ -9,7 +10,7 @@ $spirit-form-element-selected-color:        $spirit-interactive-color-primary-fi
 $spirit-form-element-icon-color:            $spirit-color-grey-35;
 
 // focus color
-$spirit-form-element-focus-color:           $spirit-interactive-color-focus;
+$spirit-form-element-focus-color:           $spirit-color-blue-default;
 
 // borders
 $spirit-form-element-border-width:          $spirit-border-width-control;
@@ -33,15 +34,15 @@ $spirit-form-element-font-size-s:           $spirit-font-size-s;
 $spirit-form-element-font-size:             $spirit-font-size-m;
 
 // input height
-$spirit-form-element-height:                40px;
+$spirit-form-element-height:                48px;
 
 // max-width
 $spirit-form-element-max-width:             none;
 
 // space
-$spirit-form-element-padding:               $spirit-space-inset-squish-1-x;
+$spirit-form-element-padding:               10px 12px;
 $spirit-form-element-stack:                 $spirit-space-stack-half-x;
-$spirit-form-group-stack:                   $spirit-space-stack-1-x;
+$spirit-form-group-stack:                   $spirit-space-stack-2-x;
 $spirit-form-element-grid-space:            0 $spirit-space-generic-1-x $spirit-space-generic-1-x 0;
 
 // disabled
@@ -66,12 +67,17 @@ $spirit-form-element-disabled-opacity: .5;
 }
 // ********************** End shared form variables
 
+// Form
+.spirit-form {
+  @include spirit-typography-reset;
+}
 
 // Field Group
-$spirit-space-field-group-margin:       $spirit-form-group-stack;
+$spirit-space-field-group-margin:             $spirit-form-group-stack;
 $spirit-space-field-group-horizontal-margin:  0 16px 16px 0;
 
 .spirit-form__field-group {
+  @include spirit-typography-reset;
   margin: $spirit-space-field-group-margin;
 }
 
@@ -90,31 +96,38 @@ $spirit-space-field-group-horizontal-margin:  0 16px 16px 0;
 
 // <input[type='text|email|phone|number|etc']/>
 $spirit-text-input-background-color:  $spirit-form-element-background-color;
-$spirit-text-input-border:      $spirit-form-element-border;
-$spirit-text-input-border-radius:   $spirit-form-element-border-radius;
-$spirit-text-input-color:       $spirit-form-element-text-color;
+$spirit-text-input-border:            $spirit-form-element-border;
+$spirit-text-input-border-radius:     $spirit-form-element-border-radius;
+$spirit-text-input-color:             $spirit-form-element-text-color;
 $spirit-text-input-placeholder-color: $spirit-form-element-placeholder-color;
-$spirit-text-input-font-family:     $spirit-form-font-family;
-$spirit-text-input-font-size:     $spirit-form-element-font-size;
-$spirit-text-input-height:      $spirit-form-element-height;
-$spirit-text-input-margin:      $spirit-form-element-stack;
-$spirit-text-input-max-width:     $spirit-form-element-max-width;
-$spirit-text-input-padding:       $spirit-form-element-padding;
+$spirit-text-input-font-family:       $spirit-form-font-family;
+$spirit-text-input-font-size:         $spirit-form-element-font-size;
+$spirit-text-input-height:            $spirit-form-element-height;
+$spirit-text-input-margin:            $spirit-form-element-stack;
+$spirit-text-input-max-width:         $spirit-form-element-max-width;
+$spirit-text-input-padding:           $spirit-form-element-padding;
 
 .spirit-form__input {
   @include spirit-box-sizing;
+  @include spirit-typography-reset(
+    $color: $spirit-text-input-color,
+    $font-size: $spirit-text-input-font-size,
+    $font-weight: $spirit-font-weight-medium
+  );
   background-color: $spirit-text-input-background-color;
   border: $spirit-text-input-border;
-  color: $spirit-text-input-color;
-  font-family: $spirit-text-input-font-family;
-  font-size: $spirit-text-input-font-size;
+  border-radius: $spirit-form-element-border-radius;
+  display: block;
   margin: $spirit-text-input-margin;
   max-width: $spirit-text-input-max-width;
   padding: $spirit-text-input-padding;
   width: 100%;
 
   &::placeholder {
-    color: $spirit-text-input-placeholder-color;
+    @include spirit-typography-reset(
+      $color: $spirit-text-input-placeholder-color,
+      $font-weight: $spirit-font-weight-regular
+    );
   }
 
   &.spirit-form__input--hover,
@@ -138,31 +151,41 @@ $spirit-text-input-padding:       $spirit-form-element-padding;
 }
 
 // <textarea>
-$spirit-textarea-background-color:  $spirit-form-element-background-color;
-$spirit-textarea-border:        $spirit-form-element-border;
-$spirit-textarea-border-radius:     $spirit-form-element-border-radius;
-$spirit-textarea-color:         $spirit-form-element-placeholder-color;
-$spirit-textarea-font-family:     $spirit-form-font-family;
-$spirit-textarea-font-size:       $spirit-form-element-font-size;
-$spirit-textarea-min-height:      3em;
-$spirit-textarea-margin:        $spirit-form-element-stack;
-$spirit-textarea-max-width:       $spirit-form-element-max-width;
-$spirit-textarea-padding:       $spirit-form-element-padding;
+$spirit-textarea-background-color:    $spirit-form-element-background-color;
+$spirit-textarea-border:              $spirit-form-element-border;
+$spirit-textarea-border-radius:       $spirit-form-element-border-radius;
+$spirit-textarea-color:               $spirit-form-element-text-color;
+$spirit-textarea-font-family:         $spirit-form-font-family;
+$spirit-textarea-font-size:           $spirit-form-element-font-size;
+$spirit-textarea-min-height:          8em;
+$spirit-textarea-margin:              $spirit-form-element-stack;
+$spirit-textarea-max-width:           $spirit-form-element-max-width;
+$spirit-textarea-padding:             $spirit-form-element-padding;
 $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
 
 .spirit-form__textarea {
   @include spirit-box-sizing;
+  @include spirit-typography-reset(
+    $color: $spirit-textarea-color,
+    $font-size: $spirit-textarea-font-size,
+    $font-weight: $spirit-font-weight-medium
+  );
   background-color: $spirit-textarea-background-color;
   border: $spirit-textarea-border;
-  color: $spirit-textarea-color;
-  font-family: $spirit-textarea-font-family;
-  font-size: $spirit-textarea-font-size;
+  border-radius: $spirit-form-element-border-radius;
   margin: $spirit-textarea-margin;
   max-width: $spirit-textarea-max-width;
   min-height: $spirit-textarea-min-height;
   overflow: auto;
   padding: $spirit-textarea-padding;
   width: 100%;
+
+  &::placeholder {
+    @include spirit-typography-reset(
+      $color: $spirit-textarea-placeholder-color,
+      $font-weight: $spirit-font-weight-regular
+    );
+  }
 
   &.spirit-form__textarea--hover,
   &:hover {
@@ -185,17 +208,18 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
 }
 
 // <label>
-$spirit-label-color:      $spirit-form-label-color;
+$spirit-label-color:        $spirit-form-label-color;
 $spirit-label-font-family:  $spirit-form-font-family;
-$spirit-label-font-size:    $spirit-form-element-font-size;
-$spirit-label-margin:     $spirit-form-element-stack;
+$spirit-label-font-size:    $spirit-font-size-s;
+$spirit-label-margin:       $spirit-form-element-stack;
 $spirit-label-max-width:    $spirit-form-element-max-width;
 
 .spirit-form__label {
   @include spirit-box-sizing;
   @include spirit-typography-reset(
     $color: $spirit-label-color,
-    $font-size: $spirit-label-font-size
+    $font-size: $spirit-label-font-size,
+    $font-weight: $spirit-font-weight-semibold
   );
   display: block;
   margin: $spirit-label-margin;
@@ -209,29 +233,34 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
 .spirit-form__label-required-indicator {
   @include spirit-box-sizing;
   color: $spirit-required-field-indicator-color;
+  margin: $spirit-space-inline-right-half-x;
+}
+
+.spirit-form__label-accessible-text {
+  @include spirit-accessibly-hidden;
 }
 
 // <input[type='checkbox']/>
-$spirit-checkbox-label-color:       $spirit-form-label-color;
+$spirit-checkbox-label-color:           $spirit-form-label-color;
 $spirit-checkbox-label-font-family:     $spirit-form-font-family;
-$spirit-checkbox-label-font-size:     $spirit-form-element-font-size;
-$spirit-checkbox-background-color:    $spirit-form-element-background-color;
-$spirit-checkbox-border:          $spirit-form-element-border;
-$spirit-checkbox-border-radius:       $spirit-form-element-border-radius;
-$spirit-checkbox-fill-color:        $spirit-form-element-selected-color;
-$spirit-checkbox-checkmark-fill-color:  $spirit-form-element-icon-color;
-$spirit-checkbox-checkmark-size:      12px;
-$spirit-checkbox-margin:          $spirit-form-element-stack;
-$spirit-checkbox-size:          16px;
-$spirit-checkbox-grid-margin:       $spirit-form-element-grid-space;
-$spirit-checkbox-max-width:         $spirit-form-element-max-width;
-$spirit-checkbox-label-space:       4px;  
+$spirit-checkbox-label-font-size:       $spirit-form-element-font-size;
+$spirit-checkbox-background-color:      $spirit-form-element-background-color;
+$spirit-checkbox-border:                $spirit-form-element-border;
+$spirit-checkbox-border-radius:         $spirit-border-radius-s;
+$spirit-checkbox-fill-color:            $spirit-form-element-selected-color;
+$spirit-checkbox-checkmark-fill-color:  $spirit-color-white;
+$spirit-checkbox-checkmark-size:        $spirit-size-icon-xs;
+$spirit-checkbox-margin:                $spirit-form-element-stack;
+$spirit-checkbox-size:                  20px;
+$spirit-checkbox-grid-margin:           $spirit-form-element-grid-space;
+$spirit-checkbox-max-width:             $spirit-form-element-max-width;
+$spirit-checkbox-label-space:           4px;  
 
 .spirit-form__checkbox {
   @include spirit-box-sizing;
+  @include spirit-typography-reset;
   cursor: pointer;
   display: block;
-  font-family: $spirit-checkbox-label-font-family;
   margin: $spirit-checkbox-margin;
   max-width: $spirit-checkbox-max-width;
 
@@ -292,26 +321,26 @@ $spirit-checkbox-label-space:       4px;
 
 @mixin checkbox-icon-styles {
   display: none;
-  fill: $spirit-checkbox-checkmark-fill-color;
   height: $spirit-checkbox-checkmark-size;
   left: 50%;
   margin-left: -($spirit-checkbox-checkmark-size / 2);
   margin-top: -($spirit-checkbox-checkmark-size / 2);
   position: absolute;
+  stroke: $spirit-checkbox-checkmark-fill-color;
   top: 50%;
   width: $spirit-checkbox-checkmark-size;
 }
 
-.spirit-form__checkbox-checked-icon {
-  @include checkbox-icon-styles();
+.spirit-form__checkbox-checked-icon.spirit-icon {
+  @include checkbox-icon-styles;
 
   .spirit-form__checkbox-input:checked + .spirit-form__checkbox-inner & {
     display: block;
   }
 }
 
-.spirit-form__checkbox-indeterminate-icon {
-  @include checkbox-icon-styles();
+.spirit-form__checkbox-indeterminate-icon.spirit-icon {
+  @include checkbox-icon-styles;
 
   .spirit-form__checkbox-input:indeterminate + .spirit-form__checkbox-inner & {
     display: block;
@@ -321,7 +350,7 @@ $spirit-checkbox-label-space:       4px;
 .spirit-form__checkbox-label {
   @include spirit-typography-reset(
     $color: $spirit-label-color,
-    $font-size: $spirit-label-font-size
+    $font-size: $spirit-checkbox-label-font-size
   );
   cursor: pointer;
 }
@@ -354,22 +383,24 @@ $spirit-checkbox-group-max-width:     $spirit-form-element-max-width;
 }
 
 // <input[type='radio']/>
-$spirit-radio-label-color:    $spirit-form-label-color;
-$spirit-radio-label-font-family:  $spirit-form-font-family;
-$spirit-radio-label-font-size:  $spirit-form-element-font-size;
-$spirit-radio-background-color:   $spirit-form-element-background-color;
-$spirit-radio-border:       $spirit-form-element-border;
-$spirit-radio-border-radius:    $spirit-form-element-border-radius;
-$spirit-radio-fill-color:     $spirit-form-element-selected-color;
-$spirit-radio-fill-size:      12px;
-$spirit-radio-margin:       $spirit-form-element-stack;
-$spirit-radio-size:         16px;
-$spirit-radio-grid-margin:    $spirit-form-element-grid-space;
-$spirit-radio-max-width:      $spirit-form-element-max-width;
-$spirit-radio-label-space:    4px;  
+$spirit-radio-label-color:              $spirit-form-label-color;
+$spirit-radio-label-font-family:        $spirit-form-font-family;
+$spirit-radio-label-font-size:          $spirit-form-element-font-size;
+$spirit-radio-background-color:         $spirit-form-element-background-color;
+$spirit-radio-border:                   $spirit-form-element-border;
+$spirit-radio-border-radius:            $spirit-form-element-border-radius;
+$spirit-radio-checked-background-color: $spirit-form-element-selected-color;
+$spirit-radio-fill-color:               $spirit-color-white;
+$spirit-radio-fill-size:                8px;
+$spirit-radio-margin:                   $spirit-form-element-stack;
+$spirit-radio-size:                     20px;
+$spirit-radio-grid-margin:              $spirit-form-element-grid-space;
+$spirit-radio-max-width:                $spirit-form-element-max-width;
+$spirit-radio-label-space:              4px;  
 
 .spirit-form__radio {
   @include spirit-box-sizing;
+  @include spirit-typography-reset;
   cursor: pointer;
   display: block;
   font-family: $spirit-radio-label-font-family;
@@ -413,6 +444,7 @@ $spirit-radio-label-space:    4px;
   width: $spirit-radio-size;
 
   .spirit-form__radio-input:checked + .spirit-form__radio-inner & {
+    background: $spirit-radio-checked-background-color;
 
     &:before {
       background: $spirit-radio-fill-color;
@@ -445,7 +477,7 @@ $spirit-radio-label-space:    4px;
 .spirit-form__radio-label {
   @include spirit-typography-reset(
     $color: $spirit-label-color,
-    $font-size: $spirit-label-font-size
+    $font-size: $spirit-radio-label-font-size
   );
   cursor: pointer;
 }

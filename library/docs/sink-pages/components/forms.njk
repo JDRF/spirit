@@ -1,22 +1,29 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+  <style>
+    /* Adding a little bit of padding and left-aligning this sink page */
+    body {
+      padding: {{ spirit_tokens.space.inset['1-x'] }};
+      text-align: left;
+    }
+  </style>
   <h4 class="hostile-sink-reset">Forms Sink</h4>
 
   <h5 class="hostile-sink-reset">Input</h5>
-  {{ library.form_input() }}
+  {{ library.form_input(placeholder="First name") }}
 
   <h5 class="hostile-sink-reset">Input Hover</h5>
-  {{ library.form_input(class="spirit-form__input--hover") }}
+  {{ library.form_input(placeholder="First name", class="spirit-form__input--hover") }}
 
   <h5 class="hostile-sink-reset">Input Focus</h5>
-  {{ library.form_input(class="spirit-form__input--focus") }}
+  {{ library.form_input(placeholder="First name", class="spirit-form__input--focus") }}
 
   <h5 class="hostile-sink-reset">Input Disabled</h5>
-  {{ library.form_input(disabled="true") }}
+  {{ library.form_input(placeholder="First name", disabled="true") }}
 
   <h5 class="hostile-sink-reset">Input Error</h5>
   {% call library.form_field_group(error="true") %}
-      {{ library.form_input() }}
+      {{ library.form_input(placeholder="First name") }}
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Input With Placeholder</h5>

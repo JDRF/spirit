@@ -1,5 +1,5 @@
 // box model mixin
 
-@mixin spirit-box-sizing($box-model: 'border-box') {
+@mixin spirit-box-sizing($box-model: border-box) {
   box-sizing: $box-model;
 }

@@ -79,7 +79,7 @@
         {%- endif -%}
         {%- if required -%}
             <abbr class="spirit-form__label-required-indicator" title="{{ required_tooltip_text }}" aria-hidden="true">*</abbr>
-            <span class="spirit--screenreader-only">Required Field.</span>
+            <span class="spirit-form__label-accessible-text">Required Field.</span>
         {% endif %}
     </label>
 {% endmacro %}
