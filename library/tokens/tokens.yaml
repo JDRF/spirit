@@ -37,7 +37,7 @@ icon-color :
 interactive-color :
   primary : *color-blue-100
   on-dark : *color-white
-  text : 
+  text :
     primary : *color-blue-100
     on-dark : *color-white
   disabled :
