@@ -73,7 +73,8 @@
             optional=false, 
             required=false, 
             required_tooltip_text="This field is required.",
-            text="First Name") %}
+            text="First Name",
+            annotation) %}
     
     <label 
             class="spirit-form__label{{ ' ' + class if class }}"
@@ -81,14 +82,19 @@
             for="{{ for }}"
         {% endif %}>
             {{ text | safe }}
-        {%- if optional -%}
+        {% if optional %}
             <span class="spirit-form__label-optional">
                 (Optional)
             </span>
-        {%- endif -%}
-        {%- if required -%}
+        {% endif %}
+        {% if required %}
             <abbr class="spirit-form__label-required-indicator" title="{{ required_tooltip_text }}" aria-hidden="true">*</abbr>
             <span class="spirit-form__label-accessible-text">Required Field.</span>
+        {% endif %}
+        {% if annotation %}
+            <span class="spirit-form__label-annotation">
+                {{ annotation | safe }}
+            </span>
         {% endif %}
     </label>
 {% endmacro %}
@@ -107,12 +113,23 @@
             required_tooltip_text="Please check the box.",
             value=false,
             icon_path=false,
-            indeterminate=false) %}
+            indeterminate=false,
+            valid) %}
+
+    {# Set a modifier class based on the valid argument #}
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__checkbox--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__checkbox--invalid' %}
+    {% endif %}
+
+    {# If not provided, generate a random id to connect 'for' and 'id' attributes on label and input respectively #}
     {% if id == false %}
         {% set random_number = range(0, 100000) | random %}
         {% set id = label | replace(' ', '-') | lower + '--' + random_number %}
     {% endif %}
-    <label class="spirit-form__checkbox{{ ' ' + class if class }}{{ ' spirit-form__checkbox--disabled' if disabled }}" for="{{ id }}">
+
+    <label class="spirit-form__checkbox{{ ' ' + class if class }}{{ ' spirit-form__checkbox--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}" for="{{ id }}">
         <input id="{{ id }}" type="checkbox" class="spirit-form__checkbox-input" 
             {{ 'checked' if checked }} 
             {{ 'disabled' if disabled }}
@@ -321,8 +338,17 @@
             label=false,
             optional=false,
             required=false,
-            required_tooltip_text="Please select at least one option.") %}
-    <fieldset class="spirit-form__checkbox-group{{ ' ' + class  if class }}" role="group">
+            required_tooltip_text="Please select at least one option.",
+            valid) %}
+    
+    {# Set a modifier class based on the valid argument #}
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__checkbox-group--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__checkbox-group--invalid' %}
+    {% endif %}
+
+    <fieldset class="spirit-form__checkbox-group{{ ' ' + class  if class }}{{ ' ' + validation_class if validation_class }}" role="group">
         {% if label %}
             <legend class="spirit-form__checkbox-group-label">
                 {{ label | safe }}
@@ -333,7 +359,7 @@
                 {%- endif -%}
                 {%- if required -%}
                     <abbr class="spirit-form__label-required-indicator" title="{{ required_tooltip_text }}" aria-hidden="true">*</abbr>
-                    <span class="spirit-screenreader-only">Required Field.</span>
+                    <span class="spirit-form__label-accessible-text">Required Field.</span>
                 {% endif %}
             </legend>
         {% endif %}
@@ -360,7 +386,7 @@
                 {%- endif -%}
                 {%- if required -%}
                     <abbr class="spirit-form__label-required-indicator" title="{{ required_tooltip_text }}" aria-hidden="true">*</abbr>
-                    <span class="spirit-screenreader-only">Required Field.</span>
+                    <span class="spirit-form__label-accessible-text">Required Field.</span>
                 {% endif %}
             </legend>
         {% endif %}

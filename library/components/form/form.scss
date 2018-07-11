@@ -44,10 +44,8 @@ $spirit-form-element-max-width:             none;
 $spirit-form-element-padding:               10px 12px;
 $spirit-form-element-stack:                 $spirit-space-stack-half-x;
 $spirit-form-group-stack:                   $spirit-space-stack-2-x;
-$spirit-form-element-grid-space:            0 $spirit-space-generic-1-x $spirit-space-generic-1-x 0;
+$spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-space-generic-2-x 0;
 
-// disabled
-$spirit-form-element-disabled-opacity: .5;
 
 @mixin hover-styles {
   // No hover styles for now
@@ -63,8 +61,13 @@ $spirit-form-element-disabled-opacity: .5;
 }
 
 @mixin disabled-styles {
+  background-color: $spirit-interactive-color-disabled-fill;
+  color: $spirit-interactive-color-disabled-text;
   cursor: not-allowed;
-  opacity: $spirit-form-element-disabled-opacity;
+
+  &::placeholder {
+    color: $spirit-interactive-color-disabled-text;
+  }
 }
 
 @mixin focus-styles {
@@ -261,26 +264,29 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
 }
 
 // <input[type='checkbox']/>
-$spirit-checkbox-label-color:           $spirit-form-label-color;
-$spirit-checkbox-label-font-family:     $spirit-form-font-family;
-$spirit-checkbox-label-font-size:       $spirit-form-element-font-size;
-$spirit-checkbox-background-color:      $spirit-color-white;
-$spirit-checkbox-border:                solid 1px $spirit-color-grey-35; // TODO: Tokenize and work on border tokens
-$spirit-checkbox-border-radius:         $spirit-border-radius-s;
-$spirit-checkbox-fill-color:            $spirit-form-element-selected-color;
-$spirit-checkbox-checkmark-fill-color:  $spirit-color-white;
-$spirit-checkbox-checkmark-size:        $spirit-size-icon-xs;
-$spirit-checkbox-margin:                $spirit-form-element-stack;
-$spirit-checkbox-size:                  18px;
-$spirit-checkbox-grid-margin:           $spirit-form-element-grid-space;
-$spirit-checkbox-max-width:             $spirit-form-element-max-width;
-$spirit-checkbox-label-space:           4px;  
+$spirit-checkbox-label-color:               $spirit-text-color-secondary;
+$spirit-checkbox-label-font-family:         $spirit-form-font-family;
+$spirit-checkbox-label-font-size:           $spirit-form-element-font-size;
+$spirit-checkbox-background-color:          $spirit-color-white;
+$spirit-checkbox-border:                    solid 1px $spirit-color-grey-35; // TODO: Tokenize and work on border tokens
+$spirit-checkbox-border-color-hover-focus:  $spirit-form-element-selected-color;         
+$spirit-checkbox-border-radius:             $spirit-border-radius-s;
+$spirit-checkbox-text-color-hover:          $spirit-text-color-primary;         
+$spirit-checkbox-text-color-focus:          $spirit-form-element-selected-color;         
+$spirit-checkbox-fill-color:                $spirit-form-element-selected-color;
+$spirit-checkbox-checkmark-fill-color:      $spirit-color-white;
+$spirit-checkbox-checkmark-size:            $spirit-size-icon-xs;
+$spirit-checkbox-margin:                    $spirit-space-stack-2-x;
+$spirit-checkbox-size:                      18px;
+$spirit-checkbox-grid-margin:               $spirit-form-element-grid-space;
+$spirit-checkbox-max-width:                 $spirit-form-element-max-width;
+$spirit-checkbox-label-space:               $spirit-space-generic-1-x;  
 
 .spirit-form__checkbox {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
-  cursor: pointer;
   display: block;
+  font-size: 0;
   margin: $spirit-checkbox-margin;
   max-width: $spirit-checkbox-max-width;
 
@@ -293,15 +299,11 @@ $spirit-checkbox-label-space:           4px;
 
 .spirit-form__checkbox-inner { // In order for a :focus state to wrap the psuedo checkbox and text, this element is required
   align-items: flex-start;
+  cursor: pointer;
   display: inline-flex;
 
   .spirit-form__checkbox-input:disabled + & {
-    @include disabled-styles();
-  }
-
-  .spirit-form__checkbox--focus &,
-  .spirit-form__checkbox-input:focus + & {
-    // @include focus-styles(); // TODO: Add focus styles
+    cursor: not-allowed;
   }
 }
 
@@ -309,6 +311,7 @@ $spirit-checkbox-label-space:           4px;
   @include spirit-accessibly-hidden();
 }
 
+// Checkbox Visual Box
 .spirit-form__checkbox-visual {
   background: $spirit-checkbox-background-color;
   border: $spirit-checkbox-border;
@@ -318,6 +321,7 @@ $spirit-checkbox-label-space:           4px;
   height: $spirit-checkbox-size;
   margin-right: $spirit-checkbox-label-space;
   position: relative;
+  top: -4px;
   width: $spirit-checkbox-size;
 
   .spirit-form__checkbox-input:indeterminate + .spirit-form__checkbox-inner &,
@@ -325,20 +329,36 @@ $spirit-checkbox-label-space:           4px;
     background: $spirit-checkbox-fill-color;
   }
 
+  .spirit-form__checkbox--focus &,
+  .spirit-form__checkbox-input:focus + .spirit-form__checkbox-inner &,
   .spirit-form__checkbox:hover &,
   .spirit-form__checkbox--hover & {
-    // @include hover-styles(); // TODO: Add hover styles
+    border-color: $spirit-checkbox-border-color-hover-focus;
   }
 
+  // Disabled, Unchecked
   .spirit-form__checkbox-input:disabled + .spirit-form__checkbox-inner & {
-    border: $spirit-checkbox-border; // Prevent border color from changing on hover when input is disabled
+    border-color: $spirit-interactive-color-disabled-text; // Prevent border color from changing on hover when input is disabled
   }
 
-  .spirit-form--invalid & {
+  // Disabled, Checked
+  .spirit-form__checkbox-input:disabled:checked + .spirit-form__checkbox-inner & {
+    background-color: $spirit-interactive-color-disabled-text;
+  }
+  
+
+  // Invalid state
+  .spirit-form__checkbox--invalid & {
     @include invalid-styles();
+  }
+
+  // Invalid state, checked
+  .spirit-form__checkbox--invalid .spirit-form__checkbox-input:checked + .spirit-form__checkbox-inner & {
+    background: $spirit-form-element-error-color;
   }
 }
 
+// Checkbox Icons
 @mixin checkbox-icon-styles {
   display: none;
   height: $spirit-checkbox-checkmark-size;
@@ -367,21 +387,39 @@ $spirit-checkbox-label-space:           4px;
   }
 }
 
+// Checkbox Label
 .spirit-form__checkbox-label {
   @include spirit-typography-reset(
-    $color: $spirit-label-color,
+    $color: $spirit-checkbox-label-color,
     $font-size: $spirit-checkbox-label-font-size
   );
-  cursor: pointer;
+  @include spirit-text-crop;
+
+  .spirit-form__checkbox:hover &,
+  .spirit-form__checkbox--hover & {
+    color: $spirit-checkbox-text-color-hover;
+  }
+
+  .spirit-form__checkbox--focus &,
+  .spirit-form__checkbox-input:focus + .spirit-form__checkbox-inner & {
+    color: $spirit-checkbox-text-color-focus;
+  }
+
+  .spirit-form__checkbox-input:disabled + .spirit-form__checkbox-inner & {
+    color: $spirit-interactive-color-disabled-text;
+  }
+
 }
 
+
+// Checkbox Group
 // <label> for group of <input[type='checkbox']/>
-$spirit-checkbox-group-label-color:     $spirit-checkbox-label-color;
+$spirit-checkbox-group-label-color:       $spirit-text-color-primary;
 $spirit-checkbox-group-label-font-family: $spirit-checkbox-label-font-family;
 $spirit-checkbox-group-label-font-size:   $spirit-checkbox-label-font-size;
-$spirit-checkbox-group-label-margin:    $spirit-form-element-stack;
+$spirit-checkbox-group-label-margin:      $spirit-space-stack-2-x;
 $spirit-checkbox-group-label-max-width:   $spirit-form-element-max-width;
-$spirit-checkbox-group-max-width:     $spirit-form-element-max-width;
+$spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 
 .spirit-form__checkbox-group {
   border: 0;
@@ -389,12 +427,18 @@ $spirit-checkbox-group-max-width:     $spirit-form-element-max-width;
   margin: 0;
   max-width: $spirit-checkbox-group-max-width;
   padding: 0;
+
+  // Custom bottom margin if an error message is included
+  .spirit-form__field-error {
+    margin: $spirit-checkbox-group-label-margin;
+  }
 }
 
 .spirit-form__checkbox-group-label {
   @include spirit-typography-reset(
     $color: $spirit-checkbox-group-label-color,
-    $font-size: $spirit-checkbox-group-label-font-size
+    $font-size: $spirit-checkbox-group-label-font-size,
+    $font-weight: $spirit-font-weight-medium
   );
   display: block;
   margin: $spirit-checkbox-group-label-margin;
@@ -562,7 +606,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   appearance: none;
   background: none;
   border: 0;
-  color: $spirit-select-text-color;
+  // color: $spirit-select-text-color;
   cursor: pointer;
   font-family: $spirit-select-font-family;
   font-size: $spirit-select-font-size;
@@ -583,6 +627,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
 
   &:disabled {
     @include disabled-styles();
+    background: none;
   }
 
   &:focus::-ms-value { // sass-lint:disable-line no-vendor-prefixes - have to target IE specifically here
@@ -630,8 +675,8 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   }
 
   .spirit-form__select-input:disabled ~ & {
-    @include disabled-styles();
-    border: $spirit-select-border; // Prevent border color from changing on hover when input is disabled
+    // @include disabled-styles();
+    // border: $spirit-select-border; // Prevent border color from changing on hover when input is disabled
   }
 }
 
@@ -650,7 +695,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   z-index: 5;
 
   .spirit-form__select-input:disabled ~ & {
-    @include disabled-styles();
+    // @include disabled-styles();
   }
 }
 
@@ -665,6 +710,10 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   stroke: $spirit-select-icon-fill-color;
   top: 50%;
   width: $spirit-select-icon-size;
+
+  .spirit-form__select-input:disabled ~ .spirit-form__select-open-indicator & {
+    stroke: $spirit-interactive-color-disabled-text;
+  }
 }
 
 
@@ -723,6 +772,7 @@ $spirit-field-error-max-width:  $spirit-form-element-max-width;
     $color: $spirit-field-error-text-color,
     $font-size: $spirit-field-error-font-size
   );
+  @include spirit-text-crop;
   display: block;
   margin: $spirit-field-error-margin;
   max-width: $spirit-field-error-max-width;

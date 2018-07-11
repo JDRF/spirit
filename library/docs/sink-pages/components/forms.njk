@@ -3,6 +3,7 @@
   <style>
     /* Adding a little bit of padding and left-aligning this sink page */
     body {
+      line-height: 1;
       padding: {{ spirit_tokens.space.inset['1-x'] }};
       text-align: left;
     }
@@ -330,11 +331,17 @@
 
   <h5 class="hostile-sink-reset">Icon</h5>
   {% set annotation %}
-    {{ library.icon() }}
+    <style>
+      .custom-annotation-thing {
+        height: 20px;
+        width: 20px;
+      }
+    </style>
+    <a href="#" title="Additional info about this label" style="text-decoration: none; position: relative; top: -2px;">
+      {{ library.icon(name="help-circle", class="custom-annotation-thing") }}
+    </a>
   {% endset %}
-  {{ annotation | safe }}
   {{ library.form_label(text="Form Label", annotation=annotation) }}
-
 
   <h5 class="hostile-sink-reset">Label Content Resilience, Too Long</h5>
   {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?") }}
@@ -347,11 +354,30 @@
 
 
 
+{# Microcopy #}
+  <h2 class="hostile-sink-reset">Microcopy</h2>
+  {{ library.form_microcopy(text="Your password must contain a letter, a number, and two emoticons", id="password-help-text") }}
+
+  <h5 class="hostile-sink-reset">Microcopy Content Resilience, Too Long</h5>
+  {{ library.form_microcopy(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
+
+
+
+{# Errors #}
+  <h2 class="hostile-sink-reset">Error</h2>
+  {{ library.form_field_error(text="Helpful error message.") }}
+
+  <h5 class="hostile-sink-reset">Error Content Resilience, Too Long</h5>
+  {{ library.form_field_error(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
+
+
+{# Required Fields Key #}
+  <h2 class="hostile-sink-reset">Required Fields Key</h2>
+      {{ library.form_required_fields_key() }}
 
 
 
 
-  
 
 
 {# Checkbox #}
@@ -362,41 +388,53 @@
 
   {{ library.form_checkbox(label="Checked/Active", checked=true) }}
 
-  {% call library.form_field_group(error=true) %}
-      {{ library.form_checkbox(label="Unchecked, Error") }}
-  {% endcall %}
+  {{ library.form_checkbox(label="Unchecked, Error", valid=false) }}
 
-  {% call library.form_field_group(error=true) %}
-      {{ library.form_checkbox(label="Checked, Error", checked=true) }}
-  {% endcall %}
+  {{ library.form_checkbox(label="Checked, Error", checked=true, valid=false) }}
 
-  {{ library.form_checkbox(label="Focus", class="spirit-form__checkbox--focus") }}
+  {{ library.form_checkbox(label="Unchecked, Focus", class="spirit-form__checkbox--focus") }}
+
+  {{ library.form_checkbox(label="Checked, Focus", checked=true, class="spirit-form__checkbox--focus") }}
+
+  {{ library.form_checkbox(label="Unchecked, Disabled", disabled=true) }}
+
+  {{ library.form_checkbox(label="Checked, Disabled", disabled=true, checked=true) }}
+
+  {{ library.form_checkbox(label="Indeterminate", indeterminate=true) }}
 
 
-  <h5 class="hostile-sink-reset">Checkbox Disabled</h5>
-  {{ library.form_checkbox(disabled=true) }}
-
-
-  <h5 class="hostile-sink-reset">Checkbox Too Little Content</h5>
+  <h5 class="hostile-sink-reset">Checkbox Content Resilience, Short Label</h5>
   {{ library.form_checkbox(label="a") }}
 
-  <h5 class="hostile-sink-reset">Checkbox Too Much Content</h5>
+  <h5 class="hostile-sink-reset">Checkbox Content Resilience, Long Label</h5>
   {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis dolorum qui, eius nisi sint fugiat dolorem eaque libero quasi numquam blanditiis consequatur vero ipsum maxime. Illo quasi quas, iste labore. Quasi ut voluptatum vitae voluptates, sunt distinctio ullam repellendus maxime. Aperiam fuga suscipit sed eveniet, eligendi. Commodi, adipisci alias cum velit molestiae rerum eos omnis. Molestiae culpa tempore eligendi doloribus.") }}
 
-  <h6 class="hostile-sink-reset">Indeterminate Checkbox</h6>
-  {{ library.form_checkbox(indeterminate=true, label="Indeterminate checkbox") }}
 
-
-  <h5 class="hostile-sink-reset">Checkbox Group Stacked</h5>
-  {% call library.form_checkbox_group(label="Select all the days that apply") %}
-      {{ library.form_checkbox(label="Mondays") }}
-      {{ library.form_checkbox(label="Tuesdays") }}
-      {{ library.form_checkbox(label="Wednesdays") }}
-      {{ library.form_checkbox(label="Thursdays") }}
-      {{ library.form_checkbox(label="Fridays") }}
+  <h5 class="hostile-sink-reset">Group Stacked</h5>
+  {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true) %}
+      {{ library.form_checkbox(label="Option 1") }}
+      {{ library.form_checkbox(label="Option 2") }}
+      {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
   {% endcall %}
 
-  <h5 class="hostile-sink-reset">Checkbox Group Stacked Too Much Content</h5>
+  <h5 class="hostile-sink-reset">Group Horizontal</h5>
+  {% call library.form_field_group(horizontal=true) %}
+    {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true) %}
+        {{ library.form_checkbox(label="Option 1") }}
+        {{ library.form_checkbox(label="Option 2") }}
+        {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
+    {% endcall %}
+  {% endcall %}
+
+  <h5 class="hostile-sink-reset">Group with Error</h5>
+  {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
+      {{ library.form_field_error(text="Helpful error message.") }}
+      {{ library.form_checkbox(label="Option 1") }}
+      {{ library.form_checkbox(label="Option 2") }}
+      {{ library.form_checkbox(label="Option 3, Disabled") }}
+  {% endcall %}
+
+  <h5 class="hostile-sink-reset">Group Content Resilience, Long Label</h5>
   {% call library.form_checkbox_group(label="Select all the days that apply") %}
       {{ library.form_checkbox(label="Mondays") }}
       {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
@@ -405,14 +443,7 @@
       {{ library.form_checkbox(label="Fridays") }}
   {% endcall %}
 
-  <h5 class="hostile-sink-reset">Checkbox Group Horizontal</h5>
-  {% call library.form_field_group(horizontal=true) %}
-      {% call library.form_checkbox_group(label="Select at least one color", required=true) %}
-          {{ library.form_checkbox(label="Red") }}
-          {{ library.form_checkbox(label="Orange") }}
-          {{ library.form_checkbox(label="Yellow") }}
-      {% endcall %}
-  {% endcall %}
+
 
   <h5 class="hostile-sink-reset">Checkbox Group Horizontal Too Much Content</h5>
   {% call library.form_field_group(horizontal=true) %}
@@ -485,35 +516,7 @@
   {% endcall %}
 
 
-  <h5 class="hostile-sink-reset">Microcopy</h5>
-  {% call library.form_field_group() %}
-      {{ library.form_label(text="Password", for="password-with-microcopy") }}
-      {{ library.form_microcopy(text="Your password must contain a letter, a number, and two emoticons", id="password-help-text") }}
-      {{ library.form_input(type="password", describedby="password-help-text", id="password-with-microcopy") }}
-  {% endcall %}
-
-  <h5 class="hostile-sink-reset">Microcopy below input</h5>
-  {% call library.form_field_group() %}
-      {{ library.form_label(text="Password", for="password-with-microcopy") }}
-      {{ library.form_input(type="password", describedby="password-help-text", id="password-with-microcopy") }}
-      {{ library.form_microcopy(text="Your password must contain a letter, a number, and two emoticons", id="password-help-text") }}
-  {% endcall %}
-
-  <h5 class="hostile-sink-reset">Microcopy Too Much Content</h5>
-  {% call library.form_field_group() %}
-      {{ library.form_label(text="Password", for="password-with-too-much-microcopy") }}
-      {{ library.form_microcopy(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
-      {{ library.form_input(type="password", describedby="password-too-much-help-text", id="password-with-too-much-microcopy") }}
-  {% endcall %}
-
-  <h5 class="hostile-sink-reset">Required Fields Key</h5>
-  {% call library.form() %}
-      {{ library.form_required_fields_key() }}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="First Name", required=true, required_text="Please provide your first name", for="required-first-name") }}
-          {{ library.form_input(id="required-first-name") }}
-      {% endcall %}
-  {% endcall %}
+  
 
   <h5 class="hostile-sink-reset">Field Error Input</h5>
   {% call library.form_field_group(error=true) %}
