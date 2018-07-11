@@ -70,7 +70,7 @@
 
         .hostile-sink-reset,
         .hostile-sink-reset * {
-            color: black;
+            color: {{ spirit_tokens['text-color'].secondary }};
         }
 
 
@@ -111,6 +111,30 @@
             margin: {{ spirit_tokens.space.generic['4-x'] }} 0 {{ spirit_tokens.space.generic['1-x'] }} 0;
         }
 
+        h1.hostile-sink-reset, 
+        .hostile-sink-reset h1 {
+            font-size: 32px;
+        }
+        h2.hostile-sink-reset, 
+        .hostile-sink-reset h2 {
+            font-size: 28px;
+        }
+        h3.hostile-sink-reset, 
+        .hostile-sink-reset h3 {
+            font-size: 24px;
+        }
+        h4.hostile-sink-reset, 
+        .hostile-sink-reset h4 {
+            font-size: 20px;
+        }
+        h5.hostile-sink-reset, 
+        .hostile-sink-reset h5 {
+            font-size: 18px;
+        }
+        h6.hostile-sink-reset, 
+        .hostile-sink-reset h6 {
+            font-size: 16px;
+        }
     </style>
 {% endblock %}
 {% block body %}

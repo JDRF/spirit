@@ -46,9 +46,18 @@
             name=false, 
             placeholder=false, 
             type='text', 
-            value=false) %}
+            value=false, 
+            valid) %}
+
+    {# Set a modifier class based on the valid argument #}
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__input--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__input--invalid' %}
+    {% endif %}
+
     <input 
-    class="spirit-form__input{{ ' ' + class if class }}" 
+    class="spirit-form__input{{ ' ' + class if class }}{{ ' ' + validation_class if validation_class }}" 
     type="{{ type }}"
     {% if id %} id="{{ id }}" {% endif %} 
     {% if name %} name="{{ name }}" {% endif %} 
@@ -184,6 +193,7 @@
             id=false,
             name=false,
             icon_path=false,
+            valid,
             options=[
                 {
                     text: "Select an option",
@@ -198,7 +208,14 @@
                     value: "option_2"
                 }
             ]) %}
-    <div class="spirit-form__select{{ ' ' + class if class }}{{ ' spirit-form__select-input--disabled' if disabled }}">
+
+    {# Set a modifier class based on the valid argument #}
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__select--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__select--invalid' %}
+    {% endif %}
+    <div class="spirit-form__select{{ ' ' + class if class }}{{ ' spirit-form__select-input--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}">
         <select class="spirit-form__select-input" 
                 {% if id %}
                     id="{{ id }}"
@@ -244,8 +261,16 @@
             id=false, 
             name=false,
             placeholder=false, 
-            value=false) %}
-    <textarea class="spirit-form__textarea{{ ' ' + class  if class }}" 
+            value=false,
+            valid) %}
+    {# Set a modifier class based on the valid argument #}
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__textarea--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__textarea--invalid' %}
+    {% endif %}
+
+    <textarea class="spirit-form__textarea{{ ' ' + class  if class }}{{ ' ' + validation_class if validation_class }}" 
         {% if id %}
             id="{{ id }}"
         {% endif %} 
@@ -280,7 +305,7 @@
         {% if text == false %}
             {{ caller() }}
         {% else %}
-            {{ text }}
+            {{ text | safe }}
         {% endif %}
     </span>
 {% endmacro %}

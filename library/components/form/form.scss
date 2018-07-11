@@ -17,6 +17,7 @@ $spirit-form-element-border-width:          $spirit-border-width-control;
 $spirit-form-element-border:                $spirit-border-style-default $spirit-border-width-control transparent;
 $spirit-form-element-border-color-hover:    transparent;
 $spirit-form-element-border-color-error:    $spirit-border-color-error;
+$spirit-form-element-border-color-success:  $spirit-border-color-success;
 $spirit-form-element-border-radius:         $spirit-border-radius-m;
 
 // text colors
@@ -49,11 +50,16 @@ $spirit-form-element-grid-space:            0 $spirit-space-generic-1-x $spirit-
 $spirit-form-element-disabled-opacity: .5;
 
 @mixin hover-styles {
-  border-color: $spirit-form-element-border-color-hover;
+  // No hover styles for now
+  // border-color: $spirit-form-element-border-color-hover;
 }
 
-@mixin error-styles {
+@mixin invalid-styles {
   border-color: $spirit-form-element-border-color-error;
+}
+
+@mixin valid-styles {
+  border-color: $spirit-form-element-border-color-success;
 }
 
 @mixin disabled-styles {
@@ -130,6 +136,15 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
     );
   }
 
+
+  &.spirit-form__input--invalid {
+    @include invalid-styles();
+  }
+
+  &.spirit-form__input--valid {
+    @include valid-styles();
+  }
+
   &.spirit-form__input--hover,
   &:hover {
     @include hover-styles();
@@ -143,10 +158,6 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
   &.spirit-form__input--focus,
   &:focus {
     @include focus-styles();
-  }
-
-  .spirit-form--error & {
-    @include error-styles();
   }
 }
 
@@ -173,6 +184,7 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
   background-color: $spirit-textarea-background-color;
   border: $spirit-textarea-border;
   border-radius: $spirit-form-element-border-radius;
+  display: block;
   margin: $spirit-textarea-margin;
   max-width: $spirit-textarea-max-width;
   min-height: $spirit-textarea-min-height;
@@ -185,6 +197,14 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
       $color: $spirit-textarea-placeholder-color,
       $font-weight: $spirit-font-weight-regular
     );
+  }
+
+  &.spirit-form__textarea--invalid {
+    @include invalid-styles();
+  }
+
+  &.spirit-form__textarea--valid {
+    @include valid-styles();
   }
 
   &.spirit-form__textarea--hover,
@@ -200,10 +220,6 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
   &.spirit-form__textarea--focus,
   &:focus {
     @include focus-styles;
-  }
-
-  .spirit-form--error & {
-    @include error-styles;
   }
 }
 
@@ -240,18 +256,22 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
   @include spirit-accessibly-hidden;
 }
 
+.spirit-form__label-optional {
+  font-weight: $spirit-font-weight-regular;
+}
+
 // <input[type='checkbox']/>
 $spirit-checkbox-label-color:           $spirit-form-label-color;
 $spirit-checkbox-label-font-family:     $spirit-form-font-family;
 $spirit-checkbox-label-font-size:       $spirit-form-element-font-size;
-$spirit-checkbox-background-color:      $spirit-form-element-background-color;
-$spirit-checkbox-border:                $spirit-form-element-border;
+$spirit-checkbox-background-color:      $spirit-color-white;
+$spirit-checkbox-border:                solid 1px $spirit-color-grey-35; // TODO: Tokenize and work on border tokens
 $spirit-checkbox-border-radius:         $spirit-border-radius-s;
 $spirit-checkbox-fill-color:            $spirit-form-element-selected-color;
 $spirit-checkbox-checkmark-fill-color:  $spirit-color-white;
 $spirit-checkbox-checkmark-size:        $spirit-size-icon-xs;
 $spirit-checkbox-margin:                $spirit-form-element-stack;
-$spirit-checkbox-size:                  20px;
+$spirit-checkbox-size:                  18px;
 $spirit-checkbox-grid-margin:           $spirit-form-element-grid-space;
 $spirit-checkbox-max-width:             $spirit-form-element-max-width;
 $spirit-checkbox-label-space:           4px;  
@@ -281,7 +301,7 @@ $spirit-checkbox-label-space:           4px;
 
   .spirit-form__checkbox--focus &,
   .spirit-form__checkbox-input:focus + & {
-    @include focus-styles();
+    // @include focus-styles(); // TODO: Add focus styles
   }
 }
 
@@ -307,15 +327,15 @@ $spirit-checkbox-label-space:           4px;
 
   .spirit-form__checkbox:hover &,
   .spirit-form__checkbox--hover & {
-    @include hover-styles();
+    // @include hover-styles(); // TODO: Add hover styles
   }
 
   .spirit-form__checkbox-input:disabled + .spirit-form__checkbox-inner & {
     border: $spirit-checkbox-border; // Prevent border color from changing on hover when input is disabled
   }
 
-  .spirit-form--error & {
-    @include error-styles();
+  .spirit-form--invalid & {
+    @include invalid-styles();
   }
 }
 
@@ -386,14 +406,14 @@ $spirit-checkbox-group-max-width:     $spirit-form-element-max-width;
 $spirit-radio-label-color:              $spirit-form-label-color;
 $spirit-radio-label-font-family:        $spirit-form-font-family;
 $spirit-radio-label-font-size:          $spirit-form-element-font-size;
-$spirit-radio-background-color:         $spirit-form-element-background-color;
-$spirit-radio-border:                   $spirit-form-element-border;
+$spirit-radio-background-color:         $spirit-color-white;
+$spirit-radio-border:                   solid 1px $spirit-color-grey-35;
 $spirit-radio-border-radius:            $spirit-form-element-border-radius;
 $spirit-radio-checked-background-color: $spirit-form-element-selected-color;
 $spirit-radio-fill-color:               $spirit-color-white;
 $spirit-radio-fill-size:                8px;
 $spirit-radio-margin:                   $spirit-form-element-stack;
-$spirit-radio-size:                     20px;
+$spirit-radio-size:                     18px;
 $spirit-radio-grid-margin:              $spirit-form-element-grid-space;
 $spirit-radio-max-width:                $spirit-form-element-max-width;
 $spirit-radio-label-space:              4px;  
@@ -469,8 +489,8 @@ $spirit-radio-label-space:              4px;
     border: $spirit-radio-border; // Prevent border color from changing on hover when input is disabled
   }
 
-  .spirit-form--error & {
-    @include error-styles();
+  .spirit-form--invalid & {
+    @include invalid-styles();
   }
 }
 
@@ -510,24 +530,25 @@ $spirit-radio-group-max-width:      $spirit-form-element-max-width;
 }
 
 // <select>
-$spirit-select-background-color:      $spirit-form-element-background-color;
-$spirit-select-border:          $spirit-form-element-border;
-$spirit-select-text-color:        $spirit-form-element-text-color;
-$spirit-select-font-family:         $spirit-form-font-family;
-$spirit-select-font-size:         $spirit-form-element-font-size;
-$spirit-select-height:          $spirit-form-element-height;
-$spirit-select-padding:           $spirit-form-element-padding;
-$spirit-select-label-space:         16px;
-$spirit-select-margin:          $spirit-form-element-stack;
-$spirit-select-max-width:         $spirit-form-element-max-width;
-$spirit-select-open-indicator-background: $spirit-form-element-selected-color;
-$spirit-select-icon-fill-color:       $spirit-form-element-icon-color;
-$spirit-select-icon-size:         $spirit-select-height / 2;
+$spirit-select-background-color:          $spirit-form-element-background-color;
+$spirit-select-border:                    $spirit-form-element-border;
+$spirit-select-text-color:                $spirit-form-element-text-color;
+$spirit-select-font-family:               $spirit-form-font-family;
+$spirit-select-font-size:                 $spirit-form-element-font-size;
+$spirit-select-height:                    $spirit-form-element-height;
+$spirit-select-padding:                   $spirit-form-element-padding;
+$spirit-select-label-space:               16px;
+$spirit-select-margin:                    $spirit-form-element-stack;
+$spirit-select-max-width:                 $spirit-form-element-max-width;
+$spirit-select-open-indicator-background: transparent;
+$spirit-select-icon-fill-color:           $spirit-form-element-icon-color;
+$spirit-select-icon-size:                 $spirit-size-icon-s;
 
 .spirit-form__select {
   @include spirit-box-sizing;
+  @include spirit-typography-reset;
   background-color: none;
-  display: inline-flex;
+  display: flex;
   height: $spirit-select-height;
   margin: $spirit-select-margin;
   max-width: $spirit-select-max-width;
@@ -535,6 +556,9 @@ $spirit-select-icon-size:         $spirit-select-height / 2;
 }
 
 .spirit-form__select-input {
+  @include spirit-typography-reset(
+    $font-weight: $spirit-font-weight-medium
+  );
   appearance: none;
   background: none;
   border: 0;
@@ -543,6 +567,7 @@ $spirit-select-icon-size:         $spirit-select-height / 2;
   font-family: $spirit-select-font-family;
   font-size: $spirit-select-font-size;
   height: 100%;
+  margin: 0;
   overflow: hidden;
   padding: $spirit-select-padding;
   padding-bottom: 0;
@@ -573,6 +598,7 @@ $spirit-select-icon-size:         $spirit-select-height / 2;
 .spirit-form__select-inner {
   background-color: $spirit-select-background-color;
   border: $spirit-select-border;
+  border-radius: $spirit-form-element-border-radius;
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -580,6 +606,14 @@ $spirit-select-icon-size:         $spirit-select-height / 2;
   right: 0;
   top: 0;
   z-index: 0;
+
+  .spirit-form__select--invalid & {
+    @include invalid-styles();
+  }
+
+  .spirit-form__select--valid & {
+    @include valid-styles();
+  }
 
   .spirit-form__select:hover &,
   .spirit-form__select--hover & {
@@ -598,11 +632,6 @@ $spirit-select-icon-size:         $spirit-select-height / 2;
   .spirit-form__select-input:disabled ~ & {
     @include disabled-styles();
     border: $spirit-select-border; // Prevent border color from changing on hover when input is disabled
-  }
-
-  .spirit-form--error &,
-  .spirit-form--error .spirit-form__select:hover & {
-    @include error-styles();
   }
 }
 
@@ -625,15 +654,15 @@ $spirit-select-icon-size:         $spirit-select-height / 2;
   }
 }
 
-.spirit-form__select-open-icon {
+.spirit-form__select-open-icon.spirit-icon {
   cursor: pointer;
   display: inline;
-  fill: $spirit-select-icon-fill-color;
   height: $spirit-select-icon-size;
   left: 50%;
   margin-left: -($spirit-select-icon-size / 2);
   margin-top: -($spirit-select-icon-size / 2);
   position: absolute;
+  stroke: $spirit-select-icon-fill-color;
   top: 50%;
   width: $spirit-select-icon-size;
 }

@@ -7,94 +7,375 @@
       text-align: left;
     }
   </style>
-  <h4 class="hostile-sink-reset">Forms Sink</h4>
+  <h1 class="hostile-sink-reset">Forms Sink</h1>
 
-  <h5 class="hostile-sink-reset">Input</h5>
-  {{ library.form_input(placeholder="First name") }}
 
-  <h5 class="hostile-sink-reset">Input Hover</h5>
-  {{ library.form_input(placeholder="First name", class="spirit-form__input--hover") }}
-
-  <h5 class="hostile-sink-reset">Input Focus</h5>
-  {{ library.form_input(placeholder="First name", class="spirit-form__input--focus") }}
-
-  <h5 class="hostile-sink-reset">Input Disabled</h5>
-  {{ library.form_input(placeholder="First name", disabled="true") }}
-
-  <h5 class="hostile-sink-reset">Input Error</h5>
-  {% call library.form_field_group(error="true") %}
-      {{ library.form_input(placeholder="First name") }}
+{# Input #}
+  <h2 class="hostile-sink-reset">Input</h2>
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Required", required=true) }}
+    {{ library.form_input() }}
+  {% endcall %}
+  
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="With Placeholder Text", required=true) }}
+    {{ library.form_input(placeholder="First name") }}
   {% endcall %}
 
-  <h5 class="hostile-sink-reset">Input With Placeholder</h5>
-  {{ library.form_input(placeholder="First Name") }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Optional", optional=true) }}
+    {{ library.form_input() }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Input With Too Much Placeholder</h5>
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="With Micro Copy", required=true) }}
+    {{ library.form_input(placeholder="First name") }}
+    {{ library.form_microcopy(text="Micro copy text goes here.") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Focus", required=true) }}
+    {{ library.form_input(placeholder="First name", class="spirit-form__input--focus") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Filled", required=true) }}
+    {{ library.form_input(placeholder="First name", value="Frederick") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Valid", required=true) }}
+    {{ library.form_input(placeholder="First name", value="Frederick", valid=true) }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Error", required=true) }}
+    {{ library.form_input(placeholder="First name", valid=false) }}
+    {{ library.form_field_error(text="Helpful error message.") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Error With Micro Copy", required=true) }}
+    {{ library.form_input(placeholder="First name", valid=false) }}
+    {{ library.form_field_error(text="Helpful error message.") }}
+    {{ library.form_microcopy(text="Micro copy goes here.") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Disabled", required=true) }}
+    {{ library.form_input(placeholder="First name", disabled=true) }}
+    {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+  {% endcall %}
+
+  <h5 class="hostile-sink-reset">Hidden Label</h5>
+  {{ library.form_input(placeholder="Default") }}
+  {{ library.form_input(value="Filled") }}
+  {{ library.form_input(placeholder="Disabled", disabled=true) }}
+  
+  <h5 class="hostile-sink-reset">Input Content Resilience, Long Placeholder </h5>
   {{ library.form_input(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
 
-  <h5 class="hostile-sink-reset">Input With Too Much Content</h5>
+  <h5 class="hostile-sink-reset">Input Content Resilience, Long Value</h5>
   {{ library.form_input(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
 
-  <h5 class="hostile-sink-reset">Textarea</h5>
-  {{ library.form_textarea() }}
 
-  <h5 class="hostile-sink-reset">Textarea Hover</h5>
-  {{ library.form_textarea(class="spirit-form__textarea--hover") }}
 
-  <h5 class="hostile-sink-reset">Textarea Focus</h5>
-  {{ library.form_textarea(class="spirit-form__textarea--focus") }}
-
-  <h5 class="hostile-sink-reset">Textarea Disabled</h5>
-  {{ library.form_textarea(disabled="true") }}
-
-  <h5 class="hostile-sink-reset">Textarea Error</h5>
-  {% call library.form_field_group(error="true") %}
-      {{ library.form_textarea() }}
+{# Textarea #}
+<h2 class="hostile-sink-reset">Textarea</h2>
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Required", required=true) }}
+    {{ library.form_textarea() }}
+  {% endcall %}
+  
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="With Placeholder Text", required=true) }}
+    {{ library.form_textarea(placeholder="First name") }}
   {% endcall %}
 
-  <h5 class="hostile-sink-reset">Textarea With Placeholder</h5>
-  {{ library.form_textarea(placeholder="140 chars or less...") }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Optional", optional=true) }}
+    {{ library.form_textarea() }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Textarea With Too Much Placeholder</h5>
-  {{ library.form_textarea(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore labore, necessitatibus blanditiis tempora, architecto veritatis aperiam tenetur expedita sequi, nihil alias! Adipisci officia sunt dolorum deleniti voluptatibus tempore earum incidunt!") }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="With Micro Copy", required=true) }}
+    {{ library.form_textarea(placeholder="First name") }}
+    {{ library.form_microcopy(text="Micro copy text goes here.") }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Textarea With Too Much Content</h5>
-  {{ library.form_textarea(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore labore, necessitatibus blanditiis tempora, architecto veritatis aperiam tenetur expedita sequi, nihil alias! Adipisci officia sunt dolorum deleniti voluptatibus tempore earum incidunt!") }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Focus", required=true) }}
+    {{ library.form_textarea(placeholder="First name", class="spirit-form__input--focus") }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Label</h5>
-  {{ library.form_label(text="First Name") }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Filled", required=true) }}
+    {{ library.form_textarea(placeholder="First name", value="Frederick") }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Label Required</h5>
-  {{ library.form_label(text="First Name", required=true) }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Valid", required=true) }}
+    {{ library.form_textarea(placeholder="First name", value="Frederick", valid=true) }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Label Optional</h5>
-  {{ library.form_label(text="First Name", optional=true) }}
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Error", required=true) }}
+    {{ library.form_textarea(placeholder="First name", valid=false) }}
+    {{ library.form_field_error(text="Helpful error message.") }}
+  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Label, Too Much Content</h5>
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Error With Micro Copy", required=true) }}
+    {{ library.form_textarea(placeholder="First name", valid=false) }}
+    {{ library.form_field_error(text="Helpful error message.") }}
+    {{ library.form_microcopy(text="Micro copy goes here.") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Disabled", required=true) }}
+    {{ library.form_textarea(placeholder="First name", disabled=true) }}
+    {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+  {% endcall %}
+
+  <h5 class="hostile-sink-reset">Hidden Label</h5>
+  {{ library.form_textarea(placeholder="Default") }}
+  {{ library.form_textarea(value="Filled") }}
+  {{ library.form_textarea(placeholder="Disabled", disabled=true) }}
+  
+  <h5 class="hostile-sink-reset">Input Content Resilience, Long Placeholder </h5>
+  {{ library.form_textarea(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
+
+  <h5 class="hostile-sink-reset">Input Content Resilience, Long Value</h5>
+  {{ library.form_textarea(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
+
+
+
+
+
+{# Select #}
+  <h2 class="hostile-sink-reset">Select</h2>
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Default", required=true) }}
+    {{ library.form_select(
+        default_text="Select an option",
+        default_value="",
+        options=[
+            {
+                text: "Select an option",
+                value: ""
+            },
+            {
+                text: "Option 1",
+                value: "option_1"
+            },
+            {
+                text: "Option 2",
+                value: "option_2"
+            }
+        ]) }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Selected", required=true) }}
+    {{ library.form_select(
+        default_text="Select an option",
+        default_value="",
+        options=[
+            {
+                text: "Select an option",
+                value: ""
+            },
+            {
+                text: "Option 1",
+                value: "option_1",
+                selected: true
+            },
+            {
+                text: "Option 2",
+                value: "option_2"
+            }
+        ]) }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Focus", required=true) }}
+    {{ library.form_select(class="spirit-form__select--focus") }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Valid", valid=true) }}
+    {{ library.form_select(valid=true, options=[
+        {
+            text: "Select an option",
+            value: ""
+        },
+        {
+            text: "Option 1",
+            value: "option_1",
+            selected: true
+        },
+        {
+            text: "Option 2",
+            value: "option_2"
+        }
+    ]) }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Error", required=true) }}
+    {{ library.form_select(valid=false) }}
+    {{ library.form_field_error(text="Helpful error message.")}}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="Disabled", required=true) }}
+    {{ library.form_select(disabled=true) }}
+    {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+  {% endcall %}
+
+  {% call library.form_field_group() %}
+    {{ library.form_label(text="With Option Groups", required=true) }}
+    {{ library.form_select(
+      options=[
+          {
+              text: "Select a platform",
+              value: ""
+          },
+          {
+              text: "MacOS",
+              children: [
+                  {
+                      text: "Sierra plus a longer label so it could wrap when it has to",
+                      value: "10.12"
+                  },
+                  {
+                      text: "El Capitan",
+                      value: "10.11",
+                      selected: true
+                  },
+                  {
+                      text: "Mavericks",
+                      value: "10.10"
+                  }
+              ]
+          },
+          {
+              text: "iOS",
+              children: [
+                  {
+                      text: "10",
+                      value: "ios-10"
+                  },
+                  {
+                      text: "9",
+                      value: "ios-9"
+                  }
+              ]
+          }
+      ]) }}
+    {{ library.form_microcopy(text='Open the select to view the option groups') }}
+  {% endcall %}
+
+
+  <h5 class="hostile-sink-reset">Select Content Resilience, Short Options</h5>
+  {{ library.form_select(
+      default_text="A",
+      default_value="",
+      options=[
+          {
+              text: "A",
+              value: ""
+          },
+          {
+              text: "B",
+              selected: true
+          },
+          {
+              text: "C",
+              value: "option_2"
+          }
+      ]) }}
+
+  <h5 class="hostile-sink-reset">Select Content Resilience, Long Options</h5>
+  {{ library.form_select(
+      default_text="Select an option",
+      default_value="",
+      options=[
+          {
+              text: "Select an option",
+              value: ""
+          },
+          {
+              text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.",
+              value: "option_1",
+              selected: true
+          },
+          {
+              text: "Option 2",
+              value: "option_2"
+          }
+      ]) }}
+
+
+
+
+
+{# Labels #}
+  <h2 class="hostile-sink-reset">Label</h2>
+  <h5 class="hostile-sink-reset">Required</h5>
+  {{ library.form_label(text="Form Label", required=true) }}
+
+  <h5 class="hostile-sink-reset">Optional</h5>
+  {{ library.form_label(text="Form Label", optional=true) }}
+
+  <h5 class="hostile-sink-reset">Icon</h5>
+  {% set annotation %}
+    {{ library.icon() }}
+  {% endset %}
+  {{ annotation | safe }}
+  {{ library.form_label(text="Form Label", annotation=annotation) }}
+
+
+  <h5 class="hostile-sink-reset">Label Content Resilience, Too Long</h5>
   {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?") }}
 
-  <h5 class="hostile-sink-reset">Label, Required Too Much Content</h5>
-  {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", required=true) }}
+  <h5 class="hostile-sink-reset">Label Content Resilience, Required, Too Long</h5>
+  {{ library.form_label(text="Required Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", required=true) }}
 
-  <h5 class="hostile-sink-reset">Label, Optional Too Much Content</h5>
-  {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", optional=true) }}
+  <h5 class="hostile-sink-reset">Label Content Resilience, Optional, Too Long</h5>
+  {{ library.form_label(text="Optional Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", optional=true) }}
 
-  <h5 class="hostile-sink-reset">Checkbox</h5>
-  {{ library.form_checkbox() }}    
 
-  <h5 class="hostile-sink-reset">Checkbox Hover</h5>
-  {{ library.form_checkbox(class="spirit-form__checkbox--hover") }}
 
-  <h5 class="hostile-sink-reset">Checkbox Focus</h5>
-  {{ library.form_checkbox(class="spirit-form__checkbox--focus") }}
+
+
+
+
+  
+
+
+{# Checkbox #}
+  <h2 class="hostile-sink-reset">Checkbox</h2>
+  {{ library.form_checkbox(label="Default") }}    
+
+  {{ library.form_checkbox(label="Hover", class="spirit-form__checkbox--hover") }}
+
+  {{ library.form_checkbox(label="Checked/Active", checked=true) }}
+
+  {% call library.form_field_group(error=true) %}
+      {{ library.form_checkbox(label="Unchecked, Error") }}
+  {% endcall %}
+
+  {% call library.form_field_group(error=true) %}
+      {{ library.form_checkbox(label="Checked, Error", checked=true) }}
+  {% endcall %}
+
+  {{ library.form_checkbox(label="Focus", class="spirit-form__checkbox--focus") }}
+
 
   <h5 class="hostile-sink-reset">Checkbox Disabled</h5>
   {{ library.form_checkbox(disabled=true) }}
 
-  <h5 class="hostile-sink-reset">Checkbox Error</h5>
-  {% call library.form_field_group(error="true") %}
-      {{ library.form_checkbox() }}
-  {% endcall %}
 
   <h5 class="hostile-sink-reset">Checkbox Too Little Content</h5>
   {{ library.form_checkbox(label="a") }}
@@ -105,8 +386,6 @@
   <h6 class="hostile-sink-reset">Indeterminate Checkbox</h6>
   {{ library.form_checkbox(indeterminate=true, label="Indeterminate checkbox") }}
 
-  <h6 class="hostile-sink-reset">Checked Checkbox</h6>
-  {{ library.form_checkbox(checked=true, label="Checked checkbox") }}
 
   <h5 class="hostile-sink-reset">Checkbox Group Stacked</h5>
   {% call library.form_checkbox_group(label="Select all the days that apply") %}
@@ -127,8 +406,8 @@
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Checkbox Group Horizontal</h5>
-  {% call library.form_field_group(horizontal="true") %}
-      {% call library.form_checkbox_group(label="Select at least one color", required="true") %}
+  {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_checkbox_group(label="Select at least one color", required=true) %}
           {{ library.form_checkbox(label="Red") }}
           {{ library.form_checkbox(label="Orange") }}
           {{ library.form_checkbox(label="Yellow") }}
@@ -136,8 +415,8 @@
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Checkbox Group Horizontal Too Much Content</h5>
-  {% call library.form_field_group(horizontal="true") %}
-      {% call library.form_checkbox_group(label="Select at least one color", required="true") %}
+  {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_checkbox_group(label="Select at least one color", required=true) %}
           {{ library.form_checkbox(label="Red") }}
           {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
           {{ library.form_checkbox(label="Yellow") }}
@@ -188,8 +467,8 @@
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Radio Group Horizontal</h5>
-  {% call library.form_field_group(horizontal="true") %}
-      {% call library.form_radio_group(label="Choose your favorite color", required="true", required_tooltip_text="You must choose your favorite color") %}
+  {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_radio_group(label="Choose your favorite color", required=true, required_tooltip_text="You must choose your favorite color") %}
           {{ library.form_radio(label="Red", name=sinkBackgroundColor + "-favorite-color", checked=true) }}
           {{ library.form_radio(label="Orange", name=sinkBackgroundColor + "-favorite-color") }}
           {{ library.form_radio(label="Yellow", name=sinkBackgroundColor + "-favorite-color") }}
@@ -197,124 +476,14 @@
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Radio Group Horizontal Too Much Content</h5>
-  {% call library.form_field_group(horizontal="true") %}
-      {% call library.form_radio_group(label="Choose your favorite color", required="true", required_tooltip_text="You must choose your favorite color-too-much-content") %}
+  {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_radio_group(label="Choose your favorite color", required=true, required_tooltip_text="You must choose your favorite color-too-much-content") %}
           {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.", name=sinkBackgroundColor + "-favorite-color-too-much-content", checked=true) }}
           {{ library.form_radio(label="Orange", name=sinkBackgroundColor + "-favorite-color-too-much-content") }}
           {{ library.form_radio(label="Yellow", name=sinkBackgroundColor + "-favorite-color-too-much-content") }}
       {% endcall %}
   {% endcall %}
 
-  <h5 class="hostile-sink-reset">Select</h5>
-  {{ library.form_select(
-      default_text="Select an option",
-      default_value="",
-      options=[
-          {
-              text: "Select an option",
-              value: ""
-          },
-          {
-              text: "Option 1",
-              value: "option_1"
-          },
-          {
-              text: "Option 2",
-              value: "option_2"
-          }
-      ]) }}
-
-  <h5 class="hostile-sink-reset">Select Hover</h5>
-  {{ library.form_select(class="spirit-form__select--hover") }}
-
-  <h5 class="hostile-sink-reset">Select Focus</h5>
-  {{ library.form_select(class="spirit-form__select--focus") }}
-
-  <h5 class="hostile-sink-reset">Select Disabled</h5>
-  {{ library.form_select(disabled=true) }}
-
-  <h5 class="hostile-sink-reset">Select Too Little Content</h5>
-  {{ library.form_select(
-      default_text="A",
-      default_value="",
-      options=[
-          {
-              text: "A",
-              value: ""
-          },
-          {
-              text: "B",
-              selected: true
-          },
-          {
-              text: "C",
-              value: "option_2"
-          }
-      ]) }}
-
-  <h5 class="hostile-sink-reset">Select Too Much Content</h5>
-  {{ library.form_select(
-      default_text="Select an option",
-      default_value="",
-      options=[
-          {
-              text: "Select an option",
-              value: ""
-          },
-          {
-              text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.",
-              value: "option_1",
-              selected: true
-          },
-          {
-              text: "Option 2",
-              value: "option_2"
-          }
-      ]) }}
-
-  <h5 class="hostile-sink-reset">Select Error</h5>
-  {% call library.form_field_group(error=true) %}
-      {{ library.form_select() }}
-  {% endcall %}
-
-  <h5 class="hostile-sink-reset">Select With Option Group</h5>
-  {{ library.form_select(
-      options=[
-          {
-              text: "Select a platform",
-              value: ""
-          },
-          {
-              text: "MacOS",
-              children: [
-                  {
-                      text: "Sierra plus a longer label so it could wrap when it has to",
-                      value: "10.12"
-                  },
-                  {
-                      text: "El Capitan",
-                      value: "10.11"
-                  },
-                  {
-                      text: "Mavericks",
-                      value: "10.10"
-                  }
-              ]
-          },
-          {
-              text: "iOS",
-              children: [
-                  {
-                      text: "10",
-                      value: "ios-10"
-                  },
-                  {
-                      text: "9",
-                      value: "ios-9"
-                  }
-              ]
-          }
-      ]) }}
 
   <h5 class="hostile-sink-reset">Microcopy</h5>
   {% call library.form_field_group() %}
@@ -341,28 +510,28 @@
   {% call library.form() %}
       {{ library.form_required_fields_key() }}
       {% call library.form_field_group() %}
-          {{ library.form_label(text="First Name", required="true", required_text="Please provide your first name", for="required-first-name") }}
+          {{ library.form_label(text="First Name", required=true, required_text="Please provide your first name", for="required-first-name") }}
           {{ library.form_input(id="required-first-name") }}
       {% endcall %}
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Field Error Input</h5>
   {% call library.form_field_group(error=true) %}
-      {{ library.form_label(text="First Name", required="true", required_text="Please provide your first name", for="error-first-name") }}
+      {{ library.form_label(text="First Name", required=true, required_text="Please provide your first name", for="error-first-name") }}
       {{ library.form_input(describedby="first-name-error", id="error-first-name") }}
       {{ library.form_field_error(id="first-name-error") }}
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Field Error Textarea</h5>
   {% call library.form_field_group(error=true) %}
-      {{ library.form_label(text="Tell us a little about yourself", required="true", required_text="Please tell us a little about yourself", for="error-textarea") }}
+      {{ library.form_label(text="Tell us a little about yourself", required=true, required_text="Please tell us a little about yourself", for="error-textarea") }}
       {{ library.form_textarea(describedby="textarea-error", id="error-textarea") }}
       {{ library.form_field_error(id="textarea-error") }}
   {% endcall %}
 
   <h5 class="hostile-sink-reset">Field Error Checkbox</h5>
   {% call library.form_field_group(error=true) %}
-      {% call library.form_checkbox_group(required="true", label="Select one or more free gifts to add to your order") %}
+      {% call library.form_checkbox_group(required=true, label="Select one or more free gifts to add to your order") %}
           {{ library.form_checkbox(label="Keychain", describedby="checkbox-error") }}
           {{ library.form_checkbox(label="Refrigerator Magnet", describedby="checkbox-error") }}
           {{ library.form_checkbox(label="Bumper Sticker", describedby="checkbox-error") }}
@@ -372,7 +541,7 @@
 
   <h5 class="hostile-sink-reset">Field Error Checkbox Too Much Content</h5>
   {% call library.form_field_group(error=true) %}
-      {% call library.form_checkbox_group(required="true", label="Select one or more free gifts to add to your order") %}
+      {% call library.form_checkbox_group(required=true, label="Select one or more free gifts to add to your order") %}
           {{ library.form_checkbox(label="Keychain", describedby="checkbox-error-too-much-content") }}
           {{ library.form_checkbox(label="Refrigerator Magnet", describedby="checkbox-error-too-much-content") }}
           {{ library.form_checkbox(label="Bumper Sticker", describedby="checkbox-error-too-much-content") }}
@@ -382,7 +551,7 @@
 
   <h5 class="hostile-sink-reset">Field Error Radio</h5>
   {% call library.form_field_group(error=true) %}
-      {% call library.form_radio_group(required="true", label="Select the greatest sci-fi franchise of all time") %}
+      {% call library.form_radio_group(required=true, label="Select the greatest sci-fi franchise of all time") %}
           {{ library.form_radio(label="Wars", name=sinkBackgroundColor + "-wars-or-trek", describedby="radio-button-error-message") }}
           {{ library.form_radio(label="Trek", name=sinkBackgroundColor + "-wars-or-trek", describedby="radio-button-error-message") }}
           {{ library.form_field_error(text="You must answer the question", id="radio-button-error-message") }}
@@ -391,7 +560,7 @@
 
   <h5 class="hostile-sink-reset">Field Error Select</h5>
   {% call library.form_field_group(error=true) %}
-      {{ library.form_label(text="Choose an option", required="true", required_text="Please choose one option", for="select-with-error") }}
+      {{ library.form_label(text="Choose an option", required=true, required_text="Please choose one option", for="select-with-error") }}
       {{ library.form_select(describedby="select-error-message", id="select-with-error") }}
       {{ library.form_field_error(text="You must choose an option", id="select-error-message") }}
   {% endcall %}
