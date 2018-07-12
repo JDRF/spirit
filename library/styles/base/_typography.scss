@@ -1,3 +1,6 @@
+/// setspace Mixin
+/// Reset the font to cancel any outside styles
+/// @example @include spirit-font-reset;
 @mixin spirit-font-reset {
   color: $spirit-color-black;
   font-style: normal;
@@ -15,6 +18,12 @@
   }
 }
 
+/// setspace Function
+/// Return a breakpoint from the tokens file
+/// @example spirit-get-breakpoint('l');
+/// @require {function} spirit-token
+/// @param {string} $breakpoint-name  The name of a breakpoint as listed in the tokens file
+/// @return {number} Returns a width.
 @function spirit-get-breakpoint($breakpoint-name) {
   @if type-of($breakpoint-name) != 'string' {
     @error 'Received a #{type-of($breakpoint-name)} of #{$breakpoint-name} for $breakpoint. Please supply a single string.';
@@ -29,8 +38,15 @@
   @return $breakpoint-width;
 }
 
+/// setspace Function
+/// Returns a deeply nested token based on two lists.
+/// @example spirit-get-nested-token(('font', 'size'), ('display', 'level-1;'));
+/// @require {function} spirit-token
+/// @param {list} $parent A comma-separated list of strings which represent tokens.
+/// @param {list | string} $children A single token or comma-separated list of strings which represent tokens.
+/// @return {any} Returns a token result.
 @function spirit-get-nested-token($parent, $children) {
-  @if type-of($children) != 'list' and type-of('font-type') != 'string' {
+  @if type-of($children) != 'list' and type-of($children) != 'string' {
     @error 'Received #{$children} for $children. Please supply a comma separated list of items which matches those in the token file below font > size.';
   }
 
@@ -45,13 +61,21 @@
   @return $result;
 }
 
+/// setspace Mixin
+/// Outputs a single value or a responsive value
+/// @example spirit-responsive-value('('normal': 16px, 'breakpoint-l': 24px)', 'font-size', 'l', 1024px);
+/// @param {number | map} $value      This can either be a single numerical value, or a map which adheres to the convention set out on the token file.
+/// @param {string} $css-property     The CSS property which is to be set.
+/// @param {string} $breakpoint-name  The name of the breakpoint from the token file.
+/// @param {string} $breakpoint-width The width of the breakpoint from $breakpoint-name.
+/// @output If passed a single value for $value, will return a single property, e.g. font-size: 16px. If passed a map which adheres to the convention, output a correct media-query at the breakpoint.
 @mixin spirit-responsive-value($value, $css-property, $breakpoint-name, $breakpoint-width) {
   @if type-of($value) != 'number' and type-of($value) != 'map' {
-    @error 'Sorry, an unexpected result was returned from #{joined}: #{$value}. Expecting a map with "normal" and "breakpoint-l" keys.';
+    @error 'Sorry, an unexpected result was received for $value: #{$value}. Expecting a map with "normal" and "breakpoint-l" keys.';
   }
 
   // The token could just be a non-responsive value
-  @if type-of($value) == number {
+  @if type-of($value) == 'number' {
     #{$css-property}: $value;
   }
 
@@ -66,6 +90,15 @@
   }
 }
 
+/// setspace Mixin
+/// Generates a responsive font size
+/// @example spirit-font-size-responsive( $font-type: ('heading', 'level-1') );
+/// @require {function} spirit-get-breakpoint;
+/// @require {function} spirit-get-nested-token;
+/// @require {mixin} spirit-responsive-value;
+/// @param {list | string} $font-type [('heading', 'level-1')] Where to look below 'font' > 'size' in the tokens file.
+/// @param {string} $breakpoint ['l'] The name of the breakpoint from the token file.
+/// @output Will output result of spirit-responsive-value mixin.
 @mixin spirit-font-size-responsive(
   $font-type: ('heading', 'level-1'),
   $breakpoint: 'l'
@@ -79,6 +112,15 @@
 
 }
 
+/// setspace Mixin
+/// Generates a responsive line-height
+/// @example spirit-font-line-height-responsive( $font-type: ('heading', 'level-1') );
+/// @require {function} spirit-get-breakpoint;
+/// @require {function} spirit-get-nested-token;
+/// @require {mixin} spirit-responsive-value;
+/// @param {list | string} $font-type [('heading', 'level-1')] Where to look below 'font' > 'line-height' in the tokens file.
+/// @param {string} $breakpoint ['l'] The name of the breakpoint from the token file.
+/// @output Will output result of spirit-responsive-value mixin.
 @mixin spirit-font-line-height-responsive(
   $font-type: ('heading', 'level-1'),
   $breakpoint: 'l'
@@ -91,7 +133,6 @@
   @include spirit-responsive-value($line-height, 'line-height', $breakpoint, $breakpoint-width);
 
 }
-
 
 h1,
 h2,
@@ -160,6 +201,7 @@ h6 {
 
 .spirit-body-text-l {
   @include spirit-font-reset;
+  // Can also use @include spirit-font-size-responsive($font-type: 'l'), but not necessary;
   font-size: $spirit-font-size-l;
 }
 
