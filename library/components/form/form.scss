@@ -278,7 +278,7 @@ $spirit-checkbox-checkmark-fill-color:      $spirit-color-white;
 $spirit-checkbox-checkmark-size:            $spirit-size-icon-xs;
 $spirit-checkbox-margin:                    $spirit-space-stack-2-x;
 $spirit-checkbox-size:                      18px;
-$spirit-checkbox-grid-margin:               $spirit-form-element-grid-space;
+$spirit-checkbox-grid-margin:               0 $spirit-space-generic-3-x $spirit-space-generic-2-x 0;
 $spirit-checkbox-max-width:                 $spirit-form-element-max-width;
 $spirit-checkbox-label-space:               $spirit-space-generic-1-x;  
 
@@ -321,7 +321,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   height: $spirit-checkbox-size;
   margin-right: $spirit-checkbox-label-space;
   position: relative;
-  top: -4px;
+  // top: -4px;
   width: $spirit-checkbox-size;
 
   .spirit-form__checkbox-input:indeterminate + .spirit-form__checkbox-inner &,
@@ -394,6 +394,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
     $font-size: $spirit-checkbox-label-font-size
   );
   @include spirit-text-crop;
+  margin-top: 5px; // Vertically center the first line of text with the checkbox - used instead of align-items: center in case the checkbox label wraps
 
   .spirit-form__checkbox:hover &,
   .spirit-form__checkbox--hover & {
@@ -430,7 +431,7 @@ $spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 
   // Custom bottom margin if an error message is included
   .spirit-form__field-error {
-    margin: $spirit-checkbox-group-label-margin;
+    margin: -($spirit-space-generic-1-x) 0 $spirit-space-generic-2-x;
   }
 }
 
@@ -458,7 +459,7 @@ $spirit-radio-fill-color:               $spirit-color-white;
 $spirit-radio-fill-size:                8px;
 $spirit-radio-margin:                   $spirit-form-element-stack;
 $spirit-radio-size:                     18px;
-$spirit-radio-grid-margin:              $spirit-form-element-grid-space;
+$spirit-radio-grid-margin:               0 $spirit-space-generic-3-x $spirit-space-generic-2-x 0;
 $spirit-radio-max-width:                $spirit-form-element-max-width;
 $spirit-radio-label-space:              4px;  
 
@@ -772,10 +773,17 @@ $spirit-field-error-max-width:  $spirit-form-element-max-width;
     $color: $spirit-field-error-text-color,
     $font-size: $spirit-field-error-font-size
   );
-  @include spirit-text-crop;
+  // @include spirit-text-crop;
   display: block;
   margin: $spirit-field-error-margin;
   max-width: $spirit-field-error-max-width;
+}
+
+.spirit-form__field-error-icon.spirit-icon {
+  height: $spirit-size-icon-s;
+  position: relative;
+  top: -1px;
+  width: $spirit-size-icon-s;
 }
 
 // Fieldset

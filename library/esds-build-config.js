@@ -1,13 +1,15 @@
 'use strict';
 module.exports = {
   svgoConfig: {
-      plugins: [
-          {
-              removeAttrs: {
-                  attrs: 'stroke'
-              }
-          }
-      ]
+    plugins: [{
+      convertShapeToPath: false
+      }, {
+        convertPathData: false
+      }, {
+      removeAttrs: {
+        attrs: ['stroke', 'class']
+      }
+    }]
   },
   copyTasks: [
     {

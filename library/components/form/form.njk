@@ -304,11 +304,13 @@
             class=false,  
             id=false,
             text='This field is required',
-            icon_path=false) %}
+            showIcon=false) %}
     <span class="spirit-form__field-error{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %} role="alert">
-        {# {{ icon(name='message-error', class='spirit-form__field-error-icon') }} #}
+        {% if showIcon %}
+            {{ icon(name='alert-circle', class='spirit-form__field-error-icon') }}
+        {% endif %}
         <span class="spirit-form__field-error-text">
-            {{ text }}
+            {{ text | safe }}
         </span>
     </span>
 {% endmacro %}

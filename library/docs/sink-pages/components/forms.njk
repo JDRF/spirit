@@ -400,6 +400,8 @@
 
   {{ library.form_checkbox(label="Checked, Disabled", disabled=true, checked=true) }}
 
+  {{ library.form_checkbox(label="Default with a wrapping<br/>label") }}
+
   {{ library.form_checkbox(label="Indeterminate", indeterminate=true) }}
 
 
@@ -428,7 +430,7 @@
 
   <h5 class="hostile-sink-reset">Group with Error</h5>
   {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
-      {{ library.form_field_error(text="Helpful error message.") }}
+      {{ library.form_field_error(text="Helpful error message.", showIcon=true) }}
       {{ library.form_checkbox(label="Option 1") }}
       {{ library.form_checkbox(label="Option 2") }}
       {{ library.form_checkbox(label="Option 3, Disabled") }}
