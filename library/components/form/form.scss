@@ -118,6 +118,34 @@ $spirit-text-input-max-width:         $spirit-form-element-max-width;
 $spirit-text-input-padding:           $spirit-form-element-padding;
 
 .spirit-form__input {
+  position: relative;
+}
+
+.spirit-form__input-icon-wrap {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $spirit-text-input-height;
+}
+
+.spirit-form__input-icon.spirit-icon {
+  height: $spirit-size-icon-s;
+  width: $spirit-size-icon-s;
+
+  .spirit-form__input--invalid & {
+    stroke: $spirit-feedback-color-foreground-danger;
+  }
+
+  .spirit-form__input--valid & {
+    stroke: $spirit-feedback-color-foreground-success;
+  }
+}
+
+.spirit-form__input-field {
   @include spirit-box-sizing;
   @include spirit-typography-reset(
     $color: $spirit-text-input-color,
@@ -140,12 +168,15 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
     );
   }
 
+  .spirit-form__input--with-icon & {
+    padding-right: $spirit-text-input-height;
+  }
 
-  &.spirit-form__input--invalid {
+  .spirit-form__input--invalid & {
     @include invalid-styles();
   }
 
-  &.spirit-form__input--valid {
+  .spirit-form__input--valid & {
     @include valid-styles();
   }
 

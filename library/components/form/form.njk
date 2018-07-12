@@ -53,19 +53,29 @@
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
         {% set validation_class = 'spirit-form__input--valid' %}
+        {% set validation_icon = 'check' %}
     {% elif valid == false %}
         {% set validation_class = 'spirit-form__input--invalid' %}
+        {% set validation_icon = 'alert-circle' %}
     {% endif %}
 
-    <input 
-    class="spirit-form__input{{ ' ' + class if class }}{{ ' ' + validation_class if validation_class }}" 
-    type="{{ type }}"
-    {% if id %} id="{{ id }}" {% endif %} 
-    {% if name %} name="{{ name }}" {% endif %} 
-    {% if value %} value="{{ value }}" {% endif %} 
-    {{ 'disabled' if disabled }} 
-    {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
-    {% if describedby %} aria-describedby="{{describedby}}" {% endif %}>
+    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
+        <input 
+        class="spirit-form__input-field{{ ' ' + class if class }}" 
+        type="{{ type }}"
+        {% if id %} id="{{ id }}" {% endif %} 
+        {% if name %} name="{{ name }}" {% endif %} 
+        {% if value %} value="{{ value }}" {% endif %} 
+        {{ 'disabled' if disabled }} 
+        {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
+        {% if describedby %} aria-describedby="{{describedby}}" {% endif %}>
+        
+        {% if validation_icon %}
+            <div class="spirit-form__input-icon-wrap">
+              {{ icon(name=validation_icon, class="spirit-form__input-icon") }}  
+            </div>
+        {% endif %}
+    </div>
 {% endmacro %}
 
 {% macro form_label(
