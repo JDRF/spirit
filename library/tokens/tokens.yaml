@@ -35,49 +35,17 @@ icon-color :
   blue : *color-blue-100
   grey : *color-grey-35
 interactive-color :
-  focus :     *color-blue-30
+  primary : *color-blue-100
+  on-dark : *color-white
+  text : 
+    primary : *color-blue-100
+    on-dark : *color-white
   disabled :
-    text :    *color-grey-70
-    fill :    *color-grey-98
-  primary : #also covers icon-only
-    text :    *color-white
-    fill :    *color-blue-100
-    glow :    *elevation-color-blue
-  secondary :
-    text :    *color-blue-100
-    fill :    *color-white
-    glow :    *elevation-color-default
-    border :  *color-grey-95
-  minimal : 
-    fill :    transparent
-    fill-hover :   *color-blue-15
-    fill-active :  *color-blue-30
-    text :    *color-blue-100
-  on-dark : #also covers icon-only-on-dark
-    text :    *color-blue-100
-    fill :    *color-white
-    glow :    *elevation-color-default
-  minimal-on-dark : 
-    fill :    transparent
-    fill-hover :   *color-blue-30
-    fill-active :  *color-blue-15
-    text :    *color-white
-    text-hover : *color-blue-100
-    text-active : *color-black
-  toggle :
-    text :    *color-blue-100
-    fill :    *color-white
-    fill-hover :   *color-blue-15
-    glow :    *elevation-color-default
-    border :  *color-blue-100
-  input :
-    focus :   *color-blue-100
-  success :
-    text : *color-white
-    fill : *color-green-67
-  danger :
-    text : *color-white
-    fill : *color-red-100
+    foreground : *color-grey-70
+    background : *color-grey-98
+  focus :
+    outer : *color-blue-30 # buttons, links
+    inner : *color-blue-100
 feedback-color :
   foreground :
     danger :    *color-red-100
