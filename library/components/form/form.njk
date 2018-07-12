@@ -423,3 +423,23 @@
         {%- endif -%}
     </fieldset>
 {% endmacro %}
+
+{% macro form_message(
+    class=false,
+    text="Some information about this form",
+    type="info"
+    ) %}
+    {% set typeIcons = {
+        "info": "help-circle",
+        "error": "alert-circle",
+        "success": "check-circle"
+    } %}
+    <div class="spirit-form__message spirit-form__message--{{ type }}">
+        <div class="spirit-form__message-icon-wrap">
+            {{ icon(name=typeIcons[type], class="spirit-form__message-icon") }}
+        </div>
+        <div class="spirit-form__message-text">
+            {{ text | safe }}
+        </div>
+    </div>
+{% endmacro %}

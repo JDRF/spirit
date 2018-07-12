@@ -248,7 +248,7 @@
     {% call library.form_field_group() %}
       {{ library.form_label(text="Error", required=true) }}
       {{ library.form_select(valid=false) }}
-      {{ library.form_field_error(text="Helpful error message.", showIcon=true) }}
+      {{ library.form_field_error(text="Helpful error message.") }}
     {% endcall %}
 
     {% call library.form_field_group() %}
@@ -357,6 +357,7 @@
       <style>
         .custom-annotation-thing {
           height: 20px;
+          stroke: {{ spirit_tokens['text-color'].link }};
           width: 20px;
         }
       </style>
@@ -562,6 +563,7 @@
         {% endcall %}
     {% endcall %}
 
+    <h2 class="hostile-sink-reset">Fieldset &amp; Legend</h2>
     <h5 class="hostile-sink-reset">Fieldset, hidden legend</h5>
     {% call library.form_fieldset() %}
         {{ library.form_legend(text="Contact Info", hidden=true) }}
@@ -617,55 +619,63 @@
         {% endcall %}
     {% endcall %}
 
-    <h5 class="hostile-sink-reset">Content Resilience, full form</h5>
-    {% call library.form() %}
-        {% call library.form_field_group() %}
-            {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. ", for="too-much-label-input", valid=false) }}
-            {{ library.form_input(id="too-much-label-input") }}
-            {{ library.form_field_error(text="Really really really really long error message. Really really really really long error message. Really really really really long error message. Really really really really long error message. Really really really really long error message. ") }}
-        {% endcall %}
-        {% call library.form_field_group() %}
-            {{ library.form_label(text="Email", for="second-contact-form-email") }}
-            {{ library.form_input(type="email", id="second-contact-form-email") }}
-            {{ library.form_microcopy(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illum optio vel sunt soluta, impedit, neque amet accusantium, nesciunt ipsam eaque numquam fugiat consequuntur laborum labore sapiente ex eum asperiores?") }}
-        {% endcall %}
-        {% call library.form_checkbox_group(label="Do you accept the terms and conditions?") %}
-          {{ library.form_checkbox() }}
-          {{ library.form_checkbox(label="No, really, I accept the terms and conditions. I promise.") }}
-          {{ library.form_checkbox(label="For real, I accept ALL the terms, ALL the conditions and any more that may be added in perpetuity throughout the univers.") }}
-        {% endcall %}
-        {{ library.button(variations=["primary"], text="Subscribe Now") }}
-    {% endcall %}
 
+    <h2 class="hostile-sink-reset">Form Level Messages</h2>
+    {{ library.form_message(type="success", text="Success confirmation message.") }}
+    {{ library.form_message(type="error", text="Error highlighting message.") }}
+    {{ library.form_message(type="info", text="Informational message.") }}
+    
+    <h5 class="hostile-sink-reset">Custom Messages</h5>
+    {% set error_message %}
+      <strong>You missed some required fields.</strong>
+      <ul style="list-style: disc; margin:0; padding: 16px 0 0 24px;">
+        <li>First Name is required.</li>
+        <li>Email is required.</li>
+      </ul>
+    {% endset %}
+    {{ library.form_message(type="error", text=error_message) }}
+    
+    <h5 class="hostile-sink-reset">Content Resilience, Long Message</h5>
+    {{ library.form_message(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo molestias, recusandae animi quam tempora sint tenetur sapiente. Quos ipsam quidem numquam labore, repudiandae fugit, hic architecto, rem doloribus deserunt optio!") }}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="hostile-sink-reset">Composed Examples</h2>
     <h5 class="hostile-sink-reset">Horizontal Arrangement Example</h5>
-    {% call library.form_field_group(horizontal=true) %}
-        {% call library.form_field_group() %}
-            {{ library.form_label(text="Credit Card Number", required=true, for="horizontal-form-cc-number") }}
-            {{ library.form_input(id="horizontal-form-cc-number") }}
-        {% endcall %}
-        {% call library.form_field_group(class="spirit-form__field-group--s") %}
-            {{ library.form_label(text="<abbr title='Expiration'>Exp</abbr> Date", required=true, for="horizontal-form-cc-exp-date") }}
-            {{ library.form_input(placeholder="MM/YY", id="horizontal-form-cc-exp-date") }}
-        {% endcall %}
-        {% call library.form_field_group(class="spirit-form__field-group--xs") %}
-            {{ library.form_label(text="CVC", required=true, for="horizontal-form-cc-cvc") }}
-            {{ library.form_input(id="horizontal-form-cc-cvc") }}
-        {% endcall %}
-    {% endcall %}
-    {% call library.form_field_group(horizontal=true) %}
-        {% call library.form_field_group() %}
-            {{ library.form_label(text="Favorite Food", for="horizontal-form-favorite-food") }}
-            {{ library.form_input(id="horizontal-form-favorite-food") }}
-        {% endcall %}
-        {% call library.form_field_group() %}
-            {% call library.form_radio_group(label="Dessert or no?", required=true) %}
-                {{ library.form_radio(id="dessert-yes", value="yes", name=sinkBackgroundColor + "-radio-group-dessert", label="Yes, Please", checked=true) }}
-                {{ library.form_radio(id="dessert-no", value="no", name=sinkBackgroundColor + "-radio-group-dessert", label="No, Thank You") }}
-            {% endcall %}
-        {% endcall %}
+    {% call library.form() %}
+      {% call library.form_field_group(horizontal=true) %}
+          {% call library.form_field_group() %}
+              {{ library.form_label(text="Credit Card Number", required=true, for="horizontal-form-cc-number") }}
+              {{ library.form_input(id="horizontal-form-cc-number") }}
+          {% endcall %}
+          {% call library.form_field_group(class="spirit-form__field-group--s") %}
+              {{ library.form_label(text="<abbr title='Expiration'>Exp</abbr> Date", required=true, for="horizontal-form-cc-exp-date") }}
+              {{ library.form_input(placeholder="MM/YY", id="horizontal-form-cc-exp-date") }}
+          {% endcall %}
+          {% call library.form_field_group(class="spirit-form__field-group--xs") %}
+              {{ library.form_label(text="CVC", required=true, for="horizontal-form-cc-cvc") }}
+              {{ library.form_input(id="horizontal-form-cc-cvc") }}
+          {% endcall %}
+      {% endcall %}
+      {% call library.form_field_group(horizontal=true) %}
+          {% call library.form_field_group() %}
+              {{ library.form_label(text="Favorite Food", for="horizontal-form-favorite-food") }}
+              {{ library.form_input(id="horizontal-form-favorite-food") }}
+          {% endcall %}
+          {% call library.form_field_group() %}
+              {% call library.form_radio_group(label="Dessert or no?", required=true) %}
+                  {{ library.form_radio(id="dessert-yes", value="yes", name=sinkBackgroundColor + "-radio-group-dessert", label="Yes, Please", checked=true) }}
+                  {{ library.form_radio(id="dessert-no", value="no", name=sinkBackgroundColor + "-radio-group-dessert", label="No, Thank You") }}
+              {% endcall %}
+          {% endcall %}
+      {% endcall %}
+      {{ library.button(type="submit", text="Save Payment Info") }}
     {% endcall %}
 
-    <h5 class="hostile-sink-reset">Full Example</h5>
+    <h5 class="hostile-sink-reset">Long Form Example</h5>
     {% call library.form() %}
         {{ library.form_required_fields_key() }}
         {% call library.form_field_group() %}
@@ -741,6 +751,29 @@
             {{ library.form_label(text="Special Instructions for your order which you can provide right here this label is long to test wrapping behavior", optional=true, for="full-form-shipping-instructions") }}
             {{ library.form_textarea(id="full-form-shipping-instructions") }}
         {% endcall %}
+
+        {{ library.button(type="submit", text="Order Now") }}
+    {% endcall %}
+
+    <h5 class="hostile-sink-reset">Content Resilience</h5>
+    {% call library.form() %}
+        {{ library.form_message(type="error", text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo molestias, recusandae animi quam tempora sint tenetur sapiente. Quos ipsam quidem numquam labore, repudiandae fugit, hic architecto, rem doloribus deserunt optio!") }}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. ", for="too-much-label-input", valid=false) }}
+            {{ library.form_input(id="too-much-label-input") }}
+            {{ library.form_field_error(text="Really really really really long error message. Really really really really long error message. Really really really really long error message. Really really really really long error message. Really really really really long error message. ") }}
+        {% endcall %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Email", for="second-contact-form-email") }}
+            {{ library.form_input(type="email", id="second-contact-form-email") }}
+            {{ library.form_microcopy(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illum optio vel sunt soluta, impedit, neque amet accusantium, nesciunt ipsam eaque numquam fugiat consequuntur laborum labore sapiente ex eum asperiores?") }}
+        {% endcall %}
+        {% call library.form_checkbox_group(label="Do you accept the terms and conditions?") %}
+          {{ library.form_checkbox() }}
+          {{ library.form_checkbox(label="No, really, I accept the terms and conditions. I promise.") }}
+          {{ library.form_checkbox(label="For real, I accept ALL the terms, ALL the conditions and any more that may be added in perpetuity throughout the univers.") }}
+        {% endcall %}
+        {{ library.button(type="submit", text="Subscribe Now") }}
     {% endcall %}
 </div> {# closing div.forms-sink-wrapper #}
 {% endblock body %}

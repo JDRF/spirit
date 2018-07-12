@@ -14,11 +14,11 @@ color :
     30 :      &color-blue-30      "#B3CCFF"
     default : &color-blue-default "#0055FF"
   green :
-    67 : &color-green-67 "#37A941"
+    67 :      &color-green-67 "#37A941"
     light :   &color-green-20 "#BBE9BF"
   red :
-    100 : &color-red-100  "#F40050"
-    35 :   &color-red-35   "#FFA6C4"
+    35 :    &color-red-35   "#FFA6C4"
+    100 :   &color-red-100  "#F40050"
 elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
   blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-default

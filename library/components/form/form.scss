@@ -254,6 +254,7 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
   @include spirit-box-sizing;
   color: $spirit-required-field-indicator-color;
   margin: $spirit-space-inline-right-half-x;
+  text-decoration: none;
 }
 
 .spirit-form__label-accessible-text {
@@ -465,7 +466,7 @@ $spirit-radio-margin:                   $spirit-space-stack-2-x;
 $spirit-radio-size:                     18px;
 $spirit-radio-grid-margin:              0 $spirit-space-generic-3-x $spirit-space-generic-2-x 0;
 $spirit-radio-max-width:                $spirit-form-element-max-width;
-$spirit-radio-label-space:              4px;  
+$spirit-radio-label-space:              $spirit-space-generic-1-x;
 
 .spirit-form__radio {
   @include spirit-box-sizing;
@@ -853,4 +854,57 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 
 .spirit-form__legend--hidden {
   @include spirit-accessibly-hidden;
+}
+
+
+
+
+
+// Form Level Messages
+.spirit-form__message {
+  @include spirit-box-sizing;
+  @include spirit-typography-reset;
+  background-color: $spirit-feedback-color-background-info;
+  border-radius: $spirit-border-radius-l;
+  display: flex;
+  margin: $spirit-space-stack-4-x;
+  padding: $spirit-space-inset-2-x;
+
+  &.spirit-form__message--info {
+    background-color: $spirit-feedback-color-background-info;
+  }
+
+  &.spirit-form__message--success {
+    background-color: $spirit-feedback-color-background-success;
+  }
+
+  &.spirit-form__message--error {
+    background-color: $spirit-feedback-color-background-danger;
+  }
+}
+
+.spirit-form__message-icon-wrap {
+  margin: $spirit-space-inline-left-2-x;
+}
+
+.spirit-form__message-icon.spirit-icon {
+  height: $spirit-size-icon-m;
+  stroke: $spirit-feedback-color-foreground-info;
+  width: $spirit-size-icon-m;
+
+  .spirit-form__message--info & {
+    stroke: $spirit-feedback-color-foreground-info;
+  }
+
+  .spirit-form__message--success & {
+    stroke: $spirit-feedback-color-foreground-success;
+  }
+
+  .spirit-form__message--error & {
+    stroke: $spirit-feedback-color-foreground-danger;
+  }
+}
+
+.spirit-form__message-text {
+  margin-top: 2px; // Vertically align first line of text with icon
 }
