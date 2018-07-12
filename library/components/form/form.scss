@@ -321,7 +321,6 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   height: $spirit-checkbox-size;
   margin-right: $spirit-checkbox-label-space;
   position: relative;
-  // top: -4px;
   width: $spirit-checkbox-size;
 
   .spirit-form__checkbox-input:indeterminate + .spirit-form__checkbox-inner &,
@@ -348,11 +347,13 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   
 
   // Invalid state
+  .spirit-form__checkbox-group--invalid &,
   .spirit-form__checkbox--invalid & {
     @include invalid-styles();
   }
 
   // Invalid state, checked
+  .spirit-form__checkbox-group--invalid .spirit-form__checkbox-input:checked + .spirit-form__checkbox-inner &,
   .spirit-form__checkbox--invalid .spirit-form__checkbox-input:checked + .spirit-form__checkbox-inner & {
     background: $spirit-form-element-error-color;
   }
@@ -409,7 +410,6 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   .spirit-form__checkbox-input:disabled + .spirit-form__checkbox-inner & {
     color: $spirit-interactive-color-disabled-text;
   }
-
 }
 
 
@@ -425,11 +425,11 @@ $spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 .spirit-form__checkbox-group {
   border: 0;
   font-size: 0;
-  margin: 0;
+  margin: $spirit-space-stack-4-x;
   max-width: $spirit-checkbox-group-max-width;
   padding: 0;
 
-  // Custom bottom margin if an error message is included
+  // Custom margin if an error message is included
   .spirit-form__field-error {
     margin: -($spirit-space-generic-1-x) 0 $spirit-space-generic-2-x;
   }
@@ -448,27 +448,28 @@ $spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 }
 
 // <input[type='radio']/>
-$spirit-radio-label-color:              $spirit-form-label-color;
+$spirit-radio-label-color:              $spirit-text-color-secondary;
 $spirit-radio-label-font-family:        $spirit-form-font-family;
 $spirit-radio-label-font-size:          $spirit-form-element-font-size;
 $spirit-radio-background-color:         $spirit-color-white;
 $spirit-radio-border:                   solid 1px $spirit-color-grey-35;
+$spirit-radio-border-color-hover-focus: $spirit-form-element-selected-color;         
 $spirit-radio-border-radius:            $spirit-form-element-border-radius;
+$spirit-radio-text-color-hover:         $spirit-text-color-primary;         
+$spirit-radio-text-color-focus:         $spirit-form-element-selected-color; 
 $spirit-radio-checked-background-color: $spirit-form-element-selected-color;
 $spirit-radio-fill-color:               $spirit-color-white;
 $spirit-radio-fill-size:                8px;
-$spirit-radio-margin:                   $spirit-form-element-stack;
+$spirit-radio-margin:                   $spirit-space-stack-2-x;
 $spirit-radio-size:                     18px;
-$spirit-radio-grid-margin:               0 $spirit-space-generic-3-x $spirit-space-generic-2-x 0;
+$spirit-radio-grid-margin:              0 $spirit-space-generic-3-x $spirit-space-generic-2-x 0;
 $spirit-radio-max-width:                $spirit-form-element-max-width;
 $spirit-radio-label-space:              4px;  
 
 .spirit-form__radio {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
-  cursor: pointer;
   display: block;
-  font-family: $spirit-radio-label-font-family;
   margin: $spirit-radio-margin;
   max-width: $spirit-radio-max-width;
 
@@ -481,15 +482,11 @@ $spirit-radio-label-space:              4px;
 
 .spirit-form__radio-inner { // In order for a :focus state to wrap the psuedo radio and text, this element is required
   align-items: flex-start;
+  cursor: pointer;
   display: inline-flex;
 
   .spirit-form__radio-input:disabled + & {
-    @include disabled-styles();
-  }
-
-  .spirit-form__radio--focus &,
-  .spirit-form__radio-input:focus + & {
-    @include focus-styles();
+    cursor: not-allowed;
   }
 }
 
@@ -497,6 +494,7 @@ $spirit-radio-label-space:              4px;
   @include spirit-accessibly-hidden();
 }
 
+// Radio Visual Button
 .spirit-form__radio-visual {
   background: $spirit-radio-background-color;
   border: $spirit-radio-border;
@@ -525,35 +523,67 @@ $spirit-radio-label-space:              4px;
     }
   }
 
+  .spirit-form__radio--focus &,
+  .spirit-form__radio-input:focus + .spirit-form__radio-inner &,
   .spirit-form__radio:hover &,
   .spirit-form__radio--hover & {
-    @include hover-styles();
+    border-color: $spirit-radio-border-color-hover-focus;
+  }
+
+  // Disabled, Unchecked
+  .spirit-form__radio-input:disabled + .spirit-form__radio-inner & {
+    border-color: $spirit-interactive-color-disabled-text; // Prevent border color from changing on hover when input is disabled
+  }
+
+  // Disabled, Checked
+  .spirit-form__radio-input:disabled:checked + .spirit-form__radio-inner & {
+    background-color: $spirit-interactive-color-disabled-text;
+  }
+
+  // Invalid state
+  .spirit-form__radio-group--invalid &,
+  .spirit-form__radio--invalid & {
+    @include invalid-styles();
+  }
+
+  // Invalid state, checked
+  .spirit-form__radio-group--invalid .spirit-form__radio-input:checked + .spirit-form__radio-inner &,
+  .spirit-form__radio--invalid .spirit-form__radio-input:checked + .spirit-form__radio-inner & {
+    background: $spirit-form-element-error-color;
+  }
+}
+
+// Radio Label
+.spirit-form__radio-label {
+  @include spirit-typography-reset(
+    $color: $spirit-radio-label-color,
+    $font-size: $spirit-radio-label-font-size
+  );
+  @include spirit-text-crop;
+  margin-top: 5px; // Vertically center the first line of text with the radio - used instead of align-items: center in case the radio label wraps
+
+  .spirit-form__radio:hover &,
+  .spirit-form__radio--hover & {
+    color: $spirit-radio-text-color-hover;
+  }
+
+  .spirit-form__radio--focus &,
+  .spirit-form__radio-input:focus + .spirit-form__radio-inner & {
+    color: $spirit-radio-text-color-focus;
   }
 
   .spirit-form__radio-input:disabled + .spirit-form__radio-inner & {
-    border: $spirit-radio-border; // Prevent border color from changing on hover when input is disabled
+    color: $spirit-interactive-color-disabled-text;
   }
-
-  .spirit-form--invalid & {
-    @include invalid-styles();
-  }
-}
-
-.spirit-form__radio-label {
-  @include spirit-typography-reset(
-    $color: $spirit-label-color,
-    $font-size: $spirit-radio-label-font-size
-  );
-  cursor: pointer;
 }
 
 // <label> for group of <input[type='radio']/>
-$spirit-radio-group-label-color:      $spirit-radio-label-color;
+$spirit-radio-group-label-color:        $spirit-text-color-primary;
 $spirit-radio-group-label-font-family:  $spirit-radio-label-font-family;
 $spirit-radio-group-label-font-size:    $spirit-radio-label-font-size;
-$spirit-radio-group-label-margin:     $spirit-form-element-stack;
+$spirit-radio-group-label-margin:       $spirit-space-stack-2-x;
 $spirit-radio-group-label-max-width:    $spirit-form-element-max-width;
-$spirit-radio-group-max-width:      $spirit-form-element-max-width;
+$spirit-radio-group-max-width:          $spirit-form-element-max-width;
 
 .spirit-form__radio-group {
   border: 0;
@@ -561,12 +591,18 @@ $spirit-radio-group-max-width:      $spirit-form-element-max-width;
   margin: 0;
   max-width: $spirit-radio-group-max-width;
   padding: 0;
+
+  // Custom margin if an error message is included
+  .spirit-form__field-error {
+    margin: -($spirit-space-generic-1-x) 0 $spirit-space-generic-2-x;
+  }
 }
 
 .spirit-form__radio-group-label {
   @include spirit-typography-reset(
     $color: $spirit-radio-group-label-color,
-    $font-size: $spirit-radio-group-label-font-size
+    $font-size: $spirit-radio-group-label-font-size,
+    $font-weight: $spirit-font-weight-medium
   );
   display: block;
   margin: $spirit-radio-group-label-margin;

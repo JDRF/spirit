@@ -7,307 +7,218 @@
       padding: {{ spirit_tokens.space.inset['1-x'] }};
       text-align: left;
     }
+
+    .forms-sink-wrapper {
+      margin: 0 auto;
+      max-width: 700px;
+    }
   </style>
   <h1 class="hostile-sink-reset">Forms Sink</h1>
 
+  {# wrapping the whole page to set a max width #}
+  <div class="forms-sink-wrapper">
 
-{# Input #}
-  <h2 class="hostile-sink-reset">Input</h2>
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Required", required=true) }}
-    {{ library.form_input() }}
-  {% endcall %}
-  
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="With Placeholder Text", required=true) }}
-    {{ library.form_input(placeholder="First name") }}
-  {% endcall %}
+  {# Input #}
+    <h2 class="hostile-sink-reset">Input</h2>
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Required", required=true) }}
+      {{ library.form_input() }}
+    {% endcall %}
+    
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="With Placeholder Text", required=true) }}
+      {{ library.form_input(placeholder="First name") }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Optional", optional=true) }}
-    {{ library.form_input() }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Optional", optional=true) }}
+      {{ library.form_input() }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="With Micro Copy", required=true) }}
-    {{ library.form_input(placeholder="First name") }}
-    {{ library.form_microcopy(text="Micro copy text goes here.") }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="With Micro Copy", required=true) }}
+      {{ library.form_input(placeholder="First name") }}
+      {{ library.form_microcopy(text="Micro copy text goes here.") }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Focus", required=true) }}
-    {{ library.form_input(placeholder="First name", class="spirit-form__input--focus") }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Focus", required=true) }}
+      {{ library.form_input(placeholder="First name", class="spirit-form__input--focus") }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Filled", required=true) }}
-    {{ library.form_input(placeholder="First name", value="Frederick") }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Filled", required=true) }}
+      {{ library.form_input(placeholder="First name", value="Frederick") }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Valid", required=true) }}
-    {{ library.form_input(placeholder="First name", value="Frederick", valid=true) }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Valid", required=true) }}
+      {{ library.form_input(placeholder="First name", value="Frederick", valid=true) }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Error", required=true) }}
-    {{ library.form_input(placeholder="First name", valid=false) }}
-    {{ library.form_field_error(text="Helpful error message.") }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Error", required=true) }}
+      {{ library.form_input(placeholder="First name", valid=false) }}
+      {{ library.form_field_error(text="Helpful error message.") }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Error With Micro Copy", required=true) }}
-    {{ library.form_input(placeholder="First name", valid=false) }}
-    {{ library.form_field_error(text="Helpful error message.") }}
-    {{ library.form_microcopy(text="Micro copy goes here.") }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Error With Micro Copy", required=true) }}
+      {{ library.form_input(placeholder="First name", valid=false) }}
+      {{ library.form_field_error(text="Helpful error message.") }}
+      {{ library.form_microcopy(text="Micro copy goes here.") }}
+    {% endcall %}
 
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Disabled", required=true) }}
-    {{ library.form_input(placeholder="First name", disabled=true) }}
-    {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
-  {% endcall %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Disabled", required=true) }}
+      {{ library.form_input(placeholder="First name", disabled=true) }}
+      {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Hidden Label</h5>
-  {{ library.form_input(placeholder="Default") }}
-  {{ library.form_input(value="Filled") }}
-  {{ library.form_input(placeholder="Disabled", disabled=true) }}
-  
-  <h5 class="hostile-sink-reset">Input Content Resilience, Long Placeholder </h5>
-  {{ library.form_input(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
+    <h5 class="hostile-sink-reset">Hidden Label</h5>
+    {{ library.form_input(placeholder="Default") }}
+    {{ library.form_input(value="Filled") }}
+    {{ library.form_input(placeholder="Disabled", disabled=true) }}
+    
+    <h5 class="hostile-sink-reset">Input Content Resilience, Long Placeholder </h5>
+    {{ library.form_input(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
 
-  <h5 class="hostile-sink-reset">Input Content Resilience, Long Value</h5>
-  {{ library.form_input(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
-
-
-
-{# Textarea #}
-<h2 class="hostile-sink-reset">Textarea</h2>
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Required", required=true) }}
-    {{ library.form_textarea() }}
-  {% endcall %}
-  
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="With Placeholder Text", required=true) }}
-    {{ library.form_textarea(placeholder="First name") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Optional", optional=true) }}
-    {{ library.form_textarea() }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="With Micro Copy", required=true) }}
-    {{ library.form_textarea(placeholder="First name") }}
-    {{ library.form_microcopy(text="Micro copy text goes here.") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Focus", required=true) }}
-    {{ library.form_textarea(placeholder="First name", class="spirit-form__input--focus") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Filled", required=true) }}
-    {{ library.form_textarea(placeholder="First name", value="Frederick") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Valid", required=true) }}
-    {{ library.form_textarea(placeholder="First name", value="Frederick", valid=true) }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Error", required=true) }}
-    {{ library.form_textarea(placeholder="First name", valid=false) }}
-    {{ library.form_field_error(text="Helpful error message.") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Error With Micro Copy", required=true) }}
-    {{ library.form_textarea(placeholder="First name", valid=false) }}
-    {{ library.form_field_error(text="Helpful error message.") }}
-    {{ library.form_microcopy(text="Micro copy goes here.") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Disabled", required=true) }}
-    {{ library.form_textarea(placeholder="First name", disabled=true) }}
-    {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
-  {% endcall %}
-
-  <h5 class="hostile-sink-reset">Hidden Label</h5>
-  {{ library.form_textarea(placeholder="Default") }}
-  {{ library.form_textarea(value="Filled") }}
-  {{ library.form_textarea(placeholder="Disabled", disabled=true) }}
-  
-  <h5 class="hostile-sink-reset">Input Content Resilience, Long Placeholder </h5>
-  {{ library.form_textarea(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
-
-  <h5 class="hostile-sink-reset">Input Content Resilience, Long Value</h5>
-  {{ library.form_textarea(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
+    <h5 class="hostile-sink-reset">Input Content Resilience, Long Value</h5>
+    {{ library.form_input(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
 
 
 
+  {# Textarea #}
+  <h2 class="hostile-sink-reset">Textarea</h2>
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Required", required=true) }}
+      {{ library.form_textarea() }}
+    {% endcall %}
+    
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="With Placeholder Text", required=true) }}
+      {{ library.form_textarea(placeholder="First name") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Optional", optional=true) }}
+      {{ library.form_textarea() }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="With Micro Copy", required=true) }}
+      {{ library.form_textarea(placeholder="First name") }}
+      {{ library.form_microcopy(text="Micro copy text goes here.") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Focus", required=true) }}
+      {{ library.form_textarea(placeholder="First name", class="spirit-form__input--focus") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Filled", required=true) }}
+      {{ library.form_textarea(placeholder="First name", value="Frederick") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Valid", required=true) }}
+      {{ library.form_textarea(placeholder="First name", value="Frederick", valid=true) }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Error", required=true) }}
+      {{ library.form_textarea(placeholder="First name", valid=false) }}
+      {{ library.form_field_error(text="Helpful error message.") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Error With Micro Copy", required=true) }}
+      {{ library.form_textarea(placeholder="First name", valid=false) }}
+      {{ library.form_field_error(text="Helpful error message.") }}
+      {{ library.form_microcopy(text="Micro copy goes here.") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Disabled", required=true) }}
+      {{ library.form_textarea(placeholder="First name", disabled=true) }}
+      {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+    {% endcall %}
+
+    <h5 class="hostile-sink-reset">Hidden Label</h5>
+    {{ library.form_textarea(placeholder="Default") }}
+    {{ library.form_textarea(value="Filled") }}
+    {{ library.form_textarea(placeholder="Disabled", disabled=true) }}
+    
+    <h5 class="hostile-sink-reset">Input Content Resilience, Long Placeholder </h5>
+    {{ library.form_textarea(placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
+
+    <h5 class="hostile-sink-reset">Input Content Resilience, Long Value</h5>
+    {{ library.form_textarea(value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facere praesentium neque! Quae quidem, est temporibus, facere neque aut illum dolorum eligendi quos. Dolorem expedita labore, totam harum incidunt tempora.") }}
 
 
-{# Select #}
-  <h2 class="hostile-sink-reset">Select</h2>
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Default", required=true) }}
-    {{ library.form_select(
-        default_text="Select an option",
-        default_value="",
-        options=[
-            {
-                text: "Select an option",
-                value: ""
-            },
-            {
-                text: "Option 1",
-                value: "option_1"
-            },
-            {
-                text: "Option 2",
-                value: "option_2"
-            }
-        ]) }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Selected", required=true) }}
-    {{ library.form_select(
-        default_text="Select an option",
-        default_value="",
-        options=[
-            {
-                text: "Select an option",
-                value: ""
-            },
-            {
-                text: "Option 1",
-                value: "option_1",
-                selected: true
-            },
-            {
-                text: "Option 2",
-                value: "option_2"
-            }
-        ]) }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Focus", required=true) }}
-    {{ library.form_select(class="spirit-form__select--focus") }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Valid", valid=true) }}
-    {{ library.form_select(valid=true, options=[
-        {
-            text: "Select an option",
-            value: ""
-        },
-        {
-            text: "Option 1",
-            value: "option_1",
-            selected: true
-        },
-        {
-            text: "Option 2",
-            value: "option_2"
-        }
-    ]) }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Error", required=true) }}
-    {{ library.form_select(valid=false) }}
-    {{ library.form_field_error(text="Helpful error message.")}}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="Disabled", required=true) }}
-    {{ library.form_select(disabled=true) }}
-    {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
-  {% endcall %}
-
-  {% call library.form_field_group() %}
-    {{ library.form_label(text="With Option Groups", required=true) }}
-    {{ library.form_select(
-      options=[
-          {
-              text: "Select a platform",
-              value: ""
-          },
-          {
-              text: "MacOS",
-              children: [
-                  {
-                      text: "Sierra plus a longer label so it could wrap when it has to",
-                      value: "10.12"
-                  },
-                  {
-                      text: "El Capitan",
-                      value: "10.11",
-                      selected: true
-                  },
-                  {
-                      text: "Mavericks",
-                      value: "10.10"
-                  }
-              ]
-          },
-          {
-              text: "iOS",
-              children: [
-                  {
-                      text: "10",
-                      value: "ios-10"
-                  },
-                  {
-                      text: "9",
-                      value: "ios-9"
-                  }
-              ]
-          }
-      ]) }}
-    {{ library.form_microcopy(text='Open the select to view the option groups') }}
-  {% endcall %}
 
 
-  <h5 class="hostile-sink-reset">Select Content Resilience, Short Options</h5>
-  {{ library.form_select(
-      default_text="A",
-      default_value="",
-      options=[
-          {
-              text: "A",
-              value: ""
-          },
-          {
-              text: "B",
-              selected: true
-          },
-          {
-              text: "C",
-              value: "option_2"
-          }
-      ]) }}
 
-  <h5 class="hostile-sink-reset">Select Content Resilience, Long Options</h5>
-  {{ library.form_select(
-      default_text="Select an option",
-      default_value="",
-      options=[
+  {# Select #}
+    <h2 class="hostile-sink-reset">Select</h2>
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Default", required=true) }}
+      {{ library.form_select(
+          default_text="Select an option",
+          default_value="",
+          options=[
+              {
+                  text: "Select an option",
+                  value: ""
+              },
+              {
+                  text: "Option 1",
+                  value: "option_1"
+              },
+              {
+                  text: "Option 2",
+                  value: "option_2"
+              }
+          ]) }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Selected", required=true) }}
+      {{ library.form_select(
+          default_text="Select an option",
+          default_value="",
+          options=[
+              {
+                  text: "Select an option",
+                  value: ""
+              },
+              {
+                  text: "Option 1",
+                  value: "option_1",
+                  selected: true
+              },
+              {
+                  text: "Option 2",
+                  value: "option_2"
+              }
+          ]) }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Focus", required=true) }}
+      {{ library.form_select(class="spirit-form__select--focus") }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Valid", valid=true) }}
+      {{ library.form_select(valid=true, options=[
           {
               text: "Select an option",
               value: ""
           },
           {
-              text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.",
+              text: "Option 1",
               value: "option_1",
               selected: true
           },
@@ -316,427 +227,546 @@
               value: "option_2"
           }
       ]) }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Error", required=true) }}
+      {{ library.form_select(valid=false) }}
+      {{ library.form_field_error(text="Helpful error message.", showIcon=true) }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Disabled", required=true) }}
+      {{ library.form_select(disabled=true) }}
+      {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+    {% endcall %}
+
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="With Option Groups", required=true) }}
+      {{ library.form_select(
+        options=[
+            {
+                text: "Select a platform",
+                value: ""
+            },
+            {
+                text: "MacOS",
+                children: [
+                    {
+                        text: "Sierra plus a longer label so it could wrap when it has to",
+                        value: "10.12"
+                    },
+                    {
+                        text: "El Capitan",
+                        value: "10.11",
+                        selected: true
+                    },
+                    {
+                        text: "Mavericks",
+                        value: "10.10"
+                    }
+                ]
+            },
+            {
+                text: "iOS",
+                children: [
+                    {
+                        text: "10",
+                        value: "ios-10"
+                    },
+                    {
+                        text: "9",
+                        value: "ios-9"
+                    }
+                ]
+            }
+        ]) }}
+      {{ library.form_microcopy(text='Open the select to view the option groups') }}
+    {% endcall %}
+
+
+    <h5 class="hostile-sink-reset">Select Content Resilience, Short Options</h5>
+    {{ library.form_select(
+        default_text="A",
+        default_value="",
+        options=[
+            {
+                text: "A",
+                value: ""
+            },
+            {
+                text: "B",
+                selected: true
+            },
+            {
+                text: "C",
+                value: "option_2"
+            }
+        ]) }}
+
+    <h5 class="hostile-sink-reset">Select Content Resilience, Long Options</h5>
+    {{ library.form_select(
+        default_text="Select an option",
+        default_value="",
+        options=[
+            {
+                text: "Select an option",
+                value: ""
+            },
+            {
+                text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.",
+                value: "option_1",
+                selected: true
+            },
+            {
+                text: "Option 2",
+                value: "option_2"
+            }
+        ]) }}
 
 
 
 
 
-{# Labels #}
-  <h2 class="hostile-sink-reset">Label</h2>
-  <h5 class="hostile-sink-reset">Required</h5>
-  {{ library.form_label(text="Form Label", required=true) }}
+  {# Labels #}
+    <h2 class="hostile-sink-reset">Label</h2>
+    <h5 class="hostile-sink-reset">Required</h5>
+    {{ library.form_label(text="Form Label", required=true) }}
 
-  <h5 class="hostile-sink-reset">Optional</h5>
-  {{ library.form_label(text="Form Label", optional=true) }}
+    <h5 class="hostile-sink-reset">Optional</h5>
+    {{ library.form_label(text="Form Label", optional=true) }}
 
-  <h5 class="hostile-sink-reset">Icon</h5>
-  {% set annotation %}
-    <style>
-      .custom-annotation-thing {
-        height: 20px;
-        width: 20px;
-      }
-    </style>
-    <a href="#" title="Additional info about this label" style="text-decoration: none; position: relative; top: -2px;">
-      {{ library.icon(name="help-circle", class="custom-annotation-thing") }}
-    </a>
-  {% endset %}
-  {{ library.form_label(text="Form Label", annotation=annotation) }}
+    <h5 class="hostile-sink-reset">Icon</h5>
+    {% set annotation %}
+      <style>
+        .custom-annotation-thing {
+          height: 20px;
+          width: 20px;
+        }
+      </style>
+      <a href="#" title="Additional info about this label" style="text-decoration: none; position: relative; top: -2px;">
+        {{ library.icon(name="help-circle", class="custom-annotation-thing") }}
+      </a>
+    {% endset %}
+    {{ library.form_label(text="Form Label", annotation=annotation) }}
 
-  <h5 class="hostile-sink-reset">Label Content Resilience, Too Long</h5>
-  {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?") }}
+    <h5 class="hostile-sink-reset">Label Content Resilience, Too Long</h5>
+    {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?") }}
 
-  <h5 class="hostile-sink-reset">Label Content Resilience, Required, Too Long</h5>
-  {{ library.form_label(text="Required Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", required=true) }}
+    <h5 class="hostile-sink-reset">Label Content Resilience, Required, Too Long</h5>
+    {{ library.form_label(text="Required Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", required=true) }}
 
-  <h5 class="hostile-sink-reset">Label Content Resilience, Optional, Too Long</h5>
-  {{ library.form_label(text="Optional Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", optional=true) }}
-
-
-
-{# Microcopy #}
-  <h2 class="hostile-sink-reset">Microcopy</h2>
-  {{ library.form_microcopy(text="Your password must contain a letter, a number, and two emoticons", id="password-help-text") }}
-
-  <h5 class="hostile-sink-reset">Microcopy Content Resilience, Too Long</h5>
-  {{ library.form_microcopy(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
+    <h5 class="hostile-sink-reset">Label Content Resilience, Optional, Too Long</h5>
+    {{ library.form_label(text="Optional Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque?", optional=true) }}
 
 
 
-{# Errors #}
-  <h2 class="hostile-sink-reset">Error</h2>
-  {{ library.form_field_error(text="Helpful error message.") }}
+  {# Microcopy #}
+    <h2 class="hostile-sink-reset">Microcopy</h2>
+    {{ library.form_microcopy(text="Your password must contain a letter, a number, and two emoticons", id="password-help-text") }}
 
-  <h5 class="hostile-sink-reset">Error Content Resilience, Too Long</h5>
-  {{ library.form_field_error(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
-
-
-{# Required Fields Key #}
-  <h2 class="hostile-sink-reset">Required Fields Key</h2>
-      {{ library.form_required_fields_key() }}
+    <h5 class="hostile-sink-reset">Microcopy Content Resilience, Too Long</h5>
+    {{ library.form_microcopy(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
 
 
+
+  {# Errors #}
+    <h2 class="hostile-sink-reset">Error</h2>
+    {{ library.form_field_error(text="Helpful error message.") }}
+
+    <h5 class="hostile-sink-reset">Error Content Resilience, Too Long</h5>
+    {{ library.form_field_error(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="password-too-much-help-text") }}
+
+
+  {# Required Fields Key #}
+    <h2 class="hostile-sink-reset">Required Fields Key</h2>
+        {{ library.form_required_fields_key() }}
 
 
 
 
-{# Checkbox #}
-  <h2 class="hostile-sink-reset">Checkbox</h2>
-  {{ library.form_checkbox(label="Default") }}    
-
-  {{ library.form_checkbox(label="Hover", class="spirit-form__checkbox--hover") }}
-
-  {{ library.form_checkbox(label="Checked/Active", checked=true) }}
-
-  {{ library.form_checkbox(label="Unchecked, Error", valid=false) }}
-
-  {{ library.form_checkbox(label="Checked, Error", checked=true, valid=false) }}
-
-  {{ library.form_checkbox(label="Unchecked, Focus", class="spirit-form__checkbox--focus") }}
-
-  {{ library.form_checkbox(label="Checked, Focus", checked=true, class="spirit-form__checkbox--focus") }}
-
-  {{ library.form_checkbox(label="Unchecked, Disabled", disabled=true) }}
-
-  {{ library.form_checkbox(label="Checked, Disabled", disabled=true, checked=true) }}
-
-  {{ library.form_checkbox(label="Default with a wrapping<br/>label") }}
-
-  {{ library.form_checkbox(label="Indeterminate", indeterminate=true) }}
 
 
-  <h5 class="hostile-sink-reset">Checkbox Content Resilience, Short Label</h5>
-  {{ library.form_checkbox(label="a") }}
+  {# Checkbox #}
+    <h2 class="hostile-sink-reset">Checkbox</h2>
+    {{ library.form_checkbox(label="Default") }}    
 
-  <h5 class="hostile-sink-reset">Checkbox Content Resilience, Long Label</h5>
-  {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis dolorum qui, eius nisi sint fugiat dolorem eaque libero quasi numquam blanditiis consequatur vero ipsum maxime. Illo quasi quas, iste labore. Quasi ut voluptatum vitae voluptates, sunt distinctio ullam repellendus maxime. Aperiam fuga suscipit sed eveniet, eligendi. Commodi, adipisci alias cum velit molestiae rerum eos omnis. Molestiae culpa tempore eligendi doloribus.") }}
+    {{ library.form_checkbox(label="Hover", class="spirit-form__checkbox--hover") }}
+
+    {{ library.form_checkbox(label="Checked/Active", checked=true) }}
+
+    {{ library.form_checkbox(label="Unchecked, Error", valid=false) }}
+
+    {{ library.form_checkbox(label="Checked, Error", checked=true, valid=false) }}
+
+    {{ library.form_checkbox(label="Unchecked, Focus", class="spirit-form__checkbox--focus") }}
+
+    {{ library.form_checkbox(label="Checked, Focus", checked=true, class="spirit-form__checkbox--focus") }}
+
+    {{ library.form_checkbox(label="Unchecked, Disabled", disabled=true) }}
+
+    {{ library.form_checkbox(label="Checked, Disabled", disabled=true, checked=true) }}
+
+    {{ library.form_checkbox(label="Default with a wrapping<br/>label") }}
+
+    {{ library.form_checkbox(label="Indeterminate", indeterminate=true) }}
 
 
-  <h5 class="hostile-sink-reset">Group Stacked</h5>
-  {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true) %}
-      {{ library.form_checkbox(label="Option 1") }}
-      {{ library.form_checkbox(label="Option 2") }}
-      {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Checkbox Content Resilience, Short Label</h5>
+    {{ library.form_checkbox(label="a") }}
 
-  <h5 class="hostile-sink-reset">Group Horizontal</h5>
-  {% call library.form_field_group(horizontal=true) %}
+    <h5 class="hostile-sink-reset">Checkbox Content Resilience, Long Label</h5>
+    {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis dolorum qui, eius nisi sint fugiat dolorem eaque libero quasi numquam blanditiis consequatur vero ipsum maxime. Illo quasi quas, iste labore. Quasi ut voluptatum vitae voluptates, sunt distinctio ullam repellendus maxime. Aperiam fuga suscipit sed eveniet, eligendi. Commodi, adipisci alias cum velit molestiae rerum eos omnis. Molestiae culpa tempore eligendi doloribus.") }}
+
+
+    <h5 class="hostile-sink-reset">Group Stacked</h5>
     {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true) %}
         {{ library.form_checkbox(label="Option 1") }}
         {{ library.form_checkbox(label="Option 2") }}
         {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
     {% endcall %}
-  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Group with Error</h5>
-  {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
-      {{ library.form_field_error(text="Helpful error message.", showIcon=true) }}
-      {{ library.form_checkbox(label="Option 1") }}
-      {{ library.form_checkbox(label="Option 2") }}
-      {{ library.form_checkbox(label="Option 3, Disabled") }}
-  {% endcall %}
-
-  <h5 class="hostile-sink-reset">Group Content Resilience, Long Label</h5>
-  {% call library.form_checkbox_group(label="Select all the days that apply") %}
-      {{ library.form_checkbox(label="Mondays") }}
-      {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
-      {{ library.form_checkbox(label="Wednesdays") }}
-      {{ library.form_checkbox(label="Thursdays") }}
-      {{ library.form_checkbox(label="Fridays") }}
-  {% endcall %}
-
-
-
-  <h5 class="hostile-sink-reset">Checkbox Group Horizontal Too Much Content</h5>
-  {% call library.form_field_group(horizontal=true) %}
-      {% call library.form_checkbox_group(label="Select at least one color", required=true) %}
-          {{ library.form_checkbox(label="Red") }}
-          {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
-          {{ library.form_checkbox(label="Yellow") }}
-          {{ library.form_checkbox(label="Orange") }}
+    <h5 class="hostile-sink-reset">Group Horizontal</h5>
+    {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true) %}
+          {{ library.form_checkbox(label="Option 1") }}
+          {{ library.form_checkbox(label="Option 2") }}
+          {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
       {% endcall %}
-  {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Button</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example") }}
+    <h5 class="hostile-sink-reset">Group with Error</h5>
+    {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
+        {{ library.form_field_error(text="Please select at least two options.", showIcon=true) }}
+        {{ library.form_checkbox(label="Option 1") }}
+        {{ library.form_checkbox(label="Option 2", checked=true) }}
+        {{ library.form_checkbox(label="Option 3") }}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Button Hover</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example-hover", class="spirit-form__radio-button--hover") }}
+    <h5 class="hostile-sink-reset">Group Content Resilience, Long Label</h5>
+    {% call library.form_checkbox_group(label="Select all the days that apply") %}
+        {{ library.form_checkbox(label="Mondays") }}
+        {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
+        {{ library.form_checkbox(label="Wednesdays") }}
+        {{ library.form_checkbox(label="Thursdays") }}
+        {{ library.form_checkbox(label="Fridays") }}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Button Focus</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example-focus", class="spirit-form__radio-button--focus") }}
 
-  <h5 class="hostile-sink-reset">Radio Button Disabled</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example-disabled", disabled=true) }}
 
-  <h5 class="hostile-sink-reset">Radio Button Error</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example-error", class="spirit-form__radio-button--error") }}
+    <h5 class="hostile-sink-reset">Group Horizontal Too Much Content</h5>
+    {% call library.form_field_group(horizontal=true) %}
+        {% call library.form_checkbox_group(label="Select at least one color", required=true) %}
+            {{ library.form_checkbox(label="Red") }}
+            {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
+            {{ library.form_checkbox(label="Yellow") }}
+            {{ library.form_checkbox(label="Orange") }}
+        {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Button Checked</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example-checked", checked=true) }}
 
-  <h5 class="hostile-sink-reset">Radio Button, Too Little Content</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example", label="A") }}
 
-  <h5 class="hostile-sink-reset">Radio Button, Too Much Content</h5>
-  {{ library.form_radio(name=sinkBackgroundColor + "-basic-example", label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quidem, odit eveniet distinctio aperiam blanditiis error sit at dicta quod laborum eum. Beatae consequuntur fugit culpa, architecto soluta, eum vitae.") }}
 
-  <h5 class="hostile-sink-reset">Radio Group Stacked</h5>
-  {% call library.form_radio_group(label="Select a the day that works best for you", name=sinkBackgroundColor + "-day-of-the-week") %}
-      {{ library.form_radio(label="Mondays", name=sinkBackgroundColor + "-day-of-the-week", checked=true) }}
-      {{ library.form_radio(label="Tuesdays", name=sinkBackgroundColor + "-day-of-the-week") }}
-      {{ library.form_radio(label="Wednesdays", name=sinkBackgroundColor + "-day-of-the-week") }}
-      {{ library.form_radio(label="Thursdays", name=sinkBackgroundColor + "-day-of-the-week") }}
-      {{ library.form_radio(label="Fridays", name=sinkBackgroundColor + "-day-of-the-week") }}
-  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Group Stacked Too Much Content</h5>
-  {% call library.form_radio_group(label="Select a the day that works best for you") %}
-      {{ library.form_radio(label="Mondays", name=sinkBackgroundColor + "-day-of-the-week-too-much-content", checked=true) }}
-      {{ library.form_radio(label="Tuesdays", name=sinkBackgroundColor + "-day-of-the-week-too-much-content") }}
-      {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.", name=sinkBackgroundColor + "-day-of-the-week-too-much-content") }}
-      {{ library.form_radio(label="Thursdays", name=sinkBackgroundColor + "-day-of-the-week-too-much-content") }}
-      {{ library.form_radio(label="Fridays", name=sinkBackgroundColor + "-day-of-the-week-too-much-content") }}
-  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Group Horizontal</h5>
-  {% call library.form_field_group(horizontal=true) %}
-      {% call library.form_radio_group(label="Choose your favorite color", required=true, required_tooltip_text="You must choose your favorite color") %}
-          {{ library.form_radio(label="Red", name=sinkBackgroundColor + "-favorite-color", checked=true) }}
-          {{ library.form_radio(label="Orange", name=sinkBackgroundColor + "-favorite-color") }}
-          {{ library.form_radio(label="Yellow", name=sinkBackgroundColor + "-favorite-color") }}
+
+
+
+
+  {# Radio Buttons #}
+    <h2 class="hostile-sink-reset">Radio Button</h2>
+    {{ library.form_radio(label="Default") }}    
+
+    {{ library.form_radio(label="Hover", class="spirit-form__radio--hover") }}
+
+    {{ library.form_radio(label="Selected/Active", checked=true) }}
+
+    {{ library.form_radio(label="Unselected, Error", valid=false) }}
+
+    {{ library.form_radio(label="Selected, Error", checked=true, valid=false) }}
+
+    {{ library.form_radio(label="Unselected, Focus", class="spirit-form__radio--focus") }}
+
+    {{ library.form_radio(label="Selected, Focus", checked=true, class="spirit-form__radio--focus") }}
+
+    {{ library.form_radio(label="Unselected, Disabled", disabled=true) }}
+
+    {{ library.form_radio(label="Selected, Disabled", disabled=true, checked=true) }}
+
+    {{ library.form_radio(label="Default with a wrapping<br/>label") }}
+
+    <h5 class="hostile-sink-reset">Radio Button Content Resilience, Short Label</h5>
+    {{ library.form_radio(name=sinkBackgroundColor + "-basic-example", label="A") }}
+
+    <h5 class="hostile-sink-reset">Radio Button Content Resilience, Long Label</h5>
+    {{ library.form_radio(name=sinkBackgroundColor + "-basic-example", label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quidem, odit eveniet distinctio aperiam blanditiis error sit at dicta quod laborum eum. Beatae consequuntur fugit culpa, architecto soluta, eum vitae.") }}
+
+    <h5 class="hostile-sink-reset">Group Stacked</h5>
+    {% call library.form_radio_group(label="What is your connection to type 1 diabetes?", required=true) %}
+        {{ library.form_radio(label="Option 1") }}
+        {{ library.form_radio(label="Option 2") }}
+        {{ library.form_radio(label="Option 3, Disabled", disabled=true) }}
+    {% endcall %}
+
+    <h5 class="hostile-sink-reset">Group Horizontal</h5>
+    {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_radio_group(label="What is your connection to type 1 diabetes?", required=true) %}
+          {{ library.form_radio(label="Option 1") }}
+          {{ library.form_radio(label="Option 2") }}
+          {{ library.form_radio(label="Option 3, Disabled", disabled=true) }}
       {% endcall %}
-  {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Radio Group Horizontal Too Much Content</h5>
-  {% call library.form_field_group(horizontal=true) %}
-      {% call library.form_radio_group(label="Choose your favorite color", required=true, required_tooltip_text="You must choose your favorite color-too-much-content") %}
-          {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.", name=sinkBackgroundColor + "-favorite-color-too-much-content", checked=true) }}
-          {{ library.form_radio(label="Orange", name=sinkBackgroundColor + "-favorite-color-too-much-content") }}
-          {{ library.form_radio(label="Yellow", name=sinkBackgroundColor + "-favorite-color-too-much-content") }}
-      {% endcall %}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Group with Error</h5>
+    {% call library.form_radio_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
+        {{ library.form_field_error(text="Please select an option.", showIcon=true) }}
+        {{ library.form_radio(label="Option 1") }}
+        {{ library.form_radio(label="Option 2") }}
+        {{ library.form_radio(label="Option 3") }}
+    {% endcall %}
+
+    <h5 class="hostile-sink-reset">Group Content Resilience, Long Label</h5>
+    {% call library.form_radio_group(label="Select all the days that apply") %}
+        {{ library.form_radio(label="Mondays") }}
+        {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
+        {{ library.form_radio(label="Wednesdays") }}
+        {{ library.form_radio(label="Thursdays") }}
+        {{ library.form_radio(label="Fridays") }}
+    {% endcall %}
 
 
-  
 
-  <h5 class="hostile-sink-reset">Field Error Input</h5>
-  {% call library.form_field_group(error=true) %}
-      {{ library.form_label(text="First Name", required=true, required_text="Please provide your first name", for="error-first-name") }}
-      {{ library.form_input(describedby="first-name-error", id="error-first-name") }}
-      {{ library.form_field_error(id="first-name-error") }}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Group Horizontal Too Much Content</h5>
+    {% call library.form_field_group(horizontal=true) %}
+        {% call library.form_radio_group(label="Select at least one color", required=true) %}
+            {{ library.form_radio(label="Red") }}
+            {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
+            {{ library.form_radio(label="Yellow") }}
+            {{ library.form_radio(label="Orange") }}
+        {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Field Error Textarea</h5>
-  {% call library.form_field_group(error=true) %}
-      {{ library.form_label(text="Tell us a little about yourself", required=true, required_text="Please tell us a little about yourself", for="error-textarea") }}
-      {{ library.form_textarea(describedby="textarea-error", id="error-textarea") }}
-      {{ library.form_field_error(id="textarea-error") }}
-  {% endcall %}
 
-  <h5 class="hostile-sink-reset">Field Error Checkbox</h5>
-  {% call library.form_field_group(error=true) %}
-      {% call library.form_checkbox_group(required=true, label="Select one or more free gifts to add to your order") %}
-          {{ library.form_checkbox(label="Keychain", describedby="checkbox-error") }}
-          {{ library.form_checkbox(label="Refrigerator Magnet", describedby="checkbox-error") }}
-          {{ library.form_checkbox(label="Bumper Sticker", describedby="checkbox-error") }}
-          {{ library.form_field_error(text="You must select at least one free gift", id="checkbox-error") }}
-      {% endcall %}
-  {% endcall %}
+    
 
-  <h5 class="hostile-sink-reset">Field Error Checkbox Too Much Content</h5>
-  {% call library.form_field_group(error=true) %}
-      {% call library.form_checkbox_group(required=true, label="Select one or more free gifts to add to your order") %}
-          {{ library.form_checkbox(label="Keychain", describedby="checkbox-error-too-much-content") }}
-          {{ library.form_checkbox(label="Refrigerator Magnet", describedby="checkbox-error-too-much-content") }}
-          {{ library.form_checkbox(label="Bumper Sticker", describedby="checkbox-error-too-much-content") }}
-          {{ library.form_field_error(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="checkbox-error-too-much-content") }}
-      {% endcall %}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Field Error Input</h5>
+    {% call library.form_field_group(error=true) %}
+        {{ library.form_label(text="First Name", required=true, required_text="Please provide your first name", for="error-first-name") }}
+        {{ library.form_input(describedby="first-name-error", id="error-first-name") }}
+        {{ library.form_field_error(id="first-name-error") }}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Field Error Radio</h5>
-  {% call library.form_field_group(error=true) %}
-      {% call library.form_radio_group(required=true, label="Select the greatest sci-fi franchise of all time") %}
-          {{ library.form_radio(label="Wars", name=sinkBackgroundColor + "-wars-or-trek", describedby="radio-button-error-message") }}
-          {{ library.form_radio(label="Trek", name=sinkBackgroundColor + "-wars-or-trek", describedby="radio-button-error-message") }}
-          {{ library.form_field_error(text="You must answer the question", id="radio-button-error-message") }}
-      {% endcall %}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Field Error Textarea</h5>
+    {% call library.form_field_group(error=true) %}
+        {{ library.form_label(text="Tell us a little about yourself", required=true, required_text="Please tell us a little about yourself", for="error-textarea") }}
+        {{ library.form_textarea(describedby="textarea-error", id="error-textarea") }}
+        {{ library.form_field_error(id="textarea-error") }}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Field Error Select</h5>
-  {% call library.form_field_group(error=true) %}
-      {{ library.form_label(text="Choose an option", required=true, required_text="Please choose one option", for="select-with-error") }}
-      {{ library.form_select(describedby="select-error-message", id="select-with-error") }}
-      {{ library.form_field_error(text="You must choose an option", id="select-error-message") }}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Field Error Checkbox</h5>
+    {% call library.form_field_group(error=true) %}
+        {% call library.form_checkbox_group(required=true, label="Select one or more free gifts to add to your order") %}
+            {{ library.form_checkbox(label="Keychain", describedby="checkbox-error") }}
+            {{ library.form_checkbox(label="Refrigerator Magnet", describedby="checkbox-error") }}
+            {{ library.form_checkbox(label="Bumper Sticker", describedby="checkbox-error") }}
+            {{ library.form_field_error(text="You must select at least one free gift", id="checkbox-error") }}
+        {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Fieldset and Legend</h5>
-  {% call library.form_fieldset() %}
-      {{ library.form_legend(text="Billing Address") }}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Street", for="billing-address-street") }}
-          {{ library.form_input(id="billing-address-street") }}
-      {% endcall %}
+    <h5 class="hostile-sink-reset">Field Error Checkbox Too Much Content</h5>
+    {% call library.form_field_group(error=true) %}
+        {% call library.form_checkbox_group(required=true, label="Select one or more free gifts to add to your order") %}
+            {{ library.form_checkbox(label="Keychain", describedby="checkbox-error-too-much-content") }}
+            {{ library.form_checkbox(label="Refrigerator Magnet", describedby="checkbox-error-too-much-content") }}
+            {{ library.form_checkbox(label="Bumper Sticker", describedby="checkbox-error-too-much-content") }}
+            {{ library.form_field_error(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam. Dolorum alias odit quas, consequuntur reiciendis consequatur nisi minima sapiente animi culpa temporibus enim quae. Velit ipsum quidem placeat ad expedita quo aspernatur cum! Officia consequatur distinctio debitis totam. Incidunt eum totam quaerat ipsam consequuntur, ut similique explicabo nulla, eaque ad sunt, animi.", id="checkbox-error-too-much-content") }}
+        {% endcall %}
+    {% endcall %}
 
-      {% call library.form_field_group(horizontal=true) %}
-          {% call library.form_field_group() %}
-              {{ library.form_label(text="City", for="billing-address-city") }}
-              {{ library.form_input(id="billing-address-city") }}
-          {% endcall %}
-          {% call library.form_field_group(class="spirit-form__field-group--xs") %}
-              {{ library.form_label(text="State", for="billing-address-state") }}
-              {{ library.form_input(placeholder="CA", id="billing-address-state") }}
-          {% endcall %}
-          {% call library.form_field_group(class="spirit-form__field-group--s") %}
-              {{ library.form_label(text="ZIP", for="billing-address-zip-code") }}
-              {{ library.form_input(id="billing-address-zip-code") }}
-          {% endcall %}
-      {% endcall %}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Field Error Radio</h5>
+    {% call library.form_field_group(error=true) %}
+        {% call library.form_radio_group(required=true, label="Select the greatest sci-fi franchise of all time") %}
+            {{ library.form_radio(label="Wars", name=sinkBackgroundColor + "-wars-or-trek", describedby="radio-button-error-message") }}
+            {{ library.form_radio(label="Trek", name=sinkBackgroundColor + "-wars-or-trek", describedby="radio-button-error-message") }}
+            {{ library.form_field_error(text="You must answer the question", id="radio-button-error-message") }}
+        {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Contact Form Example</h5>
-  {% call library.form() %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Name", for="contact-form-name") }}
-          {{ library.form_input(id="contact-form-name") }}
-      {% endcall %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Email", for="contact-form-email") }}
-          {{ library.form_input(type="email", id="contact-form-email") }}
-      {% endcall %}
-      {{ library.button(variations=["primary"], text="Subscribe Now") }}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Field Error Select</h5>
+    {% call library.form_field_group(error=true) %}
+        {{ library.form_label(text="Choose an option", required=true, required_text="Please choose one option", for="select-with-error") }}
+        {{ library.form_select(describedby="select-error-message", id="select-with-error") }}
+        {{ library.form_field_error(text="You must choose an option", id="select-error-message") }}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Contact Form Example Too Much Content in Label</h5>
-  {% call library.form() %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. ", for="too-much-label-input") }}
-          {{ library.form_input(id="too-much-label-input") }}
-      {% endcall %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Email", for="second-contact-form-email") }}
-          {{ library.form_input(type="email", id="second-contact-form-email") }}
-      {% endcall %}
-      {{ library.button(variations=["primary"], text="Subscribe Now") }}
-  {% endcall %}
+    <h5 class="hostile-sink-reset">Fieldset and Legend</h5>
+    {% call library.form_fieldset() %}
+        {{ library.form_legend(text="Billing Address") }}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Street", for="billing-address-street") }}
+            {{ library.form_input(id="billing-address-street") }}
+        {% endcall %}
 
-  <h5 class="hostile-sink-reset">Horizontal Arrangement Example</h5>
-  {% call library.form_field_group(horizontal=true) %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Credit Card Number", required=true, for="horizontal-form-cc-number") }}
-          {{ library.form_input(id="horizontal-form-cc-number") }}
-      {% endcall %}
-      {% call library.form_field_group(class="spirit-form__field-group--s") %}
-          {{ library.form_label(text="<abbr title='Expiration'>Exp</abbr> Date", required=true, for="horizontal-form-cc-exp-date") }}
-          {{ library.form_input(placeholder="MM/YY", id="horizontal-form-cc-exp-date") }}
-      {% endcall %}
-      {% call library.form_field_group(class="spirit-form__field-group--xs") %}
-          {{ library.form_label(text="CVC", required=true, for="horizontal-form-cc-cvc") }}
-          {{ library.form_input(id="horizontal-form-cc-cvc") }}
-      {% endcall %}
-  {% endcall %}
-  {% call library.form_field_group(horizontal=true) %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Favorite Food", for="horizontal-form-favorite-food") }}
-          {{ library.form_input(id="horizontal-form-favorite-food") }}
-      {% endcall %}
-      {% call library.form_field_group() %}
-          {% call library.form_radio_group(label="Dessert or no?", required=true) %}
-              {{ library.form_radio(id="dessert-yes", value="yes", name=sinkBackgroundColor + "-radio-group-dessert", label="Yes, Please", checked=true) }}
-              {{ library.form_radio(id="dessert-no", value="no", name=sinkBackgroundColor + "-radio-group-dessert", label="No, Thank You") }}
-          {% endcall %}
-      {% endcall %}
-  {% endcall %}
+        {% call library.form_field_group(horizontal=true) %}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="City", for="billing-address-city") }}
+                {{ library.form_input(id="billing-address-city") }}
+            {% endcall %}
+            {% call library.form_field_group(class="spirit-form__field-group--xs") %}
+                {{ library.form_label(text="State", for="billing-address-state") }}
+                {{ library.form_input(placeholder="CA", id="billing-address-state") }}
+            {% endcall %}
+            {% call library.form_field_group(class="spirit-form__field-group--s") %}
+                {{ library.form_label(text="ZIP", for="billing-address-zip-code") }}
+                {{ library.form_input(id="billing-address-zip-code") }}
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
 
-  <h5 class="hostile-sink-reset">Full Example</h5>
-  {% call library.form() %}
-      {{ library.form_required_fields_key() }}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="First Name", required=true, for="full-form-first-name") }}
-          {{ library.form_input(id="full-form-first-name") }}
-      {% endcall %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Last Name", required=true, for="full-form-last-name") }}
-          {{ library.form_input(id="full-form-last-name") }}
-      {% endcall %}
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Email", optional=true, for="full-form-email") }}
-          {{ library.form_microcopy(text="If you provide your email address we'll send a receipt for your purchase", id="full-form-email-help-text")}}
-          {{ library.form_input(type="email", id="full-form-email", describedby="full-form-email-help-text") }}
-      {% endcall %}
-      {% call library.form_field_group(class='spirit-form__field-group--horizontal') %}
-          {% call library.form_radio_group(label="Best Time to Contact You?", optional=true) %}
-              {{ library.form_radio(name=sinkBackgroundColor + "-contact-time", id='AM', text='Morning', checked=true) }}
-              {{ library.form_radio(name=sinkBackgroundColor + "-contact-time", id='PM', text='Evening') }}
-          {% endcall %}
-      {% endcall %}
-      {% call library.form_fieldset() %}
-          {{ library.form_legend(text="Billing Address") }}
-          {% call library.form_field_group() %}
-              {{ library.form_label(text="Street", for="full-form-billing-street") }}
-              {{ library.form_input(id="full-form-billing-street") }}
-          {% endcall %}
+    <h5 class="hostile-sink-reset">Contact Form Example</h5>
+    {% call library.form() %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Name", for="contact-form-name") }}
+            {{ library.form_input(id="contact-form-name") }}
+        {% endcall %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Email", for="contact-form-email") }}
+            {{ library.form_input(type="email", id="contact-form-email") }}
+        {% endcall %}
+        {{ library.button(variations=["primary"], text="Subscribe Now") }}
+    {% endcall %}
 
-          {% call library.form_field_group(horizontal=true) %}
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="City", for="full-form-billing-city") }}
-                  {{ library.form_input(id="full-form-billing-city") }}
-              {% endcall %}
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="State", for="full-form-billing-state") }}
-                  {{ library.form_input(placeholder="CA", id="full-form-billing-state") }}
-              {% endcall %}
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="ZIP", for="full-form-billing-zip") }}
-                  {{ library.form_input(id="full-form-billing-zip") }}
-              {% endcall %}
-          {% endcall %}
-      {% endcall %}
-      {% call library.form_fieldset() %}
-          {{ library.form_legend(text="Shipping Address") }}
-          
-          {% call library.form_field_group() %}
-              {{ library.form_checkbox(label="Same as billing address", id='checkout-example-checkbox', checked=true) }}
-          {% endcall %}
+    <h5 class="hostile-sink-reset">Contact Form Example Too Much Content in Label</h5>
+    {% call library.form() %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. ", for="too-much-label-input") }}
+            {{ library.form_input(id="too-much-label-input") }}
+        {% endcall %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Email", for="second-contact-form-email") }}
+            {{ library.form_input(type="email", id="second-contact-form-email") }}
+        {% endcall %}
+        {{ library.button(variations=["primary"], text="Subscribe Now") }}
+    {% endcall %}
 
-          {% call library.form_field_group() %}
-              {{ library.form_label(text="Street", for="full-form-shipping-street") }}
-              {{ library.form_input(disabled=true, id="full-form-shipping-street") }}
-          {% endcall %}
-          
-          {% call library.form_field_group(horizontal=true) %}
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="City", for="full-form-shipping-city") }}
-                  {{ library.form_input(disabled=true, id="full-form-shipping-city") }}
-              {% endcall %}
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="State", for="full-form-shipping-state") }}
-                  {{ library.form_input(placeholder="CA", disabled=true, id="full-form-shipping-state") }}
-              {% endcall %}
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="ZIP", for="full-form-shipping-zip") }}
-                  {{ library.form_input(disabled=true, for="full-form-shipping-zip") }}
-              {% endcall %}
-          {% endcall %}
-      {% endcall %}
+    <h5 class="hostile-sink-reset">Horizontal Arrangement Example</h5>
+    {% call library.form_field_group(horizontal=true) %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Credit Card Number", required=true, for="horizontal-form-cc-number") }}
+            {{ library.form_input(id="horizontal-form-cc-number") }}
+        {% endcall %}
+        {% call library.form_field_group(class="spirit-form__field-group--s") %}
+            {{ library.form_label(text="<abbr title='Expiration'>Exp</abbr> Date", required=true, for="horizontal-form-cc-exp-date") }}
+            {{ library.form_input(placeholder="MM/YY", id="horizontal-form-cc-exp-date") }}
+        {% endcall %}
+        {% call library.form_field_group(class="spirit-form__field-group--xs") %}
+            {{ library.form_label(text="CVC", required=true, for="horizontal-form-cc-cvc") }}
+            {{ library.form_input(id="horizontal-form-cc-cvc") }}
+        {% endcall %}
+    {% endcall %}
+    {% call library.form_field_group(horizontal=true) %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Favorite Food", for="horizontal-form-favorite-food") }}
+            {{ library.form_input(id="horizontal-form-favorite-food") }}
+        {% endcall %}
+        {% call library.form_field_group() %}
+            {% call library.form_radio_group(label="Dessert or no?", required=true) %}
+                {{ library.form_radio(id="dessert-yes", value="yes", name=sinkBackgroundColor + "-radio-group-dessert", label="Yes, Please", checked=true) }}
+                {{ library.form_radio(id="dessert-no", value="no", name=sinkBackgroundColor + "-radio-group-dessert", label="No, Thank You") }}
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
 
-      {% call library.form_field_group() %}
-          {{ library.form_label(text="Special Instructions for your order which you can provide right here this label is long to test wrapping behavior", optional=true, for="full-form-shipping-instructions") }}
-          {{ library.form_textarea(id="full-form-shipping-instructions") }}
-      {% endcall %}
+    <h5 class="hostile-sink-reset">Full Example</h5>
+    {% call library.form() %}
+        {{ library.form_required_fields_key() }}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="First Name", required=true, for="full-form-first-name") }}
+            {{ library.form_input(id="full-form-first-name") }}
+        {% endcall %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Last Name", required=true, for="full-form-last-name") }}
+            {{ library.form_input(id="full-form-last-name") }}
+        {% endcall %}
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Email", optional=true, for="full-form-email") }}
+            {{ library.form_microcopy(text="If you provide your email address we'll send a receipt for your purchase", id="full-form-email-help-text")}}
+            {{ library.form_input(type="email", id="full-form-email", describedby="full-form-email-help-text") }}
+        {% endcall %}
+        {% call library.form_field_group(class='spirit-form__field-group--horizontal') %}
+            {% call library.form_radio_group(label="Best Time to Contact You?", optional=true) %}
+                {{ library.form_radio(name=sinkBackgroundColor + "-contact-time", id='AM', text='Morning', checked=true) }}
+                {{ library.form_radio(name=sinkBackgroundColor + "-contact-time", id='PM', text='Evening') }}
+            {% endcall %}
+        {% endcall %}
+        {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Billing Address") }}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Street", for="full-form-billing-street") }}
+                {{ library.form_input(id="full-form-billing-street") }}
+            {% endcall %}
 
-      {% call library.form_field_group() %}
-          {% call library.form_checkbox_group(label="Favorite color from the rainbow") %}
-              {{ library.form_microcopy(text="Choose as many as you like", id="full-form-color-selection")}}
-              {{ library.form_checkbox(label="Red", describedby="full-form-color-selection") }}
-              {{ library.form_checkbox(label="Orange", describedby="full-form-color-selection") }}
-              {{ library.form_checkbox(label="Yellow", checked=true, describedby="full-form-color-selection") }}
-              {{ library.form_checkbox(label="Green", describedby="full-form-color-selection") }}
-              {{ library.form_checkbox(label="Blue", describedby="full-form-color-selection") }}
-              {{ library.form_checkbox(label="Indigo", checked=true, describedby="full-form-color-selection") }}
-              {{ library.form_checkbox(label="Violet", describedby="full-form-color-selection") }}
-          {% endcall %}
-      {% endcall %}
-  {% endcall %}
+            {% call library.form_field_group(horizontal=true) %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="City", for="full-form-billing-city") }}
+                    {{ library.form_input(id="full-form-billing-city") }}
+                {% endcall %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="State", for="full-form-billing-state") }}
+                    {{ library.form_input(placeholder="CA", id="full-form-billing-state") }}
+                {% endcall %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="ZIP", for="full-form-billing-zip") }}
+                    {{ library.form_input(id="full-form-billing-zip") }}
+                {% endcall %}
+            {% endcall %}
+        {% endcall %}
+        {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Shipping Address") }}
+            
+            {% call library.form_field_group() %}
+                {{ library.form_checkbox(label="Same as billing address", id='checkout-example-checkbox', checked=true) }}
+            {% endcall %}
+
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Street", for="full-form-shipping-street") }}
+                {{ library.form_input(disabled=true, id="full-form-shipping-street") }}
+            {% endcall %}
+            
+            {% call library.form_field_group(horizontal=true) %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="City", for="full-form-shipping-city") }}
+                    {{ library.form_input(disabled=true, id="full-form-shipping-city") }}
+                {% endcall %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="State", for="full-form-shipping-state") }}
+                    {{ library.form_input(placeholder="CA", disabled=true, id="full-form-shipping-state") }}
+                {% endcall %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="ZIP", for="full-form-shipping-zip") }}
+                    {{ library.form_input(disabled=true, for="full-form-shipping-zip") }}
+                {% endcall %}
+            {% endcall %}
+        {% endcall %}
+
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Special Instructions for your order which you can provide right here this label is long to test wrapping behavior", optional=true, for="full-form-shipping-instructions") }}
+            {{ library.form_textarea(id="full-form-shipping-instructions") }}
+        {% endcall %}
+
+        {% call library.form_field_group() %}
+            {% call library.form_checkbox_group(label="Favorite color from the rainbow") %}
+                {{ library.form_microcopy(text="Choose as many as you like", id="full-form-color-selection")}}
+                {{ library.form_checkbox(label="Red", describedby="full-form-color-selection") }}
+                {{ library.form_checkbox(label="Orange", describedby="full-form-color-selection") }}
+                {{ library.form_checkbox(label="Yellow", checked=true, describedby="full-form-color-selection") }}
+                {{ library.form_checkbox(label="Green", describedby="full-form-color-selection") }}
+                {{ library.form_checkbox(label="Blue", describedby="full-form-color-selection") }}
+                {{ library.form_checkbox(label="Indigo", checked=true, describedby="full-form-color-selection") }}
+                {{ library.form_checkbox(label="Violet", describedby="full-form-color-selection") }}
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+</div> {# closing div.forms-sink-wrapper #}
 {% endblock body %}
 

@@ -172,16 +172,29 @@
             disabled=false, 
             id=false, 
             label='Choose this one', 
-            name='group-name',
+            name=false,
             optional=false,
             required=false, 
             required_tooltip_text="Please check the box",
-            value='blue') %}
+            value='blue',
+            valid) %}
+    {% set random_number = range(0, 100000) | random %}
+    
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__radio--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__radio--invalid' %}
+    {% endif %}
+
     {% if id == false %}
-        {% set random_number = range(0, 100000) | random %}
         {% set id = label | replace(' ', '-') | lower + '--' + random_number %}
     {% endif %}
-    <label class="spirit-form__radio{{ ' ' + class if class }}{{ ' spirit-form__radio--disabled' if disabled }}" for="{{ id }}">
+    
+    {% if name == false %}
+        {% set name = 'group-name--' + random_number %}
+    {% endif %}
+
+    <label class="spirit-form__radio{{ ' ' + class if class }}{{ ' spirit-form__radio--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}" for="{{ id }}">
         <input id="{{ id }}" name="{{ name }}" value="{{ value }}" type="radio" class="spirit-form__radio-input" 
             {{ 'checked' if checked }} {{ 'disabled' if disabled }} {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}/>
         <span class="spirit-form__radio-inner">
@@ -376,8 +389,16 @@
             label=false,
             optional=false,
             required=false,
-            required_tooltip_text="Please select an option.") %}
-    <fieldset class="spirit-form__radio-group{{ ' ' + class  if class }}" role="radiogroup">
+            required_tooltip_text="Please select an option.",
+            valid) %}
+    {# Set a modifier class based on the valid argument #}
+    {% if valid == true %}
+        {% set validation_class = 'spirit-form__radio-group--valid' %}
+    {% elif valid == false %}
+        {% set validation_class = 'spirit-form__radio-group--invalid' %}
+    {% endif %}
+
+    <fieldset class="spirit-form__radio-group{{ ' ' + class  if class }}{{ ' ' + validation_class if validation_class }}" role="radiogroup">
         {% if label %}
             <legend class="spirit-form__radio-group-label">
                 {{ label | safe }}
