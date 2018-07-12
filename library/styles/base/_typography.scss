@@ -26,13 +26,16 @@
 /// @return {number} Returns a width.
 @function spirit-get-breakpoint($breakpoint-name) {
   @if type-of($breakpoint-name) != 'string' {
-    @error 'Received a #{type-of($breakpoint-name)} of #{$breakpoint-name} for $breakpoint. Please supply a single string.';
+    $breakpoint-names: map-keys((spirit-token('breakpoint')));
+
+    @error 'Received a #{type-of($breakpoint-name)} of #{$breakpoint-name} for $breakpoint. Please supply a single string that matches one of #{$breakpoint-names}.';
   }
 
   $breakpoint-width: spirit-token('breakpoint', $breakpoint-name);
 
   @if type-of($breakpoint-width) == 'null' {
-    @error 'Invalid value received for $breakpoint. Please check that the parameter matches a valid token.';
+    $breakpoint-names: map-keys((spirit-token('breakpoint')));
+    @error 'Invalid value received for $breakpoint. Please check that the parameter matches one of #{$breakpoint-names}.';
   }
 
   @return $breakpoint-width;
