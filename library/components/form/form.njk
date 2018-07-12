@@ -21,8 +21,9 @@
 
 {% macro form_legend(
             class=false, 
-            text="A grouping of form fields") %}
-    <legend class="spirit-form__legend{{ ' ' + class  if class }}">{{ text }}</legend>
+            text="A grouping of form fields",
+            hidden=false) %}
+    <legend class="spirit-form__legend{{ ' ' + class  if class }}{{ ' spirit-form__legend--hidden' if hidden }}">{{ text }}</legend>
 {% endmacro %}
 
 
@@ -71,10 +72,14 @@
             class=false, 
             for=false, 
             optional=false, 
-            required=false, 
+            required=true, 
             required_tooltip_text="This field is required.",
             text="First Name",
             annotation) %}
+
+    {% if optional %}
+        {% set required = false %}
+    {% endif %}
     
     <label 
             class="spirit-form__label{{ ' ' + class if class }}"

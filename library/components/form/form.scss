@@ -83,7 +83,7 @@ $spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-
 
 // Field Group
 $spirit-space-field-group-margin:             $spirit-form-group-stack;
-$spirit-space-field-group-horizontal-margin:  0 16px 16px 0;
+$spirit-space-field-group-horizontal-margin:  0 16px 0 0;
 
 .spirit-form__field-group {
   @include spirit-typography-reset;
@@ -96,6 +96,7 @@ $spirit-space-field-group-horizontal-margin:  0 16px 16px 0;
 
   & > * {
     margin: $spirit-space-field-group-horizontal-margin;
+    width: 100%;
 
     &:last-child {
       margin-right: 0;
@@ -127,7 +128,7 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
   border: $spirit-text-input-border;
   border-radius: $spirit-form-element-border-radius;
   display: block;
-  margin: $spirit-text-input-margin;
+  margin: 0;
   max-width: $spirit-text-input-max-width;
   padding: $spirit-text-input-padding;
   width: 100%;
@@ -188,7 +189,7 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
   border: $spirit-textarea-border;
   border-radius: $spirit-form-element-border-radius;
   display: block;
-  margin: $spirit-textarea-margin;
+  margin: 0;
   max-width: $spirit-textarea-max-width;
   min-height: $spirit-textarea-min-height;
   overflow: auto;
@@ -631,7 +632,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   background-color: none;
   display: flex;
   height: $spirit-select-height;
-  margin: $spirit-select-margin;
+  margin: 0;
   max-width: $spirit-select-max-width;
   position: relative;
 }
@@ -758,7 +759,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
 $spirit-microcopy-text-color:   $spirit-form-element-text-color-secondary;
 $spirit-microcopy-font-family:  $spirit-form-font-family;
 $spirit-microcopy-font-size:    $spirit-form-element-font-size-s;
-$spirit-microcopy-margin:     $spirit-form-element-stack;
+$spirit-microcopy-margin:       $spirit-space-generic-1-x 0 0;
 $spirit-microcopy-max-width:    $spirit-form-element-max-width;
 
 .spirit-form__microcopy {
@@ -799,9 +800,9 @@ $spirit-required-key-indicator-color: $spirit-form-element-error-color;
 // Field Error
 $spirit-field-error-text-color:   $spirit-form-element-error-color;
 $spirit-field-error-font-family:  $spirit-form-font-family;
-$spirit-field-error-font-size:  $spirit-form-element-font-size-s;
-$spirit-field-error-margin:     $spirit-form-element-stack;
-$spirit-field-error-max-width:  $spirit-form-element-max-width;
+$spirit-field-error-font-size:    $spirit-form-element-font-size-s;
+$spirit-field-error-margin:       $spirit-space-generic-1-x 0 0;
+$spirit-field-error-max-width:    $spirit-form-element-max-width;
 
 .spirit-form__field-error {
   @include spirit-box-sizing;
@@ -823,10 +824,10 @@ $spirit-field-error-max-width:  $spirit-form-element-max-width;
 }
 
 // Fieldset
-$spirit-fieldset-border:    $spirit-form-element-border;
-$spirit-fieldset-padding:   $spirit-space-inset-1-x;
-$spirit-fieldset-max-width:   $spirit-form-element-max-width;
-$spirit-fieldset-margin:    $spirit-form-group-stack;
+$spirit-fieldset-border:    0;
+$spirit-fieldset-padding:   0;
+$spirit-fieldset-max-width: none;
+$spirit-fieldset-margin:    $spirit-space-stack-2-x;
 
 .spirit-form__fieldset {
   @include spirit-box-sizing;
@@ -837,17 +838,19 @@ $spirit-fieldset-margin:    $spirit-form-group-stack;
 }
 
 // Legend
-$spirit-legend-text-color:  $spirit-text-color-primary;
-$spirit-legend-font-family:   $spirit-form-font-family;
-$spirit-legend-font-size:   $spirit-form-element-font-size;
-$spirit-legend-margin:    $spirit-form-element-stack;
+$spirit-legend-margin:      $spirit-form-element-stack;
 $spirit-legend-max-width:   $spirit-form-element-max-width;
 
 .spirit-form__legend {
   @include spirit-typography-reset(
-    $color: $spirit-legend-text-color,
-    $font-size: $spirit-legend-font-size 
+    $color: $spirit-text-color-primary,
+    $font-size: $spirit-font-size-heading-level-1,
+    $font-weight: $spirit-font-weight-bold 
   );
-  margin: $spirit-legend-margin;
+  margin: $spirit-space-stack-2-x;
   max-width: $spirit-legend-max-width;
+}
+
+.spirit-form__legend--hidden {
+  @include spirit-accessibly-hidden;
 }
