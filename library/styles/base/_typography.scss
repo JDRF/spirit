@@ -64,17 +64,55 @@
 
 }
 
-
 @mixin spirit-font-line-height-responsive(
-  $normal-font-line-height,
-  $large-font-line-height,
-  $breakpoint: $spirit-breakpoint-l
+  $font-type: ('heading', 'level-1'),
+  $breakpoint: 'l'
 ) {
-  line-height: $normal-font-line-height;
-  @media screen and (min-width: $breakpoint) {
-    line-height: $large-font-line-height;
+  $line-height-base: ('font', 'line-height');
+
+  @if type_of($breakpoint) != 'string' {
+    @error 'Received a #{type_of($breakpoint)} of #{$breakpoint} for $breakpoint. Please supply a single string.';
   }
+
+  $breakpoint-width: spirit-token('breakpoint', $breakpoint);
+
+  @if type_of($breakpoint-width) == 'null' {
+    @error 'Invalid value received for $breakpoint. Please check that the parameter matches a valid token.';
+  }
+
+  @if type_of($font-type) != 'list' and type_of('font-type') != 'string' {
+    @error 'Received #{$font-type} for $font-type. Please supply a comma separated list of items which matches those in the token file below font > size.'
+  }
+
+  // Combine the further parts of the tree
+  $joined: join($line-height-base, $font-type, 'comma');
+  $line-height: spirit-token($joined...);
+
+  @if type_of($line-height) == null {
+    @error 'Cannot find token at #{$joined}. Please check that you\'re addresing a valid token.'
+  }
+
+  @if type_of($line-height) != 'number' and type_of($line-height) != 'map' {
+    @error 'Sorry, an unexpected result was returned from #{joined}: #{$line-height}. Expecting a map with "normal" and "breakpoint-l" keys.'
+  }
+
+  // The token could just be a non-responsive value
+  @if type_of($line-height) == number {
+    line-height: $line-height;
+  }
+
+  // The value could be a map of font sizes
+  @if type_of($line-height) == map {
+    $line-height-normal: map_get($line-height, 'normal');
+    $line-height-breakpoint: map_get($line-height, 'breakpoint-#{$breakpoint}');
+    line-height: $line-height-normal;
+    @media screen and (min-width: $breakpoint-width) {
+      line-height: $line-height-breakpoint;
+    }
+  }
+
 }
+
 
 h1,
 h2,
@@ -90,10 +128,7 @@ h6 {
 .spirit-display-1 {
   @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('display', 'level-1'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-display-level-1-normal,
-    $large-font-line-height: $spirit-font-line-height-display-level-1-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('display', 'level-1'));
   color: $spirit-color-black;
   font-weight: 700;
 }
@@ -101,63 +136,42 @@ h6 {
 .spirit-display-2 {
   @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('display', 'level-2'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-display-level-2-normal,
-    $large-font-line-height: $spirit-font-line-height-display-level-2-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('display', 'level-2'));
   color: $spirit-color-black;
   font-weight: 700;
 }
 
 .spirit-h1 {
   @include spirit-font-size-responsive($font-type: ('heading', 'level-1'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-heading-level-1-normal,
-    $large-font-line-height: $spirit-font-line-height-heading-level-1-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('heading', 'level-1'));
 }
 
 .spirit-h2 {
   @include spirit-font-size-responsive($font-type: ('heading', 'level-2'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-heading-level-2-normal,
-    $large-font-line-height: $spirit-font-line-height-heading-level-2-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('heading', 'level-2'));
 }
 
 .spirit-h3 {
   @include spirit-font-size-responsive($font-type: ('heading', 'level-3'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-heading-level-3-normal,
-    $large-font-line-height: $spirit-font-line-height-heading-level-3-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('heading', 'level-3'));
 
 }
 
 .spirit-h4 {
   @include spirit-font-size-responsive($font-type: ('heading', 'level-4'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-heading-level-4-normal,
-    $large-font-line-height: $spirit-font-line-height-heading-level-4-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('heading', 'level-4'));
 
 }
 
 .spirit-h5 {
   @include spirit-font-size-responsive($font-type: ('heading', 'level-5'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-heading-level-5-normal,
-    $large-font-line-height: $spirit-font-line-height-heading-level-5-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('heading', 'level-5'));
 
 }
 
 .spirit-h6 {
   @include spirit-font-size-responsive($font-type: ('heading', 'level-6'));
-  @include spirit-font-line-height-responsive(
-    $normal-font-line-height: $spirit-font-line-height-heading-level-6-normal,
-    $large-font-line-height: $spirit-font-line-height-heading-level-6-breakpoint-l
-  );
+  @include spirit-font-line-height-responsive($font-type: ('heading', 'level-6'));
 }
 
 .spirit-subhead {
