@@ -81,7 +81,6 @@ size :
     s : 20px #button icons ( spinner / check )
     m : 24px #button small
     l : 32px
-    buttonwidth : 130px
 space :
   generic :
     24-x :   192px
