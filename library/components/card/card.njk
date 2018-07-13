@@ -2,6 +2,7 @@
         class=false,
         href="#",
         img_src="/images/components/card/jdrf_walkers.png",
+        img_src_list_item,
         img_alt_text="JDRF Walkers",
         title_text="JDRF One Walk&reg;",
         body_text="Join more than 900,000 people who come together to raise funds and walk to change the future for the millions of people with T1D.",
@@ -14,10 +15,13 @@
     {% endset %}
   {% endif %}
 
-  <a href="{{ href }}" class="spirit-card">
+  <a href="{{ href }}" class="spirit-card{{ ' ' + class if class }}">
     {% if img_src %}
       <span class="spirit-card__image-wrap">
-        <img class="spirit-card__image" src="{{ img_src }}" alt="">
+        {% if img_src_list_item %}
+          <img class="spirit-card__image-list-item" src="{{ img_src_list_item }}" alt="{{ img_alt_text }}">
+        {% endif %}
+        <img class="spirit-card__image" src="{{ img_src }}" alt="{{ img_alt_text }}">
       </span>
     {% endif %}
     <span class="spirit-card__text">

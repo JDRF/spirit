@@ -1,15 +1,139 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+  <style>
+    body {
+      padding: 10px;
+    }
+
+    .demo-page-grid {
+      display: flex;
+    }
+
+    .demo-page-grid > * {
+      margin-right: 80px;
+      width: 100%;
+    }
+
+    .demo-page-grid > *:nth-child(3n) {
+      margin-right: 0;
+    }
+  </style>
+
   <h1 class="hostile-sink-reset">Cards Sink</h1>
-  <h2 class="hostile-sink-reset">Default</h2>
-  {{ library.card() }}
+  <h2 class="hostile-sink-reset">With Image</h2>
+  <div class="demo-page-grid">
+    <div>
+      <h5 class="hostile-sink-reset">Default</h5>
+      {{ library.card() }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Hover</h5>
+      {{ library.card(class="spirit-card--hover") }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Active</h5>
+      {{ library.card(class="spirit-card--active") }}
+    </div>
+  </div>
 
   <h2 class="hostile-sink-reset">Text Only</h2>
-  {{ library.card(
-      title_text="Blood Sugar",
-      body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
-      img_src=false,
-      link_text="Learn More"
-    ) }}
+  <div class="demo-page-grid">
+    <div>
+      <h5 class="hostile-sink-reset">Default</h5>
+      {{ library.card(
+          title_text="Blood Sugar",
+          body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+          img_src=false,
+          link_text="Learn More"
+        ) }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Hover</h5>
+      {{ library.card(
+          class="spirit-card--hover",
+          title_text="Blood Sugar",
+          body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+          img_src=false,
+          link_text="Learn More"
+        ) }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Active</h5>
+      {{ library.card(
+          class="spirit-card--active",
+          title_text="Blood Sugar",
+          body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+          img_src=false,
+          link_text="Learn More"
+        ) }}
+    </div>
+  </div>
+
+  <h2 class="hostile-sink-reset">List Item, Full size image cropped top, center</h2>
+  <div class="demo-page-grid">
+    <div>
+      <h5 class="hostile-sink-reset">Default</h5>
+      {{ library.card(class="spirit-card--list-item") }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Hover</h5>
+      {{ library.card(class="spirit-card--hover spirit-card--list-item") }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Active</h5>
+      {{ library.card(class="spirit-card--active spirit-card--list-item") }}
+    </div>
+  </div>
+
+  <h2 class="hostile-sink-reset">List Item, With Art Directed Image</h2>
+  <div class="demo-page-grid">
+    <div>
+      <h5 class="hostile-sink-reset">Default</h5>
+      {{ library.card(class="spirit-card--list-item", img_src_list_item="/images/components/card/jdrf_walkers_art_directed.png") }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Hover</h5>
+      {{ library.card(class="spirit-card--hover spirit-card--list-item", img_src_list_item="/images/components/card/jdrf_walkers_art_directed.png") }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Active</h5>
+      {{ library.card(class="spirit-card--active spirit-card--list-item", img_src_list_item="/images/components/card/jdrf_walkers_art_directed.png") }}
+    </div>
+  </div>
+
+  <h2 class="hostile-sink-reset">List Item, No Images</h2>
+  <div class="demo-page-grid">
+    <div>
+      <h5 class="hostile-sink-reset">Default</h5>
+      {{ library.card(
+          class="spirit-card--list-item",
+          title_text="Blood Sugar",
+          body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+          img_src=false,
+          link_text="Learn More"
+        ) }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Hover</h5>
+      {{ library.card(
+          class="spirit-card--hover spirit-card--list-item",
+          title_text="Blood Sugar",
+          body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+          img_src=false,
+          link_text="Learn More"
+        ) }}
+    </div>
+    <div>
+      <h5 class="hostile-sink-reset">Active</h5>
+      {{ library.card(
+          class="spirit-card--active spirit-card--list-item",
+          title_text="Blood Sugar",
+          body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+          img_src=false,
+          link_text="Learn More"
+        ) }}
+    </div>
+  </div>
+
 
 {% endblock body %}

@@ -1,14 +1,92 @@
 @import '../../tokens/tokens';
+@import '../../styles/mixins/box-sizing';
+@import '../../styles/mixins/elevation';
 @import '../../styles/mixins/typography';
 
+@mixin spirit-card-list-item {
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+
+  .spirit-card__image-wrap {
+    flex-shrink: 0;
+    height: 72px;
+    margin: 0;
+    position: relative;
+    width: 72px;
+  }
+
+  .spirit-card__title {
+    font-size: $spirit-font-size-heading-level-4;
+    margin: $spirit-space-stack-half-x;
+  }
+
+  .spirit-card__link {
+    font-size: $spirit-font-size-xs;
+  }
+
+  .spirit-card__image {
+    height: 100%;
+    max-width: none;
+    position: absolute;
+    transform: translateX(-50%);
+    width: auto;
+  }
+
+  .spirit-card__body {
+    display: none;
+  }
+
+  .spirit-card__text {
+    border: solid $spirit-border-width-card $spirit-color-grey-95;
+    border-radius: $spirit-border-radius-l;
+    margin: -($spirit-space-generic-1-x); // Without an image, __text is the only element inside the card. Use this negative margin to "pull" the __text element on top of the card's default padding so it becomes full bleed
+    padding: $spirit-space-inset-2-x;
+    width: 100%;
+  }
+
+  .spirit-card__image-wrap + .spirit-card__text {
+    // If an image is present with the __text reset the border, margin and padding back to their original values
+    border: 0;
+    margin: 0;
+    padding: $spirit-space-inset-1-x;
+  }
+
+  // Show an art directed alternate image if it's present in the markup
+  .spirit-card__image-list-item {
+    display: block;
+  }
+}
+
 .spirit-card {
+  @include spirit-box-sizing;
   @include spirit-typography-reset;
   border-radius: $spirit-border-radius-l;
   display: flex;
   flex-direction: column;
-  max-width: 336px;
+  max-width: 540px;
   padding: $spirit-space-inset-1-x;
   text-decoration: none;
+  transition: box-shadow $spirit-transition-timing-default;
+
+  &.spirit-card--hover,
+  &:hover {
+    @include spirit-elevation(5, $spirit-elevation-color-blue);
+  }
+
+  &.spirit-card--active,
+  &:active {
+    @include spirit-elevation(3, $spirit-elevation-color-blue);
+  }
+
+}
+
+.spirit-card__text {
+  width: 100%;
+}
+
+.spirit-card--list-item {
+  @include spirit-card-list-item;
 }
 
 .spirit-card__image-wrap {
@@ -22,6 +100,10 @@
   display: block;
   max-width: 100%;
   width: 100%;
+}
+
+.spirit-card__image-list-item {
+  display: none;
 }
 
 .spirit-card__text {
@@ -53,6 +135,23 @@
     $font-weight: $spirit-font-weight-bold
   );
 
-  border-bottom: solid 2px $spirit-text-color-link;
   margin-top: auto;
+  position: relative;
+
+  &:after {
+    background: $spirit-text-color-link;
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: width $spirit-transition-timing-default;
+    width: 0;
+  }
+
+  .spirit-card--active &:after,
+  .spirit-card--hover &:after,
+  .spirit-card:hover &:after {
+    width: 100%;
+  }
 }
