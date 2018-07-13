@@ -134,7 +134,7 @@ $spirit-button-transition-timing-function: ease-out;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  min-width: $spirit-size-icon-buttonwidth;
+  min-width: 130px;
 
   [class^='spirit-icon-'] {
     height: $spirit-size-icon-s;
