@@ -190,11 +190,11 @@
     {% call library.form_field_group() %}
       {{ library.form_label(text="Default", required=true) }}
       {{ library.form_select(
-          default_text="Select an option",
+          default_text="",
           default_value="",
           options=[
               {
-                  text: "Select an option",
+                  text: "",
                   value: ""
               },
               {
@@ -211,11 +211,11 @@
     {% call library.form_field_group() %}
       {{ library.form_label(text="Selected", required=true) }}
       {{ library.form_select(
-          default_text="Select an option",
+          default_text="",
           default_value="",
           options=[
               {
-                  text: "Select an option",
+                  text: "",
                   value: ""
               },
               {
@@ -633,16 +633,6 @@
     {{ library.form_message(type="success", text="Success confirmation message.") }}
     {{ library.form_message(type="error", text="Error highlighting message.") }}
     {{ library.form_message(type="info", text="Informational message.") }}
-    
-    <h5 class="hostile-sink-reset">Custom Messages</h5>
-    {% set error_message %}
-      <strong>You missed some required fields.</strong>
-      <ul style="list-style: disc; margin:0; padding: 16px 0 0 24px;">
-        <li>First Name is required.</li>
-        <li>Email is required.</li>
-      </ul>
-    {% endset %}
-    {{ library.form_message(type="error", text=error_message) }}
     
     <h5 class="hostile-sink-reset">Content Resilience, Long Message</h5>
     {{ library.form_message(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo molestias, recusandae animi quam tempora sint tenetur sapiente. Quos ipsam quidem numquam labore, repudiandae fugit, hic architecto, rem doloribus deserunt optio!") }}

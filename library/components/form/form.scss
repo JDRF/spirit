@@ -46,12 +46,6 @@ $spirit-form-element-stack:                 $spirit-space-stack-half-x;
 $spirit-form-group-stack:                   $spirit-space-stack-2-x;
 $spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-space-generic-2-x 0;
 
-
-@mixin hover-styles {
-  // No hover styles for now
-  // border-color: $spirit-form-element-border-color-hover;
-}
-
 @mixin invalid-styles {
   border-color: $spirit-form-element-border-color-error;
 }
@@ -180,11 +174,6 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
     @include valid-styles();
   }
 
-  &.spirit-form__input--hover,
-  &:hover {
-    @include hover-styles();
-  }
-
   &:disabled {
     @include disabled-styles();
     border: $spirit-text-input-border; // Prevent border color from changing on hover
@@ -240,11 +229,6 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
 
   &.spirit-form__textarea--valid {
     @include valid-styles();
-  }
-
-  &.spirit-form__textarea--hover,
-  &:hover {
-    @include hover-styles;
   }
 
   &:disabled {
@@ -366,6 +350,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   .spirit-form__checkbox:hover &,
   .spirit-form__checkbox--hover & {
     border-color: $spirit-checkbox-border-color-hover-focus;
+    border-width: 2px;
   }
 
   // Disabled, Unchecked
@@ -730,23 +715,9 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
     @include valid-styles();
   }
 
-  .spirit-form__select:hover &,
-  .spirit-form__select--hover & {
-    @include hover-styles();
-  }
-
   .spirit-form__select-input:focus ~ &,
   .spirit-form__select--focus & {
     @include focus-styles();
-  }
-
-  .spirit-form__select--focus:hover & {
-    @include hover-styles();
-  }
-
-  .spirit-form__select-input:disabled ~ & {
-    // @include disabled-styles();
-    // border: $spirit-select-border; // Prevent border color from changing on hover when input is disabled
   }
 }
 
@@ -763,10 +734,6 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   top: 0;
   width: $spirit-select-height;
   z-index: 5;
-
-  .spirit-form__select-input:disabled ~ & {
-    // @include disabled-styles();
-  }
 }
 
 .spirit-form__select-open-icon.spirit-icon {
