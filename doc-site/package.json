@@ -12,6 +12,8 @@
   "devDependencies": {
     "esds-build": "^0.34.0",
     "esds-doc": "^0.10.0-alpha.5",
-    "fs-extra": "^6.0.1"
+    "fs-extra": "^6.0.1",
+    "gulp-tap": "^1.0.1",
+    "slash": "^2.0.0"
   }
 }
