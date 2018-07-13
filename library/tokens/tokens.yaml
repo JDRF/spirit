@@ -44,8 +44,8 @@ interactive-color :
     foreground : *color-grey-70
     background : *color-grey-98
   focus :
-    outer : *color-blue-30 # buttons, links
-    inner : *color-blue-100
+    soft : *color-blue-30 # buttons, links
+    hard : *color-blue-100
 feedback-color :
   foreground :
     danger :    *color-red-100
