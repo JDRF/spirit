@@ -1,0 +1,58 @@
+@import '../../tokens/tokens';
+@import '../../styles/mixins/typography';
+
+.spirit-card {
+  @include spirit-typography-reset;
+  border-radius: $spirit-border-radius-l;
+  display: flex;
+  flex-direction: column;
+  max-width: 336px;
+  padding: $spirit-space-inset-1-x;
+  text-decoration: none;
+}
+
+.spirit-card__image-wrap {
+  border-radius: $spirit-border-radius-l;
+  display: block;
+  margin: $spirit-space-stack-2-x;
+  overflow: hidden;
+}
+
+.spirit-card__image {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.spirit-card__text {
+  display: flex;
+  flex-direction: column;
+  padding: $spirit-space-inset-1-x;
+}
+
+.spirit-card__title {
+  @include spirit-typography-reset(
+    $font-size: $spirit-font-size-heading-level-2,
+    $font-weight: $spirit-font-weight-bold
+  );
+
+  margin: $spirit-space-stack-1-x;
+}
+
+.spirit-card__body {
+  @include spirit-typography-reset(
+    $color: $spirit-text-color-secondary
+  );
+
+  margin: $spirit-space-stack-2-x;
+}
+
+.spirit-card__link {
+  @include spirit-typography-reset(
+    $color: $spirit-text-color-link,
+    $font-weight: $spirit-font-weight-bold
+  );
+
+  border-bottom: solid 2px $spirit-text-color-link;
+  margin-top: auto;
+}

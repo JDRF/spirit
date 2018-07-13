@@ -1,7 +1,15 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-    {% filter markdown %}
-        # Cards Sink
-    {% endfilter %} 
-    {# Your sink examples go here #} 
+  <h1 class="hostile-sink-reset">Cards Sink</h1>
+  <h2 class="hostile-sink-reset">Default</h2>
+  {{ library.card() }}
+
+  <h2 class="hostile-sink-reset">Text Only</h2>
+  {{ library.card(
+      title_text="Blood Sugar",
+      body_text="Let's start with hypoglycemia and look at blood sugard drop symptoms. Although symptoms may overlap&hellip;",
+      img_src=false,
+      link_text="Learn More"
+    ) }}
+
 {% endblock body %}
