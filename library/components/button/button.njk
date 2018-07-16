@@ -56,7 +56,7 @@
         <span class="spirit-button__default-text" aria-hidden="{{loaderTextHidden if loaderTextHidden}}">
           {{ text if text }}
         </span>
-      {% elif feedbackType and 'success' === feedbackType %}
+      {% elif feedbackType and feedbackType === 'success' %}
         {% if feedbackText %}
           <span class="spirit-button__success-text" aria-hidden="false">
             {{ feedbackText if feedbackText }}
@@ -68,7 +68,7 @@
             </svg>
           </span>
         {% endif %}
-        <span class="spirit-button__default-text" {{'aria-hidden=true' if 'success' === feedbackType }}>
+        <span class="spirit-button__default-text" {{'aria-hidden=true' if feedbackType === 'success' }}>
           {{ text if text }}
         </span>
       {% else %}
