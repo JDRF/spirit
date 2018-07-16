@@ -1,4 +1,4 @@
-/// setspace Mixin
+/// @group Mixin
 /// Reset the font to cancel any outside styles
 /// @example @include spirit-font-reset;
 @mixin spirit-font-reset {
@@ -13,7 +13,7 @@
   text-transform: none;
 }
 
-/// setspace Function
+/// @group Function
 /// Return a breakpoint from the tokens file
 /// @example spirit-get-breakpoint('l');
 /// @require {function} spirit-token
@@ -36,7 +36,7 @@
   @return $breakpoint-width;
 }
 
-/// setspace Function
+/// @group Function
 /// Returns a deeply nested token based on two lists.
 /// @example spirit-get-nested-token(('font', 'size'), ('display', 'level-1;'));
 /// @require {function} spirit-token
@@ -59,7 +59,7 @@
   @return $result;
 }
 
-/// setspace Mixin
+/// @group Mixin
 /// Outputs a single value or a responsive value
 /// @example spirit-responsive-value('('normal': 16px, 'breakpoint-l': 24px)', 'font-size', 'l', 1024px);
 /// @param {number | map} $value      This can either be a single numerical value, or a map which adheres to the convention set out on the token file.
@@ -88,7 +88,7 @@
   }
 }
 
-/// setspace Mixin
+/// @group Mixin
 /// Generates a responsive font size
 /// @example spirit-font-size-responsive( $font-type: ('heading', 'level-1') );
 /// @require {function} spirit-get-breakpoint;
@@ -110,7 +110,7 @@
 
 }
 
-/// setspace Mixin
+/// @group Mixin
 /// Generates a responsive line-height
 /// @example spirit-font-line-height-responsive( $font-type: ('heading', 'level-1') );
 /// @require {function} spirit-get-breakpoint;
