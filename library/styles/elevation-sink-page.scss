@@ -1,6 +1,5 @@
 @import '../tokens/tokens';
-@import 'mixins/mixins-control';
-@import 'base/base-control';
+@import 'mixins/elevation';
 
 .elevation-example {
   height: 200px;
