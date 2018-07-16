@@ -1,0 +1,610 @@
+/* Usage Examples
+  .my-level-1-heading-class {
+      @include text-crop; // Will use default line height of 1.3
+      font-size: 48px;
+      margin: 0 0 0 16px;
+  }
+
+  .my-level-2-heading-class {
+      @include text-crop; // Will use default line height of 1.3
+      font-size: 32px; // Don't need to change any settings, will work with any font size automatically
+      margin: 0 0 0 16px;
+  }
+
+  .my-body-copy-class {
+      @include text-crop($line-height: 2); // Larger line height desired, set the line height via the mixin
+      font-size: 16px;
+  }
+
+  // Sometimes depending on the font-size, the rendering, the browser, etc. you may need to tweak the output. 
+  // You can adjust the top and bottom cropping when invoking the component using the $top-adjustment and $bottom-adjustment settings 
+  
+  .slight-adjustment-needed {
+      @include text-crop($top-adjustment: -0.5px, $bottom-adjustment: 2px);
+      font-size: 17px;
+  }
+
+  .dont-do-this {
+      @include text-crop;
+      font-size: 16px;
+      line-height: 3; // DO NOT set line height outside of the mixin, the mixin needs the line height value to calculate the crop correctly
+  }
+*/
+.spirit-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding: 16px 32px;
+  text-align: left;
+  width: 100%; }
+
+.spirit-row {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin-left: -16px;
+  margin-right: -16px; }
+
+.spirit-col {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px; }
+
+.spirit-container--dark,
+.spirit-col--dark {
+  background: #0055FF;
+  color: #ffffff; }
+
+@media screen and (min-width: 768px) {
+  .spirit-col--md-6 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 50%;
+            flex: 1 0 50%;
+    max-width: 50%; } }
+
+@media screen and (min-width: 1024px) {
+  .spirit-col--lg-4 {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 33.3333%;
+            flex: 1 0 33.3333%;
+    max-width: 33.3333%; } }
+
+[class^='spirit-icon-'] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  fill: currentColor;
+  height: 1em;
+  -webkit-transition: fill .3s ease-out;
+  transition: fill .3s ease-out;
+  width: 1em; }
+
+.spirit-icon--spinner {
+  -webkit-animation: spinner-animation 2s linear infinite;
+          animation: spinner-animation 2s linear infinite; }
+
+.spirit-icon--spinner__path {
+  -webkit-animation: spinner-dash 1.5s ease-in-out infinite, spinner-colors 6s ease-in-out infinite;
+          animation: spinner-dash 1.5s ease-in-out infinite, spinner-colors 6s ease-in-out infinite;
+  fill: none;
+  stroke: currentColor;
+  stroke-dasharray: 90;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  -webkit-transform-origin: center;
+          transform-origin: center; }
+
+@-webkit-keyframes spinner-animation {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spinner-animation {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes spinner-colors {
+  100%,
+  0% {
+    stroke: currentColor; }
+  40% {
+    stroke: currentColor; }
+  66% {
+    stroke: currentColor; }
+  80%,
+  90% {
+    stroke: currentColor; } }
+
+@keyframes spinner-colors {
+  100%,
+  0% {
+    stroke: currentColor; }
+  40% {
+    stroke: currentColor; }
+  66% {
+    stroke: currentColor; }
+  80%,
+  90% {
+    stroke: currentColor; } }
+
+@-webkit-keyframes spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px; } }
+
+@keyframes spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px; } }
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url("../fonts/Graphik-Regular-Web.eot");
+  src: url("../fonts/Graphik-Regular-Web.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-Regular-Web.woff2") format("woff2"), url("../fonts/Graphik-Regular-Web.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url("../fonts/Graphik-Medium-Web.eot");
+  src: url("../fonts/Graphik-Medium-Web.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-Medium-Web.woff2") format("woff2"), url("../fonts/Graphik-Medium-Web.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url("../fonts/Graphik-Semibold-Web.eot");
+  src: url("../fonts/Graphik-Semibold-Web.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-Semibold-Web.woff2") format("woff2"), url("../fonts/Graphik-Semibold-Web.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: 'Graphik Web';
+  src: url("../fonts/Graphik-Bold-Web.eot");
+  src: url("../fonts/Graphik-Bold-Web.eot?#iefix") format("embedded-opentype"), url("../fonts/Graphik-Bold-Web.woff2") format("woff2"), url("../fonts/Graphik-Bold-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal; }
+
+.spirit-screenreader-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px; }
+  .spirit-screenreader-only:focus {
+    background-color: #F5F7FA;
+    border-radius: 4px;
+    clip: auto !important;
+    color: #0055FF;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    height: auto;
+    left: 4px;
+    line-height: normal;
+    padding: 12px 24px;
+    text-decoration: none;
+    top: 4px;
+    width: auto;
+    z-index: 100000; }
+
+.spirit-screenreader-hidden {
+  display: none; }
+
+.spirit-button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #0055FF;
+  border: 0;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #0055FF;
+          box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #0055FF;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Graphik", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  margin: 0 0 16px 0;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: background-color 0.2s ease-out, -webkit-box-shadow 0.2s ease-out, -webkit-box-shadow 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  transition: background-color 0.2s ease-out, -webkit-box-shadow 0.2s ease-out, -webkit-box-shadow 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out;
+  transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out, -webkit-box-shadow 0.2s ease-out, -webkit-box-shadow 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-appearance: none; }
+  .spirit-button:hover, .spirit-button--hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #0055FF;
+            box-shadow: 0 8px 16px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #0055FF;
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px); }
+  .spirit-button:focus, .spirit-button:focus-within, .spirit-button--focus {
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #B3CCFF;
+            box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #B3CCFF;
+    outline: 0; }
+  .spirit-button:active, .spirit-button--active {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #0055FF;
+            box-shadow: 0 4px 8px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #0055FF; }
+  .spirit-button:disabled {
+    background-color: #F5F7FA;
+    -webkit-box-shadow: inset 0 0 0 4px #F5F7FA;
+            box-shadow: inset 0 0 0 4px #F5F7FA;
+    color: #AFB0B3;
+    cursor: not-allowed; }
+  .spirit-button[data-loader='true'], .spirit-button[data-type='success'], .spirit-button[data-type='danger'] {
+    position: relative; }
+    .spirit-button[data-loader='true'] [aria-hidden='true'], .spirit-button[data-type='success'] [aria-hidden='true'], .spirit-button[data-type='danger'] [aria-hidden='true'] {
+      visibility: hidden; }
+  .spirit-container--dark .spirit-button,
+  .spirit-col--dark .spirit-button {
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px transparent;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px transparent;
+    color: #0055FF; }
+    .spirit-container--dark .spirit-button:hover, .spirit-container--dark .spirit-button.spirit-button--hover,
+    .spirit-col--dark .spirit-button:hover,
+    .spirit-col--dark .spirit-button.spirit-button--hover {
+      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16);
+              box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16); }
+    .spirit-container--dark .spirit-button:active, .spirit-container--dark .spirit-button.spirit-button--active,
+    .spirit-col--dark .spirit-button:active,
+    .spirit-col--dark .spirit-button.spirit-button--active {
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16);
+              box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16); }
+    .spirit-container--dark .spirit-button:focus, .spirit-container--dark .spirit-button:focus-within, .spirit-container--dark .spirit-button.spirit-button--focus,
+    .spirit-col--dark .spirit-button:focus,
+    .spirit-col--dark .spirit-button:focus-within,
+    .spirit-col--dark .spirit-button.spirit-button--focus {
+      -webkit-box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #B3CCFF;
+              box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #B3CCFF; }
+    .spirit-container--dark .spirit-button:disabled,
+    .spirit-col--dark .spirit-button:disabled {
+      background-color: #F5F7FA;
+      -webkit-box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #F5F7FA;
+              box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), inset 0 0 0 4px #F5F7FA;
+      color: #AFB0B3; }
+
+.spirit-button__success-text[aria-hidden='false'] + .spirit-button__default-text {
+  display: none; }
+
+.spirit-button__icon-contain {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+  .spirit-button__icon-contain [class^='spirit-icon-'] {
+    height: 20px;
+    width: 20px; }
+
+.spirit-button--is-icon {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 130px; }
+  .spirit-button--is-icon [class^='spirit-icon-'] {
+    height: 20px;
+    width: 20px; }
+
+.spirit-button--extra-small {
+  font-size: 14px;
+  line-height: 1.1429;
+  padding: 8px 16px; }
+  .spirit-button--extra-small .spirit-button__icon-contain [class^='spirit-icon-'] {
+    height: 16px;
+    width: 16px; }
+
+.spirit-button--small {
+  font-size: 16px;
+  line-height: 1;
+  padding: 12px 24px; }
+
+@media screen and (min-width: 768px) {
+  .spirit-button--small-md {
+    font-size: 16px;
+    line-height: 1;
+    padding: 12px 24px; }
+    .spirit-button--small-md .spirit-button__icon-contain [class^='spirit-icon-'], .spirit-button--small-md.spirit-button--is-icon [class^='spirit-icon-'] {
+      height: 20px;
+      width: 20px; } }
+
+@media screen and (min-width: 768px) {
+  .spirit-button--default-md {
+    font-size: 16px;
+    line-height: 1;
+    padding: 16px 32px; }
+    .spirit-button--default-md .spirit-button__icon-contain [class^='spirit-icon-'], .spirit-button--default-md.spirit-button--is-icon [class^='spirit-icon-'] {
+      height: 20px;
+      width: 20px; } }
+
+@media screen and (min-width: 1024px) {
+  .spirit-button--default-lg {
+    font-size: 16px;
+    line-height: 1;
+    padding: 16px 32px; }
+    .spirit-button--default-lg .spirit-button__icon-contain [class^='spirit-icon-'], .spirit-button--default-lg.spirit-button--is-icon [class^='spirit-icon-'] {
+      height: 20px;
+      width: 20px; } }
+
+.spirit-button--large {
+  font-size: 16px;
+  line-height: 1;
+  padding: 24px 48px; }
+
+@media screen and (min-width: 768px) {
+  .spirit-button--large-md {
+    font-size: 16px;
+    line-height: 1;
+    padding: 24px 48px; }
+    .spirit-button--large-md .spirit-button__icon-contain [class^='spirit-icon-'], .spirit-button--large-md.spirit-button--is-icon [class^='spirit-icon-'] {
+      height: 20px;
+      width: 20px; } }
+
+@media screen and (min-width: 1024px) {
+  .spirit-button--large-lg {
+    padding: 24px 48px; }
+    .spirit-button--large-lg .spirit-button__icon-contain [class^='spirit-icon-'], .spirit-button--large-lg.spirit-button--is-icon [class^='spirit-icon-'] {
+      height: 20px;
+      width: 20px; } }
+
+.spirit-button--secondary {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #EDEFF2;
+          box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #EDEFF2;
+  color: #0055FF; }
+  .spirit-button--secondary:hover, .spirit-button--secondary.spirit-button--hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 2px #EDEFF2;
+            box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 2px #EDEFF2; }
+  .spirit-button--secondary:focus, .spirit-button--secondary:focus-within, .spirit-button--secondary.spirit-button--focus {
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF; }
+  .spirit-button--secondary:active, .spirit-button--secondary.spirit-button--active {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 2px #EDEFF2;
+            box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 2px #EDEFF2; }
+  .spirit-button--secondary:disabled {
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #EDEFF2;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #EDEFF2; }
+
+.spirit-button--minimal {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+          box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+  color: #0055FF; }
+  .spirit-button--minimal:hover, .spirit-button--minimal.spirit-button--hover {
+    background-color: #D9E5FF;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent; }
+  .spirit-button--minimal:active, .spirit-button--minimal.spirit-button--active {
+    background-color: #B3CCFF;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent; }
+  .spirit-button--minimal:focus, .spirit-button--minimal:focus-within, .spirit-button--minimal.spirit-button--focus {
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF; }
+  .spirit-button--minimal:disabled {
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent; }
+  .spirit-container--dark .spirit-button--minimal,
+  .spirit-col--dark .spirit-button--minimal {
+    background-color: #0055FF;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+    color: #ffffff; }
+    .spirit-container--dark .spirit-button--minimal:hover, .spirit-container--dark .spirit-button--minimal.spirit-button--hover,
+    .spirit-col--dark .spirit-button--minimal:hover,
+    .spirit-col--dark .spirit-button--minimal.spirit-button--hover {
+      background-color: #ffffff;
+      -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+              box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+      color: #0055FF; }
+    .spirit-container--dark .spirit-button--minimal:active, .spirit-container--dark .spirit-button--minimal.spirit-button--active,
+    .spirit-col--dark .spirit-button--minimal:active,
+    .spirit-col--dark .spirit-button--minimal.spirit-button--active {
+      background-color: #ffffff;
+      -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+              box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+      color: #00081A; }
+    .spirit-container--dark .spirit-button--minimal:focus, .spirit-container--dark .spirit-button--minimal:focus-within, .spirit-container--dark .spirit-button--minimal.spirit-button--focus,
+    .spirit-col--dark .spirit-button--minimal:focus,
+    .spirit-col--dark .spirit-button--minimal:focus-within,
+    .spirit-col--dark .spirit-button--minimal.spirit-button--focus {
+      -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+              box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF; }
+    .spirit-container--dark .spirit-button--minimal:disabled,
+    .spirit-col--dark .spirit-button--minimal:disabled {
+      background-color: #0055FF;
+      -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+              box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px transparent;
+      color: #AFB0B3; }
+
+.spirit-button--icon-only {
+  border-radius: 100%;
+  min-width: 0;
+  padding: 8px; }
+  .spirit-button--icon-only [class^='spirit-icon-'] {
+    height: 32px;
+    width: 32px; }
+  .spirit-button--icon-only.spirit-button--small [class^='spirit-icon-'] {
+    height: 24px;
+    width: 24px; }
+  @media screen and (min-width: 768px) {
+    .spirit-button--icon-only.spirit-button--default-md [class^='spirit-icon-'] {
+      height: 32px;
+      width: 32px; } }
+  @media screen and (min-width: 1024px) {
+    .spirit-button--icon-only.spirit-button--default-lg [class^='spirit-icon-'] {
+      height: 32px;
+      width: 32px; } }
+
+.spirit-button[data-type='success'],
+.spirit-button--success {
+  background-color: #37A941;
+  -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #37A941;
+          box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #37A941;
+  color: #ffffff;
+  position: relative; }
+  .spirit-button[data-type='success']:hover, .spirit-button[data-type='success'].spirit-button--hover,
+  .spirit-button--success:hover,
+  .spirit-button--success.spirit-button--hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941;
+            box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941; }
+  .spirit-button[data-type='success']:focus, .spirit-button[data-type='success']:focus-within, .spirit-button[data-type='success'].spirit-button--focus,
+  .spirit-button--success:focus,
+  .spirit-button--success:focus-within,
+  .spirit-button--success.spirit-button--focus {
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+    outline: 0; }
+  .spirit-button[data-type='success']:active, .spirit-button[data-type='success'].spirit-button--active,
+  .spirit-button--success:active,
+  .spirit-button--success.spirit-button--active {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941;
+            box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941; }
+  .spirit-container--dark .spirit-button[data-type='success'],
+  .spirit-col--dark .spirit-button[data-type='success'], .spirit-container--dark
+  .spirit-button--success,
+  .spirit-col--dark
+  .spirit-button--success {
+    background-color: #37A941;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #37A941;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #37A941;
+    color: #ffffff;
+    position: relative; }
+    .spirit-container--dark .spirit-button[data-type='success']:hover, .spirit-container--dark .spirit-button[data-type='success'].spirit-button--hover,
+    .spirit-col--dark .spirit-button[data-type='success']:hover,
+    .spirit-col--dark .spirit-button[data-type='success'].spirit-button--hover, .spirit-container--dark
+    .spirit-button--success:hover, .spirit-container--dark
+    .spirit-button--success.spirit-button--hover,
+    .spirit-col--dark
+    .spirit-button--success:hover,
+    .spirit-col--dark
+    .spirit-button--success.spirit-button--hover {
+      -webkit-box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941;
+              box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941; }
+    .spirit-container--dark .spirit-button[data-type='success']:focus, .spirit-container--dark .spirit-button[data-type='success']:focus-within, .spirit-container--dark .spirit-button[data-type='success'].spirit-button--focus,
+    .spirit-col--dark .spirit-button[data-type='success']:focus,
+    .spirit-col--dark .spirit-button[data-type='success']:focus-within,
+    .spirit-col--dark .spirit-button[data-type='success'].spirit-button--focus, .spirit-container--dark
+    .spirit-button--success:focus, .spirit-container--dark
+    .spirit-button--success:focus-within, .spirit-container--dark
+    .spirit-button--success.spirit-button--focus,
+    .spirit-col--dark
+    .spirit-button--success:focus,
+    .spirit-col--dark
+    .spirit-button--success:focus-within,
+    .spirit-col--dark
+    .spirit-button--success.spirit-button--focus {
+      -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+              box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+      outline: 0; }
+    .spirit-container--dark .spirit-button[data-type='success']:active, .spirit-container--dark .spirit-button[data-type='success'].spirit-button--active,
+    .spirit-col--dark .spirit-button[data-type='success']:active,
+    .spirit-col--dark .spirit-button[data-type='success'].spirit-button--active, .spirit-container--dark
+    .spirit-button--success:active, .spirit-container--dark
+    .spirit-button--success.spirit-button--active,
+    .spirit-col--dark
+    .spirit-button--success:active,
+    .spirit-col--dark
+    .spirit-button--success.spirit-button--active {
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941;
+              box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #37A941; }
+
+.spirit-button[data-type='danger'],
+.spirit-button--danger {
+  background-color: #F40050;
+  -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #F40050;
+          box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #F40050;
+  color: #ffffff;
+  position: relative; }
+  .spirit-button[data-type='danger']:hover, .spirit-button[data-type='danger'].spirit-button--hover,
+  .spirit-button--danger:hover,
+  .spirit-button--danger.spirit-button--hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #F40050;
+            box-shadow: 0 8px 16px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #F40050; }
+  .spirit-button[data-type='danger']:focus, .spirit-button[data-type='danger']:focus-within, .spirit-button[data-type='danger'].spirit-button--focus,
+  .spirit-button--danger:focus,
+  .spirit-button--danger:focus-within,
+  .spirit-button--danger.spirit-button--focus {
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 4px #B3CCFF;
+    outline: 0; }
+  .spirit-button[data-type='danger']:active, .spirit-button[data-type='danger'].spirit-button--active,
+  .spirit-button--danger:active,
+  .spirit-button--danger.spirit-button--active {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #F40050;
+            box-shadow: 0 4px 8px 0 rgba(0, 8, 26, 0.16), inset 0 0 0 4px #F40050; }
+  .spirit-container--dark .spirit-button[data-type='danger'],
+  .spirit-col--dark .spirit-button[data-type='danger'], .spirit-container--dark
+  .spirit-button--danger,
+  .spirit-col--dark
+  .spirit-button--danger {
+    background-color: #F40050;
+    -webkit-box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #F40050;
+            box-shadow: 0 2px 4px 0 transparent, inset 0 0 0 2px #F40050;
+    color: #ffffff; }
