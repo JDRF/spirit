@@ -1,47 +1,24 @@
+/// Create Space Stack classes using tokens.scss
+@import '../tokens/tokens';
 
-// Create Space Stack classes using tokens.scss
+$spirit-stack-tokens: spirit-token('space', 'stack');
+@each $variable, $value in $spirit-stack-tokens {
+  .spirit-space--stack-#{$variable} {
+    margin: $value;
+  }
+}
 
-$spacestack: (
-  $spirit-space-generic-24-x,
-  $spirit-space-generic-12-x,
-  $spirit-space-generic-8-x,
-  $spirit-space-generic-6-x,
-  $spirit-space-generic-5-x,
-  $spirit-space-generic-4-x,
-  $spirit-space-generic-3-x,
-  $spirit-space-generic-2-x,
-  $spirit-space-generic-1-x,
-  $spirit-space-generic-half-x,
-);
+$spirit-inline-left-tokens: spirit-token('space', 'inline-left');
+@each $variable, $value in $spirit-inline-left-tokens {
+  .spirit-space--inline-left-#{$variable} {
+    margin: $value;
+  }
+}
 
-@each $space in $spacestack {
-  $control: $spirit-space-generic-1-x;
-  $multiplier: $space / $control;
 
-  @if $multiplier < 1 {
-    .spirit-space-stack-half-x {
-      margin: 0 0 $space;
-    }
-
-    .spirit-space-inline-left-half-x {
-      margin: 0 0 0 $space;
-    }
-
-    .spirit-space-inline-right-half-x {
-      margin: 0 0 0 $space;
-    }
-
-  } @else {
-    .spirit-space-stack-#{$multiplier}-x {
-      margin: 0 0 $space;
-    }
-
-    .spirit-space-inline-left-#{$multiplier}-x {
-      margin: 0 0 0 $space;
-    }
-
-    .spirit-space-inline-right-#{$multiplier}-x {
-      margin: 0 0 0 $space;
-    }
+$spirit-inline-right-tokens: spirit-token('space', 'inline-right');
+@each $variable, $value in $spirit-inline-right-tokens {
+  .spirit-space--inline-right-#{$variable} {
+    margin: $value;
   }
 }

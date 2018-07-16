@@ -7,8 +7,7 @@ $spirit-button-transition-timing-function: ease-out;
 
 // Spririt Button - Default
 .spirit-button {
-  @include box-sizing(border-box);
-  @include setspace();
+  @include spirit-box-sizing(border-box);
   // sass-lint:disable property-sort-order, no-vendor-prefixes
   background-color: $spirit-interactive-color-primary-fill;
   border: 0;
