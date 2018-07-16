@@ -6,6 +6,7 @@
 @mixin spirit-card-list-item {
   align-items: center;
   flex-direction: row;
+  padding: 0;
   width: 100%;
 
   .spirit-card__image-wrap {
@@ -40,7 +41,6 @@
   .spirit-card__text {
     border: solid $spirit-border-width-card $spirit-color-grey-95;
     border-radius: $spirit-border-radius-l;
-    margin: -($spirit-space-generic-1-x); // Without an image, __text is the only element inside the card. Use this negative margin to "pull" the __text element on top of the card's default padding so it becomes full bleed
     padding: $spirit-space-inset-2-x;
     width: 100%;
   }
@@ -66,8 +66,26 @@
   flex-direction: column;
   max-width: 540px;
   padding: $spirit-space-inset-1-x;
+  position: relative;
   text-decoration: none;
   transition: box-shadow $spirit-transition-timing-default;
+
+
+  &.spirit-card--focus,
+  &:focus {
+    outline: none;
+
+    &:before {
+      border: solid 4px $spirit-color-blue-30;
+      border-radius: $spirit-border-radius-l;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
 
   &.spirit-card--hover,
   &:hover {
@@ -78,7 +96,6 @@
   &:active {
     @include spirit-elevation(3, $spirit-elevation-color-blue);
   }
-
 }
 
 .spirit-card__text {

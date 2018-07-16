@@ -11,7 +11,7 @@
         ) %}
   {% if cta == undefined %}
     {% set cta %}
-      <span class="spirit-card__link">{{ link_text }}</span>
+      <span class="spirit-card__link">{{ link_text | safe }}</span>
     {% endset %}
   {% endif %}
 
