@@ -11,11 +11,6 @@
   text-indent: 0;
   text-shadow: none;
   text-transform: none;
-
-  .spirit-col--dark & {
-    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-    color: $spirit-color-white;
-  }
 }
 
 /// setspace Function

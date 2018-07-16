@@ -28,6 +28,10 @@
 .spirit-col--dark {
   background: $spirit-brand-color-primary;
   color: $spirit-color-white;
+  > * {
+    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+    color: $spirit-color-white;
+  }
 }
 
 .spirit-col--md-6 {
