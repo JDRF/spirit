@@ -1,9 +1,13 @@
 {% macro card_grid(
-      class=false) %}
-  <div class="spirit-card-grid{{ ' ' + class if class }}">
+      class=false,
+      carousel=false) %}
+  <div class="spirit-card-grid{{ ' ' + class if class }}{{ ' spirit-card-grid--carousel' if carousel }}">
     {{ caller() }}
     <!-- These placeholder items prevent any orphaned cards in the last row from stretching to fill the available space -->
     <div class="spirit-card-grid__placeholder"></div>
     <div class="spirit-card-grid__placeholder"></div>
   </div>
+  {% if carousel %}
+    <div class="spirit-card-grid__carousel-controls"></div>
+  {% endif %}
 {% endmacro %}

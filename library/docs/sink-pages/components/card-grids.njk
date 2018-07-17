@@ -2,7 +2,8 @@
 {% block body %}
   <style>
     body {
-      padding: 10px;
+      margin: 0;
+      padding: 0;
     }
 
     .demo-tabs {
@@ -140,6 +141,13 @@
         All Demos
       </span>
     </label>
+
+    {% call demo_tab(label="Carousel", id="grid-carousel") %}
+      <h2 class="hostile-sink-reset">Carousel at Narrow Viewport</h2>
+      {% call library.card_grid(carousel=true) %}
+        {{ sample_cards | safe }}
+      {% endcall %}
+    {% endcall %}
 
     {% call demo_tab(label="3-up, medium cards", id="grid-3-up") %}
       <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size Cards</h2>
