@@ -126,19 +126,23 @@
   text-decoration: none;
   transition: box-shadow $spirit-transition-timing-default;
 
+  &:before {
+    border: solid 4px transparent;
+    border-radius: $spirit-border-radius-l;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   &.spirit-card--focus,
   &:focus {
     outline: none;
 
     &:before {
-      border: solid 4px $spirit-color-blue-30;
-      border-radius: $spirit-border-radius-l;
-      bottom: 0;
-      content: '';
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
+      border-color: $spirit-color-blue-30;
     }
   }
 
