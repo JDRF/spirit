@@ -5,7 +5,7 @@
 .spirit-card-grid {
   @include spirit-box-sizing;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1100px;
 
   .spirit-card {
     @include spirit-card-small; // Keep small card style until the large breakpoint
@@ -15,7 +15,7 @@
   @media screen and (min-width: 480px) {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 
     .spirit-card-grid__placeholder,
     .spirit-card {
@@ -80,12 +80,12 @@
       @include spirit-card-medium; // Switch to medium card since it's only 2 up
       flex: 1 1 40%;
 
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-
       &:nth-child(3n) {
         margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
       }
     }
   }

@@ -89,4 +89,19 @@
   {% call library.card_grid(class="spirit-card-grid--2-up") %}
     {{ sample_cards | safe }}
   {% endcall %}
+
+  <h2 class="hostile-sink-reset">Text Only, 3 up</h2>
+  {% call library.card_grid() %}
+    {{ text_only_sample_cards | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Text Only, 4 up</h2>
+  {% call library.card_grid(class="spirit-card-grid--4-up") %}
+    {{ text_only_sample_cards | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Text Only, 2 up</h2>
+  {% call library.card_grid(class="spirit-card-grid--2-up") %}
+    {{ text_only_sample_cards | safe }}
+  {% endcall %}
 {% endblock body %}
