@@ -24,6 +24,7 @@ jspm_packages/
 # Auto-generated files
 /dist
 /data/icons.json
+/data/spirit_project_data.json
 
 /tokens/*
 # Keep yaml token source file

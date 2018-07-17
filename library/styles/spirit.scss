@@ -2,6 +2,7 @@
 @import '../tokens/tokens'; 
 
 //// # Mixins - Default mixins
+@import 'mixins/accessibility';
 @import 'mixins/box-sizing';
 @import 'mixins/text-crop';
 
@@ -9,9 +10,8 @@
 @import 'helpers/spacing';
 
 /// # Base - Default global styles
+@import 'base/fonts';
 @import 'base/utilities';
-@import 'base/spirit-fonts';
-@import 'base/accessibility';
 
 /// # Components - Specific UI Components
 @import '../components/button/button';
