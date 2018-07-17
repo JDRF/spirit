@@ -1,0 +1,92 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+  {% set sample_cards %}
+    {{ library.card() }}
+    {{ library.card(
+      img_src='/images/components/card/bikers.png',
+      title_text="JDRF Ride to Cure Diabetes",
+      link_text="Find a Ride Near You",
+      body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+    {{ library.card(
+      img_src='/images/components/card/runners.png',
+      title_text="Team JDRF to Cure Diabetes",
+      link_text="Find an Event Near You",
+      body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
+    {{ library.card(
+      img_src='/images/components/card/gala.png',
+      title_text="Gala",
+      link_text="Find a Gala Near You",
+      body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+    {{ library.card(
+      img_src='/images/components/card/golf.png',
+      title_text="Golf",
+      link_text="Find an Event Near You",
+      body_text="Participate in a golf event to raise money for T1D while indulging in your favorite pastime.") }}
+    {{ library.card(
+      img_src='/images/components/card/school.png',
+      title_text="Give Back at School",
+      link_text="Learn More",
+      body_text="JDRF offers kids many ways to educate, inspire and motivate their peers to help make a world without T1D.") }}
+    {{ library.card(
+      img_src='/images/components/card/community.png',
+      title_text="JDRF Your Way",
+      link_text="Start a Fundraiser",
+      body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
+  {% endset %}
+
+  {% set text_only_sample_cards %}
+    {{ library.card(
+      img_src=false) }}
+    {{ library.card(
+      img_src=false,
+      title_text="Blood Sugar",
+      link_text="Learn More",
+      body_text="Let’s start with hypoglycemia and look at blood sugar drop symptoms. Although symptoms may overlap&hellip;") }}
+    {{ library.card(
+      img_src=false,
+      title_text="High Blood Sugar",
+      link_text="Learn More",
+      body_text="With high blood sugar, you may also experience drowsiness, exhaustion, nausea or vomiting, confusion&hellip;") }}
+    {{ library.card(
+      img_src=false,
+      title_text="Low Blood Sugar",
+      link_text="Learn More",
+      body_text="So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of&hellip;") }}
+    {{ library.card(
+      img_src=false,
+      title_text="Frequent Polyuria",
+      link_text="Learn More",
+      body_text="Polyuria occurs when your body urinates more frequently—and often in larger amounts—than normal&hellip;") }}
+    {{ library.card(
+      img_src=false,
+      title_text="Extreme Thirst",
+      link_text="Learn More",
+      body_text="When it comes to diabetes and thirst, polydipsia can be dangerous. The problem is the prolonged&hellip;") }}
+    {{ library.card(
+      img_src=false,
+      title_text="Type 1 Diabetes",
+      link_text="Learn More",
+      body_text="The reality is that signs of type 1 diabetes usually develop suddenly. And, that’s why it can be&hellip;") }}
+  {% endset %}
+  <style>
+    body {
+      padding: 10px;
+    }
+  </style>
+
+  <h1 class="hostile-sink-reset">Card Grids Sink</h1>
+  <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size Cards</h2>
+  {% call library.card_grid() %}
+    {{ sample_cards | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Stack to 4 up, Small Size Cards</h2>
+  {% call library.card_grid(class="spirit-card-grid--4-up") %}
+    {{ sample_cards | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Stack to 2 up, Large Size Cards</h2>
+  {% call library.card_grid(class="spirit-card-grid--2-up") %}
+    {{ sample_cards | safe }}
+  {% endcall %}
+{% endblock body %}

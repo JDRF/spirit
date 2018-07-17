@@ -1,0 +1,9 @@
+{% macro card_grid(
+      class=false) %}
+  <div class="spirit-card-grid{{ ' ' + class if class }}">
+    {{ caller() }}
+    <!-- These placeholder items prevent any orphaned cards in the last row from stretching to fill the available space -->
+    <div class="spirit-card-grid__placeholder"></div>
+    <div class="spirit-card-grid__placeholder"></div>
+  </div>
+{% endmacro %}

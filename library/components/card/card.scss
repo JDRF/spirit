@@ -60,12 +60,38 @@
 
 @mixin spirit-card-small {
   .spirit-card__title {
-    font-size: $spirit-font-size-heading-level-3;
+    @include spirit-typography-reset(
+      $font-size: $spirit-font-size-heading-level-3,
+      $font-weight: $spirit-font-weight-bold
+    );
+    margin: $spirit-space-stack-1-x;
+  }
+
+  .spirit-card__body {
+    @include spirit-typography-reset(
+      $color: $spirit-text-color-secondary,
+      $font-size: $spirit-font-size-s
+    );
+    margin: $spirit-space-stack-2-x;
+  }
+
+  .spirit-card__link {
+    @include spirit-typography-reset(
+      $color: $spirit-text-color-link,
+      $font-size: $spirit-font-size-s,
+      $font-weight: $spirit-font-weight-bold
+    );
+  }
+}
+
+@mixin spirit-card-medium {
+  .spirit-card__title {
+    font-size: $spirit-font-size-heading-level-2;
   }
 
   .spirit-card__link,
   .spirit-card__body {
-    font-size: $spirit-font-size-s;
+    font-size: $spirit-font-size-m;
   }
 }
 
@@ -90,6 +116,7 @@
 .spirit-card {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
+  @include spirit-card-small;
   border-radius: $spirit-border-radius-l;
   display: flex;
   flex-direction: column;
@@ -124,10 +151,18 @@
   &:active {
     @include spirit-elevation(3, $spirit-elevation-color-blue);
   }
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    @include spirit-card-medium;
+  }
 }
 
 .spirit-card--small {
   @include spirit-card-small;
+}
+
+.spirit-card--medium {
+  @include spirit-card-medium;
 }
 
 .spirit-card--large {
@@ -137,6 +172,8 @@
 .spirit-card__text {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 2;
   padding: $spirit-space-inset-1-x;
   width: 100%;
 }
@@ -148,6 +185,7 @@
 .spirit-card__image-wrap {
   border-radius: $spirit-border-radius-l;
   display: block;
+  flex-shrink: 0;
   margin: $spirit-space-stack-2-x;
   overflow: hidden;
 }
@@ -162,29 +200,11 @@
   display: none;
 }
 
-.spirit-card__title {
-  @include spirit-typography-reset(
-    $font-size: $spirit-font-size-heading-level-2,
-    $font-weight: $spirit-font-weight-bold
-  );
-  margin: $spirit-space-stack-1-x;
-}
-
-.spirit-card__body {
-  @include spirit-typography-reset(
-    $color: $spirit-text-color-secondary
-  );
-
-  margin: $spirit-space-stack-2-x;
+.spirit-card__cta {
+  margin-top: auto; // Keeps the cta anchored to the bottom of the card, maintains alignment in a grid of cards
 }
 
 .spirit-card__link {
-  @include spirit-typography-reset(
-    $color: $spirit-text-color-link,
-    $font-weight: $spirit-font-weight-bold
-  );
-
-  margin-top: auto;
   position: relative;
 
   &:after {

@@ -1,0 +1,100 @@
+@import '../../tokens/tokens';
+@import '../../styles/mixins/box-sizing';
+@import '../card/card';
+
+.spirit-card-grid {
+  @include spirit-box-sizing;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  .spirit-card {
+    @include spirit-card-small; // Keep small card style until the large breakpoint
+    margin: $spirit-space-stack-4-x;
+  }
+
+  @media screen and (min-width: 480px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      flex: 1 1 40%;
+      margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    .spirit-card-grid__placeholder {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      flex: 1 1 30%;
+
+      &:nth-child(2n) {
+        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    .spirit-card {
+      @include spirit-card-medium; // go to medium breakpoint sizes
+    }
+  }
+}
+
+.spirit-card-grid--4-up {
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      @include spirit-card-small; // Persist small card styles at all breakpoints within a 4-up grid
+      flex: 1 1 20%;
+
+      &:nth-child(3n) {
+        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.spirit-card-grid--2-up {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      @include spirit-card-medium; // Switch to medium card since it's only 2 up
+      flex: 1 1 40%;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(3n) {
+        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      @include spirit-card-large; // Switch to large card since it's only 2 up
+      // flex: 1 1 40%;
+    }
+  }
+}
