@@ -42,7 +42,12 @@
     border: solid $spirit-border-width-card $spirit-color-grey-95;
     border-radius: $spirit-border-radius-l;
     padding: $spirit-space-inset-2-x;
+    transition: border $spirit-transition-timing-default;
     width: 100%;
+  }
+
+  &:hover .spirit-card__text {
+    border-color: transparent;
   }
 
   .spirit-card__image-wrap + .spirit-card__text {

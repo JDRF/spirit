@@ -98,3 +98,13 @@
     }
   }
 }
+
+.spirit-card-grid--list {
+  // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
+  @media screen and (max-width: 479px) {
+    .spirit-card {
+      @include spirit-card-list-item;
+      margin: $spirit-space-stack-2-x;   
+    }
+  }
+}
