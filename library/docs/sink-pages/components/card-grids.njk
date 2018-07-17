@@ -141,20 +141,6 @@
       </span>
     </label>
 
-    {% call demo_tab(label="List View", id="list-view") %}
-      <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
-      {% call library.card_grid(class="spirit-card-grid--list") %}
-        {{ sample_cards | safe }}
-      {% endcall %}
-    {% endcall %}
-
-    {% call demo_tab(label="List View, text-only", id="list-view-text-only") %}
-      <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
-      {% call library.card_grid(class="spirit-card-grid--list") %}
-        {{ text_only_sample_cards | safe }}
-      {% endcall %}
-    {% endcall %}
-
     {% call demo_tab(label="3-up, medium cards", id="grid-3-up") %}
       <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size Cards</h2>
       {% call library.card_grid() %}
@@ -194,6 +180,34 @@
       <h2 class="hostile-sink-reset">Text Only, 2 up</h2>
       {% call library.card_grid(class="spirit-card-grid--2-up") %}
         {{ text_only_sample_cards | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="List View", id="list-view") %}
+      <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
+      {% call library.card_grid(class="spirit-card-grid--list") %}
+        {{ sample_cards | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="List View, text-only", id="list-view-text-only") %}
+      <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
+      {% call library.card_grid(class="spirit-card-grid--list") %}
+        {{ text_only_sample_cards | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="List View to 4-up", id="list-view-4-up") %}
+      <h2 class="hostile-sink-reset">List View to 4-up</h2>
+      {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
+        {{ sample_cards | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="List View to 2-up", id="list-view-2-up") %}
+      <h2 class="hostile-sink-reset">List View to 2-up</h2>
+      {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--2-up") %}
+        {{ sample_cards | safe }}
       {% endcall %}
     {% endcall %}
   </div>
