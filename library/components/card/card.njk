@@ -7,7 +7,8 @@
         title_text="JDRF One Walk&reg;",
         body_text="Join more than 900,000 people who come together to raise funds and walk to change the future for the millions of people with T1D.",
         link_text="Find a Walk Near You",
-        cta
+        cta,
+        size
         ) %}
   {% if cta == undefined %}
     {% set cta %}
@@ -15,7 +16,11 @@
     {% endset %}
   {% endif %}
 
-  <a href="{{ href }}" class="spirit-card{{ ' ' + class if class }}">
+  {% if size %}
+    {% set size_class = "spirit-card--" + size %}
+  {% endif %}
+
+  <a href="{{ href }}" class="spirit-card{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}">
     {% if img_src %}
       <span class="spirit-card__image-wrap">
         {% if img_src_list_item %}
