@@ -5,6 +5,34 @@ $spirit-button-font-letter-spacing-15: .15em;
 $spirit-button-transition-duration: .2s;
 $spirit-button-transition-timing-function: ease-out;
 
+// Spirit Button Wrappers
+// Spirit Button Group
+.spirit-button-group {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  margin: $spirit-space-stack-2-x;
+  > .spirit-button {
+    position: relative;
+    flex: 0 1 auto;
+    margin: 0;
+  }
+  > .spirit-button-input-toggle:not(:first-child) {
+    + .spirit-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-right: 0;
+    }
+  }
+  > .spirit-button-input-toggle {
+    + .spirit-button:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-right: -$spirit-border-button;
+    }
+  }
+}
+
 // Spririt Button - Default
 .spirit-button {
   @include spirit-box-sizing(border-box);
@@ -33,7 +61,6 @@ $spirit-button-transition-timing-function: ease-out;
   transition:
   box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function,
   background-color $spirit-button-transition-duration $spirit-button-transition-timing-function,
-  box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function,
   transform $spirit-button-transition-duration $spirit-button-transition-timing-function;
   user-select: none;
   -webkit-appearance: none;
@@ -47,9 +74,11 @@ $spirit-button-transition-timing-function: ease-out;
 
   &:focus,
   &:focus-within,
-  &--focus {
+  &--focus,
+  .spirit-button-input-toggle:checked + &  {
     box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus-soft;
     outline: 0;
+    z-index: 1;
   }
 
   &:active,
@@ -103,6 +132,11 @@ $spirit-button-transition-timing-function: ease-out;
       color: $spirit-interactive-color-disabled-foreground;
     }
   }
+
+  .spirit-container--dark .spirit-button-input-toggle:checked +&,
+  .spirit-col--dark .spirit-button-input-toggle:checked +& {
+    box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus-soft;
+  }
 }
 
 .spirit-button__default-text {
@@ -126,6 +160,13 @@ $spirit-button-transition-timing-function: ease-out;
     height: $spirit-size-icon-s;
     width: $spirit-size-icon-s;
   }
+}
+
+// Spirit button input toggle ( toggle group / radio / checkbox )
+.spirit-button-input-toggle {
+  position: absolute;
+  clip: rect(0,0,0,0);
+  pointer-events: none;
 }
 
 // Has icon and no text
@@ -263,7 +304,8 @@ $spirit-button-transition-timing-function: ease-out;
 
   &:focus,
   &:focus-within,
-  &.spirit-button--focus {
+  &.spirit-button--focus,
+  .spirit-button-input-toggle:checked + & {
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus-soft;
   }
 
