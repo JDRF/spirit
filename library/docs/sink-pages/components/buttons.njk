@@ -46,20 +46,6 @@
                 {% endfilter %}
                 {{ library.button(text="Primary Button Submit", tag="input", type="submit") }}
 
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Primary Toggle Check
-                {% endfilter %}
-                {{ library.button(text="Check Toggle", tag="input", type="checkbox", inputname="checkbox", inputid="option1") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Primary Toggle Radio
-                {% endfilter %}
-                <div class="spirit-button-group">
-                    {{ library.button(text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option6") }}
-                    {{ library.button(text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option7") }}
-                    {{ library.button(text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option8") }}
-                </div>
-
             </div>
 
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
@@ -102,20 +88,6 @@
                     ## Button Submit
                 {% endfilter %}
                 {{ library.button(class="spirit-button--secondary", text="Learn More", tag="input", type="submit") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Check
-                {% endfilter %}
-                {{ library.button(class="spirit-button--secondary", text="Check Toggle", tag="input", type="checkbox", inputname="checkbox", inputid="option9") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Radio
-                {% endfilter %}
-                <div class="spirit-button-group">
-                    {{ library.button(class="spirit-button--secondary", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option10") }}
-                    {{ library.button(class="spirit-button--secondary", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option11") }}
-                    {{ library.button(class="spirit-button--secondary", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option12") }}
-                </div>
 
             </div>
 
@@ -160,20 +132,57 @@
                 {% endfilter %}
                 {{ library.button(text="Learn More", tag="input", type="submit") }}
 
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Check
-                {% endfilter %}
-                {{ library.button(text="Check Toggle", tag="input", type="checkbox", inputname="checkbox", inputid="option13") }}
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Radio
+                    ## Toggle Button
                 {% endfilter %}
-                <div class="spirit-button-group">
-                    {{ library.button(text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option14") }}
-                    {{ library.button(text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option15") }}
-                    {{ library.button(text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option16") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle
+                {% endfilter %}
+                <div class="spirit-button-group-toggle">
+                    {{ library.button(text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
                 </div>
 
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Hover
+                {% endfilter %}
+                <div class="spirit-button-group-toggle">
+                    {{ library.button(class="spirit-button--hover", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Focus
+                {% endfilter %}
+                <div class="spirit-button-group-toggle">
+                    {{ library.button(class="spirit-button--focus", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Active / Checked
+                {% endfilter %}
+                <div class="spirit-button-group-toggle">
+                    {{ library.button(class="spirit-button--active", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                </div>
+
+                 {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Disabled
+                {% endfilter %}
+                <div class="spirit-button-group-toggle">
+                    {{ library.button(class="spirit-button--disabled", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Group
+                {% endfilter %}
+                <div class="spirit-button-group-toggle">
+                    {{ library.button(text="$10", tag="input", type="radio", inputName="radio-group", inputId="option2", inputValue="10") }}
+                    {{ library.button(text="$20", tag="input", type="radio", inputName="radio-group", inputId="option3", inputValue="15") }}
+                    {{ library.button(text="$30", tag="input", type="radio", inputName="radio-group", inputId="option4", inputValue="20") }}
+                </div>
             </div>
 
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
@@ -227,20 +236,6 @@
                 {% endfilter %}
                 {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
 
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Check
-                {% endfilter %}
-                {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Check Toggle", tag="input", type="checkbox", inputname="checkbox", inputid="option17") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Radio
-                {% endfilter %}
-                <div class="spirit-button-group">
-                    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option18") }}
-                    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option19") }}
-                    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option20") }}
-                </div>
-
             </div>
 
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
@@ -274,20 +269,6 @@
                 {% endfilter %}
                 {{ library.button(class="spirit-button--minimal spirit-button--focus", text="Learn More") }}
 
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Check
-                {% endfilter %}
-                {{ library.button(class="spirit-button--minimal", text="Check Toggle", tag="input", type="checkbox", inputname="checkbox", inputid="option21") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Radio
-                {% endfilter %}
-                <div class="spirit-button-group">
-                    {{ library.button(class="spirit-button--minimal", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option22") }}
-                    {{ library.button(class="spirit-button--minimal", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option23") }}
-                    {{ library.button(class="spirit-button--minimal", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option24") }}
-                </div>
-
             </div>
 
             <div class="spirit-col spirit-col--dark spirit-col--md-6 spirit-col--lg-4">
@@ -320,20 +301,6 @@
                     ## Focus
                 {% endfilter %}
                 {{ library.button(class="spirit-button--minimal spirit-button--focus", text="Learn More") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Check
-                {% endfilter %}
-                {{ library.button(class="spirit-button--minimal", text="Check Toggle", tag="input", type="checkbox", inputname="checkbox", inputid="option25") }}
-
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Toggle Radio
-                {% endfilter %}
-                <div class="spirit-button-group">
-                    {{ library.button(class="spirit-button--minimal", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option26") }}
-                    {{ library.button(class="spirit-button--minimal", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option27") }}
-                    {{ library.button(class="spirit-button--minimal", text="Radio Toggle", tag="input", type="radio", inputname="radio-group", inputid="option28") }}
-                </div>
 
             </div>
 

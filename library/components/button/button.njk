@@ -10,16 +10,17 @@
       loader=false,
       feedbackType=false,
       feedbackText=false,
-      inputname=false,
-      inputid=false
+      inputName=false,
+      inputId=false,
+      inputValue=false
       ) %}
   {% if href %}
     {% set tag = 'a' %}
   {% endif %}
   {% if tag === 'input'  %}
     {% if (type === 'checkbox') or (type === 'radio') %}
-      <{{tag}} class="spirit-button-input-toggle" {{ 'type=' + type if type }} {{ 'name=' + inputname if inputname }} {{ 'id=' + inputid if inputid }} />
-      <label {{ 'for=' + inputid if inputid }} class="spirit-button spirit-button--label{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}">
+      <{{tag}} class="spirit-button-input-toggle" {{ 'type=' + type if type }} {{ 'name=' + inputName if inputName }} {{ 'id=' + inputId if inputId }} {{ 'value=' + inputValue if inputValue }} tabindex="-1"/>
+      <label {{ 'for=' + inputId if inputId }} class="spirit-button spirit-button--toggle{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" tabindex="0">
         {{ text if text }}
       </label>
     {% else %}

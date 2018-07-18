@@ -6,28 +6,31 @@ $spirit-button-transition-duration: .2s;
 $spirit-button-transition-timing-function: ease-out;
 
 // Spirit Button Wrappers
-// Spirit Button Group
-.spirit-button-group {
-  position: relative;
+// Spirit Button Group Toggle
+.spirit-button-group-toggle {
   display: inline-flex;
-  vertical-align: middle;
   margin: $spirit-space-stack-2-x;
+  position: relative;
+  vertical-align: middle;
+
   > .spirit-button {
-    position: relative;
     flex: 0 1 auto;
     margin: 0;
+    position: relative;
   }
+
   > .spirit-button-input-toggle:not(:first-child) {
     + .spirit-button {
-      border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
       margin-right: 0;
     }
   }
+
   > .spirit-button-input-toggle {
     + .spirit-button:not(:last-child) {
-      border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
       margin-right: -$spirit-border-button;
     }
   }
@@ -106,9 +109,9 @@ $spirit-button-transition-timing-function: ease-out;
   // Spirit Button on Dark
   .spirit-container--dark &,
   .spirit-col--dark & {
-    background-color: $spirit-color-white;
+    background-color: $spirit-interactive-color-on-dark;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button transparent;
-    color: $spirit-color-blue-100;
+    color: $spirit-interactive-color-text-primary;
 
     &:hover,
     &.spirit-button--hover {
@@ -162,12 +165,6 @@ $spirit-button-transition-timing-function: ease-out;
   }
 }
 
-// Spirit button input toggle ( toggle group / radio / checkbox )
-.spirit-button-input-toggle {
-  position: absolute;
-  clip: rect(0,0,0,0);
-  pointer-events: none;
-}
 
 // Has icon and no text
 .spirit-button--is-icon {
@@ -293,13 +290,13 @@ $spirit-button-transition-timing-function: ease-out;
 
 // Spririt Button - Secondary
 .spirit-button--secondary {
-  background-color: $spirit-color-white;
-  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-color-grey-95;
-  color: $spirit-color-blue-100;
+  background-color: $spirit-interactive-color-on-dark;
+  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
+  color: $spirit-interactive-color-text-primary;
 
   &:hover,
   &.spirit-button--hover {
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-color-grey-95;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
   }
 
   &:focus,
@@ -311,11 +308,11 @@ $spirit-button-transition-timing-function: ease-out;
 
   &:active,
   &.spirit-button--active {
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-color-grey-95;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
   }
 
   &:disabled {
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-color-grey-95;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
   }
 }
 
@@ -323,17 +320,17 @@ $spirit-button-transition-timing-function: ease-out;
 .spirit-button--minimal {
   background-color: transparent;
   box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
-  color: $spirit-color-blue-100;
+  color: $spirit-interactive-color-text-primary;
 
   &:hover,
   &.spirit-button--hover {
-    background-color: $spirit-color-blue-15;
+    background-color: $spirit-interactive-color-hover-minimal-background;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
   }
 
   &:active,
   &.spirit-button--active {
-    background-color: $spirit-color-blue-30;
+    background-color: $spirit-interactive-color-active-soft;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
   }
 
@@ -366,7 +363,7 @@ $spirit-button-transition-timing-function: ease-out;
     &.spirit-button--active {
       background-color: $spirit-color-blue-15;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
-      color: $spirit-color-black;
+      color: $spirit-interactive-color-active-dark-text;
     }
 
     &:focus,
@@ -380,6 +377,50 @@ $spirit-button-transition-timing-function: ease-out;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
       color: $spirit-interactive-color-disabled-foreground;
     }
+  }
+}
+
+// Spirit button input toggle ( toggle group / radio / checkbox )
+.spirit-button-input-toggle {
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  position: absolute;
+}
+
+// Spirit button toggle ( toggle group / radio / checkbox )
+.spirit-button--toggle {
+  background-color: $spirit-color-white;
+  box-shadow: inset 0 0 0 $spirit-border-button-toggle $spirit-interactive-color-primary;
+  color: $spirit-interactive-color-text-primary;
+
+  &:hover,
+  &.spirit-button--hover {
+    background-color: $spirit-interactive-color-hover-toggle-background;
+    box-shadow: inset 0 0 0 $spirit-border-button-toggle $spirit-interactive-color-primary;
+    transform: translateY(0);
+  }
+
+  &:focus,
+  &:focus-within,
+  &.spirit-button--focus {
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus-soft;
+  }
+
+  &:active,
+  &.spirit-button--active,
+  .spirit-button-input-toggle:checked + & {
+    background-color: $spirit-interactive-color-active-toggle-background;
+    box-shadow: inset 0 0 0 $spirit-border-button-toggle $spirit-interactive-color-primary;
+    color: $spirit-interactive-color-active-toggle-text;
+  }
+
+  &:disabled,
+  &.spirit-button--disabled,
+  .spirit-button-input-toggle:checked + &:disabled {
+    background-color: $spirit-interactive-color-disabled-background;
+    box-shadow: inset 0 0 0 $spirit-border-button $spirit-interactive-color-disabled-background;
+    color: $spirit-interactive-color-disabled-foreground;
+    cursor: not-allowed;
   }
 }
 

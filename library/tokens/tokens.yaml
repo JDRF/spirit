@@ -37,12 +37,21 @@ icon-color :
 interactive-color :
   primary : *color-blue-100
   on-dark : *color-white
+  secondary : *color-grey-95
   text : 
     primary : *color-blue-100
     on-dark : *color-white
   disabled :
     foreground : *color-grey-70
     background : *color-grey-98
+  hover :
+    minimal-background : *color-blue-15
+    toggle-background  : *color-blue-15
+  active :
+    soft              : *color-blue-30
+    dark-text         : *color-black
+    toggle-background : *color-blue-100
+    toggle-text       : *color-white
   focus :
     soft : *color-blue-30 # buttons, links
     hard : *color-blue-100
