@@ -1,13 +1,31 @@
 {% macro card_grid(
       class=false,
-      carousel=false) %}
-  <div class="spirit-card-grid{{ ' ' + class if class }}{{ ' spirit-card-grid--carousel' if carousel }}">
-    {{ caller() }}
-    <!-- These placeholder items prevent any orphaned cards in the last row from stretching to fill the available space -->
-    <div class="spirit-card-grid__placeholder"></div>
-    <div class="spirit-card-grid__placeholder"></div>
-  </div>
+      carousel=false,
+      card_count=1) %}
   {% if carousel %}
-    <div class="spirit-card-grid__carousel-controls"></div>
+    <div class="spirit-card-carousel">
+  {% endif %}
+      <div class="spirit-card-grid{{ ' ' + class if class }}{{ ' spirit-card-grid--carousel' if carousel }}">
+        {{ caller() }}
+        <!-- These placeholder items prevent any orphaned cards in the last row from stretching to fill the available space -->
+        <div class="spirit-card-grid__placeholder"></div>
+        <div class="spirit-card-grid__placeholder"></div>
+      </div>
+  {% if carousel %}
+      <div class="spirit-card-carousel__controls">
+        <button class="spirit-card-carousel__button spirit-card-carousel__button--prev" disabled>
+          {{ icon(name="chevron-left", class="spirit-card-carousel__button-icon") }}
+        </button>
+        <div class="spirit-card-carousel__page-indicator">
+          <span class="spirit-card-carousel__indicator-dot spirit-card-carousel__indicator-dot--active"></span>
+          {% for i in range(1, card_count) %}
+            <span class="spirit-card-carousel__indicator-dot"></span>
+          {% endfor %}
+        </div>
+        <button class="spirit-card-carousel__button spirit-card-carousel__button--next">
+          {{ icon(name="chevron-right", class="spirit-card-carousel__button-icon") }}
+        </button>
+      </div>
+    </div>
   {% endif %}
 {% endmacro %}

@@ -111,31 +111,94 @@ $spirit-card-grid-max-width: 1100px;
   }
 }
 
-.spirit-card-grid--carousel {
+$spirit-card-grid-carousel-side-padding: $spirit-space-generic-2-x;
+
+.spirit-card-carousel {
+  @include spirit-box-sizing;
+  max-width: $spirit-card-grid-max-width;
+}
+
+.spirit-card-carousel .spirit-card-grid {
   // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
   @media screen and (max-width: 479px) {
+    -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes 
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
     overflow-x: scroll;
-    padding: $spirit-space-inset-3-x;
+    padding-left: $spirit-card-grid-carousel-side-padding;
     position: relative;
+    scroll-padding: 0 6%;
+    scroll-snap-type: mandatory;
 
     .spirit-card {
       border: solid $spirit-border-width-card $spirit-color-grey-95;
-      flex: 1 1 95%;
-      flex-shrink: 0;
+      flex: 1 0 92%;
       margin: $spirit-space-inline-left-1-x;
       max-width: none;
-      width: 95%;
+      position: relative;
+      scroll-snap-align: start;
+      width: 100%;
+
+      // Use an absolutely positioned pseudo element to create additional scroll space within the scrolling flex-parent
+      &:nth-last-child(3)::before {
+        background: transparent;
+        content: '';
+        height: 1px;
+        left: 100%;
+        position: absolute;
+        top: 0;
+        width: $spirit-card-grid-carousel-side-padding;
+      }
     }
   }
 }
 
-.spirit-card-grid__carousel-controls {
-  background: hotpink;
-  height: 24px;
-  margin: 0 auto;
-  max-width: $spirit-card-grid-max-width;
+.spirit-card-carousel__controls {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: $spirit-space-generic-4-x auto 0;
+  padding: 0 $spirit-card-grid-carousel-side-padding;
   width: 100%;
+}
+
+.spirit-card-carousel__button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.spirit-card-carousel__button-icon.spirit-icon {
+  height: $spirit-size-icon-l;
+  stroke: $spirit-interactive-color-primary-fill;
+  width: $spirit-size-icon-l;
+
+  .spirit-card-carousel__button:disabled & {
+    stroke: $spirit-color-grey-70;
+  }
+}
+
+.spirit-card-carousel__page-indicator {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.spirit-card-carousel__indicator-dot {
+  background: $spirit-color-blue-15;
+  border-radius: 8px;
+  display: block;
+  flex: 0 0 8px;
+  height: 8px;
+  margin: $spirit-space-inline-left-2-x;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.spirit-card-carousel__indicator-dot--active {
+  background: $spirit-color-blue-default;
 }

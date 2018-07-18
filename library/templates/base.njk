@@ -10,7 +10,6 @@
         {% block head_content_prepend %}{% endblock head_content_prepend %}
         <link rel="shortcut icon" href="#" />
         <link rel="stylesheet" href="/styles/spirit.css">
-        {# <script src="/scripts/spirit.js"></script> #}
         <script src="/scripts/dependencies/svg4everybody.min.js"></script>
         <script>
             svg4everybody(); // Enable icons for IE11
@@ -19,6 +18,8 @@
     </head>
     <body>
         {% block body %}{% endblock body %}
-        {% block closing_body_assets %}{% endblock closing_body_assets %}
+        {% block closing_body_assets %}
+            <script src="/scripts/spirit.js"></script>
+        {% endblock closing_body_assets %}
     </body>
 </html>

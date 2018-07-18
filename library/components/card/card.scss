@@ -4,7 +4,7 @@
 @import '../../styles/mixins/typography';
 
 @mixin spirit-card-list-item {
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   padding: 0;
   width: 100%;
@@ -148,6 +148,7 @@
 
     &:before {
       border-color: $spirit-color-blue-30;
+      z-index: 10;
     }
   }
 
@@ -158,7 +159,7 @@
 
   &.spirit-card--active,
   &:active {
-    @include spirit-elevation(3, $spirit-elevation-color-blue);
+    @include spirit-elevation(4, $spirit-elevation-color-blue);
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
@@ -224,7 +225,7 @@
     left: 0;
     position: absolute;
     transition: width $spirit-transition-timing-default;
-    width: 0;
+    width: 0%;
   }
 
   .spirit-card--active &:after,
