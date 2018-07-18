@@ -1,0 +1,29 @@
+// Token proposal
+
+$spirit-grid-columns: 12;
+$spirit-grid-gutter-width: 30px;
+
+// Override Bootstrap defaults
+
+$grid-columns: $spirit-grid-columns;
+$grid-gutter-width: $spirit-grid-gutter-width;
+
+$grid-breakpoints: (
+  xs: $spirit-breakpoint-xs,
+  sm: $spirit-breakpoint-s,
+  md: $spirit-breakpoint-m,
+  lg: $spirit-breakpoint-l,
+  xl: $spirit-breakpoint-xl
+);
+
+
+@import "../vendor/bootstrap/functions";
+@import "../vendor/bootstrap/variables";
+
+@import "../vendor/bootstrap/mixins/breakpoints";
+@import "../vendor/bootstrap/mixins/grid-framework";
+@import "../vendor/bootstrap/mixins/grid";
+
+@import "../vendor/bootstrap/grid";
+@import "../vendor/bootstrap/utilities/display";
+@import "../vendor/bootstrap/utilities/flex";
