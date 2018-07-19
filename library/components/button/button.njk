@@ -18,10 +18,20 @@
     {% set el = 'a' %}
   {% endif %}
   {% if ( el === 'checkbox' ) or ( el === 'radio' ) %}
-      <input class="spirit-button-input-toggle" {{ 'type=' + el }} {{ 'name=' + name if name }} {{ 'id=' + id if id }} {{ 'value=' + value if value }} tabindex="-1"/>
-      <label {{ 'for=' + id if id }} class="spirit-button spirit-button--toggle{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" tabindex="0">
+    <div class="spirit-button spirit-button--toggle{{ ' ' + class if class }}">
+      <input class="spirit-button__input spirit-button__{{ el }}" {{ 'type=' + el }} {{ 'name=' + name if name }} {{ 'id=' + id if id }} {{ 'value=' + value if value }} tabindex="-1"/>
+      <label {{ 'for=' + id if id }} class="spirit-button__inner" tabindex="0">
+        {% if icon %}
+          {% if not iconLabel %}
+            {% set iconLabel = icon %}
+          {% endif %}
+          <svg role="img" aria-label="{{iconLabel if iconLabel}}" class="spirit-icon--{{icon if icon }}" xmlns="http://www.w3.org/2000/svg" >
+              <use xlink:href="/icons/spirit.svg#{{icon if icon}}"></use>
+          </svg>
+        {% endif %}
         {{ text if text }}
       </label>
+    </div>
   {% elif ( el === 'submit' or el === 'reset' ) %}
     <input {{ 'id=' + id if id }} {{ 'type=' + el }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
   {% elif el %}
