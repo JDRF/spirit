@@ -603,3 +603,37 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     color: $spirit-color-white;
   }
 }
+
+.spirit-button--border {
+  border: $spirit-border-button solid $spirit-interactive-color-primary;
+  box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
+
+  &:hover,
+  &.spirit-button--hover {
+    border: $spirit-border-button solid $spirit-interactive-color-primary;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-blue;
+  }
+
+  &:focus,
+  &:focus-within,
+  &.spirit-button--focus {
+    border: $spirit-border-button solid $spirit-interactive-color-focus-soft;
+    box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
+  }
+
+  &:active,
+  &.spirit-button--active {
+    border: $spirit-border-button solid $spirit-interactive-color-primary;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-blue;
+  }
+
+  &:disabled,
+  &.spirit-button--disabled {
+    background-color: $spirit-interactive-color-disabled-background;
+    border: $spirit-border-button solid $spirit-interactive-color-disabled-background;
+    box-shadow: none;
+    color: $spirit-interactive-color-disabled-foreground;
+    cursor: not-allowed;
+    transform: translateY(0);
+  }
+}
