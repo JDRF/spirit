@@ -44,7 +44,12 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Primary Button Submit
                 {% endfilter %}
-                {{ library.button(text="Primary Button Submit", tag="input", type="submit") }}
+                {{ library.button(text="Primary Button Submit", el="submit") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Primary Button Reset
+                {% endfilter %}
+                {{ library.button(text="Primary Button Reset", el="reset") }}
 
             </div>
 
@@ -87,7 +92,7 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Button Submit
                 {% endfilter %}
-                {{ library.button(class="spirit-button--secondary", text="Learn More", tag="input", type="submit") }}
+                {{ library.button(class="spirit-button--secondary", text="Learn More", el="submit") }}
 
             </div>
 
@@ -130,7 +135,7 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Button Submit
                 {% endfilter %}
-                {{ library.button(text="Learn More", tag="input", type="submit") }}
+                {{ library.button(text="Learn More", el="submit") }}
 
             </div>
 
@@ -144,44 +149,44 @@
                     ## Toggle
                 {% endfilter %}
                 <div class="spirit-button-group-toggle">
-                    {{ library.button(text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                    {{ library.button(text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
                 </div>
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Toggle Hover
                 {% endfilter %}
                 <div class="spirit-button-group-toggle">
-                    {{ library.button(class="spirit-button--hover", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                    {{ library.button(class="spirit-button--hover", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
                 </div>
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Toggle Focus
                 {% endfilter %}
                 <div class="spirit-button-group-toggle">
-                    {{ library.button(class="spirit-button--focus", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                    {{ library.button(class="spirit-button--focus", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
                 </div>
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Toggle Active / Checked
                 {% endfilter %}
                 <div class="spirit-button-group-toggle">
-                    {{ library.button(class="spirit-button--active", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                    {{ library.button(class="spirit-button--active", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
                 </div>
 
                  {% filter markdown(true, "hostile-sink-reset") %}
                     ## Toggle Disabled
                 {% endfilter %}
                 <div class="spirit-button-group-toggle">
-                    {{ library.button(class="spirit-button--disabled", text="$10", tag="input", type="checkbox", inputName="checkbox", inputId="option1", inputValue="10") }}
+                    {{ library.button(class="spirit-button--disabled", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
                 </div>
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Toggle Group
                 {% endfilter %}
                 <div class="spirit-button-group-toggle">
-                    {{ library.button(text="$10", tag="input", type="radio", inputName="radio-group", inputId="option2", inputValue="10") }}
-                    {{ library.button(text="$20", tag="input", type="radio", inputName="radio-group", inputId="option3", inputValue="15") }}
-                    {{ library.button(text="$30", tag="input", type="radio", inputName="radio-group", inputId="option4", inputValue="20") }}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option2", value="10") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option3", value="15") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option4", value="20") }}
                 </div>
             </div>
 
@@ -460,7 +465,7 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Submit Loader
                 {% endfilter %}
-                {{ library.button(tag="button", type="submit", loader="true", text="Submit Donation") }}
+                {{ library.button(tag="button", el="submit", loader="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Loading
@@ -468,10 +473,9 @@
                 {{ library.button(class="spirit-button--loading", loader="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Submit Loader Loading
+                    ## Submit Loader Loadingxx
                 {% endfilter %}
-                {{ library.button(class="spirit-button--loading", tag="button", type="submit", loader="true", text="Submit Donation") }}
-
+                {{ library.button(class="spirit-button--loading", el="button", type="submit", loader="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - with Loader

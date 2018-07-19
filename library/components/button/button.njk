@@ -1,33 +1,32 @@
 {% macro button(
+      id=false,
       class=false,
       disabled=false,
       text=false,
       icon=false,
       iconLabel=false,
-      tag="button",
+      el="button",
       type=false,
       href=false,
       loader=false,
       feedbackType=false,
       feedbackText=false,
-      inputName=false,
-      inputId=false,
-      inputValue=false
+      name=false,
+      value=false
       ) %}
   {% if href %}
-    {% set tag = 'a' %}
+    {% set el = 'a' %}
   {% endif %}
-  {% if tag === 'input'  %}
-    {% if (type === 'checkbox') or (type === 'radio') %}
-      <{{tag}} class="spirit-button-input-toggle" {{ 'type=' + type if type }} {{ 'name=' + inputName if inputName }} {{ 'id=' + inputId if inputId }} {{ 'value=' + inputValue if inputValue }} tabindex="-1"/>
-      <label {{ 'for=' + inputId if inputId }} class="spirit-button spirit-button--toggle{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" tabindex="0">
+  {% if ( el === 'checkbox' ) or ( el === 'radio' ) %}
+      <input class="spirit-button-input-toggle" {{ 'type=' + el }} {{ 'name=' + name if name }} {{ 'id=' + id if id }} {{ 'value=' + value if value }} tabindex="-1"/>
+      <label {{ 'for=' + id if id }} class="spirit-button spirit-button--toggle{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" tabindex="0">
         {{ text if text }}
       </label>
-    {% else %}
-      <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
-    {% endif %}
-  {% else %}
-    <{{tag}} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
+  {% elif ( el === 'submit' or el === 'reset' ) %}
+    <input {{ 'id=' + id if id }} {{ 'type=' + el }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
+  {% elif el %}
+    {# Using type variable for <button type="submit"> or <a type="button"> options #}
+    <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
       {% if icon %}
         {% if not iconLabel %}
           {% set iconLabel = icon %}
@@ -79,12 +78,12 @@
             </svg>
           </span>
         {% endif %}
-        <span class="spirit-button__default-text" {{'aria-hidden=true' if 'success' === feedbackType }}">
+        <span class="spirit-button__default-text" {{'aria-hidden=true' if 'success' === feedbackType }}>
           {{ text if text }}
         </span>
       {% else %}
         {{ text if text }}  
       {% endif %}
-      </{{tag}}>
-    {% endif %}
+      </{{el}}>
+  {% endif %}
 {% endmacro %}
