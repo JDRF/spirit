@@ -1,0 +1,42 @@
+@import '../tokens/tokens';
+@import 'mixins/text-crop';
+
+@mixin space-sink-page-font-reset {
+  // We neeed one of these in the library, not sure if anyone's building one yet
+  color: $spirit-text-color-primary;
+  font-family: $spirit-font-family-sans-serif;
+  font-size: $spirit-font-size-m;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: $spirit-font-line-height-body;
+  text-align: left;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.spirit-container {
+  @include space-sink-page-font-reset;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 2px solid;
+}
+
+.spirit-row + .spirit-row {
+  margin-top: 1em;
+}
+
+[class^="spirit-col"] {
+  background: $spirit-color-blue-15;
+  border: 1px solid rgba($spirit-color-blue-100, .6);
+}
+
+.spirit-row-break {
+  width: 100%;
+}
+
+.spirit-grid-example-vertical-alignment .spirit-row {
+  background: $spirit-color-grey-95;
+  min-height: 3rem;
+}

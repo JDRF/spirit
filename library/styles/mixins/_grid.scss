@@ -16,6 +16,22 @@ $grid-breakpoints: (
   xl: $spirit-breakpoint-xl
 );
 
+.spirit-container,
+.spirit-row,
+[class^="spirit-col"] {
+  box-sizing: border-box;
+}
+
+.spirit-row--no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .spirit-col,
+  > [class*="spirit-col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
 
 @import "../vendor/bootstrap/functions";
 @import "../vendor/bootstrap/variables";
