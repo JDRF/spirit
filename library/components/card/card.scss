@@ -237,8 +237,8 @@
     bottom: 0;
     content: '';
     height: 2px;
-    left: 0;
     position: absolute;
+    right: 0;
     transition: width $spirit-transition-timing-default;
     width: 0%;
   }
@@ -246,6 +246,8 @@
   .spirit-card--active &:after,
   .spirit-card--hover &:after,
   .spirit-card:hover &:after {
+    left: 0;
+    right: auto;
     width: 100%;
   }
 }
