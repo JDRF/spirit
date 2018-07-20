@@ -198,18 +198,22 @@
   flex-shrink: 0;
   margin: $spirit-space-stack-2-x;
   overflow: hidden;
+  position: relative;
   width: 100%;
+  z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
 }
 
 .spirit-card__image {
-  height: 100%; // Images will not exceed 160px in height
-  object-fit: cover;
-
   display: block;
-  // height: 120px;
-  // // max-width: 100%;
-  // object-fit: cover;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $spirit-transition-timing-default;
   width: 100%;
+
+  .spirit-card--hover &,
+  .spirit-card:hover & {
+    transform: scale(1.1);
+  }
 }
 
 .spirit-card__image-list-item {

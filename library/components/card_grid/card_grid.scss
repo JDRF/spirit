@@ -28,11 +28,6 @@ $spirit-card-grid-max-width: 1100px;
         margin-right: 0;
       }
     }
-
-    .spirit-card-grid__placeholder {
-      height: 0;
-      overflow: hidden;
-    }
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
@@ -101,6 +96,14 @@ $spirit-card-grid-max-width: 1100px;
   }
 }
 
+.spirit-card-grid .spirit-card-grid__placeholder {
+  &,
+  &:nth-child(2n),
+  &:nth-child(3n) {
+    margin-bottom: 0;
+  }
+}
+
 .spirit-card-grid--list {
   // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
   @media screen and (max-width: 479px) {
@@ -119,7 +122,8 @@ $spirit-card-grid-carousel-side-padding: $spirit-space-generic-2-x;
   width: 100%;
 }
 
-$scrollbar-hiding-padding: 20px;
+$scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar out of view
+
 .spirit-card-carousel .spirit-card-grid {
   // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
   @media screen and (max-width: 479px) {
@@ -169,16 +173,22 @@ $scrollbar-hiding-padding: 20px;
 }
 
 .spirit-card-carousel__grid {
-  overflow: hidden;
+  @media screen and (max-width: 479px) {
+    overflow: hidden; // Crops the browser scroll bar out of view
+  }
 }
 
 .spirit-card-carousel__controls {
   align-items: center;
-  display: flex;
+  display: none;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0 $spirit-card-grid-carousel-side-padding;
   width: 100%;
+
+  @media screen and (max-width: 479px) {
+    display: flex;
+  }
 }
 
 .spirit-card-carousel__button {
