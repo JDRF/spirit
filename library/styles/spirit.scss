@@ -1,10 +1,17 @@
-@import '../tokens/tokens';
+/// # Tokens - Global tokens / variables
+@import '../tokens/tokens'; 
 
+//// # Mixins - Default mixins
 @import 'mixins/accessibility';
 @import 'mixins/box-sizing';
 @import 'mixins/text-crop';
 
+/// # Helpers - Default helper functions
+@import 'helpers/spacing';
+
+/// # Base - Default global styles
 @import 'base/fonts';
 @import 'base/utilities';
 
+/// # Components - Specific UI Components
 @import '../components/button/button';
