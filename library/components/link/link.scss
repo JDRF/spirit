@@ -1,0 +1,17 @@
+// link
+
+$spirit-link-decoration: none !default;
+
+$spirit-link-hover-color: $spirit-text-color-link;
+$spirit-link-hover-decoration: underline !default;
+
+a {
+  color: $spirit-text-color-link;
+  text-decoration: $spirit-link-decoration;
+  background-color: transparent;
+
+  &:hover {
+    color: $spirit-text-color-link;
+    text-decoration: $spirit-link-hover-decoration;
+  }
+}

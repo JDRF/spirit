@@ -1,0 +1,11 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <h1 class="hostile-sink-reset"># Links Sink</h1>
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                {{ library.link() }}
+            </div>
+        </div>
+    </div>
+{% endblock body %}
