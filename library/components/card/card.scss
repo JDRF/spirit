@@ -9,6 +9,14 @@
   padding: 0;
   width: 100%;
 
+  &:hover {
+    @include spirit-elevation(4, $spirit-elevation-color-blue); // Reduce the box shadow spread in a carousel
+  }
+
+  &:active {
+    @include spirit-elevation(3, $spirit-elevation-color-blue);
+  }
+
   .spirit-card__image-wrap {
     flex-shrink: 0;
     height: 72px;
@@ -24,14 +32,6 @@
 
   .spirit-card__link {
     font-size: $spirit-font-size-xs;
-  }
-
-  .spirit-card__image {
-    height: 100%;
-    max-width: none;
-    position: absolute;
-    transform: translateX(-50%);
-    width: auto;
   }
 
   .spirit-card__body {
@@ -198,11 +198,17 @@
   flex-shrink: 0;
   margin: $spirit-space-stack-2-x;
   overflow: hidden;
+  width: 100%;
 }
 
 .spirit-card__image {
+  height: 100%; // Images will not exceed 160px in height
+  object-fit: cover;
+
   display: block;
-  max-width: 100%;
+  // height: 120px;
+  // // max-width: 100%;
+  // object-fit: cover;
   width: 100%;
 }
 

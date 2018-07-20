@@ -4,14 +4,16 @@
       card_count=1) %}
   {% if carousel %}
     <div class="spirit-card-carousel">
+      <div class="spirit-card-carousel__grid">
   {% endif %}
-      <div class="spirit-card-grid{{ ' ' + class if class }}{{ ' spirit-card-grid--carousel' if carousel }}">
-        {{ caller() }}
-        <!-- These placeholder items prevent any orphaned cards in the last row from stretching to fill the available space -->
-        <div class="spirit-card-grid__placeholder"></div>
-        <div class="spirit-card-grid__placeholder"></div>
-      </div>
+        <div class="spirit-card-grid{{ ' ' + class if class }}{{ ' spirit-card-grid--carousel' if carousel }}">
+          {{ caller() }}
+          <!-- These placeholder items prevent any orphaned cards in the last row from stretching to fill the available space -->
+          <div class="spirit-card-grid__placeholder"></div>
+          <div class="spirit-card-grid__placeholder"></div>
+        </div>
   {% if carousel %}
+      </div>
       <div class="spirit-card-carousel__controls">
         <button class="spirit-card-carousel__button spirit-card-carousel__button--prev" disabled>
           {{ icon(name="chevron-left", class="spirit-card-carousel__button-icon") }}
