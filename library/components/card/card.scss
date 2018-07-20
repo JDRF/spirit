@@ -212,6 +212,11 @@
 
   .spirit-card--hover &,
   .spirit-card:hover & {
+    transform: scale(1.2);
+  }
+
+  .spirit-card--active &,
+  .spirit-card:active & {
     transform: scale(1.1);
   }
 }
