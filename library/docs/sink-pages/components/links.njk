@@ -1,10 +1,40 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-    <h1 class="hostile-sink-reset"># Links Sink</h1>
+    <h1 class="hostile-sink-reset">Links Sink</h1>
     <div class="spirit-container">
         <div class="spirit-row">
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
-                {{ library.link() }}
+                <h2 class="hostile-sink-reset">Link Normal</h2>
+                {{ library.link(href="#") }}
+
+                <h2 class="hostile-sink-reset">Link Visited</h2>
+                {{ library.link(href="#", class="spirit-link--visited") }}
+
+                <h2 class="hostile-sink-reset">Link Hover</h2>
+                {{ library.link(href="#", class="spirit-link--hover") }}
+
+                <h2 class="hostile-sink-reset">Link Focus</h2>
+                {{ library.link(href="#", class="spirit-link--focus") }}
+
+                <h2 class="hostile-sink-reset">Link Active</h2>
+                {{ library.link(href="#", class="spirit-link--active") }}
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                <h2 class="hostile-sink-reset">Animated Normal</h2>
+                {{ library.link(href="#", class="spirit-link--animated") }}
+
+                <h2 class="hostile-sink-reset">Animated Visited</h2>
+                {{ library.link(href="#", class="spirit-link--animated spirit-link--visited") }}
+
+                <h2 class="hostile-sink-reset">Animated Hover</h2>
+                {{ library.link(href="#", class="spirit-link--animated spirit-link--hover") }}
+
+                <h2 class="hostile-sink-reset">Animated Focus</h2>
+                {{ library.link(href="#", class="spirit-link--animated spirit-link--focus") }}
+
+                <h2 class="hostile-sink-reset">Animated Active</h2>
+                {{ library.link(href="#", class="spirit-link--animated spirit-link--active") }}
             </div>
         </div>
     </div>

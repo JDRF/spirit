@@ -5,5 +5,5 @@
   target=false,
   type=false
 ) %}
-  <a {{ 'class=' + class if class }} {{ 'href=' + href if href }} {{ 'type=' + type if type }} {{ 'target=' + target if target }}>{{text if text}}</a>
+  <a class="{{ class if class }}" {{ 'href=' + href if href }} {{ 'type=' + type if type }} {{ 'target=' + target if target }}>{{text if text}}</a>
 {% endmacro %}
