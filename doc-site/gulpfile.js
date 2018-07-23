@@ -6,6 +6,7 @@ const slash = require('slash');
 const spiritProjectData = require(`${process.cwd()}/node_modules/spirit/package.json`);
 
 gulp.task('write-spirit-project-data-to-json', function(done){
+  fs.mkdirpSync('data');
   fs.writeFileSync('data/spirit_project_data.json', JSON.stringify(spiritProjectData));
   done();
 });
