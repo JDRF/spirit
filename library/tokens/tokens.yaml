@@ -36,6 +36,7 @@ icon-color :
   grey : *color-grey-35
 interactive-color :
   primary : *color-blue-100
+  secondary : *color-grey-95
   on-dark : *color-white
   text : 
     primary : *color-blue-100
@@ -59,7 +60,7 @@ box-shadow :
   focus :     4px
 border :
   color:
-    focus:              *color-blue-default
+    focus:              *color-blue-100
     success:            *color-green-67
     error:              *color-red-100
   style:
