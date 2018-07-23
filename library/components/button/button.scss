@@ -1,6 +1,9 @@
 // Letter Spacing
 $spirit-button-font-letter-spacing-125: .125em;
 
+// Text Shadow
+$spirit-text-shadow-small: 1px 2px rgba(0, 8, 26, .08);
+
 // Transitions
 $spirit-button-transition-duration: .2s;
 $spirit-button-transition-timing-function: ease-out;
@@ -40,7 +43,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   text-align: center;
   text-decoration: none;
   text-indent: 0;
-  text-shadow: none;
+  text-shadow: $spirit-text-shadow-small;
   text-transform: none;
   transform: translateY(0);
   transition:
@@ -49,6 +52,8 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   transform $spirit-button-transition-duration $spirit-button-transition-timing-function;
   user-select: none;
   -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   // sass-lint:enable property-sort-order, no-vendor-prefixes
 
   &:hover,
@@ -68,6 +73,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   &:active,
   &--active {
     box-shadow: $spirit-elevation-2 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-button $spirit-interactive-color-primary;
+    transform: translateY(-1px);
   }
 
   &:disabled,
@@ -95,6 +101,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     background-color: $spirit-interactive-color-on-dark;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button transparent;
     color: $spirit-interactive-color-text-primary;
+    text-shadow: none;
 
     &:hover,
     &.spirit-button--hover {
@@ -332,6 +339,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   background-color: $spirit-interactive-color-on-dark;
   box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
   color: $spirit-interactive-color-text-primary;
+  text-shadow: none;
 
   &:hover,
   &.spirit-button--hover {
@@ -360,6 +368,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   background-color: transparent;
   box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
   color: $spirit-interactive-color-text-primary;
+  text-shadow: none;
 
   &:hover,
   &.spirit-button--hover {
@@ -390,12 +399,14 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     background-color: transparent;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
     color: $spirit-color-white;
+    text-shadow: $spirit-text-shadow-small;
 
     &:hover,
     &.spirit-button--hover {
       background-color: $spirit-color-blue-30;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
       color: $spirit-color-blue-100;
+      text-shadow: none;
     }
 
     &:active,
@@ -403,18 +414,21 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
       background-color: $spirit-color-blue-15;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
       color: $toggle-background-active-dark-text;
+      text-shadow: none;
     }
 
     &:focus,
     &:focus-within,
     &.spirit-button--focus {
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button $spirit-interactive-color-focus-soft;
+      text-shadow: none;
     }
 
     &:disabled {
       background-color: transparent;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary transparent;
       color: $spirit-interactive-color-disabled-foreground;
+      text-shadow: none;
     }
   }
 }
@@ -427,6 +441,12 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &:hover,
   &.spirit-button--hover {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+  &:active,
+  &.spirit-button--active {
     box-shadow: none;
     transform: translateY(0);
   }
@@ -443,6 +463,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   box-shadow: inset 0 0 0 $spirit-border-button-toggle $spirit-interactive-color-primary;
   color: $spirit-interactive-color-text-primary;
   margin: $spirit-space-inset-squish-4-x-negative;
+  text-shadow: none;
 
   &:hover,
   .spirit-button--hover & {
@@ -463,6 +484,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     background-color: $toggle-background-active;
     box-shadow: inset 0 0 0 $spirit-border-button-toggle $spirit-interactive-color-primary;
     color: $toggle-background-active-text;
+    transform: translateY(0);
   }
 
   &:disabled,
