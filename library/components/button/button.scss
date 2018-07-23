@@ -1,5 +1,5 @@
 // Letter Spacing
-$spirit-button-font-letter-spacing-15: .15em;
+$spirit-button-font-letter-spacing-125: .125em;
 
 // Transitions
 $spirit-button-transition-duration: .2s;
@@ -12,13 +12,11 @@ $toggle-background-active-soft: $spirit-color-blue-30;
 $toggle-background-active-text: $spirit-color-white;
 $toggle-background-active-dark-text: $spirit-color-black;
 
-
 // Negative Spacing
 $spirit-space-inset-squish-2-x-negative: -8px -16px !default;
 $spirit-space-inset-squish-3-x-negative: -12px -24px !default;
 $spirit-space-inset-squish-4-x-negative: -16px -32px !default;
 $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
-
 
 // Spririt Button - Default
 .spirit-button,
@@ -36,7 +34,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   font-size: $spirit-font-size-m;
   font-style: normal;
   font-weight: $spirit-font-weight-bold;
-  letter-spacing: $spirit-button-font-letter-spacing-15;
+  letter-spacing: $spirit-button-font-letter-spacing-125;
   line-height: $spirit-font-line-height-controls;
   padding: $spirit-space-inset-squish-4-x;
   text-align: center;
@@ -601,39 +599,5 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     background-color: $spirit-feedback-color-foreground-danger;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-button-secondary $spirit-feedback-color-foreground-danger;
     color: $spirit-color-white;
-  }
-}
-
-.spirit-button--border {
-  border: $spirit-border-button solid $spirit-interactive-color-primary;
-  box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
-
-  &:hover,
-  &.spirit-button--hover {
-    border: $spirit-border-button solid $spirit-interactive-color-primary;
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-blue;
-  }
-
-  &:focus,
-  &:focus-within,
-  &.spirit-button--focus {
-    border: $spirit-border-button solid $spirit-interactive-color-focus-soft;
-    box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
-  }
-
-  &:active,
-  &.spirit-button--active {
-    border: $spirit-border-button solid $spirit-interactive-color-primary;
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-blue;
-  }
-
-  &:disabled,
-  &.spirit-button--disabled {
-    background-color: $spirit-interactive-color-disabled-background;
-    border: $spirit-border-button solid $spirit-interactive-color-disabled-background;
-    box-shadow: none;
-    color: $spirit-interactive-color-disabled-foreground;
-    cursor: not-allowed;
-    transform: translateY(0);
   }
 }
