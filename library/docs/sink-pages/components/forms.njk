@@ -70,9 +70,9 @@
     {% endcall %}
 
     {% call library.form_field_group() %}
-      {{ library.form_label(text="Disabled", required=true) }}
+      {{ library.form_label(text="Disabled", required=false, disabled=true) }}
       {{ library.form_input(placeholder="First name", disabled=true) }}
-      {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+      {{ library.form_microcopy(text='Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
     {% endcall %}
 
     <h5 class="hostile-sink-reset">Hidden Label</h5>    
@@ -157,9 +157,9 @@
     {% endcall %}
 
     {% call library.form_field_group() %}
-      {{ library.form_label(text="Disabled", required=true) }}
+      {{ library.form_label(text="Disabled", required=false, disabled=true) }}
       {{ library.form_textarea(placeholder="First name", disabled=true) }}
-      {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+      {{ library.form_microcopy(text='Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
     {% endcall %}
 
     <h5 class="hostile-sink-reset">Hidden Label</h5>
@@ -261,9 +261,9 @@
     {% endcall %}
 
     {% call library.form_field_group() %}
-      {{ library.form_label(text="Disabled", required=true) }}
+      {{ library.form_label(text="Disabled", required=false, disabled=true) }}
       {{ library.form_select(disabled=true) }}
-      {{ library.form_microcopy(text='<sup>*</sup>Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
+      {{ library.form_microcopy(text='Adds &ldquo;Not Allowed&rdquo; cursor to disabled state.') }}
     {% endcall %}
 
     {% call library.form_field_group() %}
@@ -522,42 +522,42 @@
     {{ library.form_radio(label="Default with a wrapping<br/>label") }}
 
     <h5 class="hostile-sink-reset">Radio Button Content Resilience, Short Label</h5>
-    {{ library.form_radio(name=sinkBackgroundColor + "-basic-example", label="A") }}
+    {{ library.form_radio(name="basic-example", label="A") }}
 
     <h5 class="hostile-sink-reset">Radio Button Content Resilience, Long Label</h5>
-    {{ library.form_radio(name=sinkBackgroundColor + "-basic-example", label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quidem, odit eveniet distinctio aperiam blanditiis error sit at dicta quod laborum eum. Beatae consequuntur fugit culpa, architecto soluta, eum vitae.") }}
+    {{ library.form_radio(name="basic-example", label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quidem, odit eveniet distinctio aperiam blanditiis error sit at dicta quod laborum eum. Beatae consequuntur fugit culpa, architecto soluta, eum vitae.") }}
 
     <h5 class="hostile-sink-reset">Group Stacked</h5>
     {% call library.form_radio_group(label="What is your connection to type 1 diabetes?", required=true) %}
-        {{ library.form_radio(label="Option 1") }}
-        {{ library.form_radio(label="Option 2") }}
-        {{ library.form_radio(label="Option 3, Disabled", disabled=true) }}
+        {{ library.form_radio(name="group-stacked", label="Option 1") }}
+        {{ library.form_radio(name="group-stacked", label="Option 2") }}
+        {{ library.form_radio(name="group-stacked", label="Option 3, Disabled", disabled=true) }}
     {% endcall %}
 
     <h5 class="hostile-sink-reset">Group Horizontal</h5>
     {% call library.form_field_group(horizontal=true) %}
       {% call library.form_radio_group(label="What is your connection to type 1 diabetes?", required=true) %}
-          {{ library.form_radio(label="Option 1") }}
-          {{ library.form_radio(label="Option 2") }}
-          {{ library.form_radio(label="Option 3, Disabled", disabled=true) }}
+          {{ library.form_radio(name="group-horizontal", label="Option 1") }}
+          {{ library.form_radio(name="group-horizontal", label="Option 2") }}
+          {{ library.form_radio(name="group-horizontal", label="Option 3, Disabled", disabled=true) }}
       {% endcall %}
     {% endcall %}
 
     <h5 class="hostile-sink-reset">Group with Error</h5>
     {% call library.form_radio_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
         {{ library.form_field_error(text="Please select an option.", showIcon=true) }}
-        {{ library.form_radio(label="Option 1") }}
-        {{ library.form_radio(label="Option 2") }}
-        {{ library.form_radio(label="Option 3") }}
+        {{ library.form_radio(name="group-with-error", label="Option 1") }}
+        {{ library.form_radio(name="group-with-error", label="Option 2") }}
+        {{ library.form_radio(name="group-with-error", label="Option 3") }}
     {% endcall %}
 
     <h5 class="hostile-sink-reset">Group Content Resilience, Long Label</h5>
     {% call library.form_radio_group(label="Select all the days that apply") %}
-        {{ library.form_radio(label="Mondays") }}
-        {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
-        {{ library.form_radio(label="Wednesdays") }}
-        {{ library.form_radio(label="Thursdays") }}
-        {{ library.form_radio(label="Fridays") }}
+        {{ library.form_radio(name="group-content-resilience", label="Mondays") }}
+        {{ library.form_radio(name="group-content-resilience", label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
+        {{ library.form_radio(name="group-content-resilience", label="Wednesdays") }}
+        {{ library.form_radio(name="group-content-resilience", label="Thursdays") }}
+        {{ library.form_radio(name="group-content-resilience", label="Fridays") }}
     {% endcall %}
 
 
@@ -565,10 +565,10 @@
     <h5 class="hostile-sink-reset">Group Horizontal Too Much Content</h5>
     {% call library.form_field_group(horizontal=true) %}
         {% call library.form_radio_group(label="Select at least one color", required=true) %}
-            {{ library.form_radio(label="Red") }}
-            {{ library.form_radio(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
-            {{ library.form_radio(label="Yellow") }}
-            {{ library.form_radio(label="Orange") }}
+            {{ library.form_radio(name="group-horizontal-content-resilience", label="Red") }}
+            {{ library.form_radio(name="group-horizontal-content-resilience", label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ut aliquid tenetur sequi pariatur rem expedita similique, rerum, corrupti assumenda alias adipisci distinctio. Harum neque autem a, quisquam in architecto aspernatur iure tenetur, asperiores voluptatibus obcaecati cum magni ipsum repudiandae hic reprehenderit pariatur, assumenda ex excepturi, velit consectetur. Labore, molestias error, cupiditate autem ea hic tenetur quisquam.") }}
+            {{ library.form_radio(name="group-horizontal-content-resilience", label="Yellow") }}
+            {{ library.form_radio(name="group-horizontal-content-resilience", label="Orange") }}
         {% endcall %}
     {% endcall %}
 
@@ -666,8 +666,8 @@
           {% endcall %}
           {% call library.form_field_group() %}
               {% call library.form_radio_group(label="Dessert or no?", required=true) %}
-                  {{ library.form_radio(id="dessert-yes", value="yes", name=sinkBackgroundColor + "-radio-group-dessert", label="Yes, Please", checked=true) }}
-                  {{ library.form_radio(id="dessert-no", value="no", name=sinkBackgroundColor + "-radio-group-dessert", label="No, Thank You") }}
+                  {{ library.form_radio(id="dessert-yes", value="yes", name="radio-group-dessert", label="Yes, Please", checked=true) }}
+                  {{ library.form_radio(id="dessert-no", value="no", name="radio-group-dessert", label="No, Thank You") }}
               {% endcall %}
           {% endcall %}
       {% endcall %}
@@ -692,8 +692,8 @@
         {% endcall %}
         {% call library.form_field_group(class='spirit-form__field-group--horizontal') %}
             {% call library.form_radio_group(label="Best Time to Contact You?", optional=true) %}
-                {{ library.form_radio(name=sinkBackgroundColor + "-contact-time", id='AM', label='Morning', checked=true) }}
-                {{ library.form_radio(name=sinkBackgroundColor + "-contact-time", id='PM', label='Evening') }}
+                {{ library.form_radio(name="contact-time", id='AM', label='Morning', checked=true) }}
+                {{ library.form_radio(name="contact-time", id='PM', label='Evening') }}
             {% endcall %}
         {% endcall %}
         {% call library.form_fieldset() %}
@@ -726,21 +726,21 @@
             {% endcall %}
 
             {% call library.form_field_group() %}
-                {{ library.form_label(text="Street", for="full-form-shipping-street") }}
+                {{ library.form_label(text="Street", for="full-form-shipping-street", required=false, disabled=true) }}
                 {{ library.form_input(disabled=true, id="full-form-shipping-street") }}
             {% endcall %}
             
             {% call library.form_field_group(horizontal=true) %}
                 {% call library.form_field_group() %}
-                    {{ library.form_label(text="City", for="full-form-shipping-city") }}
+                    {{ library.form_label(text="City", for="full-form-shipping-city", required=false, disabled=true) }}
                     {{ library.form_input(disabled=true, id="full-form-shipping-city") }}
                 {% endcall %}
                 {% call library.form_field_group() %}
-                    {{ library.form_label(text="State", for="full-form-shipping-state") }}
+                    {{ library.form_label(text="State", for="full-form-shipping-state", required=false, disabled=true) }}
                     {{ library.form_input(placeholder="CA", disabled=true, id="full-form-shipping-state") }}
                 {% endcall %}
                 {% call library.form_field_group() %}
-                    {{ library.form_label(text="ZIP", for="full-form-shipping-zip") }}
+                    {{ library.form_label(text="ZIP", for="full-form-shipping-zip", required=false, disabled=true) }}
                     {{ library.form_input(disabled=true, for="full-form-shipping-zip") }}
                 {% endcall %}
             {% endcall %}

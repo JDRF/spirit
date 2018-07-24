@@ -10,78 +10,47 @@ color :
     98  : &color-grey-98 "#F5F7FA"
   white : &color-white   "#ffffff"
   blue :
-    15 :      &color-blue-15      "#D9E5FF"
-    30 :      &color-blue-30      "#B3CCFF"
-    default : &color-blue-default "#0055FF"
+    15 :  &color-blue-15  "#D9E5FF"
+    30 :  &color-blue-30  "#B3CCFF"
+    100 : &color-blue-100 "#0055FF"
   green :
-    67 :      &color-green-67 "#37A941"
-    light :   &color-green-20 "#BBE9BF"
+    20 :  &color-green-20 "#BBE9BF"
+    67 :  &color-green-67 "#37A941"
   red :
-    35 :    &color-red-35   "#FFA6C4"
-    100 :   &color-red-100  "#F40050"
+    35 :  &color-red-35   "#FFA6C4"
+    100 : &color-red-100  "#F40050"
 elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
-  blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-default
+  blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-100
 # ====== assignments ======= #
 brand-color : 
-  primary :   *color-blue-default
+  primary :   *color-blue-100
 text-color :
   primary :   *color-black
   reversed :  *color-white
   secondary : *color-grey-35
-  link :      *color-blue-default
+  link :      *color-blue-100
   disabled :  *color-grey-70
 icon-color :
-  blue : *color-blue-default
+  blue : *color-blue-100
   grey : *color-grey-35
 interactive-color :
-  focus :     *color-blue-30
+  primary : *color-blue-100
+  secondary : *color-grey-95
+  on-dark : *color-white
+  text : 
+    primary : *color-blue-100
+    on-dark : *color-white
   disabled :
-    text :    *color-grey-70
-    fill :    *color-grey-98
-  primary : #also covers icon-only
-    text :    *color-white
-    fill :    *color-blue-default
-    glow :    *elevation-color-blue
-  secondary :
-    text :    *color-blue-default
-    fill :    *color-white
-    glow :    *elevation-color-default
-    border :  *color-grey-95
-  minimal : 
-    fill :    *color-white
-    fill-hover :   *color-blue-15
-    fill-active :  *color-blue-30
-    text :    *color-blue-default
-  on-dark : #also covers icon-only-on-dark
-    text :    *color-blue-default
-    fill :    *color-white
-    glow :    *elevation-color-default
-  minimal-on-dark : 
-    fill :    *color-blue-default
-    fill-hover :   *color-white
-    fill-active :  *color-white
-    text :    *color-white
-    text-hover : *color-blue-default
-    text-active : *color-black
-  toggle :
-    text :    *color-blue-default
-    fill :    *color-white
-    fill-hover :   *color-blue-15
-    glow :    *elevation-color-default
-    border :  *color-blue-default
-  input :
-    focus :   *color-blue-default
-  success :
-    text : *color-white
-    fill : *color-green-67
-  danger :
-    text : *color-white
-    fill : *color-red-100
+    foreground : *color-grey-70
+    background : *color-grey-98
+  focus :
+    soft : *color-blue-30 # buttons, links
+    hard : *color-blue-100
 feedback-color :
   foreground :
     danger :    *color-red-100
-    info :      *color-blue-default
+    info :      *color-blue-100
     success :   *color-green-67
   background :
     danger :    *color-red-35
@@ -95,7 +64,7 @@ box-shadow :
 
 border :
   color:
-    focus:              *color-blue-default
+    focus:              *color-blue-100
     success:            *color-green-67
     error:              *color-red-100
   style:
@@ -132,9 +101,6 @@ size :
     s : 20px #button icons ( spinner / check )
     m : 24px #button small
     l : 32px
-    buttonwidth : 130px
-
-
 space :
   generic :
     24-x :   192px

@@ -1,14 +1,21 @@
-@import '../tokens/tokens';
+/// # Tokens - Global tokens / variables
+@import '../tokens/tokens'; 
 
+//// # Mixins - Default mixins
 @import 'mixins/accessibility';
 @import 'mixins/box-sizing';
 @import 'mixins/elevation';
 @import 'mixins/text-crop';
 @import 'mixins/typography';
 
+/// # Helpers - Default helper functions
+@import 'helpers/spacing';
+
+/// # Base - Default global styles
 @import 'base/fonts';
 @import 'base/utilities';
 
+/// # Components - Specific UI Components
 @import '../components/button/button';
 @import '../components/card/card';
 @import '../components/card_grid/card_grid';

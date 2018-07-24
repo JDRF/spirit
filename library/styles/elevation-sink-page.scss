@@ -3,12 +3,13 @@
 
 .elevation-example {
   height: 200px;
-  transition: box-shadow $spirit-transition-timing-default;
+  transition: box-shadow $spirit-elevation-transition-speed;
   width: 200px;
 }
 
 .elevation-example--0 {
   @include spirit-elevation($level: '0');
+
 
   &:hover,
   &:focus {
@@ -19,6 +20,7 @@
 .elevation-example--1 {
   @include spirit-elevation($level: '1');
 
+
   &:hover,
   &:focus {
     box-shadow: $spirit-elevation-2 $spirit-elevation-color-default;
@@ -27,6 +29,7 @@
 
 .elevation-example--2 {
   @include spirit-elevation($level: '2');
+
 
   &:hover,
   &:focus {

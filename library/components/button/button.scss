@@ -5,15 +5,31 @@ $spirit-button-font-letter-spacing-15: .15em;
 $spirit-button-transition-duration: .2s;
 $spirit-button-transition-timing-function: ease-out;
 
+// Colors
+$toggle-background-hover: $spirit-color-blue-15;
+$toggle-background-active: $spirit-color-blue-100;
+$toggle-background-active-soft: $spirit-color-blue-30;
+$toggle-background-active-text: $spirit-color-white;
+$toggle-background-active-dark-text: $spirit-color-black;
+
+
+// Negative Spacing
+$spirit-space-inset-squish-2-x-negative: -8px -16px !default;
+$spirit-space-inset-squish-3-x-negative: -12px -24px !default;
+$spirit-space-inset-squish-4-x-negative: -16px -32px !default;
+$spirit-space-inset-squish-6-x-negative: -24px -48px !default;
+
+
 // Spririt Button - Default
-.spirit-button {
-  @include spirit-box-sizing;
+.spirit-button,
+.spirit-button__inner {
+  @include spirit-box-sizing(border-box);
   // sass-lint:disable property-sort-order, no-vendor-prefixes
-  background-color: $spirit-interactive-color-primary-fill;
+  background-color: $spirit-interactive-color-primary;
   border: 0;
   border-radius: $spirit-border-radius-m;
-  box-shadow: $spirit-elevation-1 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-primary-fill;
-  color: $spirit-interactive-color-primary-text;
+  box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-primary;
+  color: $spirit-interactive-color-text-on-dark;
   cursor: pointer;
   display: inline-block;
   font-family: $spirit-font-family-sans-serif;
@@ -22,7 +38,6 @@ $spirit-button-transition-timing-function: ease-out;
   font-weight: $spirit-font-weight-bold;
   letter-spacing: $spirit-button-font-letter-spacing-15;
   line-height: $spirit-font-line-height-controls;
-  margin: $spirit-space-stack-2-x;
   padding: $spirit-space-inset-squish-4-x;
   text-align: center;
   text-decoration: none;
@@ -33,7 +48,6 @@ $spirit-button-transition-timing-function: ease-out;
   transition:
   box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function,
   background-color $spirit-button-transition-duration $spirit-button-transition-timing-function,
-  box-shadow $spirit-button-transition-duration $spirit-button-transition-timing-function,
   transform $spirit-button-transition-duration $spirit-button-transition-timing-function;
   user-select: none;
   -webkit-appearance: none;
@@ -41,27 +55,30 @@ $spirit-button-transition-timing-function: ease-out;
 
   &:hover,
   &--hover {
-    box-shadow: $spirit-elevation-3 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-primary-fill;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-primary;
     transform: translateY(-1px);
   }
 
   &:focus,
   &:focus-within,
   &--focus {
-    box-shadow: $spirit-elevation-1 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+    box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
     outline: 0;
+    z-index: 1;
   }
 
   &:active,
   &--active {
-    box-shadow: $spirit-elevation-2 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-primary-fill;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-primary;
   }
 
-  &:disabled {
-    background-color: $spirit-interactive-color-disabled-fill;
-    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-fill;
-    color: $spirit-interactive-color-disabled-text;
+  &:disabled,
+  &--disabled {
+    background-color: $spirit-interactive-color-disabled-background;
+    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-background;
+    color: $spirit-interactive-color-disabled-foreground;
     cursor: not-allowed;
+    transform: translateY(0);
   }
 
   &[data-loader='true'],
@@ -77,31 +94,36 @@ $spirit-button-transition-timing-function: ease-out;
   // Spirit Button on Dark
   .spirit-container--dark &,
   .spirit-col--dark & {
-    background-color: $spirit-interactive-color-secondary-fill;
+    background-color: $spirit-interactive-color-on-dark;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button transparent;
-    color: $spirit-interactive-color-secondary-text;
+    color: $spirit-interactive-color-text-primary;
 
     &:hover,
     &.spirit-button--hover {
-      box-shadow: $spirit-elevation-3 $spirit-interactive-color-secondary-glow;
-    }
-
-    &:active,
-    &.spirit-button--active {
-      box-shadow: $spirit-elevation-2 $spirit-interactive-color-secondary-glow;
+      box-shadow: $spirit-elevation-3 $spirit-elevation-color-default;
     }
 
     &:focus,
     &:focus-within,
     &.spirit-button--focus {
-      box-shadow: $spirit-elevation-1 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+      box-shadow: $spirit-elevation-1 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
+    }
+
+    &:active,
+    &.spirit-button--active {
+      box-shadow: $spirit-elevation-2 $spirit-elevation-color-default;
     }
 
     &:disabled {
-      background-color: $spirit-interactive-color-disabled-fill;
-      box-shadow: $spirit-elevation-1 $spirit-interactive-color-primary-glow, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-fill;
-      color: $spirit-interactive-color-disabled-text;
+      background-color: $spirit-interactive-color-disabled-background;
+      box-shadow: $spirit-elevation-1 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-background;
+      color: $spirit-interactive-color-disabled-foreground;
     }
+  }
+
+  .spirit-container--dark .spirit-button-input-toggle:checked +&,
+  .spirit-col--dark .spirit-button-input-toggle:checked +& {
+    box-shadow: $spirit-elevation-1 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
   }
 }
 
@@ -128,13 +150,14 @@ $spirit-button-transition-timing-function: ease-out;
   }
 }
 
+
 // Has icon and no text
 .spirit-button--is-icon {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  min-width: $spirit-size-icon-buttonwidth;
+  min-width: 130px;
 
   [class^='spirit-icon-'] {
     height: $spirit-size-icon-s;
@@ -147,6 +170,13 @@ $spirit-button-transition-timing-function: ease-out;
   font-size: $spirit-font-size-s;
   line-height: 1.1429;
   padding: $spirit-space-inset-squish-2-x;
+
+  .spirit-button__inner {
+    font-size: $spirit-font-size-s;
+    line-height: 1.1429;
+    margin: $spirit-space-inset-squish-2-x-negative;
+    padding: $spirit-space-inset-squish-2-x;
+  }
 
   .spirit-button__icon-contain {
     [class^='spirit-icon-'] {
@@ -161,6 +191,13 @@ $spirit-button-transition-timing-function: ease-out;
   font-size: $spirit-font-size-m;
   line-height: $spirit-font-line-height-controls;
   padding: $spirit-space-inset-squish-3-x;
+
+  .spirit-button__inner {
+    font-size: $spirit-font-size-m;
+    line-height: $spirit-font-line-height-controls;
+    margin: $spirit-space-inset-squish-3-x-negative;
+    padding: $spirit-space-inset-squish-3-x;
+  }
 }
 
 // Spririt Button - Default ( breakpoint sizing ) 
@@ -169,6 +206,13 @@ $spirit-button-transition-timing-function: ease-out;
     font-size: $spirit-font-size-m;
     line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-3-x;
+
+    .spirit-button__inner {
+      font-size: $spirit-font-size-m;
+      line-height: $spirit-font-line-height-controls;
+      margin: $spirit-space-inset-squish-3-x-negative;
+      padding: $spirit-space-inset-squish-3-x;
+    }
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
@@ -187,6 +231,13 @@ $spirit-button-transition-timing-function: ease-out;
     line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-4-x;
 
+    .spirit-button__inner {
+      font-size: $spirit-font-size-m;
+      line-height: $spirit-font-line-height-controls;
+      margin: $spirit-space-inset-squish-4-x-negative;
+      padding: $spirit-space-inset-squish-4-x;
+    }
+
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
       [class^='spirit-icon-'] {
@@ -203,6 +254,13 @@ $spirit-button-transition-timing-function: ease-out;
     line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-4-x;
 
+    .spirit-button__inner {
+      font-size: $spirit-font-size-m;
+      line-height: $spirit-font-line-height-controls;
+      margin: $spirit-space-inset-squish-4-x-negative;
+      padding: $spirit-space-inset-squish-4-x;
+    }
+
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
       [class^='spirit-icon-'] {
@@ -218,6 +276,13 @@ $spirit-button-transition-timing-function: ease-out;
   font-size: $spirit-font-size-m;
   line-height: $spirit-font-line-height-controls;
   padding: $spirit-space-inset-squish-6-x;
+
+  .spirit-button__inner {
+    font-size: $spirit-font-size-m;
+    line-height: $spirit-font-line-height-controls;
+    margin: $spirit-space-inset-squish-6-x-negative;
+    padding: $spirit-space-inset-squish-6-x;
+  }
 }
 
 .spirit-button--large-md {
@@ -225,6 +290,13 @@ $spirit-button-transition-timing-function: ease-out;
     font-size: $spirit-font-size-m;
     line-height: $spirit-font-line-height-controls;
     padding: $spirit-space-inset-squish-6-x;
+
+    .spirit-button__inner {
+      font-size: $spirit-font-size-m;
+      line-height: $spirit-font-line-height-controls;
+      margin: $spirit-space-inset-squish-6-x-negative;
+      padding: $spirit-space-inset-squish-6-x;
+    }
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
@@ -240,6 +312,13 @@ $spirit-button-transition-timing-function: ease-out;
   @media screen and (min-width: $spirit-breakpoint-l) {
     padding: $spirit-space-inset-squish-6-x;
 
+    .spirit-button__inner {
+      font-size: $spirit-font-size-m;
+      line-height: $spirit-font-line-height-controls;
+      margin: $spirit-space-inset-squish-6-x-negative;
+      padding: $spirit-space-inset-squish-6-x;
+    }
+
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
       [class^='spirit-icon-'] {
@@ -252,94 +331,153 @@ $spirit-button-transition-timing-function: ease-out;
 
 // Spririt Button - Secondary
 .spirit-button--secondary {
-  background-color: $spirit-interactive-color-secondary-fill;
-  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary-border;
-  color: $spirit-interactive-color-secondary-text;
+  background-color: $spirit-interactive-color-on-dark;
+  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
+  color: $spirit-interactive-color-text-primary;
 
   &:hover,
   &.spirit-button--hover {
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary-border;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
   }
 
   &:focus,
   &:focus-within,
-  &.spirit-button--focus {
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+  &.spirit-button--focus,
+  .spirit-button-input-toggle:checked + & {
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
   }
 
   &:active,
   &.spirit-button--active {
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary-border;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
   }
 
   &:disabled {
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary-border;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
   }
 }
 
 // Spririt Button - Minimal
 .spirit-button--minimal {
-  background-color: $spirit-interactive-color-minimal-fill;
+  background-color: transparent;
   box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
-  color: $spirit-interactive-color-minimal-text;
+  color: $spirit-interactive-color-text-primary;
 
   &:hover,
   &.spirit-button--hover {
-    background-color: $spirit-interactive-color-minimal-fill-hover;
+    background-color: $toggle-background-hover;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
   }
 
   &:active,
   &.spirit-button--active {
-    background-color: $spirit-interactive-color-minimal-fill-active;
+    background-color: $toggle-background-active-soft;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
   }
 
   &:focus,
   &:focus-within,
   &.spirit-button--focus {
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
   }
 
   &:disabled {
-    background-color: $spirit-interactive-color-minimal-fill;
+    background-color: transparent;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
   }
 
   // Spirit Button Minimal on Dark
   .spirit-container--dark &,
   .spirit-col--dark & {
-    background-color: $spirit-interactive-color-minimal-on-dark-fill;
+    background-color: transparent;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
-    color: $spirit-interactive-color-minimal-on-dark-text;
+    color: $spirit-color-white;
 
     &:hover,
     &.spirit-button--hover {
-      background-color: $spirit-interactive-color-minimal-on-dark-fill-hover;
+      background-color: $spirit-color-blue-30;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
-      color: $spirit-interactive-color-minimal-on-dark-text-hover;
+      color: $spirit-color-blue-100;
     }
 
     &:active,
     &.spirit-button--active {
-      background-color: $spirit-interactive-color-minimal-on-dark-fill-active;
+      background-color: $spirit-color-blue-15;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
-      color: $spirit-interactive-color-minimal-on-dark-text-active;
+      color: $toggle-background-active-dark-text;
     }
 
     &:focus,
     &:focus-within,
     &.spirit-button--focus {
-      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
     }
 
     &:disabled {
-      background-color: $spirit-interactive-color-minimal-on-dark-fill;
+      background-color: transparent;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
-      color: $spirit-interactive-color-disabled-text;
+      color: $spirit-interactive-color-disabled-foreground;
     }
   }
 }
+
+// Spirit button toggle ( input container radio / checkbox )
+.spirit-button--toggle {
+  background-color: transparent;
+  box-shadow: none;
+  position: relative;
+
+  &:hover,
+  &.spirit-button--hover {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+.spirit-button__input {
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  position: absolute;
+}
+
+.spirit-button__inner {
+  background-color: $spirit-color-white;
+  box-shadow: inset 0 0 0 $spirit-border-width-button-toggle $spirit-interactive-color-primary;
+  color: $spirit-interactive-color-text-primary;
+  margin: $spirit-space-inset-squish-4-x-negative;
+
+  &:hover,
+  .spirit-button--hover & {
+    background-color: $toggle-background-hover;
+    box-shadow: inset 0 0 0 $spirit-border-width-button-toggle $spirit-interactive-color-primary;
+    transform: translateY(0);
+  }
+
+  &:focus,
+  &:focus-within,
+  .spirit-button--focus & {
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
+  }
+
+  &:active,
+  .spirit-button--active &,
+  .spirit-button__input:checked + & {
+    background-color: $toggle-background-active;
+    box-shadow: inset 0 0 0 $spirit-border-width-button-toggle $spirit-interactive-color-primary;
+    color: $toggle-background-active-text;
+  }
+
+  &:disabled,
+  .spirit-button--disabled &,
+  .spirit-button__input:checked + &:disabled {
+    background-color: $spirit-interactive-color-disabled-background;
+    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-background;
+    color: $spirit-interactive-color-disabled-foreground;
+    cursor: not-allowed;
+  }
+}
+
+
 
 // Spririt Button - Secondary
 .spirit-button--icon-only {
@@ -383,51 +521,51 @@ $spirit-button-transition-timing-function: ease-out;
 // Spirit Button Success
 .spirit-button[data-type='success'],
 .spirit-button--success {
-  background-color: $spirit-interactive-color-success-fill;
-  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-success-fill;
-  color: $spirit-interactive-color-success-text;
+  background-color: $spirit-feedback-color-foreground-success;
+  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-feedback-color-foreground-success;
+  color: $spirit-color-white;
   position: relative;
 
   &:hover,
   &.spirit-button--hover {
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-success-fill;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-success;
   }
 
   &:focus,
   &:focus-within,
   &.spirit-button--focus {
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
     outline: 0;
   }
 
   &:active,
   &.spirit-button--active {
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-success-fill;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-success;
   }
 
   // Spirit Button Success On Dark
   .spirit-container--dark &,
   .spirit-col--dark & {
-    background-color: $spirit-interactive-color-success-fill;
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-success-fill;
-    color: $spirit-interactive-color-success-text;
+    background-color: $spirit-feedback-color-foreground-success;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-feedback-color-foreground-success;
+    color: $spirit-color-white;
     position: relative;
 
     &:hover,
     &.spirit-button--hover {
-      box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-success-fill;
+      box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-success;
     }
 
     &:focus,
     &:focus-within,
     &.spirit-button--focus {
-      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+      box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
       outline: 0;
     }
 
     &:active,
     &.spirit-button--active {
-      box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-success-fill;
+      box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-success;
     }
   }
 }
@@ -435,33 +573,67 @@ $spirit-button-transition-timing-function: ease-out;
 // Spirit Button Danger
 .spirit-button[data-type='danger'],
 .spirit-button--danger {
-  background-color: $spirit-interactive-color-danger-fill;
-  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-danger-fill;
-  color: $spirit-interactive-color-danger-text;
+  background-color: $spirit-feedback-color-foreground-danger;
+  box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-feedback-color-foreground-danger;
+  color: $spirit-color-white;
   position: relative;
 
   &:hover,
   &.spirit-button--hover {
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-danger-fill;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-danger;
   }
 
   &:focus,
   &:focus-within,
   &.spirit-button--focus {
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
     outline: 0;
   }
 
   &:active,
   &.spirit-button--active {
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-danger-fill;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-danger;
   }
 
   // Spirit Button Danger On Dark
   .spirit-container--dark &,
   .spirit-col--dark & {
-    background-color: $spirit-interactive-color-danger-fill;
-    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-danger-fill;
-    color: $spirit-interactive-color-danger-text;
+    background-color: $spirit-feedback-color-foreground-danger;
+    box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-feedback-color-foreground-danger;
+    color: $spirit-color-white;
+  }
+}
+
+.spirit-button--border {
+  border: $spirit-border-width-button solid $spirit-interactive-color-primary;
+  box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
+
+  &:hover,
+  &.spirit-button--hover {
+    border: $spirit-border-width-button solid $spirit-interactive-color-primary;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-blue;
+  }
+
+  &:focus,
+  &:focus-within,
+  &.spirit-button--focus {
+    border: $spirit-border-width-button solid $spirit-interactive-color-focus-soft;
+    box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
+  }
+
+  &:active,
+  &.spirit-button--active {
+    border: $spirit-border-width-button solid $spirit-interactive-color-primary;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-blue;
+  }
+
+  &:disabled,
+  &.spirit-button--disabled {
+    background-color: $spirit-interactive-color-disabled-background;
+    border: $spirit-border-width-button solid $spirit-interactive-color-disabled-background;
+    box-shadow: none;
+    color: $spirit-interactive-color-disabled-foreground;
+    cursor: not-allowed;
+    transform: translateY(0);
   }
 }
