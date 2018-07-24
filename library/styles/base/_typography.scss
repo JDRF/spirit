@@ -131,17 +131,6 @@
   @include spirit-responsive-value($line-height, 'line-height', $breakpoint, $breakpoint-width);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @include spirit-font-reset;
-  color: $spirit-color-black;
-  font-weight: 700;
-}
-
 .spirit-display-1 {
   @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('display', 'level-1'));
@@ -159,36 +148,48 @@ h6 {
 }
 
 .spirit-h1 {
+  @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('heading', 'level-1'));
   @include spirit-font-line-height-responsive($font-type: ('heading', 'level-1'));
+  font-weight: 700;
 }
 
 .spirit-h2 {
+  @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('heading', 'level-2'));
   @include spirit-font-line-height-responsive($font-type: ('heading', 'level-2'));
+  font-weight: 700;
 }
 
 .spirit-h3 {
+  @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('heading', 'level-3'));
   @include spirit-font-line-height-responsive($font-type: ('heading', 'level-3'));
+  font-weight: 700;
 
 }
 
 .spirit-h4 {
+  @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('heading', 'level-4'));
   @include spirit-font-line-height-responsive($font-type: ('heading', 'level-4'));
+  font-weight: 700;
 
 }
 
 .spirit-h5 {
+  @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('heading', 'level-5'));
   @include spirit-font-line-height-responsive($font-type: ('heading', 'level-5'));
+  font-weight: 700;
 
 }
 
 .spirit-h6 {
+  @include spirit-font-reset;
   @include spirit-font-size-responsive($font-type: ('heading', 'level-6'));
   @include spirit-font-line-height-responsive($font-type: ('heading', 'level-6'));
+  font-weight: 700;
 }
 
 .spirit-subhead {
