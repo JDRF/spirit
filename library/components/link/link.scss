@@ -45,7 +45,7 @@ $spirit-underline-animated: .125em;
 
 a,
 .spirit-link {
-  @include spirit-typography-reset($font-size: inherit);
+  @include spirit-typography-reset();
   @include spirit-box-sizing(border-box);
   background-color: transparent;
   color: $spirit-text-color-link;
