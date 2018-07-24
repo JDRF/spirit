@@ -1,5 +1,20 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+<style>
+    p {
+        color: #00081A;
+        font-family: "Graphik", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        letter-spacing: 0;
+        line-height: 1.5;
+        text-align: left;
+        text-indent: 0;
+        text-shadow: none;
+        text-transform: none;
+    }
+</style>
     <h1 class="hostile-sink-reset">Links Sink</h1>
     <div class="spirit-container">
         <div class="spirit-row">
@@ -7,22 +22,45 @@
                 <h2 class="hostile-sink-reset">Link Normal</h2>
                 {{ library.link(href="#") }}
 
+                 <h2 class="hostile-sink-reset">Normal Letter Test</h2>
+                {{ library.link(text="Letters: abcde ABCDE JKLP jklp", href="#") }}
+
                 <h2 class="hostile-sink-reset">Link Visited</h2>
                 {{ library.link(href="#", class="spirit-link--visited") }}
 
                 <h2 class="hostile-sink-reset">Link Hover</h2>
                 {{ library.link(href="#", class="spirit-link--hover") }}
 
+                <h2 class="hostile-sink-reset">Link Hover Letter Test</h2>
+                {{ library.link(text="Letters: abcde ABCDE JKLP jklp", href="#", class="spirit-link--hover") }}
+
                 <h2 class="hostile-sink-reset">Link Focus</h2>
                 {{ library.link(href="#", class="spirit-link--focus") }}
 
+                 <h2 class="hostile-sink-reset">Link Focus Letter Test</h2>
+                {{ library.link(text="Letters: abcde ABCDE JKLP jklp", href="#", class="spirit-link--focus") }}
+
                 <h2 class="hostile-sink-reset">Link Active</h2>
                 {{ library.link(href="#", class="spirit-link--active") }}
+
+                <h2 class="hostile-sink-reset">Link Long</h2>
+                <p>{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }}</p>
+
+                <h2 class="hostile-sink-reset">Link Block Text</h2>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+
+                <h2 class="hostile-sink-reset">Link Block Text</h2>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
             </div>
 
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
                 <h2 class="hostile-sink-reset">Animated Normal</h2>
                 {{ library.link(href="#", class="spirit-link--animated") }}
+
+                 <h2 class="hostile-sink-reset">Animated Normal Letter Test</h2>
+                {{ library.link(text="Letters: abcde ABCDE JKLP jklp", href="#", class="spirit-link--animated") }}
 
                 <h2 class="hostile-sink-reset">Animated Visited</h2>
                 {{ library.link(href="#", class="spirit-link--animated spirit-link--visited") }}
@@ -30,11 +68,28 @@
                 <h2 class="hostile-sink-reset">Animated Hover</h2>
                 {{ library.link(href="#", class="spirit-link--animated spirit-link--hover") }}
 
+                <h2 class="hostile-sink-reset">Animated Hover Letter Test</h2>
+                {{ library.link(text="Letters: abcde ABCDE JKLP jklp", href="#", class="spirit-link--animated spirit-link--hover") }}
+
                 <h2 class="hostile-sink-reset">Animated Focus</h2>
                 {{ library.link(href="#", class="spirit-link--animated spirit-link--focus") }}
 
+                <h2 class="hostile-sink-reset">Animated Focus Letter Test</h2>
+                {{ library.link(text="Letters: abcde ABCDE JKLP jklp", href="#", class="spirit-link--animated spirit-link--focus") }}
+
                 <h2 class="hostile-sink-reset">Animated Active</h2>
                 {{ library.link(href="#", class="spirit-link--animated spirit-link--active") }}
+
+                <h2 class="hostile-sink-reset">Animated Long</h2>
+                <p>{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#", class="spirit-link--animated") }}</p>
+
+                <h2 class="hostile-sink-reset">Animated Link Inline Text</h2>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#", class="spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#", class="spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+
+                <h2 class="hostile-sink-reset">Animated Link Block Text</h2>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#", class="spirit-link--block spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#", class="spirit-link--block spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
             </div>
         </div>
     </div>

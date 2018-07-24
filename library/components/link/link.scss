@@ -73,20 +73,24 @@ a,
   }
 }
 
+// Spirit Link Block
+.spirit-link--block {
+  display: block;
+}
+
 // Spirit Link Animated
 .spirit-link--animated {
   position: relative;
 
   &:after {
     background: $spirit-text-color-link;
+    bottom: 0;
     content: '';
-    display: block;
     height: 2px;
-    left: 0;
     position: absolute;
-    top: 100%;
-    transition: width $spirit-link-transition-duration $spirit-link-transition-timing-function;
-    width: 0;
+    right: 0;
+    transition: width $spirit-link-transition-duration;
+    width: 0%;
   }
 
   &:hover,
@@ -94,7 +98,9 @@ a,
     text-decoration: $spirit-link-decoration;
 
     &:after {
-      width: 100%;
+      left: 0;
+    right: auto;
+    width: 100%;
     }
   }
 
@@ -103,6 +109,8 @@ a,
     text-decoration: $spirit-link-decoration;
 
     &:after {
+      left: 0;
+      right: auto;
       width: 100%;
     }
   }
