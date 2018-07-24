@@ -18,17 +18,17 @@
 
 .spirit-container {
   @include space-sink-page-font-reset;
-  margin-top: 1em;
-  margin-bottom: 1em;
   border: 2px solid;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .spirit-row + .spirit-row {
   margin-top: 1em;
 }
 
-[class^="spirit-col"] {
-  background: $spirit-color-blue-15;
+[class^='spirit-col'] {
+  background: rgba($spirit-color-blue-100, .3);
   border: 1px solid rgba($spirit-color-blue-100, .6);
 }
 

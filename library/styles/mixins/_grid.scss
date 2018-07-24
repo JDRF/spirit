@@ -18,28 +18,29 @@ $grid-breakpoints: (
 
 .spirit-container,
 .spirit-row,
-[class^="spirit-col"] {
+[class^='spirit-col'] {
   box-sizing: border-box;
 }
 
 .spirit-row--no-gutters {
-  margin-right: 0;
   margin-left: 0;
+  margin-right: 0;
 
   > .spirit-col,
-  > [class*="spirit-col-"] {
-    padding-right: 0;
+  > [class*='spirit-col-'] {
     padding-left: 0;
+    padding-right: 0;
   }
 }
 
-@import "../vendor/bootstrap/functions";
-@import "../vendor/bootstrap/variables";
+@import '../vendor/bootstrap/functions';
+@import '../vendor/bootstrap/variables';
 
-@import "../vendor/bootstrap/mixins/breakpoints";
-@import "../vendor/bootstrap/mixins/grid-framework";
-@import "../vendor/bootstrap/mixins/grid";
+@import '../vendor/bootstrap/mixins/breakpoints';
+@import '../vendor/bootstrap/mixins/grid-framework';
+@import '../vendor/bootstrap/mixins/grid';
 
-@import "../vendor/bootstrap/grid";
-@import "../vendor/bootstrap/utilities/display";
-@import "../vendor/bootstrap/utilities/flex";
+@import '../vendor/bootstrap/grid';
+@import '../vendor/bootstrap/utilities/display';
+@import '../vendor/bootstrap/utilities/flex';
+@import '../vendor/bootstrap/utilities/spacing';
