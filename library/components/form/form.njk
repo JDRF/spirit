@@ -85,6 +85,7 @@
             required=true, 
             required_tooltip_text="This field is required.",
             text="First Name",
+            disabled=false,
             annotation) %}
 
     {% if optional %}
@@ -92,7 +93,7 @@
     {% endif %}
     
     <label 
-            class="spirit-form__label{{ ' ' + class if class }}"
+            class="spirit-form__label{{ ' ' + class if class }}{{ ' spirit-form__label--disabled' if disabled }}"
         {% if for %}
             for="{{ for }}"
         {% endif %}>
