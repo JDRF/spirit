@@ -14,6 +14,9 @@ $spirit-link-transition-timing-function: ease-out;
 // Borders
 $spirit-border-link: 2px;
 
+// Spirit Animated Underline
+$spirit-underline-animated: .125em;
+
 @mixin spirit-typography-reset(
   $color: $spirit-text-color-primary,
   $font-family: $spirit-font-family-sans-serif,
@@ -42,7 +45,7 @@ $spirit-border-link: 2px;
 
 a,
 .spirit-link {
-  @include spirit-typography-reset;
+  @include spirit-typography-reset($font-size: inherit);
   @include spirit-box-sizing(border-box);
   background-color: transparent;
   color: $spirit-text-color-link;
@@ -86,7 +89,7 @@ a,
     background: $spirit-text-color-link;
     bottom: 0;
     content: '';
-    height: 2px;
+    height: $spirit-underline-animated;
     position: absolute;
     right: 0;
     transition: width $spirit-link-transition-duration;
@@ -99,8 +102,8 @@ a,
 
     &:after {
       left: 0;
-    right: auto;
-    width: 100%;
+      right: auto;
+      width: 100%;
     }
   }
 

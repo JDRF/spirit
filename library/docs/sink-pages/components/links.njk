@@ -1,6 +1,9 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
 <style>
+    body {
+        font-size: 16px;
+    }
     p {
         color: #00081A;
         font-family: "Graphik", Helvetica, Arial, sans-serif;
@@ -13,6 +16,18 @@
         text-indent: 0;
         text-shadow: none;
         text-transform: none;
+    }
+    p.spirit-space-generic-half-x {
+        font-size: 4px
+    }
+    p.spirit-space-generic-1-x {
+        font-size: 8px
+    }
+    p.spirit-space-generic-4-x {
+        font-size: 32px
+    }
+    p.spirit-space-generic-6-x {
+        font-size: 48px
     }
 </style>
     <h1 class="hostile-sink-reset">Links Sink</h1>
@@ -46,13 +61,21 @@
                 <h2 class="hostile-sink-reset">Link Long</h2>
                 <p>{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }}</p>
 
-                <h2 class="hostile-sink-reset">Link Block Text</h2>
-                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <h2 class="hostile-sink-reset">Link Inline Text</h2>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
                 <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
 
+                <h2 class="hostile-sink-reset">Link Inline Sizes</h2>
+                <p class="spirit-space-generic-1-x">{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }}</p>
+                <p class="spirit-space-generic-4-x">{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }}</p>
+                <p class="spirit-space-generic-6-x">{{ library.link(text="this is an inline link", href="#") }}</p>
+                <p class="spirit-space-generic-1-x">Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p class="spirit-space-generic-4-x">Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p class="spirit-space-generic-6-x">Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+
                 <h2 class="hostile-sink-reset">Link Block Text</h2>
-                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
-                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is a block link", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is a block link that is very long for testing super duper long links for testing", class="spirit-link--block", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
             </div>
 
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
@@ -87,9 +110,17 @@
                 <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#", class="spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
                 <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#", class="spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
 
+                <h2 class="hostile-sink-reset">Animated Inline Sizes</h2>
+                <p class="spirit-space-generic-1-x">{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", class="spirit-link--animated", href="#") }}</p>
+                <p class="spirit-space-generic-4-x">{{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", class="spirit-link--animated", href="#") }}</p>
+                <p class="spirit-space-generic-6-x">{{ library.link(text="this is an inline link", class="spirit-link--animated", href="#") }}</p>
+                <p class="spirit-space-generic-1-x">Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", class="spirit-link--animated", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p class="spirit-space-generic-4-x">Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", class="spirit-link--animated", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p class="spirit-space-generic-6-x">Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", class="spirit-link--animated", href="#") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+
                 <h2 class="hostile-sink-reset">Animated Link Block Text</h2>
-                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link", href="#", class="spirit-link--block spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
-                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is an inline link that is very long for testing super duper long links for testing", href="#", class="spirit-link--block spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is a block link", href="#", class="spirit-link--block spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
+                <p>Lorem ipsum dolor sit amet, {{ library.link(text="this is a block link that is very long for testing super duper long links for testing", href="#", class="spirit-link--block spirit-link--animated") }} consectetur adipiscing elit. Quisque non metus justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc dapibus augue ex. Pellentesque volutpat eget felis nec vulputate.</p>
             </div>
         </div>
     </div>
