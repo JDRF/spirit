@@ -38,6 +38,7 @@ interactive-color :
   primary : *color-blue-100
   secondary : *color-grey-95
   on-dark : *color-white
+  secondary : *color-grey-95
   text : 
     primary : *color-blue-100
     on-dark : *color-white

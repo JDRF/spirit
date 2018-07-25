@@ -44,7 +44,12 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Primary Button Submit
                 {% endfilter %}
-                {{ library.button(text="Primary Button Submit", tag="input", type="submit") }}
+                {{ library.button(text="Primary Button Submit", el="submit") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Primary Button Reset
+                {% endfilter %}
+                {{ library.button(text="Primary Button Reset", el="reset") }}
 
             </div>
 
@@ -80,14 +85,14 @@
                 {{ library.button(class="spirit-button--secondary spirit-button--focus", text="Learn More") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Primary Button Link
+                    ## Button Link
                 {% endfilter %}
                 {{ library.button(class="spirit-button--secondary", text="Learn More", href="#") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Primary Button Submit
+                    ## Button Submit
                 {% endfilter %}
-                {{ library.button(class="spirit-button--secondary", text="Learn More", tag="input", type="submit") }}
+                {{ library.button(class="spirit-button--secondary", text="Learn More", el="submit") }}
 
             </div>
 
@@ -123,15 +128,62 @@
                 {{ library.button(class="spirit-button--focus", text="Learn More") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Primary Button Link
+                    ## Button Link
                 {% endfilter %}
                 {{ library.button(text="Learn More", href="#") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Primary Button Submit
+                    ## Button Submit
                 {% endfilter %}
-                {{ library.button(text="Learn More", tag="input", type="submit") }}
+                {{ library.button(text="Learn More", el="submit") }}
 
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Button
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle
+                {% endfilter %}
+                {{ library.button(text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Hover
+                {% endfilter %}
+                {{ library.button(class="spirit-button--hover", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Focus
+                {% endfilter %}
+                {{ library.button(class="spirit-button--focus", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Active / Checked
+                {% endfilter %}
+                {{ library.button(class="spirit-button--active", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Disabled
+                {% endfilter %}
+                {{ library.button(class="spirit-button--disabled", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle X-Small
+                {% endfilter %}
+                {{ library.button(class="spirit-button--extra-small", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Small
+                {% endfilter %}
+                {{ library.button(class="spirit-button--small", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Toggle Large
+                {% endfilter %}
+                {{ library.button(class="spirit-button--large", text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
             </div>
 
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
@@ -315,27 +367,27 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ### Normal
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Hover
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--hover", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--hover", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Active
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--active", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--active", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Disabled
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only", icon="chevron-right", disabled="true") }}
+                {{ library.button(class="spirit-button--icon-only", iconName="chevron-right", disabled="true") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Focus
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--focus", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--focus", iconName="chevron-right") }}
 
             </div>
 
@@ -348,27 +400,27 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ### Normal
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Hover
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--hover", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--hover", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Active
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--active", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--active", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Disabled
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only", icon="chevron-right", disabled="true") }}
+                {{ library.button(class="spirit-button--icon-only", iconName="chevron-right", disabled="true") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Focus
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--focus", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--focus", iconName="chevron-right") }}
 
             </div>
 
@@ -381,17 +433,17 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ### Small
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--small", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--small", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ### Small to Default MD
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only spirit-button--small spirit-button--default-md", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only spirit-button--small spirit-button--default-md", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Default
                 {% endfilter %}
-                {{ library.button(class="spirit-button--icon-only ", icon="chevron-right") }}
+                {{ library.button(class="spirit-button--icon-only ", iconName="chevron-right") }}
 
             </div>
 
@@ -409,7 +461,7 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Submit Loader
                 {% endfilter %}
-                {{ library.button(tag="button", type="submit", loader="true", text="Submit Donation") }}
+                {{ library.button(tag="button", el="submit", loader="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Loading
@@ -417,10 +469,9 @@
                 {{ library.button(class="spirit-button--loading", loader="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Submit Loader Loading
+                    ## Submit Loader Loadingxx
                 {% endfilter %}
-                {{ library.button(class="spirit-button--loading", tag="button", type="submit", loader="true", text="Submit Donation") }}
-
+                {{ library.button(class="spirit-button--loading", el="button", type="submit", loader="true", text="Submit Donation") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success - with Loader
@@ -553,7 +604,7 @@
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Success Icon Only
                 {% endfilter %}
-                {{ library.button(class="spirit-button--success", icon="check", iconLabel="Success") }}
+                {{ library.button(class="spirit-button--success", iconName="check", iconLabel="Success") }}
 
             </div>
 
