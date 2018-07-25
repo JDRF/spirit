@@ -1,3 +1,9 @@
+// NOTICE ///////////////////////////
+// This JavaScript is for Demonstration purposes ONLY, it has not been tested for production usage
+/////////////////////////////////////
+
+// Disable eslint for these copy/pasted polyfills from MDN
+/* eslint-disable */
 // Production steps of ECMA-262, Edition 6, 22.1.2.1
 if (!Array.from) {
   Array.from = (function () {
@@ -188,3 +194,4 @@ if (!Array.prototype.findIndex) {
     writable: true
   });
 }
+/* eslint-enable */
