@@ -347,7 +347,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &:hover,
   &.spirit-button--hover {
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
+    box-shadow: $spirit-elevation-3 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
   }
 
   &:focus,
@@ -359,7 +359,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &:active,
   &.spirit-button--active {
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
+    box-shadow: $spirit-elevation-2 $spirit-elevation-color-blue, inset 0 0 0 $spirit-border-button-secondary $spirit-interactive-color-secondary;
   }
 
   &:disabled {
