@@ -1,78 +1,43 @@
 // link
 
-// Text Decoration
-$spirit-link-decoration: none !default;
-$spirit-link-hover-decoration: underline !default;
-
-// Colors
-$spirit-link-hover-color: $spirit-text-color-link;
-
 // Transitions
 $spirit-link-transition-duration: .2s;
 $spirit-link-transition-timing-function: ease-out;
 
 // Borders
-$spirit-border-link: 2px;
+$spirit-border-width-link: $spirit-border-width-control;
 
 // Spirit Animated Underline
-$spirit-underline-animated: .125em;
+$spirit-link-underline-height-animated: .125em;
 
-@mixin spirit-typography-reset(
-  $color: $spirit-text-color-primary,
-  $font-family: $spirit-font-family-sans-serif,
-  $font-size: $spirit-font-size-m,
-  $font-style: normal,
-  $font-weight: normal,
-  $letter-spacing: 0,
-  $line-height: $spirit-font-line-height-body,
-  $text-align: left,
-  $text-indent: 0,
-  $text-shadow: none,
-  $text-transform: none) {
-
-  color: $color;
-  font-family: $spirit-font-family-sans-serif;
-  font-size: $font-size;
-  font-style: $font-style;
-  font-weight: $font-weight;
-  letter-spacing: $letter-spacing;
-  line-height: $line-height;
-  text-align: $text-align;
-  text-indent: $text-indent;
-  text-shadow: $text-shadow;
-  text-transform: $text-transform;
-}
-
-a,
 .spirit-link {
-  @include spirit-typography-reset();
   @include spirit-box-sizing(border-box);
   background-color: transparent;
   color: $spirit-text-color-link;
-  text-decoration: $spirit-link-decoration;
+  text-decoration: none;
 
   &:visited,
   &.spirit-link--visited {
     color: $spirit-text-color-link;
-    text-decoration: $spirit-link-decoration;
+    text-decoration: none;
   }
 
   &:hover,
   &.spirit-link--hover {
     color: $spirit-text-color-link;
-    text-decoration: $spirit-link-hover-decoration;
+    text-decoration: underline;
   }
 
   &:focus,
   &:focus-within,
   &.spirit-link--focus {
-    outline: $spirit-border-link solid $spirit-interactive-color-focus-soft;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
   }
 
   &:active,
   &.spirit-link--active {
     color: $spirit-text-color-link;
-    text-decoration: $spirit-link-hover-decoration;
+    text-decoration: underline;
   }
 }
 
@@ -89,7 +54,7 @@ a,
     background: $spirit-text-color-link;
     bottom: 0;
     content: '';
-    height: $spirit-underline-animated;
+    height: $spirit-link-underline-height-animated;
     position: absolute;
     right: 0;
     transition: width $spirit-link-transition-duration;
@@ -98,7 +63,7 @@ a,
 
   &:hover,
   &.spirit-link--hover {
-    text-decoration: $spirit-link-decoration;
+    text-decoration: none;
 
     &:after {
       left: 0;
@@ -109,7 +74,7 @@ a,
 
   &:active,
   &.spirit-link--active {
-    text-decoration: $spirit-link-decoration;
+    text-decoration: none;
 
     &:after {
       left: 0;
