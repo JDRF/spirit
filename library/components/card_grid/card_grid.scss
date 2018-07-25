@@ -207,7 +207,7 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
 .spirit-card-carousel__button-icon.spirit-icon {
   display: block;
   height: $spirit-size-icon-l;
-  stroke: $spirit-interactive-color-primary-fill;
+  stroke: $spirit-interactive-color-primary;
   width: $spirit-size-icon-l;
 
   .spirit-card-carousel__button:disabled & {
@@ -239,5 +239,5 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
 }
 
 .spirit-card-carousel__indicator-dot--active {
-  background: $spirit-color-blue-default;
+  background: $spirit-color-blue-100;
 }
