@@ -3,7 +3,7 @@
       class=false,
       disabled=false,
       text=false,
-      icon=false,
+      iconName=false,
       iconLabel=false,
       el="button",
       type=false,
@@ -21,13 +21,11 @@
     <div class="spirit-button spirit-button--toggle{{ ' ' + class if class }}">
       <input class="spirit-button__input spirit-button__{{ el }}" {{ 'type=' + el }} {{ 'name=' + name if name }} {{ 'id=' + id if id }} {{ 'value=' + value if value }} tabindex="-1"/>
       <label {{ 'for=' + id if id }} class="spirit-button__inner" tabindex="0">
-        {% if icon %}
+        {% if iconName %}
           {% if not iconLabel %}
-            {% set iconLabel = icon %}
+            {% set iconLabel = iconName %}
           {% endif %}
-          <svg role="img" aria-label="{{iconLabel if iconLabel}}" class="spirit-icon--{{icon if icon }}" xmlns="http://www.w3.org/2000/svg" >
-              <use xlink:href="/icons/spirit.svg#{{icon if icon}}"></use>
-          </svg>
+          {{ icon(name=iconName, label=iconLabel, class='spirit-icon--' + iconName, decorative=false)}}
         {% endif %}
         {{ text if text }}
       </label>
@@ -37,13 +35,11 @@
   {% elif el %}
     {# Using type variable for <button type="submit"> or <a type="button"> options #}
     <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
-      {% if icon %}
+      {% if iconName %}
         {% if not iconLabel %}
-          {% set iconLabel = icon %}
+          {% set iconLabel = iconName %}
         {% endif %}
-        <svg role="img" aria-label="{{iconLabel if iconLabel}}" class="spirit-icon--{{icon if icon }}" xmlns="http://www.w3.org/2000/svg" >
-            <use xlink:href="/icons/spirit.svg#{{icon if icon}}"></use>
-        </svg>
+          {{ icon(name=iconName, label=iconLabel, class='spirit-icon--' + iconName, decorative=false)}}
       {% endif %}
       {% if loader %}
         {% if class and 'spirit-button--loading' in class %}
@@ -68,9 +64,7 @@
           </span>
         {% else %}
           <span class="spirit-button__icon-contain" data-icon="success" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
-            <svg aria-label="Success" class="spirit-icon--check" role="img">
-              <use xlink:href="/icons/spirit.svg#check"></use>
-            </svg>
+            {{ icon(name='check', label='Success', class='spirit-icon--check', decorative=false)}}
           </span>
         {% endif %}
         <span class="spirit-button__default-text" aria-hidden="{{loaderTextHidden if loaderTextHidden}}">
@@ -83,9 +77,7 @@
           </span>
         {% else %}
           <span class="spirit-button__icon-contain" data-icon="success" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
-            <svg aria-label="Success" class="spirit-icon--check" role="img">
-              <use xlink:href="/icons/spirit.svg#check"></use>
-            </svg>
+            {{ icon(name='check', label='Success', class='spirit-icon--check', decorative=false)}}
           </span>
         {% endif %}
         <span class="spirit-button__default-text" {{'aria-hidden=true' if feedbackType === 'success' }}>
