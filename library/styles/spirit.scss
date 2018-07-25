@@ -5,6 +5,7 @@
 @import 'mixins/accessibility';
 @import 'mixins/box-sizing';
 @import 'mixins/text-crop';
+@import 'mixins/typography';
 
 /// # Helpers - Default helper functions
 @import 'helpers/spacing';
@@ -16,3 +17,5 @@
 /// # Components - Specific UI Components
 @import '../components/link/link';
 @import '../components/button/button';
+@import '../components/form/form';
+@import '../components/icon/icon';
