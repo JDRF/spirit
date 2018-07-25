@@ -1,0 +1,10 @@
+.spirit-icon {
+  @include spirit-box-sizing; // just in case some extra styling gets applied to the icon.
+  display: inline-block;
+  fill: transparent; // Otherwise IE11 fills in every icon with black
+  height: 1em;
+  line-height: 1em;
+  stroke: currentColor;
+  vertical-align: middle;
+  width: 1em;
+}

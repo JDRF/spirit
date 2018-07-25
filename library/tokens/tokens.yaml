@@ -36,6 +36,7 @@ icon-color :
   grey : *color-grey-35
 interactive-color :
   primary : *color-blue-100
+  secondary : *color-grey-95
   on-dark : *color-white
   secondary : *color-grey-95
   text : 
@@ -59,12 +60,20 @@ feedback-color :
 box-shadow :
   focus :     4px
 border :
-  card :             1px
-  button :           4px
-  button-secondary : 2px
-  button-toggle :    2px
-  input-focus :      2px # check this one in final version
-  input-feedback :   2px
+  color:
+    focus:              *color-blue-100
+    success:            *color-green-67
+    error:              *color-red-100
+  style:
+    default:         solid
+  width:
+    control:           2px # Form element border
+    card :             1px
+    button :           4px
+    button-secondary : 2px
+    button-toggle :    2px
+    input-focus :      2px # check this one in final version
+    input-feedback :   2px
   radius :
     s : 4px # checkbox
     m : 6px # buttons, inputs
