@@ -33,6 +33,10 @@ $grid-breakpoints: (
   }
 }
 
+// We used /(?:^|\s)\.(?=[a-zA-Z])/gm regex to prefix
+// all classes inside the vendor/bootstrap directory
+// with the .spirit- namespace.
+
 @import '../vendor/bootstrap/functions';
 @import '../vendor/bootstrap/variables';
 
