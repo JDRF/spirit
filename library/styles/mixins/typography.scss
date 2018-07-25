@@ -1,0 +1,25 @@
+@mixin spirit-typography-reset(
+  $color: $spirit-text-color-primary,
+  $font-family: $spirit-font-family-sans-serif,
+  $font-size: $spirit-font-size-m,
+  $font-style: normal,
+  $font-weight: normal,
+  $letter-spacing: 0,
+  $line-height: $spirit-font-line-height-body,
+  $text-align: left,
+  $text-indent: 0,
+  $text-shadow: none,
+  $text-transform: none) {
+
+  color: $color;
+  font-family: $spirit-font-family-sans-serif;
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  text-align: $text-align;
+  text-indent: $text-indent;
+  text-shadow: $text-shadow;
+  text-transform: $text-transform;
+}
