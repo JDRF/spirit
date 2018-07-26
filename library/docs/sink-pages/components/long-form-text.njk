@@ -1,0 +1,69 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    {% filter markdown(true, "hostile-sink-reset") %}
+        # Long Form Text Sink
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-col--md-6">
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Headings
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## h1
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <h1 class="spirit-h1">
+                        You Can Help Turn Type One Into Type None
+                    </h1>
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## h2
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <h2 class="spirit-h2">
+                        You Can Help Turn Type One Into Type None
+                    </h2>
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## h3
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <h3 class="spirit-h3">
+                        You Can Help Turn Type One Into Type None
+                    </h3>
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## h4
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <h4 class="spirit-h4">
+                        You Can Help Turn Type One Into Type None
+                    </h4>
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## h5
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <h5 class="spirit-h5">
+                        You Can Help Turn Type One Into Type None
+                    </h5>
+                </div>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## h6
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <h6 class="spirit-h6">
+                        You Can Help Turn Type One Into Type None
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
