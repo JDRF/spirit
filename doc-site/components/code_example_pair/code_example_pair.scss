@@ -1,0 +1,24 @@
+$esds-doc-html-example-list-border: none;
+$esds-doc-code-snippet-border: none;
+$esds-doc-code-snippet-background-color: $spirit-color-grey-95;
+$esds-doc-code-snippet-source-background-color: $spirit-color-grey-95;
+$esds-doc-html-example-list-font-size: $spirit-font-size-s;
+$esds-doc-html-example-list-text-color: $spirit-text-color-secondary;
+$esds-doc-html-example-list-text-color-on-dark: $spirit-text-color-reversed;
+
+@import '../../node_modules/esds-doc/components/code_snippet/code_snippet';
+@import '../../node_modules/esds-doc/components/html_example_list/html_example_list';
+@import '../../node_modules/esds-doc/components/code_example_pair/code_example_pair';
+
+.esds-doc-code-example-pair {
+  @include spirit-elevation;
+}
+
+.esds-doc-code-snippet__copy-code-wrap {
+  position: relative;
+}
+
+.esds-doc-code-snippet__copied-notification {
+  left: 0;
+  right: auto;
+}
