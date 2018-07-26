@@ -1,23 +1,9 @@
 @import '../tokens/tokens';
 @import 'mixins/text-crop';
-
-@mixin space-sink-page-font-reset {
-  // We neeed one of these in the library, not sure if anyone's building one yet
-  color: $spirit-text-color-primary;
-  font-family: $spirit-font-family-sans-serif;
-  font-size: $spirit-font-size-m;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: 0;
-  line-height: $spirit-font-line-height-body;
-  text-align: left;
-  text-indent: 0;
-  text-shadow: none;
-  text-transform: none;
-}
+@import 'mixins/typography';
 
 .spirit-container {
-  @include space-sink-page-font-reset;
+  @include spirit-typography-reset();
   border: 2px solid;
   margin-bottom: 1em;
   margin-top: 1em;

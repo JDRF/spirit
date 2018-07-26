@@ -1,6 +1,6 @@
 //SVG -- need to move to svg / icon component when constructed
 [class^='spirit-icon-'] {
-  @include spirit-box-sizing("border-box");
+  @include spirit-box-sizing(border-box);
   display: block;
   fill: currentColor;
   height: 1em;
