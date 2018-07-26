@@ -673,7 +673,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
 .spirit-form__select {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
-  background-color: none;
+  background-color: transparent;
   display: flex;
   height: $spirit-select-height;
   margin: 0;
@@ -870,7 +870,7 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 .spirit-form__legend {
   @include spirit-typography-reset(
     $color: $spirit-text-color-primary,
-    $font-size: $spirit-font-size-heading-level-1,
+    $font-size: $spirit-font-size-heading-level-1-normal,
     $font-weight: $spirit-font-weight-bold 
   );
   margin: $spirit-space-stack-2-x;
