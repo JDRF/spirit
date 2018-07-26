@@ -81,11 +81,8 @@
   }
 
   .spirit-card__link {
-    @include spirit-typography-reset(
-      $color: $spirit-text-color-link,
-      $font-size: $spirit-font-size-s,
-      $font-weight: $spirit-font-weight-bold
-    );
+    font-size: $spirit-font-size-s;
+    font-weight: $spirit-font-weight-bold;
   }
 }
 
@@ -207,18 +204,7 @@
   display: block;
   height: 100%;
   object-fit: cover;
-  transition: transform $spirit-transition-timing-default;
   width: 100%;
-
-  .spirit-card--hover &,
-  .spirit-card:hover & {
-    transform: scale(1.2);
-  }
-
-  .spirit-card--active &,
-  .spirit-card:active & {
-    transform: scale(1.1);
-  }
 }
 
 .spirit-card__image-list-item {
@@ -230,24 +216,24 @@
 }
 
 .spirit-card__link {
-  position: relative;
+  @include spirit-link;
+  @include spirit-link-animated-default;
+  // position: relative;
 
-  &:after {
-    background: $spirit-text-color-link;
-    bottom: 0;
-    content: '';
-    height: 2px;
-    position: absolute;
-    right: 0;
-    transition: width $spirit-transition-timing-default;
-    width: 0%;
-  }
+  // &:after {
+  //   background: $spirit-text-color-link;
+  //   bottom: 0;
+  //   content: '';
+  //   height: 2px;
+  //   position: absolute;
+  //   right: 0;
+  //   transition: width $spirit-transition-timing-default;
+  //   width: 0%;
+  // }
 
-  .spirit-card--active &:after,
-  .spirit-card--hover &:after,
-  .spirit-card:hover &:after {
-    left: 0;
-    right: auto;
-    width: 100%;
+  .spirit-card--active &,
+  .spirit-card--hover &,
+  .spirit-card:hover & {
+    @include spirit-link-animated-underline;
   }
 }
