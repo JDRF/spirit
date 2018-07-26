@@ -2,8 +2,6 @@ const gulp = require('esds-build');
 const babel = require('gulp-babel');
 const rename = require("gulp-rename");
 
-gulp.task('compile-script-to-es5');
-
 gulp.task('compile-script-to-es5', () =>
   gulp.src('dist/spirit.js')
     .pipe(babel({presets: ['env']}))
