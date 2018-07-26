@@ -1,0 +1,39 @@
+{#
+use with
+
+{{ library.icon(
+    name="activity",
+    label="Activity"
+    decorative=false
+    class=spirit-"icon--danger spirit-icon--big"
+) }}
+
+param: name {string} [default: check] The name of the required icon
+param: label {string} [default: false] An accessible label for the icon. Used if the icon is not decorative. If not set, will use name.
+param: decorative {boolean} [default: true] If set to false, will make it visible to screen readers.
+param: class {string} [default: false] Add any required classes in a space-separated list. They will be appended to the default "spirit-icon" class.
+
+ #}
+{% macro icon(
+    name="check",
+    label=false,
+    decorative=true,
+    class=false
+    ) %}
+    {% if not label %}
+        {% set label = name %}
+    {% endif %}
+    <svg
+        aria-label="{{ label if label }}"
+        class="spirit-icon{{ ' ' + class if class }}"
+        {% if decorative %}
+            aria-hidden="true"
+        {% endif %}
+    >
+        <use xlink:href="/icons/spirit.svg#{{ name if name }}">
+            {% if label and not decorative %}
+                <title>{{ label }}</title>
+            {% endif %}
+        </use>
+    </svg>
+{% endmacro %}

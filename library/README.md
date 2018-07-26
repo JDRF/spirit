@@ -18,10 +18,10 @@ To run this project locally:
 A browser window should pop open with the main page of the `/library` project running. The local environment runs on [Browsersync](https://www.browsersync.io) and offers configuration options on a separate port from the environment. If the local environment launches at: `http://localhost:3000`, then the Browsersync config will be available at `http://localhost:3001`
 
 ## Stopping the local environment
-Hold `ctrl + C` at the same time from the command line to stop the local environment. Run `gulp` to start it up again. 
+Press `ctrl + C` at the same time from the command line to stop the local environment. Run `gulp` to start it up again. 
 
 ## Creating a new component
-With the environment stopped, run `gulp generate:new-component` and follow the prompts to generate basic template files for building a new component's markup, styles, javascript, and test page.
+With the environment stopped, run `gulp generate:new-component` and follow the prompts to generate basic template files for building a new component's markup, styles, javascript, and sink page.
 
 ## Additional Resources
 * Component markup and test pages are built using [Nunjucks templates](https://mozilla.github.io/nunjucks/templating.html)

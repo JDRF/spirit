@@ -8,8 +8,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block head_content_prepend %}{% endblock head_content_prepend %}
+        <link rel="shortcut icon" href="#" />
         <link rel="stylesheet" href="/styles/spirit.css">
-        <script src="/scripts/spirit.js"></script>
+        {# <script src="/scripts/spirit.js"></script> #}
+        <script src="/scripts/dependencies/svg4everybody.min.js"></script>
+        <script>
+            svg4everybody(); // Enable icons for IE11
+        </script>
         {% block head_content_append %}{% endblock head_content_append %}
     </head>
     <body>

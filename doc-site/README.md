@@ -21,7 +21,7 @@ To run this project locally:
 A browser window should pop open with the main page of the `/doc-site` project running. The local environment runs on [Browsersync](https://www.browsersync.io) and offers configuration options on a separate port from the environment. If the local environment launches at: `http://localhost:3000`, then the Browsersync config will be available at `http://localhost:3001`
 
 ## Stopping the local environment
-Hold `ctrl + C` at the same time from the command line to stop the local environment. Run `gulp` to start it up again. 
+Press `ctrl + C` at the same time from the command line to stop the local environment. Run `gulp` to start it up again. 
 
 ## Additional Resources
 * Documentation pages are built using [Nunjucks templates](https://mozilla.github.io/nunjucks/templating.html)

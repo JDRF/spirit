@@ -10,7 +10,7 @@
   "author": "Kevin Powell <kevinmpowell@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "esds-build": "^0.34.0",
+    "esds-build": "^0.37.0",
     "esds-doc": "^0.10.0-alpha.5",
     "fs-extra": "^6.0.1",
     "gulp-tap": "^1.0.1",
