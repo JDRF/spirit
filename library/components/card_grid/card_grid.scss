@@ -195,7 +195,8 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
   background: none;
   border: 0;
   cursor: pointer;
-  flex: 0 0 $spirit-size-icon-l;
+  flex-grow: 0;
+  flex-shrink: 0;
   margin: 0;
   padding: 0;
 
@@ -204,7 +205,7 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
   }
 }
 
-.spirit-card-carousel__button-icon.spirit-icon {
+.spirit-card-carousel__button .spirit-icon {
   display: block;
   height: $spirit-size-icon-l;
   stroke: $spirit-interactive-color-primary;
