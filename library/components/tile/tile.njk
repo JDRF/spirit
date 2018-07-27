@@ -1,0 +1,30 @@
+{% macro tile(
+        class=false,
+        href="#",
+        img_src="/images/components/tile/onewalk_baloons.jpg",
+        img_alt_text="JDRF Walkers",
+        title_text="Ways to Fundraise Lorem ipsum dolor sit amet",
+        size,
+        aria_label
+        ) %}
+
+  {% if size %}
+    {% set size_class = "spirit-tile--" + size %}
+  {% endif %}
+
+  {% if aria_label == undefined %}
+    {% set aria_label = title_text %}
+  {% endif %}
+
+  <a href="{{ href }}" class="spirit-tile{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" aria-label="{{ aria_label }}">
+    {% if img_src %}
+      <span class="spirit-tile__image-wrap">
+        <img class="spirit-tile__image" src="{{ img_src }}" alt="{{ img_alt_text }}">
+      </span>
+    {% endif %}
+    <span class="spirit-tile__gap"></span>
+    <span class="spirit-tile__text">
+      <h3 class="spirit-tile__title">{{ title_text | safe }}</h3>
+    </span>
+  </a>
+{% endmacro %}
