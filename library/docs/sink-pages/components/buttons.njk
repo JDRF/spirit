@@ -1,5 +1,6 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+    <link rel="stylesheet" href="/styles/button-sink-page.css">
     {% filter markdown(true, "hostile-sink-reset") %}
         # Buttons Sink
     {% endfilter %}

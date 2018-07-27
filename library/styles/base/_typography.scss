@@ -1,0 +1,49 @@
+@import '../mixins/typography';
+
+.spirit-display-1 {
+  @include spirit-display-1;
+}
+
+.spirit-display-2 {
+  @include spirit-display-2;
+}
+
+.spirit-h1 {
+  @include spirit-h1;
+}
+
+.spirit-h2 {
+  @include spirit-h2;
+}
+
+.spirit-h3 {
+  @include spirit-h3;
+}
+
+.spirit-h4 {
+  @include spirit-h4;
+}
+
+.spirit-h5 {
+  @include spirit-h5;
+}
+
+.spirit-h6 {
+  @include spirit-h6;
+}
+
+.spirit-subhead {
+  @include spirit-subhead;
+}
+
+.spirit-body-text-l {
+  @include spirit-body-text-l;
+}
+
+.spirit-body-text-m {
+  @include spirit-body-text-m;
+}
+
+.spirit-body-text-s {
+  @include spirit-body-text-s;
+}

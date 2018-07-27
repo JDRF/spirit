@@ -1,0 +1,28 @@
+@import '../tokens/tokens';
+@import 'mixins/text-crop';
+@import 'mixins/typography';
+
+.spirit-container {
+  @include spirit-typography-reset();
+  border: 2px solid;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.spirit-row + .spirit-row {
+  margin-top: 1em;
+}
+
+[class^='spirit-col'] {
+  background: rgba($spirit-color-blue-100, .3);
+  border: 1px solid rgba($spirit-color-blue-100, .6);
+}
+
+.spirit-row-break {
+  width: 100%;
+}
+
+.spirit-grid-example-vertical-alignment .spirit-row {
+  background: $spirit-color-grey-95;
+  min-height: 3rem;
+}
