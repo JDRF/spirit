@@ -22,6 +22,8 @@
   text-indent: $text-indent;
   text-shadow: $text-shadow;
   text-transform: $text-transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @mixin spirit-display-1 {
