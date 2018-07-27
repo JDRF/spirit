@@ -1,0 +1,459 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <link rel="stylesheet" href="/styles/grid-sink-page.css">
+    {% filter markdown(true, "hostile-sink-reset") %}
+        # Grid Sink
+    {% endfilter %}
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Basic 3 column grid
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-sm">
+                One of three columns
+            </div>
+            <div class="spirit-col-sm">
+                One of three columns
+            </div>
+            <div class="spirit-col-sm">
+                One of three columns
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Basic 3 column grid
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col">
+                1 of 2
+            </div>
+            <div class="spirit-col">
+                2 of 2
+            </div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col">
+                1 of 3
+            </div>
+            <div class="spirit-col">
+                2 of 3
+            </div>
+            <div class="spirit-col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### One row with equal width columns on multiple lines
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col">Column</div>
+            <div class="spirit-col">Column</div>
+            <div class="spirit-row-break"></div>
+            <div class="spirit-col">Column</div>
+            <div class="spirit-col">Column</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### A mix of percentage width and auto width columns
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col">
+                1 of 3
+            </div>
+            <div class="spirit-col-6">
+                2 of 3 (wider)
+            </div>
+            <div class="spirit-col">
+                3 of 3
+            </div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col">
+                1 of 3
+            </div>
+            <div class="spirit-col-5">
+                2 of 3 (wider)
+            </div>
+            <div class="spirit-col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Variable width content
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row spirit-justify-content-md-center">
+            <div class="spirit-col spirit-col-lg-2">
+                1 of 3
+            </div>
+            <div class="spirit-col-md-auto">
+                Variable width content
+            </div>
+            <div class="spirit-col spirit-col-lg-2">
+                3 of 3
+            </div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col">
+                1 of 3
+            </div>
+            <div class="spirit-col-md-auto">
+                Variable width content
+            </div>
+            <div class="spirit-col spirit-col-lg-2">
+                3 of 3
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Auto-width column vs ratio column
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col">col</div>
+            <div class="spirit-col">col</div>
+            <div class="spirit-col">col</div>
+            <div class="spirit-col">col</div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-8">col-8</div>
+            <div class="spirit-col-4">col-4</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Stacks to horizontal
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-sm-8">col-sm-8</div>
+            <div class="spirit-col-sm-4">col-sm-4</div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-sm">col-sm</div>
+            <div class="spirit-col-sm">col-sm</div>
+            <div class="spirit-col-sm">col-sm</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Mix and match
+    {% endfilter %}
+    <div class="spirit-container">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="spirit-row">
+            <div class="spirit-col-12 spirit-col-md-8">.spirit-col-12 .spirit-col-md-8</div>
+            <div class="spirit-col-6 spirit-col-md-4">.spirit-col-6 .spirit-col-md-4</div>
+        </div>
+
+        <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+        <div class="spirit-row">
+            <div class="spirit-col-6 spirit-col-md-4">.spirit-col-6 .spirit-col-md-4</div>
+            <div class="spirit-col-6 spirit-col-md-4">.spirit-col-6 .spirit-col-md-4</div>
+            <div class="spirit-col-6 spirit-col-md-4">.spirit-col-6 .spirit-col-md-4</div>
+        </div>
+
+        <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="spirit-row">
+            <div class="spirit-col-6">.spirit-col-6</div>
+            <div class="spirit-col-6">.spirit-col-6</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Vertical alignment
+    {% endfilter %}
+    <div class="spirit-grid-example-vertical-alignment">
+        <div class="spirit-container">
+            <div class="spirit-row spirit-align-items-start">
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+            </div>
+            <div class="spirit-row spirit-align-items-center">
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+            </div>
+            <div class="spirit-row spirit-align-items-end">
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+                <div class="spirit-col">
+                    One of three columns
+                </div>
+            </div>
+        </div>
+
+        <div class="spirit-container">
+            <div class="spirit-row">
+                <div class="spirit-col spirit-align-self-start">
+                    One of three columns
+                </div>
+                <div class="spirit-col spirit-align-self-center">
+                    One of three columns
+                </div>
+                <div class="spirit-col spirit-align-self-end">
+                    One of three columns
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Horizontal Alignment
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row spirit-justify-content-start">
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+        </div>
+        <div class="spirit-row spirit-justify-content-center">
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+        </div>
+        <div class="spirit-row spirit-justify-content-end">
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+        </div>
+        <div class="spirit-row spirit-justify-content-around">
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+        </div>
+        <div class="spirit-row spirit-justify-content-between">
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+            <div class="spirit-col-4">
+                One of two columns
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### No gutters
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row spirit-row--no-gutters">
+            <div class="spirit-col-12 spirit-col-sm-6 spirit-col-md-8">.spirit-col-12 .spirit-col-sm-6 .spirit-col-md-8</div>
+            <div class="spirit-col-6 spirit-col-md-4">.spirit-col-6 .spirit-col-md-4</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Column wrapping
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-9">.spirit-col-9</div>
+            <div class="spirit-col-4">.spirit-col-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+            <div class="spirit-col-6">.spirit-col-6<br>Subsequent columns continue along the new line.</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Column breaks
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-6 spirit-col-sm-3">.spirit-col-6 .spirit-col-sm-3</div>
+            <div class="spirit-col-6 spirit-col-sm-3">.spirit-col-6 .spirit-col-sm-3</div>
+
+            <!-- Force next columns to break to new line -->
+            <div class="spirit-row-break"></div>
+
+            <div class="spirit-col-6 spirit-col-sm-3">.spirit-col-6 .spirit-col-sm-3</div>
+            <div class="spirit-col-6 spirit-col-sm-3">.spirit-col-6 .spirit-col-sm-3</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Responsive column breaks
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-6 spirit-col-sm-4">.spirit-col-6 .spirit-col-sm-4</div>
+            <div class="spirit-col-6 spirit-col-sm-4">.spirit-col-6 .spirit-col-sm-4</div>
+
+            <!-- Force next columns to break to new line at md breakpoint and up -->
+            <div class="spirit-row-break spirit-d-none spirit-d-md-block"></div>
+
+            <div class="spirit-col-6 spirit-col-sm-4">.spirit-col-6 .spirit-col-sm-4</div>
+            <div class="spirit-col-6 spirit-col-sm-4">.spirit-col-6 .spirit-col-sm-4</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Column reordering
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col">
+                First, but unordered
+            </div>
+            <div class="spirit-col spirit-order-12">
+                Second, but last
+            </div>
+            <div class="spirit-col spirit-order-1">
+                Third, but first
+            </div>
+        </div>
+    </div>
+
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-order-last">
+                First, but last
+            </div>
+            <div class="spirit-col">
+                Second, but unordered
+            </div>
+            <div class="spirit-col spirit-order-first">
+                Third, but first
+            </div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Offsetting columns
+    {% endfilter %}
+
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-md-4">.spirit-col-md-4</div>
+            <div class="spirit-col-md-4 spirit-offset-md-4">.spirit-col-md-4 .spirit-offset-md-4</div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-md-3 spirit-offset-md-3">.spirit-col-md-3 .spirit-offset-md-3</div>
+            <div class="spirit-col-md-3 spirit-offset-md-3">.spirit-col-md-3 .spirit-offset-md-3</div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-md-6 spirit-offset-md-3">.spirit-col-md-6 .spirit-offset-md-3</div>
+        </div>
+    </div>
+
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-sm-5 spirit-col-md-6">.spirit-col-sm-5 .spirit-col-md-6</div>
+            <div class="spirit-col-sm-5 spirit-offset-sm-2 spirit-col-md-6 spirit-offset-md-0">.spirit-col-sm-5 .spirit-offset-sm-2 .spirit-col-md-6 .spirit-offset-md-0</div>
+        </div>
+
+        <div class="spirit-row">
+            <div class="spirit-col-sm-6 spirit-col-md-5 spirit-col-lg-6">.spirit-col-sm-6 .spirit-col-md-5 .spirit-col-lg-6</div>
+            <div class="spirit-col-sm-6 spirit-col-md-5 spirit-offset-md-2 spirit-col-lg-6 spirit-offset-lg-0">.spirit-col-sm-6 .spirit-col-md-5 .spirit-offset-md-2 .spirit-col-lg-6 .spirit-offset-lg-0</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Margin Utilities
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-md-4">.spirit-col-md-4</div>
+            <div class="spirit-col-md-4 spirit-ml-auto">.spirit-col-md-4 .spirit-ml-auto</div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-md-3 spirit-ml-md-auto">.spirit-col-md-3 .spirit-ml-md-auto</div>
+            <div class="spirit-col-md-3 spirit-ml-md-auto">.spirit-col-md-3 .spirit-ml-md-auto</div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-auto spirit-mr-auto">.spirit-col-auto .spirit-mr-auto</div>
+            <div class="spirit-col-auto">.spirit-col-auto</div>
+        </div>
+    </div>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Nesting
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col-6">
+                .spirit-col-6
+            </div>
+            <div class="spirit-col-6">
+                <div class="spirit-row">
+                    <div class="spirit-col-4">
+                        .spirit-col-4
+                    </div>
+                    <div class="spirit-col-4">
+                        .spirit-col-4
+                    </div>
+                    <div class="spirit-col-4">
+                        .spirit-col-4
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spirit-row">
+            <div class="spirit-col-6">
+                .spirit-col-6
+            </div>
+            <div class="spirit-col-6">
+                .spirit-col-6
+                <div class="spirit-row">
+                    <div class="spirit-col-1">
+                        .spirit-col-1
+                    </div>
+                    <div class="spirit-col-3">
+                        .spirit-col-3
+                    </div>
+                    <div class="spirit-col-4">
+                        .spirit-col-4
+                    </div>
+                    <div class="spirit-col-4">
+                        .spirit-col-4
+                        <div class="spirit-row">
+                            <div class="spirit-col-3">.spirit-col-3</div>
+                            <div class="spirit-col-3">.spirit-col-3</div>
+                            <div class="spirit-col-3">.spirit-col-3</div>
+                            <div class="spirit-col-3">.spirit-col-3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
