@@ -125,13 +125,13 @@
 }
 
 .spirit-container--white {
-  background: $spirit-color-white;
+  @include spirit-container--white;
 }
 
 .spirit-container--black {
-  background: $spirit-color-black;
+  @include spirit-container--black;
 }
 
 .spirit-container--brand {
-  background: $spirit-brand-color-primary;
+  @include spirit-container--brand;
 }
