@@ -1,24 +1,100 @@
 $esds-doc-html-example-list-border: none;
 $esds-doc-code-snippet-border: none;
+$esds-doc-code-snippet-border-radius: $spirit-border-radius-m;
 $esds-doc-code-snippet-background-color: $spirit-color-grey-95;
 $esds-doc-code-snippet-source-background-color: $spirit-color-grey-95;
 $esds-doc-html-example-list-font-size: $spirit-font-size-s;
 $esds-doc-html-example-list-text-color: $spirit-text-color-secondary;
 $esds-doc-html-example-list-text-color-on-dark: $spirit-text-color-reversed;
+$esds-doc-html-example-list-border: solid 1px $spirit-color-grey-95;
+$esds-doc-html-example-list-border-radius: $spirit-border-radius-m;
+$esds-doc-html-example-list-space-inset: $spirit-space-generic-3-x / 2 $spirit-space-generic-3-x;
+$esds-doc-code-snippet-space-inset: $spirit-space-inset-3-x;
+$esds-doc-code-snippet-copied-tooltip-inset-space: $spirit-space-inset-1-x;
+$esds-doc-code-snippet-copy-code-button-offset: $spirit-space-generic-2-x $spirit-space-generic-3-x;
+$esds-doc-code-snippet-source-tag-color: $spirit-color-red-100;
+$esds-doc-code-snippet-source-selector-color: $spirit-color-green-67;
+$esds-doc-code-snippet-source-attribute-value-color: $spirit-color-blue-100;
+$esds-doc-code-snippet-source-punctuation-color: $spirit-color-black;
+$esds-doc-code-snippet-text-color: $spirit-color-white;
+$esds-doc-code-snippet-copied-tooltip-font-size: $spirit-font-size-s;
+$esds-doc-code-snippet-copied-tooltip-background-color: $spirit-color-black;
+$esds-doc-code-snippet-copied-tooltip-inset-space: $spirit-space-inset-squish-1-x;
+$esds-doc-code-snippet-copied-tooltip-border-radius: 0;
+$esds-doc-code-snippet-copied-tooltip-box-shadow-color: transparent;
+$esds-doc-code-snippet-copied-tooltip-distance-from-button: 80%;
+$esds-doc-code-snippet-copied-tooltip-distance-from-button-starting: 60%;
+$esds-doc-code-example-pair-space-stack: $spirit-space-stack-4-x;
+$esds-doc-code-snippet-space-stack: $spirit-space-generic-4-x;
 
 @import '../../node_modules/esds-doc/components/code_snippet/code_snippet';
 @import '../../node_modules/esds-doc/components/html_example_list/html_example_list';
 @import '../../node_modules/esds-doc/components/code_example_pair/code_example_pair';
 
-.esds-doc-code-example-pair {
-  @include spirit-elevation;
-}
-
 .esds-doc-code-snippet__copy-code-wrap {
+  display: inline-block;
   position: relative;
 }
 
 .esds-doc-code-snippet__copied-notification {
-  left: 0;
+  bottom: 80%;
+  left: 50%;
   right: auto;
+  transform: translateX(-50%);
+}
+
+.esds-doc-code-snippet__copy-link {
+  &,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.esds-doc-code-snippet__copy-link-text {
+  font-size: $spirit-font-size-s;
+  font-weight: $spirit-font-weight-bold;
+
+  .esds-doc-code-snippet__copy-link:hover & {
+    text-decoration: underline;
+  }
+}
+
+.esds-doc-html-example-list__item {
+  border-bottom: none;
+
+  &:first-child {
+    padding-top: $spirit-space-generic-3-x;
+  }
+
+  &:last-child {
+    padding-bottom: $spirit-space-generic-3-x;
+  }
+}
+
+.esds-doc-code-snippet__copy-code-wrap + .esds-doc-code-snippet__source .esds-doc-code-snippet__pre {
+  padding-top: 0;
+}
+
+.esds-doc-code-snippet__copy-link-icon {
+  height: $spirit-size-icon-m;
+  width: $spirit-size-icon-m;
+}
+
+.esds-doc-code-snippet__copied-notification:after {
+  display: none;
+}
+
+.esds-doc-html-example-list__label {
+  right: $spirit-space-generic-3-x / 2;
+  top: $spirit-space-generic-3-x / 2;
+
+  .esds-doc-html-example-list__item:first-child & {
+    top: $spirit-space-generic-3-x;
+  }
+}
+
+.esds-doc-html-example-list--non-interactive .esds-doc-html-example-list,
+.esds-doc-html-example-list--non-interactive.esds-doc-html-example-list {
+  pointer-events: none;
 }

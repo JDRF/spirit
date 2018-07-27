@@ -14,6 +14,7 @@ $spirit-link-underline-height-animated: .125em;
   @include spirit-box-sizing(border-box);
   background-color: transparent;
   color: $spirit-text-color-link;
+  cursor: pointer;
   text-decoration: none;
 
   &:visited,

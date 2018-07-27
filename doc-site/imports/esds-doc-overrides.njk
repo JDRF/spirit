@@ -11,11 +11,18 @@
 
 {% import '../node_modules/spirit/components/spirit.njk' as library with context %}
 
+{% set copy_code_link %}
+    {% call library.link(text=false, class="esds-doc-code-snippet__copy-link") %}
+        {{ library.icon(name="copy", class="esds-doc-code-snippet__copy-link-icon") }}
+        <span class="esds-doc-code-snippet__copy-link-text">Copy Code</span>
+    {% endcall %}
+{% endset %}
 
 {% set esds_doc_overrides = {
     code_snippet: {
-        copy_button: library.link(text="Copy Code"),
-        toggle_code_visibility_button: false
+        copy_button: copy_code_link,
+        toggle_code_visibility_button: false,
+        code_copied_text: 'Code Copied'
     },
     html_example_list: {
         example_label_markup: false

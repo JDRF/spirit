@@ -1,0 +1,19 @@
+// Some custom styles here for the side-by-side button state demo
+.spirit-doc-button-states-example-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.spirit-doc-button-states-label {
+  color: $spirit-text-color-secondary;
+  display: block;
+  font-size: $spirit-font-size-s;
+  padding: $spirit-space-inset-half-x;
+  text-align: center;
+}
+
+// Borrowing these styles from an as-yet unmerged PR
+.spirit-container--black {
+  background: $spirit-color-black;
+}

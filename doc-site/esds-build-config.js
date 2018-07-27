@@ -25,6 +25,13 @@ module.exports = {
                     'node_modules/prismjs/themes/prism.css'], // required by esds-doc
             destination: '../docs/styles/dependencies',
             watch: true
+        },
+        {
+            name: 'spirit-icon',
+            sources: [
+                    'node_modules/spirit/dist/spirit.svg'], // required by esds-doc
+            destination: '../docs/icons',
+            watch: true
         }
     ],
     dependencies: [

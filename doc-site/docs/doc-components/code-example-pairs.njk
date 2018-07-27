@@ -1,0 +1,126 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  {% filter markdown %}
+      # Code Example Pair Demos
+      ## Simple Example
+      By default the code snippet will match the rendered example
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: library.button(text="Primary") }]
+  ) }}
+
+  {% filter markdown %}
+    ## Multiple Examples
+    In this demo, multiple examples are displayed, but the default behavior for the code snippet is to only show the first examples markup in the code snippet section
+  {% endfilter %}
+  {{ esds_doc.code_example_pair(
+    class="esds-doc-html-example-list--non-interactive",
+    examples=[
+      {
+        example: library.button(text="Learn More"),
+        label: "Default State"
+      },
+      {
+        example: library.button(class="spirit-button--hover", text="Learn More"),
+        label: "Hover"
+      },
+      {
+        example: library.button(class="spirit-button--active", text="Learn More"),
+        label: "Active"
+      },
+      {
+        example: library.button(text="Learn More", disabled="true"),
+        label: "Disabled"
+      },
+      {
+        example: library.button(class="spirit-button--focus", text="Learn More"),
+        label: "Focus"
+      }
+    ])
+  }}
+  
+  {% filter markdown %}
+    ## Background colors
+    This demo shows the alternating background color options for the html example list
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: library.button(text="Learn More"),
+        label: "Default"
+      },
+      {
+        example: library.button(text="Learn More"),
+        label: "On Dark Background",
+        class: "spirit-container--black"
+      }
+    ])
+  }}
+
+  {% filter markdown %}
+    ## Standalone HTML Example, no code snippet
+  {% endfilter %}
+  {{ esds_doc.html_example_list(example=library.button(class="spirit-button--secondary", text="Secondary")) }}
+
+  {% filter markdown %}
+    ## Multiple HTML Examples, no code snippet
+  {% endfilter %}
+  {{ esds_doc.html_example_list(examples=[
+      {
+        example: library.button(class="spirit-button--secondary", text="Secondary"),
+        label: "Secondary Button"
+      },
+      {
+        example: library.form_checkbox(),
+        label: "Form Checkbox"
+      }
+    ]) }}
+
+  {% filter markdown %}
+    ## Standalone Code Snippet
+  {% endfilter %}
+  {{ esds_doc.code_snippet(source=library.button(class="spirit-button--secondary", text="Secondary")) }}
+
+  {% filter markdown %}
+      ## Code Snippet, No Copy Button
+  {% endfilter %}
+  {{ esds_doc.code_snippet(show_copy_button=false, source=library.button(class="spirit-button--secondary", text="Secondary")) }}
+
+  {% filter markdown %}
+    ## Custom Example
+    The default behavior for this doc component is to display the HTML that matches the example being shown, but in this case we're using custom doc-specific HTML and classes to show the button states side-by-side. In this case using the code_snippet_source argument allows us to pass in alternate code to be shown in the code snippet section.
+
+    This also uses the modifier class: `esds-doc-html-example-list--non-interactive` which prevents user interaction with the HTML examples. This is common on state examples like this where you don't want a user interaction to alter the state of the examples
+  {% endfilter %}
+  {# Adding some example code snippets here just for testing, I expect all of these to be removed when the actual button doc is created #}
+  {% set button_state_example %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Primary") }}
+        <span class="spirit-doc-button-states-label">Default</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Primary", class="spirit-button--hover") }}
+        <span class="spirit-doc-button-states-label">Hover</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Primary", class="spirit-button--active") }}
+        <span class="spirit-doc-button-states-label">Active</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Primary", class="spirit-button--focus") }}
+        <span class="spirit-doc-button-states-label">Focus</span>
+      </div>
+    </div>
+  {% endset %}
+
+  {# 
+    #}
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list--non-interactive",
+      examples=[ { example: button_state_example } ],
+      code_snippet_source=library.button(text="Primary")
+   ) }}
+
+{% endblock body %}
