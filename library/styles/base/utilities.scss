@@ -1,63 +1,6 @@
-// STYLES FOR TESTING -- SHOULD BE REPACED BY ACTUAL SPIRIT COMPONENTS
-.spirit-container {
-  @include spirit-box-sizing;
-  display: block;
-  overflow: hidden;
-  padding: $spirit-space-inset-squish-4-x;
-  text-align: left;
-  width: 100%;
-}
-
-.spirit-row {
-  @include spirit-box-sizing;
-  display: flex;
-  flex-flow: row wrap;
-  margin-left: -$spirit-space-generic-2-x;
-  margin-right: -$spirit-space-generic-2-x;
-}
-
-.spirit-col {
-  @include spirit-box-sizing;
-  flex: 1 0 100%;
-  max-width: 100%;
-  padding-left: $spirit-space-generic-2-x;
-  padding-right: $spirit-space-generic-2-x;
-}
-
-.spirit-container--dark,
-.spirit-col--dark {
-  background: $spirit-brand-color-primary;
-  color: $spirit-color-white;
-  > * {
-    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-    color: $spirit-color-white;
-  }
-}
-
-.spirit-col--md-6 {
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    flex: 1 0 50%;
-    max-width: 50%;
-  }
-}
-
-.spirit-col--lg-4 {
-  @media screen and (min-width: $spirit-breakpoint-l) {
-    flex: 1 0 33.3333%;
-    max-width: 33.3333%;
-  }
-}
-
-.spirit-col--lg-6 {
-  @media screen and (min-width: $spirit-breakpoint-l) {
-    flex: 1 0 50%;
-    max-width: 50%;
-  }
-}
-
 //SVG -- need to move to svg / icon component when constructed
 [class^='spirit-icon-'] {
-  @include spirit-box-sizing;
+  @include spirit-box-sizing(border-box);
   display: block;
   fill: currentColor;
   height: 1em;
