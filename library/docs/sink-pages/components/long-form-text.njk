@@ -5,7 +5,7 @@
     {% endfilter %}
     <div class="spirit-container">
         <div class="spirit-row">
-            <div class="spirit-col spirit-col--md-6">
+            <div class="spirit-col-lg-6">
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Headings
                 {% endfilter %}
@@ -64,7 +64,7 @@
                     </h6>
                 </div>
             </div>
-            <div class="spirit-col spirit-col--md-6">
+            <div class="spirit-col-lg-6">
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Paragraph Text
                 {% endfilter %}
@@ -94,7 +94,7 @@
                     <small>Alternatively, you can use the <code>small</code> element</small>
                 </div>
             </div>
-            <div class="spirit-col spirit-col--md-6">
+            <div class="spirit-col-lg-6">
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Lists
                 {% endfilter %}
@@ -104,16 +104,23 @@
                 <div class="spirit-body-text">
                     <ul>
                         <li>List item 1</li>
+                        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                        </li>
+                        <li>List item 3</li>
+                        <li>List item 4</li>
+                    </ul>
+                </div>
+                <div class="spirit-body-text">
+                    <ul>
+                        <li>List item 1</li>
                         <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
                             item 2 is very long so that it wraps List item 2 is very long so that it wraps
                         </li>
-                        <li>List item 3</li>
-                        <li>
+                        <li>List item 3
                             <ul>
                                 <li>Nested List item 1</li>
                                 <li>Nested List item 2</li>
-                                <li>Nested List item 3</li>
-                                <li>
+                                <li>Nested List item 3
                                     <ul>
                                         <li>Nested List item 1</li>
                                         <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
@@ -135,16 +142,23 @@
                 <div class="spirit-body-text">
                     <ol>
                         <li>List item 1</li>
+                        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                        </li>
+                        <li>List item 3</li>
+                        <li>List item 4</li>
+                    </ol>
+                </div>
+                <div class="spirit-body-text">
+                    <ol>
+                        <li>List item 1</li>
                         <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
                             item 2 is very long so that it wraps List item 2 is very long so that it wraps
                         </li>
-                        <li>List item 3</li>
-                        <li>
+                        <li>List item 3
                             <ol>
                                 <li>Nested List item 1</li>
                                 <li>Nested List item 2</li>
-                                <li>Nested List item 3</li>
-                                <li>
+                                <li>Nested List item 3
                                     <ol>
                                         <li>Nested List item 1</li>
                                         <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
@@ -160,7 +174,7 @@
                         <li>List item 4</li>
                     </ol>
                 </div>
-                <div class="spirit-col spirit-col--md-6">
+                <div class="spirit-col-lg-6">
                     {% filter markdown(true, "hostile-sink-reset") %}
                         ## Paragraph Text
                     {% endfilter %}
