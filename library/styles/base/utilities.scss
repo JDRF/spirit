@@ -123,3 +123,15 @@
     stroke-dashoffset: -124px;
   }
 }
+
+.spirit-container--white {
+  background: $spirit-color-white;
+}
+
+.spirit-container--black {
+  background: $spirit-color-black;
+}
+
+.spirit-container--brand {
+  background: $spirit-brand-color-primary;
+}
