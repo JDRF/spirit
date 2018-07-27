@@ -78,9 +78,9 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &:disabled,
   &--disabled {
-    background-color: $spirit-interactive-color-disabled-background;
-    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-background;
-    color: $spirit-interactive-color-disabled-foreground;
+    background-color: $spirit-disabled-color-background;
+    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-disabled-color-background;
+    color: $spirit-disabled-color-foreground;
     cursor: not-allowed;
     transform: translateY(0);
   }
@@ -120,9 +120,9 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     }
 
     &:disabled {
-      background-color: $spirit-interactive-color-disabled-background;
-      box-shadow: $spirit-elevation-1 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-background;
-      color: $spirit-interactive-color-disabled-foreground;
+      background-color: $spirit-disabled-color-background;
+      box-shadow: $spirit-elevation-1 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-disabled-color-background;
+      color: $spirit-disabled-color-foreground;
     }
   }
 
@@ -427,7 +427,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     &:disabled {
       background-color: transparent;
       box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary transparent;
-      color: $spirit-interactive-color-disabled-foreground;
+      color: $spirit-disabled-color-foreground;
       text-shadow: none;
     }
   }
@@ -490,9 +490,9 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   &:disabled,
   .spirit-button--disabled &,
   .spirit-button__input:checked + &:disabled {
-    background-color: $spirit-interactive-color-disabled-background;
-    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-disabled-background;
-    color: $spirit-interactive-color-disabled-foreground;
+    background-color: $spirit-disabled-color-background;
+    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-disabled-color-background;
+    color: $spirit-disabled-color-foreground;
     cursor: not-allowed;
   }
 }
@@ -649,10 +649,10 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &:disabled,
   &.spirit-button--disabled {
-    background-color: $spirit-interactive-color-disabled-background;
-    border: $spirit-border-width-button solid $spirit-interactive-color-disabled-background;
+    background-color: $spirit-disabled-color-background;
+    border: $spirit-border-width-button solid $spirit-disabled-color-background;
     box-shadow: none;
-    color: $spirit-interactive-color-disabled-foreground;
+    color: $spirit-disabled-color-foreground;
     cursor: not-allowed;
     transform: translateY(0);
   }
