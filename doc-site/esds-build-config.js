@@ -22,9 +22,15 @@ module.exports = {
             name: 'spirit-styles',
             sources: [
                     'node_modules/spirit/dist/spirit.css',
-                    'node_modules/esds-doc/dist/esds-doc.css', // required by esds-do,
                     'node_modules/prismjs/themes/prism.css'], // required by esds-doc
             destination: '../docs/styles/dependencies',
+            watch: true
+        },
+        {
+            name: 'spirit-icon',
+            sources: [
+                    'node_modules/spirit/dist/spirit.svg'], // required by esds-doc
+            destination: '../docs/icons',
             watch: true
         }
     ],
