@@ -1,0 +1,243 @@
+@import '../../tokens/tokens';
+@import '../../styles/mixins/box-sizing';
+@import '../card/card';
+
+$spirit-card-grid-max-width: 1100px;
+
+.spirit-card-grid {
+  @include spirit-box-sizing;
+  margin: 0 auto;
+  max-width: $spirit-card-grid-max-width;
+
+  .spirit-card {
+    @include spirit-card-small; // Keep small card style until the large breakpoint
+    margin: $spirit-space-stack-4-x;
+  }
+
+  @media screen and (min-width: 480px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      flex: 1 1 40%;
+      margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      flex: 1 1 30%;
+
+      &:nth-child(2n) {
+        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    .spirit-card {
+      @include spirit-card-medium; // go to medium breakpoint sizes
+    }
+  }
+}
+
+.spirit-card-grid--4-up {
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      @include spirit-card-small; // Persist small card styles at all breakpoints within a 4-up grid
+      flex: 1 1 20%;
+
+      &:nth-child(3n) {
+        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.spirit-card-grid--2-up {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      @include spirit-card-medium; // Switch to medium card since it's only 2 up
+      flex: 1 1 40%;
+
+      &:nth-child(3n) {
+        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      }
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    .spirit-card-grid__placeholder,
+    .spirit-card {
+      @include spirit-card-large; // Switch to large card since it's only 2 up
+      // flex: 1 1 40%;
+    }
+  }
+}
+
+.spirit-card-grid .spirit-card-grid__placeholder {
+  &,
+  &:nth-child(2n),
+  &:nth-child(3n) {
+    margin-bottom: 0;
+  }
+}
+
+.spirit-card-grid--list {
+  // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
+  @media screen and (max-width: 479px) {
+    .spirit-card {
+      @include spirit-card-list-item;
+      margin: $spirit-space-stack-2-x;   
+    }
+  }
+}
+
+$spirit-card-grid-carousel-side-padding: $spirit-space-generic-2-x;
+
+.spirit-card-carousel {
+  @include spirit-box-sizing;
+  max-width: $spirit-card-grid-max-width;
+  width: 100%;
+}
+
+$scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar out of view
+
+.spirit-card-carousel .spirit-card-grid {
+  // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
+  @media screen and (max-width: 479px) {
+    -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes 
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: -($scrollbar-hiding-padding);
+    overflow: hidden;
+    overflow-x: scroll;
+    padding-bottom: $spirit-space-generic-4-x + $scrollbar-hiding-padding;
+    padding-left: $spirit-card-grid-carousel-side-padding;
+    position: relative;
+    scroll-padding: 0 6%;
+    scroll-snap-destination: 0% 50%; // Older spec implementation
+    scroll-snap-points-x: repeat(88%); // Older spec implementation
+    scroll-snap-type: mandatory;
+
+    .spirit-card {
+      border: solid $spirit-border-width-card $spirit-color-grey-95;
+      flex: 1 0 90%;
+      margin: $spirit-space-inline-left-1-x;
+      max-width: none;
+      position: relative;
+      scroll-snap-align: start;
+      width: 100%;
+
+      &:hover {
+        @include spirit-elevation(4, $spirit-elevation-color-blue); // Reduce the box shadow spread in a carousel
+      }
+
+      &:active {
+        @include spirit-elevation(3, $spirit-elevation-color-blue);
+      }
+
+      // // Use an absolutely positioned pseudo element to create additional scroll space within the scrolling flex-parent
+      &:nth-last-child(3)::before {
+        background: transparent;
+        content: '';
+        height: 1px;
+        left: 100%;
+        position: absolute;
+        top: 0;
+        width: 12%;
+      }
+    }
+  }
+}
+
+.spirit-card-carousel__grid {
+  @media screen and (max-width: 479px) {
+    overflow: hidden; // Crops the browser scroll bar out of view
+  }
+}
+
+.spirit-card-carousel__controls {
+  align-items: center;
+  display: none;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 $spirit-card-grid-carousel-side-padding;
+  width: 100%;
+
+  @media screen and (max-width: 479px) {
+    display: flex;
+  }
+}
+
+.spirit-card-carousel__button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  flex: 0 0 $spirit-size-icon-l;
+  margin: 0;
+  padding: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.spirit-card-carousel__button-icon.spirit-icon {
+  display: block;
+  height: $spirit-size-icon-l;
+  stroke: $spirit-interactive-color-primary;
+  width: $spirit-size-icon-l;
+
+  .spirit-card-carousel__button:disabled & {
+    stroke: $spirit-color-grey-70;
+  }
+}
+
+.spirit-card-carousel__page-indicator {
+  align-items: center;
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.spirit-card-carousel__indicator-dot {
+  background: $spirit-color-blue-15;
+  border-radius: 8px;
+  display: block;
+  flex: 0 0 8px;
+  height: 8px;
+  margin: $spirit-space-inline-left-2-x;
+  transition: background $spirit-transition-timing-default;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.spirit-card-carousel__indicator-dot--active {
+  background: $spirit-color-blue-100;
+}

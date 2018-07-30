@@ -71,7 +71,7 @@
         "space-infix-ops": 2,
         "space-in-parens": [1, "never"],
         "space-unary-ops": 2,
-        "strict": [2, "global"],
+        "strict": 0,
         "yoda": [2, "never"]
     }
 }
