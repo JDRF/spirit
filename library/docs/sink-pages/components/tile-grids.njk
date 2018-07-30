@@ -1,0 +1,176 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .demo-tabs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .demo-tab {
+      display: none;
+    }
+
+    #all:checked ~ .demo-tab {
+      display: block;
+    }
+
+    .demo-tab-radio {
+      box-sizing: border-box;
+      border-radius: 20px;
+      border: solid 1px black;
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+    }
+
+    .demo-tab-input {
+      display: none;
+    }
+  
+    .demo-tab-input:checked + .demo-tab-radio-label .demo-tab-radio {
+      border-width: 6px;
+    }
+
+    .demo-tab-radio-label {
+      font-size: 14px;
+      order: -1;
+      vertical-align: middle;
+    }
+
+  </style>
+
+  {% macro demo_tab(label, id) %}
+    {% set sample_tiles %}
+      {{ library.tile() }}
+      {{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+      {{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+      {{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+      {{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+      {{ library.tile(
+       img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+      {{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+    {% endset %}
+
+    {% set text_only_sample_tiles %}
+      {{ library.tile(
+        img_src=false) }}
+      {{ library.tile(
+        img_src=false,
+        title_text="Blood Sugar",
+        link_text="Learn More",
+        body_text="Let’s start with hypoglycemia and look at blood sugar drop symptoms. Although symptoms may overlap&hellip;") }}
+      {{ library.tile(
+        img_src=false,
+        title_text="High Blood Sugar",
+        link_text="Learn More",
+        body_text="With high blood sugar, you may also experience drowsiness, exhaustion, nausea or vomiting, confusion&hellip;") }}
+      {{ library.tile(
+        img_src=false,
+        title_text="Low Blood Sugar",
+        link_text="Learn More",
+        body_text="So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of&hellip;") }}
+      {{ library.tile(
+        img_src=false,
+        title_text="Frequent Polyuria",
+        link_text="Learn More",
+        body_text="Polyuria occurs when your body urinates more frequently—and often in larger amounts—than normal&hellip;") }}
+      {{ library.tile(
+        img_src=false,
+        title_text="Extreme Thirst",
+        link_text="Learn More",
+        body_text="When it comes to diabetes and thirst, polydipsia can be dangerous. The problem is the prolonged&hellip;") }}
+      {{ library.tile(
+        img_src=false,
+        title_text="Type 1 Diabetes",
+        link_text="Learn More",
+        body_text="The reality is that signs of type 1 diabetes usually develop suddenly. And, that’s why it can be&hellip;") }}
+    {% endset %}
+
+
+    <style>
+      #{{ id }}:checked ~ [data-tab='{{ id }}'] {
+        display: block;
+      }
+    </style>
+    <input class="demo-tab-input" type="radio" name="demo-tabs" id="{{ id }}">
+    <label for="{{ id }}" class="demo-tab-radio-label hostile-sink-reset">
+      <span class="demo-tab-radio"></span>
+      <span class="demo-tab-radio-label-text">
+        {{ label }}
+      </span>
+    </label>
+    <div class="demo-tab" data-tab="{{ id }}">
+      {{ caller() }}
+    </div>
+  {% endmacro %}
+
+  <h1 class="hostile-sink-reset">tile Grids Sink</h1>
+  <div class="demo-tabs">
+    <input class="demo-tab-input" type="radio" name="demo-tabs" id="all" checked>
+    <label for="all" class="demo-tab-radio-label hostile-sink-reset">
+      <span class="demo-tab-radio"></span>
+      <span class="demo-tab-radio-label-text">
+        All Demos
+      </span>
+    </label>
+
+    {% call demo_tab(label="3-up, medium tiles", id="grid-3-up") %}
+      <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size tiles</h2>
+      {% call library.tile_grid() %}
+        {{ sample_tiles | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="4-up, small tiles", id="grid-4-up") %}
+      <h2 class="hostile-sink-reset">Stack to 4 up, Small Size tiles</h2>
+      {% call library.tile_grid(class="spirit-tile-grid--4-up") %}
+        {{ sample_tiles | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="2-up, large tiles", id="grid-2-up") %}
+      <h2 class="hostile-sink-reset">Stack to 2 up, Large Size tiles</h2>
+      {% call library.tile_grid(class="spirit-tile-grid--2-up") %}
+        {{ sample_tiles | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="3-up, text-only", id="text-only-3-up") %}
+      <h2 class="hostile-sink-reset">Text Only, 3 up</h2>
+      {% call library.tile_grid() %}
+        {{ text_only_sample_tiles | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="4-up, text-only", id="text-only-4-up") %}
+      <h2 class="hostile-sink-reset">Text Only, 4 up</h2>
+      {% call library.tile_grid(class="spirit-tile-grid--4-up") %}
+        {{ text_only_sample_tiles | safe }}
+      {% endcall %}
+    {% endcall %}
+
+    {% call demo_tab(label="2-up, text-only", id="text-only-2-up") %}
+      <h2 class="hostile-sink-reset">Text Only, 2 up</h2>
+      {% call library.tile_grid(class="spirit-tile-grid--2-up") %}
+        {{ text_only_sample_tiles | safe }}
+      {% endcall %}
+    {% endcall %}
+
+  </div>
+{% endblock body %}
