@@ -26,7 +26,7 @@
   }
 
   .spirit-card__title {
-    font-size: $spirit-font-size-heading-level-4;
+    font-size: $spirit-font-size-heading-level-4-normal;
     margin: $spirit-space-stack-half-x;
   }
 
@@ -66,7 +66,7 @@
 @mixin spirit-card-small {
   .spirit-card__title {
     @include spirit-typography-reset(
-      $font-size: $spirit-font-size-heading-level-3,
+      $font-size: $spirit-font-size-heading-level-3-normal,
       $font-weight: $spirit-font-weight-bold
     );
     margin: $spirit-space-stack-1-x;
@@ -88,7 +88,7 @@
 
 @mixin spirit-card-medium {
   .spirit-card__title {
-    font-size: $spirit-font-size-heading-level-2;
+    font-size: $spirit-font-size-heading-level-2-normal;
   }
 
   .spirit-card__link,
@@ -101,7 +101,7 @@
   padding: $spirit-space-inset-2-x;
 
   .spirit-card__title {
-    font-size: $spirit-font-size-heading-level-1;
+    font-size: $spirit-font-size-heading-level-1-normal;
     margin: $spirit-space-stack-2-x;
   }
 
