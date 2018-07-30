@@ -1,7 +1,7 @@
 {% macro tile_grid(
       class=false,
       tile_count=1) %}
-      <div class="spirit-tile-grid{{ ' ' + class if class }}{{ ' spirit-tile-grid--carousel' if carousel }}">
+      <div class="spirit-tile-grid{{ ' ' + class if class }} spirit-row">
         {{ caller() }}
       </div>
 {% endmacro %}

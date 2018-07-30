@@ -3,12 +3,14 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 16px;
     }
 
     .demo-tabs {
       display: flex;
       flex-direction: column;
+      max-width: 1240px;
+      margin: 0 auto;
     }
 
     .demo-tab {
@@ -46,60 +48,91 @@
 
   {% macro demo_tab(label, id) %}
     {% set sample_tiles %}
-      {{ library.tile() }}
-      {{ library.tile(
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile() }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
         img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
-      {{ library.tile(
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
         img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
-      {{ library.tile(
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
         img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
-      {{ library.tile(
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
         img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
-      {{ library.tile(
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
        img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
-      {{ library.tile(
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
         img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    {% endset %}
+
+    {% set sample_tiles_medium %}
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile() }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile(
+       img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-3">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    {% endset %}
+
+    {% set sample_tiles_large %}
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile() }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+       img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
     {% endset %}
 
     {% set text_only_sample_tiles %}
-      {{ library.tile(
-        img_src=false) }}
-      {{ library.tile(
-        img_src=false,
-        title_text="Blood Sugar",
-        link_text="Learn More",
-        body_text="Let’s start with hypoglycemia and look at blood sugar drop symptoms. Although symptoms may overlap&hellip;") }}
-      {{ library.tile(
-        img_src=false,
-        title_text="High Blood Sugar",
-        link_text="Learn More",
-        body_text="With high blood sugar, you may also experience drowsiness, exhaustion, nausea or vomiting, confusion&hellip;") }}
-      {{ library.tile(
-        img_src=false,
-        title_text="Low Blood Sugar",
-        link_text="Learn More",
-        body_text="So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of&hellip;") }}
-      {{ library.tile(
-        img_src=false,
-        title_text="Frequent Polyuria",
-        link_text="Learn More",
-        body_text="Polyuria occurs when your body urinates more frequently—and often in larger amounts—than normal&hellip;") }}
-      {{ library.tile(
-        img_src=false,
-        title_text="Extreme Thirst",
-        link_text="Learn More",
-        body_text="When it comes to diabetes and thirst, polydipsia can be dangerous. The problem is the prolonged&hellip;") }}
-      {{ library.tile(
-        img_src=false,
-        title_text="Type 1 Diabetes",
-        link_text="Learn More",
-        body_text="The reality is that signs of type 1 diabetes usually develop suddenly. And, that’s why it can be&hellip;") }}
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile( img_src='') }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
+        img_src='',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
+        img_src='',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
+        img_src='',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
+        img_src='',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
+       img_src='',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-3 spirit-col-lg-2">{{ library.tile(
+        img_src='',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
     {% endset %}
 
 
@@ -120,7 +153,7 @@
     </div>
   {% endmacro %}
 
-  <h1 class="hostile-sink-reset">tile Grids Sink</h1>
+  <h1 class="hostile-sink-reset">Tile Grids Sink</h1>
   <div class="demo-tabs">
     <input class="demo-tab-input" type="radio" name="demo-tabs" id="all" checked>
     <label for="all" class="demo-tab-radio-label hostile-sink-reset">
@@ -130,44 +163,30 @@
       </span>
     </label>
 
-    {% call demo_tab(label="3-up, medium tiles", id="grid-3-up") %}
-      <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size tiles</h2>
+    {% call demo_tab(label="Grid Settings: spirit-col-6 spirit-col-md-3 spirit-col-lg-2", id="grid-3-up") %}
+      <h2 class="hostile-sink-reset">Grid Settings: spirit-col-6 spirit-col-md-3 spirit-col-lg-2</h2>
       {% call library.tile_grid() %}
         {{ sample_tiles | safe }}
       {% endcall %}
     {% endcall %}
 
-    {% call demo_tab(label="4-up, small tiles", id="grid-4-up") %}
-      <h2 class="hostile-sink-reset">Stack to 4 up, Small Size tiles</h2>
-      {% call library.tile_grid(class="spirit-tile-grid--4-up") %}
-        {{ sample_tiles | safe }}
-      {% endcall %}
-    {% endcall %}
-
-    {% call demo_tab(label="2-up, large tiles", id="grid-2-up") %}
-      <h2 class="hostile-sink-reset">Stack to 2 up, Large Size tiles</h2>
-      {% call library.tile_grid(class="spirit-tile-grid--2-up") %}
-        {{ sample_tiles | safe }}
-      {% endcall %}
-    {% endcall %}
-
-    {% call demo_tab(label="3-up, text-only", id="text-only-3-up") %}
-      <h2 class="hostile-sink-reset">Text Only, 3 up</h2>
+    {% call demo_tab(label="Grid Settings: spirit-col-6 spirit-col-md-3 spirit-col-lg-3", id="grid-4-up") %}
+      <h2 class="hostile-sink-reset">Grid Settings: spirit-col-6 spirit-col-md-3 spirit-col-lg-3</h2>
       {% call library.tile_grid() %}
-        {{ text_only_sample_tiles | safe }}
+        {{ sample_tiles_medium | safe }}
       {% endcall %}
     {% endcall %}
 
-    {% call demo_tab(label="4-up, text-only", id="text-only-4-up") %}
-      <h2 class="hostile-sink-reset">Text Only, 4 up</h2>
-      {% call library.tile_grid(class="spirit-tile-grid--4-up") %}
-        {{ text_only_sample_tiles | safe }}
+    {% call demo_tab(label="Grid Settings: spirit-col-6 spirit-col-md-4 spirit-col-lg-4", id="grid-2-up") %}
+      <h2 class="hostile-sink-reset">Grid Settings: spirit-col-6 spirit-col-md-4 spirit-col-lg-4</h2>
+      {% call library.tile_grid() %}
+        {{ sample_tiles_large | safe }}
       {% endcall %}
     {% endcall %}
 
-    {% call demo_tab(label="2-up, text-only", id="text-only-2-up") %}
-      <h2 class="hostile-sink-reset">Text Only, 2 up</h2>
-      {% call library.tile_grid(class="spirit-tile-grid--2-up") %}
+    {% call demo_tab(label="text-only", id="text-only-3-up") %}
+      <h2 class="hostile-sink-reset">text only</h2>
+      {% call library.tile_grid() %}
         {{ text_only_sample_tiles | safe }}
       {% endcall %}
     {% endcall %}

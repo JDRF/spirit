@@ -20,7 +20,6 @@ $spirit-tile-height: 222px;
 $spirit-tile-height-sm: 390px;
 $spirit-tile-height-md: 352px;
 $spirit-tile-height-lg: 357px;
-
 $spirit-border-width-tile: $spirit-border-width-button;
 
 // Timing
@@ -33,16 +32,13 @@ $spirit-tile-scale-hover-lg: 1.08956;
 
 // Spirit Tile Small / Default
 @mixin spirit-tile-small {
+  min-height: $spirit-tile-height-sm;
   min-width: $spirit-tile-width-sm;
-
-  .spirit-tile__gap,
-  .spirit-tile__text {
-    min-height: calc(#{$spirit-tile-height-sm} * .5);
-  }
 }
 
 // Spirit Tile Medium
 @mixin spirit-tile-medium {
+  min-height: $spirit-tile-height-md;
   min-width: $spirit-tile-width-md;
 
   &:hover,
@@ -54,15 +50,11 @@ $spirit-tile-scale-hover-lg: 1.08956;
   &--active {
     transform: scale($spirit-tile-scale-hover-md);
   }
-
-  .spirit-tile__gap,
-  .spirit-tile__text {
-    min-height: calc(#{$spirit-tile-height-md} * .5);
-  }
 }
 
 // Spirit Tile Large
 @mixin spirit-tile-large {
+  min-height: $spirit-tile-height-lg;
   min-width: $spirit-tile-width-lg;
 
   &:hover,
@@ -73,11 +65,6 @@ $spirit-tile-scale-hover-lg: 1.08956;
   &:active,
   &--active {
     transform: scale($spirit-tile-scale-hover-lg);
-  }
-
-  .spirit-tile__gap,
-  .spirit-tile__text {
-    min-height: calc(#{$spirit-tile-height-lg} * .5);
   }
 }
 
@@ -90,15 +77,23 @@ $spirit-tile-scale-hover-lg: 1.08956;
   border-radius: $spirit-tile-border-radius;
   box-shadow: $spirit-elevation-2 $spirit-elevation-color-default;
   color: $spirit-interactive-color-on-dark;
-  display: flex;
-  flex-flow: column nowrap;
+  display: block;
+  height: $spirit-tile-height;
+  margin-bottom: $spirit-space-generic-2-x;
   overflow: hidden;
   position: relative;
   text-decoration: none;
   transform: scale(1);
   transition: box-shadow $spirit-transition-timing-default, transform $spirit-transition-timing-default;
   width: $spirit-tile-width;
+
   will-change: transform;
+
+  // When in a grid
+  [class^='spirit-col-'] & {
+    min-width: 0;
+    width: 100%;
+  }
 
   // Border over image
   &:before {
@@ -132,20 +127,16 @@ $spirit-tile-scale-hover-lg: 1.08956;
     width: 100%;
   }
 
-  .spirit-tile__gap,
   .spirit-tile__text {
-    display: flex;
-    flex: 1 0 50%;
+    background: linear-gradient($spirit-tile-linear-gradient-start, $spirit-tile-linear-gradient-end);
+    bottom: 0;
+    display: block;
     flex-flow: column nowrap;
     height: 50%;
     justify-content: center;
-    min-height: calc(#{$spirit-tile-height} * .5);
-    position: relative;
+    overflow: hidden;
+    position: absolute;
     width: 100%;
-  }
-
-  .spirit-tile__text {
-    background: linear-gradient($spirit-tile-linear-gradient-start, $spirit-tile-linear-gradient-end);
   }
 
   .spirit-tile__title {
@@ -154,7 +145,7 @@ $spirit-tile-scale-hover-lg: 1.08956;
     margin: 0;
     padding: $spirit-space-generic-2-x;
     text-align: center;
-    text-shadow:  $spirit-tile-text-elevation $spirit-tile-text-elevation-color;
+    text-shadow: $spirit-tile-text-elevation $spirit-tile-text-elevation-color;
   }
 
   &:hover,
