@@ -41,5 +41,15 @@ module.exports = {
         {
             moduleName: 'esds-doc'
         }
-    ]
+    ],
+    manageNunjucksEnv: function(env) {
+        // Adding some custom nunjucks filters for the doc site
+        env.addFilter('split', function(str, seperator) {
+            return str.split(seperator);
+        });
+
+        env.addFilter('push', function(arr, value) {
+            return arr.push(value);
+        });
+    }
 };

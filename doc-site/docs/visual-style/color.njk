@@ -1,0 +1,78 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  {% filter markdown %}
+      # Color
+  {% endfilter %}
+
+  {# This is a custom macro written to serve as a helper between the esds_doc tint stack and Spirit's token structure #}
+  {% macro spirit_color_doc_tint_stack(parent_node, keys) %}
+    {% set swatches = [] %}
+    {% set base_node = spirit_tokens[parent_node] %}
+    
+    {% if keys == undefined %}
+      {% set key_labels = [] %}
+      {% for label, value in base_node %}
+        {% set key_labels = (key_labels.push(label), key_labels) %}
+      {% endfor %}
+      {% set keys = key_labels %}
+    {% endif %}
+
+    {% for key in keys %}
+      {% set show_border = false %}
+      {% if '.' in key %}
+        {% set token_nodes = key | split('.') %}
+        {% set parent = base_node %}
+        {% for node in token_nodes %}
+          {% set parent = parent[node] %}
+        {% endfor %}
+        {% set hex_code = parent %}
+      {% else %}
+        {% set hex_code = base_node[key] %}
+      {% endif %}
+      
+      {% if hex_code | upper == '#FFFFFF' %}
+        {% set show_border = true %}
+      {% endif %}
+
+      {% set swatch = {
+        hex: hex_code,
+        label: key | replace('.', '-') | replace('-', ' ') | title,
+        code_snippet: '$spirit-' + parent_node + '-' + key | replace('.', '-'),
+        show_border: show_border
+      } %}
+      {% set swatches = (swatches.push(swatch),swatches) %}
+    {% endfor %}
+
+    {{ esds_doc.tint_stack(swatches=swatches) }}
+  {% endmacro %}
+
+  <h2>Neutrals</h2>
+  {{ spirit_color_doc_tint_stack(parent_node="color", keys=['black', 'grey.35', 'grey.70', 'grey.95', 'grey.98', 'white']) }}
+
+  <h2>Text Colors</h2>
+  {{ spirit_color_doc_tint_stack(parent_node="text-color") }}
+
+  <h2>Feedback Colors</h2>
+  {{ spirit_color_doc_tint_stack(parent_node="feedback-color", keys=[
+    'foreground.danger',
+    'foreground.info',
+    'foreground.success',
+    'background.danger',
+    'background.info',
+    'background.success'
+  ]) }}
+
+  <h2>Interactive Colors</h2>
+  {{ spirit_color_doc_tint_stack(parent_node="interactive-color", keys=[
+    'primary',
+    'secondary',
+    'on-dark',
+    'text.primary',
+    'text.on-dark',
+    'disabled.foreground',
+    'disabled.background',
+    'focus.soft',
+    'focus.hard'
+  ]) }}
+
+{% endblock body %}
