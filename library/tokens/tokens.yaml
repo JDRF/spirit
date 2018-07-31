@@ -25,6 +25,8 @@ elevation-color : # === structure change ===
 # ====== assignments ======= #
 brand-color : 
   primary :   *color-blue-100
+  light-blue: *color-blue-30
+  lightest-blue: *color-blue-15
 text-color :
   primary :   *color-black
   on-dark :  *color-white
