@@ -15,6 +15,7 @@ $spirit-size-icon-nested: 20px;
 
 // Color
 $spirit-vert-nav-hover: #E6EEFF;
+$spirit-vert-nav-toggle-color: $spirit-color-grey-70;
 
 .spirit-vertical-nav__item {
   display: block;
@@ -112,6 +113,11 @@ $spirit-vert-nav-hover: #E6EEFF;
   position: absolute;
   right: $spirit-space-generic-3-x;
   top: 50%;
+  color: $spirit-vert-nav-toggle-color;
+  
+  * {
+    color: $spirit-vert-nav-toggle-color;
+  }
 
   .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
     height: $spirit-size-icon-nested;
@@ -119,8 +125,13 @@ $spirit-vert-nav-hover: #E6EEFF;
     width: $spirit-size-icon-nested;
   }
 
+  .spirit-vertical-nav__item--open a > &,
   [aria-expanded='true'] > & {
+    color: $spirit-text-color-primary;
     transform: rotate(180deg);
+    * {
+      color: $spirit-text-color-primary;
+    }
   }
 }
 
