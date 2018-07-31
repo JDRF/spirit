@@ -5,7 +5,7 @@
     {% endfilter %}
     <div class="spirit-container">
         <div class="spirit-row">
-            <div class="spirit-col-lg-6">
+            <div class="spirit-col-lg-8">
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Headings
                 {% endfilter %}
@@ -64,7 +64,9 @@
                     </h6>
                 </div>
             </div>
-            <div class="spirit-col-lg-6">
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-lg-8">
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Paragraph Text
                 {% endfilter %}
@@ -93,8 +95,16 @@
                     <p class="spirit-body-s">You can use the <code>spirit-body-s</code> class</p>
                     <small>Alternatively, you can use the <code>small</code> element</small>
                 </div>
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Links
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <p>You Can Help <a href="https://jdrf.org">Turn Type One</a> Into Type None</p>
+                </div>
             </div>
-            <div class="spirit-col-lg-6">
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-lg-8">
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ## Lists
                 {% endfilter %}
@@ -104,7 +114,8 @@
                 <div class="spirit-body-text">
                     <ul>
                         <li>List item 1</li>
-                        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how
+                            this will look.
                         </li>
                         <li>List item 3</li>
                         <li>List item 4</li>
@@ -142,7 +153,8 @@
                 <div class="spirit-body-text">
                     <ol>
                         <li>List item 1</li>
-                        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how
+                            this will look.
                         </li>
                         <li>List item 3</li>
                         <li>List item 4</li>
@@ -174,10 +186,100 @@
                         <li>List item 4</li>
                     </ol>
                 </div>
-                <div class="spirit-col-lg-6">
+            </div>
+        </div>
+        <div class="spirit-row">
+            <div class="spirit-col-lg-8">
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Pull Quotes
+                {% endfilter %}
+                <div class="spirit-body-text">
+                    <blockquote class="spirit-pull-quote-left">Nearly 02.5 billion in federal funding has gone into type
+                        1 diabetes research since SDP
+                        began.
+                    </blockquote>
+                    <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                </div>
+                <div class="spirit-body-text">
+                    <blockquote class="spirit-pull-quote-right">Nearly 02.5 billion in federal funding has gone into
+                        type 1 diabetes research since SDP began.
+                    </blockquote>
+                    <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                </div>
+            </div>
+            <div class="spirit-row">
+                <div class="spirit-col-lg-8">
                     {% filter markdown(true, "hostile-sink-reset") %}
-                        ## Paragraph Text
+                        ## Images
                     {% endfilter %}
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ### No Caption
+                    {% endfilter %}
+                    <div class="spirit-body-text">
+                        <img class="spirit-image-left" src="http://placekitten.com/352/119" alt="An adorable kitten">
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
+                    <div class="spirit-body-text">
+                        <img class="spirit-image-right" src="http://placekitten.com/402/219" alt="An adorable kitten">
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ### With Caption
+                    {% endfilter %}
+                    <div class="spirit-body-text">
+                        <figure class="spirit-image-left">
+                            <img src="http://placekitten.com/352/119" alt="An adorable kitten">
+                            <figcaption class="spirit-caption">An adorable kitten</figcaption>
+                        </figure>
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
+                    <div class="spirit-body-text">
+                        <figure class="spirit-image-right">
+                            <img src="http://placekitten.com/402/219" alt="An adorable kitten">
+                            <figcaption class="spirit-caption">An adorable kitten</figcaption>
+                        </figure>
+
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="spirit-row">
+                <div class="spirit-col-lg-8">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Image/Video
+                    {% endfilter %}
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ### No Caption
+                    {% endfilter %}
+                    <div class="spirit-body-text">
+                        <img src="http://placekitten.com/720/480" alt="An adorable kitten">
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
+                    <div class="spirit-body-text">
+                        <div class="spirit-embed-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/SB-qEYVdvXA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## With captions
+                    {% endfilter %}
+                    <div class="spirit-body-text">
+                        <figure>
+                            <img src="http://placekitten.com/720/480" alt="An adorable kitten">
+                            <figcaption class="spirit-caption">Image caption transplantation of beta cells can be, literally, a life-saver</figcaption>
+                        </figure>
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+                    </div>
+                    <div class="spirit-body-text">
+                        <figure>
+                            <div class="spirit-embed-video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/SB-qEYVdvXA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <figcaption class="spirit-caption">Image caption transplantation of beta cells can be, literally, a life-saver</figcaption>
+                        </figure>
+                        <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+                    </div>
                 </div>
             </div>
         </div>
