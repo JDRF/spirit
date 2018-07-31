@@ -1,5 +1,35 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-    <h1 class="hostile-sink-reset">Vertical Navigations Sink</h1>
-    {{ library.vertical_navigation() }}
+
+  {% macro demo_tab(label, id) %}
+    {% set sample_vnav %}
+        {{ library.vertical_navigation_item() }}
+        {{ library.vertical_navigation_item(href="#") }}
+        {{ library.vertical_navigation_item() }}
+        {{ library.vertical_navigation_item(href="#") }}
+        {{ library.vertical_navigation_item() }}
+        {{ library.vertical_navigation_item(href="#") }}
+        {{ library.vertical_navigation_item() }}
+        {{ library.vertical_navigation_item(href="#") }}
+        {{ library.vertical_navigation_item() }}
+        {{ library.vertical_navigation_item(href="#") }}
+    {% endset %}
+    <div class="demo-tab" data-tab="{{ id }}">
+      {{ caller() }}
+    </div>
+  {% endmacro %}
+
+  <h1 class="hostile-sink-reset">Vertical Navigation Sink</h1>
+  <div class="demo-tabs">
+
+    {% call demo_tab(label="List Standard", id="list-standard") %}
+      <h2 class="hostile-sink-reset">Vertical Navigation Standard</h2>
+      {% call library.vertical_navigation() %}
+        {{ sample_vnav | safe }}
+      {% endcall %}
+      <br>
+      <br>
+    {% endcall %}
+
+  </div>
 {% endblock body %}

@@ -1,0 +1,16 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <h1 class="hostile-sink-reset">Vertical Navigation Items Sink</h1>
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                <h2 class="hostile-sink-reset">Vertical Navigation Item No Link</h2>
+                {{ library.vertical_navigation_item() }}
+            </div>
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                <h2 class="hostile-sink-reset">Vertical Navigation Item Link</h2>
+                {{ library.vertical_navigation_item(href="#") }}
+            </div>
+        </div>
+    </div>
+{% endblock body %}

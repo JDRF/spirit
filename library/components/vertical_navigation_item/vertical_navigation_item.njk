@@ -1,0 +1,17 @@
+{% macro vertical_navigation_item(
+  class=false,
+  text='This is a vertical nav item',
+  href=false,
+  target=false
+) %}
+  <li class="spirit-vertical-nav__item{{ ' ' + class if class }}">
+    {% if href %}
+      <a class="spirit-vertical-nav__link" {{ 'href=' + href if href }} {{ 'target=' + target if target }}>
+    {% endif %}
+      {{text if text}}
+    {% if href %}
+      </a>
+    {% endif %}
+    {{ caller() if caller }}
+  </li>
+{% endmacro %}
