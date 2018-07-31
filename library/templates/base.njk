@@ -10,7 +10,6 @@
         {% block head_content_prepend %}{% endblock head_content_prepend %}
         <link rel="shortcut icon" href="#" />
         <link rel="stylesheet" href="/styles/spirit.css">
-        {# <script src="/scripts/spirit.js"></script> #}
         <script src="/scripts/dependencies/svg4everybody.min.js"></script>
         <script>
             svg4everybody(); // Enable icons for IE11
@@ -19,6 +18,9 @@
     </head>
     <body>
         {% block body %}{% endblock body %}
-        {% block closing_body_assets %}{% endblock closing_body_assets %}
+        {% block closing_body_assets %}
+            <script type="module" src="/scripts/spirit.js"></script>
+            <script nomodule src="/scripts/spirit.es5.js"></script> <!-- the nodmodule attribute prevents this script from loading in modern browsers -->
+        {% endblock closing_body_assets %}
     </body>
 </html>

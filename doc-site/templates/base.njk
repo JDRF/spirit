@@ -1,3 +1,4 @@
+{% set esds_doc_overrides_path = 'imports/esds-doc-overrides.njk' %}
 {% import 'node_modules/spirit/components/spirit.njk' as library with context %}
 {% import 'node_modules/esds-doc/components/esds-doc.njk' as esds_doc with context %}
 <!doctype html>
@@ -9,11 +10,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block head_content_prepend %}{% endblock head_content_prepend %}
-        <link rel="stylesheet" href="/styles/dependencies/esds-doc.css">
         <link rel="stylesheet" href="/styles/dependencies/prism.css">
         <link rel="stylesheet" href="/styles/dependencies/spirit.css">
         <link rel="stylesheet" href="/styles/spirit_doc_site.css">
-        <script src="/scripts/[your-main-script].js"></script>
+        <link rel="shortcut icon" href="">
+        {# <script src="/scripts/[your-main-script].js"></script> #}
         {% block head_content_append %}{% endblock head_content_append %}
     </head>
     <body>

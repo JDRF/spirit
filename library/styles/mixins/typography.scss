@@ -151,3 +151,73 @@
 @mixin spirit-body-text-s {
   @include spirit-typography-reset($font-size: $spirit-font-size-s);
 }
+
+// LINKS
+
+// Borders
+$spirit-border-width-link: $spirit-border-width-control;
+
+// Transitions
+$spirit-link-transition-duration: .2s;
+$spirit-link-transition-timing-function: ease-out;
+
+// Spirit Animated Underline
+$spirit-link-underline-height-animated: .125em;
+
+@mixin spirit-link {
+  @include spirit-box-sizing(border-box);
+  background-color: transparent;
+  color: $spirit-text-color-link;
+  text-decoration: none;
+
+  &:visited,
+  &.spirit-link--visited {
+    color: $spirit-text-color-link;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &.spirit-link--hover {
+    color: $spirit-text-color-link;
+    text-decoration: underline;
+  }
+
+  &:focus,
+  &:focus-within,
+  &.spirit-link--focus {
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
+  }
+
+  &:active,
+  &.spirit-link--active {
+    color: $spirit-text-color-link;
+    text-decoration: underline;
+  }
+}
+
+
+@mixin spirit-link-animated-default {
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    background: $spirit-text-color-link;
+    bottom: 0;
+    content: '';
+    height: $spirit-link-underline-height-animated;
+    position: absolute;
+    right: 0;
+    transition: width $spirit-link-transition-duration;
+    width: 0%;
+  }
+}
+
+@mixin spirit-link-animated-underline {
+  text-decoration: none;
+
+  &:after {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}

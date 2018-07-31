@@ -1,0 +1,43 @@
+{% macro card(
+        class=false,
+        href="#",
+        img_src="/images/components/card/walkers.png",
+        img_src_list_item,
+        img_alt_text="JDRF Walkers",
+        title_text="JDRF One Walk&reg;",
+        body_text="Join more than 900,000 people who come together to raise funds and walk to change the future for the millions of people with T1D.",
+        link_text="Find a Walk Near You",
+        cta,
+        size,
+        aria_label
+        ) %}
+  {% if cta == undefined %}
+    {% set cta %}
+      <span class="spirit-card__link">{{ link_text | safe }}</span>
+    {% endset %}
+  {% endif %}
+
+  {% if size %}
+    {% set size_class = "spirit-card--" + size %}
+  {% endif %}
+
+  {% if aria_label == undefined %}
+    {% set aria_label = title_text %}
+  {% endif %}
+
+  <a href="{{ href }}" class="spirit-card{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" aria-label="{{ aria_label }}">
+    {% if img_src %}
+      <span class="spirit-card__image-wrap">
+        {% if img_src_list_item %}
+          <img class="spirit-card__image-list-item" src="{{ img_src_list_item }}" alt="{{ img_alt_text }}">
+        {% endif %}
+        <img class="spirit-card__image" src="{{ img_src }}" alt="{{ img_alt_text }}">
+      </span>
+    {% endif %}
+    <span class="spirit-card__text">
+      <h3 class="spirit-card__title">{{ title_text | safe }}</h3>
+      <p class="spirit-card__body">{{ body_text | safe }}</p>
+      <span class="spirit-card__cta">{{ cta | safe }}</span>
+    </span>
+  </a>
+{% endmacro %}
