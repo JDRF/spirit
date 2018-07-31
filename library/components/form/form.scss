@@ -55,12 +55,12 @@ $spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-
 }
 
 @mixin disabled-styles {
-  background-color: $spirit-interactive-color-disabled-background;
-  color: $spirit-interactive-color-disabled-foreground;
+  background-color: $spirit-disabled-color-background;
+  color: $spirit-disabled-color-foreground;
   cursor: not-allowed;
 
   &::placeholder {
-    color: $spirit-interactive-color-disabled-foreground;
+    color: $spirit-disabled-color-foreground;
   }
 }
 
@@ -370,12 +370,12 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
 
   // Disabled, Unchecked
   .spirit-form__checkbox-input:disabled + .spirit-form__checkbox-inner & {
-    border-color: $spirit-interactive-color-disabled-foreground; // Prevent border color from changing on hover when input is disabled
+    border-color: $spirit-disabled-color-foreground; // Prevent border color from changing on hover when input is disabled
   }
 
   // Disabled, Checked
   .spirit-form__checkbox-input:disabled:checked + .spirit-form__checkbox-inner & {
-    background-color: $spirit-interactive-color-disabled-foreground;
+    background-color: $spirit-disabled-color-foreground;
   }
   
 
@@ -441,7 +441,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   }
 
   .spirit-form__checkbox-input:disabled + .spirit-form__checkbox-inner & {
-    color: $spirit-interactive-color-disabled-foreground;
+    color: $spirit-disabled-color-foreground;
   }
 }
 
@@ -577,12 +577,12 @@ $spirit-radio-label-space:              $spirit-space-generic-1-x;
 
   // Disabled, Unchecked
   .spirit-form__radio-input:disabled + .spirit-form__radio-inner & {
-    border-color: $spirit-interactive-color-disabled-foreground; // Prevent border color from changing on hover when input is disabled
+    border-color: $spirit-disabled-color-foreground; // Prevent border color from changing on hover when input is disabled
   }
 
   // Disabled, Checked
   .spirit-form__radio-input:disabled:checked + .spirit-form__radio-inner & {
-    background-color: $spirit-interactive-color-disabled-foreground;
+    background-color: $spirit-disabled-color-foreground;
   }
 
   // Invalid state
@@ -618,7 +618,7 @@ $spirit-radio-label-space:              $spirit-space-generic-1-x;
   }
 
   .spirit-form__radio-input:disabled + .spirit-form__radio-inner & {
-    color: $spirit-interactive-color-disabled-foreground;
+    color: $spirit-disabled-color-foreground;
   }
 }
 
@@ -776,7 +776,7 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   width: $spirit-select-icon-size;
 
   .spirit-form__select-input:disabled ~ .spirit-form__select-open-indicator & {
-    stroke: $spirit-interactive-color-disabled-foreground;
+    stroke: $spirit-disabled-color-foreground;
   }
 }
 
