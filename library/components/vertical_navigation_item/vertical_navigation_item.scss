@@ -1,4 +1,161 @@
 // Vertical Nav Item - intended to be a child of 'spirit-vertical-nav'
+
+// Font
+$spirit-line-height-vert-nav: 1.25;
+
+// Variables
+
+// Spacing
+$spirit-space-inset-squish-vert-nav: 10px 24px;
+$spirit-space-inset-squish-vert-nav-sm: 8px 24px;
+$spirit-space-inset-squish-vert-nav-lg: 18px 24px;
+$spirit-space-inset-left-vert-nav-lv2: $spirit-space-generic-6-x; // 48px;
+$spirit-space-inset-left-vert-nav-lv3: 80px;
+$spirit-size-icon-nested: 20px;
+
+// Color
+$spirit-vert-nav-hover: #E6EEFF;
+
 .spirit-vertical-nav__item {
+  display: block;
+  font-size: 14px;
+  line-height: $spirit-line-height-vert-nav;
   // Inherit typography reset from .spirit-vertical nav
+  list-style: none;
+  margin: 0;
+}
+
+.spirit-vertical-nav__link {
+  background-color: none;
+  border-radius: $spirit-border-radius-l;
+  color: $spirit-text-color-primary;
+  cursor: pointer;
+  display: block;
+  font-size: inherit;
+  font-weight: $spirit-font-weight-bold;
+  line-height: inherit;
+  margin: 0;
+  padding: $spirit-space-inset-squish-vert-nav;
+  position: relative;
+  text-decoration: none;
+  transition: background-color $spirit-transition-timing-default;
+
+  * {
+    color: currentColor;
+  }
+
+  .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
+    padding-left: $spirit-space-inset-left-vert-nav-lv2;
+  }
+
+  .spirit-vertical-nav__item-parent .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
+    padding-left: $spirit-space-inset-left-vert-nav-lv3;
+
+    &:not(.spirit-vertical-nav__link--bold) {
+      color: $spirit-text-color-secondary;
+    }
+  }
+
+  > svg {
+    height: $spirit-size-icon-m;
+    width: $spirit-size-icon-m;
+
+    &:not(.spirit-vertical-nav__toggle) {
+      margin-right: $spirit-space-generic-3-x;
+      position: relative;
+      vertical-align: middle;
+    }
+  }
+
+  &[aria-haspopup='true'] {
+    padding-right: calc(#{$spirit-space-generic-3-x} * 3);
+
+    .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
+      padding-right: calc((#{$spirit-space-generic-3-x} * 2) + (#{$spirit-size-icon-nested}));
+    }
+  }
+
+  &:hover,
+  .spirit-vertical-nav__item--hover & {
+    background-color: $spirit-vert-nav-hover;
+    text-decoration: none;
+  }
+
+  .spirit-vertical-nav__item--open &,
+  &[aria-expanded='true'] {
+    color: $spirit-text-color-primary;
+  }
+
+  &:focus,
+  .spirit-vertical-nav__item--focus & {
+    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
+    outline: 0;
+    text-decoration: none;
+    z-index: 1;
+  }
+
+  &:active,
+  .spirit-vertical-nav__item--active & {
+    color: $spirit-text-color-link;
+  }
+
+  &:disabled,
+  .spirit-vertical-nav__item--disabled & {
+    background-color: transparent;
+    color: $spirit-text-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.spirit-vertical-nav__toggle {
+  margin-top: calc(#{$spirit-size-icon-m} * -.5);
+  position: absolute;
+  right: $spirit-space-generic-3-x;
+  top: 50%;
+
+  .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
+    height: $spirit-size-icon-nested;
+    margin-top: calc(#{$spirit-size-icon-nested} * -.5);
+    width: $spirit-size-icon-nested;
+  }
+
+  [aria-expanded='true'] > & {
+    transform: rotate(180deg);
+  }
+}
+
+.spirit-vertical-nav__link--small {
+  padding: $spirit-space-inset-squish-vert-nav-sm;
+}
+
+.spirit-vertical-nav__link--large {
+  padding: $spirit-space-inset-squish-vert-nav-lg;
+}
+
+.spirit-vertical-nav__link--bold {
+  color: $spirit-text-color-link;
+
+  .spirit-vertical-nav__item--open & {
+    color: $spirit-text-color-primary;
+  }
+
+  &:focus,
+  .spirit-vertical-nav__item--focus & {
+    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
+    outline: 0;
+    text-decoration: none;
+    z-index: 1;
+  }
+
+  &:active,
+  .spirit-vertical-nav__item--active & {
+    color: $spirit-text-color-link;
+  }
+
+  &:disabled,
+  .spirit-vertical-nav__item--disabled & {
+    background-color: transparent;
+    color: $spirit-text-color-disabled;
+    cursor: not-allowed;
+  }
 }

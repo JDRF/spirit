@@ -1,15 +1,135 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+  <style>
+    ul.hostile-sink-reset {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
     <h1 class="hostile-sink-reset">Vertical Navigation Items Sink</h1>
     <div class="spirit-container">
         <div class="spirit-row">
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
-                <h2 class="hostile-sink-reset">Vertical Navigation Item No Link</h2>
-                {{ library.vertical_navigation_item() }}
+
+                <h2 class="hostile-sink-reset">Sizes</h2>
+                <h3 class="hostile-sink-reset">Small</h3>
+                <ul class="hostile-sink-reset">
+                    {% call library.vertical_navigation_item(size="small", text="1st level item") %}
+                        <ul class="hostile-sink-reset">
+                            {% call library.vertical_navigation_item(size="small", text="2nd level item") %}
+                                <ul class="hostile-sink-reset">
+                                    {{ library.vertical_navigation_item(size="small", href="#", text="3rd level item") }}
+                                </ul>
+                            {% endcall %}
+                        </ul>
+                    {% endcall %}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Medium ( Default )</h3>
+                <ul class="hostile-sink-reset">
+                    {% call library.vertical_navigation_item(text="1st level item") %}
+                        <ul class="hostile-sink-reset">
+                            {% call library.vertical_navigation_item(text="2nd level item") %}
+                                <ul class="hostile-sink-reset">
+                                    {{ library.vertical_navigation_item(href="#", text="3rd level item") }}
+                                </ul>
+                            {% endcall %}
+                        </ul>
+                    {% endcall %}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Large</h3>
+                <ul class="hostile-sink-reset">
+                    {% call library.vertical_navigation_item(size="large", text="1st level item") %}
+                        <ul class="hostile-sink-reset">
+                            {% call library.vertical_navigation_item(size="large", text="2nd level item") %}
+                                <ul class="hostile-sink-reset">
+                                    {{ library.vertical_navigation_item(size="large", href="#", text="3rd level item") }}
+                                </ul>
+                            {% endcall %}
+                        </ul>
+                    {% endcall %}
+                </ul>
             </div>
+
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
-                <h2 class="hostile-sink-reset">Vertical Navigation Item Link</h2>
-                {{ library.vertical_navigation_item(href="#") }}
+                <h2 class="hostile-sink-reset">Styles</h2>
+                <h3 class="hostile-sink-reset">Regular ( Default )</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Regular") }}
+                    {{ library.vertical_navigation_item(text="Regular") }}
+                    {{ library.vertical_navigation_item(text="Regular") }}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Bold</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Bold", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Bold", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Bold", weight="bold") }}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Parent - Toggle</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", weight="bold", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", weight="bold", toggle="true") }}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Has Icon Left</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Has Icon Left", iconName="edit") }}
+                    {{ library.vertical_navigation_item(text="Has Icon Left", weight="bold", iconName="folder") }}
+                    {{ library.vertical_navigation_item(text="Templates", iconName="file") }}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Nested Toggle Icon</h3>
+                <ul class="hostile-sink-reset">
+                    {% call library.vertical_navigation_item(text="Nested 1st level toggle", toggle="true", expanded="true") %}
+                        <ul class="hostile-sink-reset">
+                            {% call library.vertical_navigation_item(text="Nested 2nd level toggle", toggle="true", expanded="true") %}
+                                <ul class="hostile-sink-reset">
+                                    {{ library.vertical_navigation_item(href="#", text="Nested 3rd level") }}
+                                </ul>
+                            {% endcall %}
+                        </ul>
+                    {% endcall %}
+                </ul>
+            </div>
+
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+                <h2 class="hostile-sink-reset">States</h2>
+                
+                <h3 class="hostile-sink-reset">Regular ( Default )</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Default") }}
+                    {{ library.vertical_navigation_item(text="Hover", class="spirit-vertical-nav__item--hover") }}
+                    {{ library.vertical_navigation_item(text="Open", class="spirit-vertical-nav__item--open") }}
+                    {{ library.vertical_navigation_item(text="Active", class="spirit-vertical-nav__item--active") }}
+                    {{ library.vertical_navigation_item(text="Disabled", class="spirit-vertical-nav__item--disabled") }}
+                    {{ library.vertical_navigation_item(text="Focus", class="spirit-vertical-nav__item--focus") }}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Bold</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Default", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Hover", class="spirit-vertical-nav__item--hover", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Open", class="spirit-vertical-nav__item--open", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Active", class="spirit-vertical-nav__item--active", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Disabled", class="spirit-vertical-nav__item--disabled", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Focus", class="spirit-vertical-nav__item--focus", weight="bold") }}
+                </ul>
+
+
+                <h3 class="hostile-sink-reset">Parent - Toggle</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Default Parent - Toggle", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Hover", class="spirit-vertical-nav__item--hover", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Open", toggle="true", expanded="true") }}
+                    {{ library.vertical_navigation_item(text="Active", class="spirit-vertical-nav__item--active", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Disabled", class="spirit-vertical-nav__item--disabled", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Focus", class="spirit-vertical-nav__item--focus", toggle="true") }}
+                </ul>
             </div>
         </div>
     </div>

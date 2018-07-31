@@ -1,17 +1,31 @@
 {% macro vertical_navigation_item(
   class=false,
+  size=false,
   text='This is a vertical nav item',
   href=false,
-  target=false
+  target=false,
+  role='button',
+  parent=true,
+  weight=false,
+  toggle=false,
+  iconName=false,
+  expanded=false
 ) %}
-  <li class="spirit-vertical-nav__item{{ ' ' + class if class }}">
-    {% if href %}
-      <a class="spirit-vertical-nav__link" {{ 'href=' + href if href }} {{ 'target=' + target if target }}>
-    {% endif %}
-      {{text if text}}
-    {% if href %}
+  {% if href %}
+    {% set type = false %}
+    {% set parent = true %}
+    {% set toggle = false %}
+  {% endif %}
+  <li class="spirit-vertical-nav__item{{ ' spirit-vertical-nav__item-parent' if parent }}{{ ' ' + class if class }}{{ ' spirit-vertical-nav__item--' + size if size }}{{ ' spirit-vertical-nav__item--' + weight if weight }}{{ ' spirit-vertical-nav__item--toggle' if toggle }}">
+      <a class="spirit-vertical-nav__link{{ ' spirit-vertical-nav__link--' + size if size }}{{ ' spirit-vertical-nav__link--' + weight if weight }}" {{ 'href=' + href if href }} {{ 'tabindex=0 role=' + role if role }} {{ 'target=' + target if target }}{{' aria-haspopup=true aria-expanded='  + expanded if toggle}}>
+        {% if iconName %}
+          {{ icon(name=iconName, decorative=true)}}
+        {% endif %}
+        {{text if text}}
+        {% if toggle %}
+          {{ icon(name="chevron-down", class="spirit-vertical-nav__toggle", label="Open Subnav", decorative=true) }}
+        {% endif %}
       </a>
-    {% endif %}
     {{ caller() if caller }}
   </li>
 {% endmacro %}
