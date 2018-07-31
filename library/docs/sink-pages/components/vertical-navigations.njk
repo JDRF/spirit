@@ -1,18 +1,36 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
 
+  <style>
+    .demo-tabs {
+      max-width: 375px;
+    }
+  </style>
+
   {% macro demo_tab(label, id) %}
     {% set sample_vnav %}
-        {{ library.vertical_navigation_item() }}
-        {{ library.vertical_navigation_item(href="#") }}
-        {{ library.vertical_navigation_item() }}
-        {{ library.vertical_navigation_item(href="#") }}
-        {{ library.vertical_navigation_item() }}
-        {{ library.vertical_navigation_item(href="#") }}
-        {{ library.vertical_navigation_item() }}
-        {{ library.vertical_navigation_item(href="#") }}
-        {{ library.vertical_navigation_item() }}
-        {{ library.vertical_navigation_item(href="#") }}
+        {{ library.vertical_navigation_item(text="Home", weight="bold", size="large") }}
+        {{ library.vertical_navigation_item(text="Our Work", weight="bold", size="large", toggle="true") }}
+        {{ library.vertical_navigation_item(text="T1D Resources", weight="bold", size="large", toggle="true") }}
+        {% call library.vertical_navigation_item(text="Get Involved", size="large", toggle="true", expanded="true") %}
+          {% call library.vertical_navigation() %}
+            {% call library.vertical_navigation_item(text="Fundraise", toggle="true", expanded="true") %}
+                {% call library.vertical_navigation() %}
+                  {{ library.vertical_navigation_item(href="#", size="small", text="Walk") }}
+                  {{ library.vertical_navigation_item(href="#", size="small", text="Ride") }}
+                  {{ library.vertical_navigation_item(href="#", size="small", text="Run / Challenge") }}
+                  {{ library.vertical_navigation_item(href="#", size="small", text="Create Your Own") }}
+                  {{ library.vertical_navigation_item(href="#", size="small", text="Gala") }}
+                  {{ library.vertical_navigation_item(href="#", size="small", text="View All") }}
+                {% endcall %}
+            {% endcall %}
+            {{ library.vertical_navigation_item(text="Give", toggle="true") }}
+            {{ library.vertical_navigation_item(text="Community", toggle="true") }}
+            {{ library.vertical_navigation_item(text="Advocacy", toggle="true") }}
+            {{ library.vertical_navigation_item(text="More", toggle="true") }}
+          {% endcall %}
+          {{ library.vertical_navigation_item(text="Sign Up", weight="bold", size="large") }}
+        {% endcall %}
     {% endset %}
     <div class="demo-tab" data-tab="{{ id }}">
       {{ caller() }}
@@ -23,7 +41,7 @@
   <div class="demo-tabs">
 
     {% call demo_tab(label="List Standard", id="list-standard") %}
-      <h2 class="hostile-sink-reset">Vertical Navigation Standard</h2>
+      <h2 class="hostile-sink-reset">Vertical Navigation Test</h2>
       {% call library.vertical_navigation() %}
         {{ sample_vnav | safe }}
       {% endcall %}
