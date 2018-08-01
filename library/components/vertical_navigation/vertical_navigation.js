@@ -10,6 +10,12 @@ const spiritVerticalNavigation = () => {
     return;
   }
 
+  /**
+   * Initialize Each Vertical Nav
+   *
+   * @param {object} n Navigation Item
+   * @return {void}
+   */
   const initializeEachNav = (n) => {
     const parentItems = Array.from(n.querySelectorAll('.spirit-vertical-nav__item-parent'));
     // const parentItemsCount = parentItems.length;
@@ -26,6 +32,11 @@ const spiritVerticalNavigation = () => {
 
     }; // menuSubOpen()
 
+    /**
+     * Close Sub Menu(s)
+     *
+     * @param {object} openItem Open Subnav Item
+     */
     const menuSubClose = (openItem) => {
 
       openItem.classList.remove('submenu-is-open');
@@ -38,6 +49,10 @@ const spiritVerticalNavigation = () => {
 
     }; // menuSubClose()
 
+    /**
+     * Listener Action for Submenu Trigger Click
+     * @param {object} e event
+     */
     const listnerSubmenuClick = (e) => {
       const target = e.currentTarget;
 
@@ -83,6 +98,10 @@ const spiritVerticalNavigation = () => {
       }
     };
 
+    /**
+     * Listener Action for Submenu Trigger Click
+     * @param {object} evt event
+     */
     const listnerSubmenuFocus = (evt) => {
 
       if (!evt.type === 'keyup' || !evt.keyCode === 9) {
@@ -108,6 +127,9 @@ const spiritVerticalNavigation = () => {
       menuSubOpen(target);
     };
 
+    /**
+     * Loop through parent items
+     */
     parentItems.forEach(p => {
       const trigger = p.querySelector('a');
       const subNav = p.querySelector('.spirit-vertical-nav__subnav');
@@ -131,6 +153,9 @@ const spiritVerticalNavigation = () => {
     });
   };
 
+  /**
+   * Loop through vertical navigation elements
+   */
   vertNavItems.forEach(n => {
     initializeEachNav(n);
   });
