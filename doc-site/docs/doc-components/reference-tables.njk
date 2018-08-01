@@ -1,0 +1,20 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+{#   {% filter markdown %}
+      # Reference Table Demos
+  {% endfilter %} #}
+  
+  {{ esds_doc.reference_table(
+            headers=["class", "applies_to", "outcome"],
+            data=[{
+                class: ".esds-component-name--modifier",
+                applies_to: ".esds-component-name",
+                outcome: "Modifies `esds-component-name` to change its background color."
+            },
+            {
+                class: ".esds-component-name--different-modifier",
+                applies_to: ".esds-component-name",
+                outcome: "Modifies `esds-component-name` to change its size."
+            }]) }}
+
+{% endblock body %}
