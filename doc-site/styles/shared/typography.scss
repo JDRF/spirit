@@ -1,0 +1,7 @@
+@mixin spirit-doc-code-text {
+  background: $spirit-color-grey-95;
+  font-family: $spirit-font-family-monospace;
+  font-size: $spirit-font-size-m;
+  padding: $spirit-space-generic-half-x $spirit-space-generic-half-x / 2;
+  line-height: 1.6;
+}

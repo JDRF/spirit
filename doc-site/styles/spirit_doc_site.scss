@@ -1,7 +1,9 @@
 @import '../node_modules/spirit/styles/spirit';
+@import 'shared/typography';
 @import 'doc_components/esds_doc_component_overrides';
 
 @import '../components/code_example_pair/code_example_pair';
+@import '../components/reference_table/reference_table';
 @import '../components/tint_stack/tint_stack';
 
 // Page-specific styles
