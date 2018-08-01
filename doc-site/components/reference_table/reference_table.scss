@@ -3,6 +3,11 @@ $esds-doc-reference-table-border: 0;
 
 @import '../../node_modules/esds-doc/components/reference_table/reference_table';
 
+.esds-doc-reference-table {
+  margin: $spirit-space-stack-4-x;
+  line-height: $spirit-font-line-height-body;
+}
+
 .esds-doc-reference-table p {
   margin: 0;
 }
