@@ -13,20 +13,20 @@
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
 
                 <h2 class="hostile-sink-reset">Sizes</h2>
-                <h3 class="hostile-sink-reset">Small</h3>
+                <h3 class="hostile-sink-reset">Compact</h3>
                 <ul class="hostile-sink-reset">
-                    {% call library.vertical_navigation_item(size="small", text="1st level item") %}
+                    {% call library.vertical_navigation_item(size="compact", text="1st level item") %}
                         <ul class="hostile-sink-reset">
-                            {% call library.vertical_navigation_item(size="small", text="2nd level item") %}
+                            {% call library.vertical_navigation_item(size="compact", text="2nd level item") %}
                                 <ul class="hostile-sink-reset">
-                                    {{ library.vertical_navigation_item(size="small", href="#", text="3rd level item") }}
+                                    {{ library.vertical_navigation_item(size="compact", href="#", text="3rd level item") }}
                                 </ul>
                             {% endcall %}
                         </ul>
                     {% endcall %}
                 </ul>
 
-                <h3 class="hostile-sink-reset">Medium ( Default )</h3>
+                <h3 class="hostile-sink-reset">Regular ( Default )</h3>
                 <ul class="hostile-sink-reset">
                     {% call library.vertical_navigation_item(text="1st level item") %}
                         <ul class="hostile-sink-reset">
@@ -39,13 +39,13 @@
                     {% endcall %}
                 </ul>
 
-                <h3 class="hostile-sink-reset">Large</h3>
+                <h3 class="hostile-sink-reset">Comfortable</h3>
                 <ul class="hostile-sink-reset">
-                    {% call library.vertical_navigation_item(size="large", text="1st level item") %}
+                    {% call library.vertical_navigation_item(size="comfortable", text="1st level item") %}
                         <ul class="hostile-sink-reset">
-                            {% call library.vertical_navigation_item(size="large", text="2nd level item") %}
+                            {% call library.vertical_navigation_item(size="comfortable", text="2nd level item") %}
                                 <ul class="hostile-sink-reset">
-                                    {{ library.vertical_navigation_item(size="large", href="#", text="3rd level item") }}
+                                    {{ library.vertical_navigation_item(size="comfortable", href="#", text="3rd level item") }}
                                 </ul>
                             {% endcall %}
                         </ul>
@@ -62,24 +62,31 @@
                     {{ library.vertical_navigation_item(text="Regular") }}
                 </ul>
 
-                <h3 class="hostile-sink-reset">Bold</h3>
+                <h3 class="hostile-sink-reset">Medium</h3>
                 <ul class="hostile-sink-reset">
-                    {{ library.vertical_navigation_item(text="Bold", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Bold", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Bold", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Medium", style="medium") }}
+                    {{ library.vertical_navigation_item(text="Medium", style="medium") }}
+                    {{ library.vertical_navigation_item(text="Medium", style="medium") }}
+                </ul>
+
+                <h3 class="hostile-sink-reset">Large</h3>
+                <ul class="hostile-sink-reset">
+                    {{ library.vertical_navigation_item(text="Large", style="large") }}
+                    {{ library.vertical_navigation_item(text="Large", style="large") }}
+                    {{ library.vertical_navigation_item(text="Large", style="large") }}
                 </ul>
 
                 <h3 class="hostile-sink-reset">Parent - Toggle</h3>
                 <ul class="hostile-sink-reset">
                     {{ library.vertical_navigation_item(text="Has Toggle Icon Right", toggle="true") }}
-                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", weight="bold", toggle="true") }}
-                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", weight="bold", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", style="medium", toggle="true") }}
+                    {{ library.vertical_navigation_item(text="Has Toggle Icon Right", style="medium", toggle="true") }}
                 </ul>
 
                 <h3 class="hostile-sink-reset">Has Icon Left</h3>
                 <ul class="hostile-sink-reset">
                     {{ library.vertical_navigation_item(text="Has Icon Left", iconName="edit") }}
-                    {{ library.vertical_navigation_item(text="Has Icon Left", weight="bold", iconName="folder") }}
+                    {{ library.vertical_navigation_item(text="Has Icon Left", style="medium", iconName="folder") }}
                     {{ library.vertical_navigation_item(text="Templates", iconName="file") }}
                 </ul>
 
@@ -110,14 +117,14 @@
                     {{ library.vertical_navigation_item(text="Focus", class="spirit-vertical-nav__item--focus") }}
                 </ul>
 
-                <h3 class="hostile-sink-reset">Bold</h3>
+                <h3 class="hostile-sink-reset">Comfortable Large</h3>
                 <ul class="hostile-sink-reset">
-                    {{ library.vertical_navigation_item(text="Default", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Hover", class="spirit-vertical-nav__item--hover", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Open", class="spirit-vertical-nav__item--open", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Active", class="spirit-vertical-nav__item--active", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Disabled", class="spirit-vertical-nav__item--disabled", weight="bold") }}
-                    {{ library.vertical_navigation_item(text="Focus", class="spirit-vertical-nav__item--focus", weight="bold") }}
+                    {{ library.vertical_navigation_item(text="Default", size="comfortable", style="large") }}
+                    {{ library.vertical_navigation_item(text="Hover", class="spirit-vertical-nav__item--hover", size="comfortable", style="large") }}
+                    {{ library.vertical_navigation_item(text="Open", class="spirit-vertical-nav__item--open", size="comfortable", style="large") }}
+                    {{ library.vertical_navigation_item(text="Active", class="spirit-vertical-nav__item--active", size="comfortable", style="large") }}
+                    {{ library.vertical_navigation_item(text="Disabled", class="spirit-vertical-nav__item--disabled", size="comfortable", style="large") }}
+                    {{ library.vertical_navigation_item(text="Focus", class="spirit-vertical-nav__item--focus", size="comfortable", style="large") }}
                 </ul>
 
 

@@ -1,7 +1,3 @@
-// Vertical Navigation
 .spirit-vertical-nav {
-  @include spirit-typography-reset();
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  display: block;
 }

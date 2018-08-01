@@ -1,7 +1,7 @@
 {% macro vertical_navigation(
   class=false
 ) %}
-    <ul class="spirit-vertical-nav{{ ' ' + class if class }}">
+    <div class="spirit-vertical-nav{{ ' ' + class if class }}">
       {{ caller() }}
-    </ul>
+    </div>
 {% endmacro %}
