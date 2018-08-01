@@ -6,9 +6,11 @@
       By default the code snippet will match the rendered example
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(
-    examples=[ { example: library.button(text="Primary") }]
-  ) }}
+  {{ esds_doc.code_example_pair( example=library.button(text="Primary") ) }}
+
+
+
+
 
   {% filter markdown %}
     ## Multiple Examples
@@ -86,6 +88,37 @@
       ## Code Snippet, No Copy Button
   {% endfilter %}
   {{ esds_doc.code_snippet(show_copy_button=false, source=library.button(class="spirit-button--secondary", text="Secondary")) }}
+
+  {% set lots_of_markup %}
+    <form action="">
+      <h1>Hello World</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda totam, debitis autem harum officia excepturi dolorum laborum dicta unde dolore, cumque, atque! Amet culpa, vel deserunt fugit placeat, ipsam laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eligendi nulla odit iure quo fugiat cupiditate quasi nihil accusantium accusamus facere fuga amet corporis perspiciatis consequuntur, sit perferendis similique delectus!</p>
+      <label for="">First Name</label>
+      <input type="text">
+      <label for="">Last Name</label>
+      <input type="text">
+      <label for="">Email</label>
+      <input type="email">
+      <label for="">Contact Method</label>
+      <select name="" id="">
+        <option value="">Email</option>
+        <option value="">Phone</option>
+        <option value="">Landline</option>
+        <option value="">Carrier Pigeon</option>
+        <option value="">Twitter</option>
+      </select>
+      <button type="submit">
+        <svg/>
+        <span>
+          Icon Button
+        </span> 
+      </button>
+    </form>
+  {% endset %}
+  {% filter markdown %}
+      ## Content Resilience
+  {% endfilter %}
+  {{ esds_doc.code_snippet(source=lots_of_markup) }}
 
   {% filter markdown %}
     ## Custom Example
