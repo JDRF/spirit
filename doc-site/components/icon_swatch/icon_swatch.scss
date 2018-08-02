@@ -1,0 +1,27 @@
+$esds-doc-icon-swatch-icon-size: $spirit-size-icon-l;
+$esds-doc-icon-swatch-text-color-label: $spirit-text-color-primary;
+$esds-doc-icon-swatch-border: 0;
+
+@import '../../node_modules/esds-doc/components/icon_swatch/icon_swatch';
+
+.esds-doc-icon-swatch {
+  border-radius: $spirit-border-radius-s;
+}
+
+.esds-doc-icon-swatch:hover {
+  background: $spirit-color-blue-100;
+}
+
+.esds-doc-icon-swatch__icon {
+  stroke: $spirit-color-black;
+
+  .esds-doc-icon-swatch:hover & {
+    stroke: $spirit-color-white;
+  }
+}
+
+.esds-doc-icon-swatch__label {
+  .esds-doc-icon-swatch:hover & {
+    color: $spirit-text-color-on-dark;
+  }
+}
