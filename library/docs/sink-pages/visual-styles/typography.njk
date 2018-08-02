@@ -1,13 +1,9 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+    <link rel="stylesheet" href="/styles/typography-sink-page.css">
     {% filter markdown(true, "hostile-sink-reset") %}
         # Typography Sink
     {% endfilter %}
-    <style>
-        .spirit-container--brand h3 {
-            color: white;
-        }
-    </style>
     <div class="spirit-container">
         <div class="spirit-row">
             <div class="spirit-col spirit-col--lg-6">
