@@ -2,6 +2,12 @@
 {% block body %}
   {% filter markdown %}
       # Color
+
+      <p class="spirit-long-form-text__subhead">A focused color palette is used to strengthen the connection with JDRF Blue through consistent repetition.</p>
+
+      ## Color Direction
+      JDRF visual style offers a limited color palette of bright blue, black and white, and a range of subtle greys. The visual style uses bold splashes of color to establish visual priority, to encapsulate related content, and to highlight interactive elements. This expressive use of color is complemented by an accentuated typographic hierarchy and generous use of white space. 
+
   {% endfilter %}
 
   {# This is a custom macro written to serve as a helper between the esds_doc tint stack and Spirit's token structure #}
@@ -47,23 +53,11 @@
   {% endmacro %}
   {{ esds_doc.tint_stack(swatches=['#FFFFFF', '#FF00AA', '#333333']) }}
 
-  <h2>Neutrals</h2>
-  {{ spirit_color_doc_tint_stack(parent_node="color", keys=['black', 'grey.35', 'grey.70', 'grey.95', 'grey.98', 'white']) }}
+  {% filter markdown %}
+      ## Interactive
+      Invite interaction and communicate state with bold high-contrast colors. 
+  {% endfilter %}
 
-  <h2>Text Colors</h2>
-  {{ spirit_color_doc_tint_stack(parent_node="text-color") }}
-
-  <h2>Feedback Colors</h2>
-  {{ spirit_color_doc_tint_stack(parent_node="feedback-color", keys=[
-    'foreground.danger',
-    'foreground.info',
-    'foreground.success',
-    'background.danger',
-    'background.info',
-    'background.success'
-  ]) }}
-
-  <h2>Interactive Colors</h2>
   {{ spirit_color_doc_tint_stack(parent_node="interactive-color", keys=[
     'primary',
     'secondary',
@@ -74,4 +68,289 @@
     'focus.hard'
   ]) }}
 
+  {% filter markdown %}
+      ## Text
+      ### Primary
+      Use black for the full range of standard typography, such as headings, body text, and labels.
+  {% endfilter %}
+
+  {{ spirit_color_doc_tint_stack(parent_node="text-color", keys=[
+    'primary',
+    'on-dark'
+  ]) }}
+
+  {% filter markdown %}
+      ### Secondary
+      Use dark grey for text of secondary importance, such as microcopy or placeholder text. 
+  {% endfilter %}
+
+  {{ spirit_color_doc_tint_stack(parent_node="text-color", keys=[
+    'secondary'
+  ]) }}
+
+    {% filter markdown %}
+      ### Disabled
+      Disabled links, labels, or selections use medium grey. 
+  {% endfilter %}
+
+  {{ spirit_color_doc_tint_stack(parent_node="text-color", keys=[
+    'disabled'
+  ]) }}
+
+    {% filter markdown %}
+      ### Link
+      Links follow the default brand blue on light, and reverse to white on dark.  
+  {% endfilter %}
+
+  {{ spirit_color_doc_tint_stack(parent_node="text-color", keys=[
+    'link',
+    'on-dark'
+  ]) }}
+
+  {% filter markdown %}
+      ## Feedback
+      These functional colors communicate success, danger, or neutral status across components, particularly in form level messages.   
+  {% endfilter %}
+
+  {{ spirit_color_doc_tint_stack(parent_node="feedback-color", keys=[
+    'foreground.danger',
+    'foreground.info',
+    'foreground.success',
+    'background.danger',
+    'background.info',
+    'background.success'
+  ]) }}
+  {% filter markdown %}
+      ## Palettes
+      These basic palettes are used in the specific applications above, and should only be used directly when no specific token applies. 
+      ### Brand
+      JDRF blue and two tints. 
+  {% endfilter %}
+  {{ spirit_color_doc_tint_stack(parent_node="brand-color", keys=['primary', 'light-blue', 'lightest-blue']) }}
+
+  {% filter markdown %}
+      ### Grey
+      A range of neutrals from black to white. 
+  {% endfilter %}
+
+  {{ spirit_color_doc_tint_stack(parent_node="color", keys=['black', 'grey.35', 'grey.70', 'grey.95', 'grey.98', 'white']) }}
+
+  {% filter markdown %}
+    ## Accessibility
+    Color contrast represents the luminance difference between foreground and background colors. The <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG 2.0</a> standard for accessibility sets three levels of achievement, from the minimum Level A to the stringent Level AAA. Level AA requires a contrast ratio of 4.5:1 for regular text and 3:1 for large text (+24px regular or +18.66px bold). Level AAA is even more stringent. 
+    
+    <strong>Spirit intends to achieve at least WCAG Level A.</strong>
+
+    However, as the contrast ratings on this page demonstrate, Spirit’s color palette for content generally meets the contrast requirement for Level AA or Level AA18. 
+    Disabled elements, such as locked form fields, fall below this contrast threshold. 
+
+    ### Color Contrast Matrix
+  {% endfilter %}
+
+<div class="es-contrast-grid es-contrast-grid--compact">
+    <div class="es-contrast-grid__inner">
+        <table class="es-contrast-grid__table">
+            <thead>
+                <tr class="es-contrast-grid__foreground-key">
+                    <th>
+                        <div class="es-contrast-grid__key-swatch-spacer"> <span class="es-contrast-grid__key-swatch-label es-contrast-grid__key-swatch-label--background">Background</span> <span class="es-contrast-grid__key-swatch-label es-contrast-grid__key-swatch-label--text">Text</span> </div>
+                    </th>
+                    <th class="es-contrast-grid__foreground-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--foreground" data-hex="#00081A" style="background-color: #00081a;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Primary Text</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#00081A</div>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="es-contrast-grid__foreground-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--foreground" data-hex="#575859" style="background-color: #575859;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Secondary Text</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#575859</div>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="es-contrast-grid__foreground-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--foreground" data-hex="#0055FF" style="background-color: #0055ff;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Interactive</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#0055FF</div>
+                            </div>
+                        </div>
+                    </th>
+                    <th class="es-contrast-grid__foreground-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--foreground es-contrast-grid--bordered-swatch es-contrast-grid--dark-label" data-hex="#FFFFFF" style="background-color: #ffffff;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Text On Dark</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#FFFFFF</div>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="es-contrast-grid__content">
+                <tr class="es-contrast-grid__content-row">
+                    <th class="es-contrast-grid__background-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--background es-contrast-grid--bordered-swatch es-contrast-grid--dark-label" data-hex="#FFFFFF" style="background-color: #ffffff;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">White</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#FFFFFF</div>
+                            </div>
+                        </div>
+                    </th>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--bordered-swatch es-contrast-grid--dark-label" style="background-color: #ffffff; color: #00081a;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aaa">AAA</span> <span class="es-contrast-grid__contrast-ratio">20</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--bordered-swatch es-contrast-grid--dark-label" style="background-color: #ffffff; color: #575859;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aaa">AAA</span> <span class="es-contrast-grid__contrast-ratio">7.1</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--bordered-swatch es-contrast-grid--dark-label" style="background-color: #ffffff; color: #0055ff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> <span class="es-contrast-grid__contrast-ratio">5.6</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch-spacer"></div>
+                    </td>
+                </tr>
+                <tr class="es-contrast-grid__content-row">
+                    <th class="es-contrast-grid__background-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--background es-contrast-grid--dark-label" data-hex="#F5F7FA" style="background-color: #f5f7fa;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Grey-98</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#F5F7FA</div>
+                            </div>
+                        </div>
+                    </th>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #f5f7fa; color: #00081a;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aaa">AAA</span> <span class="es-contrast-grid__contrast-ratio">18.6</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #f5f7fa; color: #575859;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> <span class="es-contrast-grid__contrast-ratio">6.6</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #f5f7fa; color: #0055ff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> <span class="es-contrast-grid__contrast-ratio">5.2</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #f5f7fa; color: #ffffff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--dnp">DNP</span> <span class="es-contrast-grid__contrast-ratio">1</span> </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="es-contrast-grid__content-row">
+                    <th class="es-contrast-grid__background-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--background es-contrast-grid--dark-label" data-hex="#EDEFF2" style="background-color: #edeff2;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Grey-95</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#EDEFF2</div>
+                            </div>
+                        </div>
+                    </th>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #edeff2; color: #00081a;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aaa">AAA</span> <span class="es-contrast-grid__contrast-ratio">17.3</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #edeff2; color: #575859;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> <span class="es-contrast-grid__contrast-ratio">6.1</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #edeff2; color: #0055ff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> <span class="es-contrast-grid__contrast-ratio">4.8</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch es-contrast-grid--dark-label" style="background-color: #edeff2; color: #ffffff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--dnp">DNP</span> <span class="es-contrast-grid__contrast-ratio">1.1</span> </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="es-contrast-grid__content-row">
+                    <th class="es-contrast-grid__background-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--background" data-hex="#0055FF" style="background-color: #0055ff;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">JDRF Blue</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#0055FF</div>
+                            </div>
+                        </div>
+                    </th>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch" style="background-color: #0055ff; color: #00081a;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa18">AA18</span> <span class="es-contrast-grid__contrast-ratio">3.5</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch" style="background-color: #0055ff; color: #575859;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--dnp">DNP</span> <span class="es-contrast-grid__contrast-ratio">1.2</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch-spacer"></div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch" style="background-color: #0055ff; color: #ffffff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> <span class="es-contrast-grid__contrast-ratio">5.6</span> </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="es-contrast-grid__content-row">
+                    <th class="es-contrast-grid__background-key-cell">
+                        <div class="es-contrast-grid__key-swatch es-contrast-grid__key-swatch--background" data-hex="#00081A" style="background-color: #00081a;">
+                            <div class="es-contrast-grid__key-swatch-label">
+                                <div class="es-contrast-grid__key-swatch-label-text">Black</div>
+                                <div class="es-contrast-grid__key-swatch-label-hex">#00081A</div>
+                            </div>
+                        </div>
+                    </th>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch-spacer"></div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch" style="background-color: #00081a; color: #575859;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--dnp">DNP</span> <span class="es-contrast-grid__contrast-ratio">2.8</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch" style="background-color: #00081a; color: #0055ff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa18">AA18</span> <span class="es-contrast-grid__contrast-ratio">3.5</span> </div>
+                        </div>
+                    </td>
+                    <td class="es-contrast-grid__content-cell">
+                        <div class="es-contrast-grid__swatch" style="background-color: #00081a; color: #ffffff;"> <span class="es-contrast-grid__swatch-demo-text">Text</span>
+                            <div class="es-contrast-grid__swatch-stats"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aaa">AAA</span> <span class="es-contrast-grid__contrast-ratio">20</span> </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="es-contrast-grid__key">
+                <tr class="es-contrast-grid__key-row">
+                    <td class="es-contrast-grid__key-cell" colspan="5">
+                        <div class="es-contrast-grid-key">
+                            <div class="es-contrast-grid-key__column">
+                                <div class="es-contrast-grid-key__label"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aaa">AAA</span> Pass, AAA (7+) </div>
+                                <div class="es-contrast-grid-key__label"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa">AA</span> Pass, AA (4.5+) </div>
+                            </div>
+                            <div class="es-contrast-grid-key__column">
+                                <div class="es-contrast-grid-key__label"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--aa18">AA18</span> Pass, Large Text Only (3+) </div>
+                                <div class="es-contrast-grid-key__label"> <span class="es-contrast-grid__accessibility-label es-contrast-grid__accessibility-label--dnp">DNP</span> Does Not Pass </div>
+                            </div> <a class="es-contrast-grid-key__link" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">About WCAG 2.0 contrast</a> </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock body %}
