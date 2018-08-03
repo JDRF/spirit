@@ -1,0 +1,114 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+  <style>
+    [class*="demo-inner-bg"] {
+      background-color: #EDEFF2;
+    }
+    [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white) {
+      background-color: #FFA6C4;
+    }
+  </style>
+
+  <h1 class="hostile-sink-reset">Containers Sink</h1>
+
+  <h2 class="hostile-sink-reset">Fullwidth (default)</h2>
+  {% call library.container() %}
+    <div class="demo-inner-bg">Fullwidth container</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Large</h2>
+  {% call library.container(size="large") %}
+    <div class="demo-inner-bg">Large container</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Padding options</h2>
+  <h3 class="hostile-sink-reset">XS</h3>
+  {% call library.container(padding_top="xs",padding_bottom="xs") %}
+    <div class="demo-inner-bg">Padding top and bottom XS</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">S</h3>
+  {% call library.container(padding_top="s",padding_bottom="s") %}
+    <div class="demo-inner-bg">Padding top and bottom S</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">M (default)</h3>
+  {% call library.container(padding_top="m",padding_bottom="m") %}
+    <div class="demo-inner-bg">Padding top and bottom M</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">LG</h3>
+  {% call library.container(padding_top="lg",padding_bottom="lg") %}
+    <div class="demo-inner-bg">Padding top and bottom LG</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Top LG / Bottom XS</h3>
+  {% call library.container(padding_top="lg",padding_bottom="xs") %}
+    <div class="demo-inner-bg">Padding top LG and bottom XS</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Background color options</h2>
+
+  <h3 class="hostile-sink-reset">None (default)</h3>
+  {% call library.container() %}
+    <div class="demo-inner-bg">None</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Dark</h3>
+  {% call library.container(background_color="dark") %}
+    <div class="demo-inner-bg">Dark</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">White</h3>
+  {% call library.container(background_color="white") %}
+    <div class="demo-inner-bg">White</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Stacked containers</h2>
+  {% call library.container(background_color="dark",padding_top="s",padding_bottom="xs") %}
+    <div class="demo-inner-bg">Dark, padding top S, padding bottom XS</div>
+  {% endcall %}
+
+  {% call library.container() %}
+    <div class="demo-inner-bg">Default container (fullwidth), default padding (M)</div>
+  {% endcall %}
+
+  {% call library.container(background_color="dark",padding_top="m",padding_bottom="lg") %}
+    <div class="demo-inner-bg">Dark, padding top M, padding bottom LG</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Grid</h2>
+  {% call library.container() %}
+    <div class="spirit-row">
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">1</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">2</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">3</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">4</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">5</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">6</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">7</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">8</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">9</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">10</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">11</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">12</div></div>
+    </div>
+  {% endcall %}
+  {% call library.container(size="large") %}
+    <div class="spirit-row">
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">1</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">2</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">3</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">4</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">5</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">6</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">7</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">8</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">9</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">10</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">11</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">12</div></div>
+    </div>
+  {% endcall %}
+
+{% endblock body %}

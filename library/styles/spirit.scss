@@ -1,5 +1,5 @@
 /// # Tokens - Global tokens / variables
-@import '../tokens/tokens'; 
+@import '../tokens/tokens';
 
 /// # Mixins - Default mixins
 @import 'mixins/accessibility';
@@ -28,3 +28,4 @@
 @import '../components/form/form';
 @import '../components/icon/icon';
 @import '../components/long-form-text/long-form-text';
+@import '../components/container/container';

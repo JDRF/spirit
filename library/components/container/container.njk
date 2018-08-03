@@ -1,0 +1,10 @@
+{% macro container(
+        size='fullwidth',
+        padding_top='m',
+        padding_bottom='m',
+        background_color=false
+        ) %}
+  <div class="spirit-container{{ '--' + size if size }} {{'spirit-container--padding-top-' + padding_top if padding_top}} {{'spirit-container--padding-bottom-' + padding_bottom if padding_bottom}} {{'spirit-container--' + background_color if background_color}}">
+    {{ caller() }}
+  </div>
+{% endmacro %}

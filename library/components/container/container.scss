@@ -1,0 +1,104 @@
+$spirit-container-breakpoint-m: 1080px;
+$spirit-container-breakpoint-l: 1360px;
+$spirit-container-horizontal-space-m: 80px;
+$spirit-container-max-width-full: 1152px;
+$spirit-container-max-width-large: 1000px;
+
+// Shared styles
+
+.spirit-container--fullwidth,
+.spirit-container--large {
+  @include spirit-typography-reset;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spirit-space-generic-3-x;
+  padding-right: $spirit-space-generic-3-x;
+  width: 100%;
+}
+
+// Container width
+
+.spirit-container--fullwidth {
+  @media screen and (min-width: $spirit-container-breakpoint-l) {
+    max-width: $spirit-container-max-width-full;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.spirit-container--large {
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-left: $spirit-container-horizontal-space-m;
+    padding-right: $spirit-container-horizontal-space-m;
+  }
+  @media screen and (min-width: $spirit-container-breakpoint-l) {
+    max-width: $spirit-container-max-width-large;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// Top, bottom padding options
+
+.spirit-container--padding-top-xs {
+  padding-top: $spirit-space-generic-3-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-top: $spirit-space-generic-4-x;
+  }
+}
+
+.spirit-container--padding-bottom-xs {
+  padding-bottom: $spirit-space-generic-3-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-bottom: $spirit-space-generic-4-x;
+  }
+}
+
+.spirit-container--padding-top-s {
+  padding-top: $spirit-space-generic-4-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-top: $spirit-space-generic-8-x;
+  }
+}
+
+.spirit-container--padding-bottom-s {
+  padding-bottom: $spirit-space-generic-4-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-bottom: $spirit-space-generic-8-x;
+  }
+}
+
+.spirit-container--padding-top-m {
+  padding-top: $spirit-space-generic-6-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-top: $spirit-space-generic-12-x;
+  }
+}
+
+.spirit-container--padding-bottom-m {
+  padding-bottom: $spirit-space-generic-6-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-bottom: $spirit-space-generic-12-x;
+  }
+}
+
+.spirit-container--padding-top-lg {
+  padding-top: $spirit-space-generic-12-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-top: $spirit-space-generic-24-x;
+  }
+}
+
+.spirit-container--padding-bottom-lg {
+  padding-bottom: $spirit-space-generic-12-x;
+  @media screen and (min-width: $spirit-container-breakpoint-m) {
+    padding-bottom: $spirit-space-generic-24-x;
+  }
+}
+
+// Background color option
+
+.spirit-container--dark {
+  @include spirit-container--brand;
+}
