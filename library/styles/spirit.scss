@@ -5,6 +5,7 @@
 @import 'mixins/accessibility';
 @import 'mixins/color';
 @import 'mixins/box-sizing';
+@import 'mixins/clearfix';
 @import 'mixins/elevation';
 @import 'mixins/grid';
 @import 'mixins/text-crop';
@@ -26,3 +27,4 @@
 @import '../components/card_grid/card_grid';
 @import '../components/form/form';
 @import '../components/icon/icon';
+@import '../components/long-form-text/long-form-text';
