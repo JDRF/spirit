@@ -6,6 +6,8 @@ $esds-doc-icon-swatch-border: 0;
 
 .esds-doc-icon-swatch {
   border-radius: $spirit-border-radius-s;
+  cursor: pointer;
+  min-width: 120px;
 }
 
 .esds-doc-icon-swatch:hover {
@@ -13,6 +15,7 @@ $esds-doc-icon-swatch-border: 0;
 }
 
 .esds-doc-icon-swatch__icon {
+  margin: $spirit-space-generic-3-x 0;
   stroke: $spirit-color-black;
 
   .esds-doc-icon-swatch:hover & {
@@ -21,7 +24,24 @@ $esds-doc-icon-swatch-border: 0;
 }
 
 .esds-doc-icon-swatch__label {
+  font-size: $spirit-font-size-m;
+  padding: 0 $spirit-space-generic-1-x;
+  margin: $spirit-space-stack-3-x;
+
   .esds-doc-icon-swatch:hover & {
     color: $spirit-text-color-on-dark;
   }
 }
+
+.esds-doc-icon-swatch-grid {
+  justify-content: center;
+
+  .esds-doc-icon-swatch {
+    margin: 0;
+
+    @media screen and (min-width: 864px) {
+      flex: 1 1 16%;
+    }
+  }
+}
+
