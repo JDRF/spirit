@@ -5,7 +5,7 @@
   {% endfilter %}
   {% call esds_doc.icon_swatch_grid() %}
     {% for icon in spirit_icons %}
-      {{ esds_doc.icon_swatch(name=icon) }}
+      {{ esds_doc.icon_swatch(class="spirit-doc-icon-swatch", name=icon) }}
     {% endfor %}
   {% endcall %}
 {% endblock body %}

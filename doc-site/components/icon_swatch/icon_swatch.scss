@@ -45,3 +45,47 @@ $esds-doc-icon-swatch-border: 0;
   }
 }
 
+.spirit-doc-icon-swatch__name-copied-message {
+  background: $spirit-color-black;
+  color: $spirit-text-color-on-dark;
+  display: block;
+  font-size: $spirit-font-size-s;
+  left: 50%;
+  opacity: 1;
+  padding: $spirit-space-inset-1-x;
+  position: absolute;
+  right: 0;
+  transform: translateX(-50%);
+  visibility: hidden;
+  white-space: nowrap;
+  width: 140px;
+
+  .spirit-doc-icon-swatch--name-copied & {
+    animation: spirit-doc-icon-swatch-fade-in-out 3s;
+  }
+}
+
+
+
+@keyframes spirit-doc-icon-swatch-fade-in-out {
+    0% {
+        bottom: 90%;
+        opacity: 0;
+        visibility: visible;
+    }
+
+    10% {
+        bottom: calc(100% + 2px);
+        opacity: 1;
+    }
+
+    90% {
+        bottom: calc(100% + 2px);
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 90%;
+        opacity: 0;
+    }
+}
