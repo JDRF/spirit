@@ -15,6 +15,7 @@ $esds-doc-icon-swatch-border: 0;
 }
 
 .esds-doc-icon-swatch__icon {
+  fill: transparent;
   margin: $spirit-space-generic-3-x 0;
   stroke: $spirit-color-black;
 
@@ -47,6 +48,7 @@ $esds-doc-icon-swatch-border: 0;
 
 .spirit-doc-icon-swatch__name-copied-message {
   background: $spirit-color-black;
+  bottom: 90%;
   color: $spirit-text-color-on-dark;
   display: block;
   font-size: $spirit-font-size-s;
