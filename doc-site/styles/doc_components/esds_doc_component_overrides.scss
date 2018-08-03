@@ -1,0 +1,12 @@
+$esds-doc-font-family-sans-serif: $spirit-font-family-sans-serif;
+@import '../../node_modules/esds-doc/tokens/tokens';
+@import '../../node_modules/esds-doc/styles/shared/utils';
+
+@import '../../node_modules/esds-doc/components/container/container';
+@import '../../node_modules/esds-doc/components/button/button';
+@import '../../node_modules/esds-doc/components/icon/icon';
+@import '../../node_modules/esds-doc/components/reference_table/reference_table';
+@import '../../node_modules/esds-doc/components/icon_swatch/icon_swatch';
+@import '../../node_modules/esds-doc/components/page_navigation/page_navigation';
+@import '../../node_modules/esds-doc/components/icon_swatch_grid/icon_swatch_grid';
+@import '../../node_modules/esds-doc/components/tint_stack/tint_stack';

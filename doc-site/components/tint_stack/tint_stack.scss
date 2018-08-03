@@ -1,0 +1,46 @@
+$esds-doc-tint-stack-pill-border-radius: 20px;
+$esds-doc-tint-stack-label-max-width: 50%;
+$esds-doc-tint-stack-pill-background-color: $spirit-color-grey-98;
+$esds-doc-tint-stack-aa18-pill-background-color: #FFF1A6;
+$esds-doc-tint-stack-dnp-pill-background-color: $spirit-color-red-100;
+$esds-doc-tint-stack-swatch-border: solid 1px $spirit-color-grey-95;
+$esds-doc-tint-stack-pill-font-family: $spirit-font-family-sans-serif;
+$esds-doc-tint-stack-pill-font-size: $spirit-font-size-s;
+$esds-doc-tint-stack-space-swatch-inset: $spirit-space-inset-3-x;
+
+@import '../../node_modules/esds-doc/components/tint_stack/tint_stack';
+
+.esds-doc-tint-stack__label {
+  flex: 1 1 10%;
+  font-size: $spirit-font-size-m;
+  font-weight: $spirit-font-weight-bold;
+  white-space: nowrap;
+}
+
+.esds-doc-tint-stack__swatch-metadata {
+  align-items: center;
+  display: flex;
+  flex: 1 1 50%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: 0;
+}
+
+.esds-doc-tint-stack__pill--hex,
+.esds-doc-tint-stack__pill--code-snippet {
+  background: none;
+  text-align: left;
+
+  .esds-doc-tint-stack__swatch--dark & {
+    color: $spirit-text-color-on-dark;
+  }
+}
+
+.esds-doc-tint-stack__pill--code-snippet {
+  flex: 1 1 50%;
+}
+
+.esds-doc-tint-stack__pill--hex {
+  flex: 1 1 70px;
+  text-transform: uppercase;
+}

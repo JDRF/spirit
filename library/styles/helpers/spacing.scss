@@ -1,5 +1,5 @@
 /// Create Space Stack classes using tokens.scss
-@import '../tokens/tokens';
+@import '../../tokens/tokens';
 
 $spirit-stack-tokens: spirit-token('space', 'stack');
 @each $variable, $value in $spirit-stack-tokens {
