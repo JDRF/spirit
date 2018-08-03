@@ -1,6 +1,7 @@
 {% macro token_table(
                 class,
-                token_node) %}
+                token_node,
+                column_widths=[50, 50]) %}
   {% set tokens = spirit_tokens %}
   {% set hyphenated_node_name = '' %}
   {% if token_node %}
@@ -24,7 +25,8 @@
       class=class, 
       headers=['name', 'value'], 
       data=rows, 
-      automatic_code_block_columns=['name']) }}
+      automatic_code_block_columns=['name'],
+      column_widths=column_widths) }}
 {% endmacro %}
 
 {% macro token_table_data_rows(tokens, rows=[], parent_node_name='') %}
