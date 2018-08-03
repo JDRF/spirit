@@ -28,7 +28,7 @@
 
 @mixin spirit-dark-parent-light-text {
   @include spirit-container-dark-parent-selectors {
-    color: $spirit-text-color-reversed;
+    color: $spirit-text-color-on-dark;
   }
 }
 
