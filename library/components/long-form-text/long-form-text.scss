@@ -127,12 +127,12 @@ $spirit-space-generic-2-x-half: 18px;
 
   @mixin float-item-left {
     float: left;
-    margin: $spirit-space-generic-2-x $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+    margin: $spirit-space-generic-3-x $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
   }
 
   @mixin float-item-right {
     float: right;
-    margin: $spirit-space-generic-2-x 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
+    margin: $spirit-space-generic-3-x 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
   }
 
   .spirit-pull-quote-left,
@@ -166,6 +166,11 @@ $spirit-space-generic-2-x-half: 18px;
 
   .spirit-image-right {
     @include float-item-right;
+  }
+
+  .spirit-image-left img,
+  .spirit-image-right img {
+    margin-top: 0;
   }
 
   .spirit-image-left .spirit-caption,
