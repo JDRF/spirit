@@ -1,0 +1,52 @@
+{% macro token_table(
+                class,
+                token_node,
+                column_widths=[50, 50]) %}
+  {% set tokens = spirit_tokens %}
+  {% set hyphenated_node_name = '' %}
+  {% if token_node %}
+    {% set hyphenated_node_name = token_node | replace('.', '-') %}
+    {% set token_nodes = token_node | split('.') %}
+    {% for node in token_nodes %}
+      {% set tokens = tokens[node] %}
+    {% endfor %}
+  {% endif %}
+
+  {% if class %}
+    {% set class = class + ' spirit-token-table' %}
+  {% else %}
+    {% set class = 'spirit-token-table' %}
+  {% endif %}
+  {% set rows = [] %}
+  {# Recursively traverses the given node down to all its children, flattening the tokens along the way #}
+  {{ token_table_data_rows(tokens, rows, parent_node_name=hyphenated_node_name) }}
+
+  {{ esds_doc.reference_table(
+      class=class, 
+      headers=['name', 'value'], 
+      data=rows, 
+      automatic_code_block_columns=['name'],
+      column_widths=column_widths) }}
+{% endmacro %}
+
+{% macro token_table_data_rows(tokens, rows=[], parent_node_name='') %}
+  {% for name, value in tokens %}
+    {% if value | isnumber() or value | isstring() %}
+      {% if value | isstring() and '#' in value %}
+        {# This is a hex code, render something special for it #}
+        {% set border_class = '' %}
+        {% if value == '#ffffff' %}
+          {% set border_class = ' spirit-token-table__color-swatch--bordered' %}
+        {% endif %}
+        {% set value = '<span class="spirit-token-table__color-swatch' + border_class + '" style="background-color:' + value + '"></span><span class="spirit-token-table__color-swatch-label">' + value + '</span>' %}
+      {% endif %}
+      {% set row = {
+          name: '$spirit-' + parent_node_name + '-' + name,
+          value: value | string
+        } %}
+      {% set rows = (rows.push(row),rows) %}
+    {% else %}
+      {{ token_table_data_rows(tokens=value, rows=rows, parent_node_name=parent_node_name + '-' + name) }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
