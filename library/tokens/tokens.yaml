@@ -25,9 +25,11 @@ elevation-color : # === structure change ===
 # ====== assignments ======= #
 brand-color : 
   primary :   *color-blue-100
+  light-blue: *color-blue-30
+  lightest-blue: *color-blue-15
 text-color :
   primary :   *color-black
-  reversed :  *color-white
+  on-dark :  *color-white
   secondary : *color-grey-35
   link :      *color-blue-100
   disabled :  *color-grey-70
@@ -41,12 +43,12 @@ interactive-color :
   text : 
     primary : *color-blue-100
     on-dark : *color-white
-  disabled :
-    foreground : *color-grey-70
-    background : *color-grey-98
   focus :
     soft : *color-blue-30 # buttons, links
     hard : *color-blue-100
+disabled-color :
+  foreground : *color-grey-70
+  background : *color-grey-98
 feedback-color :
   foreground :
     danger :    *color-red-100
@@ -167,7 +169,7 @@ space :
 font :
   family :
     sans-serif : "'Graphik Web', 'Graphik Web Subset', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
-    monospace : "monospace"  # DEFINITION NEEDED
+    monospace : "'Andale Mono', Courier, monospace"  # DEFINITION NEEDED
   weight :
     regular :  400
     medium :   500

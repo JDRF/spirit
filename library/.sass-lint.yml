@@ -5,6 +5,7 @@ files:
     - 'components/legacy/**/*.scss'
     - 'styles/legacy_styles/**/*.scss'
     - 'styles/case_studies.scss'
+    - 'styles/vendor/**/*.scss'
 options:
   formatter: stylish
   merge-default-rules: false

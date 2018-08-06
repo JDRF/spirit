@@ -1,0 +1,20 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  {% filter markdown %}
+      # Token Table Demos
+      The token table component is a modification of the esds_doc.reference_table that provides a simpler API for accessing and generating tables of Spirit token key/value pairs.
+  {% endfilter %}
+
+    <h2>Various token tables</h2>
+    {# You can access any node, use dot notation to select child nodes in the structure #}
+    {{ spirit_doc.token_table(token_node='space.generic') }}
+    {{ spirit_doc.token_table(token_node='interactive-color') }}
+    {{ spirit_doc.token_table(token_node='color') }}
+    {{ spirit_doc.token_table(token_node='feedback-color') }}
+    {{ spirit_doc.token_table(token_node='font.weight') }}
+    
+    <h2>ALL the tokens</h2>
+    {{ spirit_doc.token_table() }}
+  
+
+{% endblock body %}

@@ -29,8 +29,16 @@ module.exports = {
         {
             name: 'spirit-icon',
             sources: [
-                    'node_modules/spirit/dist/spirit.svg'], // required by esds-doc
+                    'node_modules/spirit/dist/spirit.svg'],
             destination: '../docs/icons',
+            watch: true
+        },
+        {
+            name: 'spirit-icon-data',
+            sources: [
+                    'node_modules/spirit/data/icons.json'],
+            destination: 'data',
+            rename: 'spirit_icons.json',
             watch: true
         }
     ],
@@ -41,5 +49,23 @@ module.exports = {
         {
             moduleName: 'esds-doc'
         }
-    ]
+    ],
+    manageNunjucksEnv: function(env) {
+        // Adding some custom nunjucks filters for the doc site
+        env.addFilter('split', function(str, seperator) {
+            return str.split(seperator);
+        });
+
+        env.addFilter('push', function(arr, value) {
+            return arr.push(value);
+        });
+
+        env.addFilter('isstring', function(obj) {
+            return typeof obj === 'string';
+        });
+
+        env.addFilter('isnumber', function(obj) {
+            return typeof obj === 'number';
+        });
+    }
 };

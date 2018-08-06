@@ -5,7 +5,7 @@ $esds-doc-code-snippet-background-color: $spirit-color-grey-95;
 $esds-doc-code-snippet-source-background-color: $spirit-color-grey-95;
 $esds-doc-html-example-list-font-size: $spirit-font-size-s;
 $esds-doc-html-example-list-text-color: $spirit-text-color-secondary;
-$esds-doc-html-example-list-text-color-on-dark: $spirit-text-color-reversed;
+$esds-doc-html-example-list-text-color-on-dark: $spirit-text-color-on-dark;
 $esds-doc-html-example-list-border: solid 1px $spirit-color-grey-95;
 $esds-doc-html-example-list-border-radius: $spirit-border-radius-m;
 $esds-doc-html-example-list-space-inset: $spirit-space-generic-3-x / 2 $spirit-space-generic-3-x;
@@ -32,6 +32,7 @@ $esds-doc-code-snippet-space-stack: $spirit-space-generic-4-x;
 @import '../../node_modules/esds-doc/components/code_example_pair/code_example_pair';
 
 .esds-doc-code-snippet__copy-code-wrap {
+  cursor: pointer;
   display: inline-block;
   position: relative;
 }
@@ -61,7 +62,7 @@ $esds-doc-code-snippet-space-stack: $spirit-space-generic-4-x;
 }
 
 .esds-doc-html-example-list__item {
-  border-bottom: none;
+  border-bottom: 0;
 
   &:first-child {
     padding-top: $spirit-space-generic-3-x;
