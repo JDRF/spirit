@@ -169,7 +169,7 @@ space :
 font :
   family :
     sans-serif : "'Graphik Web', 'Graphik Web Subset', Helvetica, Arial, sans-serif" # FALLBACKS NEEDED
-    monospace : "monospace"  # DEFINITION NEEDED
+    monospace : "'Andale Mono', Courier, monospace"  # DEFINITION NEEDED
   weight :
     regular :  400
     medium :   500
