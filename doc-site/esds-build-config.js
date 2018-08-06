@@ -51,5 +51,13 @@ module.exports = {
         env.addFilter('push', function(arr, value) {
             return arr.push(value);
         });
+
+        env.addFilter('isstring', function(obj) {
+            return typeof obj === 'string';
+        });
+
+        env.addFilter('isnumber', function(obj) {
+            return typeof obj === 'number';
+        });
     }
 };

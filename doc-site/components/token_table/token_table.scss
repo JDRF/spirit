@@ -1,0 +1,17 @@
+.spirit-token-table__color-swatch-label {
+  display: inline-block;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.spirit-token-table__color-swatch {
+  display: inline-block;
+  height: 24px;
+  margin: $spirit-space-inline-left-1-x;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.spirit-token-table__color-swatch--bordered {
+  border: solid 1px $spirit-color-grey-70;
+}

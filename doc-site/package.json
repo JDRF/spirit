@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "esds-build": "^0.37.0",
-    "esds-doc": "^0.13.0",
+    "esds-doc": "^0.14.0",
     "fs-extra": "^6.0.1",
     "gulp-tap": "^1.0.1",
     "slash": "^2.0.0"
