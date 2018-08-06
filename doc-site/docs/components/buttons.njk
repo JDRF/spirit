@@ -1,174 +1,94 @@
 {% extends 'templates/base.njk' %}
 {% block body %}
-  <h1>Buttons</h1>
+  <h1>Buttons Documentation Page</h1>
   {% filter markdown %}
-      <p class="spirit-long-form-text-p--deck">Buttons invite and trigger key actions throughout the experience.</p>
+      ## Markdown works within this filter
 
-      Three spatial concepts are woven into the fabric of all Spirit system components, creating a unified visual order: inset space within components, vertical stack space between elements and components, and horizontal inline spacing between elements in a row. 
-
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, culpa eos laudantium voluptatem, ea alias autem earum esse ipsam, quo nemo quas modi velit sunt voluptatum ut eum suscipit sed?
   {% endfilter %}
 
   {% filter markdown %}
       ### Primary
-
-      Use for the highest-priority actions. 
   {% endfilter %}
 
-  {% set button_state_example %}
-    <div class="spirit-doc-button-states-example-wrap">
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Donate") }}
-        <span class="spirit-doc-button-states-label">Normal</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Donate", class="spirit-button--hover") }}
-        <span class="spirit-doc-button-states-label">Hover</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Donate", class="spirit-button--active") }}
-        <span class="spirit-doc-button-states-label">Active</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Donate", class="spirit-button--focus") }}
-        <span class="spirit-doc-button-states-label">Focus</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Donate", class="spirit-button--disabled", disabled="true") }}
-        <span class="spirit-doc-button-states-label">Disabled</span>
-      </div>
-    </div>
-  {% endset %}
-
-  {{ esds_doc.code_example_pair(
-    examples=[ { example: button_state_example } ],
-    code_snippet_source=(library.button(text="Donate") + ' ' + library.button(text="Donate", disabled="true"))
-    )
-  }}
-
-  {% filter markdown %}
-      * Use once per page for the key action to complete the user’s task. 
-      * Use for the primary action in temporary alerts and overlays, such as modal and dialog. 
-      * Use for calls to action that kick off a task, such as register, donate, sign up. 
-
-      #### On Dark
-  {% endfilter %}
-
-  {{ esds_doc.code_example_pair( 
-    examples=[
+  {{ esds_doc.code_example_pair(examples=[
       {
-        example: library.button(text="Donate"),
-        label: "Primary on light"
+        example: library.button(text="Learn More"),
+        label: "Default State"
       },
       {
-        example: library.button(text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-container--dark spirit-container--brand"
+        example: library.button(class="spirit-button--hover", text="Learn More"),
+        label: "Hover"
+      },
+      {
+        example: library.button(class="spirit-button--active", text="Learn More"),
+        label: "Active"
+      },
+      {
+        example: library.button(text="Learn More", disabled="true"),
+        label: "Disabled"
+      },
+      {
+        example: library.button(class="spirit-button--focus", text="Learn More"),
+        label: "Focus"
       }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
-  )
+    ])
   }}
 
   {% filter markdown %}
       ### Secondary
-
-      Use for non-critical actions. 
   {% endfilter %}
 
-
-  {% set button_state_example %}
-    <div class="spirit-doc-button-states-example-wrap">
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary") }}
-        <span class="spirit-doc-button-states-label">Normal</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--hover") }}
-        <span class="spirit-doc-button-states-label">Hover</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--active") }}
-        <span class="spirit-doc-button-states-label">Active</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--focus") }}
-        <span class="spirit-doc-button-states-label">Focus</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--disabled", disabled="true") }}
-        <span class="spirit-doc-button-states-label">Disabled</span>
-      </div>
-    </div>
-  {% endset %}
-
-  {{ esds_doc.code_example_pair(
-    examples=[ { example: button_state_example } ],
-    code_snippet_source=(library.button(class="spirit-button--secondary", text="Learn More") + ' ' + library.button(class="spirit-button--secondary", text="Learn More", disabled="true"))
-    )
-  }}
-
-  {% filter markdown %}
-      * Use for non-critical actions, particularly when the button is used as navigation, as in "Learn More" or “Cancel”. 
-
-      #### On Dark
-      Do not use secondary button on dark. Situations using dark background should be simple enough to rely on a single primary button. For tertiary actions on dark, use minimal button.
-
-
-      ### Minimal
-      
-      Use for tertiary actions. 
-  {% endfilter %}
-
-  {% set button_state_example %}
-    <div class="spirit-doc-button-states-example-wrap">
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal") }}
-        <span class="spirit-doc-button-states-label">Normal</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--hover") }}
-        <span class="spirit-doc-button-states-label">Hover</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--active") }}
-        <span class="spirit-doc-button-states-label">Active</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--focus") }}
-        <span class="spirit-doc-button-states-label">Focus</span>
-      </div>
-      <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--disabled", disabled="true") }}
-        <span class="spirit-doc-button-states-label">Disabled</span>
-      </div>
-    </div>
-  {% endset %}
-
-  {{ esds_doc.code_example_pair(
-    examples=[ { example: button_state_example } ],
-    code_snippet_source=(library.button(class="spirit-button--minimal", text="Resources") + ' ' + library.button(class="spirit-button--minimal", text="Resources", disabled="true"))
-    )
-  }}
-
-  {% filter markdown %}
-      #### On Dark
-      Use instead of secondary button on dark. 
-  {% endfilter %}
-
-  {{ esds_doc.code_example_pair( 
-    examples=[
+  {{ esds_doc.code_example_pair(examples=[
       {
-        example: library.button(class="spirit-button--minimal", text="Donate"),
-        label: "Primary on light"
+        example: library.button(class="spirit-button--secondary", text="Learn More"),
+        label: "Default State"
       },
       {
-        example: library.button(class="spirit-button--minimal", text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-container--dark spirit-container--brand"
+        example: library.button(class="spirit-button--secondary spirit-button--hover", text="Learn More"),
+        label: "Hover"
+      },
+      {
+        example: library.button(class="spirit-button--secondary spirit-button--active", text="Learn More"),
+        label: "Active"
+      },
+      {
+        example: library.button(class="spirit-button--secondary", text="Learn More", disabled="true"),
+        label: "Disabled"
+      },
+      {
+        example: library.button(class="spirit-button--secondary spirit-button--focus", text="Learn More"),
+        label: "Focus"
       }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--minimal", text="Donate") + '</div>')
-  )
+    ])
+  }}
+
+  {% filter markdown %}
+      ### On Dark
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(examples=[
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(text="Learn More") + '</div>',
+        label: "Default State"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--hover", text="Learn More") + '</div>',
+        label: "Hover"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--active", text="Learn More") + '</div>',
+        label: "Active"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(text="Learn More", disabled="true") + '</div>',
+        label: "Disabled"
+      },
+      {
+        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--focus", text="Learn More") + '</div>',
+        label: "Focus"
+      }
+    ])
   }}
 
   {% filter markdown %}
@@ -232,7 +152,7 @@
   {% endfilter %}
 
   {% set button_small %}
-    {{ library.button(class="spirit-button--small", text="Donate") }}
+    {{ library.button(class="spirit-button--small", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_small ) }}
 
@@ -241,7 +161,7 @@
   {% endfilter %}
 
   {% set button_small %}
-    {{ library.button(class="spirit-button--small spirit-button--default-md", text="Donate") }}
+    {{ library.button(class="spirit-button--small spirit-button--default-md", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_small ) }}
 
@@ -250,7 +170,7 @@
   {% endfilter %}
 
   {% set button_small %}
-    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Donate") }}
+    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_small ) }}
 
@@ -259,7 +179,7 @@
   {% endfilter %}
 
   {% set button_large %}
-    {{ library.button(class="spirit-button--large", text="Donate") }}
+    {{ library.button(class="spirit-button--large", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_large ) }}
 
@@ -268,7 +188,7 @@
   {% endfilter %}
 
   {% set button_large %}
-    {{ library.button(class="spirit-button--large-md", text="Donate") }}
+    {{ library.button(class="spirit-button--large-md", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_large ) }}
 
@@ -277,7 +197,7 @@
   {% endfilter %}
 
   {% set button_large %}
-    {{ library.button(class="spirit-button--large-lg", text="Donate") }}
+    {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
   {% endset %}
   {{ esds_doc.code_example_pair( example=button_large ) }}
 
