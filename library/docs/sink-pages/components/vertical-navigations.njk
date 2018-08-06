@@ -54,7 +54,7 @@
 
     {% call demo_tab(label="List Standard", id="list-standard") %}
       <h2 class="hostile-sink-reset">Vertical Navigation Test</h2>
-      {% call library.vertical_navigation() %}
+      {% call library.vertical_navigation(label="Page Navigation") %}
         {{ sample_vnav_nav | safe }}
       {% endcall %}
       <br>

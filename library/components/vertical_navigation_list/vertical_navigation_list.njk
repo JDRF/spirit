@@ -1,8 +1,0 @@
-{% macro vertical_navigation_list(
-  class=false,
-  subnav=false
-) %}
-    <ul class="spirit-vertical-nav__list{{ ' spirit-vertical-nav__subnav' if subnav }}{{ ' ' + class if class }}">
-      {{ caller() }}
-    </ul>
-{% endmacro %}

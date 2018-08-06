@@ -4,12 +4,20 @@
 $spirit-line-height-vert-nav: 1.25;
 
 // Spacing
-$spirit-space-inset-squish-vert-nav: 10px 24px;
-$spirit-space-inset-squish-vert-nav-sm: 8px 24px;
-$spirit-space-inset-squish-vert-nav-lg: 18px 24px;
+$spirit-space-vnav-1dot25-x: 10px;
+$spirit-space-vnav-3-x: 24px;
+$spirit-space-vnav-2dot25-x: 18px;
+$spirit-space-vnav-2dot5-x: 20px;
+$spirit-space-vnav-10-x: 80px;
+
+$spirit-space-inset-squish-vert-nav: $spirit-space-vnav-1dot25-x $spirit-space-vnav-3-x;
+$spirit-space-inset-squish-vert-nav-sm: $spirit-space-generic-1-x $spirit-space-vnav-3-x;
+$spirit-space-inset-squish-vert-nav-lg: $spirit-space-vnav-2dot25-x $spirit-space-vnav-3-x;
 $spirit-space-inset-left-vert-nav-lv2: $spirit-space-generic-6-x; // 48px;
-$spirit-space-inset-left-vert-nav-lv3: 80px;
-$spirit-size-icon-nested: 20px;
+$spirit-space-inset-left-vert-nav-lv3: $spirit-space-vnav-10-x;
+
+$spirit-size-icon-nested: $spirit-size-icon-s;
+
 
 // Color
 $spirit-vert-nav-hover: #E6EEFF;
@@ -75,6 +83,11 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
     &:not(.spirit-vertical-nav__link--medium),
     &:not(.spirit-vertical-nav__link--large) {
       color: $spirit-text-color-secondary;
+
+      &:active,
+      .spirit-vertical-nav__item--active & {
+        color: $spirit-text-color-link;
+      }
     }
   }
 
