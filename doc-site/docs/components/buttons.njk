@@ -1,13 +1,10 @@
 {% extends 'templates/base.njk' %}
 {% block body %}
-  <h1>Buttons</h1>
-
   {% filter markdown %}
+      <h1>Buttons</h1>
+
       <p class="spirit-subhead">Buttons invite and trigger key actions throughout the experience.</p>
 
-  {% endfilter %}
-
-  {% filter markdown %}
       ### Primary
 
       Use for the highest-priority actions. 
@@ -111,8 +108,8 @@
 
       #### On Dark
       Do not use secondary button on dark. Situations using dark background should be simple enough to rely on a single primary button. For tertiary actions on dark, use minimal button.
-
-
+  {% endfilter %}
+  {% filter markdown %}
       ### Minimal
       
       Use for tertiary actions. 
@@ -352,8 +349,8 @@
 
       * Apply toggle button to a radio group to capture a selection among mutually-exclusive choices. This is the default control for capturing a donation amount, as depicted above. 
       * Apply toggle button to checkboxes to capture non-exclusive options. 
-
-
+  {% endfilter %}
+  {% filter markdown %}
       ## Sizes
       Scale buttons according to visual priority and available real estate. Text and icons scale with the overall button and are not independently configurable. 
       
@@ -534,7 +531,8 @@
 
       ### Accessibility
       * Use the `aria-label` attribute on the SVG within an icon only button. See <a href="/visual-style/iconography.html">icons</a> for additional guidance. 
-
+  {% endfilter %}
+  {% filter markdown %}
       ## Code Reference
       
       ### Markup
