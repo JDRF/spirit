@@ -91,9 +91,6 @@ const spiritVerticalNavigation = () => {
           // The menu is closed, so this click should open it
           menuSubOpen(target);
 
-          // Reset the focus
-          subMenu.querySelectorAll('a')[0].focus();
-
         }
       }
     };
