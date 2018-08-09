@@ -26,8 +26,8 @@ $esds-doc-icon-swatch-border: 0;
 
 .esds-doc-icon-swatch__label {
   font-size: $spirit-font-size-m;
-  padding: 0 $spirit-space-generic-1-x;
   margin: $spirit-space-stack-3-x;
+  padding: 0 $spirit-space-generic-1-x;
 
   .esds-doc-icon-swatch:hover & {
     color: $spirit-text-color-on-dark;
@@ -67,27 +67,25 @@ $esds-doc-icon-swatch-border: 0;
   }
 }
 
-
-
 @keyframes spirit-doc-icon-swatch-fade-in-out {
-    0% {
-        bottom: 90%;
-        opacity: 0;
-        visibility: visible;
-    }
+  0% {
+    bottom: 90%;
+    opacity: 0;
+    visibility: visible;
+  }
 
-    10% {
-        bottom: calc(100% + 2px);
-        opacity: 1;
-    }
+  10% {
+    bottom: calc(100% + 2px);
+    opacity: 1;
+  }
 
-    90% {
-        bottom: calc(100% + 2px);
-        opacity: 1;
-    }
+  90% {
+    bottom: calc(100% + 2px);
+    opacity: 1;
+  }
 
-    100% {
-        bottom: 90%;
-        opacity: 0;
-    }
+  100% {
+    bottom: 90%;
+    opacity: 0;
+  }
 }

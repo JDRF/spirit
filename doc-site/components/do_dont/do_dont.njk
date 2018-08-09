@@ -1,0 +1,71 @@
+{% macro do_dont(
+          class,
+          display='block',
+          examples=[
+            {
+              type: 'do',
+              img_src: 'http://placehold.it/1200x800',
+              caption: "use small to medium scale icons to enhance the interface."
+            },
+            {
+              type: 'dont',
+              img_src: 'http://placehold.it/1200x800',
+              caption: "use giant icons as illustrations. Prefer JDRF brushes or photographs to create visual interest."
+            }
+          ]) %}
+  {% set modifier_class = '' %}
+  {% if display == 'list' %}
+    {% set modifier_class = ' spirit-doc-do-dont--list' %}
+  {% endif %}
+
+  <div class="spirit-doc-do-dont{{ modifier_class }}">
+    {% for example in examples %}
+      {% if example.type == 'spacer' %}
+      <div class="spirit-doc-do-dont__item spirit-doc-do-dont__item--spacer">
+        <!-- Intentionally empty div -->
+      </div>
+      {% else %}
+        {{ do_dont_item(example, display) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{# Not to be called directly, used to clean up long macro code #}
+{% macro do_dont_item(example, display) %}
+  {% set caption_only_class = ' spirit-doc-do-dont__item-inner--caption-only' %}
+  {% if example.img_src %}
+    {% set caption_only_class = '' %}
+  {% endif %}
+  <figure class="spirit-doc-do-dont__item spirit-doc-do-dont__item--{{ example.type }}">
+    <div class="spirit-doc-do-dont__item-inner{{ caption_only_class }}">
+      {% if example.img_src %}
+        <img class="spirit-doc-do-dont__image" src="{{example.img_src}}" alt="{{ example.caption }}">
+      {% else %}
+        {% if display == 'list' %}
+          {% set icon = 'thumbs-up' %}
+
+          {% if example.type == 'dont' %}
+            {% set icon = 'thumbs-down' %}
+          {% endif %}
+          
+          <span class="spirit-doc-do-dont__list-icon-wrap">
+            {{ library.icon(name=icon, class="spirit-doc-do-dont__list-icon") }}
+          </span>
+        {% endif %}
+        <figcaption class="spirit-doc-do-dont__caption spirit-doc-do-dont__caption--standalone">
+          <div class="spirit-doc-do-dont__caption--text">
+            {{ example.caption }}
+          </div>
+        </figcaption>
+      {% endif %}
+    </div>
+    {% if example.img_src %}
+      <figcaption class="spirit-doc-do-dont__caption">
+        <div class="spirit-doc-do-dont__caption--text">
+          {{ example.caption }}
+        </div>
+      </figcaption>
+    {% endif %}
+  </figure>
+{% endmacro %}
