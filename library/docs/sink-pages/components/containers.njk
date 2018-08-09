@@ -116,7 +116,7 @@
   {% endcall %}
 
   <h3 class="hostile-sink-reset">Dark Large Width</h3>
-  {% call library.container(background_color="dark", background_fullbleed=false) %}
+  {% call library.container(inner_background_color="dark") %}
     <div class="demo-inner-bg">Dark Container Width</div>
   {% endcall %}
 
@@ -126,7 +126,7 @@
   {% endcall %}
 
   <h3 class="hostile-sink-reset">White Large Width</h3>
-  {% call library.container(background_color="white", background_fullbleed=false) %}
+  {% call library.container(inner_background_color="white") %}
     <div class="demo-inner-bg">White Container Width</div>
   {% endcall %}
 
@@ -147,7 +147,7 @@
     <div class="demo-inner-bg">Large, padding top S, Full Width</div>
   {% endcall %}
 
-  {% call library.container(background_color="dark", size="large", padding_top="lg", padding_bottom="s", background_fullbleed=false) %}
+  {% call library.container(inner_background_color="dark", size="large", padding_top="lg", padding_bottom="s") %}
     <div class="demo-inner-bg">Dark, padding top LG, padding bottom S, Large</div>
   {% endcall %}
 
@@ -223,7 +223,7 @@
     {% endcall %}
   {% endcall %}
 
-  {% call library.container(size="large", background_color="dark") %}
+  {% call library.container(size="large", inner_background_color="dark") %}
       <div class="spirit-long-form-text">
           <h2>
               You Can Help Turn Type One Into Type None
