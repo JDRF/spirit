@@ -185,6 +185,34 @@
     </div>
   {% endcall %}
 
+  {% call library.container() %}
+      <div class="spirit-row">
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+      </div>
+  {% endcall %}
+
+  {% call library.container(size="large") %}
+      <div class="spirit-row">
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+      </div>
+  {% endcall %}
+
   <h2 class="hostile-sink-reset">Content Examples</h2>
   {% call library.container(size="large", background_color="white") %}
     {% call library.card_grid(class="spirit-card-grid--4-up") %}

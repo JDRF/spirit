@@ -31,10 +31,14 @@ $spirit-container-inner-max-width-large: 1000px;
 
 .spirit-container__inner--fullwidth {
   max-width: $spirit-container-inner-max-width-full;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .spirit-container__inner--large {
   max-width: $spirit-container-inner-max-width-large;
+  padding-left: 0;
+  padding-right: 0;
   @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     width: calc(100% - (#{$spirit-container-inner-horizontal-space-m} * 2));
   }
