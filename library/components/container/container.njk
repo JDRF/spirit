@@ -12,8 +12,8 @@
         {% elif background_color %}
           {% set container_background_color = background_color %}
         {% endif %}
-    <div class="spirit-wrapper{{' spirit-wrapper--' + full_bleed_background_color if full_bleed_background_color}}">
-      <div class="spirit-container{{ '--' + size if size }} {{'spirit-container--padding-top-' + padding_top if padding_top}} {{'spirit-container--padding-bottom-' + padding_bottom if padding_bottom}} {{'spirit-container--' + container_background_color if container_background_color}}">
+    <div class="spirit-container{{' spirit-container--' + full_bleed_background_color if full_bleed_background_color}}">
+      <div class="spirit-container__inner{{ '--' + size if size }} {{'spirit-container__inner--padding-top-' + padding_top if padding_top}} {{'spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}} {{'spirit-container__inner--' + container_background_color if container_background_color}}">
         {{ caller() }}
       </div>
     </div>

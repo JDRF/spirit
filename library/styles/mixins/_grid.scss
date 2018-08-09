@@ -19,7 +19,7 @@ $grid-breakpoints: (
   xl: $spirit-breakpoint-xl
 );
 
-.spirit-container,
+.spirit-container__inner,
 .spirit-row,
 [class^='spirit-col'] {
   @include spirit-box-sizing(border-box);

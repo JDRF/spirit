@@ -1,5 +1,18 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+  <style>
+    [class*="demo-inner-bg"] {
+      background-color: #EDEFF2;
+    }
+    [class*="spirit-container__inner"]:not(.spirit-container__inner--dark):not(.spirit-container__inner--white) {
+      background-color: #FFA6C4;
+    }
+    .spirit-container--dark [class*="spirit-container__inner"]:not(.spirit-container__inner--dark):not(.spirit-container__inner--white),
+    .spirit-container--white [class*="spirit-container__inner"]:not(.spirit-container__inner--dark):not(.spirit-container__inner--white) {
+      background-color: transparent;
+    }
+  </style>
+
   {% set sample_cards %}
     {{ library.card() }}
     {{ library.card(
@@ -51,18 +64,6 @@
       img_src='/images/components/tile/onewalk_baloons.jpg',
       link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
   {% endset %}
-  <style>
-    [class*="demo-inner-bg"] {
-      background-color: #EDEFF2;
-    }
-    [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white) {
-      background-color: #FFA6C4;
-    }
-    .spirit-wrapper--dark [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white),
-    .spirit-wrapper--white [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white) {
-      background-color: transparent;
-    }
-  </style>
 
   <h1 class="hostile-sink-reset">Containers Sink</h1>
 

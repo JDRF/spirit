@@ -1,16 +1,16 @@
 // Token proposal
 $spirit-breakpoint-grid: 1080px; // from grid.scss
 
-$spirit-container-breakpoint-m: $spirit-breakpoint-grid;
+$spirit-spirit-container-breakpoint-m: $spirit-breakpoint-grid;
 $spirit-container-breakpoint-l: 1360px;
-$spirit-container-horizontal-space-m: 80px;
-$spirit-container-max-width-full: 1152px;
-$spirit-container-max-width-large: 1000px;
+$spirit-container-inner-horizontal-space-m: 80px;
+$spirit-container-inner-max-width-full: 1152px;
+$spirit-container-inner-max-width-large: 1000px;
 
 // Shared styles
-.spirit-wrapper {
+.spirit-container {
   @include spirit-typography-reset;
-  box-sizing: border-box;
+  @include spirit-box-sizing(border-box);
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
@@ -18,8 +18,8 @@ $spirit-container-max-width-large: 1000px;
   width: 100%;
 }
 
-.spirit-container--fullwidth,
-.spirit-container--large {
+.spirit-container__inner--fullwidth,
+.spirit-container__inner--large {
   @include spirit-typography-reset;
   box-sizing: border-box;
   margin-left: auto;
@@ -29,17 +29,17 @@ $spirit-container-max-width-large: 1000px;
 
 // Container width
 
-.spirit-container--fullwidth {
-  max-width: $spirit-container-max-width-full;
+.spirit-container__inner--fullwidth {
+  max-width: $spirit-container-inner-max-width-full;
 }
 
-.spirit-container--large {
-  max-width: $spirit-container-max-width-large;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
-    width: calc(100% - (#{$spirit-container-horizontal-space-m} * 2));
+.spirit-container__inner--large {
+  max-width: $spirit-container-inner-max-width-large;
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
+    width: calc(100% - (#{$spirit-container-inner-horizontal-space-m} * 2));
   }
   @media screen and (min-width: $spirit-container-breakpoint-l) {
-    max-width: $spirit-container-max-width-large;
+    max-width: $spirit-container-inner-max-width-large;
     padding-left: 0;
     padding-right: 0;
   }
@@ -47,69 +47,68 @@ $spirit-container-max-width-large: 1000px;
 
 // Top, bottom padding options
 
-.spirit-container--padding-top-xs {
+.spirit-container__inner--padding-top-xs {
   padding-top: $spirit-space-generic-3-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-top: $spirit-space-generic-4-x;
   }
 }
 
-.spirit-container--padding-bottom-xs {
+.spirit-container__inner--padding-bottom-xs {
   padding-bottom: $spirit-space-generic-3-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-bottom: $spirit-space-generic-4-x;
   }
 }
 
-.spirit-container--padding-top-s {
+.spirit-container__inner--padding-top-s {
   padding-top: $spirit-space-generic-4-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-top: $spirit-space-generic-8-x;
   }
 }
 
-.spirit-container--padding-bottom-s {
+.spirit-container__inner--padding-bottom-s {
   padding-bottom: $spirit-space-generic-4-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-bottom: $spirit-space-generic-8-x;
   }
 }
 
-.spirit-container--padding-top-m {
+.spirit-container__inner--padding-top-m {
   padding-top: $spirit-space-generic-6-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-top: $spirit-space-generic-12-x;
   }
 }
 
-.spirit-container--padding-bottom-m {
+.spirit-container__inner--padding-bottom-m {
   padding-bottom: $spirit-space-generic-6-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-bottom: $spirit-space-generic-12-x;
   }
 }
 
-.spirit-container--padding-top-lg {
+.spirit-container__inner--padding-top-lg {
   padding-top: $spirit-space-generic-12-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-top: $spirit-space-generic-24-x;
   }
 }
 
-.spirit-container--padding-bottom-lg {
+.spirit-container__inner--padding-bottom-lg {
   padding-bottom: $spirit-space-generic-12-x;
-  @media screen and (min-width: $spirit-container-breakpoint-m) {
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-bottom: $spirit-space-generic-24-x;
   }
 }
 
 // Background color option
 
-.spirit-wrapper--dark {
+.spirit-container--dark {
   @include spirit-container--brand;
 }
 
-.spirit-container--dark {
+.spirit-container__inner--dark {
   @include spirit-container--brand;
-  border-radius: 8px;
 }
