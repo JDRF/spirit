@@ -148,8 +148,11 @@
 }
 
 @mixin spirit-subhead {
+  @include spirit-typography-reset(
+    $color: $spirit-text-color-secondary,
+    $font-size: $spirit-font-size-subhead-normal
+  );
   @include spirit-dark-parent-light-text;
-  @include spirit-typography-reset($font-size: $spirit-font-size-subhead-normal);
 
   @media screen and (min-width: $spirit-breakpoint-l) {
     font-size: $spirit-font-size-subhead-breakpoint-l;
@@ -157,17 +160,26 @@
 }
 
 @mixin spirit-body-text-l {
-  @include spirit-typography-reset($font-size: $spirit-font-size-l);
+  @include spirit-typography-reset(
+    $color: $spirit-text-color-secondary,
+    $font-size: $spirit-font-size-l
+  );
   @include spirit-dark-parent-light-text;
 }
 
 @mixin spirit-body-text-m {
-  @include spirit-typography-reset($font-size: $spirit-font-size-m);
+  @include spirit-typography-reset(
+    $color: $spirit-text-color-secondary,
+    $font-size: $spirit-font-size-m
+  );
   @include spirit-dark-parent-light-text;
 }
 
 @mixin spirit-body-text-s {
-  @include spirit-typography-reset($font-size: $spirit-font-size-s);
+  @include spirit-typography-reset(
+    $color: $spirit-text-color-secondary,
+    $font-size: $spirit-font-size-s
+  );
   @include spirit-dark-parent-light-text;
 }
 
