@@ -75,23 +75,23 @@
   {% set button_state_example_secondary %}
     <div class="spirit-doc-button-states-example-wrap">
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary") }}
+        {{ library.button(text="Cancel", class="spirit-button--secondary") }}
         <span class="spirit-doc-button-states-label">Normal</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--hover") }}
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--hover") }}
         <span class="spirit-doc-button-states-label">Hover</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--active") }}
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--active") }}
         <span class="spirit-doc-button-states-label">Active</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--focus") }}
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--focus") }}
         <span class="spirit-doc-button-states-label">Focus</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Learn More", class="spirit-button--secondary spirit-button--disabled", disabled="true") }}
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--disabled", disabled="true") }}
         <span class="spirit-doc-button-states-label">Disabled</span>
       </div>
     </div>
@@ -99,7 +99,7 @@
 
   {{ esds_doc.code_example_pair(
     examples=[ { example: button_state_example_secondary } ],
-    code_snippet_source=(library.button(class="spirit-button--secondary", text="Learn More") + ' ' + library.button(class="spirit-button--secondary", text="Learn More", disabled="true"))
+    code_snippet_source=(library.button(class="spirit-button--secondary", text="Cancel") + ' ' + library.button(class="spirit-button--secondary", text="Cancel", disabled="true"))
     )
   }}
 
@@ -118,23 +118,23 @@
   {% set button_state_example_minimal %}
     <div class="spirit-doc-button-states-example-wrap">
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal") }}
+        {{ library.button(text="Details", class="spirit-button--minimal") }}
         <span class="spirit-doc-button-states-label">Normal</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--hover") }}
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--hover") }}
         <span class="spirit-doc-button-states-label">Hover</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--active") }}
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--active") }}
         <span class="spirit-doc-button-states-label">Active</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--focus") }}
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--focus") }}
         <span class="spirit-doc-button-states-label">Focus</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(text="Resources", class="spirit-button--minimal spirit-button--disabled", disabled="true") }}
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--disabled", disabled="true") }}
         <span class="spirit-doc-button-states-label">Disabled</span>
       </div>
     </div>
@@ -142,7 +142,7 @@
 
   {{ esds_doc.code_example_pair(
     examples=[ { example: button_state_example_minimal } ],
-    code_snippet_source=(library.button(class="spirit-button--minimal", text="Resources") + ' ' + library.button(class="spirit-button--minimal", text="Resources", disabled="true"))
+    code_snippet_source=(library.button(class="spirit-button--minimal", text="Details") + ' ' + library.button(class="spirit-button--minimal", text="Details", disabled="true"))
     )
   }}
 
@@ -154,16 +154,16 @@
   {{ esds_doc.code_example_pair( 
     examples=[
       {
-        example: library.button(class="spirit-button--minimal", text="Resources"),
+        example: library.button(class="spirit-button--minimal", text="Details"),
         label: "Minimal on light"
       },
       {
-        example: library.button(class="spirit-button--minimal", text="Resources"),
+        example: library.button(class="spirit-button--minimal", text="Details"),
         label: "Minimal on dark",
         class: "spirit-container--dark spirit-container--brand"
       }
     ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--minimal", text="Resources") + '</div>')
+    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--minimal", text="Details") + '</div>')
   )
   }}
 
@@ -371,7 +371,7 @@
         <span class="spirit-doc-button-states-label">Secondary</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(class="spirit-button--extra-small spirit-button--minimal", text="Resources") }}
+        {{ library.button(class="spirit-button--extra-small spirit-button--minimal", text="Details") }}
         <span class="spirit-doc-button-states-label">Minimal</span>
       </div>
       <div class="spirit-doc-button-states-example">
@@ -401,7 +401,7 @@
         <span class="spirit-doc-button-states-label">Secondary</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(class="spirit-button--small spirit-button--minimal", text="Resources") }}
+        {{ library.button(class="spirit-button--small spirit-button--minimal", text="Details") }}
         <span class="spirit-doc-button-states-label">Minimal</span>
       </div>
       <div class="spirit-doc-button-states-example">
@@ -432,7 +432,7 @@
         <span class="spirit-doc-button-states-label">Secondary</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(class="spirit-button--minimal", text="Resources") }}
+        {{ library.button(class="spirit-button--minimal", text="Details") }}
         <span class="spirit-doc-button-states-label">Minimal</span>
       </div>
       <div class="spirit-doc-button-states-example">
@@ -463,7 +463,7 @@
         <span class="spirit-doc-button-states-label">Secondary</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(class="spirit-button--large spirit-button--minimal", text="Resources") }}
+        {{ library.button(class="spirit-button--large spirit-button--minimal", text="Details") }}
         <span class="spirit-doc-button-states-label">Minimal</span>
       </div>
       <div class="spirit-doc-button-states-example">
