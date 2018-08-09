@@ -61,15 +61,12 @@ $esds-doc-code-snippet-space-stack: $spirit-space-generic-4-x;
   }
 }
 
-.esds-doc-code-example-pair__example-list {
-  overflow: hidden;
-}
-
 .esds-doc-html-example-list__item {
   border-bottom: 0;
 
   &:first-child {
     padding-top: $spirit-space-generic-3-x;
+    border-radius: 4px 4px 0 0;
   }
 
   &:last-child {

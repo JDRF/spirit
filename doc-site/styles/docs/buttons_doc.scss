@@ -5,6 +5,15 @@
   justify-content: space-between;
 }
 
+.spirit-doc-button-states-example {
+  align-self: flex-end;
+  min-width: 100px;
+  & > *:first-child {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 .spirit-doc-button-states-label {
   color: $spirit-text-color-secondary;
   display: block;

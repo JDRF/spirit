@@ -292,7 +292,7 @@
   }}
   {% filter markdown %}
       ### Toggle Button
-      Use in place of a radio group or checkbox group to capture a key user selection. 
+      Use in place of a radio group or checkboxes to capture a key user selection. 
 
       #### Using Checkboxes to Show Toggle States
   {% endfilter %}
@@ -477,12 +477,16 @@
 
   {% endset %}
   {{ esds_doc.html_example_list( example=button_size_example_large ) }}
-
   {% filter markdown %}
   
       ### Responsive Sizing
       Buttons can be sized responsively. By default, buttons stay the same size on all viewports. By adding breakpoint-specific classes, a button can have different sizes for small, medium, and large viewports. 
-      
+    
+
+    A class of: `.spirit-button--extra-small-lg`
+
+      Would result in an **extra small** button at the **largest** viewport breakpoint.
+
       #### Responsive Sizing Reference
 
   {% endfilter %}
@@ -545,11 +549,6 @@
     {{ esds_doc.reference_table(column_widths=[35, 30, 35],
     data=[
       {
-        class: '.spirit-button',
-        applies_to: '<button>, <input>, <a>',
-        outcome: 'Applies default button style (primary)'
-      },
-      {
         class: '.spirit-button--secondary',
         applies_to: '.spirit-button',
         outcome: 'Applies secondary button style'
@@ -567,33 +566,17 @@
       {
         class: '.spirit-button--toggle',
         applies_to: '.spirit-button',
-        outcome: 'Applies toggle button style to `<input type=”radio”>` or `<input type=”checkbox”>`'
+        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
       },
       {
-        class: '.spirit-button--small',
+        class: '.spirit-button--[size]',
         applies_to: '.spirit-button',
-        outcome: 'Default syntax for button sizing which works at all sizes. If defining multiple responsive sizes, this is the baseline for small viewports, “mobile first”. '
-      },
-      {
-        class: '.spirit-button--small-md',
-        applies_to: '.spirit-button',
-        outcome: 'Applies the `small` size on medium viewports.'
-      },
-      {
-        class: '.spirit-button--small-lg',
-        applies_to: '.spirit-button',
-        outcome: 'Applies [size] at medium breakpoint.'
-      },
-      {
-        class: '.spirit-button--[ size ]-md',
-        applies_to: '.spirit-button',
-        outcome: 'Applies the `small` size on medium viewports.'
-      },
-      {
-        class: '.spirit-button--[ size ]-lg',
-        applies_to: '.spirit-button',
-        outcome: 'Applies [size] at large breakpoint.'
+        outcome: 'Applies button size styles. Use `--extra-small`, `--small`,  `--large.` Default size is implied and does not need to be specified.'
       }
     ]) }}
+
+  {% filter markdown %}
+      Buttons can be sized responsively. See <a href="#responsive-sizing">Responsive Sizing</a>.
+  {% endfilter %}
 
 {% endblock body %}
