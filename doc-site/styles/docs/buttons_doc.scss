@@ -8,10 +8,12 @@
 .spirit-doc-button-states-example {
   align-self: flex-end;
   min-width: 100px;
+
   & > *:first-child {
     display: block;
     margin: 0 auto;
   }
+
 }
 
 .spirit-doc-button-states-label {
@@ -30,6 +32,6 @@
 
 // temporary - remove when the templates are ready
 body {
-  max-width: 800px;
   margin: auto;
+  max-width: 800px;
 }
