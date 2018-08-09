@@ -11,10 +11,10 @@ $spirit-container-max-width-large: 1000px;
 .spirit-wrapper {
   @include spirit-typography-reset;
   box-sizing: border-box;
-  padding-left: 0;
-  padding-right: 0;
   margin-left: 0;
   margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
   width: 100%;
 }
 
@@ -24,7 +24,7 @@ $spirit-container-max-width-large: 1000px;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  width: calc( 100% - (#{$spirit-space-generic-3-x} * 2))
+  width: calc(100% - (#{$spirit-space-generic-3-x} * 2));
 }
 
 // Container width
@@ -36,7 +36,7 @@ $spirit-container-max-width-large: 1000px;
 .spirit-container--large {
   max-width: $spirit-container-max-width-large;
   @media screen and (min-width: $spirit-container-breakpoint-m) {
-    width: calc( 100% - (#{$spirit-container-horizontal-space-m} * 2))
+    width: calc(100% - (#{$spirit-container-horizontal-space-m} * 2));
   }
   @media screen and (min-width: $spirit-container-breakpoint-l) {
     max-width: $spirit-container-max-width-large;
