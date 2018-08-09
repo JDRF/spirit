@@ -3,6 +3,8 @@ module.exports = {
     webroot: '../docs',
     forceCleanWebroot: true, // Use if the webroot is outside the default project directory
     latestVersionPath: '',
+    includeMarkdownWrapper: true, 
+    markdownWrapperClass: 'spirit-long-form-text',
     copyTasks: [
         {
             name: 'script-dependencies',
