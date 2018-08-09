@@ -2,9 +2,19 @@
         size='fullwidth',
         padding_top='m',
         padding_bottom='m',
-        background_color=false
+        background_color=false,
+        background_fullbleed='true',
+        full_bleed_background_color=false,
+        container_background_color=false
         ) %}
-  <div class="spirit-container{{ '--' + size if size }} {{'spirit-container--padding-top-' + padding_top if padding_top}} {{'spirit-container--padding-bottom-' + padding_bottom if padding_bottom}} {{'spirit-container--' + background_color if background_color}}">
-    {{ caller() }}
-  </div>
+        {% if background_color and background_fullbleed%}
+          {% set full_bleed_background_color = background_color %}
+        {% elif background_color %}
+          {% set container_background_color = background_color %}
+        {% endif %}
+    <div class="spirit-wrapper{{' spirit-wrapper--' + full_bleed_background_color if full_bleed_background_color}}">
+      <div class="spirit-container{{ '--' + size if size }} {{'spirit-container--padding-top-' + padding_top if padding_top}} {{'spirit-container--padding-bottom-' + padding_bottom if padding_bottom}} {{'spirit-container--' + container_background_color if container_background_color}}">
+        {{ caller() }}
+      </div>
+    </div>
 {% endmacro %}

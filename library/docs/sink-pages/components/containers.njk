@@ -7,6 +7,10 @@
     [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white) {
       background-color: #FFA6C4;
     }
+    .spirit-wrapper--dark [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white),
+    .spirit-wrapper--white [class*="spirit-container"]:not(.spirit-container--dark):not(.spirit-container--white) {
+      background-color: transparent;
+    }
   </style>
 
   <h1 class="hostile-sink-reset">Containers Sink</h1>
@@ -54,14 +58,24 @@
     <div class="demo-inner-bg">None</div>
   {% endcall %}
 
-  <h3 class="hostile-sink-reset">Dark</h3>
+  <h3 class="hostile-sink-reset">Dark Full Width</h3>
   {% call library.container(background_color="dark") %}
-    <div class="demo-inner-bg">Dark</div>
+    <div class="demo-inner-bg">Dark Full Width</div>
   {% endcall %}
 
-  <h3 class="hostile-sink-reset">White</h3>
+  <h3 class="hostile-sink-reset">Dark Large Width</h3>
+  {% call library.container(background_color="dark", background_fullbleed=false) %}
+    <div class="demo-inner-bg">Dark Container Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">White Full Width</h3>
   {% call library.container(background_color="white") %}
-    <div class="demo-inner-bg">White</div>
+    <div class="demo-inner-bg">White Full Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">White Large Width</h3>
+  {% call library.container(background_color="white", background_fullbleed=false) %}
+    <div class="demo-inner-bg">White Container Width</div>
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Stacked containers</h2>
@@ -75,6 +89,14 @@
 
   {% call library.container(background_color="dark",padding_top="m",padding_bottom="lg") %}
     <div class="demo-inner-bg">Dark, padding top M, padding bottom LG</div>
+  {% endcall %}
+
+  {% call library.container(size="large", padding_top="s", background_fullbleed=false) %}
+    <div class="demo-inner-bg">Large, padding top S, Full Width</div>
+  {% endcall %}
+
+  {% call library.container(background_color="dark", size="large", padding_top="lg", padding_bottom="s", background_fullbleed=false) %}
+    <div class="demo-inner-bg">Dark, padding top LG, padding bottom S, Large</div>
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Grid</h2>

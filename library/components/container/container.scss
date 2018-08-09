@@ -1,10 +1,22 @@
-$spirit-container-breakpoint-m: 1080px;
+// Token proposal
+$spirit-breakpoint-grid: 1080px; // from grid.scss
+
+$spirit-container-breakpoint-m: $spirit-breakpoint-grid;
 $spirit-container-breakpoint-l: 1360px;
 $spirit-container-horizontal-space-m: 80px;
 $spirit-container-max-width-full: 1152px;
 $spirit-container-max-width-large: 1000px;
 
 // Shared styles
+.spirit-wrapper {
+  @include spirit-typography-reset;
+  box-sizing: border-box;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
 
 .spirit-container--fullwidth,
 .spirit-container--large {
@@ -12,25 +24,19 @@ $spirit-container-max-width-large: 1000px;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $spirit-space-generic-3-x;
-  padding-right: $spirit-space-generic-3-x;
-  width: 100%;
+  width: calc( 100% - (#{$spirit-space-generic-3-x} * 2))
 }
 
 // Container width
 
 .spirit-container--fullwidth {
-  @media screen and (min-width: $spirit-container-breakpoint-l) {
-    max-width: $spirit-container-max-width-full;
-    padding-left: 0;
-    padding-right: 0;
-  }
+  max-width: $spirit-container-max-width-full;
 }
 
 .spirit-container--large {
+  max-width: $spirit-container-max-width-large;
   @media screen and (min-width: $spirit-container-breakpoint-m) {
-    padding-left: $spirit-container-horizontal-space-m;
-    padding-right: $spirit-container-horizontal-space-m;
+    width: calc( 100% - (#{$spirit-container-horizontal-space-m} * 2))
   }
   @media screen and (min-width: $spirit-container-breakpoint-l) {
     max-width: $spirit-container-max-width-large;
@@ -99,6 +105,11 @@ $spirit-container-max-width-large: 1000px;
 
 // Background color option
 
+.spirit-wrapper--dark {
+  @include spirit-container--brand;
+}
+
 .spirit-container--dark {
   @include spirit-container--brand;
+  border-radius: 8px;
 }
