@@ -1,8 +1,9 @@
-@import '../node_modules/spirit/styles/spirit';
+@import '../node_modules/@jdrfhq/spirit/styles/spirit';
 @import 'shared/typography';
 @import 'doc_components/esds_doc_component_overrides';
 
 @import '../components/code_example_pair/code_example_pair';
+@import '../components/do_dont/do_dont';
 @import '../components/icon_swatch/icon_swatch';
 @import '../components/reference_table/reference_table';
 @import '../components/tint_stack/tint_stack';

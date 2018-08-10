@@ -3,6 +3,8 @@ module.exports = {
     webroot: '../docs',
     forceCleanWebroot: true, // Use if the webroot is outside the default project directory
     latestVersionPath: '',
+    includeMarkdownWrapper: true,
+    markdownWrapperClass: 'spirit-long-form-text',
     copyTasks: [
         {
             name: 'script-dependencies',
@@ -21,7 +23,7 @@ module.exports = {
         {
             name: 'spirit-styles',
             sources: [
-                    'node_modules/spirit/dist/spirit.css',
+                    'node_modules/@jdrfhq/spirit/dist/spirit.css',
                     'node_modules/prismjs/themes/prism.css'], // required by esds-doc
             destination: '../docs/styles/dependencies',
             watch: true
@@ -29,14 +31,14 @@ module.exports = {
         {
             name: 'spirit-icon',
             sources: [
-                    'node_modules/spirit/dist/spirit.svg'],
+                    'node_modules/@jdrfhq/spirit/dist/spirit.svg'],
             destination: '../docs/icons',
             watch: true
         },
         {
             name: 'spirit-icon-data',
             sources: [
-                    'node_modules/spirit/data/icons.json'],
+                    'node_modules/@jdrfhq/spirit/data/icons.json'],
             destination: 'data',
             rename: 'spirit_icons.json',
             watch: true
@@ -44,7 +46,7 @@ module.exports = {
     ],
     dependencies: [
         {
-            moduleName: 'spirit'
+            moduleName: '@jdrfhq/spirit'
         },
         {
             moduleName: 'esds-doc'

@@ -3,7 +3,9 @@
 .spirit-col--dark {
   background: $spirit-brand-color-primary;
   color: $spirit-color-white;
-   h2, h3 {
-     color: $spirit-color-white;
-   }
+
+  h2, 
+  h3 {
+    color: $spirit-color-white;
+  }
 }
