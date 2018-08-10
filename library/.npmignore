@@ -25,7 +25,7 @@ jspm_packages/
 /docs
 /images
 /templates
-/components/**/*.njk
+/components/*/*.njk
 /dist/*-sink-page.css
 /styles/*-sink-page.scss
 esds-build-config.js

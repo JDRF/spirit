@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const tap = require('gulp-tap');
 const slash = require('slash');
-const spiritProjectData = require(`${process.cwd()}/node_modules/spirit/package.json`);
+const spiritProjectData = require(`${process.cwd()}/node_modules/@jdrfhq/spirit/package.json`);
 
 gulp.task('write-spirit-project-data-to-json', function(done){
   fs.mkdirpSync('data');
