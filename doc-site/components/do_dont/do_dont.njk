@@ -1,6 +1,5 @@
 {% macro do_dont(
           class,
-          display='block',
           examples=[
             {
               type: 'do',
@@ -14,9 +13,6 @@
             }
           ]) %}
   {% set modifier_class = '' %}
-  {% if display == 'list' %}
-    {% set modifier_class = ' spirit-doc-do-dont--list' %}
-  {% endif %}
 
   <div class="spirit-doc-do-dont{{ modifier_class }}">
     {% for example in examples %}
@@ -42,17 +38,6 @@
       {% if example.img_src %}
         <img class="spirit-doc-do-dont__image" src="{{example.img_src}}" alt="{{ example.caption }}">
       {% else %}
-        {% if display == 'list' %}
-          {% set icon = 'thumbs-up' %}
-
-          {% if example.type == 'dont' %}
-            {% set icon = 'thumbs-down' %}
-          {% endif %}
-          
-          <span class="spirit-doc-do-dont__list-icon-wrap">
-            {{ library.icon(name=icon, class="spirit-doc-do-dont__list-icon") }}
-          </span>
-        {% endif %}
         <figcaption class="spirit-doc-do-dont__caption spirit-doc-do-dont__caption--standalone">
           <div class="spirit-doc-do-dont__caption--text">
             {{ example.caption }}

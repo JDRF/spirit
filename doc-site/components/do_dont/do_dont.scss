@@ -40,17 +40,6 @@
     position: absolute;
     width: 100%;
   }
-
-  .spirit-doc-do-dont--list & {
-    align-items: center;
-    border: 0;
-    flex-direction: row;
-    padding-bottom: 0;
-
-    &:after {
-      display: none;
-    }
-  }
 }
 
 .spirit-doc-do-dont__item-inner--caption-only {
@@ -90,35 +79,5 @@
   flex: 1 1 auto;
   margin: 0;
   padding: $spirit-space-generic-4-x $spirit-space-generic-6-x;
-
-  .spirit-doc-do-dont--list & {
-    background: none;
-    padding: 0;
-  }
 }
 
-.spirit-doc-do-dont__list-icon-wrap {
-  align-items: center;
-  background: $spirit-feedback-color-background-success;
-  border-radius: 50%;
-  display: flex;
-  flex: 0 0 auto;
-  height: 48px;
-  justify-content: center;
-  margin: $spirit-space-inline-left-1-x;
-  width: 48px;
-
-  .spirit-doc-do-dont__item--dont & {
-    background: $spirit-feedback-color-background-danger;
-  }
-}
-
-.spirit-doc-do-dont__list-icon {
-  height: $spirit-size-icon-m;
-  stroke: $spirit-feedback-color-foreground-success;
-  width: $spirit-size-icon-m;
-
-  .spirit-doc-do-dont__item--dont & {
-    stroke: $spirit-feedback-color-foreground-danger;
-  }
-}
