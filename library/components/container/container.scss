@@ -18,10 +18,20 @@ $spirit-container-inner-max-width-large: 1000px;
   width: 100%;
 }
 
-.spirit-container__inner,
-.spirit-container__inner--fullwidth {
+.spirit-container__inner {
   @include spirit-typography-reset;
   box-sizing: border-box;
+  padding-bottom: $spirit-space-generic-6-x;
+  padding-top: $spirit-space-generic-6-x;
+
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
+    padding-bottom: $spirit-space-generic-12-x;
+    padding-top: $spirit-space-generic-12-x;
+  }
+}
+
+.spirit-container__inner,
+.spirit-container__inner--fullwidth {
   margin-left: auto;
   margin-right: auto;
   max-width: $spirit-container-inner-max-width-full;
