@@ -239,6 +239,7 @@
       Use when an action isn’t instant and thus acts as a loader or progress indicator. 
 
   {% endfilter %}
+
   {{ esds_doc.code_example_pair( 
     examples=[
       {
@@ -261,14 +262,16 @@
     )
   )
   }}
+
   {% filter markdown %}
 
-      <div class="spirit-alert spirit-alert--info">Note: These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic. </a>
+    <div class="spirit-alert spirit-alert--info">Note: These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.</div>
 
-      #### Feedback
-      Use feedback colors to communicate success or danger on a primary button. 
+    #### Feedback
+    Use feedback colors to communicate success or danger on a primary button. 
 
   {% endfilter %}
+
   {{ esds_doc.code_example_pair( 
     examples=[
       {
@@ -513,28 +516,49 @@
 
 
   {% filter markdown %}
-      ## Guidelines
-      ### Use When
-      * To activate or trigger an action
-      * To initiate a task
-      * To elevate the visibility of a navigation link, particularly the ubiquitous “Learn More”
-      * To cancel or dismiss something
+    ## Guidelines
+    ### Use When
+    * To activate or trigger an action
+    * To initiate a task
+    * To elevate the visibility of a navigation link, particularly the ubiquitous “Learn More”
+    * To cancel or dismiss something
 
-      ### Editorial
-      <img src="/images/buttons/Do-button-verb@2x.png" alt="" style="width:400px" />
-      Do use a strong, positive verb imperative for calls to action
-      <img src="/images/buttons/Do-button-verb-object@2x.png" alt="" style="width:400px" />      
-      Do append the object of the action after the verb if the action is unfamiliar
-      
-      ### Visual Style
-      <img src="/images/buttons/Do@2x.png" alt="" style="width:400px" />
-      Do use the same size for adjacent buttons
-      
-      <img src="/images/buttons/Dont@2x.png" alt="" style="width:400px" />
-      Don’t mix and match sizes on the same row
+    ### Editorial
+  {% endfilter %}
 
-      ### Accessibility
-      * Use the `aria-label` attribute on the SVG within an icon only button. See <a href="/visual-style/iconography.html">icons</a> for additional guidance. 
+  {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'use a strong, positive verb imperative for calls to action',
+        img_src: '/images/buttons/Do-button-verb@2x.png'
+      },
+      {
+        type: 'do',
+        caption: 'append the object of the action after the verb if the action is unfamiliar',
+        img_src: '/images/buttons/Do-button-verb-object@2x.png'
+      }
+    ]) }}
+  
+  {% filter markdown %}
+    ### Visual Style
+  {% endfilter %}
+
+  {{ spirit_doc.do_dont(examples=[
+    {
+      type: 'do',
+      caption: 'use the same size for adjacent buttons',
+      img_src: '/images/buttons/Do@2x.png'
+    },
+    {
+      type: 'dont',
+      caption: 'mix and match sizes on the same row',
+      img_src: '/images/buttons/Dont@2x.png'
+    }
+  ]) }}
+
+  {% filter markdown %}
+    ### Accessibility
+    * Use the `aria-label` attribute on the SVG within an icon only button. See <a href="/visual-style/iconography.html">icons</a> for additional guidance. 
   {% endfilter %}
   {% filter markdown %}
       ## Code Reference
