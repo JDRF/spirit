@@ -1,204 +1,606 @@
 {% extends 'templates/base.njk' %}
 {% block body %}
-  <h1>Buttons Documentation Page</h1>
   {% filter markdown %}
-      ## Markdown works within this filter
+      <h1>Buttons</h1>
 
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, culpa eos laudantium voluptatem, ea alias autem earum esse ipsam, quo nemo quas modi velit sunt voluptatum ut eum suscipit sed?
-  {% endfilter %}
+      <p class="spirit-subhead">Buttons invite and trigger key actions throughout the experience.</p>
 
-  {% filter markdown %}
       ### Primary
+
+      Use for the highest-priority actions. 
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(examples=[
+  {% set button_state_example_primary %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Donate") }}
+        <span class="spirit-doc-button-states-label">Normal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Donate", class="spirit-button--hover") }}
+        <span class="spirit-doc-button-states-label">Hover</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Donate", class="spirit-button--active") }}
+        <span class="spirit-doc-button-states-label">Active</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Donate", class="spirit-button--focus") }}
+        <span class="spirit-doc-button-states-label">Focus</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Donate", class="spirit-button--disabled", disabled="true") }}
+        <span class="spirit-doc-button-states-label">Disabled</span>
+      </div>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: button_state_example_primary } ],
+    code_snippet_source=(library.button(text="Donate") + ' ' + library.button(text="Donate", disabled="true"))
+    )
+  }}
+
+  {% filter markdown %}
+      * Use once per page for the key action to complete the user’s task. 
+      * Use for the primary action in temporary alerts and overlays, such as modal and dialog. 
+      * Use for calls to action that kick off a task, such as register, donate, sign up. 
+
+      #### On Dark
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
       {
-        example: library.button(text="Learn More"),
-        label: "Default State"
+        example: library.button(text="Donate"),
+        label: "Primary on light"
       },
       {
-        example: library.button(class="spirit-button--hover", text="Learn More"),
-        label: "Hover"
-      },
-      {
-        example: library.button(class="spirit-button--active", text="Learn More"),
-        label: "Active"
-      },
-      {
-        example: library.button(text="Learn More", disabled="true"),
-        label: "Disabled"
-      },
-      {
-        example: library.button(class="spirit-button--focus", text="Learn More"),
-        label: "Focus"
+        example: library.button(text="Donate"),
+        label: "Primary on dark",
+        class: "spirit-container--dark spirit-container--brand"
       }
-    ])
+    ],
+    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
+  )
   }}
 
   {% filter markdown %}
       ### Secondary
+
+      Use for non-critical actions. 
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(examples=[
-      {
-        example: library.button(class="spirit-button--secondary", text="Learn More"),
-        label: "Default State"
-      },
-      {
-        example: library.button(class="spirit-button--secondary spirit-button--hover", text="Learn More"),
-        label: "Hover"
-      },
-      {
-        example: library.button(class="spirit-button--secondary spirit-button--active", text="Learn More"),
-        label: "Active"
-      },
-      {
-        example: library.button(class="spirit-button--secondary", text="Learn More", disabled="true"),
-        label: "Disabled"
-      },
-      {
-        example: library.button(class="spirit-button--secondary spirit-button--focus", text="Learn More"),
-        label: "Focus"
-      }
-    ])
+
+  {% set button_state_example_secondary %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Cancel", class="spirit-button--secondary") }}
+        <span class="spirit-doc-button-states-label">Normal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--hover") }}
+        <span class="spirit-doc-button-states-label">Hover</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--active") }}
+        <span class="spirit-doc-button-states-label">Active</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--focus") }}
+        <span class="spirit-doc-button-states-label">Focus</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Cancel", class="spirit-button--secondary spirit-button--disabled", disabled="true") }}
+        <span class="spirit-doc-button-states-label">Disabled</span>
+      </div>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: button_state_example_secondary } ],
+    code_snippet_source=(library.button(class="spirit-button--secondary", text="Cancel") + ' ' + library.button(class="spirit-button--secondary", text="Cancel", disabled="true"))
+    )
   }}
 
   {% filter markdown %}
-      ### On Dark
+      * Use for non-critical actions, particularly when the button is used as navigation, as in "Learn More" or “Cancel”. 
+
+      #### On Dark
+      Do not use secondary button on dark. Situations using dark background should be simple enough to rely on a single primary button. For tertiary actions on dark, use minimal button.
+  {% endfilter %}
+  {% filter markdown %}
+      ### Minimal
+      
+      Use for tertiary actions. 
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(examples=[
+  {% set button_state_example_minimal %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Details", class="spirit-button--minimal") }}
+        <span class="spirit-doc-button-states-label">Normal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--hover") }}
+        <span class="spirit-doc-button-states-label">Hover</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--active") }}
+        <span class="spirit-doc-button-states-label">Active</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--focus") }}
+        <span class="spirit-doc-button-states-label">Focus</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Details", class="spirit-button--minimal spirit-button--disabled", disabled="true") }}
+        <span class="spirit-doc-button-states-label">Disabled</span>
+      </div>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: button_state_example_minimal } ],
+    code_snippet_source=(library.button(class="spirit-button--minimal", text="Details") + ' ' + library.button(class="spirit-button--minimal", text="Details", disabled="true"))
+    )
+  }}
+
+  {% filter markdown %}
+      #### On Dark
+      Use instead of secondary button on dark. 
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
       {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(text="Learn More") + '</div>',
-        label: "Default State"
+        example: library.button(class="spirit-button--minimal", text="Details"),
+        label: "Minimal on light"
       },
       {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--hover", text="Learn More") + '</div>',
-        label: "Hover"
-      },
-      {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--active", text="Learn More") + '</div>',
-        label: "Active"
-      },
-      {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(text="Learn More", disabled="true") + '</div>',
-        label: "Disabled"
-      },
-      {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--focus", text="Learn More") + '</div>',
-        label: "Focus"
+        example: library.button(class="spirit-button--minimal", text="Details"),
+        label: "Minimal on dark",
+        class: "spirit-container--dark spirit-container--brand"
       }
-    ])
+    ],
+    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--minimal", text="Details") + '</div>')
+  )
   }}
 
   {% filter markdown %}
       ### Icon Only
+      Use where an action can be fully represented by an icon and a label don’t fit comfortably alongside that icon. 
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(examples=[
+
+  {% set button_state_example_icon_only %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only") }}
+        <span class="spirit-doc-button-states-label">Normal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--hover") }}
+        <span class="spirit-doc-button-states-label">Hover</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--active") }}
+        <span class="spirit-doc-button-states-label">Active</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--focus") }}
+        <span class="spirit-doc-button-states-label">Focus</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--disabled", disabled="true") }}
+        <span class="spirit-doc-button-states-label">Disabled</span>
+      </div>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: button_state_example_icon_only } ],
+    code_snippet_source=(library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--focus"))
+    )
+  }}
+
+
+  {% filter markdown %}
+      * Use only where the icon’s meaning is unambiguous. 
+      * Ideal for UI manipulation, such as advancing a carousel or expanding an accordion. 
+      * Ideal for toolbars of recognizable icons, such as social sharing. 
+      * Avoid using for important CTAs. Prefer primary button. 
+
+      #### On Dark
+
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
       {
-        example: library.button(class="spirit-button--icon-only", icon="spirit-chevron-right"),
-        label: "Default State"
+        example: library.button(class="spirit-button--icon-only", iconName="chevron-right"),
+        label: "Icon Only on light"
       },
       {
-        example: library.button(class="spirit-button--icon-only spirit-button--hover", icon="spirit-chevron-right"),
-        label: "Hover"
-      },
-      {
-        example: library.button(class="spirit-button--icon-only spirit-button--active", icon="spirit-chevron-right"),
-        label: "Active"
-      },
-      {
-        example: library.button(class="spirit-button--icon-only", icon="spirit-chevron-right", disabled="true"),
-        label: "Disabled"
-      },
-      {
-        example: library.button(class="spirit-button--icon-only spirit-button--focus", icon="spirit-chevron-right"),
-        label: "Focus"
+        example: library.button(class="spirit-button--icon-only", iconName="chevron-right"),
+        label: "Icon Only on dark",
+        class: "spirit-container--dark spirit-container--brand"
       }
-    ])
+    ],
+    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only", iconName="chevron-right") + '</div>')
+  )
   }}
 
   {% filter markdown %}
-      ### Icon Only On Dark
+      ### Status Buttons
+      Use status buttons for key interactions where detailed state feedback is desirable. 
+
+      #### Loading
+      Use when an action isn’t instant and thus acts as a loader or progress indicator. 
+
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(examples=[
+  {{ esds_doc.code_example_pair( 
+    examples=[
       {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only", icon="spirit-chevron-right") + '</div>',
-        label: "Default State"
+        example: library.button(loader="true", text="Submit Donation"),
+        label: "Normal"
       },
       {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only spirit-button--hover", icon="spirit-chevron-right") + '</div>',
-        label: "Hover"
+        example: library.button(class="spirit-button--loading", loader="true", text="Submit Donation"),
+        label: "Loading..."
       },
       {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only spirit-button--active", icon="spirit-chevron-right") + '</div>',
-        label: "Active"
-      },
-      {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only", icon="spirit-chevron-right", disabled="true") + '</div>',
-        label: "Disabled"
-      },
-      {
-        example: '<div class="spirit-container spirit-container--dark">' + library.button(class="spirit-button--icon-only spirit-button--focus", icon="spirit-chevron-right") + '</div>',
-        label: "Focus"
+        example: library.button(loader="true", feedbackType="true", text="Submit Donation"),
+        label: "Success"
       }
-    ])
+    ],
+    code_snippet_source=(
+      library.button(loader="true", text="Submit Donation") + 
+      library.button(class="spirit-button--loading", loader="true", text="Submit Donation") + 
+      library.button(loader="true", feedbackType="true", text="Submit Donation")
+    )
+  )
   }}
 
   {% filter markdown %}
-      ### Small
+
+    <div class="spirit-alert spirit-alert--info">Note: These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.</div>
+
+    #### Feedback
+    Use feedback colors to communicate success or danger on a primary button. 
+
   {% endfilter %}
 
-  {% set button_small %}
-    {{ library.button(class="spirit-button--small", text="Learn More") }}
+  {{ esds_doc.code_example_pair( 
+    examples=[
+      {
+        example: library.button(class="spirit-button--success", text="Success"),
+        label: "Success"
+      },
+      {
+        example: library.button(class="spirit-button--danger", text="Delete"),
+        label: "Danger"
+      },
+      {
+        example: library.button(class="spirit-button--success", iconName="check", iconLabel="Success"),
+        label: "Success Using Icon"
+      }
+    ],
+    code_snippet_source=(
+      library.button(class="spirit-button--success", text="Success") + 
+      library.button(class="spirit-button--danger", text="Delete") + library.button(class="spirit-button--success", iconName="check", iconLabel="Success")
+    )
+  )
+  }}
+  {% filter markdown %}
+      ### Toggle Button
+      Use in place of a radio group or checkboxes to capture a key user selection. 
+
+      #### Using Checkboxes to Show Toggle States
+  {% endfilter %}
+
+  {% set button_state_example_toggle %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="$10", el="checkbox", name="checkbox", id="option1", value="10") }}
+        <span class="spirit-doc-button-states-label">Normal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--hover", text="$10", el="checkbox", name="checkbox", id="option2", value="10") }}
+        <span class="spirit-doc-button-states-label">Hover</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--active", text="$10", el="checkbox", name="checkbox", id="option3", value="10") }}
+        <span class="spirit-doc-button-states-label">Active/Selected</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--focus", text="$10", el="checkbox", name="checkbox", id="option4", value="10") }}
+        <span class="spirit-doc-button-states-label">Focus</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--disabled", text="$10", el="checkbox", name="checkbox", id="option5", value="10") }}
+        <span class="spirit-doc-button-states-label">Disabled</span>
+      </div>
+    </div>
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: button_state_example_toggle } ],
+    code_snippet_source=(library.button(text="$10", el="checkbox", name="checkbox", id="option1", value="10") + ' ' + library.button(class="spirit-button--disabled", text="$10", el="checkbox", name="checkbox", id="option5", value="10"))
+    )
+  }}
 
   {% filter markdown %}
-      ### Small to Default MD
+      #### Using a Radio Group
   {% endfilter %}
 
-  {% set button_small %}
-    {{ library.button(class="spirit-button--small spirit-button--default-md", text="Learn More") }}
+  {% set button_state_example_toggle_radio %}
+    {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250") }}
+    {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120") }}
+    {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60") }}
+    {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30") }}
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_small ) }}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: button_state_example_toggle_radio } ],
+    code_snippet_source=(button_state_example_toggle_radio)
+    )
+  }}
 
   {% filter markdown %}
-      ### Small to Default LG
+
+      * Apply toggle button to a radio group to capture a selection among mutually-exclusive choices. This is the default control for capturing a donation amount, as depicted above. 
+      * Apply toggle button to checkboxes to capture non-exclusive options. 
+  {% endfilter %}
+  {% filter markdown %}
+      ## Sizes
+      Scale buttons according to visual priority and available real estate. Text and icons scale with the overall button and are not independently configurable. 
+      
+      The medium default size can be modified with `.spirit-button--extra-small`, `.spirit-button--small`, and `.spirit-button--large`. Icon only buttons are only available in small and default. 
+
+      #### Extra Small
+      
   {% endfilter %}
 
-  {% set button_small %}
-    {{ library.button(class="spirit-button--small spirit-button--default-lg", text="Learn More") }}
+  {% set button_size_example_extrasmall %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--extra-small", text="Donate") }}
+        <span class="spirit-doc-button-states-label">Primary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--extra-small spirit-button--secondary", text="Cancel") }}
+        <span class="spirit-doc-button-states-label">Secondary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--extra-small spirit-button--minimal", text="Details") }}
+        <span class="spirit-doc-button-states-label">Minimal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        <span class="spirit-doc-button-states-label">&nbsp;</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--extra-small spirit-button--success", text="Success") }}
+        <span class="spirit-doc-button-states-label">Status/Success</span>
+      </div>
+    </div>
+
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_small ) }}
+  {{ esds_doc.html_example_list( example=button_size_example_extrasmall ) }}
 
   {% filter markdown %}
-      ### Large
+      #### Small
   {% endfilter %}
 
-  {% set button_large %}
-    {{ library.button(class="spirit-button--large", text="Learn More") }}
+  {% set button_size_example_small %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--small", text="Donate") }}
+        <span class="spirit-doc-button-states-label">Primary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--small spirit-button--secondary", text="Cancel") }}
+        <span class="spirit-doc-button-states-label">Secondary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--small spirit-button--minimal", text="Details") }}
+        <span class="spirit-doc-button-states-label">Minimal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--small spirit-button--icon-only", iconName="chevron-right") }}
+        <span class="spirit-doc-button-states-label">Icon Only</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--small spirit-button--success", text="Success") }}
+        <span class="spirit-doc-button-states-label">Status/Success</span>
+      </div>
+    </div>
+
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_large ) }}
+  {{ esds_doc.html_example_list( example=button_size_example_small ) }}
 
   {% filter markdown %}
-      ### Default to Large MD
+      #### Default
   {% endfilter %}
 
-  {% set button_large %}
-    {{ library.button(class="spirit-button--large-md", text="Learn More") }}
-  {% endset %}
-  {{ esds_doc.code_example_pair( example=button_large ) }}
+  {% set button_size_example_default %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(text="Donate") }}
+        <span class="spirit-doc-button-states-label">Primary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--secondary", text="Cancel") }}
+        <span class="spirit-doc-button-states-label">Secondary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--minimal", text="Details") }}
+        <span class="spirit-doc-button-states-label">Minimal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--icon-only", iconName="chevron-right") }}
+        <span class="spirit-doc-button-states-label">Icon Only</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--success", text="Success") }}
+        <span class="spirit-doc-button-states-label">Status/Success</span>
+      </div>
+    </div>
 
-    {% filter markdown %}
-      ### Default to Large LG
+  {% endset %}
+  {{ esds_doc.html_example_list( example=button_size_example_default ) }}
+
+  {% filter markdown %}
+      #### Large
   {% endfilter %}
 
-  {% set button_large %}
-    {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
+    {% set button_size_example_large %}
+    <div class="spirit-doc-button-states-example-wrap">
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--large", text="Donate") }}
+        <span class="spirit-doc-button-states-label">Primary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--large spirit-button--secondary", text="Cancel") }}
+        <span class="spirit-doc-button-states-label">Secondary</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--large spirit-button--minimal", text="Details") }}
+        <span class="spirit-doc-button-states-label">Minimal</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        <span class="spirit-doc-button-states-label">&nbsp;</span>
+      </div>
+      <div class="spirit-doc-button-states-example">
+        {{ library.button(class="spirit-button--large spirit-button--success", text="Success") }}
+        <span class="spirit-doc-button-states-label">Status/Success</span>
+      </div>
+    </div>
+
   {% endset %}
-  {{ esds_doc.code_example_pair( example=button_large ) }}
+  {{ esds_doc.html_example_list( example=button_size_example_large ) }}
+  {% filter markdown %}
+  
+      ### Responsive Sizing
+      Buttons can be sized responsively. By default, buttons stay the same size on all viewports. By adding breakpoint-specific classes, a button can have different sizes for small, medium, and large viewports. 
+    
+
+    A class of: `.spirit-button--extra-small-lg`
+
+      Would result in an **extra small** button at the **largest** viewport breakpoint.
+
+      #### Responsive Sizing Reference
+
+  {% endfilter %}
+
+
+  {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+    data=[
+      {
+        class: '.spirit-button--small',
+        applies_to: '.spirit-button',
+        outcome: 'Default syntax for button sizing which works at all sizes. If defining multiple responsive sizes, this is the baseline for small viewports, “mobile first”. '
+      },
+      {
+        class: '.spirit-button--small-md',
+        applies_to: '.spirit-button',
+        outcome: 'Applies the `small` size on medium viewports.'
+      },
+      {
+        class: '.spirit-button--small-lg',
+        applies_to: '.spirit-button',
+        outcome: 'Applies the `small` size on large viewports.'
+      }
+    ]) }}
+
+
+  {% filter markdown %}
+    ## Guidelines
+    ### Use When
+    * To activate or trigger an action
+    * To initiate a task
+    * To elevate the visibility of a navigation link, particularly the ubiquitous “Learn More”
+    * To cancel or dismiss something
+
+    ### Editorial
+  {% endfilter %}
+
+  {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'use a strong, positive verb imperative for calls to action',
+        img_src: '/images/buttons/Do-button-verb@2x.png'
+      },
+      {
+        type: 'do',
+        caption: 'append the object of the action after the verb if the action is unfamiliar',
+        img_src: '/images/buttons/Do-button-verb-object@2x.png'
+      }
+    ]) }}
+  
+  {% filter markdown %}
+    ### Visual Style
+  {% endfilter %}
+
+  {{ spirit_doc.do_dont(examples=[
+    {
+      type: 'do',
+      caption: 'use the same size for adjacent buttons',
+      img_src: '/images/buttons/Do@2x.png'
+    },
+    {
+      type: 'dont',
+      caption: 'mix and match sizes on the same row',
+      img_src: '/images/buttons/Dont@2x.png'
+    }
+  ]) }}
+
+  {% filter markdown %}
+    ### Accessibility
+    * Use the `aria-label` attribute on the SVG within an icon only button. See <a href="/visual-style/iconography.html">icons</a> for additional guidance. 
+  {% endfilter %}
+  {% filter markdown %}
+      ## Code Reference
+      
+      ### Markup
+      
+      Where feasible, use `<button>`. For applications that generate markup beyond your control, using `<input type=”submit”>` is also acceptable. 
+      
+      ### Class Reference
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+    data=[
+      {
+        class: '.spirit-button--secondary',
+        applies_to: '.spirit-button',
+        outcome: 'Applies secondary button style'
+      },
+      {
+        class: '.spirit-button--minimal',
+        applies_to: '.spirit-button',
+        outcome: 'Applies minimal button style'
+      },
+      {
+        class: '.spirit-button--icon-only',
+        applies_to: '.spirit-button',
+        outcome: 'Applies icon only button style, which includes conversion to a round shape.'
+      },
+      {
+        class: '.spirit-button--toggle',
+        applies_to: '.spirit-button',
+        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
+      },
+      {
+        class: '.spirit-button--[size]',
+        applies_to: '.spirit-button',
+        outcome: 'Applies button size styles. Use `--extra-small`, `--small`,  `--large.` Default size is implied and does not need to be specified.'
+      }
+    ]) }}
+
+  {% filter markdown %}
+      Buttons can be sized responsively. See <a href="#responsive-sizing">Responsive Sizing</a>.
+  {% endfilter %}
 
 {% endblock body %}

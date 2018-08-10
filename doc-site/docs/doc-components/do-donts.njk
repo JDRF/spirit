@@ -1,0 +1,128 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  {% filter markdown %}
+    # Do Don't Demos
+    ## Default
+  {% endfilter %}
+  {{ spirit_doc.do_dont() }}
+
+  {% filter markdown %}
+      ## More than two examples
+  {% endfilter %}
+  {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'use random images in documentation pages',
+        img_src: 'https://picsum.photos/400/200'
+      },
+      {
+        type: 'do',
+        caption: 'use several random images in documentation pages',
+        img_src: 'https://picsum.photos/400/200?random=1'
+      },
+      {
+        type: 'dont',
+        caption: 'use images from untrusted sources in production',
+        img_src: 'https://picsum.photos/400/200?random=2'
+      }
+    ]) }}
+
+    {% filter markdown %}
+        ### Stress Test
+    {% endfilter %}
+    {{ spirit_doc.do_dont(
+      examples=[
+        {
+          type: 'do',
+          caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, est numquam esse libero quasi tempore, cumque incidunt, debitis pariatur illo cum. Unde labore quibusdam, mollitia qui sequi cum, nostrum obcaecati.',
+          img_src: 'https://picsum.photos/800/500?random=2'
+        },
+        {
+          type: 'dont',
+          caption: 'use two images side by side that are different aspect ratios',
+          img_src: 'https://picsum.photos/600/600?random=5'
+        },
+        {
+          type: 'spacer'
+        },
+        {
+          type: 'dont',
+          caption: 'use giant icons as illustrations. Prefer JDRF brushes or photographs to create visual interest.',
+          img_src: 'https://picsum.photos/100/100?random=10'
+        },
+        {
+          type: 'do',
+          caption: 'test a don\'t spacer',
+          img_src: 'https://picsum.photos/1000/200?random=10'
+        },
+        {
+          type: 'spacer'
+        },
+        {
+          type: 'do',
+          caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus a aut autem reiciendis sunt ea quisquam modi! Quas dicta repellat dolor ipsum labore? Quam incidunt fugiat voluptatem, obcaecati, quas quae.',
+          img_src: 'https://picsum.photos/400/200?random=13'
+        },
+        {
+          type: 'dont',
+          caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur et, fuga, quis ipsum omnis vitae dolorem asperiores quas quos dolorum itaque distinctio at quasi. Laborum numquam illo a amet, autem!',
+          img_src: 'https://picsum.photos/800/400?random=14'
+        }
+      ]) }}
+
+  {% filter markdown %}
+      ## Text Only
+  {% endfilter %}
+  {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'use random images in documentation pages'
+      },
+      {
+        type: 'do',
+        caption: 'use several random images in documentation pages'
+      },
+      {
+        type: 'dont',
+        caption: 'use images from untrusted sources in production'
+      }
+    ]) }}
+
+    {% filter markdown %}
+        ### Stress Test
+    {% endfilter %}
+    {{ spirit_doc.do_dont(
+      examples=[
+        {
+          type: 'do',
+          caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, est numquam esse libero quasi tempore, cumque incidunt, debitis pariatur illo cum. Unde labore quibusdam, mollitia qui sequi cum, nostrum obcaecati.'
+        },
+        {
+          type: 'dont',
+          caption: 'use giant icons as illustrations. Prefer JDRF brushes or photographs to create visual interest.'
+        },
+        {
+          type: 'spacer'
+        },
+        {
+          type: 'dont',
+          caption: 'use that tone of voice with me, young lady. '
+        },
+        {
+          type: 'do',
+          caption: 'test a don\'t spacer'
+        },
+        {
+          type: 'spacer'
+        },
+        {
+          type: 'do',
+          caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus a aut autem reiciendis sunt ea quisquam modi! Quas dicta repellat dolor ipsum labore? Quam incidunt fugiat voluptatem, obcaecati, quas quae.'
+        },
+        {
+          type: 'dont',
+          caption: 'lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur et, fuga, quis ipsum omnis vitae dolorem asperiores quas quos dolorum itaque distinctio at quasi. Laborum numquam illo a amet, autem!'
+        }
+      ]) }}
+
+{% endblock body %}
