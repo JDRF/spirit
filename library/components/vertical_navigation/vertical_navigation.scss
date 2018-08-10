@@ -111,22 +111,17 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
   }
 
   &:hover,
-  .spirit-vertical-nav__item--hover & {
+  .spirit-vertical-nav__item--hover &,
+  &:focus,
+  .spirit-vertical-nav__item--focus & {
     background-color: $spirit-vert-nav-hover;
     text-decoration: none;
+    outline: none;
   }
 
   .spirit-vertical-nav__item--open &,
   &[aria-expanded='true'] {
     color: $spirit-text-color-primary;
-  }
-
-  &:focus,
-  .spirit-vertical-nav__item--focus & {
-    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
-    outline: 0;
-    text-decoration: none;
-    z-index: 1;
   }
 
   &:active,
@@ -188,14 +183,6 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
     color: $spirit-text-color-primary;
   }
 
-  &:focus,
-  .spirit-vertical-nav__item--focus & {
-    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
-    outline: 0;
-    text-decoration: none;
-    z-index: 1;
-  }
-
   &:active,
   .spirit-vertical-nav__item--active & {
     color: $spirit-text-color-link;
@@ -217,14 +204,6 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
 
   .spirit-vertical-nav__item--open & {
     color: $spirit-text-color-primary;
-  }
-
-  &:focus,
-  .spirit-vertical-nav__item--focus & {
-    box-shadow: inset 0 0 0 $spirit-border-width-button $spirit-interactive-color-focus-soft;
-    outline: 0;
-    text-decoration: none;
-    z-index: 1;
   }
 
   &:active,
