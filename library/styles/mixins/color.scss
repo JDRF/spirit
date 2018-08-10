@@ -1,18 +1,18 @@
 @mixin spirit-container-dark-parent-selectors {
-  .spirit-container--black &,
-  .spirit-container--brand & {
-    @content
+  .spirit-context--black &,
+  .spirit-context--brand & {
+    @content;
   }
 }
 
-@mixin spirit-container--white {
+@mixin spirit-background--white {
   background: $spirit-color-white;
 }
 
-@mixin spirit-container--black {
+@mixin spirit-background--black {
   background: $spirit-color-black;
 }
 
-@mixin spirit-container--brand {
+@mixin spirit-background--brand {
   background: $spirit-brand-color-primary;
 }

@@ -4,11 +4,10 @@
     [class*="demo-inner-bg"] {
       background-color: #EDEFF2;
     }
-    [class*="spirit-container__inner"]:not(.spirit-container__inner--dark):not(.spirit-container__inner--white) {
+    .spirit-container__inner:not([class*="spirit-context--"]) {
       background-color: #FFA6C4;
     }
-    .spirit-container--dark [class*="spirit-container__inner"]:not(.spirit-container__inner--dark):not(.spirit-container__inner--white),
-    .spirit-container--white [class*="spirit-container__inner"]:not(.spirit-container__inner--dark):not(.spirit-container__inner--white) {
+    [class*="spirit-context--"] .spirit-container__inner:not([class*="spirit-context--"]) {
       background-color: transparent;
     }
   </style>
@@ -78,6 +77,11 @@
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Padding options</h2>
+  <h3 class="hostile-sink-reset">None</h3>
+  {% call library.container(padding_top="none",padding_bottom="none") %}
+    <div class="demo-inner-bg">Padding top and bottom None</div>
+  {% endcall %}
+
   <h3 class="hostile-sink-reset">XS</h3>
   {% call library.container(padding_top="xs",padding_bottom="xs") %}
     <div class="demo-inner-bg">Padding top and bottom XS</div>
@@ -110,14 +114,14 @@
     <div class="demo-inner-bg">None</div>
   {% endcall %}
 
-  <h3 class="hostile-sink-reset">Dark Full Width</h3>
-  {% call library.container(background_color="dark") %}
-    <div class="demo-inner-bg">Dark Full Width</div>
+  <h3 class="hostile-sink-reset">Brand Full Width</h3>
+  {% call library.container(background_color="brand") %}
+    <div class="demo-inner-bg">Brand Full Width</div>
   {% endcall %}
 
-  <h3 class="hostile-sink-reset">Dark Large Width</h3>
-  {% call library.container(inner_background_color="dark") %}
-    <div class="demo-inner-bg">Dark Container Width</div>
+  <h3 class="hostile-sink-reset">Brand Large Width</h3>
+  {% call library.container(inner_background_color="brand") %}
+    <div class="demo-inner-bg">Brand Container Width</div>
   {% endcall %}
 
   <h3 class="hostile-sink-reset">White Full Width</h3>
@@ -130,25 +134,35 @@
     <div class="demo-inner-bg">White Container Width</div>
   {% endcall %}
 
+  <h3 class="hostile-sink-reset">Black Full Width</h3>
+  {% call library.container(background_color="black") %}
+    <div class="demo-inner-bg">Black Full Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Black Large Width</h3>
+  {% call library.container(inner_background_color="black") %}
+    <div class="demo-inner-bg">Black Container Width</div>
+  {% endcall %}
+
   <h2 class="hostile-sink-reset">Stacked containers</h2>
-  {% call library.container(background_color="dark",padding_top="s",padding_bottom="xs") %}
-    <div class="demo-inner-bg">Dark, padding top S, padding bottom XS</div>
+  {% call library.container(background_color="brand",padding_top="s",padding_bottom="xs") %}
+    <div class="demo-inner-bg">brand, padding top S, padding bottom XS</div>
   {% endcall %}
 
   {% call library.container() %}
     <div class="demo-inner-bg">Default container (fullwidth), default padding (M)</div>
   {% endcall %}
 
-  {% call library.container(background_color="dark",padding_top="m",padding_bottom="lg") %}
-    <div class="demo-inner-bg">Dark, padding top M, padding bottom LG</div>
+  {% call library.container(background_color="brand",padding_top="m",padding_bottom="lg") %}
+    <div class="demo-inner-bg">brand, padding top M, padding bottom LG</div>
   {% endcall %}
 
   {% call library.container(size="large", padding_top="s", background_fullbleed=false) %}
     <div class="demo-inner-bg">Large, padding top S, Full Width</div>
   {% endcall %}
 
-  {% call library.container(inner_background_color="dark", size="large", padding_top="lg", padding_bottom="s") %}
-    <div class="demo-inner-bg">Dark, padding top LG, padding bottom S, Large</div>
+  {% call library.container(inner_background_color="brand", size="large", padding_top="lg", padding_bottom="s") %}
+    <div class="demo-inner-bg">brand, padding top LG, padding bottom S, Large</div>
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Grid</h2>
@@ -220,7 +234,7 @@
     {% endcall %}
   {% endcall %}
 
-  {% call library.container(size="large", background_color="dark") %}
+  {% call library.container(size="large", background_color="brand") %}
     {% call library.form_fieldset() %}
             {{ library.form_legend(text="Billing Address") }}
             {% call library.form_field_group() %}
@@ -251,7 +265,20 @@
     {% endcall %}
   {% endcall %}
 
-  {% call library.container(size="large", inner_background_color="dark") %}
+  {% call library.container(size="large", inner_background_color="brand") %}
+      <div class="spirit-long-form-text">
+          <h2>
+              You Can Help Turn Type One Into Type None
+          </h2>
+          <h3>
+              You Can Help Turn Type One Into Type None
+          </h3>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+      {{ library.button(text="Learn More") }}
+  {% endcall %}
+
+  {% call library.container(padding_top="none", padding_bottom="none", inner_background_color="black") %}
       <div class="spirit-long-form-text">
           <h2>
               You Can Help Turn Type One Into Type None

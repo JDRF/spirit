@@ -16,8 +16,8 @@
 
 /// # Base - Default global styles
 @import 'base/fonts';
+@import 'base/color';
 @import 'base/typography';
-@import 'base/utilities';
 
 /// # Components - Specific UI Components
 @import '../components/link/link';

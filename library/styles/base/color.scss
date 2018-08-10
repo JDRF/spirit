@@ -1,0 +1,18 @@
+// Background Modifiers
+
+// Context - modifier has effect on children
+// Background - modifier has no effect on children
+.spirit-context--white,
+.spirit-background--white {
+  @include spirit-background--white;
+}
+
+.spirit-context--black,
+.spirit-background--black {
+  @include spirit-background--black;
+}
+
+.spirit-context--brand,
+.spirit--background--brand {
+  @include spirit-background--brand;
+}

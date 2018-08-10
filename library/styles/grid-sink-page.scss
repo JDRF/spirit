@@ -2,6 +2,9 @@
 @import 'mixins/text-crop';
 @import 'mixins/typography';
 
+$grid-sink-background: rgba($spirit-color-blue-100, .3);
+$grid-sink-border: 1px solid rgba($spirit-color-blue-100, .6);
+
 .spirit-container__inner {
   @include spirit-typography-reset();
   border: 2px solid;
@@ -14,8 +17,8 @@
 }
 
 [class^='spirit-col'] {
-  background: rgba($spirit-color-blue-100, .3);
-  border: 1px solid rgba($spirit-color-blue-100, .6);
+  background: $grid-sink-background;
+  border: $grid-sink-border;
 }
 
 .spirit-row-break {

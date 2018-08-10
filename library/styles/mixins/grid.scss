@@ -52,16 +52,16 @@ $grid-breakpoints: (
   }
 }
 
-@media (min-width: map-get($grid-breakpoints, grid)){
+@media (min-width: map-get($grid-breakpoints, grid)) {
   .spirit-row {
-    margin-right: -($spirit-grid-gutter-width-lg / 2);
     margin-left: -($spirit-grid-gutter-width-lg / 2);
+    margin-right: -($spirit-grid-gutter-width-lg / 2);
   }
 
   .spirit-row > .spirit-col,
-  .spirit-row > [class*="spirit-col-"] {
-    padding-right: ($spirit-grid-gutter-width-lg / 2);
+  .spirit-row > [class*='spirit-col-'] {
     padding-left: ($spirit-grid-gutter-width-lg / 2);
+    padding-right: ($spirit-grid-gutter-width-lg / 2);
   }
 
   .spirit-row--no-gutters {

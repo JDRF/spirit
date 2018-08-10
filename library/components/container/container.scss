@@ -24,10 +24,10 @@ $spirit-container-inner-max-width-large: 1000px;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  width: calc(100% - (#{$spirit-space-generic-3-x} * 2));
   max-width: $spirit-container-inner-max-width-full;
   padding-left: 0;
   padding-right: 0;
+  width: calc(100% - (#{$spirit-space-generic-3-x} * 2));
 }
 
 // Container width large
@@ -46,6 +46,20 @@ $spirit-container-inner-max-width-large: 1000px;
 }
 
 // Top, bottom padding options
+
+.spirit-container__inner--padding-top-none {
+  padding-top: 0;
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
+    padding-top: 0;
+  }
+}
+
+.spirit-container__inner--padding-bottom-none {
+  padding-bottom: 0;
+  @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
+    padding-bottom: 0;
+  }
+}
 
 .spirit-container__inner--padding-top-xs {
   padding-top: $spirit-space-generic-3-x;
@@ -101,14 +115,4 @@ $spirit-container-inner-max-width-large: 1000px;
   @media screen and (min-width: $spirit-spirit-container-breakpoint-m) {
     padding-bottom: $spirit-space-generic-24-x;
   }
-}
-
-// Background color option
-
-.spirit-container--dark {
-  @include spirit-container--brand;
-}
-
-.spirit-container__inner--dark {
-  @include spirit-container--brand;
 }
