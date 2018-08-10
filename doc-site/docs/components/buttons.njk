@@ -265,7 +265,18 @@
 
   {% filter markdown %}
 
-    <div class="spirit-alert spirit-alert--info">Note: These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.</div>
+    <div class="spirit-form__message spirit-form__message--info">
+        <div class="spirit-form__message-icon-wrap">
+          <svg aria-label="help-circle" class="spirit-icon spirit-form__message-icon" aria-hidden="true">
+              <use xlink:href="/icons/spirit.svg#help-circle">
+                  
+              </use>
+          </svg>
+        </div>
+        <div class="spirit-form__message-text">
+            These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.
+        </div>
+    </div>
 
     #### Feedback
     Use feedback colors to communicate success or danger on a primary button. 
