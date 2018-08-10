@@ -18,23 +18,19 @@ $spirit-container-inner-max-width-large: 1000px;
   width: 100%;
 }
 
-.spirit-container__inner--fullwidth,
-.spirit-container__inner--large {
+.spirit-container__inner,
+.spirit-container__inner--fullwidth {
   @include spirit-typography-reset;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   width: calc(100% - (#{$spirit-space-generic-3-x} * 2));
-}
-
-// Container width
-
-.spirit-container__inner--fullwidth {
   max-width: $spirit-container-inner-max-width-full;
   padding-left: 0;
   padding-right: 0;
 }
 
+// Container width large
 .spirit-container__inner--large {
   max-width: $spirit-container-inner-max-width-large;
   padding-left: 0;
