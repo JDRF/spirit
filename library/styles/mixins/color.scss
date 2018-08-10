@@ -1,7 +1,7 @@
 @mixin spirit-container-dark-parent-selectors {
   .spirit-container--black &,
   .spirit-container--brand & {
-    @content
+    @content;
   }
 }
 

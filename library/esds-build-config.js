@@ -1,5 +1,6 @@
 'use strict';
 module.exports = {
+  codeNamespace: "spirit",
   svgoConfig: {
     plugins: [{
       convertShapeToPath: false
