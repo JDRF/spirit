@@ -1,0 +1,21 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  {% filter markdown %}
+    # Release History
+    
+    ## 0.1.2
+    ### Released 8/10/2018
+    [View Docs](/v/0.1.2)
+    * Deployment with NPM Package
+
+    ## 0.1.1
+    ### Released 7/2/2018
+    [View Docs](/v/0.1.1)
+    * Follow Up Deployment
+
+    ## 0.1.0
+    ### Released 7/2/2018
+    [View Docs](/v/0.1.0)
+    * Hearbeat Deployment
+  {% endfilter %}
+{% endblock body %}
