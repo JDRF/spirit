@@ -7,7 +7,6 @@
     "unlink-local-library": "npm unlink spirit --no-save && npm install",
     "prepack": "npm install && gulp build:all"
   },
-  "author": "Kevin Powell <kevinmpowell@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "esds-build": "^0.38.0",
