@@ -1,14 +1,15 @@
 {
-  "name": "spirit",
-  "version": "0.1.1",
-  "versionReleaseDate": "07/02/2018",
-  "description": "",
+  "name": "@jdrfhq/spirit",
+  "version": "0.1.2",
+  "versionReleaseDate": "08/10/2018",
+  "repository": "https://github.com/JDRF/spirit",
+  "description": "Design System for JDRF",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepack": "npm install && gulp build:all"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",

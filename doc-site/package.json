@@ -3,8 +3,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "link-local-library": "cd ../library && npm install && gulp build:all && npm link && cd ../doc-site && npm link spirit",
-    "unlink-local-library": "npm unlink spirit --no-save && npm install",
+    "link-local-library": "cd ../library && npm install && gulp build:all && npm link && cd ../doc-site && npm link @jdrfhq/spirit",
+    "unlink-local-library": "npm unlink @jdrfhq/spirit --no-save && npm install",
     "prepack": "npm install && gulp build:all"
   },
   "license": "ISC",
@@ -14,5 +14,8 @@
     "fs-extra": "^6.0.1",
     "gulp-tap": "^1.0.1",
     "slash": "^2.0.0"
+  },
+  "dependencies": {
+    "@jdrfhq/spirit": "^0.1.2"
   }
 }

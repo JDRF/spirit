@@ -101,6 +101,7 @@ $spirit-space-generic-2-x-half: 18px;
         ul {
           list-style-type: circle;
 
+          // sass-lint:disable nesting-depth
           ul {
             list-style-type: disc;
 
@@ -108,6 +109,7 @@ $spirit-space-generic-2-x-half: 18px;
               list-style-type: circle;
             }
           }
+          // sass-lint:enable nesting-depth
         }
       }
     }

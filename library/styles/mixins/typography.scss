@@ -10,7 +10,11 @@
   $text-indent: 0,
   $text-shadow: none,
   $text-transform: none) {
-  // sass-lint:disable property-sort-order, no-vendor-prefixes
+
+  // sass-lint:disable no-vendor-prefixes
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  // sass-lint:enable no-vendor-prefixes
   color: $color;
   font-family: $spirit-font-family-sans-serif;
   font-size: $font-size;
@@ -22,9 +26,6 @@
   text-indent: $text-indent;
   text-shadow: $text-shadow;
   text-transform: $text-transform;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  // sass-lint:enable property-sort-order, no-vendor-prefixes
 }
 
 @mixin spirit-dark-parent-light-text {

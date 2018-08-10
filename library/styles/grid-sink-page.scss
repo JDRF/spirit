@@ -2,10 +2,10 @@
 @import 'mixins/text-crop';
 @import 'mixins/typography';
 
-$grid-sink-background: rgba($spirit-color-blue-100, .3);
-$grid-sink-border: 1px solid rgba($spirit-color-blue-100, .6);
+$spirit-column-demo-color: rgba($spirit-color-blue-100, .3);
+$spirit-column-demo-border-color: rgba($spirit-color-blue-100, .6);
 
-.spirit-container__inner {
+.spirit-container {
   @include spirit-typography-reset();
   border: 2px solid;
   margin-bottom: 1em;
@@ -17,8 +17,8 @@ $grid-sink-border: 1px solid rgba($spirit-color-blue-100, .6);
 }
 
 [class^='spirit-col'] {
-  background: $grid-sink-background;
-  border: $grid-sink-border;
+  background: $spirit-column-demo-color;
+  border: 1px solid $spirit-column-demo-border-color;
 }
 
 .spirit-row-break {
