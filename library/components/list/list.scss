@@ -1,0 +1,23 @@
+// Spirit List
+.spirit-list {
+    @include spirit-typography-reset;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: $spirit-space-generic-2-x-half;
+}
+
+ol.spirit-list {
+  counter-reset: spirit-list-counter;
+  .spirit-list__item {
+    counter-increment: spirit-list-counter;
+    &:before {
+      content: counter(spirit-list-counter);
+    }
+  }
+}
+
+// Spirit List Item
+.spirit-list__item {
+  //styles here
+}

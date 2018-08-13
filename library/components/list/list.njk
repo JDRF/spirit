@@ -1,0 +1,77 @@
+{# List #}
+{% macro list(
+  class=false,
+  ordered=false,
+  tag="ul"
+  )
+%}
+{% if ordered %}
+  {% set tag = 'ol' %}
+{% endif %}
+  <{{tag}} class="spirit-list{{' ' + class if class}}">
+    {{ caller() }}
+  </{{tag}}>
+{% endmacro %}
+
+{# List Item #}
+{% macro list_item(
+  class=false,
+  title_text="Link Item",
+  title_meta=false,
+  title_tag='h3',
+  link=false,
+  link_text="View",
+  link_secondary=false,
+  link_secondary_text="Donate",
+  avatar_src=false,
+  icon_name=false,
+  avatar_src=false,
+  meta=false,
+  caption=false
+  )
+%}
+  <li class="spirit-list-item{{' spirit-list-item--has-link' if link}}{{' ' + class if class}}">
+  {% if title_text %}
+    {% if avatar_src %}
+      <div class="spirit-list-item__avatar">
+        {% if link %}
+          <a class="spirit-list-item__link-avatar" href="{{link}}">
+        {% endif %}
+        <img src="{{avatar_src}}">
+        {% if link %}
+          </a>
+        {% endif %}
+      </div>
+    {% elif icon_name %}
+      <div class="spirit-list-item__avatar">
+      {{ icon(name=icon_name, class='spirit-list-item__icon spirit-icon--' + icon_name, decorative=true)}}
+    {% endif %}
+    {% if link %}
+      <a class="spirit-list-item__link-title" href="{{link}}">
+    {% endif %}
+    <{{title_tag}} class="spirit-list-item__title">
+      {{title_text}}
+      {% if title_meta %}
+        <span class="spirit-list-item__title-meta">
+          {{title_meta}}
+        </span>
+      {% endif %}
+    </{{title_tag}}>
+    {% if link %}
+      </a>
+    {% endif %}
+    {% if meta %}
+      <p class="spirit-list-item__meta">{{meta}}</p>
+    {% endif %}
+    {% if caption %}
+      <p class="spirit-list-item__caption">{{caption}}</p>
+    {% endif %}
+    {% if link %}
+      <a class="spirit-list-item__link" href="{{link}}">{{link_text}}</a>
+    {% endif %}
+    {% if link_secondary %}
+      <a class="spirit-list-item__link-secondary" href="{{link_secondary}}">{{link_secondary_text}}</a>
+    {% endif %}
+  {% endif %}
+  </li>
+{% endmacro %}

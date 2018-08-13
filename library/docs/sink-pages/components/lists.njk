@@ -1,0 +1,40 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <h1 class="hostile-sink-reset">Lists Sink</h1>
+
+    <h2 class="hostile-sink-reset">List Meta</h2>
+    {% call library.list() %}
+        {{ library.list_item(title_meta="$9999") }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">List Ordered</h2>
+    {% call library.list(ordered="true") %}
+        {{ library.list_item(title_meta="$9999") }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">List Links</h2>
+    {% call library.list() %}
+        {{ library.list_item(title_meta="$9999", link="#") }}
+        {{ library.list_item(title_meta="$9999", link="#", link_text="Read More") }}
+        {{ library.list_item(title_meta="$9999", link="#", link_secondary="#") }}
+        {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here") }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">List Avatar</h2>
+    {% call library.list() %}
+        {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here") }}
+        {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300") }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">List Meta</h2>
+    {% call library.list() %}
+        {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", meta="Western Massachusetts 2018") }}
+        {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018") }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">List Caption</h2>
+    {% call library.list() %}
+        {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+        {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+    {% endcall %}
+{% endblock body %}
