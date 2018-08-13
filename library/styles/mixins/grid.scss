@@ -3,7 +3,6 @@
 $spirit-grid-columns: 12;
 $spirit-grid-gutter-width: $spirit-space-generic-2-x;
 $spirit-grid-gutter-width-lg: $spirit-space-generic-4-x;
-$spirit-breakpoint-grid: 1080px;
 
 // Override Bootstrap defaults
 
@@ -15,7 +14,6 @@ $grid-breakpoints: (
   sm: $spirit-breakpoint-s,
   md: $spirit-breakpoint-m,
   lg: $spirit-breakpoint-l,
-  grid: $spirit-breakpoint-grid,
   xl: $spirit-breakpoint-xl
 );
 

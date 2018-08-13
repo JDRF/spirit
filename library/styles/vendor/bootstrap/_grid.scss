@@ -3,7 +3,11 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
-
+  .spirit-container__inner {
+    @include make-container();
+    // Max widths handled with Spirit styles
+    // @include make-container-max-widths();
+  }
 }
 
 // Fluid container
