@@ -8,3 +8,62 @@
   vertical-align: middle;
   width: 1em;
 }
+
+//Loading Spinner 
+.spirit-icon--spinner {
+  animation: spirit-icon-spinner-animation 2s linear infinite;
+}
+
+// Loading spinner circle path
+.spirit-icon--spinner__path {
+  animation: spirit-icon-spinner-dash 1.5s ease-in-out infinite, spirit-icon-spinner-colors 6s ease-in-out infinite;
+  fill: none;
+  stroke: currentColor;
+  stroke-dasharray: 90;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  transform-origin: center;
+}
+
+@keyframes spirit-icon-spinner-animation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spirit-icon-spinner-colors {
+  100%,
+  0% {
+    stroke: currentColor;
+  }
+
+  40% {
+    stroke: currentColor;
+  }
+
+  66% {
+    stroke: currentColor;
+  }
+
+  80%,
+  90% {
+    stroke: currentColor;
+  }
+}
+
+@keyframes spirit-icon-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
