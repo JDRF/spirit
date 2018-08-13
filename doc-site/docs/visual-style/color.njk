@@ -1,5 +1,5 @@
-{% extends 'templates/base.njk' %}
-{% block body %}
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content %}
   {% filter markdown %}
       # Color
 
@@ -474,4 +474,4 @@
         </table>
     </div>
 </div>
-{% endblock body %}
+{% endblock page_shell_content %}

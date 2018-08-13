@@ -5,9 +5,9 @@
 <!doctype html>
 <html>
     <head>
+        {% block head_title %}<title>Spirit Design System v{{ spirit_project_data.version }}{{ ' - ' + title if page_title }}</title>{% endblock %}
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <h1>Spirit Design System v{{ spirit_project_data.version }}</h1>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block head_content_prepend %}{% endblock head_content_prepend %}

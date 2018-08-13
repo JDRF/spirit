@@ -1,5 +1,5 @@
-{% extends 'templates/base.njk' %}
-{% block body %}
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content %}
   {% filter markdown %}
       # Icons
   {% endfilter %}
@@ -8,4 +8,4 @@
       {{ esds_doc.icon_swatch(class="spirit-doc-icon-swatch", name=icon) }}
     {% endfor %}
   {% endcall %}
-{% endblock body %}
+{% endblock page_shell_content %}
