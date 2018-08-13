@@ -7,6 +7,7 @@ $spirit-background-tokens: spirit-token('background-color');
 @each $variable, $color in  $spirit-background-tokens {
   /// Background - modifier has no effect on children
   /// Context - modifier has effect on children
+  /// example output: .spirit-context--brand and .spirit-background--brand
   .spirit-context--#{$variable},
   .spirit-background--#{$variable} {
     background-color: $color;
