@@ -1,23 +1,6 @@
-<html>
-    <head>
-        <title>Spirit Design System v{{ spirit_project_data.version }}</title>
-    </head>
-    <body>
-      <h1>Spirit Design System v{{ spirit_project_data.version }}</h1>
-      <h3>Latest Release: {{ spirit_project_data.versionReleaseDate }}</h3>
-      <p>Full Design System Coming Soon</p>
-        <h1>Spirit Design System Test Pages</h1>
-      <a href="/release-history.html">Release History</a>
-      <ul>
-        <li>
-          <a href="/components/buttons.html">Buttons</a>
-        </li>
-        <li>
-          <a href="/visual-style/color.html">Color</a>
-        </li>
-        <li>
-          <a href="/visual-style/icons.html">Icons</a>
-        </li>
-      </ul>
-    </body>
-</html>
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content %}
+    <h1>Spirit Design System v{{ spirit_project_data.version }}</h1>
+    <h3>Latest Release: {{ spirit_project_data.versionReleaseDate }}</h3>
+    <p>Full Design System Coming Soon</p>
+{% endblock %}
