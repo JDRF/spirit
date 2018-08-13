@@ -1,5 +1,5 @@
-{% extends 'templates/base.njk' %}
-{% block body %}
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content %}
   {% filter markdown %}
     # Release History
     
@@ -18,4 +18,4 @@
     [View Docs](/v/0.1.0)
     * Hearbeat Deployment
   {% endfilter %}
-{% endblock body %}
+{% endblock page_shell_content %}
