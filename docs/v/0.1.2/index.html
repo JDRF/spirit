@@ -1,23 +1,71 @@
+
+
+
+
+<!doctype html>
 <html>
     <head>
         <title>Spirit Design System v0.1.2</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="./styles/dependencies/prism.css">
+        <link rel="stylesheet" href="./styles/dependencies/spirit.css">
+        <link rel="stylesheet" href="./styles/spirit_doc_site.css">
+        <link rel="shortcut icon" href="">
+        
+        
     </head>
     <body>
-      <h1>Spirit Design System v0.1.2</h1>
-      <h3>Latest Release: 08/10/2018</h3>
-      <p>Full Design System Coming Soon</p>
-        <h1>Spirit Design System Test Pages</h1>
-      <a href="./release-history.html">Release History</a>
-      <ul>
-        <li>
-          <a href="./components/buttons.html">Buttons</a>
-        </li>
-        <li>
-          <a href="./visual-style/color.html">Color</a>
-        </li>
-        <li>
-          <a href="./visual-style/icons.html">Icons</a>
-        </li>
-      </ul>
+        
+  <div class="spirit-doc-page-shell">
+    <div class="spirit-doc-page-shell__navigation">
+      
+        <h3>Spirit</h3>
+        <ul>
+          <li>
+            <a href="./components/buttons.html">Buttons</a>
+          </li>
+          <li>
+            <a href="./visual-style/color.html">Color</a>
+          </li>
+          <li>
+            <a href="./visual-style/icons.html">Icons</a>
+          </li>
+          <li>
+            <a href="./release-history.html">Release History</a>
+          </li>
+        </ul>
+      
+    </div>
+    <div class="spirit-doc-page-shell__content">
+      
+    <h1>Spirit Design System v0.1.2</h1>
+    <h3>Latest Release: 08/10/2018</h3>
+    <p>Full Design System Coming Soon</p>
+
+    </div>
+  </div>
+
+
+        <script src="./scripts/dependencies/prism.js"></script>
+        <script src="./scripts/dependencies/prism-json.min.js"></script>
+        <script src="./scripts/dependencies/prism-scss.min.js"></script>
+        <script src="./scripts/dependencies/prism-twig.min.js"></script>
+        <script src="./scripts/dependencies/svg4everybody.min.js"></script>
+        <script src="./scripts/dependencies/scrollmonitor.js"></script>
+        <script src="./scripts/dependencies/smoothscroll.min.js"></script>
+        <script>
+            svg4everybody();
+        </script>
+        <script src="./scripts/dependencies/esds-doc.js"></script>
+        <script src="./scripts/spirit-doc-site.js"></script>
+        <script>
+            Esds.CodeSnippet.init();
+            Esds.PageNavigation.init();
+        </script>
+        
     </body>
 </html>

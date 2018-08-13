@@ -5,9 +5,9 @@
 <!doctype html>
 <html>
     <head>
+        <title>Spirit Design System v0.1.2</title>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <h1>Spirit Design System v0.1.2</h1>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -20,6 +20,31 @@
     </head>
     <body>
         
+  <div class="spirit-doc-page-shell">
+    <div class="spirit-doc-page-shell__navigation">
+      
+        <h3>Spirit</h3>
+        <ul>
+          <li>
+            <a href="../components/buttons.html">Buttons</a>
+          </li>
+          <li>
+            <a href="../visual-style/color.html">Color</a>
+          </li>
+          <li>
+            <a href="../visual-style/icons.html">Icons</a>
+          </li>
+          <li>
+            <a href="../release-history.html">Release History</a>
+          </li>
+        </ul>
+      
+    </div>
+    <div class="spirit-doc-page-shell__content">
+      
+  <div class="spirit-doc-component-template-shell">
+    <div class="spirit-doc-component-template-shell__content">
+      
   <div class="spirit-long-form-text"><h1>Buttons</h1>
 
 <p class="spirit-subhead">Buttons invite and trigger key actions throughout the experience.</p>
@@ -199,7 +224,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--77476--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--92121--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;button class=&quot;spirit-button&quot;&gt; Donate &lt;/button&gt;
 &lt;button class=&quot;spirit-button&quot; disabled&gt; Donate &lt;/button&gt;</code></pre>
@@ -344,7 +369,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--13171--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--70256--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;div class=&quot;spirit-container spirit-container--dark&quot;&gt;
     &lt;button class=&quot;spirit-button&quot;&gt; Donate &lt;/button&gt;
@@ -534,7 +559,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--23304--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--44945--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;button class=&quot;spirit-button spirit-button--secondary&quot;&gt; Cancel &lt;/button&gt;
 &lt;button class=&quot;spirit-button spirit-button--secondary&quot; disabled&gt; Cancel &lt;/button&gt;</code></pre>
@@ -728,7 +753,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--21711--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--88502--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;button class=&quot;spirit-button spirit-button--minimal&quot;&gt; Details &lt;/button&gt;
 &lt;button class=&quot;spirit-button spirit-button--minimal&quot; disabled&gt; Details &lt;/button&gt;</code></pre>
@@ -869,7 +894,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--54827--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--31976--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;div class=&quot;spirit-container spirit-container--dark&quot;&gt;
     &lt;button class=&quot;spirit-button spirit-button--minimal&quot;&gt; Details &lt;/button&gt;
@@ -1149,7 +1174,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--44605--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--94095--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;button class=&quot;spirit-button spirit-button--icon-only spirit-button--focus spirit-button--is-icon&quot;&gt;
     &lt;svg aria-label=&quot;chevron-right&quot; class=&quot;spirit-icon spirit-icon--chevron-right&quot;&gt;
@@ -1337,7 +1362,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--3296--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--69376--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;div class=&quot;spirit-container spirit-container--dark&quot;&gt;
     &lt;button class=&quot;spirit-button spirit-button--icon-only spirit-button--is-icon&quot;&gt;
@@ -1591,7 +1616,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--58484--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--40825--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;button class=&quot;spirit-button&quot; data-loader=true&gt;
     &lt;span class=&quot;spirit-button__icon-contain&quot; data-icon=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;
@@ -1647,7 +1672,18 @@
     </div>
 
 
-  <div class="spirit-long-form-text"><div class="spirit-alert spirit-alert--info">Note: These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.</div>
+  <div class="spirit-long-form-text"><div class="spirit-form__message spirit-form__message--info">
+    <div class="spirit-form__message-icon-wrap">
+      <svg aria-label="help-circle" class="spirit-icon spirit-form__message-icon" aria-hidden="true">
+          <use xlink:href="../icons/spirit.svg#help-circle">
+
+          </use>
+      </svg>
+    </div>
+    <div class="spirit-form__message-text">
+        These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.
+    </div>
+</div>
 
 <h4 id="feedback">Feedback</h4>
 <p>Use feedback colors to communicate success or danger on a primary button. </p>
@@ -1813,7 +1849,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--42654--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--49679--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;button class=&quot;spirit-button spirit-button--success&quot;&gt; Success &lt;/button&gt;
 &lt;button class=&quot;spirit-button spirit-button--danger&quot;&gt; Delete &lt;/button&gt;
@@ -2008,7 +2044,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--43425--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--47431--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;div class=&quot;spirit-button spirit-button--toggle&quot;&gt;
     &lt;input class=&quot;spirit-button__input spirit-button__checkbox&quot; type=checkbox name=checkbox id=option1 value=10 tabindex=&quot;-1&quot; /&gt;
@@ -2172,7 +2208,7 @@
             
             
                 
-    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--7341--markup">
+    <div class="esds-doc-code-snippet__source" id="esds-doc-code-snippet--61547--markup">
         
         <pre class="esds-doc-code-snippet__pre"><code class="language-markup">&lt;div class=&quot;spirit-button spirit-button--toggle&quot;&gt;
     &lt;input class=&quot;spirit-button__input spirit-button__radio&quot; type=radio name=radiogroup id=radio-option1 value=250 tabindex=&quot;-1&quot; /&gt;
@@ -3277,6 +3313,19 @@
   <div class="spirit-long-form-text"><p>Buttons can be sized responsively. See <a href="#responsive-sizing">Responsive Sizing</a>.</p>
 </div>
 
+
+    </div>
+    <div class="spirit-doc-component-template-shell__nav">
+      <ul>
+        <li>
+          <a href="#">Local Nav</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    </div>
+  </div>
 
 
         <script src="../scripts/dependencies/prism.js"></script>
