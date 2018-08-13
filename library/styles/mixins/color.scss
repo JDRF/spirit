@@ -5,14 +5,3 @@
   }
 }
 
-@mixin spirit-background--white {
-  background: $spirit-color-white;
-}
-
-@mixin spirit-background--black {
-  background: $spirit-color-black;
-}
-
-@mixin spirit-background--brand {
-  background: $spirit-brand-color-primary;
-}

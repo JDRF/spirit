@@ -1,0 +1,14 @@
+// Background Modifiers
+
+/// Create Background Colors Stack classes using tokens.scss
+@import '../../tokens/tokens';
+
+$spirit-background-tokens: spirit-token('background-color');
+@each $variable, $color in  $spirit-background-tokens {
+  /// Background - modifier has no effect on children
+  /// Context - modifier has effect on children
+  .spirit-context--#{$variable},
+  .spirit-background--#{$variable} {
+    background-color: $color;
+  }
+}
