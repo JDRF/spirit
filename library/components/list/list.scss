@@ -1,23 +1,161 @@
+// List Variables
+$spirit-list-text-light: $spirit-color-grey-35;
+$spirit-list-border-color: $spirit-color-grey-95;
+$spirit-list-border-width: 1px;
+$spirit-list-avatar-width: $spirit-space-generic-6-x;
+$spirit-list-focus-background: $spirit-interactive-color-focus-soft;
+
+
 // Spirit List
 .spirit-list {
-    @include spirit-typography-reset;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: $spirit-space-generic-2-x-half;
+  @include spirit-typography-reset;
+  list-style: none;
+  margin: 0;
+  margin-bottom: $spirit-space-generic-2-x-half;
+  padding: 0;
 }
 
 ol.spirit-list {
   counter-reset: spirit-list-counter;
-  .spirit-list__item {
+
+  .spirit-list-item {
+    align-items: center;
     counter-increment: spirit-list-counter;
+    font-size: $spirit-font-size-m;
+
     &:before {
+      @include spirit-h5;
+      align-items: center;
+      border: $spirit-list-border-width solid $spirit-list-border-color;
+      border-radius: 100%;
+      color: $spirit-text-color-link;
       content: counter(spirit-list-counter);
+      display: flex;
+      flex-flow: column nowrap;
+      height: $spirit-list-avatar-width;
+      justify-content: center;
+      margin-right: $spirit-space-generic-2-x;
+      width: $spirit-list-avatar-width;
+      flex: 0 0 $spirit-list-avatar-width;
     }
   }
 }
 
 // Spirit List Item
-.spirit-list__item {
-  //styles here
+.spirit-list-item {
+  display: block;
+  padding: $spirit-space-inset-2-x;
+  position: relative;
+  border-radius: $spirit-border-radius-l;
+
+  box-shadow: inset 0 -#{$spirit-list-border-width} 0 0 $spirit-list-border-color;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.spirit-list-item__content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
+  @media screen and (min-width: $spirit-breakpoint-m) {
+  }
+}
+
+.spirit-list-item__avatar {
+  @include spirit-h5;
+  align-items: center;
+  border: $spirit-list-border-width solid $spirit-list-border-color;
+  border-radius: 100%;
+  color: $spirit-text-color-link;
+  content: counter(spirit-list-counter);
+  display: flex;
+  flex-flow: column nowrap;
+  height: $spirit-list-avatar-width;
+  justify-content: center;
+  margin-right: $spirit-space-generic-2-x;
+  width: $spirit-list-avatar-width;
+  overflow: hidden;
+  background-color: $spirit-color-white;
+  flex: 0 0 $spirit-list-avatar-width;
+}
+
+.spirit-list-item__link-avatar {
+  color: $spirit-text-color-link;
+  img {
+    display: block;
+    width: $spirit-list-avatar-width;
+    height: $spirit-list-avatar-width;
+    overflow: hidden;
+  }
+}
+
+.spirit-list-item__title {
+  @include spirit-h4;
+  margin: 0;
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}
+
+.spirit-list-item__link-title {
+  text-decoration: none;
+  transition: color $spirit-transition-timing-default;
+  color: inherit;
+  &:hover {
+    color: $spirit-text-color-link;
+  }
+}
+
+.spirit-list-item__title-meta {
+  color: $spirit-list-text-light;
+  display: block;
+  margin-top: $spirit-space-generic-half-x;
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.spirit-list-item__meta,
+.spirit-list-item__caption {
+  line-height: 1.25;
+  margin: 0;
+  margin-top: $spirit-space-generic-half-x;
+}
+
+.spirit-list-item__meta {
+  
+}
+
+.spirit--list-item__links-contain {
+  display: block;
+  margin: 0;
+  margin-top: $spirit-space-generic-half-x;
+  width: 100%;
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    margin-top: $spirit-space-inset-1-x;
+  }
+}
+
+.spirit-list-item__link {
+  @include spirit-link;
+  @include spirit-link-animated-default;
+  &:hover {
+    @include spirit-link-animated-underline;
+  }
+}
+
+.spirit-list-item--has-link {
+  background-color: transparent;
+  transition: background-color $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
+  &:hover {
+    background-color: $spirit-list-focus-background;
+    box-shadow: inset 0 -#{$spirit-list-border-width} 0 0 transparent;
+    .spirit-list-item__avatar {
+      border-color: transparent;
+    }
+  }
 }
