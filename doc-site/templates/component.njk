@@ -2,14 +2,11 @@
 {% block page_shell_content %}
   <div class="spirit-doc-component-template-shell">
     <div class="spirit-doc-component-template-shell__content">
+      <h2 style="visibility: hidden; position: absolute; top: 0; left: 0; height: 0; overflow: hidden; margin: 0; padding: 0;">Variations</h2> {# Intentionally Hidden h2 to make sure this hierarchy appears in the page navigation #}
       {% block component_template_content %}{% endblock %}
     </div>
     <div class="spirit-doc-component-template-shell__nav">
-      <ul>
-        <li>
-          <a href="#">Local Nav</a>
-        </li>
-      </ul>
+      {{ esds_doc.page_navigation(anchor_link_target_selector=".spirit-doc-component-template-shell__content h2, .spirit-doc-component-template-shell__content h3") }}
     </div>
   </div>
 {% endblock page_shell_content %}

@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "esds-build": "^0.38.0",
-    "esds-doc": "^0.14.2",
+    "esds-doc": "^0.15.0",
     "fs-extra": "^6.0.1",
     "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
     "gulp-tap": "^1.0.1",
