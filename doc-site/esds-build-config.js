@@ -36,6 +36,13 @@ module.exports = {
             watch: true
         },
         {
+            name: 'spirit-fonts',
+            sources: [
+                    'node_modules/@jdrfhq/spirit/fonts/**/*'],
+            destination: '../docs/fonts',
+            watch: true
+        },
+        {
             name: 'spirit-icon-data',
             sources: [
                     'node_modules/@jdrfhq/spirit/data/icons.json'],
