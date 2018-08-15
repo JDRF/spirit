@@ -1,9 +1,0 @@
-{% macro link(
-  class=false,
-  text='This is a link',
-  href=false,
-  target=false,
-  type=false
-) %}
-  <a class="spirit-link{{ ' ' + class if class }}" {{ 'href=' + href if href }} {{ 'type=' + type if type }} {{ 'target=' + target if target }}>{{text if text}}{{ caller() if caller }}</a>
-{% endmacro %}
