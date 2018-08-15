@@ -1,0 +1,34 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+
+  <style>
+    .list-container {
+      max-width: 375px;
+    }
+  </style>
+
+    <h1 class="hostile-sink-reset">Vertical Navigation List Sink</h1>
+    <div class="list-container">
+
+      <h2 class="hostile-sink-reset">Vertical Navigation List</h2>
+        {% call library.vertical_navigation_list() %}
+            {{ library.vertical_navigation_item(href="#", style="large", text="Test") }}
+            {{ library.vertical_navigation_item(href="#", style="large", text="Test") }}
+            {% call library.vertical_navigation_item(text="Test", style="large", size="comfortable", toggle="true", expanded="true") %}
+                {% call library.vertical_navigation_list( subnav='true' ) %}
+                    {{ library.vertical_navigation_item(href="#", style="medium", text="Test") }}
+                    {{ library.vertical_navigation_item(href="#", style="medium", text="Test") }}
+                    {% call library.vertical_navigation_item(text="Test", style="large", size="comfortable", toggle="true", expanded="true") %}
+                        {% call library.vertical_navigation_list( subnav='true' ) %}
+                            {{ library.vertical_navigation_item(href="#", text="Test") }}
+                            {{ library.vertical_navigation_item(href="#", text="Test") }}
+                        {% endcall %}
+                    {% endcall %}
+                {% endcall %}
+            {% endcall %}
+        {% endcall %}
+      <br>
+      <br>
+
+    </div>
+{% endblock body %}
