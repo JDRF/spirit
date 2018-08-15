@@ -755,7 +755,6 @@
                 {{ library.form_checkbox(label="Same as billing address", id='checkout-example-checkbox', checked=true) }}
             {% endcall %}
 
-            {{ library.form_legend(text="Billing Address") }}
             {% call library.form_field_group() %}
                 {{ library.form_label(disabled=true, text="Street", for="full-form-billing-street") }}
                 {{ library.form_input(disabled=true, id="full-form-billing-street") }}
