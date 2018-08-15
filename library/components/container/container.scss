@@ -1,5 +1,5 @@
 // Token proposal
-$spirit-spirit-container-breakpoint: 1080px;
+$spirit-spirit-container-breakpoint: $spirit-spirit-breakpoint-grid; // from grid.scss
 $spirit-container-inner-horizontal-space-m: 80px;
 $spirit-container-inner-max-width-full: 1152px;
 $spirit-container-inner-max-width-large: 1000px;

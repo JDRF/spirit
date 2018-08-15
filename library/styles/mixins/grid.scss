@@ -3,6 +3,7 @@
 $spirit-grid-columns: 12;
 $spirit-grid-gutter-width: $spirit-space-generic-2-x;
 $spirit-grid-gutter-width-lg: $spirit-space-generic-4-x;
+$spirit-spirit-breakpoint-grid: 1080px;
 
 // Override Bootstrap defaults
 
@@ -50,7 +51,7 @@ $grid-breakpoints: (
   }
 }
 
-@media (min-width: map-get($grid-breakpoints, grid)) {
+@media (min-width: $spirit-spirit-breakpoint-grid) {
   .spirit-row {
     margin-left: -($spirit-grid-gutter-width-lg / 2);
     margin-right: -($spirit-grid-gutter-width-lg / 2);
