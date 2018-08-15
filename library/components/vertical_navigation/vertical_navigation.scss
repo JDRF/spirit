@@ -1,0 +1,220 @@
+// Variables
+
+// Font
+$spirit-line-height-vert-nav: 20px;
+
+// Spacing
+$spirit-space-vnav-1dot25-x: 10px;
+$spirit-space-vnav-3-x: 24px;
+$spirit-space-vnav-2dot25-x: 18px;
+$spirit-space-vnav-2dot5-x: 20px;
+$spirit-space-vnav-10-x: 80px;
+
+$spirit-space-inset-squish-vert-nav: $spirit-space-vnav-1dot25-x $spirit-space-vnav-3-x;
+$spirit-space-inset-squish-vert-nav-sm: $spirit-space-generic-1-x $spirit-space-vnav-3-x;
+$spirit-space-inset-squish-vert-nav-lg: $spirit-space-vnav-2dot25-x $spirit-space-vnav-3-x;
+$spirit-space-inset-left-vert-nav-lv2: $spirit-space-generic-6-x; // 48px;
+$spirit-space-inset-left-vert-nav-lv3: $spirit-space-vnav-10-x;
+
+$spirit-size-icon-nested: $spirit-size-icon-s;
+
+
+// Color
+$spirit-vert-nav-hover: $spirit-brand-color-lightest-blue;
+$spirit-vert-nav-toggle-color: $spirit-color-grey-70;
+
+// Vertical Navigation
+.spirit-vertical-nav {
+  display: block;
+}
+
+// Vertical Navigation List
+.spirit-vertical-nav__list {
+  @include spirit-typography-reset();
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  [aria-expanded='false'] + & {
+    display: none;
+  }
+
+  [aria-expanded='true'] + & {
+    display: block;
+  }
+}
+
+// Vertical Navigation Item
+.spirit-vertical-nav__item {
+  display: block;
+  font-size: $spirit-font-size-s;
+  line-height: $spirit-line-height-vert-nav;
+  // Inherit typography reset from .spirit-vertical nav
+  list-style: none;
+  margin: 0;
+}
+
+.spirit-vertical-nav__link {
+  background-color: transparent;
+  border-radius: $spirit-border-radius-l;
+  color: $spirit-text-color-secondary;
+  cursor: pointer;
+  display: block;
+  font-size: inherit;
+  font-weight: $spirit-font-weight-medium;
+  line-height: inherit;
+  margin: 0;
+  padding: $spirit-space-inset-squish-vert-nav;
+  position: relative;
+  text-decoration: none;
+  transition: background-color $spirit-transition-timing-default;
+
+  * {
+    color: currentColor;
+  }
+
+  .spirit-vertical-nav__item .spirit-vertical-nav__item & {
+    padding-left: $spirit-space-inset-left-vert-nav-lv2;
+  }
+
+  .spirit-vertical-nav__item .spirit-vertical-nav__item .spirit-vertical-nav__item & {
+    padding-left: $spirit-space-inset-left-vert-nav-lv3;
+
+    &:not(.spirit-vertical-nav__link--medium),
+    &:not(.spirit-vertical-nav__link--large) {
+      color: $spirit-text-color-secondary;
+
+      &:active,
+      .spirit-vertical-nav__item--active & {
+        color: $spirit-text-color-link;
+      }
+    }
+  }
+
+  > svg {
+    height: $spirit-size-icon-m;
+    width: $spirit-size-icon-m;
+
+    &:not(.spirit-vertical-nav__toggle) {
+      margin-right: $spirit-space-generic-3-x;
+      position: relative;
+      vertical-align: middle;
+    }
+  }
+
+  &[aria-haspopup='true'] {
+    padding-right: calc(#{$spirit-space-generic-3-x} * 3);
+
+    .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
+      padding-right: calc((#{$spirit-space-generic-3-x} * 2) + (#{$spirit-size-icon-nested}));
+    }
+  }
+
+  &:hover,
+  .spirit-vertical-nav__item--hover &,
+  &:focus,
+  .spirit-vertical-nav__item--focus & {
+    background-color: $spirit-vert-nav-hover;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .spirit-vertical-nav__item--open &,
+  &[aria-expanded='true'] {
+    color: $spirit-text-color-primary;
+  }
+
+  &:active,
+  .spirit-vertical-nav__item--active & {
+    color: $spirit-text-color-link;
+  }
+
+  &:disabled,
+  .spirit-vertical-nav__item--disabled & {
+    background-color: transparent;
+    color: $spirit-text-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.spirit-vertical-nav__toggle {
+  color: $spirit-vert-nav-toggle-color;
+  margin-top: calc(#{$spirit-size-icon-m} * -.5);
+  position: absolute;
+  right: $spirit-space-generic-3-x;
+  top: 50%;
+
+  * {
+    color: $spirit-vert-nav-toggle-color;
+  }
+
+  .spirit-vertical-nav__item-parent .spirit-vertical-nav__item & {
+    height: $spirit-size-icon-nested;
+    margin-top: calc(#{$spirit-size-icon-nested} * -.5);
+    width: $spirit-size-icon-nested;
+  }
+
+  .spirit-vertical-nav__item--open a > &,
+  [aria-expanded='true'] > & {
+    color: $spirit-text-color-primary;
+    transform: rotate(180deg);
+
+    * {
+      color: $spirit-text-color-primary;
+    }
+  }
+}
+
+.spirit-vertical-nav__link--compact {
+  padding: $spirit-space-inset-squish-vert-nav-sm;
+}
+
+.spirit-vertical-nav__link--comfortable {
+  padding: $spirit-space-inset-squish-vert-nav-lg;
+}
+
+// Styles - Medium
+.spirit-vertical-nav__link--medium {
+  color: $spirit-text-color-link;
+  font-size: $spirit-font-size-m;
+  font-weight: $spirit-font-weight-bold;
+
+  .spirit-vertical-nav__item--open & {
+    color: $spirit-text-color-primary;
+  }
+
+  &:active,
+  .spirit-vertical-nav__item--active & {
+    color: $spirit-text-color-link;
+  }
+
+  &:disabled,
+  .spirit-vertical-nav__item--disabled & {
+    background-color: transparent;
+    color: $spirit-text-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+// Styles - Large
+.spirit-vertical-nav__link--large {
+  color: $spirit-text-color-link;
+  font-size: $spirit-font-size-l;
+  font-weight: $spirit-font-weight-bold;
+
+  .spirit-vertical-nav__item--open & {
+    color: $spirit-text-color-primary;
+  }
+
+  &:active,
+  .spirit-vertical-nav__item--active & {
+    color: $spirit-text-color-link;
+  }
+
+  &:disabled,
+  .spirit-vertical-nav__item--disabled & {
+    background-color: transparent;
+    color: $spirit-text-color-disabled;
+    cursor: not-allowed;
+  }
+}

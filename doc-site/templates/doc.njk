@@ -1,0 +1,27 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  <div class="spirit-doc-page-shell">
+    <div class="spirit-doc-page-shell__navigation">
+      {% block page_shell_nav %}
+        <h3>Spirit</h3>
+        <ul>
+          <li>
+            <a href="/components/buttons.html">Buttons</a>
+          </li>
+          <li>
+            <a href="/visual-style/color.html">Color</a>
+          </li>
+          <li>
+            <a href="/visual-style/icons.html">Icons</a>
+          </li>
+          <li>
+            <a href="/release-history.html">Release History</a>
+          </li>
+        </ul>
+      {% endblock page_shell_nav %}
+    </div>
+    <div class="spirit-doc-page-shell__content">
+      {% block page_shell_content %}{% endblock page_shell_content %}
+    </div>
+  </div>
+{% endblock body %}

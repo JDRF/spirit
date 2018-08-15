@@ -1,8 +1,16 @@
-{% extends 'templates/base.njk' %}
-{% block body %}
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content %}
   {% filter markdown %}
     # Release History
     
+    ## Doc Update
+    ### Released 8/14/2018
+    * Added Graphik Web Font to Doc Site 
+    
+    ## Doc Update
+    ### Released 8/13/2018
+    * Update to the doc site that will amend version 0.1.2 docs 
+
     ## 0.1.2
     ### Released 8/10/2018
     [View Docs](/v/0.1.2)
@@ -18,4 +26,4 @@
     [View Docs](/v/0.1.0)
     * Hearbeat Deployment
   {% endfilter %}
-{% endblock body %}
+{% endblock page_shell_content %}

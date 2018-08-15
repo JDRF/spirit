@@ -1,5 +1,5 @@
-{% extends 'templates/base.njk' %}
-{% block body %}
+{% extends 'templates/component.njk' %}
+{% block component_template_content %}
   {% filter markdown %}
       <h1>Buttons</h1>
 
@@ -614,4 +614,4 @@
       Buttons can be sized responsively. See <a href="#responsive-sizing">Responsive Sizing</a>.
   {% endfilter %}
 
-{% endblock body %}
+{% endblock component_template_content %}

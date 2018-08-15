@@ -9,5 +9,9 @@
 @import '../components/tint_stack/tint_stack';
 @import '../components/token_table/token_table';
 
+
+@import 'docs/doc_template';
+@import 'docs/component_template';
+
 // Page-specific styles
 @import 'docs/buttons_doc';
