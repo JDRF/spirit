@@ -2,8 +2,13 @@
 $spirit-list-text-light: $spirit-color-grey-35;
 $spirit-list-border-color: $spirit-color-grey-95;
 $spirit-list-border-width: 1px;
+$spirit-image-width: 72px;
+$sprirt-image-width-l: 180px;
+$sprirt-image-height-l: 120px;
 $spirit-list-avatar-width: $spirit-space-generic-6-x;
+$spirit-list-icon-size: 20px;
 $spirit-list-focus-background: $spirit-interactive-color-focus-soft;
+$spirit-list-initial-line-height: 20px;
 
 
 // Spirit List
@@ -31,26 +36,33 @@ ol.spirit-list {
       color: $spirit-text-color-link;
       content: counter(spirit-list-counter);
       display: flex;
+      flex: 0 0 $spirit-list-avatar-width;
       flex-flow: column nowrap;
       height: $spirit-list-avatar-width;
       justify-content: center;
       margin-right: $spirit-space-generic-2-x;
       width: $spirit-list-avatar-width;
-      flex: 0 0 $spirit-list-avatar-width;
     }
   }
 }
 
 // Spirit List Item
 .spirit-list-item {
-  display: block;
-  padding: $spirit-space-inset-2-x;
-  position: relative;
   border-radius: $spirit-border-radius-l;
-
-  box-shadow: inset 0 -#{$spirit-list-border-width} 0 0 $spirit-list-border-color;
   display: flex;
   flex-flow: row nowrap;
+  padding: $spirit-space-inset-2-x;
+  position: relative;
+
+  &:after {
+    background: $spirit-list-border-color;
+    bottom: 0;
+    content: '';
+    height: $spirit-list-border-width;
+    left: $spirit-space-generic-2-x;
+    position: absolute;
+    right: $spirit-space-generic-2-x;
+  }
 }
 
 .spirit-list-item__content {
@@ -58,84 +70,132 @@ ol.spirit-list {
   flex-flow: column nowrap;
   justify-content: center;
   width: 100%;
-  @media screen and (min-width: $spirit-breakpoint-m) {
+}
+
+.spirit-list-item__content--links-right {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.spirit-list-item__image-contain {
+  background-color: $spirit-brand-color-primary;
+  border-radius: $spirit-border-radius-l;
+  flex: 0 0 $spirit-image-width;
+  height: $spirit-image-width;
+  margin-right: $spirit-space-generic-2-x;
+  overflow: hidden;
+  width: $spirit-image-width;
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    flex-basis: $sprirt-image-width-l;
+    height: $sprirt-image-height-l;
+    width: $sprirt-image-width-l;
   }
 }
 
+.spirit-list-item__image-contain--right {
+  margin-left: $spirit-space-generic-2-x;
+  margin-right: 0;
+}
+
 .spirit-list-item__avatar {
-  @include spirit-h5;
   align-items: center;
-  border: $spirit-list-border-width solid $spirit-list-border-color;
+  background-color: $spirit-color-white;
   border-radius: 100%;
+  box-shadow: inset 0 0 0 $spirit-list-border-width $spirit-list-border-color;
   color: $spirit-text-color-link;
   content: counter(spirit-list-counter);
   display: flex;
+  flex: 0 0 $spirit-list-avatar-width;
   flex-flow: column nowrap;
+  font-size: $spirit-list-icon-size;
   height: $spirit-list-avatar-width;
   justify-content: center;
+  line-height: $spirit-list-icon-size;
   margin-right: $spirit-space-generic-2-x;
-  width: $spirit-list-avatar-width;
   overflow: hidden;
-  background-color: $spirit-color-white;
-  flex: 0 0 $spirit-list-avatar-width;
+  width: $spirit-list-avatar-width;
+}
+
+.spirit-list-item__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .spirit-list-item__link-avatar {
   color: $spirit-text-color-link;
-  img {
-    display: block;
-    width: $spirit-list-avatar-width;
-    height: $spirit-list-avatar-width;
-    overflow: hidden;
-  }
 }
 
 .spirit-list-item__title {
   @include spirit-h4;
+  display: flex;
+  flex-flow: row nowrap;
   margin: 0;
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-  }
+  width: 100%;
 }
 
 .spirit-list-item__link-title {
+  color: inherit;
   text-decoration: none;
   transition: color $spirit-transition-timing-default;
-  color: inherit;
-  &:hover {
+
+  &:hover,
+  .spirit-list-item--title-hover & {
     color: $spirit-text-color-link;
+  }
+
+  &:active,
+  &:focus,
+  .spirit-list-item--title-focus &,
+  .spirit-list-item--title-active & {
+    color: $spirit-text-color-link;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
   }
 }
 
 .spirit-list-item__title-meta {
   color: $spirit-list-text-light;
   display: block;
-  margin-top: $spirit-space-generic-half-x;
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    margin-top: 0;
-    margin-left: auto;
-  }
+  margin-left: auto;
+  margin-top: 0;
+  padding-left: $spirit-space-generic-2-x;
 }
 
 .spirit-list-item__meta,
 .spirit-list-item__caption {
-  line-height: 1.25;
-  margin: 0;
-  margin-top: $spirit-space-generic-half-x;
-}
-
-.spirit-list-item__meta {
-  
-}
-
-.spirit--list-item__links-contain {
+  color: $spirit-list-text-light;
   display: block;
+  font-size: $spirit-font-size-s;
+  line-height: $spirit-list-initial-line-height;
   margin: 0;
-  margin-top: $spirit-space-generic-half-x;
+  margin-left: auto;
+  margin-top: $spirit-space-generic-1-x;
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    font-size: $spirit-font-size-m;
+
+    .spirit-list-item__title + & {
+      margin-top: $spirit-space-generic-half-x;
+    }
+  }
+}
+
+.spirit-list-item__links-contain {
+  align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row nowrap;
+  margin: 0;
+  margin-top: $spirit-space-inset-1-x;
   width: 100%;
-  @media screen and (min-width: $spirit-breakpoint-m) {
+
+  .spirit-list-item__content--links-right & {
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-top: 0;
+  }
+  @media screen and (min-width: $spirit-breakpoint-l) {
     margin-top: $spirit-space-inset-1-x;
   }
 }
@@ -143,19 +203,40 @@ ol.spirit-list {
 .spirit-list-item__link {
   @include spirit-link;
   @include spirit-link-animated-default;
-  &:hover {
+  font-size: $spirit-font-size-s;
+  font-weight: $spirit-font-weight-bold;
+  line-height: $spirit-list-initial-line-height;
+
+  &:hover,
+  .spirit-list-item--link-hover &:first-child {
     @include spirit-link-animated-underline;
+  }
+
+  &:active,
+  &:focus,
+  .spirit-list-item--link-focus &:first-child,
+  .spirit-list-item--link-active &:first-child {
+    @include spirit-link-animated-underline;
+    color: $spirit-text-color-link;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    font-size: $spirit-font-size-m;
   }
 }
 
-.spirit-list-item--has-link {
-  background-color: transparent;
-  transition: background-color $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
-  &:hover {
-    background-color: $spirit-list-focus-background;
-    box-shadow: inset 0 -#{$spirit-list-border-width} 0 0 transparent;
-    .spirit-list-item__avatar {
-      border-color: transparent;
-    }
+.spirit-list-item__link--secondary {
+  margin-left: $spirit-space-inset-2-x;
+
+  .spirit-list-item--link-hover-secondary & {
+    @include spirit-link-animated-underline;
+  }
+
+  .spirit-list-item--link-focus-secondary &,
+  .spirit-list-item--link-active-secondary & {
+    @include spirit-link-animated-underline;
+    color: $spirit-text-color-link;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
   }
 }

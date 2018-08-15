@@ -8,14 +8,14 @@
             <h2 class="hostile-sink-reset">List</h2>
             {% call library.list() %}
                 {{ library.list_item() }}
-                {{ library.list_item() }}
+                {{ library.list_item(title_text="This is a list item with a very long title to see how it looks in comparison") }}
                 {{ library.list_item() }}
             {% endcall %}
 
             <h2 class="hostile-sink-reset">List Title Meta</h2>
             {% call library.list() %}
                 {{ library.list_item(title_meta="$9999") }}
-                {{ library.list_item(title_meta="$9999") }}
+                {{ library.list_item(title_text="This is a list item with a very long title to see how it looks in comparison", title_meta="$9999") }}
                 {{ library.list_item(title_meta="$9999") }}
             {% endcall %}
 
@@ -23,15 +23,24 @@
             {% call library.list(ordered="true") %}
                 {{ library.list_item(title_meta="$9999") }}
                 {{ library.list_item() }}
-                {{ library.list_item(title_meta="$9999") }}
+                {{ library.list_item(title_text="This is a list item with a very long title to see how it looks in comparison", title_meta="$9999") }}
             {% endcall %}
 
             <h2 class="hostile-sink-reset">List Links</h2>
             {% call library.list() %}
-            {{ library.list_item(link="#") }}
-                {{ library.list_item(link="#", link_text="Read More") }}
-                {{ library.list_item(link="#", links_position="right") }}
-                {{ library.list_item(link="#", link_text="Read More", links_position="right") }}
+                {{ library.list_item(link="#") }}
+                {{ library.list_item(link="#", title_text="This is a list item with a very long title to see how it looks in comparison", link_text="Read More") }}
+                {{ library.list_item(link="#", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", title_text="Link Title Hover", class="spirit-list-item--title-hover", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", title_text="Link Title Active / Focus", class="spirit-list-item--title-focus", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", title_text="Link Action Hover", class="spirit-list-item--link-hover", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", title_text="Link Action Active / Focus", class="spirit-list-item--link-focus", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", title_text="Link Action Secondary Hover", class="spirit-list-item--link-hover-secondary", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", title_text="Link Action Secondary Active / Focus", class="spirit-list-item--link-focus-secondary", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", links_right=true, link_text="Read More") }}
+                {{ library.list_item(link="#", title_text="This is a list item with a very long title to see how it looks in comparison", links_right=true, link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(link="#", links_right=true, link_secondary="#", link_text_secodary="Click Here") }}
                 {{ library.list_item(title_meta="$9999", link="#", link_secondary="#") }}
                 {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here") }}
             {% endcall %}
@@ -39,27 +48,47 @@
             <h2 class="hostile-sink-reset">List Avatar</h2>
             {% call library.list() %}
                 {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(icon_name="user", link="#", link_text="Read More") }}
+                {{ library.list_item(icon_name="user", title_text="This is a list item with a very long title to see how it looks in comparison", link="#", link_text="Read More") }}
                 {{ library.list_item(icon_name="user") }}
-                {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300") }}
-                {{ library.list_item(avatar_src="https://picsum.photos/200/300") }}
+                {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/100/300") }}
+                {{ library.list_item(link="#", link_text="Read More", avatar_src="https://picsum.photos/300/300") }}
+                {{ library.list_item(avatar_src="https://picsum.photos/300/100") }}
+            {% endcall %}
+
+            <h2 class="hostile-sink-reset">List Image</h2>
+            {% call library.list() %}
+                {{ library.list_item(title_meta="$9999", image_src="https://picsum.photos/800/800", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here") }}
+                {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800", link="#", link_text="Read More") }}
+                {{ library.list_item(icon_name="user", title_text="This is a list item with a very long title to see how it looks in comparison", image_src="https://picsum.photos/800/800", link="#", link_text="Read More") }}
+                {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800") }}
+                {{ library.list_item(title_meta="$9999", image_src="https://picsum.photos/800/800", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_right=true) }}
+                {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800", link="#", link_text="Read More", image_right=true) }}
+                {{ library.list_item(icon_name="user", title_text="This is a list item with a very long title to see how it looks in comparison", image_src="https://picsum.photos/800/800", link="#", link_text="Read More", image_right=true) }}
+                {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800", image_right=true) }}
             {% endcall %}
 
             <h2 class="hostile-sink-reset">List Meta</h2>
             {% call library.list() %}
                 {{ library.list_item(link="#", link_text="Read More", meta="Western Massachusetts 2018") }}
                 {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", meta="Western Massachusetts 2018") }}
-                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018") }}
-                {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", meta="Western Massachusetts 2018") }}
-                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018") }}
+                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018") }}
+                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", image_right=true) }}
+                {{ library.list_item(link="#", title_text="This is a list item with a very long title to see how it looks in comparison", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018-2020") }}
+                {{ library.list_item(link="#", title_text="This is a list item with a very long title to see how it looks in comparison", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018-2020", image_right=true) }}
+                {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", meta="Western Massachusetts 2018-2020") }}
+                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018-2020") }}
             {% endcall %}
 
             <h2 class="hostile-sink-reset">List Caption</h2>
             {% call library.list() %}
-                {{ library.list_item(link="#", link_text="Read More", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+                {{ library.list_item(link="#", link_text="Read More", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
                 {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
                 {{ library.list_item(icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
-                {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
-                {{ library.list_item(tlink="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+                {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+                {{ library.list_item(tlink="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+                {{ library.list_item(title_meta="$9999", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…", image_right=true) }}
+                {{ library.list_item(tlink="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…", image_right=true) }}
             {% endcall %}
 
             <h2 class="hostile-sink-reset">List Meta and Caption</h2>
@@ -68,13 +97,10 @@
                 {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
                 {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
                 {{ library.list_item(title_meta="$9999", icon_name="user", link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
-                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", avatar_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+                {{ library.list_item(link="#", link_text="Read More", link_secondary="#", link_text_secodary="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…", image_right=true) }}
             {% endcall %}
 
-            <h2 class="hostile-sink-reset">List Meta and Caption</h2>
-            {% call library.list() %}
-                
-            {% endcall %}
         </div>
     </div>
 

@@ -9,13 +9,11 @@ $spirit-space-vnav-3-x: 24px;
 $spirit-space-vnav-2dot25-x: 18px;
 $spirit-space-vnav-2dot5-x: 20px;
 $spirit-space-vnav-10-x: 80px;
-
 $spirit-space-inset-squish-vert-nav: $spirit-space-vnav-1dot25-x $spirit-space-vnav-3-x;
 $spirit-space-inset-squish-vert-nav-sm: $spirit-space-generic-1-x $spirit-space-vnav-3-x;
 $spirit-space-inset-squish-vert-nav-lg: $spirit-space-vnav-2dot25-x $spirit-space-vnav-3-x;
 $spirit-space-inset-left-vert-nav-lv2: $spirit-space-generic-6-x; // 48px;
 $spirit-space-inset-left-vert-nav-lv3: $spirit-space-vnav-10-x;
-
 $spirit-size-icon-nested: $spirit-size-icon-s;
 
 
@@ -115,8 +113,8 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
   &:focus,
   .spirit-vertical-nav__item--focus & {
     background-color: $spirit-vert-nav-hover;
-    text-decoration: none;
     outline: none;
+    text-decoration: none;
   }
 
   .spirit-vertical-nav__item--open &,
