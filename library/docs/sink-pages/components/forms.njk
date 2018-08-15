@@ -576,16 +576,20 @@
     <h5 class="hostile-sink-reset">Fieldset, hidden legend</h5>
     {% call library.form_fieldset() %}
         {{ library.form_legend(text="Contact Info", hidden=true) }}
-        {% call library.form_field_group(horizontal=true) %}
-            {% call library.form_field_group() %}
+        <div class="spirit-row">
+            <div class="spirit-col-md-6">
+              {% call library.form_field_group() %}
                 {{ library.form_label(text="First Name", for="contact-info-first-name") }}
                 {{ library.form_input(id="contact-info-first-name") }}
-            {% endcall %}
-            {% call library.form_field_group() %}
+              {% endcall %}
+            </div>
+            <div class="spirit-col-md-6">
+              {% call library.form_field_group() %}
                 {{ library.form_label(text="Last Name", for="contact-info-last-name") }}
                 {{ library.form_input(id="contact-info-last-name") }}
-            {% endcall %}
-        {% endcall %}
+              {% endcall %}
+            </div>
+        </div>
 
         {% call library.form_field_group() %}
             {{ library.form_label(text="Email", for="contact-info-email") }}
@@ -599,33 +603,39 @@
     {% call library.form_fieldset() %}
         {{ library.form_legend(text="Payment Info") }}
         {% call library.form_field_group() %}
-            {{ library.form_label(text="Payment Type", for="payment-info-type") }}
-            {{ library.form_select(id="payment-info-type", 
-              options=[
-                {
-                    text: "Credit Card",
-                    value: "credit"
-                },
-                {
-                    text: "Bank Account",
-                    value: "bank_account"
-                }
-            ]) }}
+            {{ library.form_label(text="Credit Card Number", for="payment-info-cc-number") }}
+            {{ library.form_input(id="payment-info-cc-number") }}
         {% endcall %}
-        {% call library.form_field_group(horizontal=true) %}
-            {% call library.form_field_group() %}
-                {{ library.form_label(text="Credit Card Number", for="payment-info-cc-number") }}
-                {{ library.form_input(id="payment-info-cc-number") }}
-            {% endcall %}
-            {% call library.form_field_group() %}
-                {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
-                {{ library.form_input(id="payment-info-cc-expiration", placeholder="MM/YY") }}
-            {% endcall %}
-            {% call library.form_field_group() %}
-                {{ library.form_label(text="CVV", for="payment-info-cvv") }}
-                {{ library.form_input(id="payment-info-cvv") }}
-            {% endcall %}
-        {% endcall %}
+        <div class="spirit-row">
+            <div class="spirit-col-md-4">
+              {% call library.form_field_group() %}
+                  {{ library.form_label(text="Payment Type", for="payment-info-type") }}
+                  {{ library.form_select(id="payment-info-type", 
+                    options=[
+                      {
+                          text: "Credit Card",
+                          value: "credit"
+                      },
+                      {
+                          text: "Bank Account",
+                          value: "bank_account"
+                      }
+                  ]) }}
+              {% endcall %}
+            </div>
+            <div class="spirit-col-sm-6 spirit-col-md-4">
+              {% call library.form_field_group() %}
+                  {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
+                  {{ library.form_input(id="payment-info-cc-expiration", placeholder="MM/YY") }}
+              {% endcall %}
+            </div>
+            <div class="spirit-col-sm-6 spirit-col-md-4">
+              {% call library.form_field_group() %}
+                  {{ library.form_label(text="CVV", for="payment-info-cvv") }}
+                  {{ library.form_input(id="payment-info-cvv") }}
+              {% endcall %}
+            </div>
+        </div>
     {% endcall %}
 
 
@@ -644,35 +654,50 @@
     <br>
     <h2 class="hostile-sink-reset">Composed Examples</h2>
     <h5 class="hostile-sink-reset">Horizontal Arrangement Example</h5>
+
     {% call library.form() %}
-      {% call library.form_field_group(horizontal=true) %}
-          {% call library.form_field_group() %}
-              {{ library.form_label(text="Credit Card Number", required=true, for="horizontal-form-cc-number") }}
-              {{ library.form_input(id="horizontal-form-cc-number") }}
-          {% endcall %}
-          {% call library.form_field_group(class="spirit-form__field-group--s") %}
-              {{ library.form_label(text="<abbr title='Expiration'>Exp</abbr> Date", required=true, for="horizontal-form-cc-exp-date") }}
-              {{ library.form_input(placeholder="MM/YY", id="horizontal-form-cc-exp-date") }}
-          {% endcall %}
-          {% call library.form_field_group(class="spirit-form__field-group--xs") %}
-              {{ library.form_label(text="CVC", required=true, for="horizontal-form-cc-cvc") }}
-              {{ library.form_input(id="horizontal-form-cc-cvc") }}
-          {% endcall %}
-      {% endcall %}
-      {% call library.form_field_group(horizontal=true) %}
-          {% call library.form_field_group() %}
-              {{ library.form_label(text="Favorite Food", for="horizontal-form-favorite-food") }}
-              {{ library.form_input(id="horizontal-form-favorite-food") }}
-          {% endcall %}
-          {% call library.form_field_group() %}
-              {% call library.form_radio_group(label="Dessert or no?", required=true) %}
-                  {{ library.form_radio(id="dessert-yes", value="yes", name="radio-group-dessert", label="Yes, Please", checked=true) }}
-                  {{ library.form_radio(id="dessert-no", value="no", name="radio-group-dessert", label="No, Thank You") }}
-              {% endcall %}
-          {% endcall %}
+      {% call library.form_fieldset() %}
+          {{ library.form_legend(text="Horizontal Arrangement", hidden=true) }}
+          <div class="spirit-row">
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Credit Card Number", for="payment-info-cc-number") }}
+                    {{ library.form_input(id="payment-info-cc-number") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-3">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
+                    {{ library.form_input(id="payment-info-cc-expiration", placeholder="MM/YY") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-3">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="CVV", for="payment-info-cvv") }}
+                    {{ library.form_input(id="payment-info-cvv") }}
+                {% endcall %}
+              </div>
+          </div>
+          <div class="spirit-row">
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Favorite Food", for="horizontal-form-favorite-food") }}
+                    {{ library.form_input(id="horizontal-form-favorite-food") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group(horizontal=true) %}
+                    {% call library.form_radio_group(label="Dessert or no?", required=true) %}
+                        {{ library.form_radio(id="dessert-yes", value="yes", name="radio-group-dessert", label="Yes, Please", checked=true) }}
+                        {{ library.form_radio(id="dessert-no", value="no", name="radio-group-dessert", label="No, Thank You") }}
+                    {% endcall %}
+                {% endcall %}
+              </div>
+          </div>
       {% endcall %}
       {{ library.button(type="submit", text="Save Payment Info") }}
     {% endcall %}
+
 
     <h5 class="hostile-sink-reset">Long Form Example</h5>
     {% call library.form() %}
@@ -702,21 +727,26 @@
                 {{ library.form_label(text="Street", for="full-form-billing-street") }}
                 {{ library.form_input(id="full-form-billing-street") }}
             {% endcall %}
-
-            {% call library.form_field_group(horizontal=true) %}
+            <div class="spirit-row">
+              <div class="spirit-col-md-4">
                 {% call library.form_field_group() %}
                     {{ library.form_label(text="City", for="full-form-billing-city") }}
                     {{ library.form_input(id="full-form-billing-city") }}
                 {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
                 {% call library.form_field_group() %}
                     {{ library.form_label(text="State", for="full-form-billing-state") }}
                     {{ library.form_input(placeholder="CA", id="full-form-billing-state") }}
                 {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
                 {% call library.form_field_group() %}
                     {{ library.form_label(text="ZIP", for="full-form-billing-zip") }}
                     {{ library.form_input(id="full-form-billing-zip") }}
                 {% endcall %}
-            {% endcall %}
+              </div>
+            </div>
         {% endcall %}
         {% call library.form_fieldset() %}
             {{ library.form_legend(text="Shipping Address") }}
@@ -725,25 +755,31 @@
                 {{ library.form_checkbox(label="Same as billing address", id='checkout-example-checkbox', checked=true) }}
             {% endcall %}
 
+            {{ library.form_legend(text="Billing Address") }}
             {% call library.form_field_group() %}
-                {{ library.form_label(text="Street", for="full-form-shipping-street", required=false, disabled=true) }}
-                {{ library.form_input(disabled=true, id="full-form-shipping-street") }}
+                {{ library.form_label(disabled=true, text="Street", for="full-form-billing-street") }}
+                {{ library.form_input(disabled=true, id="full-form-billing-street") }}
             {% endcall %}
-            
-            {% call library.form_field_group(horizontal=true) %}
+            <div class="spirit-row">
+              <div class="spirit-col-md-4">
                 {% call library.form_field_group() %}
-                    {{ library.form_label(text="City", for="full-form-shipping-city", required=false, disabled=true) }}
-                    {{ library.form_input(disabled=true, id="full-form-shipping-city") }}
+                    {{ library.form_label(disabled=true, text="City", for="full-form-billing-city") }}
+                    {{ library.form_input(disabled=true, id="full-form-billing-city") }}
                 {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
                 {% call library.form_field_group() %}
-                    {{ library.form_label(text="State", for="full-form-shipping-state", required=false, disabled=true) }}
-                    {{ library.form_input(placeholder="CA", disabled=true, id="full-form-shipping-state") }}
+                    {{ library.form_label(disabled=true, text="State", for="full-form-billing-state") }}
+                    {{ library.form_input(disabled=true, placeholder="CA", id="full-form-billing-state") }}
                 {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
                 {% call library.form_field_group() %}
-                    {{ library.form_label(text="ZIP", for="full-form-shipping-zip", required=false, disabled=true) }}
-                    {{ library.form_input(disabled=true, for="full-form-shipping-zip") }}
+                    {{ library.form_label(disabled=true, text="ZIP", for="full-form-billing-zip") }}
+                    {{ library.form_input(disabled=true, id="full-form-billing-zip") }}
                 {% endcall %}
-            {% endcall %}
+              </div>
+            </div>
         {% endcall %}
 
         {% call library.form_field_group() %}
