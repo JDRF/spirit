@@ -1,0 +1,117 @@
+// Token proposal
+$spirit-container-breakpoint: $spirit-breakpoint-grid; // from grid.scss
+$spirit-container-inner-horizontal-space-m: 80px;
+$spirit-container-inner-max-width-full: 1152px;
+$spirit-container-inner-max-width-large: 1000px;
+
+// Shared styles
+.spirit-container {
+  @include spirit-typography-reset;
+  @include spirit-box-sizing(border-box);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.spirit-container__inner {
+  @include spirit-typography-reset;
+  box-sizing: border-box;
+  padding-bottom: $spirit-space-generic-6-x;
+  padding-top: $spirit-space-generic-6-x;
+
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-bottom: $spirit-space-generic-12-x;
+    padding-top: $spirit-space-generic-12-x;
+  }
+}
+
+.spirit-container__inner,
+.spirit-container__inner--fullwidth {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $spirit-container-inner-max-width-full;
+  padding-left: 0;
+  padding-right: 0;
+  width: calc(100% - (#{$spirit-space-generic-3-x} * 2));
+}
+
+// Container width large
+.spirit-container__inner--large {
+  max-width: $spirit-container-inner-max-width-large;
+  padding-left: 0;
+  padding-right: 0;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    width: calc(100% - (#{$spirit-container-inner-horizontal-space-m} * 2));
+  }
+}
+
+// Top, bottom padding options
+
+.spirit-container__inner--padding-top-none {
+  padding-top: 0;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-top: 0;
+  }
+}
+
+.spirit-container__inner--padding-bottom-none {
+  padding-bottom: 0;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-bottom: 0;
+  }
+}
+
+.spirit-container__inner--padding-top-xs {
+  padding-top: $spirit-space-generic-3-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-top: $spirit-space-generic-4-x;
+  }
+}
+
+.spirit-container__inner--padding-bottom-xs {
+  padding-bottom: $spirit-space-generic-3-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-bottom: $spirit-space-generic-4-x;
+  }
+}
+
+.spirit-container__inner--padding-top-s {
+  padding-top: $spirit-space-generic-4-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-top: $spirit-space-generic-8-x;
+  }
+}
+
+.spirit-container__inner--padding-bottom-s {
+  padding-bottom: $spirit-space-generic-4-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-bottom: $spirit-space-generic-8-x;
+  }
+}
+
+.spirit-container__inner--padding-top-m {
+  padding-top: $spirit-space-generic-6-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-top: $spirit-space-generic-12-x;
+  }
+}
+
+.spirit-container__inner--padding-bottom-m {
+  padding-bottom: $spirit-space-generic-6-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-bottom: $spirit-space-generic-12-x;
+  }
+}
+
+.spirit-container__inner--padding-top-lg {
+  padding-top: $spirit-space-generic-12-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-top: $spirit-space-generic-24-x;
+  }
+}
+
+.spirit-container__inner--padding-bottom-lg {
+  padding-bottom: $spirit-space-generic-12-x;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    padding-bottom: $spirit-space-generic-24-x;
+  }
+}
