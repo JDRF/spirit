@@ -8,4 +8,16 @@
 
 .spirit-doc-component-template-shell__nav {
   flex: 0 0 200px;
+  padding-top: 128px;
+}
+
+.spirit-doc-component-template-shell__nav--heading {
+  @include spirit-h4;
+  margin: 0;
+}
+
+.esds-doc-page-navigation__inner {
+  .esds-doc-page-navigation--fixed & {
+    top: 0;
+  }
 }
