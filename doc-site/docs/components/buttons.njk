@@ -1,13 +1,18 @@
-{% extends 'templates/component.njk' %}
-{% block component_template_content %}
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
   {% filter markdown %}
       <h1>Buttons</h1>
 
       <p class="spirit-subhead">Buttons invite and trigger key actions throughout the experience.</p>
+  {% endfilter %}
+{% endblock %}
 
-      ### Primary
+{% block page_shell_content %}
+  {% filter markdown %}
+    <h2 class="spirit-doc-hidden-heading">Variations</h2>
+    ### Primary
 
-      Use for the highest-priority actions. 
+    Use for the highest-priority actions. 
   {% endfilter %}
 
   {% set button_state_example_primary %}
@@ -614,4 +619,4 @@
       Buttons can be sized responsively. See <a href="#responsive-sizing">Responsive Sizing</a>.
   {% endfilter %}
 
-{% endblock component_template_content %}
+{% endblock page_shell_content %}

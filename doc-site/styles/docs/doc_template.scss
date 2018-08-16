@@ -1,39 +1,101 @@
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
-  display: flex;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  grid-template-rows: auto auto auto;
+  // display: flex;
+  // margin: 0 auto;
   // max-width: 1200px;
   width: 100%;
 }
 
 .spirit-doc-page-shell__navigation {
-  // flex: 0 0 256px;
-  height: 100vh;
-  position: fixed;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+}
+
+.spirit-doc-page-shell__content-intro {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  min-width: 0;
+  padding-right: $spirit-space-generic-2-x;
+}
+
+.spirit-doc-page-shell__page-navigation {
+  display: inline-block;
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  min-width: 0;
+  padding-right: $spirit-space-generic-2-x;
+}
+
+.spirit-doc-page-shell__navigation-inner {
   left: 0;
-  top: 0;
+  max-height: 100vh;
   overflow-y: auto;
-  padding: $spirit-space-inset-3-x;
-  padding-bottom: 0;
-  padding-top: 0;
-  width: 256px;
+  padding: 0 $spirit-space-generic-3-x;
+  position: fixed;
+  top: 0;
 }
 
 .spirit-doc-page-shell__content {
-  // align-items: center;
-  // display: flex;
-  flex: 1 1 auto;
-  padding-left: 256px;
-  min-width: 0; // allows content area to shrink and keeps code snippets dynamic
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+  min-width: 0;
+  padding-right: $spirit-space-generic-2-x;
 }
 
-.spirit-doc-page-shell__brand-title {
-  margin: 0;
-  margin-top: $spirit-space-generic-6-x;
+.spirit-doc-page-shell__page-navigation-heading {
+  margin: $spirit-space-stack-2-x;
 }
 
-.spirit-doc-page-shell__brand-title-link {
-  @include spirit-h2;
-  color: $spirit-text-color-link;
-  text-decoration: none;
+.spirit-doc-hidden-heading {
+  @include spirit-accessibly-hidden;
 }
+
+// Page Navigation Layout Overrides
+.esds-doc-page-navigation {
+  display: inline-block;
+  width: auto;
+}
+
+.esds-doc-page-navigation--fixed .esds-doc-page-navigation__inner {
+  position: static;
+}
+
+// Don't highlight active links in this layout since the nav isn't fixed
+.esds-doc-page-navigation__link.esds-doc-page-navigation__link--active {
+  color: $spirit-text-color-secondary;
+}
+
+// .spirit-doc-page-shell__navigation {
+//   // flex: 0 0 256px;
+//   height: 100vh;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   overflow-y: auto;
+//   padding: $spirit-space-inset-3-x;
+//   padding-bottom: 0;
+//   padding-top: 0;
+//   width: 256px;
+// }
+
+// .spirit-doc-page-shell__content {
+//   // align-items: center;
+//   // display: flex;
+//   flex: 1 1 auto;
+//   padding-left: 256px;
+//   min-width: 0; // allows content area to shrink and keeps code snippets dynamic
+// }
+
+// .spirit-doc-page-shell__brand-title {
+//   margin: 0;
+//   margin-top: $spirit-space-generic-6-x;
+// }
+
+// .spirit-doc-page-shell__brand-title-link {
+//   @include spirit-h2;
+//   color: $spirit-text-color-link;
+//   text-decoration: none;
+// }
