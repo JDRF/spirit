@@ -113,13 +113,12 @@
     $font-weight: $spirit-font-weight-bold,
     $line-height: $spirit-font-line-height-heading-level-4-normal
   );
+  @include spirit-dark-parent-light-text;
 
   @media screen and (min-width: $spirit-breakpoint-l) {
     font-size: $spirit-font-size-heading-level-4-breakpoint-l;
     line-height: $spirit-font-line-height-heading-level-4-breakpoint-l;
   }
-
-  @include spirit-dark-parent-light-text;
 }
 
 @mixin spirit-h5 {
@@ -242,7 +241,7 @@ $spirit-link-underline-height-animated: .125em;
     position: absolute;
     right: 0;
     transition: width $spirit-link-transition-duration;
-    width: 0%;
+    width: 0;
   }
 }
 

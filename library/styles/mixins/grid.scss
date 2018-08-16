@@ -2,6 +2,8 @@
 
 $spirit-grid-columns: 12;
 $spirit-grid-gutter-width: $spirit-space-generic-2-x;
+$spirit-grid-gutter-width-lg: $spirit-space-generic-4-x;
+$spirit-breakpoint-grid: 1080px;
 
 // Override Bootstrap defaults
 
@@ -16,21 +18,10 @@ $grid-breakpoints: (
   xl: $spirit-breakpoint-xl
 );
 
-.spirit-container,
+.spirit-container__inner,
 .spirit-row,
 [class^='spirit-col'] {
-  box-sizing: border-box;
-}
-
-.spirit-row--no-gutters {
-  margin-left: 0;
-  margin-right: 0;
-
-  > .spirit-col,
-  > [class*='spirit-col-'] {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  @include spirit-box-sizing(border-box);
 }
 
 // We used /(?:^|\s)\.(?=[a-zA-Z])/gm regex to prefix
@@ -48,3 +39,38 @@ $grid-breakpoints: (
 @import '../vendor/bootstrap/utilities/display';
 @import '../vendor/bootstrap/utilities/flex';
 @import '../vendor/bootstrap/utilities/spacing';
+
+.spirit-row--no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+
+  > .spirit-col,
+  > [class*='spirit-col-'] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: $spirit-breakpoint-grid) {
+  .spirit-row {
+    margin-left: -($spirit-grid-gutter-width-lg / 2);
+    margin-right: -($spirit-grid-gutter-width-lg / 2);
+  }
+
+  .spirit-row > .spirit-col,
+  .spirit-row > [class*='spirit-col-'] {
+    padding-left: ($spirit-grid-gutter-width-lg / 2);
+    padding-right: ($spirit-grid-gutter-width-lg / 2);
+  }
+
+  .spirit-row--no-gutters {
+    margin-left: 0;
+    margin-right: 0;
+
+    > .spirit-col,
+    > [class*='spirit-col-'] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

@@ -1,10 +1,10 @@
 @import '../tokens/tokens';
 
-.spirit-col--dark {
+.spirit-context--brand {
   background: $spirit-brand-color-primary;
   color: $spirit-color-white;
 
-  h2, 
+  h2,
   h3 {
     color: $spirit-color-white;
   }
