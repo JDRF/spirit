@@ -85,7 +85,7 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
       color: $spirit-text-color-secondary;
 
       &:active,
-      .spirit-vertical-nav__item--active & {
+      .spirit-vertical-nav_ _item--active & {
         color: $spirit-text-color-link;
       }
     }
@@ -115,8 +115,8 @@ $spirit-vert-nav-toggle-color: $spirit-color-grey-70;
   &:focus,
   .spirit-vertical-nav__item--focus & {
     background-color: $spirit-vert-nav-hover;
-    text-decoration: none;
     outline: none;
+    text-decoration: none;
   }
 
   .spirit-vertical-nav__item--open &,
