@@ -16,3 +16,9 @@
 
 // Page-specific styles
 @import 'docs/buttons_doc';
+
+body {
+  // Basic reset
+  margin: 0;
+  padding: 0;
+}

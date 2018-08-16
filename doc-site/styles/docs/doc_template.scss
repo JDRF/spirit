@@ -2,14 +2,38 @@
   @include spirit-box-sizing;
   display: flex;
   margin: 0 auto;
-  max-width: 1200px;
+  // max-width: 1200px;
   width: 100%;
 }
 
 .spirit-doc-page-shell__navigation {
-  flex: 0 0 200px;
+  // flex: 0 0 256px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  padding: $spirit-space-inset-3-x;
+  padding-bottom: 0;
+  padding-top: 0;
+  width: 256px;
 }
 
 .spirit-doc-page-shell__content {
+  // align-items: center;
+  // display: flex;
+  flex: 1 1 auto;
+  padding-left: 256px;
   min-width: 0; // allows content area to shrink and keeps code snippets dynamic
+}
+
+.spirit-doc-page-shell__brand-title {
+  margin: 0;
+  margin-top: $spirit-space-generic-6-x;
+}
+
+.spirit-doc-page-shell__brand-title-link {
+  @include spirit-h2;
+  color: $spirit-text-color-link;
+  text-decoration: none;
 }

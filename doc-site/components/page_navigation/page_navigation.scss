@@ -1,6 +1,27 @@
 @import '../../node_modules/esds-doc/components/page_navigation/page_navigation';
 
-.esds-doc-page-navigation__item--child {
-  font-style: italic;
-  padding-left: $spirit-space-generic-1-x;
+.esds-doc-page-navigation {
+  max-width: none;
+  width: 100%;
 }
+
+.esds-doc-page-navigation__link {
+  color: $spirit-text-color-primary;
+  font-size: $spirit-font-size-s;
+  font-weight: $spirit-font-weight-semibold;
+  padding: $spirit-space-inset-1-x;
+  padding-left: 0;
+  padding-right: 0;
+
+  .esds-doc-page-navigation__item--child & {
+    color: $spirit-text-color-secondary;
+    font-weight: $spirit-font-weight-medium;
+    padding-left: $spirit-space-generic-2-x;
+  }
+
+  &:hover,
+  &.esds-doc-page-navigation__link--active {
+    color: $spirit-text-color-link;
+  }
+}
+
