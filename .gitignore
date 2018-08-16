@@ -2,5 +2,6 @@ node_modules
 # Default webroot
 /docs/
 /tmp/
+/v/
 .DS_Store
 .idea

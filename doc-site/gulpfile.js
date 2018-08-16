@@ -30,13 +30,22 @@ gulp.task('deploy-to-gh-pages', function(done){
   done();
 });
 
-gulp.task('build-release', gulp.series('build:all', 'relativize-webroot-paths', 'build-versioned-docs'));
+gulp.task('build-release', gulp.series('clean:webroot', 'build:all', 'relativize-webroot-paths', 'build-versioned-docs'));
 
-// copy all the files in /docs to /docs/v/[spirit-version-number]
+
+// copy all the files in /docs to /v/[spirit-version-number]
 gulp.task('build-versioned-docs', function(done) {
-  fs.copySync('../docs/', `../docs/v/${spiritProjectData.version}/`, {mkdirp: true});
+  fs.copySync('../docs/', `../v/${spiritProjectData.version}/`, {mkdirp: true});
+  fs.moveSync('../v', '../docs/v', {mkdirp: true});
   done();
 });
+
+// // Move the /v folder back inside the webroot so they're accessible from github pages
+// gulp.task('move-versioned-docs-inside-webroot', function(done){
+//   if (fs.existsSync('../v')) {
+//   }
+//   done();
+// });
 
 gulp.task('write-spirit-project-data-to-json', function(done){
   fs.mkdirpSync('data');
