@@ -1,5 +1,5 @@
 // Token proposal
-$spirit-spirit-container-breakpoint: $spirit-spirit-breakpoint-grid; // from grid.scss
+$spirit-container-breakpoint: $spirit-breakpoint-grid; // from grid.scss
 $spirit-container-inner-horizontal-space-m: 80px;
 $spirit-container-inner-max-width-full: 1152px;
 $spirit-container-inner-max-width-large: 1000px;
@@ -18,7 +18,7 @@ $spirit-container-inner-max-width-large: 1000px;
   padding-bottom: $spirit-space-generic-6-x;
   padding-top: $spirit-space-generic-6-x;
 
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-12-x;
     padding-top: $spirit-space-generic-12-x;
   }
@@ -39,7 +39,7 @@ $spirit-container-inner-max-width-large: 1000px;
   max-width: $spirit-container-inner-max-width-large;
   padding-left: 0;
   padding-right: 0;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     width: calc(100% - (#{$spirit-container-inner-horizontal-space-m} * 2));
   }
 }
@@ -48,70 +48,70 @@ $spirit-container-inner-max-width-large: 1000px;
 
 .spirit-container__inner--padding-top-none {
   padding-top: 0;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-top: 0;
   }
 }
 
 .spirit-container__inner--padding-bottom-none {
   padding-bottom: 0;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: 0;
   }
 }
 
 .spirit-container__inner--padding-top-xs {
   padding-top: $spirit-space-generic-3-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-top: $spirit-space-generic-4-x;
   }
 }
 
 .spirit-container__inner--padding-bottom-xs {
   padding-bottom: $spirit-space-generic-3-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-4-x;
   }
 }
 
 .spirit-container__inner--padding-top-s {
   padding-top: $spirit-space-generic-4-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-top: $spirit-space-generic-8-x;
   }
 }
 
 .spirit-container__inner--padding-bottom-s {
   padding-bottom: $spirit-space-generic-4-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-8-x;
   }
 }
 
 .spirit-container__inner--padding-top-m {
   padding-top: $spirit-space-generic-6-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-top: $spirit-space-generic-12-x;
   }
 }
 
 .spirit-container__inner--padding-bottom-m {
   padding-bottom: $spirit-space-generic-6-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-12-x;
   }
 }
 
 .spirit-container__inner--padding-top-lg {
   padding-top: $spirit-space-generic-12-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-top: $spirit-space-generic-24-x;
   }
 }
 
 .spirit-container__inner--padding-bottom-lg {
   padding-bottom: $spirit-space-generic-12-x;
-  @media screen and (min-width: $spirit-spirit-container-breakpoint) {
+  @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-24-x;
   }
 }
