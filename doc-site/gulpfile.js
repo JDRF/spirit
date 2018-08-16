@@ -1,9 +1,51 @@
 const gulp = require('esds-build');
 const fs = require('fs-extra');
+const del = require('del');
 const path = require('path');
 const tap = require('gulp-tap');
 const slash = require('slash');
+const execSync = require('child_process').execSync;
 const spiritProjectData = require(`${process.cwd()}/node_modules/@jdrfhq/spirit/package.json`);
+
+gulp.task('deploy-to-gh-pages', function(done){
+  // Remove the /tmp directory if it already exists
+  if (fs.existsSync('../tmp')) {
+    del.sync(['../tmp'], {force: true});
+  }
+
+  // Clone the gh-pages branch into the /tmp directory
+  execSync('git clone --single-branch -b gh-pages git@github.com:JDRF/spirit.git ../tmp');
+
+  // Build the latest release into the /docs directory
+  execSync('gulp build-release');
+
+  // Rsync /docs into /tmp
+  execSync('rsync -a ../docs/ ../tmp/');
+
+  // Commit the changes to the gh-pages repo in tmp
+  execSync('cd ../tmp && git add --all && git commit -m "Deploy release to gh-pages branch" && git push');
+
+  // Remove /tmp directory
+  del.sync(['../tmp'], {force: true});
+  done();
+});
+
+gulp.task('build-release', gulp.series('clean:webroot', 'build:all', 'relativize-webroot-paths', 'build-versioned-docs'));
+
+
+// copy all the files in /docs to /v/[spirit-version-number]
+gulp.task('build-versioned-docs', function(done) {
+  fs.copySync('../docs/', `../v/${spiritProjectData.version}/`, {mkdirp: true});
+  fs.moveSync('../v', '../docs/v', {mkdirp: true});
+  done();
+});
+
+// // Move the /v folder back inside the webroot so they're accessible from github pages
+// gulp.task('move-versioned-docs-inside-webroot', function(done){
+//   if (fs.existsSync('../v')) {
+//   }
+//   done();
+// });
 
 gulp.task('write-spirit-project-data-to-json', function(done){
   fs.mkdirpSync('data');
@@ -12,32 +54,6 @@ gulp.task('write-spirit-project-data-to-json', function(done){
 });
 
 gulp.task('esds-hook:pre:build:all', gulp.series('write-spirit-project-data-to-json'));
-
-
-gulp.task('build-release', gulp.series('move-versioned-docs-outside-webroot', 'build:all', 'relativize-webroot-paths', 'build-versioned-docs', 'move-versioned-docs-inside-webroot'));
-
-// Move the /v folder outside of webroot so it doesn't get deleted when the project gets rebuilt
-gulp.task('move-versioned-docs-outside-webroot', function(done){
-  if (fs.existsSync('../docs/v')) {
-    fs.moveSync('../docs/v', '../v', {mkdirp: true});
-  }
-  done();
-});
-
-// copy all the files in /docs to /v/[spirit-version-number]
-gulp.task('build-versioned-docs', function(done) {
-  fs.copySync('../docs/', `../v/${spiritProjectData.version}/`, {mkdirp: true});
-  done();
-});
-
-// Move the /v folder back inside the webroot so they're accessible from github pages
-gulp.task('move-versioned-docs-inside-webroot', function(done){
-  if (fs.existsSync('../v')) {
-    fs.moveSync('../v', '../docs/v', {mkdirp: true});
-  }
-  done();
-});
-
 
 function compute (from, to) {
   return (slash(path.relative(path.dirname(from), to)) || '.') + '/';
