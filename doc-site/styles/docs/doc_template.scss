@@ -1,17 +1,25 @@
+$spirit-doc-layout-breakpoint: 1257px;
+
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
   display: grid;
   grid-template-columns: 256px 1fr;
   grid-template-rows: auto auto auto;
-  // display: flex;
-  // margin: 0 auto;
-  // max-width: 1200px;
   width: 100%;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-template-columns: 256px 1fr 800px 200px 1fr;
+    grid-template-rows: auto auto;
+  }
 }
 
 .spirit-doc-page-shell__navigation {
   grid-column: 1 / span 1;
   grid-row: 1 / span 3;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-row: 1 / span 2;
+  }
 }
 
 .spirit-doc-page-shell__content-intro {
@@ -19,6 +27,11 @@
   grid-row: 1 / span 1;
   min-width: 0;
   padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+  }
 }
 
 .spirit-doc-page-shell__page-navigation {
@@ -27,6 +40,11 @@
   grid-row: 2 / span 1;
   min-width: 0;
   padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-column: 4 / span 1;
+    grid-row: 2 / span 1;
+  }
 }
 
 .spirit-doc-page-shell__navigation-inner {
@@ -43,6 +61,11 @@
   grid-row: 3 / span 1;
   min-width: 0;
   padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+  }
 }
 
 .spirit-doc-page-shell__page-navigation-heading {
@@ -51,6 +74,7 @@
 
 .spirit-doc-hidden-heading {
   @include spirit-accessibly-hidden;
+  margin: 0;
 }
 
 // Page Navigation Layout Overrides
@@ -61,11 +85,20 @@
 
 .esds-doc-page-navigation--fixed .esds-doc-page-navigation__inner {
   position: static;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    position: fixed;
+    top: 0;
+  }
 }
 
 // Don't highlight active links in this layout since the nav isn't fixed
 .esds-doc-page-navigation__link.esds-doc-page-navigation__link--active {
   color: $spirit-text-color-secondary;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    color: $spirit-text-color-link;
+  }
 }
 
 // .spirit-doc-page-shell__navigation {
