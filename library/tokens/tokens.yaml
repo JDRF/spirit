@@ -59,6 +59,10 @@ feedback-color :
     info :      *color-blue-15
     success :   *color-green-20
 
+background-color :
+  white : *color-white
+  black : *color-black
+  brand : *color-blue-100
 
 box-shadow :
   focus :     4px

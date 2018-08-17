@@ -3,9 +3,8 @@
 // Generate semantic grid columns with these mixins.
 
 @mixin make-container() {
+  // no left and right padding per Spirit design speck
   width: 100%;
-  padding-right: ($grid-gutter-width / 2);
-  padding-left: ($grid-gutter-width / 2);
   margin-right: auto;
   margin-left: auto;
 }

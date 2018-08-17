@@ -138,30 +138,47 @@
 
     {% call demo_tab(label="Grid Settings: spirit-col-6 spirit-col-md-4 spirit-col-lg-2", id="grid-3-up") %}
       <h2 class="hostile-sink-reset">Grid Settings: spirit-col-6 spirit-col-md-4 spirit-col-lg-2</h2>
-      {% call library.tile_grid() %}
-        {{ sample_tiles | safe }}
-      {% endcall %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+          {% call library.tile_grid() %}
+            {{ sample_tiles | safe }}
+          {% endcall %}
+        </div>
+      </div>
     {% endcall %}
+
 
     {% call demo_tab(label="Grid Settings: spirit-col-6 spirit-col-md-6 spirit-col-lg-3", id="grid-4-up") %}
       <h2 class="hostile-sink-reset">Grid Settings: spirit-col-6 spirit-col-md-6 spirit-col-lg-3</h2>
-      {% call library.tile_grid() %}
-        {{ sample_tiles_medium | safe }}
-      {% endcall %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+          {% call library.tile_grid() %}
+            {{ sample_tiles_medium | safe }}
+          {% endcall %}
+        </div>
+      </div>
     {% endcall %}
 
     {% call demo_tab(label="Grid Settings: spirit-col-12 spirit-col-md-4 spirit-col-lg-4", id="grid-2-up") %}
       <h2 class="hostile-sink-reset">Grid Settings: spirit-col-12 spirit-col-md-4 spirit-col-lg-4</h2>
-      {% call library.tile_grid() %}
-        {{ sample_tiles_large | safe }}
-      {% endcall %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+          {% call library.tile_grid() %}
+            {{ sample_tiles_large | safe }}
+          {% endcall %}
+        </div>
+      </div>
     {% endcall %}
 
     {% call demo_tab(label="text-only", id="text-only-3-up") %}
       <h2 class="hostile-sink-reset">text only</h2>
-      {% call library.tile_grid() %}
-        {{ text_only_sample_tiles | safe }}
-      {% endcall %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+          {% call library.tile_grid() %}
+            {{ text_only_sample_tiles | safe }}
+          {% endcall %}
+        </div>
+      </div>
     {% endcall %}
 
   </div>

@@ -56,6 +56,7 @@ $spirit-space-generic-2-x-half: 18px;
   }
 
   a {
+    @include spirit-dark-parent-light-text;
     color: $spirit-text-color-link;
     font-weight: $spirit-font-weight-bold;
     text-decoration: none;
@@ -122,6 +123,7 @@ $spirit-space-generic-2-x-half: 18px;
     @include spirit-typography-reset(
       $font-size: $spirit-font-size-l
     );
+    @include spirit-dark-parent-light-text;
   }
 
   blockquote {
@@ -223,5 +225,4 @@ $spirit-space-generic-2-x-half: 18px;
   figure > .spirit-caption {
     margin-top: $spirit-space-generic-2-x * -1;
   }
-
 }

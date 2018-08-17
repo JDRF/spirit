@@ -1,0 +1,294 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+  <style>
+    [class*="demo-inner-bg"] {
+      background-color: #EDEFF2;
+    }
+    .spirit-container__inner:not([class*="spirit-context--"]) {
+      background-color: #FFA6C4;
+    }
+    [class*="spirit-context--"] .spirit-container__inner:not([class*="spirit-context--"]) {
+      background-color: transparent;
+    }
+  </style>
+
+  {% set sample_cards %}
+    {{ library.card() }}
+    {{ library.card(
+      img_src='/images/components/card/bikers.png',
+      title_text="JDRF Ride to Cure Diabetes",
+      link_text="Find a Ride Near You",
+      body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+    {{ library.card(
+      img_src='/images/components/card/runners.png',
+      title_text="Team JDRF to Cure Diabetes",
+      link_text="Find an Event Near You",
+      body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
+    {{ library.card(
+      img_src='/images/components/card/gala.png',
+      title_text="Gala",
+      link_text="Find a Gala Near You",
+      body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+    {{ library.card(
+      img_src='/images/components/card/golf.png',
+      title_text="Golf",
+      link_text="Find an Event Near You",
+      body_text="Participate in a golf event to raise money for T1D while indulging in your favorite pastime.") }}
+    {{ library.card(
+      img_src='/images/components/card/school.png',
+      title_text="Give Back at School",
+      link_text="Learn More",
+      body_text="JDRF offers kids many ways to educate, inspire and motivate their peers to help make a world without T1D.") }}
+    {{ library.card(
+      img_src='/images/components/card/community.png',
+      title_text="JDRF Your Way",
+      link_text="Start a Fundraiser",
+      body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
+  {% endset %}
+  {% set sample_tiles %}
+    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile() }}</div>
+    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
+      img_src='/images/components/tile/onewalk_baloons.jpg',
+      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
+      img_src='/images/components/tile/onewalk_baloons.jpg',
+      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
+      img_src='/images/components/tile/onewalk_baloons.jpg',
+      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
+      img_src='/images/components/tile/onewalk_baloons.jpg',
+      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
+      img_src='/images/components/tile/onewalk_baloons.jpg',
+      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+  {% endset %}
+
+  <h1 class="hostile-sink-reset">Containers Sink</h1>
+
+  <h2 class="hostile-sink-reset">Fullwidth (default)</h2>
+  {% call library.container() %}
+    <div class="demo-inner-bg">Fullwidth container</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Large</h2>
+  {% call library.container(size="large") %}
+    <div class="demo-inner-bg">Large container</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Padding options</h2>
+  <h3 class="hostile-sink-reset">None</h3>
+  {% call library.container(padding_top="none",padding_bottom="none") %}
+    <div class="demo-inner-bg">Padding top and bottom None</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">XS</h3>
+  {% call library.container(padding_top="xs",padding_bottom="xs") %}
+    <div class="demo-inner-bg">Padding top and bottom XS</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">S</h3>
+  {% call library.container(padding_top="s",padding_bottom="s") %}
+    <div class="demo-inner-bg">Padding top and bottom S</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">M (default)</h3>
+  {% call library.container(padding_top="m",padding_bottom="m") %}
+    <div class="demo-inner-bg">Padding top and bottom M</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">LG</h3>
+  {% call library.container(padding_top="lg",padding_bottom="lg") %}
+    <div class="demo-inner-bg">Padding top and bottom LG</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Top LG / Bottom XS</h3>
+  {% call library.container(padding_top="lg",padding_bottom="xs") %}
+    <div class="demo-inner-bg">Padding top LG and bottom XS</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Background color options</h2>
+
+  <h3 class="hostile-sink-reset">None (default)</h3>
+  {% call library.container() %}
+    <div class="demo-inner-bg">None</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Brand Full Width</h3>
+  {% call library.container(background_color="brand") %}
+    <div class="demo-inner-bg">Brand Full Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Brand Large Width</h3>
+  {% call library.container(inner_background_color="brand") %}
+    <div class="demo-inner-bg">Brand Container Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">White Full Width</h3>
+  {% call library.container(background_color="white") %}
+    <div class="demo-inner-bg">White Full Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">White Large Width</h3>
+  {% call library.container(inner_background_color="white") %}
+    <div class="demo-inner-bg">White Container Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Black Full Width</h3>
+  {% call library.container(background_color="black") %}
+    <div class="demo-inner-bg">Black Full Width</div>
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Black Large Width</h3>
+  {% call library.container(inner_background_color="black") %}
+    <div class="demo-inner-bg">Black Container Width</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Stacked containers</h2>
+  {% call library.container(background_color="brand",padding_top="s",padding_bottom="xs") %}
+    <div class="demo-inner-bg">brand, padding top S, padding bottom XS</div>
+  {% endcall %}
+
+  {% call library.container() %}
+    <div class="demo-inner-bg">Default container (fullwidth), default padding (M)</div>
+  {% endcall %}
+
+  {% call library.container(background_color="brand",padding_top="m",padding_bottom="lg") %}
+    <div class="demo-inner-bg">brand, padding top M, padding bottom LG</div>
+  {% endcall %}
+
+  {% call library.container(size="large", padding_top="s", background_fullbleed=false) %}
+    <div class="demo-inner-bg">Large, padding top S, Full Width</div>
+  {% endcall %}
+
+  {% call library.container(inner_background_color="brand", size="large", padding_top="lg", padding_bottom="s") %}
+    <div class="demo-inner-bg">brand, padding top LG, padding bottom S, Large</div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Grid</h2>
+  {% call library.container() %}
+    <div class="spirit-row">
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">1</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">2</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">3</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">4</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">5</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">6</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">7</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">8</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">9</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">10</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">11</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">12</div></div>
+    </div>
+  {% endcall %}
+  {% call library.container(size="large") %}
+    <div class="spirit-row">
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">1</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">2</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">3</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">4</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">5</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">6</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">7</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">8</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">9</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">10</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">11</div></div>
+      <div class="spirit-col-2 spirit-col-md-1"><div class="demo-inner-bg">12</div></div>
+    </div>
+  {% endcall %}
+
+  {% call library.container() %}
+      <div class="spirit-row">
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+      </div>
+  {% endcall %}
+
+  {% call library.container(size="large") %}
+      <div class="spirit-row">
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+          <div class="spirit-col-sm">
+              One of three columns
+          </div>
+      </div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Content Examples</h2>
+  {% call library.container(size="large", background_color="white") %}
+    {% call library.card_grid(class="spirit-card-grid--4-up") %}
+      {{ sample_cards | safe }}
+    {% endcall %}
+  {% endcall %}
+
+  {% call library.container(size="large", background_color="brand") %}
+    {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Billing Address") }}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Street", for="full-form-billing-street") }}
+                {{ library.form_input(id="full-form-billing-street") }}
+            {% endcall %}
+
+            {% call library.form_field_group(horizontal=true) %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="City", for="full-form-billing-city") }}
+                    {{ library.form_input(id="full-form-billing-city") }}
+                {% endcall %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="State", for="full-form-billing-state") }}
+                    {{ library.form_input(placeholder="CA", id="full-form-billing-state") }}
+                {% endcall %}
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="ZIP", for="full-form-billing-zip") }}
+                    {{ library.form_input(id="full-form-billing-zip") }}
+                {% endcall %}
+            {% endcall %}
+        {% endcall %}
+  {% endcall %}
+
+  {% call library.container(background_color="white") %}
+    {% call library.tile_grid() %}
+      {{ sample_tiles | safe }}
+    {% endcall %}
+  {% endcall %}
+
+  {% call library.container(size="large", inner_background_color="brand") %}
+      <div class="spirit-long-form-text">
+          <h2>
+              You Can Help Turn Type One Into Type None
+          </h2>
+          <h3>
+              You Can Help Turn Type One Into Type None
+          </h3>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+      {{ library.button(text="Learn More") }}
+  {% endcall %}
+
+  {% call library.container(padding_top="none", padding_bottom="none", inner_background_color="black") %}
+      <div class="spirit-long-form-text">
+          <h2>
+              You Can Help Turn Type One Into Type None
+          </h2>
+          <h3>
+              You Can Help Turn Type One Into Type None
+          </h3>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+      {{ library.button(text="Learn More") }}
+  {% endcall %}
+
+{% endblock body %}
