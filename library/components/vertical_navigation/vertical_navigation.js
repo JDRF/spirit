@@ -65,7 +65,6 @@ const spiritVerticalNavigation = () => {
         e.stopPropagation();
 
         const parentMenu = target.parentNode;
-        const subMenu = parentMenu.querySelector('.spirit-vertical-nav__subnav');
         const allOpenMenuTriggers = Array.from(n.querySelectorAll('.child-has-focus > a.submenu-is-open'));
         const allOpenMenuTriggersCount = allOpenMenuTriggers.length;
 
