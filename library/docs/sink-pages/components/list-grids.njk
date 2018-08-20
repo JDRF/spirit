@@ -1,5 +1,10 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
+<style>
+[class*='spirit-col-'] {
+  overflow: hidden; // highlight where list item escapes grid column in sink
+}
+</style>
 {% set sample_list %}
   {% call library.list() %}
     {{ library.list_item() }}
