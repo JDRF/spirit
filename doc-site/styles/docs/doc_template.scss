@@ -1,4 +1,4 @@
-$spirit-doc-layout-breakpoint: 1257px;
+$spirit-doc-layout-breakpoint: 1289px;
 
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
@@ -8,7 +8,7 @@ $spirit-doc-layout-breakpoint: 1257px;
   width: 100%;
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
-    grid-template-columns: 256px 1fr 800px 200px 1fr;
+    grid-template-columns: 256px 1fr 800px 32px 200px 1fr;
     grid-template-rows: auto auto;
   }
 }
@@ -42,8 +42,9 @@ $spirit-doc-layout-breakpoint: 1257px;
   padding-right: $spirit-space-generic-2-x;
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
-    grid-column: 4 / span 1;
+    grid-column: 5 / span 1;
     grid-row: 2 / span 1;
+    padding: 0 $spirit-space-generic-3-x;
   }
 }
 
@@ -60,6 +61,7 @@ $spirit-doc-layout-breakpoint: 1257px;
   grid-column: 2 / span 1;
   grid-row: 3 / span 1;
   min-width: 0;
+  padding-bottom: $spirit-space-generic-6-x;
   padding-right: $spirit-space-generic-2-x;
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
@@ -87,6 +89,8 @@ $spirit-doc-layout-breakpoint: 1257px;
   position: static;
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    height: 100vh;
+    overflow-y: auto;
     position: fixed;
     top: 0;
   }
@@ -101,34 +105,15 @@ $spirit-doc-layout-breakpoint: 1257px;
   }
 }
 
-// .spirit-doc-page-shell__navigation {
-//   // flex: 0 0 256px;
-//   height: 100vh;
-//   position: fixed;
-//   left: 0;
-//   top: 0;
-//   overflow-y: auto;
-//   padding: $spirit-space-inset-3-x;
-//   padding-bottom: 0;
-//   padding-top: 0;
-//   width: 256px;
-// }
+.spirit-doc-page-shell__brand-title {
+  margin: 0;
+  margin-bottom: $spirit-space-generic-4-x;
+  margin-top: $spirit-space-generic-6-x;
+  padding-left: $spirit-space-generic-3-x;
+}
 
-// .spirit-doc-page-shell__content {
-//   // align-items: center;
-//   // display: flex;
-//   flex: 1 1 auto;
-//   padding-left: 256px;
-//   min-width: 0; // allows content area to shrink and keeps code snippets dynamic
-// }
-
-// .spirit-doc-page-shell__brand-title {
-//   margin: 0;
-//   margin-top: $spirit-space-generic-6-x;
-// }
-
-// .spirit-doc-page-shell__brand-title-link {
-//   @include spirit-h2;
-//   color: $spirit-text-color-link;
-//   text-decoration: none;
-// }
+.spirit-doc-page-shell__brand-title-link {
+  @include spirit-h2;
+  color: $spirit-text-color-link;
+  text-decoration: none;
+}

@@ -1,0 +1,10 @@
+.spirit-doc-site-nav {
+  .spirit-vertical-nav__toggle {
+    // suppress toggle icons for now
+    display: none;
+  }
+}
+
+.spirit-doc-site-nav--active-link {
+  color: $spirit-text-color-link;
+}

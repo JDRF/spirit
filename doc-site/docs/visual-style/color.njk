@@ -1,10 +1,16 @@
 {% extends 'templates/doc.njk' %}
-{% block page_shell_content %}
+
+{% block page_shell_content_intro %}
   {% filter markdown %}
       # Color
 
       <p class="spirit-long-form-text__subhead">A focused color palette is used to strengthen the connection with JDRF Blue through consistent repetition.</p>
+  {% endfilter %}
+{% endblock %}
 
+
+{% block page_shell_content %}
+  {% filter markdown %}
       ## Color Direction
       JDRF visual style offers a limited color palette of bright blue, black and white, and a range of subtle greys. The visual style uses bold splashes of color to establish visual priority, to encapsulate related content, and to highlight interactive elements. This expressive use of color is complemented by an accentuated typographic hierarchy and generous use of white space. 
 
