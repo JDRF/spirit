@@ -30,11 +30,12 @@
   avatar_src=false,
   meta=false,
   caption=false,
-  links_right=false
+  links_right=false,
+  size=false
   )
 %}
 {% if title_text %}
-  <li class="spirit-list-item{{' ' + class if class}}">
+  <li class="spirit-list-item{{' ' + class if class}}{{' spirit-list-item--' + size if size}}">
       {% if image_src  %}
         {% if not image_right %}
           <div class="spirit-list-item__image-contain">
@@ -69,7 +70,7 @@
         </div>
       {% endif %}
       <div class="spirit-list-item__content{{' spirit-list-item__content--links-right' if links_right}}">
-        <{{title_tag}} class="spirit-list-item__title">
+        <{{title_tag}} class="spirit-list-item__title{{' spirit-list-item__title--' + size if size}}">
           {% if link %}
             <a class="spirit-list-item__link-title" href="{{link}}">
           {% endif %}

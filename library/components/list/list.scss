@@ -9,6 +9,12 @@ $spirit-list-avatar-width: $spirit-space-generic-6-x;
 $spirit-list-icon-size: 20px;
 $spirit-list-focus-background: $spirit-interactive-color-focus-soft;
 $spirit-list-initial-line-height: 20px;
+$spirit-list-initial-line-height-xl: $spirit-font-line-height-heading-level-2-normal;
+$spirit-list-initial-line-height-l: 20px;
+$spirit-list-initial-line-height-m: 20px;
+
+// Breakpoint based on spirit-h4 sizing breakpoint
+$spirit-list-breakpoint: $spirit-breakpoint-l;
 
 
 // Spirit List
@@ -85,7 +91,7 @@ ol.spirit-list {
   margin-right: $spirit-space-generic-2-x;
   overflow: hidden;
   width: $spirit-image-width;
-  @media screen and (min-width: $spirit-breakpoint-l) {
+  @media screen and (min-width: $spirit-list-breakpoint) {
     flex-basis: $sprirt-image-width-l;
     height: $sprirt-image-height-l;
     width: $sprirt-image-width-l;
@@ -131,6 +137,7 @@ ol.spirit-list {
   @include spirit-h4;
   display: flex;
   flex-flow: row nowrap;
+  line-height: $spirit-list-initial-line-height;
   margin: 0;
   width: 100%;
 }
@@ -170,7 +177,7 @@ ol.spirit-list {
   line-height: $spirit-list-initial-line-height;
   margin: 0;
   margin-top: $spirit-space-generic-1-x;
-  @media screen and (min-width: $spirit-breakpoint-l) {
+  @media screen and (min-width: $spirit-list-breakpoint) {
     font-size: $spirit-font-size-m;
 
     .spirit-list-item__title + & {
@@ -194,7 +201,7 @@ ol.spirit-list {
     margin-left: auto;
     margin-top: 0;
   }
-  @media screen and (min-width: $spirit-breakpoint-l) {
+  @media screen and (min-width: $spirit-list-breakpoint) {
     margin-top: $spirit-space-inset-1-x;
   }
 }
@@ -220,7 +227,7 @@ ol.spirit-list {
     outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
   }
 
-  @media screen and (min-width: $spirit-breakpoint-l) {
+  @media screen and (min-width: $spirit-list-breakpoint) {
     font-size: $spirit-font-size-m;
   }
 }
@@ -237,5 +244,20 @@ ol.spirit-list {
     @include spirit-link-animated-underline;
     color: $spirit-text-color-link;
     outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
+  }
+}
+
+// Sizes
+.spirit-list-item__title--l {
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    font-size: $spirit-font-size-heading-level-5-breakpoint-l;
+    line-height: $spirit-font-line-height-heading-level-5-breakpoint-l;
+  }
+}
+
+.spirit-list-item__title--m {
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    font-size: $spirit-font-size-heading-level-6-breakpoint-l;
+    line-height: $spirit-font-line-height-heading-level-6-breakpoint-l;
   }
 }
