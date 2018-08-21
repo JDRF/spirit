@@ -59,6 +59,10 @@ module.exports = {
             moduleName: 'esds-doc'
         }
     ],
+    autoprefixerOptions: {
+        browsers: ['last 2 versions', 'ie 11'],
+        grid: true
+    },
     manageNunjucksEnv: function(env) {
         // Adding some custom nunjucks filters for the doc site
         env.addFilter('split', function(str, seperator) {

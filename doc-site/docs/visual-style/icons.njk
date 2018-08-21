@@ -1,8 +1,11 @@
 {% extends 'templates/doc.njk' %}
-{% block page_shell_content %}
+{% block page_shell_content_intro %}
   {% filter markdown %}
       # Icons
   {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
   {% call esds_doc.icon_swatch_grid() %}
     {% for icon in spirit_icons %}
       {{ esds_doc.icon_swatch(class="spirit-doc-icon-swatch", name=icon) }}
