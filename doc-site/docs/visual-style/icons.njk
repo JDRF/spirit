@@ -3,7 +3,7 @@
   {% filter markdown %}
       # Icons
   {% endfilter %}
-  {% call esds_doc.icon_swatch_grid() %}
+  {% call esds_doc.icon_swatch_grid(shims=6) %}
     {% for icon in spirit_icons %}
       {{ esds_doc.icon_swatch(class="spirit-doc-icon-swatch", name=icon) }}
     {% endfor %}
