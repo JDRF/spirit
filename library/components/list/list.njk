@@ -34,7 +34,7 @@
   )
 %}
 {% if title_text %}
-  <li class="spirit-list-item{{' ' + class if class}}{{' spirit-list-item--' + size if size}}">
+  <li class="spirit-list-item{{' ' + class if class}}{{' spirit-list-item--' + size if size}}{{' spirit-list-item--image' if image_src}}{{' spirit-list-item--image--right' if image_right}}{{' spirit-list-item--avatar' if (avatar_src or icon_name) and (not image_src)}}">
       {% if image_src  %}
         {% if not image_right %}
           <div class="spirit-list-item__image-contain">

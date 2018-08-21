@@ -12,6 +12,10 @@ $spirit-list-initial-line-height: 20px;
 $spirit-list-initial-line-height-xl: $spirit-font-line-height-heading-level-2-normal;
 $spirit-list-initial-line-height-l: 20px;
 $spirit-list-initial-line-height-m: 20px;
+$spirit-list-avatar-border-width: $spirit-list-avatar-width + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // avatar width + padding + gutter
+$spirit-list-image-border-width: $spirit-image-width + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width + padding + gutter
+$spirit-list-image-border-width-l: $spirit-image-width-l + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width l + padding + gutter
+
 
 // Breakpoint based on spirit-h4 sizing breakpoint
 $spirit-list-breakpoint: $spirit-breakpoint-l;
@@ -49,6 +53,10 @@ ol.spirit-list {
       margin-right: $spirit-space-generic-2-x;
       width: $spirit-list-avatar-width;
     }
+
+    &:after {
+      left: $spirit-list-avatar-border-width;
+    }
   }
 }
 
@@ -68,6 +76,39 @@ ol.spirit-list {
     left: $spirit-space-generic-2-x;
     position: absolute;
     right: $spirit-space-generic-2-x;
+  }
+}
+
+// Spirit List Item - Avatar
+.spirit-list-item--avatar {
+  &:after {
+    left: $spirit-list-avatar-border-width;
+  }
+}
+
+// Spirit List Item - Image
+.spirit-list-item--image {
+  &:after {
+    left: $spirit-list-image-border-width;
+  }
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    &:after {
+      left: $spirit-list-image-border-width-l;
+    }
+  }
+}
+
+// Spirit List Item - Image Right
+.spirit-list-item--image--right {
+  &:after {
+    left: $spirit-space-generic-2-x;
+    right: $spirit-list-image-border-width;
+  }
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    &:after {
+      left: $spirit-space-generic-2-x;
+      right: $spirit-list-image-border-width-l;
+    }
   }
 }
 
@@ -120,6 +161,17 @@ ol.spirit-list {
   margin-right: $spirit-space-generic-2-x;
   overflow: hidden;
   width: $spirit-list-avatar-width;
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   background: $spirit-color-white;
+  //   height: 1px;
+  //   width: 100%;
+  //   position: absolute;
+  //   bottom: 0;
+  //   width: $spirit-list-avatar-border-width;
+  //   z-index: 5;
+  // }
 }
 
 .spirit-list-item__image {
