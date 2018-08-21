@@ -1,25 +1,33 @@
 {% extends 'templates/base.njk' %}
+{% set show_content_intro = show_content_intro | default(true) %}
+{% set show_page_navigation = show_page_navigation | default(true) %}
 {% block body %}
   <div class="spirit-doc-page-shell">
     <div class="spirit-doc-page-shell__navigation">
-      {% block page_shell_nav %}
-        <h3>Spirit</h3>
-        <ul>
-          <li>
-            <a href="/components/buttons.html">Buttons</a>
-          </li>
-          <li>
-            <a href="/visual-style/color.html">Color</a>
-          </li>
-          <li>
-            <a href="/visual-style/icons.html">Icons</a>
-          </li>
-          <li>
-            <a href="/release-history.html">Release History</a>
-          </li>
-        </ul>
-      {% endblock page_shell_nav %}
+      <div class="spirit-doc-page-shell__navigation-inner">
+        {% block page_shell_nav %}
+          <h1 class="spirit-doc-page-shell__brand-title">
+            <a class="spirit-doc-page-shell__brand-title-link" href="/">Spirit</a>
+          </h1>
+          {{ spirit_doc.site_nav() }}
+        {% endblock page_shell_nav %}
+      </div>
     </div>
+    {% if show_content_intro %}
+    <div class="spirit-doc-page-shell__content-intro">
+      {% block page_shell_content_intro %}{% endblock %}
+    </div>
+    {% endif %}
+    {% if show_page_navigation %}
+      <div class="spirit-doc-page-shell__page-navigation">
+        {% block page_shell_page_navigation %}
+          {% set table_of_contents_header %}
+            <h3 class="spirit-doc-page-shell__page-navigation-heading">Contents</h3>
+          {% endset %}
+          {{ esds_doc.page_navigation(anchor_link_target_selector=".spirit-doc-page-shell__content h2, .spirit-doc-page-shell__content h3", fixed_distance_from_top="53", top_content=table_of_contents_header) }}
+        {% endblock page_shell_page_navigation %}
+      </div>
+    {% endif %}
     <div class="spirit-doc-page-shell__content">
       {% block page_shell_content %}{% endblock page_shell_content %}
     </div>

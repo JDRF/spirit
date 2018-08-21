@@ -5,13 +5,20 @@
 @import '../components/code_example_pair/code_example_pair';
 @import '../components/do_dont/do_dont';
 @import '../components/icon_swatch/icon_swatch';
+@import '../components/page_navigation/page_navigation';
 @import '../components/reference_table/reference_table';
+@import '../components/site_nav/site_nav';
 @import '../components/tint_stack/tint_stack';
 @import '../components/token_table/token_table';
 
 
 @import 'docs/doc_template';
-@import 'docs/component_template';
 
 // Page-specific styles
 @import 'docs/buttons_doc';
+
+body {
+  // Basic reset
+  margin: 0;
+  padding: 0;
+}

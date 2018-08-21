@@ -1,0 +1,22 @@
+{% macro site_nav() %}
+  {# Just call straight through to the vertical navigation component #}
+  {% call library.vertical_navigation_list(class="spirit-doc-site-nav") %}
+    {{ library.vertical_navigation_item(href="#", style="large", text="Getting Started") }}
+    {% call library.vertical_navigation_item(text="Visual Style", class="spirit-vertical-nav__item--open", style="large", size="comfortable", href="") %}
+      {% call library.vertical_navigation_list( subnav='true' ) %}
+        {{ library.vertical_navigation_item(href="/visual-style/color.html", style="small", text="Color") }}
+        {{ library.vertical_navigation_item(href="/visual-style/icons.html", style="small", text="Icons") }}
+      {% endcall %}
+    {% endcall %}
+    {% call library.vertical_navigation_item(text="Components", class="spirit-vertical-nav__item--open", style="large", size="comfortable", href="") %}
+      {% call library.vertical_navigation_list( subnav='true' ) %}
+        {{ library.vertical_navigation_item(href="/components/buttons.html", style="small", text="Button") }}
+      {% endcall %}
+    {% endcall %}
+    {% call library.vertical_navigation_item(text="Assets", class="spirit-vertical-nav__item--open", style="large", size="comfortable", href="") %}
+      {% call library.vertical_navigation_list( subnav='true' ) %}
+        {{ library.vertical_navigation_item(href="/release-history.html", style="small", text="Release History") }}
+      {% endcall %}
+    {% endcall %}
+  {% endcall %}
+{% endmacro %}

@@ -1,39 +1,43 @@
 {% extends 'templates/doc.njk' %}
-{% block page_shell_content %}
+{% block page_shell_content_intro %}
   {% filter markdown %}
     # Release History
-    
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}    
     ## 0.3.0
     [View Docs](/v/0.3.0)
-    ### Released 8/17/2018
+    #### Released 8/17/2018
     * Fixed ESLint warning in library
     * Demo'd release process 
     
     ## 0.2.0
     [View Docs](/v/0.2.0)
-    ### Released 8/15/2018
+    #### Released 8/15/2018
     * Add Vertical Navigation Component 
     
     ## Doc Update
-    ### Released 8/14/2018
+    #### Released 8/14/2018
     * Added Graphik Web Font to Doc Site 
     
     ## Doc Update
-    ### Released 8/13/2018
+    #### Released 8/13/2018
     * Update to the doc site that will amend version 0.1.2 docs 
 
     ## 0.1.2
-    ### Released 8/10/2018
+    #### Released 8/10/2018
     [View Docs](/v/0.1.2)
     * Deployment with NPM Package
 
     ## 0.1.1
-    ### Released 7/2/2018
+    #### Released 7/2/2018
     [View Docs](/v/0.1.1)
     * Follow Up Deployment
 
     ## 0.1.0
-    ### Released 7/2/2018
+    #### Released 7/2/2018
     [View Docs](/v/0.1.0)
     * Hearbeat Deployment
   {% endfilter %}
