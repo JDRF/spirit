@@ -3,10 +3,10 @@ $spirit-list-text-light: $spirit-color-grey-35;
 $spirit-list-border-color: $spirit-color-grey-95;
 $spirit-list-border-width: 1px;
 $spirit-image-width: 72px;
-$sprirt-image-width-l: 180px;
-$sprirt-image-height-l: 120px;
+$spirit-image-width-l: 180px;
+$spirit-image-height-l: 120px;
 $spirit-list-avatar-width: $spirit-space-generic-6-x;
-$spirit-list-icon-size: 20px;
+$spirit-list-icon-size: $spirit-size-icon-s;
 $spirit-list-focus-background: $spirit-interactive-color-focus-soft;
 $spirit-list-initial-line-height: 20px;
 $spirit-list-initial-line-height-xl: $spirit-font-line-height-heading-level-2-normal;
@@ -92,9 +92,9 @@ ol.spirit-list {
   overflow: hidden;
   width: $spirit-image-width;
   @media screen and (min-width: $spirit-list-breakpoint) {
-    flex-basis: $sprirt-image-width-l;
-    height: $sprirt-image-height-l;
-    width: $sprirt-image-width-l;
+    flex-basis: $spirit-image-width-l;
+    height: $spirit-image-height-l;
+    width: $spirit-image-width-l;
   }
 }
 
@@ -164,6 +164,7 @@ ol.spirit-list {
 .spirit-list-item__title-meta {
   color: $spirit-list-text-light;
   display: block;
+  font-weight: $spirit-font-weight-regular;
   margin-left: auto;
   margin-top: 0;
   padding-left: $spirit-space-generic-2-x;
