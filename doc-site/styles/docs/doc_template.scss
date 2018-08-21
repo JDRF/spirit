@@ -91,6 +91,7 @@ $spirit-doc-layout-breakpoint: 1289px;
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     height: 100vh;
     overflow-y: auto;
+    padding-top: $spirit-space-generic-6-x;
     position: fixed;
     top: 0;
   }

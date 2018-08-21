@@ -3,6 +3,11 @@
 .esds-doc-page-navigation {
   max-width: none;
   width: 100%;
+
+  .esds-doc-page-navigation__list {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .esds-doc-page-navigation__link {
@@ -26,6 +31,7 @@
 }
 
 .esds-doc-page-navigation__inner {
+  max-width: 152px;
   padding: 0;
 }
 
