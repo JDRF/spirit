@@ -3,6 +3,11 @@ $spirit-container-breakpoint: $spirit-breakpoint-grid; // from grid.scss
 $spirit-container-inner-horizontal-space-m: 80px;
 $spirit-container-inner-max-width-full: 1152px;
 $spirit-container-inner-max-width-large: 1000px;
+$spirit-container-paint-width: 1484px;
+$spirit-container-paint-top-height: 131px;
+$spirit-container-paint-bottom-height: 179px;
+$spirit-container-paint-breakpoint-m: 1160px; // 1000px + 160px ( max container width (large) + gutter size )
+$spirit-container-paint-breakpoint-l: 1312px; // 1152px + 160px ( max container width + gutter size )
 
 // Shared styles
 .spirit-container {
@@ -10,6 +15,7 @@ $spirit-container-inner-max-width-large: 1000px;
   @include spirit-box-sizing(border-box);
   padding-left: 0;
   padding-right: 0;
+  position: relative;
 }
 
 .spirit-container__inner {
@@ -113,5 +119,185 @@ $spirit-container-inner-max-width-large: 1000px;
   padding-bottom: $spirit-space-generic-12-x;
   @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-24-x;
+  }
+}
+
+// Containers Texture Styles
+.spirit-paint {
+  fill: $spirit-color-white;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.spirit-container__paint-top,
+.spirit-container__paint-bottom {
+  display: block;
+  width: $spirit-container-paint-width;
+  left: -$spirit-container-inner-horizontal-space-m;
+
+  @media screen and (min-width:  $spirit-container-paint-breakpoint-m) {
+    .spirit-container__inner.spirit-context--brand & {
+      left: calc(((100vw - #{$spirit-container-paint-breakpoint-m}) * -.5) - 80px);
+    }
+  }
+
+  @media screen and (min-width:  $spirit-container-paint-breakpoint-l) {
+    left: calc(((100vw - #{$spirit-container-paint-breakpoint-l}) * -.5) - 80px);
+  }
+}
+
+.spirit-container__paint-top {
+  height: $spirit-container-paint-top-height;
+  position: relative;
+  top: 0;
+
+  &:before {
+    content: '';
+    display: block;
+    background: $spirit-color-white;
+    width: 100%;
+    height: calc( #{$spirit-space-generic-6-x} + 2px );
+    position: absolute;
+    bottom: calc( 100% - 2px );
+  }
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    &:before {
+      height: calc( #{$spirit-space-generic-12-x} + 2px );
+    }
+  }
+
+  .spirit-container__inner--padding-top-none & {
+    &:before {
+      height: 2px;
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:before {
+        height: 2px;
+      }
+    }
+  }
+  
+  .spirit-container__inner--padding-top-xs & {
+    &:before {
+      height: calc( #{$spirit-space-generic-3-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:before {
+        height: calc( #{$spirit-space-generic-4-x} + 2px );
+      }
+    }
+  }
+
+  
+  .spirit-container__inner--padding-top-s & {
+    &:before {
+      height: calc( #{$spirit-space-generic-4-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:before {
+        height: calc( #{$spirit-space-generic-8-x} + 2px );
+      }
+    }
+  }
+  
+  .spirit-container__inner--padding-top-m & {
+    &:before {
+      height: calc( #{$spirit-space-generic-6-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:before {
+        height: calc( #{$spirit-space-generic-12-x} + 2px );
+      }
+    }
+  }
+  
+  .spirit-container__inner--padding-top-lg & {
+    &:before {
+      height: calc( #{$spirit-space-generic-12-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:before {
+        height: calc( #{$spirit-space-generic-24-x} + 2px );
+      }
+    }
+  }
+}
+
+.spirit-container__paint-bottom {
+  height: $spirit-container-paint-bottom-height;
+  position: relative;
+  bottom: 0;
+
+  &:after {
+    content: '';
+    display: block;
+    background: $spirit-color-white;
+    width: 100%;
+    height: calc( #{$spirit-space-generic-6-x} + 2px );
+    position: absolute;
+    top: calc( 100% - 2px );
+  }
+
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    &:after {
+      height: calc( #{$spirit-space-generic-12-x} + 2px );
+    }
+  }
+
+  .spirit-container__inner--padding-top-none & {
+    &:after {
+      height: 2px;
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: 2px;
+      }
+    }
+  }
+  
+  .spirit-container__inner--padding-top-xs & {
+    &:after {
+      height: calc( #{$spirit-space-generic-3-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc( #{$spirit-space-generic-4-x} + 2px );
+      }
+    }
+  }
+
+  
+  .spirit-container__inner--padding-top-s & {
+    &:after {
+      height: calc( #{$spirit-space-generic-4-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc( #{$spirit-space-generic-8-x} + 2px );
+      }
+    }
+  }
+  
+  .spirit-container__inner--padding-top-m & {
+    &:after {
+      height: calc( #{$spirit-space-generic-6-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc( #{$spirit-space-generic-12-x} + 2px );
+      }
+    }
+  }
+  
+  .spirit-container__inner--padding-top-lg & {
+    &:after {
+      height: calc( #{$spirit-space-generic-12-x} + 2px );
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc( #{$spirit-space-generic-24-x} + 2px );
+      }
+    }
   }
 }
