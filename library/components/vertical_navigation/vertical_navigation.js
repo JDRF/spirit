@@ -20,7 +20,7 @@ const spiritVerticalNavigation = () => {
     const parentItems = Array.from(n.querySelectorAll('.spirit-vertical-nav__item-parent'));
     // const parentItemsCount = parentItems.length;
 
-      const menuSubOpen = (closedItem) => {
+    const menuSubOpen = (closedItem) => {
 
       closedItem.classList.add('submenu-is-open');
       closedItem.parentNode.classList.add('child-has-focus');
@@ -136,7 +136,6 @@ const spiritVerticalNavigation = () => {
 
       // Let a screen reader know this menu has a submenu by hooking into the first link
       trigger.setAttribute('aria-haspopup', 'true');
-      trigger.setAttribute('aria-expanded', 'false');
 
       // Hide and label each sub menu
       subNav.setAttribute('aria-haspopup', 'true');
