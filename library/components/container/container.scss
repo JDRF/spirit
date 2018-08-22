@@ -10,7 +10,10 @@ $spirit-container-paint-breakpoint-l: $spirit-container-inner-max-width-full + $
 
 // // brush bg
 $spirit-container-brush-bg-ratio: .28533;
-$spirit-container-brush-width: 300vw;
+$spirit-container-brush-bg-width: 300vw;
+$spirit-container-brush-bg-width-s: 125vw;
+$spirit-container-brush-bg-width-m: 100vw;
+$spirit-container-brush-bg-width-xl: 90vw;
 
 // Shared styles
 .spirit-container {
@@ -325,11 +328,11 @@ $spirit-container-brush-width: 300vw;
 .spirit-container__brush-bg {
   display: block;
   left: 50%;
-  padding-top: calc(#{$spirit-container-brush-width} * #{$spirit-container-brush-bg-ratio});
+  padding-top: calc(#{$spirit-container-brush-bg-width} * #{$spirit-container-brush-bg-ratio});
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: $spirit-container-brush-width;
+  width: $spirit-container-brush-bg-width;
   z-index: -1;
 
   &:before {
@@ -344,17 +347,18 @@ $spirit-container-brush-width: 300vw;
     right: 0;
     top: 0;
   }
+
   @media screen and (min-width: $spirit-breakpoint-s) {
-    padding-top: calc(125vw * #{$spirit-container-brush-bg-ratio});
-    width: 125vw;
+    padding-top: calc(#{$spirit-container-brush-bg-width-s} * #{$spirit-container-brush-bg-ratio});
+    width: $spirit-container-brush-bg-width-s;
   }
   @media screen and (min-width: $spirit-breakpoint-m) {
-    padding-top: calc(100vw * #{$spirit-container-brush-bg-ratio});
-    width: 100vw;
+    padding-top: calc(#{$spirit-container-brush-bg-width-m} * #{$spirit-container-brush-bg-ratio});
+    width: $spirit-container-brush-bg-width-m;
   }
   @media screen and (min-width: $spirit-breakpoint-xl) {
-    padding-top: calc(90vw * #{$spirit-container-brush-bg-ratio});
-    width: 90vw;
+    padding-top: calc(#{$spirit-container-brush-bg-width-xl} * #{$spirit-container-brush-bg-ratio});
+    width: $spirit-container-brush-bg-width-xl;
   }
 }
 
