@@ -1,0 +1,90 @@
+{% extends 'templates/doc.njk' %}
+
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Space
+
+      <p class="spirit-long-form-text__subhead">Space defines the whitespace between elements, setting visual standards for proximity, rhythm, and alignment.</p>
+  {% endfilter %}
+{% endblock %}
+
+
+{% block page_shell_content %}
+  {% filter markdown %}
+      Three spatial concepts are woven into the fabric of all Spirit system components, creating a unified visual order: <b>inset</b> space within components, vertical <b>stack</b> space between elements and components, and horizontal <b>inline</b> spacing between elements in a row. 
+  {% endfilter %}
+  {% filter markdown %}
+      ## Inset
+      An inset applies padding on all sides of a block or inline element. By default, all four sides are equal. 
+      <img src="/images/inset@2x.png" alt="Inset at X (8px), 2X (16px), or 3X (24px)" />
+      Apply an inset token to any container, such as a card or a or table cell, to create consistent padding around the content.
+ 
+      <div class="spirit-row">
+        <div class="spirit-col-6">
+          <img src="/images/space-inset-example-1@2x.png" alt="Inset example: a card" />
+        </div>
+        <div class="spirit-col-6">
+          <img src="/images/space-inset-example-2@2x.png" alt="Inset example: a card showing inset spacing" />
+        </div>
+      </div>
+
+      #### Tokens
+      
+  {% endfilter %}
+    <table>(table)</table>
+  {% filter markdown %}
+      ### Inset Squish
+
+      The Spirit visual style applies a squished inset to many smaller containers, such as pills and buttons. This “Squish” inset provides twice as much padding left/right as it does top/bottom. 
+
+      <img src="/images/inset-squish@2x.png" alt="Inset at X (4px 8px), 2X (8px 16px), or 3X (12px 24px)" />
+
+      Apply inset-squish tokens to small containers, like buttons, to create wider padding around a text label. 
+
+      <div class="spirit-row">
+        <div class="spirit-col">
+          <img src="/images/inset-squish-example-1@2x.png" alt="Inset example: a button" />
+        </div>
+        <div class="spirit-col">
+          <img src="/images/inset-squish-example-2@2x.png" alt="Inset example: a button showing inset squish spacing" />
+        </div>
+      </div>
+  {% endfilter %}
+    <table>(table)</table>
+  {% filter markdown %}
+      ## Stack
+
+      Apply stack space below block-level elements to normalize vertical distance between components.
+
+      <img src="/images/stack@2x.png" alt="Stack at X (8px), 2X (16px), or 3X (24px)" />
+ 
+      Use proximity to signal related elements. Use whitespace to form boundaries between components. 
+
+      <img src="/images/stack-example@2x.png" alt="Stack example: a list showing stacking items and stacking of blocks within an item" />
+  
+
+      #### Tokens
+  {% endfilter %}
+    <table>(table)</table>
+   {% filter markdown %}
+      ## Inline
+
+      Inline spacing separates inline elements by consistent applying space on one side of each element. By default, left-aligned elements have right-side spacing (as shown). Right-aligned elements are the opposite. 
+
+      <img src="/images/inline@2x.png" alt="Inline at X (8px), 2X (16px), or 3X (24px)" />
+ 
+      Use inline spacing to separate text, such as the inline links in a footer, or block elements, such as pills, tabs, or buttons. 
+
+      <img src="/images/inline-example@2x.png" alt="Inline example: a row of tabs showing the inline space between each tab" />
+  
+      #### Tokens
+
+      Left-aligned items use inline-left, which adds spacing to their right. This ensures the first item is flush left.
+  {% endfilter %}
+    <table>(table)</table>
+  {% filter markdown %}
+      Right-aligned items use inline-right, which adds spacing to their left. This ensures the last item is flush right. 
+  {% endfilter %}
+
+
+{% endblock page_shell_content %}
