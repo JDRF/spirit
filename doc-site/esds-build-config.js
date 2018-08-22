@@ -29,6 +29,13 @@ module.exports = {
             watch: true
         },
         {
+            name: 'spirit-scripts',
+            sources: [
+                    'node_modules/@jdrfhq/spirit/dist/spirit.js'],
+            destination: '../docs/scripts/dependencies',
+            watch: true
+        },
+        {
             name: 'spirit-icon',
             sources: [
                     'node_modules/@jdrfhq/spirit/dist/spirit.svg'],
