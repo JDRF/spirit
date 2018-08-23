@@ -161,17 +161,6 @@ ol.spirit-list {
   margin-right: $spirit-space-generic-2-x;
   overflow: hidden;
   width: $spirit-list-avatar-width;
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   background: $spirit-color-white;
-  //   height: 1px;
-  //   width: 100%;
-  //   position: absolute;
-  //   bottom: 0;
-  //   width: $spirit-list-avatar-border-width;
-  //   z-index: 5;
-  // }
 }
 
 .spirit-list-item__image {
