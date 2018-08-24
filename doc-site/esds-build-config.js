@@ -26,7 +26,7 @@ module.exports = {
                     'node_modules/@jdrfhq/spirit/dist/spirit.css',
                     'node_modules/@jdrfhq/spirit/dist/spirit.min.css',
                     'node_modules/prismjs/themes/prism.css'], // required by esds-doc
-            destination: '../docs/styles/dependencies',
+            destination: '../docs/styles',
             watch: true
         },
         {
