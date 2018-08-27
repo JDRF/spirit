@@ -1,4 +1,9 @@
-@import '../node_modules/@jdrfhq/spirit/styles/spirit';
+// @import '../node_modules/@jdrfhq/spirit/styles/spirit';
+@import '../node_modules/@jdrfhq/spirit/tokens/tokens';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/accessibility';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/box-sizing';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/color';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/typography';
 @import 'shared/typography';
 @import 'doc_components/esds_doc_component_overrides';
 
