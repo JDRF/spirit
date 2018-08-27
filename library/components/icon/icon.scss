@@ -5,6 +5,9 @@
   height: 1em;
   line-height: 1em;
   stroke: currentColor;
+  stroke-linecap: round; // Set inline on the SVGs but stripped by the polyfill we use for IE11
+  stroke-linejoin: round; // Set inline on the SVGs but stripped by the polyfill we use for IE11
+  stroke-width: 2px; // Set inline on the SVGs but stripped by the polyfill we use for IE11
   vertical-align: middle;
   width: 1em;
 }
