@@ -1,0 +1,57 @@
+@import '../tokens/tokens';
+
+// variables
+$spirit-container-paint-width: 1484px; // from sketch
+
+.spirit-image-block__image {
+  background-image: url("https://picsum.photos/800/800");
+  content: '';
+  display: block;
+  background-position: center center;
+  background-size: cover ;
+  background-repeat: no-repeat;
+  padding-top: 75%;
+  top: 0;
+  right: 0;
+  float: right;
+  width: 100%;
+}
+
+.spirit-image-block {
+  display: flex;
+  flex-flow: column nowrap;
+  .spirit-container__inner--paint-both & ,
+  .spirit-container__inner--paint-bottom & {
+    margin-bottom: -200px;
+  }
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    flex-flow: row nowrap;
+    align-items: center;
+    
+    .spirit-long-form-text,
+    .spirit-image-block__image {
+      width: 50%;
+    }
+    .spirit-long-form-text {
+        width: 50%;
+        padding-top: 200px;
+        padding-bottom: 200px;
+    }
+    .spirit-container__inner--paint-both & ,
+    .spirit-container__inner--paint-top & {
+      margin-top: -200px;
+    }
+  }
+  @media screen and (min-width:  $spirit-breakpoint-l) {
+    // margin-top: -96px;
+    // margin-bottom: -96px;
+  }
+  @media screen and (min-width:  $spirit-container-paint-width) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.spirit-container__brush-bg + .spirit-long-form-text:after {
+  // display: none;
+}

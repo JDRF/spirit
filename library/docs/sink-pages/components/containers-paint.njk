@@ -1,210 +1,98 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-
-    <style>
-        .spirit-long-form-text:after {
-            background-image: url("https://picsum.photos/800/800");
-            content: '';
-            display: block;
-            background-position: center center;
-            background-size: cover ;
-            background-repeat: no-repeat;
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-        .spirit-container__brush-bg + .spirit-long-form-text:after {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/containers-paint-sink-page.css">
+    {% set sample_image_block %}
+      <div class="spirit-image-block">
+        <div class="spirit-long-form-text">
+          <h2>
+              You Can Help Turn Type One Into Type None
+          </h2>
+          <h3>
+              You Can Help Turn Type One Into Type None
+          </h3>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        </div>
+        <div class="spirit-image-block__image"></div>
+      </div>
+    {% endset %}
 
   <h1 class="hostile-sink-reset">Containers Paint</h1>
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG</h2>
   {% call library.container(background_color='brand', paint="both") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+       {{ sample_image_block | safe }}
+  {% endcall %}
+
+    <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
+  {% call library.container(background_color='brand', paint="both", size="large") %}
+       {{ sample_image_block | safe }}
   {% endcall %}
 
     <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG (black)</h2>
   {% call library.container(background_color='black', paint="both") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top - Full BG</h2>
   {% call library.container(background_color='brand', paint="top") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Bottom - Full BG</h2>
   {% call library.container(background_color='brand', paint="bottom") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Large BG Inner</h2>
   {% call library.container(size="large", inner_background_color='brand', paint="both") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Large BG Inner (black)</h2>
   {% call library.container(size="large", inner_background_color='black', paint="both") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top - Large BG Inner (black)</h2>
   {% call library.container(size="large", inner_background_color='black', paint="top") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Bottom - Large BG Inner (black)</h2>
-  {% call library.container(size="large", inner_background_color='black', paint="bottom") %}
-      <div class="spirit-long-form-text">
-          <h2>
-              You Can Help Turn Type One Into Type None
-          </h2>
-          <h3>
-              You Can Help Turn Type One Into Type None
-          </h3>
-          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-      </div>
+  {% call library.container(size="large", inner_background_color='black', paint="bottom", padding_top="none") %}
+      {{ sample_image_block | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Padding options</h2>
 
   <h3 class="hostile-sink-reset">None</h3>
   {% call library.container(padding_top="none",padding_bottom="none", background_color='brand', paint="both") %}
-    <div class="spirit-long-form-text">
-      <h2>
-          You Can Help Turn Type One Into Type None
-      </h2>
-      <h3>
-          You Can Help Turn Type One Into Type None
-      </h3>
-      <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-    </div>
+    {{ sample_image_block | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">XS</h3>
   {% call library.container(padding_top="xs",padding_bottom="xs", background_color='brand', paint="both") %}
-    <div class="spirit-long-form-text">
-      <h2>
-          You Can Help Turn Type One Into Type None
-      </h2>
-      <h3>
-          You Can Help Turn Type One Into Type None
-      </h3>
-      <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-    </div>
+    {{ sample_image_block | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">S</h3>
   {% call library.container(padding_top="s",padding_bottom="s", background_color='brand', paint="both") %}
-    <div class="spirit-long-form-text">
-      <h2>
-          You Can Help Turn Type One Into Type None
-      </h2>
-      <h3>
-          You Can Help Turn Type One Into Type None
-      </h3>
-      <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-    </div>
+    {{ sample_image_block | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">M (default)</h3>
   {% call library.container(padding_top="m",padding_bottom="m", background_color='brand', paint="both") %}
-    <div class="spirit-long-form-text">
-      <h2>
-          You Can Help Turn Type One Into Type None
-      </h2>
-      <h3>
-          You Can Help Turn Type One Into Type None
-      </h3>
-      <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-    </div>
+    {{ sample_image_block | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">LG</h3>
   {% call library.container(padding_top="lg",padding_bottom="lg", background_color='brand', paint="both") %}
-    <div class="spirit-long-form-text">
-      <h2>
-          You Can Help Turn Type One Into Type None
-      </h2>
-      <h3>
-          You Can Help Turn Type One Into Type None
-      </h3>
-      <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-    </div>
+    {{ sample_image_block | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">Top LG / Bottom XS</h3>
   {% call library.container(padding_top="lg",padding_bottom="xs", background_color='brand', paint="both") %}
-    <div class="spirit-long-form-text">
-      <h2>
-          You Can Help Turn Type One Into Type None
-      </h2>
-      <h3>
-          You Can Help Turn Type One Into Type None
-      </h3>
-      <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
-    </div>
+    {{ sample_image_block | safe }}
   {% endcall %}
 
 {% endblock body %}

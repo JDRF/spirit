@@ -13,7 +13,7 @@
       {% set paint=false %}
     {% endif %}
     <div class="spirit-container{{' spirit-context--' + background_color if background_color}}">
-      <div class="spirit-container__inner{{' spirit-container__inner--' + size if size }}{{' spirit-container__inner--padding-top-' + padding_top if padding_top}}{{' spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}}{{' spirit-context--' + inner_background_color if inner_background_color}}">
+      <div class="spirit-container__inner{{' spirit-container__inner--' + size if size }}{{' spirit-container__inner--padding-top-' + padding_top if padding_top}}{{' spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}}{{' spirit-container__inner--paint-' + paint if paint}}{{' spirit-context--' + inner_background_color if inner_background_color}}">
         {% if (paint==='top' or paint==='both') and (background_color or inner_background_color) %}
           {{ container_texture(top=true) }}
         {% endif %}
