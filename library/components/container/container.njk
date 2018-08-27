@@ -15,20 +15,20 @@
     <div class="spirit-container{{' spirit-context--' + background_color if background_color}}">
       <div class="spirit-container__inner{{' spirit-container__inner--' + size if size }}{{' spirit-container__inner--padding-top-' + padding_top if padding_top}}{{' spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}}{{' spirit-context--' + inner_background_color if inner_background_color}}">
         {% if (paint==='top' or paint==='both') and (background_color or inner_background_color) %}
-          {{ conatiner_texture(top=true) }}
+          {{ container_texture(top=true) }}
         {% endif %}
         {% if brush_bg %}
-           {{ conatiner_texture(bg=brush_bg) }}
+           {{ container_texture(bg=brush_bg) }}
         {% endif %}
           {{ caller() }}
         {% if (paint==='bottom' or paint==='both') and (background_color or inner_background_color) %}
-          {{ conatiner_texture(bottom=true) }}
+          {{ container_texture(bottom=true) }}
         {% endif %}
       </div>
     </div>
 {% endmacro %}
 
-{% macro conatiner_texture(
+{% macro container_texture(
       top=false,
       bottom=false,
       bg=false
