@@ -1,0 +1,82 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+<style>
+[class*='spirit-col-'] {
+  overflow: hidden; // highlight where list item escapes grid column in sink
+}
+</style>
+{% set sample_list %}
+  {% call library.list() %}
+    {{ library.list_item() }}
+    {{ library.list_item(title_text="This is a list item with a very long title to see how it looks in comparison") }}
+    {{ library.list_item() }}
+    {{ library.list_item(title_meta="$9999") }}
+    {{ library.list_item(href="#", href_secondary="#", href_secondary_text="Click Here") }}
+    {{ library.list_item(title_meta="$9999", href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here") }}
+    {{ library.list_item(icon_name="user", title_text="This is a list item with a very long title to see how it looks in comparison", href="#", href_text="Read More") }}
+    {{ library.list_item(icon_name="user") }}
+    {{ library.list_item(title_meta="$9999", href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", avatar_src="https://picsum.photos/100/300") }}
+    {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800") }}
+    {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800", href="#", href_text="Read More", image_right=true) }}
+    {{ library.list_item(href="#", href_text="Read More", meta="Western Massachusetts 2018", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+    {{ library.list_item(title_meta="$9999", icon_name="user", href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+    {{ library.list_item(href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+    {{ library.list_item(href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…", image_right=true) }}
+    {{ library.list_item(href="#", title_text="This is a list item with a very long title to see how it looks in comparison", href_text="Read More About this Article", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018-2020 - Oregon", caption="The Benaroyas are recognized for their long-standing support of JDRF International. New York (July 11, 2018)— JDRF, the leading global. Adding content here to show how more content will look in this example. There can be lots of words if not truncated by the CMS.") }}
+  {% endcall %}
+{% endset %}
+    <h1 class="hostile-sink-reset">Lists Grid Sink</h1>
+
+    
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+
+        <h2 class="hostile-sink-reset">1 Up example</h2>
+        <div class="spirit-row">
+          <div class="spirit-col-12">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h2 class="hostile-sink-reset">2 Up example</h2>
+        <div class="spirit-row">
+          <div class="spirit-col-md-6">
+            {{ sample_list | safe }}
+          </div>
+          <div class="spirit-col-md-6">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h2 class="hostile-sink-reset">3 Up example</h2>
+        <div class="spirit-row">
+          <div class="spirit-col-md-6 spirit-col-lg-4">
+            {{ sample_list | safe }}
+          </div>
+          <div class="spirit-col-md-6 spirit-col-lg-4">
+            {{ sample_list | safe }}
+          </div>
+          <div class="spirit-col-md-6 spirit-col-lg-4">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h2 class="hostile-sink-reset">4 Up example</h2>
+        <div class="spirit-row">
+          <div class="spirit-col-md-6 spirit-col-lg-3">
+            {{ sample_list | safe }}
+          </div>
+          <div class="spirit-col-md-6 spirit-col-lg-3">
+            {{ sample_list | safe }}
+          </div>
+          <div class="spirit-col-md-6 spirit-col-lg-3">
+            {{ sample_list | safe }}
+          </div>
+          <div class="spirit-col-md-6 spirit-col-lg-3">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock body %}

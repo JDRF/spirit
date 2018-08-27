@@ -1,0 +1,167 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Tokens
+
+      <p class="spirit-long-form-text__subhead">Tokens enumerate JDRF Spirit style values for color, typography, space, and more. They record design decisions in code for all products to depend on. </p>
+
+      Tokens are available as pre-compiled SCSS or JSON in the <a href="https://www.npmjs.com/package/@jdrfhq/spirit">Spirit NPM package</a>.
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+
+  {% filter markdown %}
+      ## Border
+      #### Border-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='border.color') }}
+  {% filter markdown %}
+      #### Style
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='border.style') }}
+  {% filter markdown %}
+      #### Width
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='border.width') }}
+  {% filter markdown %}
+      #### Radius
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='border.radius') }}
+
+
+  {% filter markdown %}
+      ## Box-shadow
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='box-shadow') }}
+
+  
+  {% filter markdown %}
+      ## Breakpoint
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='breakpoint') }}
+
+
+
+ 
+ 
+ 
+  {% filter markdown %}
+      ## Color
+      #### Palette
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='color') }}
+  {% filter markdown %}
+      #### Background-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='background-color') }}
+  {% filter markdown %}
+      #### Border-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='border.color') }}
+  {% filter markdown %}
+      #### Brand-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='brand-color') }}
+  {% filter markdown %}
+      #### Disabled-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='disabled-color') }}
+  {% filter markdown %}
+      #### Elevation-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='elevation-color') }}
+  {% filter markdown %}
+      #### Feedback-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='feedback-color') }}
+  {% filter markdown %}
+      #### Icon-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='icon-color') }}
+  {% filter markdown %}
+      #### Interactive-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='interactive-color') }}
+  {% filter markdown %}
+      #### Text-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='text-color') }}
+
+
+  {% filter markdown %}
+      ## Elevation
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='elevation') }}
+  {% filter markdown %}
+      #### Elevation-color
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='elevation-color') }}
+
+  {% filter markdown %}
+      ## Font
+      #### Family
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='font.family') }}
+  {% filter markdown %}
+      #### Weight
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='font.weight') }}
+  {% filter markdown %}
+      #### Size
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='font.size') }}
+  {% filter markdown %}
+      #### Line-height
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='line-height') }}
+
+
+
+  
+
+
+  {% filter markdown %}
+      ## Size
+      #### Icon
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='size.icon') }}
+
+    
+  {% filter markdown %}
+      ## Space
+      #### Generic
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.generic') }}
+  {% filter markdown %}
+      #### Inset
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.inset') }}
+  {% filter markdown %}
+      #### Inset-squish
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.inset-squish') }}
+  {% filter markdown %}
+      #### Stack
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.stack') }}
+  {% filter markdown %}
+      #### Inline-left
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.inline-left') }}
+  {% filter markdown %}
+      #### Inline-right
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.inline-right') }}
+
+  
+  {% filter markdown %}
+      ## Transition
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='transition') }}
+
+
+
+
+
+{% endblock page_shell_content %}
