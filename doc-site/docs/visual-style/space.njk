@@ -214,7 +214,7 @@
    {% filter markdown %}
       ## Inline
 
-      Inline spacing separates inline elements by consistent applying space on one side of each element. By default, left-aligned elements have right-side spacing (as shown). Right-aligned elements are the opposite. 
+      Inline spacing separates inline elements by consistent applying space on one side of each element. By default, left-aligned elements have right-side spacing (as shown) using `inline-right`. Right-aligned elements are the opposite. 
 
       <img src="/images/space/inline@2x.png" alt="Inline at X (8px), 2X (16px), or 3X (24px)" style="max-width:400px;" />
  
@@ -224,70 +224,7 @@
   
       #### Tokens
 
-      Left-aligned items use `inline-left`, which adds spacing to their right. This ensures the first item is flush left.
-  {% endfilter %}
-
-    {{ esds_doc.reference_table(
-      headers=[
-            'token',
-            'value',
-            'preview'
-      ],
-      automatic_code_block_columns=['token'],
-      data=[{
-            token: "$spirit-space-inline-left-24-x",
-            value: "0 192px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-24-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-12-x",
-            value: "0 96px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-12-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-8-x",
-            value: "0 64px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-8-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-6-x",
-            value: "0 48px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-6-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-5-x",
-            value: "0 40px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-5-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-4-x",
-            value: "0 32px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-4-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-3-x",
-            value: "0 24px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-3-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-2-x",
-            value: "0 16px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-2-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-1-x",
-            value: "0 8px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-1-x spirit-doc-space__mask'>example</div></div>"
-        },
-        {
-            token: "$spirit-space-inline-left-half-x",
-            value: "0 4px 0 0",
-            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-left-half-x spirit-doc-space__mask'>example</div></div>"
-        }
-    ]) }}
-
-  {% filter markdown %}
-      Right-aligned items use `inline-right`, which adds spacing to their left. This ensures the last item is flush right. 
+      Left-aligned items use `inline-right`, which adds spacing to their right. This ensures the first item is flush left.
   {% endfilter %}
 
     {{ esds_doc.reference_table(
@@ -299,53 +236,116 @@
       automatic_code_block_columns=['token'],
       data=[{
             token: "$spirit-space-inline-right-24-x",
-            value: "0 0 0 192px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-24-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 192px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-24-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-12-x",
-            value: "0 0 0 96px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-12-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 96px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-12-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-8-x",
-            value: "0 0 0 64px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-8-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 64px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-8-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-6-x",
-            value: "0 0 0 48px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-6-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 48px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-6-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-5-x",
-            value: "0 0 0 40px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-5-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 40px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-5-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-4-x",
-            value: "0 0 0 32px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-4-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 32px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-4-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-3-x",
-            value: "0 0 0 24px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-3-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 24px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-3-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-2-x",
-            value: "0 0 0 16px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-2-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 16px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-2-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-1-x",
-            value: "0 0 0 8px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-1-x spirit-doc-space__mask'>example</div></div>"
+            value: "0 8px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-1-x spirit-doc-space__mask'>example</div></div>"
         },
         {
             token: "$spirit-space-inline-right-half-x",
+            value: "0 4px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-half-x spirit-doc-space__mask'>example</div></div>"
+        }
+    ]) }}
+
+  {% filter markdown %}
+      Right-aligned items use `inline-left`, which adds spacing to their left. This ensures the last item is flush right. 
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value',
+            'preview'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-inline-left-24-x",
+            value: "0 0 0 192px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-24-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-12-x",
+            value: "0 0 0 96px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-12-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-8-x",
+            value: "0 0 0 64px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-8-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-6-x",
+            value: "0 0 0 48px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-6-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-5-x",
+            value: "0 0 0 40px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-5-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-4-x",
+            value: "0 0 0 32px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-4-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-3-x",
+            value: "0 0 0 24px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-3-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-2-x",
+            value: "0 0 0 16px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-2-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-1-x",
+            value: "0 0 0 8px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-1-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-half-x",
             value: "0 0 0 4px",
-            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-right-half-x spirit-doc-space__mask'>example</div></div>"
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-half-x spirit-doc-space__mask'>example</div></div>"
         }
     ]) }}
 
