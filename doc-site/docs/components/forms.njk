@@ -3,21 +3,18 @@
   {% filter markdown %}
       # Forms
 
-      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
+      <p class="spirit-long-form-text__subhead">Forms gather information from users via inputs, such as text area, radio button, and checkbox. Use <a href="#field-groups">field group</a> to wrap each input with helpful labels and indicators, laid out using <a href="#form-grid">form grid</a>. Clearly communicate instructions via <a href="#microcopy">microcopy</a> and <a href="#validation-errors">validation errors</a>.</p>
   {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
   {% filter markdown %}
-      ## Section 1
+      ## Input
+      Use input to gather a short string of text or a number. Also known as a text box. 
       
-      Paragraph
+      [Code example instructions: stack -- default, disabled state, error state, valid state ; show code for each]
 
-      ### Subheading A
-
-      Paragraph
   {% endfilter %}
-
   {{ esds_doc.code_example_pair( 
     examples=[
       {
@@ -35,45 +32,233 @@
   }}
   {% filter markdown %}
 
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ### Subheading B
-
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ## Section 2
       
-      Paragraph
-  {% endfilter %}
+      * Use for a single word, number, or line of text. For longer text, use Text Area. 
+      * Wrap in a Form Group to attach label, microcopy, required indicator, and more. 
 
+      ## Text Area
+      Use text area to gather multiple lines of text. 
+      
+      [Code example instructions: stack -- default, disabled state, error state, valid state ; show code for each]
+      
+      * Use for long text entry. Although Text Area has no minimum, use Input when expecting only one line of text. 
+      * Wrap in a Form Group to attach label, microcopy, required indicator, and more. 
+      * Allow the user to resize the the text area if the browser supports it. 
+      
+      
+      ## Radio Group
+      Use radio group to gather a selection from a list of options. Radio groups have two layout options: stacked (default) and horizontal. 
+      
+      
+      ### Radio Group Stacked
+      This is the default and preferred arrangement for a radio group. 
+      
+      [Code example instructions: radio group (list of items, in field group, with legend and required indicator) // values: 
+      Legend: “Donation Frequency *”
+      Option 1: One-time donation
+      Option 2: Monthly recurring donation]
+      
+      ### Radio Group, Horizontal
+      Use this arrangement when vertical space is at a premium for a few options with very short labels. 
+      
+      [Code example instructions: radio group (list of items, in field group, horizontal, with legend) // values:
+      Legend: “Favorite Color *”
+      Option 1: Red
+      Option 2: Green
+      Option 3: Purple]
+      
+      #### Guidelines
+      * Use radio group to gather a selection from a list of 2-5 options. 
+      * Use radio when offering unfamiliar or lengthy options. 
+      * Use a [Select](#select) when presenting a choice of more than 5 options, especially if the options are well known (such as a list of US states). 
+      * Label a radio group with a legend. 
+      * Never use a single radio button. Use Checkbox instead.
+      
+      ##### Accessibility
 
-  {% filter markdown %}
+      * Always include a label, even if adapting radio button for other purposes. Hide the visible label by applying a `spirit-screenreader-only` class. 
+      * Use `fieldset` and `legend` for grouped Form elements, such as Radio Buttons and Checkboxes.
+
+      ## Checkbox Group
+      Use checkbox group to gather one or more selections from a list of options. Checkbox groups have two layout options: stacked (default) and horizontal. 
+
+      #### Checkbox Group Stacked
+      This is the default and preferred arrangement for a checkbox group. 
+      
+      [Code example instructions: checkbox group (list of items, in field group, with legend and required indicator) // values:
+      Legend: “Public Recognition (optional)”
+      Option 1: Please don't display my name on the website
+      Option 2: Please don't display my donation amount on the website ]
+      
+      ### Checkbox Group, Horizontal
+      Use this arrangement when vertical space is at a premium for a few options with very short labels. 
+      
+      [Code example instructions: checkbox group (list of items, in fieldset, horizontal, with legend)
+      Legend: “What activities do you enjoy”
+      Option 1: Walking
+      Option 2: Running
+      Option 3: Biking]
+
+      ### Checkbox
+      Use an individual checkbox to capture a binary selection. All the states shown are also available within a checkbox group. 
+      
+      [Code example instructions: checkbox 
+      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
+      
+      [Code example instructions: checkbox, state:checked
+      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
+      
+      [Code example instructions: checkbox, state:disabled
+      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
+      
+      [Code example instructions: checkbox, state:indeterminate
+      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
+
+      #### Guidelines
+
+      * Use checkbox group to gather one or more selections from a list of options. 
+      * Optionally, use a single checkbox to set state on a binary question, such as an agreement or setting. 
+      * Label a checkbox group with a legend. 
+
+      Do set all checkboxes unchecked by default. The only exception is confirming or displaying a previous user selection. 
+
+      Don’t make a choice for the user. 
+
+      Do use labels written to describe the positive action of checking the box.
+
+      Don’t use a negative label. This obscures the meaning of the action. 
+
+      ##### Accessibility
+      
+      * Always include a label, even if adapting checkbox for other purposes. Hide the visible label by applying a `spirit-screenreader-only` class. 
+      * Use `fieldset` and `legend` for grouped Form elements, such as Radio Buttons and Checkboxes.
+      
+      ## Select / Dropdown
+      Use a select to capture a selection from a list of options. Unlike a radio button, a user can chose to make no selection. 
+      
+      [code example instructions: select, label “Payment Type”, required:
+      Option 1: Credit Card
+      Option 2: Check
+      Option 3: Paypal]
+
+      * Use select when offering several mutually-exclusive options. 
+      * Ideal for long lists of known items, such as US states. 
+      * For options with lengthy labels, prefer radio group. 
+      
+
+      ## Label
+      Use to describe a form input and indicate whether the input is required or optional.
+
+      [Code example 1 instructions:  label “City”  // show code]
+      
+      ## Required and Optional Indicators
+      Use the required indicator to enumerate which fields are required.
+      
+      [Code example 1 instructions: required “First Name”  // show code]
+      
+      * If most fields are required, yet one or two are optional, use the optional indicator instead. When "Optional" next to the label won’t fit, "Optional" as a Placeholder is preferred, for example Street Address Line 2 when placed on the same row as Street Address Line 1. 
+      
+      [Code example 2 instructions: optional “Middle Initial” // show code]
+      
+      #### Guidelines
+      ##### Accessibility
+      
+      * Use a label with all form inputs, no exceptions. If adapting a form input for an application where the default visible label isn’t needed, hide the visible label with `.spirit-screenreader-only`. A `placeholder` does not replace a label — include a hidden `label` to supplement the placeholder. 
+      * For required fields, include both the visible required field indicator and the `.spirit-screenreader-only` required field message.  
+      Include a `for` attribute on each `label` with a value matching the `id` attribute on the corresponding `input`, `textarea` or `select`.
+
+      ##### Editorial
+
+      * For text inputs, use title case. Avoid punctuation.
+      * Clearly written labels should eliminate the need for placeholder text in text boxes and text areas.
+      
+      ## Microcopy
+      * Supplement a label with additional instructions, context, or rules. 
+
+      [Code example instructions: Label: “Password”, basic input, then microcopy: “Must be 5-20 characters” - include aria-describedby in the example]
+
+      #### Guidelines
+      ##### Accessibility
+
+      * Include an `aria-describedby` attribute on each `input`, `textarea`, or `select` that has an `.spirit-form__microcopy` component providing additional information. The value of the `aria-describedby` attribute must match the `id` attribute on the `.spirit-form__microcopy` component.
+
+      ## Size Options
+
+      Form inputs are available in two densities: `default` and `compact`. Sizing and usage guidelines work consistently across all form elements. 
+      
+      [Code example instructions: show two side-by-side stacks of inputs, left default // right condensed
+      Reuse examples with labels from this page for:
+      Input
+      Checkbox Group / Stack
+      Radio Button Group / Stack]
+
+      ## Validation Errors
+      
+      Use to indicate form inputs with missing or invalid entries, and describe the error. Validation errors manifest in specific positions within a field group, as shown below. Use a feedback message a the top of a form to attract the user’s attention to validation errors. 
+      
+      ##### Place error messages below Input, Textarea, and Select.
+      
+      [Code example 1 instructions: 
+      Label: “Email Address”, input in error mode with content “anderson@comcast”, then error message: “Invalid email address. Must follow the format `XXXXXX@XXXXXX.XXX`.”, mark aria-invalid=”true”]
+
+      ##### Place error messages above Radio and Checkbox Groups.
+
+      [Code example 2 instructions: error state radio group (list of items, in field group, with legend and required indicator, plus error message), mark aria-invalid=”true” // values: 
+      Legend: “Donation Frequency *”
+      Error Message: This field is required
+      Option 1: One-time donation
+      Option 2: Monthly recurring donation]
+
+      [Code example 3 instructions: error state checkbox group (list of items, in field group, with legend and required indicator, plus error message), mark aria-invalid=”true” // values: 
+      Legend: “Relationship to type 1 diabetes *”
+      Error Message: Select at least one option
+      Option 1: I have type 1 diabetes
+      Option 2: Parent or guardian
+      Option 3: Friend or family member
+      Option 4: Medical professional]
+
+      [Code example 4 instructions: single error state checkbox
+      (single item, no list no legend: [ ] “I accept the terms and conditions”, error message “You must accept the terms to continue”), mark aria-invalid=”true”  ]
+
+      #### Guidelines
+
+      * Use the error state of each element, such as `.spirit-form__input--invalid`. 
+      * Use an error message that appears below each element or label as shown above, styled with `.spirit-form__field-error-text`. 
+      ##### Editorial
+      * Acknowledge what is keeping a user from proceeding, but don’t make them feel like they did something wrong.
+      * Provide a user at least one way to resolve the problem. 
+      ##### Accessibility
+      * Add `aria-invalid="true"` to an element where a validation error has occurred.
+      * Always include `role=alert` on `.spirit-form__field-error` elements.
+
+      ## Field Groups
+      
+      Use field groups to consistently organize the elements that make up an input, including label, microcopy, error messaging, and so on. 
+      
+      [Code example instructions: example 1, “Street Address” field, with label, required indicator and microcopy, “Include unit or apartment number” Show code]
+      
+      [Code example instructions: example 2, “City” field, with label, required indicator, error state, and error message, “This field is required”. Show code]
+
+      ## Form Grid
+
+      Use the standard grid to lay out forms with multiple inputs per line. 
+      
+      [Code example instructions: use the Billing Address example from the sink
+      Heading “Billing Address”
+      Street Address [input] (microcopy: Include unit or apartment number.)
+      Row: City [input]  // State [dropdown, required]  // Zip Code [input, required] ]
+      
+      See Grid for more detailed documentation. 
+      
+      #### Guidelines
+
+      * Prefer narrow columns of stacked inputs, rather than complex layouts. * Use the grid sparingly. 
+      * Use the grid to place closely-related inputs on a line together, such as State + Zip Code or First Name + Last Name. 
+      * Never place unrelated inputs on the same line. 
+      * Consider how a form layout works on narrow viewports and responds on wider viewports.
+
       ## Code Reference
-      
-      ### Color Tokens
   {% endfilter %}   
-  {{ esds_doc.tint_stack(swatches=[
-    {
-      hex: spirit_tokens['text-color']['primary'],
-      label: 'Primary',
-      code_snippet: '$spirit-text-color-primary',
-      contrast_test_color: '#FFFFFF',
-      color_role: 'foreground',
-      show_border: true
-    },
-    {
-      hex: spirit_tokens['text-color']['on-dark'],
-      label: 'On Dark',
-      code_snippet: '$spirit-text-color-on-dark',
-      contrast_test_color: spirit_tokens.color.black,
-      color_role: 'foreground',
-      class: 'esds-doc-tint-stack__swatch--dark'
-    }
-  ]) }}
 
   {% filter markdown %}
       ### Class Reference
