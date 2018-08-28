@@ -36,6 +36,13 @@ module.exports = {
             watch: true
         },
         {
+            name: 'spirit-brushes',
+            sources: [
+                    'node_modules/@jdrfhq/spirit/dist/spirit-brushes.svg'],
+            destination: '../docs/brushes',
+            watch: true
+        },
+        {
             name: 'spirit-fonts',
             sources: [
                     'node_modules/@jdrfhq/spirit/fonts/**/*'],

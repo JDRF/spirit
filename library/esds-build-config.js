@@ -28,5 +28,6 @@ module.exports = {
         sources: ["node_modules/svg4everybody/dist/svg4everybody.min.js"],
         destination: "_site/latest/scripts/dependencies"
     }
-  ]
+  ],
+  additionalWatchTasks: ['watch:brushes:generate-brushes-sprite']
 };
