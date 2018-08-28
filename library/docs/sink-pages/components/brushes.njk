@@ -1,0 +1,27 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    {% filter markdown(true, "hostile-sink-reset") %}
+        # Brushes Sink
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-row">
+            <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Example Brushes
+                {% endfilter %}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### On it's own
+                {% endfilter %}
+
+                {{ library.brush() }}
+
+                {{ library.brush(name="painted-edge-top") }}
+
+                {{ library.brush(name="painted-edge-bottom") }}
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}
