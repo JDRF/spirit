@@ -1,57 +1,68 @@
 @import '../tokens/tokens';
 
 // variables
-$spirit-container-paint-width: 1484px; // from sketch
+$spirit-container-paint-width: 1484px;
+$spirit-container-paint-height: $spirit-space-generic-12-x;
+$spirit-container-paint-height-l: $spirit-space-generic-24-x;
 
 .spirit-image-block__image {
-  background-image: url("https://picsum.photos/800/800");
+  // sass-lint:disable no-url-protocols
+  background-image: url('https://picsum.photos/800/800');
+  // sass-lint:enable no-url-protocols
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover ;
   content: '';
   display: block;
-  background-position: center center;
-  background-size: cover ;
-  background-repeat: no-repeat;
-  padding-top: 75%;
-  top: 0;
-  right: 0;
   float: right;
+  padding-top: 75%;
+  right: 0;
+  top: 0;
   width: 100%;
 }
 
 .spirit-image-block {
   display: flex;
   flex-flow: column nowrap;
-  .spirit-container__inner--paint-both & ,
+
+  .spirit-container__inner--paint-both &,
   .spirit-container__inner--paint-bottom & {
-    margin-bottom: -200px;
+    margin-bottom: -$spirit-container-paint-height;
   }
   @media screen and (min-width: $spirit-breakpoint-m) {
-    flex-flow: row nowrap;
     align-items: center;
-    
+    flex-flow: row nowrap;
+
     .spirit-long-form-text,
     .spirit-image-block__image {
       width: 50%;
     }
+
     .spirit-long-form-text {
-        width: 50%;
-        padding-top: 200px;
-        padding-bottom: 200px;
+      padding-bottom: $spirit-container-paint-height;
+      padding-top: $spirit-container-paint-height;
+      width: 50%;
     }
-    .spirit-container__inner--paint-both & ,
+
+    .spirit-container__inner--paint-both &,
     .spirit-container__inner--paint-top & {
-      margin-top: -200px;
+      margin-top: -$spirit-container-paint-height;
     }
   }
+
   @media screen and (min-width:  $spirit-breakpoint-l) {
-    // margin-top: -96px;
-    // margin-bottom: -96px;
+    .spirit-container__inner--paint-both &,
+    .spirit-container__inner--paint-bottom & {
+      margin-bottom: -$spirit-container-paint-height-l;
+    }
+
+    .spirit-container__inner--paint-both &,
+    .spirit-container__inner--paint-top & {
+      margin-top: -$spirit-container-paint-height-l;
+    }
   }
   @media screen and (min-width:  $spirit-container-paint-width) {
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
   }
-}
-
-.spirit-container__brush-bg + .spirit-long-form-text:after {
-  // display: none;
 }

@@ -16,6 +16,40 @@
       </div>
     {% endset %}
 
+    {% set sample_longform_text %}
+      <div class="spirit-long-form-text">
+        <h2>
+            You Can Help Turn Type One Into Type None
+        </h2>
+        <h3>
+            You Can Help Turn Type One Into Type None
+        </h3>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+    {% endset %}
+
+    {% set sample_longform_text_long %}
+      <div class="spirit-long-form-text">
+        <h2>
+            You Can Help Turn Type One Into Type None
+        </h2>
+        <h3>
+            You Can Help Turn Type One Into Type None
+        </h3>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+    {% endset %}
+
   <h1 class="hostile-sink-reset">Containers Paint</h1>
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG</h2>
@@ -23,12 +57,32 @@
        {{ sample_image_block | safe }}
   {% endcall %}
 
-    <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
+  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG</h2>
+  {% call library.container(background_color='brand', paint="both") %}
+      {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG</h2>
+  {% call library.container(background_color='brand', paint="both") %}
+      {{ sample_longform_text_long | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
   {% call library.container(background_color='brand', paint="both", size="large") %}
        {{ sample_image_block | safe }}
   {% endcall %}
 
-    <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG (black)</h2>
+  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
+  {% call library.container(background_color='brand', paint="both", size="large") %}
+       {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
+  {% call library.container(background_color='brand', paint="both", size="large") %}
+       {{ sample_longform_text_long | safe }}
+  {% endcall %}  
+
+  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG (black)</h2>
   {% call library.container(background_color='black', paint="both") %}
       {{ sample_image_block | safe }}
   {% endcall %}
@@ -92,6 +146,11 @@
 
   <h3 class="hostile-sink-reset">Top LG / Bottom XS</h3>
   {% call library.container(padding_top="lg",padding_bottom="xs", background_color='brand', paint="both") %}
+    {{ sample_image_block | safe }}
+  {% endcall %}
+
+  <h3 class="hostile-sink-reset">Paint Bottom - Padding Top None</h3>
+  {% call library.container(padding_top="none", background_color='brand', paint="bottom") %}
     {{ sample_image_block | safe }}
   {% endcall %}
 
