@@ -272,7 +272,7 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
 .spirit-form__label-required-indicator {
   @include spirit-box-sizing;
   color: $spirit-required-field-indicator-color;
-  margin: $spirit-space-inline-right-half-x;
+  margin: $spirit-space-inline-left-half-x;
   text-decoration: none;
 }
 
