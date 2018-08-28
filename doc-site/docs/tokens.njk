@@ -146,13 +146,13 @@
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='space.stack') }}
   {% filter markdown %}
-      #### Inline-left
-  {% endfilter %}
-  {{ spirit_doc.token_table(token_node='space.inline-left') }}
-  {% filter markdown %}
       #### Inline-right
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='space.inline-right') }}
+  {% filter markdown %}
+      #### Inline-left
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='space.inline-left') }}
 
   
   {% filter markdown %}
