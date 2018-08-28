@@ -11,25 +11,36 @@
   {% filter markdown %}
       ## Input
       Use input to gather a short string of text or a number. Also known as a text box. 
-      
-      [Code example instructions: stack -- default, disabled state, error state, valid state ; show code for each]
-
   {% endfilter %}
-  {{ esds_doc.code_example_pair( 
-    examples=[
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on light"
+
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_input(),
+        label: "Default"
       },
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-context--brand"
-      }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
-  )
+      { 
+        example: library.form_input(placeholder="Optional"),
+        label: "with Placeholder"
+      },
+      { 
+        example: library.form_input(disabled=true),
+        label: "Disabled"
+      },
+      { 
+        example: library.form_input(valid=false),
+        label: "Error"
+      },
+      { 
+        example: library.form_input(valid=true),
+        label: "Valid"
+      } ],
+    code_snippet_source=(
+      library.form_input() + library.form_input(placeholder="Optional") + library.form_input(disabled=true) + library.form_input(valid=false) + library.form_input(valid=true)
+    )
+    )
   }}
+
   {% filter markdown %}
 
       
@@ -39,12 +50,41 @@
       ## Text Area
       Use text area to gather multiple lines of text. 
       
-      [Code example instructions: stack -- default, disabled state, error state, valid state ; show code for each]
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_textarea(),
+        label: "Default"
+      },
+      { 
+        example: library.form_textarea(placeholder="Optional"),
+        label: "with Placeholder"
+      },
+      { 
+        example: library.form_textarea(disabled=true),
+        label: "Disabled"
+      },
+      { 
+        example: library.form_textarea(valid=false),
+        label: "Error"
+      },
+      { 
+        example: library.form_textarea(valid=true),
+        label: "Valid"
+      } ],
+    code_snippet_source=(
+      library.form_textarea() + library.form_textarea(placeholder="Optional") + library.form_textarea(disabled=true) + library.form_textarea(valid=false) + library.form_textarea(valid=true)
+    )
+    )
+  }}
+
+  {% filter markdown %}
       
       * Use for long text entry. Although Text Area has no minimum, use Input when expecting only one line of text. 
       * Wrap in a Form Group to attach label, microcopy, required indicator, and more. 
       * Allow the user to resize the the text area if the browser supports it. 
-      
       
       ## Radio Group
       Use radio group to gather a selection from a list of options. Radio groups have two layout options: stacked (default) and horizontal. 
@@ -52,21 +92,43 @@
       
       ### Radio Group Stacked
       This is the default and preferred arrangement for a radio group. 
-      
-      [Code example instructions: radio group (list of items, in field group, with legend and required indicator) // values: 
-      Legend: “Donation Frequency *”
-      Option 1: One-time donation
-      Option 2: Monthly recurring donation]
-      
+
+  {% endfilter %}
+  {% set radio_example_stacked %}
+    {% call library.form_radio_group(label="Donation Frequency?", required=true) %}
+        {{ library.form_radio(name="group-stacked", label="One-time donation", value="otd") }}
+        {{ library.form_radio(name="group-stacked", label="Monthly recurring donation", value="monthly") }}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: radio_example_stacked } ],
+    code_snippet_source=(radio_example_stacked)
+    )
+  }}
+  {% filter markdown %}
+
       ### Radio Group, Horizontal
       Use this arrangement when vertical space is at a premium for a few options with very short labels. 
-      
-      [Code example instructions: radio group (list of items, in field group, horizontal, with legend) // values:
-      Legend: “Favorite Color *”
-      Option 1: Red
-      Option 2: Green
-      Option 3: Purple]
-      
+
+  {% endfilter %}
+  {% set radio_example_stacked %}
+    {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_radio_group(label="Favorite Color", required=true) %}
+          {{ library.form_radio(name="group-stacked", label="Red", value="f00") }}
+          {{ library.form_radio(name="group-stacked", label="Green", value="0f0") }}
+          {{ library.form_radio(name="group-stacked", label="Purple", value="f0f") }}
+      {% endcall %}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: radio_example_stacked } ],
+    code_snippet_source=(radio_example_stacked)
+    )
+  }}
+  {% filter markdown %}
+
       #### Guidelines
       * Use radio group to gather a selection from a list of 2-5 options. 
       * Use radio when offering unfamiliar or lengthy options. 
