@@ -1,0 +1,7 @@
+{% extends "templates/base.njk" %}
+{% block body %}
+    {% filter markdown %}
+        # Release History Details Sink
+    {% endfilter %} 
+    {{ spirit_doc.release_history_detail() }}
+{% endblock body %}

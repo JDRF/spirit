@@ -1,0 +1,14 @@
+{% macro release_history_detail(
+        class=false,
+        date="8/22/2018",
+        doc_link="/v/1.0.0",
+        version="1.0.0"
+) %}
+  <div class="spirit-doc-release-history-detail">
+    <div class="spirit-doc-release-history-detail__header">
+      <h1 class="spirit-doc-release-history-detail__title">Release {{ version }}</h1>
+      <span class="spirit-doc-release-history-detail__date">{{ date }}</span>
+      <a href="{{ doc_link }}" class="spirit-doc-release-history-detail__doc_link">View Docs</a>
+    </div>
+  </div>
+{% endmacro %}
