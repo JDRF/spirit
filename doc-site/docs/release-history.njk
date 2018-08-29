@@ -6,6 +6,20 @@
 {% endblock %}
 
 {% block page_shell_content %}
+  {% set new %}
+    * Cards - Code and Sketch only (documentation pending)
+    * Containers - Code and Sketch only (documentation pending)
+    * Forms - Code and Sketch only (documentation pending)
+    * Feedback Messages - Code and Sketch only (documentation pending)
+    * Grids - Code and Sketch only (documentation pending)
+    * Links - Code and Sketch only (documentation pending)
+    * Lists - Code and Sketch only (documentation pending)
+    * Long Form Text - Code and Sketch only (documentation pending)
+    * Tiles - Code and Sketch only (documentation pending)
+    * Vertical Navigation - Code and Sketch only (documentation pending)
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(new=new) }}
   {% filter markdown %}
     ## 1.0.0-alpha.1
     [View Docs](/v/1.0.0-alpha.1)
