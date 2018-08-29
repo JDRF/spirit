@@ -1,7 +1,7 @@
 @import '../tokens/tokens';
 
 // variables
-$spirit-container-paint-width: 1484px;
+$spirit-container-painted-edge-width: 1484px; // from sketch
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
 $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
 
@@ -50,20 +50,7 @@ $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
     }
   }
 
-  @media screen and (min-width:  $spirit-breakpoint-l) {
-    .spirit-container__inner--painted-edge-both &,
-    .spirit-container__inner--painted-edge-bottom & {
-      margin-bottom: -$spirit-container-painted-edge-height-l;
-    }
+  @media screen and (min-width:  $spirit-container-painted-edge-width) {
 
-    .spirit-container__inner--painted-edge-both &,
-    .spirit-container__inner--painted-edge-top & {
-      margin-top: -$spirit-container-painted-edge-height-l;
-    }
-  }
-
-  @media screen and (min-width:  $spirit-container-paint-width) {
-    margin-bottom: 0;
-    margin-top: 0;
   }
 }
