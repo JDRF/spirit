@@ -7,47 +7,23 @@
 
 {% block page_shell_content %}
   {% set new %}
-    * Cards - Code and Sketch only (documentation pending)
-    * Containers - Code and Sketch only (documentation pending)
-    * Forms - Code and Sketch only (documentation pending)
-    * Feedback Messages - Code and Sketch only (documentation pending)
-    * Grids - Code and Sketch only (documentation pending)
-    * Links - Code and Sketch only (documentation pending)
-    * Lists - Code and Sketch only (documentation pending)
-    * Long Form Text - Code and Sketch only (documentation pending)
-    * Tiles - Code and Sketch only (documentation pending)
-    * Vertical Navigation - Code and Sketch only (documentation pending)
+    * [Color](/visual-style/color.html) Tokens, Sketch, and documentation
+    * [Icons](/visual-style/icons.html) Code, Sketch, and documentation
+    * [Space](/visual-style/space.html) Tokens, Sketch, and documentation
+    * [Buttons](/components/buttons.html) Code, Sketch, and documentation
+    * **Cards** - Code and Sketch
+    * **Containers** - Code and Sketch
+    * **Forms** - Code and Sketch
+    * **Feedback Messages** - Code and Sketch
+    * **Grids** - Code and Sketch
+    * **Links** - Code and Sketch
+    * **Lists** - Code and Sketch
+    * **Long Form Text** - Code and Sketch
+    * **Tiles** - Code and Sketch
+    * **Vertical Navigation** - Code and Sketch
+    * **Elevation** - Tokens
+    * **Typography** - Tokens
   {% endset %}
 
-  {{ spirit_doc.release_history_detail(new=new) }}
-  {% filter markdown %}
-    ## 1.0.0-alpha.1
-    [View Docs](/v/1.0.0-alpha.1)
-    ##### Released 8/29/2018
-    #### Visual Style 
-    * [Color](/visual-style/color.html) - Guidelines and tokens published
-    * [Icons](/visual-style/icons.html) - Guidelines, tokens, and assets published
-    * [Space](/visual-style/space.html) - Guidelines and tokens published
-    * Elevation - Tokens defined (documentation pending)
-    * Typography - Tokens defined (documentation pending)
-    
-    #### Updated Components 
-    * [Buttons](/components/buttons.html) - Guidelines published
-    
-    #### New Components
-    * Cards - Code and Sketch only (documentation pending)
-    * Containers - Code and Sketch only (documentation pending)
-    * Forms - Code and Sketch only (documentation pending)
-    * Feedback Messages - Code and Sketch only (documentation pending)
-    * Grids - Code and Sketch only (documentation pending)
-    * Links - Code and Sketch only (documentation pending)
-    * Lists - Code and Sketch only (documentation pending)
-    * Long Form Text - Code and Sketch only (documentation pending)
-    * Tiles - Code and Sketch only (documentation pending)
-    * Vertical Navigation - Code and Sketch only (documentation pending)
-    
-    #### Assets
-    * [Release History](/release-history.html) - Published 
-
-  {% endfilter %}
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.1", date="8/29/2018", new=new) }}
 {% endblock page_shell_content %}
