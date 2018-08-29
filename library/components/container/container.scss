@@ -137,19 +137,19 @@ $spirit-container-wave-bg-width-xl: 90vw;
 // Paint Top and Paint Bottom
 .spirit-container__painted-edge-top,
 .spirit-container__painted-edge-bottom {
+  color: $spirit-color-white;
   display: block;
   height: $spirit-container-painted-edge-height;
   left: -$spirit-space-generic-3-x;
   position: relative;
   width: calc(100% + (#{$spirit-space-generic-3-x} * 2));
   z-index: 10;
-  color: $spirit-color-white;
 
   .spirit-brush {
-    width: $spirit-container-painted-edge-width;
-    position: absolute;
-    left: 0;
     height: $spirit-container-painted-edge-svg-height;
+    left: 0;
+    position: absolute;
+    width: $spirit-container-painted-edge-width;
   }
 
   &:after {
@@ -180,11 +180,11 @@ $spirit-container-wave-bg-width-xl: 90vw;
 .spirit-container__painted-edge-top-inner,
 .spirit-container__painted-edge-bottom-inner {
   display: block;
-  overflow: hidden;
-  max-height: $spirit-container-painted-edge-height;
-  width: 100%;
   height: 100%;
+  max-height: $spirit-container-painted-edge-height;
+  overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .spirit-container__painted-edge-top {
@@ -333,6 +333,7 @@ $spirit-container-wave-bg-width-xl: 90vw;
 
 // Brush Backgrounds
 .spirit-container__wave-bg {
+  color: $spirit-container-wave-bg-color;
   display: block;
   left: 50%;
   padding-top: calc(#{$spirit-container-wave-bg-width} * #{$spirit-container-wave-bg-ratio});
@@ -341,14 +342,13 @@ $spirit-container-wave-bg-width-xl: 90vw;
   transform: translate(-50%, -50%);
   width: $spirit-container-wave-bg-width;
   z-index: -1;
-  color: $spirit-container-wave-bg-color;
 
   .spirit-brush {
+    height: 100%;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
   }
 
   @media screen and (min-width: $spirit-breakpoint-s) {
