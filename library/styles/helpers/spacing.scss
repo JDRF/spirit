@@ -22,3 +22,17 @@ $spirit-inline-right-tokens: spirit-token('space', 'inline-right');
     margin: $value;
   }
 }
+
+$spirit-inset-tokens: spirit-token('space', 'inset');
+@each $variable, $value in $spirit-inset-tokens {
+  .spirit-space--inset-#{$variable} {
+    margin: $value;
+  }
+}
+
+$spirit-inset-squish-tokens: spirit-token('space', 'inset-squish');
+@each $variable, $value in $spirit-inset-squish-tokens {
+  .spirit-space--inset-squish-#{$variable} {
+    margin: $value;
+  }
+}

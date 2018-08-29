@@ -1,0 +1,305 @@
+// List Variables
+$spirit-list-text-light: $spirit-color-grey-35;
+$spirit-list-border-color: $spirit-color-grey-95;
+$spirit-list-border-width: 1px;
+$spirit-image-width: 72px;
+$spirit-image-width-l: 180px;
+$spirit-image-height-l: 120px;
+$spirit-list-avatar-width: $spirit-space-generic-6-x;
+$spirit-list-icon-size: $spirit-size-icon-s;
+$spirit-list-focus-background: $spirit-interactive-color-focus-soft;
+$spirit-list-initial-line-height: 20px;
+$spirit-list-initial-line-height-xl: $spirit-font-line-height-heading-level-2-normal;
+$spirit-list-initial-line-height-l: 20px;
+$spirit-list-initial-line-height-m: 20px;
+$spirit-list-avatar-border-width: $spirit-list-avatar-width + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // avatar width + padding + gutter
+$spirit-list-image-border-width: $spirit-image-width + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width + padding + gutter
+$spirit-list-image-border-width-l: $spirit-image-width-l + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width l + padding + gutter
+
+
+// Breakpoint based on spirit-h4 sizing breakpoint
+$spirit-list-breakpoint: $spirit-breakpoint-l;
+
+
+// Spirit List
+.spirit-list {
+  @include spirit-typography-reset;
+  list-style: none;
+  margin: 0;
+  margin-bottom: $spirit-space-generic-2-x-half;
+  padding: 0;
+}
+
+ol.spirit-list {
+  counter-reset: spirit-list-counter;
+
+  .spirit-list-item {
+    align-items: center;
+    counter-increment: spirit-list-counter;
+    font-size: $spirit-font-size-m;
+
+    &:before {
+      @include spirit-h5;
+      align-items: center;
+      border: $spirit-list-border-width solid $spirit-list-border-color;
+      border-radius: 100%;
+      color: $spirit-text-color-link;
+      content: counter(spirit-list-counter);
+      display: flex;
+      flex: 0 0 $spirit-list-avatar-width;
+      flex-flow: column nowrap;
+      height: $spirit-list-avatar-width;
+      justify-content: center;
+      margin-right: $spirit-space-generic-2-x;
+      width: $spirit-list-avatar-width;
+    }
+
+    &:after {
+      left: $spirit-list-avatar-border-width;
+    }
+  }
+}
+
+// Spirit List Item
+.spirit-list-item {
+  border-radius: $spirit-border-radius-l;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: $spirit-space-inset-2-x;
+  position: relative;
+
+  &:after {
+    background: $spirit-list-border-color;
+    bottom: 0;
+    content: '';
+    height: $spirit-list-border-width;
+    left: $spirit-space-generic-2-x;
+    position: absolute;
+    right: $spirit-space-generic-2-x;
+  }
+}
+
+// Spirit List Item - Avatar
+.spirit-list-item--avatar {
+  &:after {
+    left: $spirit-list-avatar-border-width;
+  }
+}
+
+// Spirit List Item - Image
+.spirit-list-item--image {
+  &:after {
+    left: $spirit-list-image-border-width;
+  }
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    &:after {
+      left: $spirit-list-image-border-width-l;
+    }
+  }
+}
+
+// Spirit List Item - Image Right
+.spirit-list-item--image--right {
+  &:after {
+    left: $spirit-space-generic-2-x;
+    right: $spirit-list-image-border-width;
+  }
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    &:after {
+      left: $spirit-space-generic-2-x;
+      right: $spirit-list-image-border-width-l;
+    }
+  }
+}
+
+.spirit-list-item__content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.spirit-list-item__content--links-right {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.spirit-list-item__image-contain {
+  background-color: $spirit-brand-color-primary;
+  border-radius: $spirit-border-radius-l;
+  flex: 0 0 $spirit-image-width;
+  height: $spirit-image-width;
+  margin-right: $spirit-space-generic-2-x;
+  overflow: hidden;
+  width: $spirit-image-width;
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    flex-basis: $spirit-image-width-l;
+    height: $spirit-image-height-l;
+    width: $spirit-image-width-l;
+  }
+}
+
+.spirit-list-item__image-contain--right {
+  margin-left: $spirit-space-generic-2-x;
+  margin-right: 0;
+}
+
+.spirit-list-item__avatar {
+  align-items: center;
+  background-color: $spirit-color-white;
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 $spirit-list-border-width $spirit-list-border-color;
+  color: $spirit-text-color-link;
+  content: counter(spirit-list-counter);
+  display: flex;
+  flex: 0 0 $spirit-list-avatar-width;
+  flex-flow: column nowrap;
+  font-size: $spirit-list-icon-size;
+  height: $spirit-list-avatar-width;
+  justify-content: center;
+  line-height: $spirit-list-icon-size;
+  margin-right: $spirit-space-generic-2-x;
+  overflow: hidden;
+  width: $spirit-list-avatar-width;
+}
+
+.spirit-list-item__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.spirit-list-item__link-avatar {
+  color: $spirit-text-color-link;
+}
+
+.spirit-list-item__title {
+  @include spirit-h4;
+  display: flex;
+  flex-flow: row nowrap;
+  line-height: $spirit-list-initial-line-height;
+  margin: 0;
+  width: 100%;
+}
+
+.spirit-list-item__link-title {
+  color: inherit;
+  text-decoration: none;
+  transition: color $spirit-transition-timing-default;
+
+  &:hover,
+  .spirit-list-item--title-hover & {
+    color: $spirit-text-color-link;
+  }
+
+  &:active,
+  &:focus,
+  .spirit-list-item--title-focus &,
+  .spirit-list-item--title-active & {
+    color: $spirit-text-color-link;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
+  }
+}
+
+.spirit-list-item__title-meta {
+  color: $spirit-list-text-light;
+  display: block;
+  font-weight: $spirit-font-weight-regular;
+  margin-left: auto;
+  margin-top: 0;
+  padding-left: $spirit-space-generic-2-x;
+}
+
+.spirit-list-item__meta,
+.spirit-list-item__caption {
+  color: $spirit-list-text-light;
+  display: block;
+  font-size: $spirit-font-size-s;
+  line-height: $spirit-list-initial-line-height;
+  margin: 0;
+  margin-top: $spirit-space-generic-1-x;
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    font-size: $spirit-font-size-m;
+
+    .spirit-list-item__title + & {
+      margin-top: $spirit-space-generic-half-x;
+    }
+  }
+}
+
+.spirit-list-item__links-contain {
+  align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row nowrap;
+  margin: 0;
+  margin-top: $spirit-space-inset-1-x;
+  width: 100%;
+
+  .spirit-list-item__content--links-right & {
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-top: 0;
+  }
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    margin-top: $spirit-space-inset-1-x;
+  }
+}
+
+.spirit-list-item__link {
+  @include spirit-link;
+  @include spirit-link-animated-default;
+  font-size: $spirit-font-size-s;
+  font-weight: $spirit-font-weight-bold;
+  line-height: $spirit-list-initial-line-height;
+
+  &:hover,
+  .spirit-list-item--link-hover &:first-child {
+    @include spirit-link-animated-underline;
+  }
+
+  &:active,
+  &:focus,
+  .spirit-list-item--link-focus &:first-child,
+  .spirit-list-item--link-active &:first-child {
+    @include spirit-link-animated-underline;
+    color: $spirit-text-color-link;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
+  }
+
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    font-size: $spirit-font-size-m;
+  }
+}
+
+.spirit-list-item__link--secondary {
+  margin-left: $spirit-space-inset-2-x;
+
+  .spirit-list-item--link-hover-secondary & {
+    @include spirit-link-animated-underline;
+  }
+
+  .spirit-list-item--link-focus-secondary &,
+  .spirit-list-item--link-active-secondary & {
+    @include spirit-link-animated-underline;
+    color: $spirit-text-color-link;
+    outline: $spirit-border-width-link solid $spirit-interactive-color-focus-soft;
+  }
+}
+
+// Sizes
+.spirit-list-item__title--l {
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    font-size: $spirit-font-size-heading-level-5-breakpoint-l;
+    line-height: $spirit-font-line-height-heading-level-5-breakpoint-l;
+  }
+}
+
+.spirit-list-item__title--m {
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    font-size: $spirit-font-size-heading-level-6-breakpoint-l;
+    line-height: $spirit-font-line-height-heading-level-6-breakpoint-l;
+  }
+}

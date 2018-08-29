@@ -59,6 +59,10 @@ feedback-color :
     info :      *color-blue-15
     success :   *color-green-20
 
+background-color :
+  white : *color-white
+  black : *color-black
+  brand : *color-blue-100
 
 box-shadow :
   focus :     4px
@@ -142,18 +146,7 @@ space :
     2-x :    0 0 16px  0
     1-x :    0 0 8px   0
     half-x : 0 0 4px   0
-  inline-left : # left-aligned text means space on the right
-    24-x :   0 192px 0 0
-    12-x :   0 96px  0 0
-    8-x :    0 64px  0 0
-    6-x :    0 48px  0 0
-    5-x :    0 40px  0 0
-    4-x :    0 32px  0 0
-    3-x :    0 24px  0 0
-    2-x :    0 16px  0 0
-    1-x :    0 8px   0 0
-    half-x : 0 4px   0 0
-  inline-right : # right-aligned text means space on the left
+  inline-left : # space on the left for right-aligned text
     24-x :   0 0 0 192px
     12-x :   0 0 0 96px
     8-x :    0 0 0 64px
@@ -164,7 +157,17 @@ space :
     2-x :    0 0 0 16px
     1-x :    0 0 0 8px
     half-x : 0 0 0 4px
-
+  inline-right : #  space on the right for left-aligned text
+    24-x :   0 192px 0 0
+    12-x :   0 96px  0 0
+    8-x :    0 64px  0 0
+    6-x :    0 48px  0 0
+    5-x :    0 40px  0 0
+    4-x :    0 32px  0 0
+    3-x :    0 24px  0 0
+    2-x :    0 16px  0 0
+    1-x :    0 8px   0 0
+    half-x : 0 4px   0 0
 
 font :
   family :

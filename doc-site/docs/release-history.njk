@@ -1,39 +1,71 @@
 {% extends 'templates/doc.njk' %}
-{% block page_shell_content %}
+{% block page_shell_content_intro %}
   {% filter markdown %}
     # Release History
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+    ## 1.0.0-alpha.1
+    [View Docs](/v/1.0.0-alpha.1)
+    ##### Released 8/27/2018
+    #### Visual Style 
+    * [Color](/visual-style/color.html) - Guidelines and tokens published
+    * [Icons](/visual-style/icons.html) - Guidelines, tokens, and assets published
+    * [Space](/visual-style/space.html) - Guidelines and tokens published
+    * Elevation - Tokens defined (documentation pending)
+    * Typography - Tokens defined (documentation pending)
     
+    #### Updated Components 
+    * [Buttons](/components/buttons.html) - Guidelines published
+    
+    #### New Components
+    * Cards - Code and Sketch only (documentation pending)
+    * Containers - Code and Sketch only (documentation pending)
+    * Forms - Code and Sketch only (documentation pending)
+    * Feedback Messages - Code and Sketch only (documentation pending)
+    * Grids - Code and Sketch only (documentation pending)
+    * Links - Code and Sketch only (documentation pending)
+    * Lists - Code and Sketch only (documentation pending)
+    * Long Form Text - Code and Sketch only (documentation pending)
+    * Tiles - Code and Sketch only (documentation pending)
+    * Vertical Navigation - Code and Sketch only (documentation pending)
+    
+    #### Assets
+    * [Release History](/release-history.html) - Published 
+
     ## 0.3.0
     [View Docs](/v/0.3.0)
-    ### Released 8/17/2018
+    ##### Released 8/17/2018
     * Fixed ESLint warning in library
     * Demo'd release process 
     
     ## 0.2.0
     [View Docs](/v/0.2.0)
-    ### Released 8/15/2018
+    ##### Released 8/15/2018
     * Add Vertical Navigation Component 
     
     ## Doc Update
-    ### Released 8/14/2018
+    ##### Released 8/14/2018
     * Added Graphik Web Font to Doc Site 
     
     ## Doc Update
-    ### Released 8/13/2018
+    ##### Released 8/13/2018
     * Update to the doc site that will amend version 0.1.2 docs 
 
     ## 0.1.2
-    ### Released 8/10/2018
+    ##### Released 8/10/2018
     [View Docs](/v/0.1.2)
     * Deployment with NPM Package
 
     ## 0.1.1
-    ### Released 7/2/2018
+    ##### Released 7/2/2018
     [View Docs](/v/0.1.1)
     * Follow Up Deployment
 
     ## 0.1.0
-    ### Released 7/2/2018
+    ##### Released 7/2/2018
     [View Docs](/v/0.1.0)
     * Hearbeat Deployment
   {% endfilter %}

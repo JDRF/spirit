@@ -1,5 +1,5 @@
 /// # Tokens - Global tokens / variables
-@import '../tokens/tokens'; 
+@import '../tokens/tokens';
 
 /// # Mixins - Default mixins
 @import 'mixins/accessibility';
@@ -13,6 +13,7 @@
 
 /// # Helpers - Default helper functions
 @import 'helpers/spacing';
+@import 'helpers/color';
 
 /// # Base - Default global styles
 @import 'base/fonts';
@@ -29,3 +30,5 @@
 @import '../components/icon/icon';
 @import '../components/vertical_navigation/vertical_navigation';
 @import '../components/long-form-text/long-form-text';
+@import '../components/list/list';
+@import '../components/container/container';

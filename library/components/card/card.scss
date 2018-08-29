@@ -218,18 +218,6 @@
 .spirit-card__link {
   @include spirit-link;
   @include spirit-link-animated-default;
-  // position: relative;
-
-  // &:after {
-  //   background: $spirit-text-color-link;
-  //   bottom: 0;
-  //   content: '';
-  //   height: 2px;
-  //   position: absolute;
-  //   right: 0;
-  //   transition: width $spirit-transition-timing-default;
-  //   width: 0%;
-  // }
 
   .spirit-card--active &,
   .spirit-card--hover &,

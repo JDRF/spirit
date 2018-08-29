@@ -1,0 +1,114 @@
+{# List #}
+{% macro list(
+  class=false,
+  ordered=false,
+  tag="ul"
+  )
+%}
+{% if ordered %}
+  {% set tag = 'ol' %}
+{% endif %}
+  <{{tag}} class="spirit-list{{' ' + class if class}}">
+    {{ caller() }}
+  </{{tag}}>
+{% endmacro %}
+
+{# List Item #}
+{% macro list_item(
+  class=false,
+  title_text="List Item",
+  title_meta=false,
+  title_tag='h3',
+  href=false,
+  href_text="View",
+  href_secondary=false,
+  href_secondary_text="Donate",
+  image_src=false,
+  image_right=false,
+  avatar_src=false,
+  icon_name=false,
+  meta=false,
+  caption=false,
+  links_right=false,
+  size=false
+  )
+%}
+{% if title_text %}
+  <li class="spirit-list-item{{' ' + class if class}}{{' spirit-list-item--' + size if size}}{{' spirit-list-item--image' if image_src}}{{' spirit-list-item--image--right' if image_right}}{{' spirit-list-item--avatar' if (avatar_src or icon_name) and (not image_src)}}">
+      {% if image_src  %}
+        {% if not image_right %}
+          <div class="spirit-list-item__image-contain">
+            {% if href %}
+              <a class="spirit-list-item__link-image" href="{{href}}">
+            {% endif %}
+              <img class="spirit-list-item__image" src="{{image_src}}">
+            {% if href %}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% elif avatar_src %}
+        <div class="spirit-list-item__avatar">
+          {% if href %}
+            <a class="spirit-list-item__link-avatar" href="{{href}}">
+          {% endif %}
+           <img class="spirit-list-item__image" src="{{avatar_src}}">
+          {% if href %}
+            </a>
+          {% endif %}
+        </div>
+      {% elif icon_name %}
+        <div class="spirit-list-item__avatar">
+          {% if href %}
+            <a class="spirit-list-item__link-avatar" href="{{href}}">
+          {% endif %}
+          {{ icon(name=icon_name, class='spirit-list-item__icon spirit-icon--' + icon_name, decorative=true)}}
+          {% if href %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      <div class="spirit-list-item__content{{' spirit-list-item__content--links-right' if links_right}}">
+        <{{title_tag}} class="spirit-list-item__title{{' spirit-list-item__title--' + size if size}}">
+          {% if href %}
+            <a class="spirit-list-item__link-title" href="{{href}}">
+          {% endif %}
+            {{title_text}}
+          {% if href %}
+            </a>
+          {% endif %}
+          {% if title_meta %}
+            <span class="spirit-list-item__title-meta">
+              {{title_meta}}
+            </span>
+          {% endif %}
+        </{{title_tag}}>
+        {% if meta %}
+          <p class="spirit-list-item__meta">{{meta}}</p>
+        {% endif %}
+        {% if caption %}
+          <p class="spirit-list-item__caption">{{caption}}</p>
+        {% endif %}
+         {% if href %}
+        <div class="spirit-list-item__links-contain">
+          <a class="spirit-list-item__link" href="{{href}}">{{href_text}}</a>
+          {% if href_secondary %}
+            <a class="spirit-list-item__link spirit-list-item__link--secondary" href="{{href_secondary}}">{{href_secondary_text}}</a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {% if image_src and image_right %}
+        <div class="spirit-list-item__image-contain spirit-list-item__image-contain--right">
+          {% if href %}
+            <a class="spirit-list-item__link-image" href="{{href}}">
+          {% endif %}
+            <img class="spirit-list-item__image" src="{{image_src}}">
+          {% if href %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+  </li>
+{% endif %}
+{% endmacro %}

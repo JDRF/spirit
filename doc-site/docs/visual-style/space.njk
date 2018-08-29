@@ -1,0 +1,406 @@
+{% extends 'templates/doc.njk' %}
+
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Space
+
+      <p class="spirit-long-form-text__subhead">Space defines the whitespace between elements, setting visual standards for proximity, rhythm, and alignment.</p>
+  {% endfilter %}
+{% endblock %}
+
+
+{% block page_shell_content %}
+  {% filter markdown %}
+      Three spatial concepts are woven into the fabric of all Spirit system components, creating a unified visual order: <b>inset</b> space within components, vertical <b>stack</b> space between elements and components, and horizontal <b>inline</b> spacing between elements in a row. 
+  {% endfilter %}
+  {% filter markdown %}
+      ## Inset
+      An inset applies padding on all sides of a block or inline element. By default, all four sides are equal. 
+      <img src="/images/space/inset@2x.png" alt="Inset at X (8px), 2X (16px), or 3X (24px)" style="max-width:400px;" />
+      Apply an inset token to any container, such as a card or a or table cell, to create consistent padding around the content.
+ 
+      <div class="spirit-row">
+        <div class="spirit-col-6">
+          <img src="/images/space/space-inset-example-1@2x.png" alt="Inset example: a card" />
+        </div>
+        <div class="spirit-col-6">
+          <img src="/images/space/space-inset-example-2@2x.png" alt="Inset example: a card showing inset spacing" />
+        </div>
+      </div>
+
+      #### Tokens
+      
+  {% endfilter %}
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value',
+            'preview'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-inset-8-x",
+            value: "64px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-8-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-6-x",
+            value: "48px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-6-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-5-x",
+            value: "40px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-5-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-4-x",
+            value: "32px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-4-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-3-x",
+            value: "24px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-3-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-2-x",
+            value: "16px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-2-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-1-x",
+            value: "8px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-1-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-half-x",
+            value: "4px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-half-x spirit-doc-space__mask'>example</div></div>"
+        }
+    ]) }}
+  {% filter markdown %}
+      ### Inset Squish
+
+      The Spirit visual style applies a squished inset to many smaller containers, such as pills and buttons. This “Squish” inset provides twice as much padding left/right as it does top/bottom. 
+
+      <img src="/images/space/inset-squish@2x.png" alt="Inset at X (4px 8px), 2X (8px 16px), or 3X (12px 24px)" style="max-width:400px;" />
+
+      Apply inset-squish tokens to small containers, like buttons, to create wider padding around a text label. 
+
+      <div class="spirit-row">
+        <div class="spirit-col">
+          <img src="/images/space/inset-squish-example-1@2x.png" alt="Inset example: a button" />
+        </div>
+        <div class="spirit-col">
+          <img src="/images/space/inset-squish-example-2@2x.png" alt="Inset example: a button showing inset squish spacing" />
+        </div>
+      </div>
+  {% endfilter %}
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value',
+            'preview'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-inset-squish-6-x",
+            value: "24px 48px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-squish-6-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-squish-4-x",
+            value: "16px 32px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-squish-4-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-squish-3-x",
+            value: "12px 24px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-squish-3-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-squish-2-x",
+            value: "8px 16px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-squish-2-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-squish-1-x",
+            value: "4px 8px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-squish-1-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inset-squish-half-x",
+            value: "2px 4px",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inset-squish-half-x spirit-doc-space__mask'>example</div></div>"
+        }
+    ]) }}
+
+  {% filter markdown %}
+      ## Stack
+
+      Apply stack space below block-level elements to normalize vertical distance between components.
+
+      <img src="/images/space/stack@2x.png" alt="Stack at X (8px), 2X (16px), or 3X (24px)" style="max-width:400px;" />
+ 
+      Use proximity to signal related elements. Use whitespace to form boundaries between components. 
+
+      <img src="/images/space/stack-example@2x.png" alt="Stack example: a list showing stacking items and stacking of blocks within an item" />
+  
+
+      #### Tokens
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value',
+            'preview'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-stack-24-x",
+            value: "0 0 192px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-24-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-12-x",
+            value: "0 0 96px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-12-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-8-x",
+            value: "0 0 64px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-8-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-6-x",
+            value: "0 0 48px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-6-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-5-x",
+            value: "0 0 40px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-5-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-4-x",
+            value: "0 0 32px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-4-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-3-x",
+            value: "0 0 24px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-3-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-2-x",
+            value: "0 0 16px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-2-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-1-x",
+            value: "0 0 8px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-1-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-stack-half-x",
+            value: "0 0 4px 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--stack-half-x spirit-doc-space__mask'>example</div></div>"
+        }
+    ]) }}
+
+
+   {% filter markdown %}
+      ## Inline
+
+      Inline spacing separates inline elements by consistent applying space on one side of each element. By default, left-aligned elements have right-side spacing (as shown) using `inline-right`. Right-aligned elements are the opposite. 
+
+      <img src="/images/space/inline@2x.png" alt="Inline at X (8px), 2X (16px), or 3X (24px)" style="max-width:400px;" />
+ 
+      Use inline spacing to separate text, such as the inline links in a footer, or block elements, such as pills, tabs, or buttons. 
+
+      <img src="/images/space/inline-example@2x.png" alt="Inline example: a row of tabs showing the inline space between each tab" />
+  
+      #### Tokens
+
+      Left-aligned items use `inline-right`, which adds spacing to their right. This ensures the first item is flush left.
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value',
+            'preview'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-inline-right-24-x",
+            value: "0 192px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-24-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-12-x",
+            value: "0 96px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-12-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-8-x",
+            value: "0 64px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-8-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-6-x",
+            value: "0 48px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-6-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-5-x",
+            value: "0 40px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-5-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-4-x",
+            value: "0 32px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-4-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-3-x",
+            value: "0 24px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-3-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-2-x",
+            value: "0 16px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-2-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-1-x",
+            value: "0 8px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-1-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-right-half-x",
+            value: "0 4px 0 0",
+            preview: "<div class='spirit-doc-space__highlight'><div class='spirit-space--inline-right-half-x spirit-doc-space__mask'>example</div></div>"
+        }
+    ]) }}
+
+  {% filter markdown %}
+      Right-aligned items use `inline-left`, which adds spacing to their left. This ensures the last item is flush right. 
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value',
+            'preview'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-inline-left-24-x",
+            value: "0 0 0 192px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-24-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-12-x",
+            value: "0 0 0 96px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-12-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-8-x",
+            value: "0 0 0 64px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-8-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-6-x",
+            value: "0 0 0 48px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-6-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-5-x",
+            value: "0 0 0 40px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-5-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-4-x",
+            value: "0 0 0 32px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-4-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-3-x",
+            value: "0 0 0 24px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-3-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-2-x",
+            value: "0 0 0 16px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-2-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-1-x",
+            value: "0 0 0 8px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-1-x spirit-doc-space__mask'>example</div></div>"
+        },
+        {
+            token: "$spirit-space-inline-left-half-x",
+            value: "0 0 0 4px",
+            preview: "<div class='spirit-doc-space__highlight spirit-doc-space__right'><div class='spirit-space--inline-left-half-x spirit-doc-space__mask'>example</div></div>"
+        }
+    ]) }}
+
+   {% filter markdown %}
+      ## Generic Space
+
+      Although inset, stack, and inline spacing works in most cases, Spirit provides generic space tokens too.   
+  
+      #### Tokens
+  {% endfilter %}
+    {{ esds_doc.reference_table(
+      headers=[
+            'token',
+            'value'
+      ],
+      automatic_code_block_columns=['token'],
+      data=[{
+            token: "$spirit-space-generic-24-x",
+            value: "192px"
+        },
+        {
+            token: "$spirit-space-generic-12-x",
+            value: "96px"
+        },
+        {
+            token: "$spirit-space-generic-8-x",
+            value: "64px"
+        },
+        {
+            token: "$spirit-space-generic-6-x",
+            value: "48px"
+        },
+        {
+            token: "$spirit-space-generic-5-x",
+            value: "40px"
+        },
+        {
+            token: "$spirit-space-generic-4-x",
+            value: "32px"
+        },
+        {
+            token: "$spirit-space-generic-3-x",
+            value: "24px"
+        },
+        {
+            token: "$spirit-space-generic-2-x",
+            value: "16px"
+        },
+        {
+            token: "$spirit-space-generic-1-x",
+            value: "8px"
+        },
+        {
+            token: "$spirit-space-generic-half-x",
+            value: "4px"
+        }
+    ]) }}
+{% endblock page_shell_content %}

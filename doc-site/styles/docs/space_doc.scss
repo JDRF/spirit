@@ -1,0 +1,15 @@
+// Some custom styles here for the space demos
+
+.spirit-doc-space__highlight {
+  background: $spirit-feedback-color-background-danger;
+  display: inline-block;
+}
+
+.spirit-doc-space__right {
+  float: right;
+}
+
+.spirit-doc-space__mask {
+  background: $spirit-color-white;
+  border: 1px solid $spirit-color-grey-95;
+}

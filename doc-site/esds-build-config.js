@@ -24,8 +24,16 @@ module.exports = {
             name: 'spirit-styles',
             sources: [
                     'node_modules/@jdrfhq/spirit/dist/spirit.css',
+                    'node_modules/@jdrfhq/spirit/dist/spirit.min.css',
                     'node_modules/prismjs/themes/prism.css'], // required by esds-doc
-            destination: '../docs/styles/dependencies',
+            destination: '../docs/styles',
+            watch: true
+        },
+        {
+            name: 'spirit-scripts',
+            sources: [
+                    'node_modules/@jdrfhq/spirit/dist/spirit.js'],
+            destination: '../docs/scripts/dependencies',
             watch: true
         },
         {
@@ -59,6 +67,10 @@ module.exports = {
             moduleName: 'esds-doc'
         }
     ],
+    autoprefixerOptions: {
+        browsers: ['last 2 versions', 'ie 11'],
+        grid: true
+    },
     manageNunjucksEnv: function(env) {
         // Adding some custom nunjucks filters for the doc site
         env.addFilter('split', function(str, seperator) {
