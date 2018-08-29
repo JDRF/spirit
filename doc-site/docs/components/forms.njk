@@ -18,6 +18,7 @@
       { 
         example: library.form_input(),
         label: "Default"
+        
       },
       { 
         example: library.form_input(placeholder="Optional"),
@@ -90,7 +91,7 @@
       Use radio group to gather a selection from a list of options. Radio groups have two layout options: stacked (default) and horizontal. 
       
       
-      ### Radio Group Stacked
+      ### Radio Group, Stacked
       This is the default and preferred arrangement for a radio group. 
 
   {% endfilter %}
@@ -112,7 +113,7 @@
       Use this arrangement when vertical space is at a premium for a few options with very short labels. 
 
   {% endfilter %}
-  {% set radio_example_stacked %}
+  {% set radio_example_horizontal %}
     {% call library.form_field_group(horizontal=true) %}
       {% call library.form_radio_group(label="Favorite Color", required=true) %}
           {{ library.form_radio(name="group-stacked", label="Red", value="f00") }}
@@ -123,8 +124,8 @@
   {% endset %}
 
   {{ esds_doc.code_example_pair(
-    examples=[ { example: radio_example_stacked } ],
-    code_snippet_source=(radio_example_stacked)
+    examples=[ { example: radio_example_horizontal } ],
+    code_snippet_source=(radio_example_horizontal)
     )
   }}
   {% filter markdown %}
@@ -144,37 +145,75 @@
       ## Checkbox Group
       Use checkbox group to gather one or more selections from a list of options. Checkbox groups have two layout options: stacked (default) and horizontal. 
 
-      #### Checkbox Group Stacked
+      ### Checkbox Group, Stacked
       This is the default and preferred arrangement for a checkbox group. 
-      
-      [Code example instructions: checkbox group (list of items, in field group, with legend and required indicator) // values:
-      Legend: “Public Recognition (optional)”
-      Option 1: Please don't display my name on the website
-      Option 2: Please don't display my donation amount on the website ]
-      
+  {% endfilter %}
+  {% set check_example_stacked %}
+    {% call library.form_checkbox_group(label="Public Recognition", required=true) %}
+        {{ library.form_checkbox(label="Please don't display my name on the website", value="no-name") }}
+        {{ library.form_checkbox(label="Please don't display my donation amount on the website", value="no-amount") }}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: check_example_stacked } ],
+    code_snippet_source=(check_example_stacked)
+    )
+  }}
+  {% filter markdown %}
+
       ### Checkbox Group, Horizontal
       Use this arrangement when vertical space is at a premium for a few options with very short labels. 
       
-      [Code example instructions: checkbox group (list of items, in fieldset, horizontal, with legend)
-      Legend: “What activities do you enjoy”
-      Option 1: Walking
-      Option 2: Running
-      Option 3: Biking]
+  {% endfilter %}
+  {% set check_example_horizontal %}
+    {% call library.form_field_group(horizontal=true) %}
+      {% call library.form_checkbox_group(label="What activities do you enjoy?") %}
+          {{ library.form_checkbox(label="Walking", value="a") }}
+          {{ library.form_checkbox(label="Running", value="b") }}
+          {{ library.form_checkbox(label="Biking", value="c") }}
+      {% endcall %}
+    {% endcall %}
+  {% endset %}
 
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: check_example_horizontal } ],
+    code_snippet_source=(check_example_horizontal)
+    )
+  }}
+  {% filter markdown %}
       ### Checkbox
       Use an individual checkbox to capture a binary selection. All the states shown are also available within a checkbox group. 
-      
-      [Code example instructions: checkbox 
-      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
-      
-      [Code example instructions: checkbox, state:checked
-      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
-      
-      [Code example instructions: checkbox, state:disabled
-      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
-      
-      [Code example instructions: checkbox, state:indeterminate
-      (single item, no list no legend: [ ] “I accept the terms and conditions”)  ]
+
+  {% endfilter %}
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_checkbox(label="I accept the terms and conditions"),
+        label: "Default"
+      },
+      { 
+        example: library.form_checkbox(label="I accept the terms and conditions", checked=true),
+        label: "Checked"
+      },
+      { 
+        example: library.form_checkbox(label="I accept the terms and conditions", disabled=true),
+        label: "Disabled"
+      },
+      { 
+        example: library.form_checkbox(label="I accept the terms and conditions", valid=false),
+        label: "Error"
+      },
+      { 
+        example: library.form_checkbox(label="I accept the terms and conditions", indeterminate=true),
+        label: "Indeterminate"
+      } ],
+    code_snippet_source=(
+      library.form_checkbox(label="I accept the terms and conditions") + library.form_checkbox(label="I accept the terms and conditions", checked=true) + library.form_checkbox(label="I accept the terms and conditions", disabled=true) + library.form_checkbox(label="I accept the terms and conditions", valid=false) + library.form_checkbox(label="I accept the terms and conditions", indeterminate=true)
+    )
+    )
+  }}
+  {% filter markdown %}
 
       #### Guidelines
 
@@ -182,13 +221,34 @@
       * Optionally, use a single checkbox to set state on a binary question, such as an agreement or setting. 
       * Label a checkbox group with a legend. 
 
-      Do set all checkboxes unchecked by default. The only exception is confirming or displaying a previous user selection. 
+  {% endfilter %}
+  {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'set all checkboxes unchecked by default. The only exception is confirming or displaying a previous user selection.',
+        img_src: '/images/forms/Do-check-default@2x.png'
+      },
+      {
+        type: 'dont',
+        caption: 'make a choice for the user.',
+        img_src: '/images/forms/Dont-check-default@2x.png'
+      }
+    ]) }}
 
-      Don’t make a choice for the user. 
+      {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'use labels written to describe the positive action of checking the box.',
+        img_src: '/images/forms/Do-check-positive@2x.png'
+      },
+      {
+        type: 'dont',
+        caption: 'use a negative label. This obscures the meaning of the action.',
+        img_src: '/images/forms/Dont-check-positive@2x.png'
+      }
+    ]) }}
 
-      Do use labels written to describe the positive action of checking the box.
-
-      Don’t use a negative label. This obscures the meaning of the action. 
+    {% filter markdown %}
 
       ##### Accessibility
       
@@ -198,10 +258,60 @@
       ## Select / Dropdown
       Use a select to capture a selection from a list of options. Unlike a radio button, a user can chose to make no selection. 
       
-      [code example instructions: select, label “Payment Type”, required:
-      Option 1: Credit Card
-      Option 2: Check
-      Option 3: Paypal]
+  {% endfilter %}
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_select(
+          default_text='',
+          default_value='',
+          class='spirit-doc-site--forms-width-constraint',
+          options=[
+              {
+                  text: '',
+                  value: ''
+              },
+              {
+                  text: 'Credit Card',
+                  value: 'option_1'
+              },
+              {
+                  text: 'Check',
+                  value: 'option_2'
+              },
+              {
+                  text: 'Paypal',
+                  value: 'option_3'
+              }
+          ]),
+        label: "Default"
+      } ],
+    code_snippet_source=(
+      library.form_select(
+          default_text='',
+          default_value='',
+          options=[
+              {
+                  text: '',
+                  value: ''
+              },
+              {
+                  text: 'Credit Card',
+                  value: 'option_1'
+              },
+              {
+                  text: 'Check',
+                  value: 'option_2'
+              },
+              {
+                  text: 'Paypal',
+                  value: 'option_3'
+              }
+          ])
+    )
+    )
+  }}
+  {% filter markdown %}
 
       * Use select when offering several mutually-exclusive options. 
       * Ideal for long lists of known items, such as US states. 
@@ -211,16 +321,40 @@
       ## Label
       Use to describe a form input and indicate whether the input is required or optional.
 
-      [Code example 1 instructions:  label “City”  // show code]
+  {% endfilter %}
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_label(text="City", required=false)
+      } ]
+    )
+  }}
+  {% filter markdown %}
       
       ## Required and Optional Indicators
       Use the required indicator to enumerate which fields are required.
-      
-      [Code example 1 instructions: required “First Name”  // show code]
-      
+           
+  {% endfilter %}
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_label(text="First Name", required=true)
+      } ]
+    )
+  }}
+  {% filter markdown %}
+
       * If most fields are required, yet one or two are optional, use the optional indicator instead. When "Optional" next to the label won’t fit, "Optional" as a Placeholder is preferred, for example Street Address Line 2 when placed on the same row as Street Address Line 1. 
-      
-      [Code example 2 instructions: optional “Middle Initial” // show code]
+
+  {% endfilter %}
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: library.form_label(text="Middle Initial (Optional)", required=false)
+      } ]
+    )
+  }}
+  {% filter markdown %}
       
       #### Guidelines
       ##### Accessibility
@@ -235,24 +369,34 @@
       * Clearly written labels should eliminate the need for placeholder text in text boxes and text areas.
       
       ## Microcopy
-      * Supplement a label with additional instructions, context, or rules. 
+      Supplement a label with additional instructions, context, or rules. 
 
-      [Code example instructions: Label: “Password”, basic input, then microcopy: “Must be 5-20 characters” - include aria-describedby in the example]
+  {% endfilter %}
+  {% set microcopy_example %}
+      <div class="spirit-form__field-group">
+          <label class="spirit-form__label"> Password
+              <abbr class="spirit-form__label-required-indicator" title="This field is required." aria-hidden="true">*</abbr>
+              <span class="spirit-form__label-accessible-text">Required Field.</span>
+          </label>
+          <div class="spirit-form__input">
+              <input class="spirit-form__input-field" type="text" placeholder="" aria-describedby="spirit999">
+          </div>
+          <span class="spirit-form__microcopy" id="spirit999">Must be 5-20 characters.</span>
+      </div>
+  {% endset %}
+  {{ esds_doc.code_example_pair(
+    examples=[ 
+      { 
+        example: microcopy_example
+      } ]
+    )
+  }}
+  {% filter markdown %}
 
       #### Guidelines
       ##### Accessibility
 
       * Include an `aria-describedby` attribute on each `input`, `textarea`, or `select` that has an `.spirit-form__microcopy` component providing additional information. The value of the `aria-describedby` attribute must match the `id` attribute on the `.spirit-form__microcopy` component.
-
-      ## Size Options
-
-      Form inputs are available in two densities: `default` and `compact`. Sizing and usage guidelines work consistently across all form elements. 
-      
-      [Code example instructions: show two side-by-side stacks of inputs, left default // right condensed
-      Reuse examples with labels from this page for:
-      Input
-      Checkbox Group / Stack
-      Radio Button Group / Stack]
 
       ## Validation Errors
       
@@ -260,35 +404,89 @@
       
       ##### Place error messages below Input, Textarea, and Select.
       
-      [Code example 1 instructions: 
-      Label: “Email Address”, input in error mode with content “anderson@comcast”, then error message: “Invalid email address. Must follow the format `XXXXXX@XXXXXX.XXX`.”, mark aria-invalid=”true”]
+      [mark aria-invalid=”true”]
 
+  {% endfilter %}
+  {% set input_example_error %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="“Email Address”", required=true) }}
+      {{ library.form_input(value="anderson@comcast", valid=false) }}
+      {{ library.form_field_error(text="Invalid email address. Must follow the format `XXXXXX@XXXXXX.XXX`.") }}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: input_example_error } ],
+    code_snippet_source=(input_example_error)
+    )
+  }}
+  {% filter markdown %}
       ##### Place error messages above Radio and Checkbox Groups.
 
-      [Code example 2 instructions: error state radio group (list of items, in field group, with legend and required indicator, plus error message), mark aria-invalid=”true” // values: 
-      Legend: “Donation Frequency *”
-      Error Message: This field is required
-      Option 1: One-time donation
-      Option 2: Monthly recurring donation]
+      [mark aria-invalid=”true”]
+  {% endfilter %}
+  {% set radio_example_error %}
+    {% call library.form_radio_group(label="Donation Frequency?", required=true, valid=false) %}
+        {{ library.form_field_error(text="This field is required.", showIcon=true) }}
+        {{ library.form_radio(name="group-stacked", label="One-time donation", value="otd") }}
+        {{ library.form_radio(name="group-stacked", label="Monthly recurring donation", value="monthly") }}
+    {% endcall %}
+  {% endset %}
 
-      [Code example 3 instructions: error state checkbox group (list of items, in field group, with legend and required indicator, plus error message), mark aria-invalid=”true” // values: 
-      Legend: “Relationship to type 1 diabetes *”
-      Error Message: Select at least one option
-      Option 1: I have type 1 diabetes
-      Option 2: Parent or guardian
-      Option 3: Friend or family member
-      Option 4: Medical professional]
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: radio_example_error } ],
+    code_snippet_source=(radio_example_error)
+    )
+  }}
+  {% filter markdown %}
 
-      [Code example 4 instructions: single error state checkbox
-      (single item, no list no legend: [ ] “I accept the terms and conditions”, error message “You must accept the terms to continue”), mark aria-invalid=”true”  ]
+  {% endfilter %}
+  {% set check_example_error %}
+    {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
+        {{ library.form_field_error(text="Select at least one option.", showIcon=true) }}
+        {{ library.form_checkbox(label="I have type 1 diabetes") }}
+        {{ library.form_checkbox(label="Parent or guardian") }}
+        {{ library.form_checkbox(label="Friend or family member") }}
+        {{ library.form_checkbox(label="Medical professional") }}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: check_example_error } ],
+    code_snippet_source=(check_example_error)
+    )
+  }}
+  {% filter markdown %}
+
+  {% endfilter %}
+  {% set check_example_solo_error %}
+    {% call library.form_checkbox_group(label="Terms and conditions", required=true, valid=false) %}
+        {{ library.form_field_error(text="“You must accept the terms to continue”.", showIcon=true) }}
+        {{ library.form_checkbox(label="I accept the terms and conditions") }}
+    {% endcall %}
+    <hr />
+    {% call library.form_checkbox_group(label="", required=true, valid=false) %}
+        {{ library.form_checkbox(label="I accept the terms and conditions") }}
+        {{ library.form_field_error(text="“You must accept the terms to continue”.", showIcon=true) }}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: check_example_solo_error } ],
+    code_snippet_source=(check_example_solo_error)
+    )
+  }}
+  {% filter markdown %}
 
       #### Guidelines
 
       * Use the error state of each element, such as `.spirit-form__input--invalid`. 
       * Use an error message that appears below each element or label as shown above, styled with `.spirit-form__field-error-text`. 
+      
       ##### Editorial
       * Acknowledge what is keeping a user from proceeding, but don’t make them feel like they did something wrong.
       * Provide a user at least one way to resolve the problem. 
+      
       ##### Accessibility
       * Add `aria-invalid="true"` to an element where a validation error has occurred.
       * Always include `role=alert` on `.spirit-form__field-error` elements.
@@ -297,19 +495,98 @@
       
       Use field groups to consistently organize the elements that make up an input, including label, microcopy, error messaging, and so on. 
       
-      [Code example instructions: example 1, “Street Address” field, with label, required indicator and microcopy, “Include unit or apartment number” Show code]
-      
-      [Code example instructions: example 2, “City” field, with label, required indicator, error state, and error message, “This field is required”. Show code]
+  {% endfilter %}
+  {% set field_group_example %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="“Street Address”", required=true) }}
+      {{ library.form_input() }}
+      {{ library.form_microcopy(text="Include unit or apartment number.") }}
+    {% endcall %}
+  {% endset %}
 
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: field_group_example } ],
+    code_snippet_source=(field_group_example)
+    )
+  }}
+  {% filter markdown %}
+
+  {% endfilter %}
+  {% set field_group_example_error %}
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="City", required=true) }}
+      {{ library.form_input(valid=false) }}
+      {{ library.form_field_error(text="This field is required.") }}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: field_group_example_error } ],
+    code_snippet_source=(field_group_example_error)
+    )
+  }}
+  {% filter markdown %}
       ## Form Grid
 
       Use the standard grid to lay out forms with multiple inputs per line. 
-      
-      [Code example instructions: use the Billing Address example from the sink
-      Heading “Billing Address”
-      Street Address [input] (microcopy: Include unit or apartment number.)
-      Row: City [input]  // State [dropdown, required]  // Zip Code [input, required] ]
-      
+  {% endfilter %}
+  {% set form_grid_example %}
+        {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Billing Address") }}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Street", for="full-form-billing-street") }}
+                {{ library.form_input(id="full-form-billing-street") }}
+            {% endcall %}
+            <div class="spirit-row">
+              <div class="spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="City", for="full-form-billing-city") }}
+                    {{ library.form_input(id="full-form-billing-city") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="State", for="full-form-billing-state") }}
+                    {{ library.form_select(
+                        default_text='',
+                        default_value='',
+                        options=[
+                            {
+                                text: '',
+                                value: ''
+                            },
+                            {
+                                text: 'Alabama',
+                                value: 'AL'
+                            },
+                            {
+                                text: 'Alaska',
+                                value: 'AK'
+                            },
+                            {
+                                text: ' Arizona',
+                                value: 'AZ'
+                            }
+                        ]) }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="ZIP", for="full-form-billing-zip") }}
+                    {{ library.form_input(id="full-form-billing-zip") }}
+                {% endcall %}
+              </div>
+            </div>
+        {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: form_grid_example } ],
+    code_snippet_source=(form_grid_example)
+    )
+  }}
+  {% filter markdown %}
+
       See Grid for more detailed documentation. 
       
       #### Guidelines
@@ -319,30 +596,11 @@
       * Never place unrelated inputs on the same line. 
       * Consider how a form layout works on narrow viewports and responds on wider viewports.
 
-      ## Code Reference
   {% endfilter %}   
 
-  {% filter markdown %}
-      ### Class Reference
-  {% endfilter %}
-
-    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
-    data=[
-      {
-        class: '.spirit-button--secondary',
-        applies_to: '.spirit-button',
-        outcome: 'Applies secondary button style'
-      },
-      {
-        class: '.spirit-button--minimal',
-        applies_to: '.spirit-button',
-        outcome: 'Applies minimal button style'
-      },
-      {
-        class: '.spirit-button--toggle',
-        applies_to: '.spirit-button',
-        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
-      }
-    ]) }}
-
+<style>
+.spirit-doc-site--forms-width-constraint {
+  width: 85%;
+}
+</style>
 {% endblock page_shell_content %}
