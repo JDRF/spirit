@@ -5,11 +5,9 @@
   {% endfilter %}
 {% endblock %}
 
-{% set icon_subset = ["alert-circle","calendar","check-circle","check","chevron-down","chevron-left","chevron-right","chevron-up","edit","external-link","facebook","file","folder","help-circle","info","instagram","linkedin","mail","map-pin","phone","play-circle","printer","search","twitter","user","x","youtube"] %}
-
 {% block page_shell_content %}
   {% call esds_doc.icon_swatch_grid(shims=6) %}
-    {% for icon in icon_subset %}
+    {% for icon in spirit_icons %}
       {{ esds_doc.icon_swatch(class="spirit-doc-icon-swatch", name=icon) }}
     {% endfor %}
   {% endcall %}
