@@ -1,0 +1,63 @@
+{% macro typography_swatch(
+    alphabet_sample_text=false,
+    sample_text="You Can Help Turn Type One Into Type None",
+    sample_text_styles=false,
+    secondary_sample_text=false,
+    secondary_sample_text_styles=false,
+    sample_text_class=""
+  ) %}
+  {% if sample_text_styles == false and sample_text_class == "" %}
+    {% set sample_text_class = "spirit-h1" %}
+  {% endif %}
+
+  {% if sample_text_styles %}
+    {% set random_number = range(0, 100000) | random %}
+    {% set random_class = 'spirit-doc-typography-swatch--' + random_number %}
+    {% set sample_text_class = sample_text_class + ' ' + random_class %}
+    <style>
+      .{{ random_class }} {
+        {{ sample_text_styles }}
+      }
+    </style>
+  {% endif %}
+
+  {% if secondary_sample_text_styles %}
+    {% set random_number = range(0, 100000) | random %}
+    {% set secondary_random_class = 'spirit-doc-typography-swatch--' + random_number %}
+    {% set secondary_sample_text_class = secondary_random_class %}
+    <style>
+      .{{ secondary_random_class }} {
+        {{ secondary_sample_text_styles }}
+      }
+    </style>
+  {% endif %}
+
+  {% if alphabet_sample_text %}
+    {% set sample_text = typography_swatch_alphabet() %}
+  {% endif %}
+
+  <div class="spirit-doc-typography-swatch">
+    <div class="spirit-doc-typography-swatch__sample_text">
+      {% if sample_text_class %}
+        <span class="{{ sample_text_class }}">
+      {% endif %}
+          <span class="spirit-doc-typography-swatch__sample-text-primary">
+            {{ sample_text | safe }}
+          </span>
+          {% if secondary_sample_text %}
+            <span class="spirit-doc-typography-swatch__sample-text-secondary{{ ' ' + secondary_sample_text_class if secondary_sample_text_class }}">
+              {{ secondary_sample_text | safe }}
+            </span>
+          {% endif %}
+      {% if sample_text_class %}
+        </span>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro typography_swatch_alphabet() %}
+  ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
+  abcdefghijklmnopqrstuvwxyz<br/>
+  1234567890
+{% endmacro %}

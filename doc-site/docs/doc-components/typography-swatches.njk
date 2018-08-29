@@ -1,0 +1,29 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+  {% filter markdown %}
+      # Typography Swatch Demos
+  {% endfilter %}
+  <h2>Default Behavior</h2>
+
+  {{ spirit_doc.typography_swatch() }}
+
+  <h2>Custom Styles</h2>
+  {% set fancy_purple_styles %}
+    color: purple;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  {% endset %}
+  {{ spirit_doc.typography_swatch(sample_text_styles=fancy_purple_styles) }}
+
+  <h2>Alphabet Sample Text</h2>
+  {{ spirit_doc.typography_swatch(alphabet_sample_text=true) }}
+
+  <h2>Alphabet Sample Text with secondary sample</h2>
+  {% set giant_characters %}
+    font-size: 200px;
+  {% endset %}
+  {{ spirit_doc.typography_swatch(alphabet_sample_text=true, secondary_sample_text="Jj", secondary_sample_text_styles=giant_characters) }}
+
+  <h2>Adding a class to the sample</h2>
+  {{ spirit_doc.typography_swatch(sample_text_class="spirit-h3") }}
+{% endblock body %}
