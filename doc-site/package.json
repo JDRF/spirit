@@ -17,6 +17,6 @@
     "slash": "^2.0.0"
   },
   "dependencies": {
-    "@jdrfhq/spirit": "^0.3.0"
+    "@jdrfhq/spirit": "^1.0.0-alpha.1"
   }
 }
