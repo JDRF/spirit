@@ -1,7 +1,7 @@
 {
   "name": "@jdrfhq/spirit",
-  "version": "0.3.0",
-  "versionReleaseDate": "08/10/2018",
+  "version": "1.0.0-alpha.1",
+  "versionReleaseDate": "08/29/2018",
   "repository": "https://github.com/JDRF/spirit",
   "description": "Design System for JDRF",
   "main": "index.js",
