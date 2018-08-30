@@ -20,7 +20,7 @@ const spiritVerticalNavigation = () => {
     const parentItems = Array.from(n.querySelectorAll('.spirit-vertical-nav__item-parent'));
     // const parentItemsCount = parentItems.length;
 
-      const menuSubOpen = (closedItem) => {
+    const menuSubOpen = (closedItem) => {
 
       closedItem.classList.add('submenu-is-open');
       closedItem.parentNode.classList.add('child-has-focus');
@@ -65,7 +65,7 @@ const spiritVerticalNavigation = () => {
         e.stopPropagation();
 
         const parentMenu = target.parentNode;
-        const allOpenMenuTriggers = Array.from(n.querySelectorAll('.child-has-focus > a.submenu-is-open'));
+        const allOpenMenuTriggers = Array.from(n.querySelectorAll('.child-has-focus > a.submenu-is-open:not(.spirit-vertical-nav__link--expanded)'));
         const allOpenMenuTriggersCount = allOpenMenuTriggers.length;
 
         if (allOpenMenuTriggersCount > 0) {
@@ -136,7 +136,9 @@ const spiritVerticalNavigation = () => {
 
       // Let a screen reader know this menu has a submenu by hooking into the first link
       trigger.setAttribute('aria-haspopup', 'true');
-      trigger.setAttribute('aria-expanded', 'false');
+      if (!trigger.hasAttribute('aria-expanded')) {
+        trigger.setAttribute('aria-expanded', 'false');
+      }
 
       // Hide and label each sub menu
       subNav.setAttribute('aria-haspopup', 'true');

@@ -144,7 +144,7 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
     .spirit-card {
       border: solid $spirit-border-width-card $spirit-color-grey-95;
       flex: 1 0 90%;
-      margin: $spirit-space-inline-left-1-x;
+      margin: $spirit-space-inline-right-1-x;
       max-width: none;
       position: relative;
       scroll-snap-align: start;
@@ -230,7 +230,7 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
   display: block;
   flex: 0 0 8px;
   height: 8px;
-  margin: $spirit-space-inline-left-2-x;
+  margin: $spirit-space-inline-right-2-x;
   transition: background $spirit-transition-timing-default;
 
   &:last-child {

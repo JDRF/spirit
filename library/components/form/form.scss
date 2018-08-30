@@ -272,7 +272,7 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
 .spirit-form__label-required-indicator {
   @include spirit-box-sizing;
   color: $spirit-required-field-indicator-color;
-  margin: $spirit-space-inline-right-half-x;
+  margin: $spirit-space-inline-left-half-x;
   text-decoration: none;
 }
 
@@ -911,7 +911,7 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 }
 
 .spirit-form__message-icon-wrap {
-  margin: $spirit-space-inline-left-2-x;
+  margin: $spirit-space-inline-right-2-x;
 }
 
 .spirit-form__message-icon.spirit-icon {
