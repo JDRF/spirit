@@ -54,8 +54,8 @@ $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
     .spirit-container__inner--painted-edge-both &,
     .spirit-container__inner--painted-edge-top &,
     .spirit-container__inner--painted-edge-bottom & {
-      margin-top: 0;
       margin-bottom: 0;
+      margin-top: 0;
     }
   }
 }

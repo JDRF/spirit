@@ -3,20 +3,17 @@ $spirit-container-breakpoint: $spirit-breakpoint-grid; // from grid.scss
 $spirit-container-inner-horizontal-space-m: 80px;
 $spirit-container-inner-max-width-full: 1152px;
 $spirit-container-inner-max-width-large: 1000px;
-$spirit-container-painted-edge-width: 1484px; // from sketch
+$spirit-container-painted-edge-width: 2000px; // from sketch
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
-$spirit-container-painted-edge-svg-height: $spirit-space-generic-24-x;
-$spirit-container-painted-edge-breakpoint-m: $spirit-container-inner-max-width-large + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1000px + 160px (max container width (large) + gutter size)
-$spirit-container-painted-edge-breakpoint-l: $spirit-container-inner-max-width-full + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1152px + 160px (max container width + gutter size)
+$spirit-container-painted-edge-svg-height: $spirit-space-generic-12-x;
+$spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-large + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1000px + 160px (max container width (large) + gutter size)
 $spirit-container-painted-edge-overlay-correct: 2px; // make sure overlay covers background color
 
 // // brush bg
 $spirit-container-wave-bg-color: $spirit-brand-color-primary;
-$spirit-container-wave-bg-ratio: .28533;
-$spirit-container-wave-bg-width: 300vw;
-$spirit-container-wave-bg-width-s: 125vw;
-$spirit-container-wave-bg-width-m: 100vw;
-$spirit-container-wave-bg-width-xl: 90vw;
+$spirit-container-wave3-bg-width: 1600px;
+$spirit-container-wave4-bg-width: 1460px;
+$spirit-container-wave5-bg-width: 3000px;
 
 // Shared styles
 .spirit-container {
@@ -161,9 +158,9 @@ $spirit-container-wave-bg-width-xl: 90vw;
     width: 100%;
   }
 
-  @media screen and (min-width:  $spirit-container-painted-edge-breakpoint-m) {
+  @media screen and (min-width:  $spirit-container-painted-edge-breakpoint) {
     .spirit-container__inner.spirit-context--brand & {
-      left: calc(((100vw - #{$spirit-container-painted-edge-breakpoint-m}) * -.5) - 80px);
+      left: calc(((100vw - #{$spirit-container-painted-edge-breakpoint}) * -.5) - 80px);
     }
   }
 
@@ -333,34 +330,106 @@ $spirit-container-wave-bg-width-xl: 90vw;
 
 // Brush Backgrounds
 .spirit-container__wave-bg {
+  bottom: $spirit-space-generic-6-x;
   color: $spirit-container-wave-bg-color;
   display: block;
   left: 50%;
-  padding-top: calc(#{$spirit-container-wave-bg-width} * #{$spirit-container-wave-bg-ratio});
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: $spirit-container-wave-bg-width;
+  top: $spirit-space-generic-6-x;
+  transform: translateX(-50%);
+  width: $spirit-container-wave5-bg-width;
   z-index: -1;
 
   .spirit-brush {
     height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
     width: 100%;
   }
 
-  @media screen and (min-width: $spirit-breakpoint-s) {
-    padding-top: calc(#{$spirit-container-wave-bg-width-s} * #{$spirit-container-wave-bg-ratio});
-    width: $spirit-container-wave-bg-width-s;
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    bottom: $spirit-space-generic-12-x;
+    top: $spirit-space-generic-12-x;
   }
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    padding-top: calc(#{$spirit-container-wave-bg-width-m} * #{$spirit-container-wave-bg-ratio});
-    width: $spirit-container-wave-bg-width-m;
+
+  // Padding options
+  .spirit-container__inner--padding-top-none & {
+    top: 0;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: 0;
+    }
   }
-  @media screen and (min-width: $spirit-breakpoint-xl) {
-    padding-top: calc(#{$spirit-container-wave-bg-width-xl} * #{$spirit-container-wave-bg-ratio});
-    width: $spirit-container-wave-bg-width-xl;
+
+  .spirit-container__inner--padding-bottom-none & {
+    bottom: 0;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: 0;
+    }
   }
+
+  .spirit-container__inner--padding-top-xs & {
+    top: $spirit-space-generic-3-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-4-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-xs & {
+    bottom: $spirit-space-generic-3-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-4-x;
+    }
+  }
+
+  .spirit-container__inner--padding-top-s & {
+    top: $spirit-space-generic-4-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-8-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-s & {
+    bottom: $spirit-space-generic-4-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-8-x;
+    }
+  }
+
+  .spirit-container__inner--padding-top-m & {
+    padding-top: $spirit-space-generic-6-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      padding-top: $spirit-space-generic-12-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-m & {
+    bottom: $spirit-space-generic-6-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-12-x;
+    }
+  }
+
+  .spirit-container__inner--padding-top-lg & {
+    top: $spirit-space-generic-12-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-24-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-lg & {
+    bottom: $spirit-space-generic-12-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-24-x;
+    }
+  }
+}
+
+.spirit-container__wave-bg--wave3 {
+  width: $spirit-container-wave3-bg-width;
+}
+
+.spirit-container__wave-bg--wave4 {
+  width: $spirit-container-wave4-bg-width;
+}
+
+.spirit-container__wave-bg--wave5 {
+  width: $spirit-container-wave5-bg-width;
 }
