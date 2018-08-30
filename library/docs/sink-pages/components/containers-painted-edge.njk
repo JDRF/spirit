@@ -1,8 +1,8 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
     <link rel="stylesheet" href="/styles/containers-paint-sink-page.css">
-    {% set sample_image_block %}
-      <div class="spirit-image-block">
+    {% set sample_demo_component %}
+      <div class="container-sink-demo-component">
         <div class="spirit-long-form-text">
           <h2>
               You Can Help Turn Type One Into Type None
@@ -12,7 +12,7 @@
           </h3>
           <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
         </div>
-        <div class="spirit-image-block__image"></div>
+        <div class="container-sink-demo-component__image"></div>
       </div>
     {% endset %}
 
@@ -53,8 +53,8 @@
   <h1 class="hostile-sink-reset">Containers Paint</h1>
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG</h2>
-  {% call library.container(background_color='brand', painted_edge="both") %}
-       {{ sample_image_block | safe }}
+  {% call library.container(background_color='brand', painted_edge="both", padding_top="lg") %}
+       {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG</h2>
@@ -69,7 +69,7 @@
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
   {% call library.container(background_color='brand', painted_edge="both", size="large") %}
-       {{ sample_image_block | safe }}
+       {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG - large inner container</h2>
@@ -84,74 +84,126 @@
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG (black)</h2>
   {% call library.container(background_color='black', painted_edge="both") %}
-      {{ sample_image_block | safe }}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top - Full BG</h2>
   {% call library.container(background_color='brand', painted_edge="top") %}
-      {{ sample_image_block | safe }}
+      {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(background_color='brand', painted_edge="top") %}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Bottom - Full BG</h2>
   {% call library.container(background_color='brand', painted_edge="bottom") %}
-      {{ sample_image_block | safe }}
+      {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(background_color='brand', painted_edge="bottom") %}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Large BG Inner</h2>
   {% call library.container(size="large", inner_background_color='brand', painted_edge="both") %}
-      {{ sample_image_block | safe }}
+      {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(size="large", inner_background_color='brand', painted_edge="both") %}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top and Bottom - Large BG Inner (black)</h2>
   {% call library.container(size="large", inner_background_color='black', painted_edge="both") %}
-      {{ sample_image_block | safe }}
+      {{ sample_longform_text | safe }}
+  {% endcall %} 
+
+  {% call library.container(size="large", inner_background_color='black', painted_edge="both") %}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Top - Large BG Inner (black)</h2>
   {% call library.container(size="large", inner_background_color='black', painted_edge="top") %}
-      {{ sample_image_block | safe }}
+      {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(size="large", inner_background_color='black', painted_edge="top") %}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Paint Bottom - Large BG Inner (black)</h2>
   {% call library.container(size="large", inner_background_color='black', painted_edge="bottom", padding_top="none") %}
-      {{ sample_image_block | safe }}
+      {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(size="large", inner_background_color='black', painted_edge="bottom", padding_top="none") %}
+      {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Padding options</h2>
 
   <h3 class="hostile-sink-reset">None</h3>
   {% call library.container(padding_top="none",padding_bottom="none", background_color='brand', painted_edge="both") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(padding_top="none",padding_bottom="none", background_color='brand', painted_edge="both") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">XS</h3>
   {% call library.container(padding_top="xs",padding_bottom="xs", background_color='brand', painted_edge="both") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(padding_top="xs",padding_bottom="xs", background_color='brand', painted_edge="both") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">S</h3>
   {% call library.container(padding_top="s",padding_bottom="s", background_color='brand', painted_edge="both") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(padding_top="s",padding_bottom="s", background_color='brand', painted_edge="both") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">M (default)</h3>
   {% call library.container(padding_top="m",padding_bottom="m", background_color='brand', painted_edge="both") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(padding_top="m",padding_bottom="m", background_color='brand', painted_edge="both") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">LG</h3>
   {% call library.container(padding_top="lg",padding_bottom="lg", background_color='brand', painted_edge="both") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(padding_top="lg",padding_bottom="lg", background_color='brand', painted_edge="both") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">Top LG / Bottom XS</h3>
   {% call library.container(padding_top="lg",padding_bottom="xs", background_color='brand', painted_edge="both") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}
+  {% endcall %}
+
+  {% call library.container(padding_top="lg",padding_bottom="xs", background_color='brand', painted_edge="both") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
   <h3 class="hostile-sink-reset">Paint Bottom - Padding Top None</h3>
   {% call library.container(padding_top="none", background_color='brand', painted_edge="bottom") %}
-    {{ sample_image_block | safe }}
+    {{ sample_longform_text | safe }}}
+  {% endcall %}
+
+  {% call library.container(padding_top="none", background_color='brand', painted_edge="bottom") %}
+    {{ sample_demo_component | safe }}
   {% endcall %}
 
 {% endblock body %}

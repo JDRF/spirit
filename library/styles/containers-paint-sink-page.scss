@@ -5,7 +5,7 @@ $spirit-container-painted-edge-width: 1484px; // from sketch
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
 $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
 
-.spirit-image-block__image {
+.container-sink-demo-component__image {
   // sass-lint:disable no-url-protocols
   background-image: url('https://picsum.photos/800/800');
   // sass-lint:enable no-url-protocols
@@ -21,7 +21,7 @@ $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
   width: 100%;
 }
 
-.spirit-image-block {
+.container-sink-demo-component {
   display: flex;
   flex-flow: column nowrap;
 
@@ -34,7 +34,7 @@ $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
     flex-flow: row nowrap;
 
     .spirit-long-form-text,
-    .spirit-image-block__image {
+    .container-sink-demo-component__image {
       width: 50%;
     }
 
@@ -47,6 +47,15 @@ $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
     .spirit-container__inner--painted-edge-both &,
     .spirit-container__inner--painted-edge-top & {
       margin-top: -$spirit-container-painted-edge-height;
+    }
+  }
+
+  @media screen and (min-width:  $spirit-container-painted-edge-width) {
+    .spirit-container__inner--painted-edge-both &,
+    .spirit-container__inner--painted-edge-top &,
+    .spirit-container__inner--painted-edge-bottom & {
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 }
