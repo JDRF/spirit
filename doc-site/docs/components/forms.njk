@@ -91,7 +91,7 @@
       Use radio group to gather a selection from a list of options. Radio groups have two layout options: stacked (default) and horizontal. 
       
       
-      ### Radio Group, Stacked
+      ### Stacked
       This is the default and preferred arrangement for a radio group. 
 
   {% endfilter %}
@@ -109,7 +109,7 @@
   }}
   {% filter markdown %}
 
-      ### Radio Group, Horizontal
+      ### Horizontal
       Use this arrangement when vertical space is at a premium for a few options with very short labels. 
 
   {% endfilter %}
@@ -145,7 +145,7 @@
       ## Checkbox Group
       Use checkbox group to gather one or more selections from a list of options. Checkbox groups have two layout options: stacked (default) and horizontal. 
 
-      ### Checkbox Group, Stacked
+      <h3 id="checkbox-stacked">Stacked</h3>
       This is the default and preferred arrangement for a checkbox group. 
   {% endfilter %}
   {% set check_example_stacked %}
@@ -162,7 +162,7 @@
   }}
   {% filter markdown %}
 
-      ### Checkbox Group, Horizontal
+      <h3 id="checkbox-horizontal">Horizontal</h3>
       Use this arrangement when vertical space is at a premium for a few options with very short labels. 
       
   {% endfilter %}
@@ -350,7 +350,7 @@
   {{ esds_doc.code_example_pair(
     examples=[ 
       { 
-        example: library.form_label(text="Middle Initial (Optional)", required=false)
+        example: library.form_label(text="Middle Initial", optional=true)
       } ]
     )
   }}
@@ -484,7 +484,7 @@
       * Add `aria-invalid="true"` to an element where a validation error has occurred.
       * Always include `role=alert` on `.spirit-form__field-error` elements.
 
-      ## Field Groups
+      ## Field Group
       
       Use field groups to consistently organize the elements that make up an input, including label, microcopy, error messaging, and so on. 
       
@@ -519,6 +519,182 @@
     )
   }}
   {% filter markdown %}
+      ## Fieldset
+
+      Use fieldset to break a long form into sections.
+
+  {% endfilter %}
+  {% set form_grid_example %}
+        {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Contributor") }}
+            <div class="spirit-row">
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="First Name", for="full-form-first-name") }}
+                    {{ library.form_input(id="full-form-first-name") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Last Name", for="full-form-last-name") }}
+                    {{ library.form_input(id="full-form-last-name") }}
+                {% endcall %}
+              </div>
+            </div>
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Email", for="full-form-email") }}
+                {{ library.form_input(id="full-form-email") }}
+            {% endcall %}
+        {% endcall %}
+        {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Billing Address") }}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Street Address", for="full-form-billing-street") }}
+                {{ library.form_input(id="full-form-billing-street") }}
+            {% endcall %}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Address Line 2", for="full-form-billing-street2", optional=true) }}
+                {{ library.form_input(id="full-form-billing-street2") }}
+            {% endcall %}
+            <div class="spirit-row">
+              <div class="spirit-col-sm-6 spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="ZIP Code", for="full-form-billing-zip") }}
+                    {{ library.form_input(id="full-form-billing-zip") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-8">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Country", for="full-form-billing-state") }}
+                    {{ library.form_select(
+                        default_text='',
+                        default_value='',
+                        options=[
+                            {
+                                text: '',
+                                value: ''
+                            },
+                            {
+                            text: 'United States', 
+                            value: '1'
+                            },
+                            {
+                            text: 'Afghanistan', 
+                            value: '2'
+                            },
+                            {
+                            text: 'Aland Islands', 
+                            value: '3'
+                            },
+                            {
+                            text: 'Albania', 
+                            value: '4'
+                            },
+                            {
+                            text: 'Algeria', 
+                            value: '5'
+                            },
+                            {
+                            text: 'American Samoa', 
+                            value: '6'
+                            },
+                            {
+                            text: 'Andorra', 
+                            value: '7'
+                            },
+                            {
+                            text: 'Angola', 
+                            value: '8'
+                            },
+                            {
+                            text: 'Anguilla', 
+                            value: '9'
+                            },
+                            {
+                            text: 'Antarctica', 
+                            value: '10'
+                            },
+                            {
+                            text: 'Antigua and Barbuda', 
+                            value: '11'
+                            },
+                            {
+                            text: 'Argentina', 
+                            value: '12'
+                            },
+                            {
+                            text: 'Armenia', 
+                            value: '13'
+                            },
+                            {
+                            text: 'Aruba', 
+                            value: '14'
+                            },
+                            {
+                            text: 'Australia', 
+                            value: '15'
+                            },
+                            {
+                            text: 'Austria', 
+                            value: '16'
+                            },
+                            {
+                            text: 'Azerbaijan', 
+                            value: '17'
+                            },
+                            {
+                            text: 'Bahamas', 
+                            value: '18'
+                            },
+                            {
+                            text: 'Bahrain', 
+                            value: '19'
+                            },
+                            {
+                            text: 'Bangladesh', 
+                            value: '20'
+                            },
+                            {
+                            text: 'Barbados', 
+                            value: '21'
+                            },
+                            {
+                            text: 'Belarus', 
+                            value: '22'
+                            },
+                            {
+                            text: 'Belgium', 
+                            value: '23'
+                            },
+                            {
+                            text: 'Belize', 
+                            value: '24'
+                            },
+                            {
+                            text: 'Benin', 
+                            value: '25'
+                            },
+                            {
+                            text: 'Bermuda', 
+                            value: '26'
+                            },
+                            {
+                            text: 'Bhutan', 
+                            value: '27'
+                            }
+                        ]) }}
+                {% endcall %}
+              </div>
+            </div>
+        {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: form_grid_example } ],
+    code_snippet_source=(form_grid_example)
+    )
+  }}
+  {% filter markdown %}
       ## Form Grid
 
       Use the standard grid to lay out forms with multiple inputs per line. 
@@ -531,6 +707,12 @@
                 {{ library.form_input(id="full-form-billing-street") }}
             {% endcall %}
             <div class="spirit-row">
+              <div class="spirit-col-sm-6 spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="ZIP Code", for="full-form-billing-zip") }}
+                    {{ library.form_input(id="full-form-billing-zip") }}
+                {% endcall %}
+              </div>
               <div class="spirit-col-md-4">
                 {% call library.form_field_group() %}
                     {{ library.form_label(text="City", for="full-form-billing-city") }}
@@ -563,12 +745,6 @@
                         ]) }}
                 {% endcall %}
               </div>
-              <div class="spirit-col-sm-6 spirit-col-md-4">
-                {% call library.form_field_group() %}
-                    {{ library.form_label(text="ZIP", for="full-form-billing-zip") }}
-                    {{ library.form_input(id="full-form-billing-zip") }}
-                {% endcall %}
-              </div>
             </div>
         {% endcall %}
   {% endset %}
@@ -584,7 +760,8 @@
       
       #### Guidelines
 
-      * Prefer narrow columns of stacked inputs, rather than complex layouts. * Use the grid sparingly. 
+      * Prefer narrow columns of stacked inputs, rather than complex layouts.
+      * Use the grid sparingly. 
       * Use the grid to place closely-related inputs on a line together, such as State + Zip Code or First Name + Last Name. 
       * Never place unrelated inputs on the same line. 
       * Consider how a form layout works on narrow viewports and responds on wider viewports.
