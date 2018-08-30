@@ -407,9 +407,15 @@
   {% endfilter %}
   {% set input_example_error %}
     {% call library.form_field_group() %}
+<<<<<<< HEAD
       {{ library.form_label(text="Email Address", required=true) }}
       {{ library.form_input(value="anderson@comcast", valid=false, attributes='aria-invalid="true" aria-describedby="email-address-error"') }}
       {{ library.form_field_error(id="email-address-error", text="Invalid email address. Must follow the format `XXXXXX@XXXXXX.XXX`.") }}
+=======
+      {{ library.form_label(text="“Email Address”", required=true) }}
+      {{ library.form_input(value="anderson@comcast", valid=false, attributes='aria-invalid=true') }}
+      {{ library.form_field_error(text="Invalid email address. Must follow the format `XXXXXX@XXXXXX.XXX`.") }}
+>>>>>>> 90358fd7d36669940a4b3c44933db28d2c3037c1
     {% endcall %}
   {% endset %}
 
@@ -425,9 +431,9 @@
   {% endfilter %}
   {% set radio_example_error %}
     {% call library.form_radio_group(label="Donation Frequency?", required=true, valid=false) %}
-        {{ library.form_field_error(id="donation-frequency-error", text="This field is required.", showIcon=true) }}
-        {{ library.form_radio(name="group-stacked", label="One-time donation", value="otd", attributes='aria-invalid="true" aria-describedby="donation-frequency-error"') }}
-        {{ library.form_radio(name="group-stacked", label="Monthly recurring donation", value="monthly", attributes='aria-invalid="true" aria-describedby="donation-frequency-error"') }}
+        {{ library.form_field_error(text="This field is required.", showIcon=true) }}
+        {{ library.form_radio(name="group-stacked", label="One-time donation", value="otd", attributes='aria-invalid=true') }}
+        {{ library.form_radio(name="group-stacked", label="Monthly recurring donation", value="monthly", attributes='aria-invalid=true') }}
     {% endcall %}
   {% endset %}
 
