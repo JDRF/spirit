@@ -421,7 +421,6 @@
   {% filter markdown %}
       ##### Place error messages above Radio and Checkbox Groups.
 
-      [mark aria-invalid=”true”]
   {% endfilter %}
   {% set radio_example_error %}
     {% call library.form_radio_group(label="Donation Frequency?", required=true, valid=false) %}
@@ -459,7 +458,7 @@
   {% endfilter %}
   {% set check_example_solo_error %}
     {% call library.form_checkbox_group(label="", required=true, valid=false) %}
-        {{ library.form_checkbox(label="I accept the terms and conditions", attributes='aria-invalid="true" aria-describedby="terms-and-conditions-error') }}
+        {{ library.form_checkbox(label="I accept the terms and conditions", attributes='aria-invalid="true" aria-describedby="terms-and-conditions-error"') }}
         {{ library.form_field_error(id="terms-and-conditions-error", text="You must accept the terms to continue.", showIcon=true) }}
     {% endcall %}
   {% endset %}
