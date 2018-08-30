@@ -1,26 +1,41 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-    {% filter markdown(true, "hostile-sink-reset") %}
-        # Brushes Sink
-    {% endfilter %}
+    <h1 class="hostile-sink-reset">Brushes Sink</h1>
     <div class="spirit-container">
         <div class="spirit-row">
             <div class="spirit-col spirit-col--md-6 spirit-col--lg-4">
 
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ## Example Brushes
-                {% endfilter %}
+                <h2 class="hostile-sink-reset">Example Brushes</h2>
 
-                {% filter markdown(true, "hostile-sink-reset") %}
-                    ### On it's own
-                {% endfilter %}
+                <h3 class="hostile-sink-reset">doodle-arrow-right</h3>
+                {{ library.brush(name="doodle-arrow-right") }}
 
-                {{ library.brush() }}
+                <h3 class="hostile-sink-reset">doodle-email</h3>
+                {{ library.brush(name="doodle-email") }}
 
+                <h3 class="hostile-sink-reset">doodle-highlight</h3>
+                {{ library.brush(name="doodle-highlight") }}
+
+                <h3 class="hostile-sink-reset">painted-edge-top</h3>
                 {{ library.brush(name="painted-edge-top") }}
 
+                <h3 class="hostile-sink-reset">painted-edge-bottom</h3>
                 {{ library.brush(name="painted-edge-bottom") }}
 
+                <h3 class="hostile-sink-reset">wave1</h3>
+                {{ library.brush(name="wave1") }}
+
+                <h3 class="hostile-sink-reset">wave2</h3>
+                {{ library.brush(name="wave2") }}
+
+                <h3 class="hostile-sink-reset">wave3</h3>
+                {{ library.brush(name="wave3") }}
+
+                <h3 class="hostile-sink-reset">wave4</h3>
+                {{ library.brush(name="wave4") }}
+
+                <h3 class="hostile-sink-reset">wave5</h3>
+                {{ library.brush(name="wave5") }}
             </div>
         </div>
     </div>
