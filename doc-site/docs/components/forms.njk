@@ -29,7 +29,7 @@
         label: "Disabled"
       },
       { 
-        example: library.form_input(valid=false),
+        example: library.form_input(valid=false, attributes='aria-invalid=true'),
         label: "Error"
       },
       { 
@@ -37,7 +37,7 @@
         label: "Valid"
       } ],
     code_snippet_source=(
-      library.form_input() + library.form_input(placeholder="Optional") + library.form_input(disabled=true) + library.form_input(valid=false) + library.form_input(valid=true)
+      library.form_input() + library.form_input(placeholder="Optional") + library.form_input(disabled=true) + library.form_input(valid=false, attributes='aria-invalid=true') + library.form_input(valid=true)
     )
     )
   }}
@@ -68,7 +68,7 @@
         label: "Disabled"
       },
       { 
-        example: library.form_textarea(valid=false),
+        example: library.form_textarea(valid=false, attributes='aria-invalid=true'),
         label: "Error"
       },
       { 
@@ -76,7 +76,7 @@
         label: "Valid"
       } ],
     code_snippet_source=(
-      library.form_textarea() + library.form_textarea(placeholder="Optional") + library.form_textarea(disabled=true) + library.form_textarea(valid=false) + library.form_textarea(valid=true)
+      library.form_textarea() + library.form_textarea(placeholder="Optional") + library.form_textarea(disabled=true) + library.form_textarea(valid=false, attributes='aria-invalid=true') + library.form_textarea(valid=true)
     )
     )
   }}
@@ -201,7 +201,7 @@
         label: "Disabled"
       },
       { 
-        example: library.form_checkbox(label="I accept the terms and conditions", valid=false),
+        example: library.form_checkbox(label="I accept the terms and conditions", valid=false, attributes='aria-invalid=true'),
         label: "Error"
       },
       { 
@@ -209,7 +209,7 @@
         label: "Indeterminate"
       } ],
     code_snippet_source=(
-      library.form_checkbox(label="I accept the terms and conditions") + library.form_checkbox(label="I accept the terms and conditions", checked=true) + library.form_checkbox(label="I accept the terms and conditions", disabled=true) + library.form_checkbox(label="I accept the terms and conditions", valid=false) + library.form_checkbox(label="I accept the terms and conditions", indeterminate=true)
+      library.form_checkbox(label="I accept the terms and conditions") + library.form_checkbox(label="I accept the terms and conditions", checked=true) + library.form_checkbox(label="I accept the terms and conditions", disabled=true) + library.form_checkbox(label="I accept the terms and conditions", valid=false, attributes='aria-invalid=true') + library.form_checkbox(label="I accept the terms and conditions", indeterminate=true)
     )
     )
   }}
@@ -410,7 +410,7 @@
   {% set input_example_error %}
     {% call library.form_field_group() %}
       {{ library.form_label(text="“Email Address”", required=true) }}
-      {{ library.form_input(value="anderson@comcast", valid=false) }}
+      {{ library.form_input(value="anderson@comcast", valid=false, attributes='aria-invalid=true') }}
       {{ library.form_field_error(text="Invalid email address. Must follow the format `XXXXXX@XXXXXX.XXX`.") }}
     {% endcall %}
   {% endset %}
@@ -428,8 +428,8 @@
   {% set radio_example_error %}
     {% call library.form_radio_group(label="Donation Frequency?", required=true, valid=false) %}
         {{ library.form_field_error(text="This field is required.", showIcon=true) }}
-        {{ library.form_radio(name="group-stacked", label="One-time donation", value="otd") }}
-        {{ library.form_radio(name="group-stacked", label="Monthly recurring donation", value="monthly") }}
+        {{ library.form_radio(name="group-stacked", label="One-time donation", value="otd", attributes='aria-invalid=true') }}
+        {{ library.form_radio(name="group-stacked", label="Monthly recurring donation", value="monthly", attributes='aria-invalid=true') }}
     {% endcall %}
   {% endset %}
 
@@ -444,10 +444,10 @@
   {% set check_example_error %}
     {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true, valid=false) %}
         {{ library.form_field_error(text="Select at least one option.", showIcon=true) }}
-        {{ library.form_checkbox(label="I have type 1 diabetes") }}
-        {{ library.form_checkbox(label="Parent or guardian") }}
-        {{ library.form_checkbox(label="Friend or family member") }}
-        {{ library.form_checkbox(label="Medical professional") }}
+        {{ library.form_checkbox(label="I have type 1 diabetes", attributes='aria-invalid=true') }}
+        {{ library.form_checkbox(label="Parent or guardian", attributes='aria-invalid=true') }}
+        {{ library.form_checkbox(label="Friend or family member", attributes='aria-invalid=true') }}
+        {{ library.form_checkbox(label="Medical professional", attributes='aria-invalid=true') }}
     {% endcall %}
   {% endset %}
 
@@ -461,13 +461,13 @@
   {% endfilter %}
   {% set check_example_solo_error %}
     {% call library.form_checkbox_group(label="Terms and conditions", required=true, valid=false) %}
-        {{ library.form_field_error(text="“You must accept the terms to continue”.", showIcon=true) }}
+        {{ library.form_field_error(text="You must accept the terms to continue.", showIcon=true, attributes='aria-invalid=true') }}
         {{ library.form_checkbox(label="I accept the terms and conditions") }}
     {% endcall %}
     <hr />
     {% call library.form_checkbox_group(label="", required=true, valid=false) %}
         {{ library.form_checkbox(label="I accept the terms and conditions") }}
-        {{ library.form_field_error(text="“You must accept the terms to continue”.", showIcon=true) }}
+        {{ library.form_field_error(text="You must accept the terms to continue.", showIcon=true, attributes='aria-invalid=true') }}
     {% endcall %}
   {% endset %}
 
@@ -514,7 +514,7 @@
   {% endfilter %}
   {% set field_group_example_error %}
     {% call library.form_field_group() %}
-      {{ library.form_label(text="City", required=true) }}
+      {{ library.form_label(text="City", required=true, attributes='aria-invalid=true') }}
       {{ library.form_input(valid=false) }}
       {{ library.form_field_error(text="This field is required.") }}
     {% endcall %}
