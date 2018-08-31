@@ -3,6 +3,11 @@
   {% filter markdown %}
       # Typography Swatch Demos
   {% endfilter %}
+  <style>
+    body {
+      padding: 20px;
+    }
+  </style>
   <h2>Default Behavior</h2>
 
   {{ spirit_doc.typography_swatch() }}
@@ -20,10 +25,76 @@
 
   <h2>Alphabet Sample Text with secondary sample</h2>
   {% set giant_characters %}
-    font-size: 200px;
+    font-size: 96px;
+    line-height: 1;
+    position: relative;
+    top: -5px;
   {% endset %}
-  {{ spirit_doc.typography_swatch(alphabet_sample_text=true, secondary_sample_text="Jj", secondary_sample_text_styles=giant_characters) }}
+  {{ spirit_doc.typography_swatch(sample_text_class="spirit-h3", alphabet_sample_text=true, secondary_sample_text="Jj", secondary_sample_text_styles=giant_characters) }}
 
   <h2>Adding a class to the sample</h2>
   {{ spirit_doc.typography_swatch(sample_text_class="spirit-h3") }}
+  
+  <h2>Weight</h2>
+  {% set sample_styles %}
+    font-size: 32px;
+    font-weight: {{ spirit_tokens.font.weight.regular }};
+  {% endset %}
+  {% set giant_characters %}
+    font-size: 96px;
+    line-height: 1;
+    position: relative;
+    top: -9px;
+    word-break: keep-all;
+  {% endset %}
+  {{ spirit_doc.typography_swatch(
+      alphabet_sample_text=true, 
+      sample_text_styles=sample_styles,
+      secondary_sample_text="Jj", 
+      secondary_sample_text_styles=giant_characters,
+      code_sample="font-weight: $spirit-font-weight-regular",
+      design_specs=false,
+      title="Regular") }}
+
+  {% set sample_styles %}
+    font-size: 32px;
+    font-weight: {{ spirit_tokens.font.weight.semibold }};
+  {% endset %}
+  {{ spirit_doc.typography_swatch(
+      alphabet_sample_text=true, 
+      sample_text_styles=sample_styles,
+      secondary_sample_text="Jj", 
+      secondary_sample_text_styles=giant_characters,
+      code_sample="font-weight: $spirit-font-weight-semibold",
+      design_specs=false,
+      title="Semibold") }}
+
+  {% set sample_styles %}
+    font-size: 32px;
+    font-weight: {{ spirit_tokens.font.weight.bold }};
+  {% endset %}
+  {{ spirit_doc.typography_swatch(
+      alphabet_sample_text=true, 
+      sample_text_styles=sample_styles,
+      secondary_sample_text="Jj", 
+      secondary_sample_text_styles=giant_characters,
+      code_sample="font-weight: $spirit-font-weight-bold",
+      design_specs=false,
+      title="Bold") }}
+
+  <h2>Scale</h2>
+  {{ spirit_doc.typography_swatch(
+      sample_text_class="spirit-h1") }}
+
+  {{ spirit_doc.typography_swatch(
+      sample_text_class="spirit-h2",
+      title="Heading 2",
+      code_sample=".spirit-h2<br/>@include spirit-h2;",
+      design_specs="font-size: 44px;<br/>font-weight: bold;<br/>line-height: 56px;") }}
+
+  {{ spirit_doc.typography_swatch(
+      sample_text_class="spirit-h3",
+      title="Heading 3",
+      code_sample=".spirit-h3<br/>@include spirit-h3;",
+      design_specs="font-size: 32px;<br/>font-weight: bold;<br/>line-height: 40px;") }}
 {% endblock body %}

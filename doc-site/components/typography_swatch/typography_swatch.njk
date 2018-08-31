@@ -1,10 +1,13 @@
 {% macro typography_swatch(
     alphabet_sample_text=false,
-    sample_text="You Can Help Turn Type One Into Type None",
+    sample_text="You Can Help Turn Type<br/>One Into Type None",
     sample_text_styles=false,
     secondary_sample_text=false,
     secondary_sample_text_styles=false,
-    sample_text_class=""
+    sample_text_class="",
+    title="Heading 1",
+    code_sample=".spirit-h1<br/>@include spirit-h1;",
+    design_specs="font-size: 56px;<br/>font-weight: bold;<br/>line-height: 72px;"
   ) %}
   {% if sample_text_styles == false and sample_text_class == "" %}
     {% set sample_text_class = "spirit-h1" %}
@@ -36,20 +39,32 @@
     {% set sample_text = typography_swatch_alphabet() %}
   {% endif %}
 
-  <div class="spirit-doc-typography-swatch">
-    <div class="spirit-doc-typography-swatch__sample_text">
-      {% if sample_text_class %}
-        <span class="{{ sample_text_class }}">
-      {% endif %}
-          <span class="spirit-doc-typography-swatch__sample-text-primary">
-            {{ sample_text | safe }}
+  {% if design_specs == false %}
+    {% set modifier_class = "spirit-doc-typography-swatch--no-design-specs" %}
+  {% endif %}
+
+  <div class="spirit-doc-typography-swatch{{ ' ' + modifier_class if modifier_class }}">
+    <div class="spirit-doc-typography-swatch__sample-text{{ ' ' + sample_text_class if sample_text_class }}">
+        <span class="spirit-doc-typography-swatch__sample-text-primary{{ ' ' + sample_text_class if sample_text_class }}">
+          {{ sample_text | safe }}
+        </span>
+        {% if secondary_sample_text %}
+          <span class="spirit-doc-typography-swatch__sample-text-secondary{{ ' ' + secondary_sample_text_class if secondary_sample_text_class }}">
+            {{ secondary_sample_text | safe }}
           </span>
-          {% if secondary_sample_text %}
-            <span class="spirit-doc-typography-swatch__sample-text-secondary{{ ' ' + secondary_sample_text_class if secondary_sample_text_class }}">
-              {{ secondary_sample_text | safe }}
-            </span>
-          {% endif %}
-      {% if sample_text_class %}
+        {% endif %}
+    </div>
+    <div class="spirit-doc-typography-swatch__metadata">
+      <span class="spirit-doc-typography-swatch__title-wrap">
+        <span class="spirit-doc-typography-swatch__title">
+          {{ title }}
+        </span></span>
+      <span class="spirit-doc-typography-swatch__code-sample">{{ code_sample | safe }}</span>
+      {% if design_specs %}
+        <span class="spirit-doc-typography-swatch__design-specs-wrap">
+          <span class="spirit-doc-typography-swatch__design-specs">
+            {{ design_specs | safe }}
+          </span>
         </span>
       {% endif %}
     </div>
