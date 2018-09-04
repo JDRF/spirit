@@ -3,13 +3,42 @@
   border: solid 1px $spirit-color-grey-95;
   border-radius: $spirit-border-radius-l;
   margin: $spirit-space-stack-2-x;
+  overflow: hidden;
 }
 
 .spirit-doc-typography-swatch__sample-text {
   align-items: flex-start;
   display: flex;
   padding: $spirit-space-inset-3-x;
+  position: relative;
   word-break: break-word;
+
+  .spirit-doc-typography-swatch--space-highlighted & {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.spirit-doc-typography-swatch--space-highlighted {
+  background: $spirit-color-blue-15;
+}
+
+.spirit-doc-typography-swatch__highlight-space {
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+.spirit-doc-typography-swatch__highlight-space--top {
+  background: $spirit-color-red-35;
+  left: 0;
+  top: 0;
+}
+
+.spirit-doc-typography-swatch__highlight-space--bottom {
+  background: $spirit-color-blue-30;
+  bottom: 0;
+  left: 0;
 }
 
 .spirit-doc-typography-swatch__sample-text-secondary {
@@ -59,5 +88,5 @@
 }
 
 .spirit-doc-typography-swatch__design-specs {
-  width: 170px;
+  width: 200px;
 }
