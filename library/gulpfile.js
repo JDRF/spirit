@@ -20,3 +20,7 @@ gulp.task('minify-styles', () =>
 );
 
 gulp.task('esds-hook:post:styles:build:all', gulp.series('minify-styles'));
+
+gulp.task('watch:styles:minify', () => {
+  return gulp.watch(['_site/latest/styles/spirit.css'], gulp.parallel('minify-styles'));
+});
