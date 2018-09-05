@@ -1,0 +1,62 @@
+{% extends "templates/sink.njk" %}
+{% block head_content_append %}
+  {{ super() }}
+  <link rel="stylesheet" href="/styles/shell-sink-page.css">
+{% endblock head_content_append %}
+
+{% block body %}
+    {% set header_nav_demo %}
+      <a href="#header-nav-demo">Open Navigation</a>
+      <nav id="header-nav-demo" class="header-nav-demo">
+        <div class="header-nav-demo__container">
+            <a href="#">Close Navigation</a>
+            <ul class="header-nav-demo__ul">
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link spirit-link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+            <ul>
+        </div>
+      </nav>
+    {% endset %}
+
+  {% call library.shell() %}
+    {% call library.shell_header() %}
+        <h1 class="hostile-sink-reset">Page Shell Header</h1>
+        {{ header_nav_demo | safe }}
+    {% endcall %}
+    {% call library.shell_main() %}
+        <h1 class="hostile-sink-reset">Page Shell Main</h1>
+    {% endcall %}
+    {% call library.shell_footer() %}
+        <h1 class="hostile-sink-reset">Page Shell Footer</h1>
+    {% endcall %}
+  {% endcall %}
+
+{% endblock body %}

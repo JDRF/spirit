@@ -1,0 +1,29 @@
+@import '../tokens/tokens';
+@import 'mixins/typography';
+
+// variables
+$header-nav-demo-max-width: 320px;
+
+.header-nav-demo {
+  @include spirit-typography-reset();
+  background: $spirit-color-white;
+  box-shadow: $spirit-elevation-1 $spirit-elevation-color-default;
+  height: 100vh;
+  left: 0;
+  max-width: $header-nav-demo-max-width;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform .3s ease-out, visibility 0s ease-out 0s;
+  width: 100%;
+  will-change: transform;
+  z-index: 100;
+
+  &:target {
+    transform: translateX(0%);
+  }
+}
+
+.header-nav-demo__ul {
+  list-style: none;
+}

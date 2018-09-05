@@ -1,0 +1,51 @@
+{% macro shell(
+        body_class=false,
+        body_modifier=false,
+        main_class=false,
+        main_modifier=false
+        ) %}
+        <html class="test">
+      <body id="spirit-shell__body" class="spirit-shell__body{{' spirit-shell__body--' + body_modifier if body_modifier }}{{ ' ' + body_class if body_class}}">
+        <div class="spirit-shell__site-contain">
+          <div class="spirit-shell__site">
+            {{ caller() }}
+          </div>
+        </div>
+      </body>
+      </html>
+{% endmacro %}
+
+{% macro shell_header(
+      class=false,
+      modifier=false
+    )
+  %}
+    <header id="spirit-shell__header" class="spirit-shell__header{{ ' ' + class if class}}{{' spirit-shell__header--' + modifier if modifier }}">
+      {{ caller() }}
+    </header>
+{% endmacro %}
+
+{% macro shell_main(
+      class=false,
+      modifier=false,
+      article_id="spirit-shell__article",
+      article_class=false,
+      article_modifier=false
+    )
+  %}
+    <main id="spirit-shell__main" class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
+      <article id="{{article_id}}" class="spirit-shell__article{{ ' ' + article_class if article_class}}{{' spirit-shell__article--' + article_modifier if article_modifier }}">
+        {{ caller() }}
+      </article>
+    </main>
+{% endmacro %}
+
+{% macro shell_footer(
+      class=false,
+      modifier=false
+    )
+  %}
+    <footer id="spirit-shell__footer" class="spirit-shell__footer{{ ' ' + class if class}}{{' spirit-shell__footer--' + modifier if modifier }}">
+      {{ caller() }}
+    </footer>
+{% endmacro %}
