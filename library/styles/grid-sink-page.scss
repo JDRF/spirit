@@ -5,6 +5,10 @@
 $spirit-column-demo-color: rgba($spirit-color-blue-100, .3);
 $spirit-column-demo-border-color: rgba($spirit-color-blue-100, .6);
 
+body {
+  @include spirit-load-fonts;
+}
+
 .spirit-container {
   @include spirit-typography-reset();
   border: 2px solid;

@@ -29,6 +29,18 @@
   text-transform: $text-transform;
 }
 
+@mixin spirit-load-fonts() {
+  font-family: sans-serif;
+
+  .fonts-loaded-1 & {
+    font-family: "Graphik Web Subset", sans-serif;
+  }
+
+  .fonts-loaded-2 & {
+    font-family: "Graphik Web", sans-serif;
+  }
+}
+
 @mixin spirit-dark-parent-light-text {
   @include spirit-container-dark-parent-selectors {
     color: $spirit-text-color-on-dark;

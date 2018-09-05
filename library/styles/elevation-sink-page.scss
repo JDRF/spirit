@@ -1,5 +1,10 @@
 @import '../tokens/tokens';
 @import 'mixins/elevation';
+@import 'mixins/typography.scss';
+
+body {
+  @include spirit-load-fonts;
+}
 
 .elevation-example {
   height: 200px;

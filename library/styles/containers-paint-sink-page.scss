@@ -1,9 +1,14 @@
 @import '../tokens/tokens';
+@import 'mixins/typography.scss';
 
 // variables
 $spirit-container-painted-edge-width: 1484px; // from sketch
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
 $spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
+
+body {
+  @include spirit-load-fonts;
+}
 
 .container-sink-demo-component__image {
   // sass-lint:disable no-url-protocols

@@ -1,4 +1,9 @@
 @import '../tokens/tokens';
+@import 'mixins/typography.scss';
+
+body {
+  @include spirit-load-fonts;
+}
 
 .spirit-context--brand .hostile-sink-reset {
   h1,
