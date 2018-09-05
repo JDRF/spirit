@@ -1,0 +1,44 @@
+.spirit-doc-release-history-detail {
+  @include spirit-box-sizing;
+
+  // Override long form text bold headings
+  h2,
+  h3,
+  h4 {
+    font-weight: $spirit-font-weight-regular;
+    margin: 0 0 $spirit-space-generic-2-x;
+  }
+
+  h5,
+  h6 {
+    margin: 0 0 $spirit-space-generic-2-x;
+  }
+
+  // nested here to have sufficient specificity to override the h2 override above
+  .spirit-doc-release-history-detail__title {
+    @include spirit-h2;
+    font-weight: $spirit-font-weight-regular;
+    margin: 0 auto $spirit-space-generic-2-x 0;
+  }
+}
+
+.spirit-doc-release-history-detail__header {
+  align-items: baseline;
+  border-top: solid 1px $spirit-color-grey-95;
+  display: flex;
+  padding-top: $spirit-space-generic-4-x;
+}
+
+.spirit-doc-release-history-detail__date {
+  margin: $spirit-space-inline-right-2-x;
+}
+
+.spirit-doc-release-history-detail__doc-link {
+  @include spirit-link;
+}
+
+.spirit-doc-release-history-detail__content-heading {
+  @include spirit-h4;
+  font-weight: $spirit-font-weight-regular;
+  margin: 0 0 $spirit-space-generic-2-x;
+}

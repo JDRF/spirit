@@ -1,7 +1,8 @@
 const gulp = require('esds-build');
 const babel = require('gulp-babel');
-const rename = require("gulp-rename");
 const svgSprite = require('gulp-svg-sprite');
+const rename = require('gulp-rename');
+const cleanCSS = require('gulp-clean-css');
 const svgBrushSourceFiles = 'brushes/*.svg';
 
 gulp.task('compile-script-to-es5', () =>
@@ -45,3 +46,16 @@ gulp.task('watch:brushes:generate-brushes-sprite', function() {
 
 // Hook into an ESDS lifecycle point and execute the custom task, run gulp --tasks in the console to see all available tasks that you can assign pre/post hooks to
 gulp.task('esds-hook:post:icons:build:jdrfhq-spirit', gulp.series('generate-svg-brushes-sprite'));
+
+gulp.task('minify-styles', () =>
+  gulp.src('_site/latest/styles/spirit.css')
+    .pipe(cleanCSS())
+    .pipe(rename('spirit.min.css'))
+    .pipe(gulp.dest('_site/latest/styles'))
+);
+
+gulp.task('esds-hook:post:styles:build:all', gulp.series('minify-styles'));
+
+gulp.task('watch:styles:minify', () => {
+  return gulp.watch(['_site/latest/styles/spirit.css'], gulp.parallel('minify-styles'));
+});

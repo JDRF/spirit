@@ -1,15 +1,120 @@
+$spirit-doc-layout-breakpoint: 1289px;
+
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
-  display: flex;
-  margin: 0 auto;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  grid-template-rows: auto auto auto;
   width: 100%;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-template-columns: 256px 1fr 800px 32px 200px 1fr;
+    grid-template-rows: auto auto;
+  }
 }
 
 .spirit-doc-page-shell__navigation {
-  flex: 0 0 200px;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-row: 1 / span 2;
+  }
+}
+
+.spirit-doc-page-shell__content-intro {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  min-width: 0;
+  padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+  }
+}
+
+.spirit-doc-page-shell__page-navigation {
+  display: inline-block;
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  min-width: 0;
+  padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-column: 5 / span 1;
+    grid-row: 2 / span 1;
+    padding: 0 $spirit-space-generic-3-x;
+  }
+}
+
+.spirit-doc-page-shell__navigation-inner {
+  left: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 0 $spirit-space-generic-3-x;
+  position: fixed;
+  top: 0;
 }
 
 .spirit-doc-page-shell__content {
-  min-width: 0; // allows content area to shrink and keeps code snippets dynamic
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+  min-width: 0;
+  padding-bottom: $spirit-space-generic-6-x;
+  padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+  }
+}
+
+.spirit-doc-page-shell__page-navigation-heading {
+  margin: $spirit-space-stack-2-x;
+}
+
+.spirit-doc-hidden-heading {
+  @include spirit-accessibly-hidden;
+  margin: 0;
+}
+
+// Page Navigation Layout Overrides
+.esds-doc-page-navigation {
+  display: inline-block;
+  width: auto;
+}
+
+.esds-doc-page-navigation--fixed .esds-doc-page-navigation__inner {
+  position: static;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: $spirit-space-generic-6-x;
+    position: fixed;
+    top: 0;
+  }
+}
+
+// Don't highlight active links in this layout since the nav isn't fixed
+.esds-doc-page-navigation__link.esds-doc-page-navigation__link--active {
+  color: $spirit-text-color-secondary;
+
+  @media screen and (min-width: $spirit-doc-layout-breakpoint) {
+    color: $spirit-text-color-link;
+  }
+}
+
+.spirit-doc-page-shell__brand-title {
+  margin: 0;
+  margin-bottom: $spirit-space-generic-4-x;
+  margin-top: $spirit-space-generic-6-x;
+  padding-left: $spirit-space-generic-3-x;
+}
+
+.spirit-doc-page-shell__brand-title-link {
+  @include spirit-h2;
+  color: $spirit-text-color-link;
+  text-decoration: none;
 }

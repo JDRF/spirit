@@ -1,40 +1,29 @@
 {% extends 'templates/doc.njk' %}
-{% block page_shell_content %}
+{% block page_shell_content_intro %}
   {% filter markdown %}
     # Release History
-    
-    ## 0.3.0
-    [View Docs](/v/0.3.0)
-    ### Released 8/17/2018
-    * Fixed ESLint warning in library
-    * Demo'd release process 
-    
-    ## 0.2.0
-    [View Docs](/v/0.2.0)
-    ### Released 8/15/2018
-    * Add Vertical Navigation Component 
-    
-    ## Doc Update
-    ### Released 8/14/2018
-    * Added Graphik Web Font to Doc Site 
-    
-    ## Doc Update
-    ### Released 8/13/2018
-    * Update to the doc site that will amend version 0.1.2 docs 
-
-    ## 0.1.2
-    ### Released 8/10/2018
-    [View Docs](/v/0.1.2)
-    * Deployment with NPM Package
-
-    ## 0.1.1
-    ### Released 7/2/2018
-    [View Docs](/v/0.1.1)
-    * Follow Up Deployment
-
-    ## 0.1.0
-    ### Released 7/2/2018
-    [View Docs](/v/0.1.0)
-    * Hearbeat Deployment
   {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% set new %}
+    * [Color](/visual-style/color.html) Tokens, Sketch, and documentation
+    * [Icons](/visual-style/icons.html) Code, Sketch, and documentation
+    * [Space](/visual-style/space.html) Tokens, Sketch, and documentation
+    * [Buttons](/components/buttons.html) Code, Sketch, and documentation
+    * **Cards** - Code and Sketch
+    * **Containers** - Code and Sketch
+    * **Forms** - Code and Sketch
+    * **Feedback Messages** - Code and Sketch
+    * **Grids** - Code and Sketch
+    * **Links** - Code and Sketch
+    * **Lists** - Code and Sketch
+    * **Long Form Text** - Code and Sketch
+    * **Tiles** - Code and Sketch
+    * **Vertical Navigation** - Code and Sketch
+    * **Elevation** - Tokens
+    * **Typography** - Tokens
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.1", date="8/29/2018", new=new) }}
 {% endblock page_shell_content %}

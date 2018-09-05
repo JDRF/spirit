@@ -10,13 +10,13 @@
   "license": "ISC",
   "devDependencies": {
     "esds-build": "^0.38.0",
-    "esds-doc": "^0.14.2",
+    "esds-doc": "^0.18.1",
     "fs-extra": "^6.0.1",
     "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
     "gulp-tap": "^1.0.1",
     "slash": "^2.0.0"
   },
   "dependencies": {
-    "@jdrfhq/spirit": "^0.3.0"
+    "@jdrfhq/spirit": "^1.0.0-alpha.1"
   }
 }

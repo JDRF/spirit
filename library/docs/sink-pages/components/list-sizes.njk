@@ -1,0 +1,146 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+<style>
+[class*='spirit-col-'] {
+  overflow: hidden; // highlight where list item escapes grid column in sink
+}
+</style>
+{% set sample_list %}
+  {% call library.list() %}
+    {{ library.list_item(title_text="Amy Cutler", href="#", href_secondary="# ", icon_name="user", meta="Western Massachusetts 2018", size="xl") }}
+    {{ library.list_item(title_text="Amy McGeary", href="#", href_secondary="# ", icon_name="user", meta="Central Massachusetts 2018", size="xl") }}
+    {{ library.list_item(title_text="Amy Perkins - This is an Extra Long Label Wrapping on Multiple Lines", href="#", href_secondary="# ", icon_name="user", meta="Boston 2018", size="xl") }}
+    {{ library.list_item(title_text="Amy Cutler", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Western Massachusetts 2018", size="xl") }}
+    {{ library.list_item(title_text="Amy McGeary", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Central Massachusetts 2018", size="xl") }}
+    {{ library.list_item(title_text="Amy Perkins - This is an Extra Long Label Wrapping on Multiple Lines", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Boston 2018", size="xl") }}
+  {% endcall %}
+{% endset %}
+
+{% set sample_list_large %}
+  {% call library.list() %}
+    {{ library.list_item(title_text="Amy Cutler", href="#", href_secondary="# ", icon_name="user", meta="Western Massachusetts 2018", size="l") }}
+    {{ library.list_item(title_text="Amy McGeary", href="#", href_secondary="# ", icon_name="user", meta="Central Massachusetts 2018", size="l") }}
+    {{ library.list_item(title_text="Amy Perkins - This is an Extra Long Label Wrapping on Multiple Lines", href="#", href_secondary="# ", icon_name="user", meta="Boston 2018", size="l") }}
+    {{ library.list_item(title_text="Amy Cutler", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Western Massachusetts 2018", size="l") }}
+    {{ library.list_item(title_text="Amy McGeary", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Central Massachusetts 2018", size="l") }}
+    {{ library.list_item(title_text="Amy Perkins - This is an Extra Long Label Wrapping on Multiple Lines", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Boston 2018", size="l") }}
+  {% endcall %}
+{% endset %}
+
+{% set sample_list_medium %}
+  {% call library.list() %}
+    {{ library.list_item(title_text="Amy Cutler", href="#", href_secondary="# ", icon_name="user", meta="Western Massachusetts 2018", size="m") }}
+    {{ library.list_item(title_text="Amy McGeary", href="#", href_secondary="# ", icon_name="user", meta="Central Massachusetts 2018", size="m") }}
+    {{ library.list_item(title_text="Amy Perkins - This is an Extra Long Label Wrapping on Multiple Lines", href="#", href_secondary="# ", icon_name="user", meta="Boston 2018", size="m") }}
+    {{ library.list_item(title_text="Amy Cutler", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Western Massachusetts 2018", size="m") }}
+    {{ library.list_item(title_text="Amy McGeary", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Central Massachusetts 2018", size="m") }}
+    {{ library.list_item(title_text="Amy Perkins - This is an Extra Long Label Wrapping on Multiple Lines", href="#", href_secondary="# ", image_src="https://picsum.photos/800/800", meta="Boston 2018", size="m") }}
+  {% endcall %}
+{% endset %}
+  <h1 class="hostile-sink-reset">Lists Sizes Sink</h1>
+
+  <div class="spirit-container">
+    <div class="spirit-container__inner spirit-container__inner--large">
+
+        <h2 class="hostile-sink-reset">12 col ( col-md-12 )</h2>
+        <h3 class="hostile-sink-reset">List Extra Large (Default)</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Large</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12">
+            {{ sample_list_large | safe }}
+          </div>
+        </div>
+        <h3 class="hostile-sink-reset">List Medium</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12">
+            {{ sample_list_medium | safe }}
+          </div>
+        </div>
+
+        <h2 class="hostile-sink-reset">6 col ( col-md-6 )</h2>
+        <h3 class="hostile-sink-reset">List Extra Large (Default)</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-6">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Large</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-6">
+            {{ sample_list_large | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Medium</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-6">
+            {{ sample_list_medium | safe }}
+          </div>
+        </div>
+
+        <h2 class="hostile-sink-reset">4 col ( col-md-4 )</h2>
+        <h3 class="hostile-sink-reset">List Extra Large (Default)</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-4">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Large</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-4">
+            {{ sample_list_large | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Medium</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-4">
+            {{ sample_list_medium | safe }}
+          </div>
+        </div>
+
+        <h2 class="hostile-sink-reset">3 col ( col-md-3 )</h2>
+        <h3 class="hostile-sink-reset">List Extra Large (Default)</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-3">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Large</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-3">
+            {{ sample_list_large | safe }}
+          </div>
+        </div>
+
+        <h3 class="hostile-sink-reset">List Medium</h3>
+
+        <div class="spirit-row">
+          <div class="spirit-col-12 spirit-col-md-3">
+            {{ sample_list_medium | safe }}
+          </div>
+        </div>
+
+    </div>
+  </div>
+{% endblock body %}

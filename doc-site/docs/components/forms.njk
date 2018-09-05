@@ -1,10 +1,101 @@
-{% extends 'templates/component.njk' %}
-{% block component_template_content %}
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
   {% filter markdown %}
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt aperiam nulla vero id exercitationem laborum sint quaerat fuga, esse repudiandae sit. Maxime vitae mollitia excepturi asperiores, libero, eius quibusdam inventore. Alias obcaecati reprehenderit mollitia quia, placeat officiis esse fugit tenetur veritatis id, fuga beatae eum quos, saepe? Aliquam, ratione, officiis.
+      # Forms
+
+      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+      ## Section 1
+      
+      Paragraph
+
+      ### Subheading A
+
+      Paragraph
   {% endfilter %}
 
-  <div style="width: 800px; background: red; height: 50px;"></div>
+  {{ esds_doc.code_example_pair( 
+    examples=[
+      {
+        example: library.button(text="Donate"),
+        label: "Primary on light"
+      },
+      {
+        example: library.button(text="Donate"),
+        label: "Primary on dark",
+        class: "spirit-context--brand"
+      }
+    ],
+    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
+  )
+  }}
+  {% filter markdown %}
 
-  {{ esds_doc.code_snippet(source="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident nemo illum, aliquid culpa neque voluptates itaque perspiciatis alias qui, tempore.") }}
-{% endblock %}
+      * Bullet
+      * Bullet
+      * Bullet
+
+      ### Subheading B
+
+      * Bullet
+      * Bullet
+      * Bullet
+
+      ## Section 2
+      
+      Paragraph
+  {% endfilter %}
+
+
+  {% filter markdown %}
+      ## Code Reference
+      
+      ### Color Tokens
+  {% endfilter %}   
+  {{ esds_doc.tint_stack(swatches=[
+    {
+      hex: spirit_tokens['text-color']['primary'],
+      label: 'Primary',
+      code_snippet: '$spirit-text-color-primary',
+      contrast_test_color: '#FFFFFF',
+      color_role: 'foreground',
+      show_border: true
+    },
+    {
+      hex: spirit_tokens['text-color']['on-dark'],
+      label: 'On Dark',
+      code_snippet: '$spirit-text-color-on-dark',
+      contrast_test_color: spirit_tokens.color.black,
+      color_role: 'foreground',
+      class: 'esds-doc-tint-stack__swatch--dark'
+    }
+  ]) }}
+
+  {% filter markdown %}
+      ### Class Reference
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+    data=[
+      {
+        class: '.spirit-button--secondary',
+        applies_to: '.spirit-button',
+        outcome: 'Applies secondary button style'
+      },
+      {
+        class: '.spirit-button--minimal',
+        applies_to: '.spirit-button',
+        outcome: 'Applies minimal button style'
+      },
+      {
+        class: '.spirit-button--toggle',
+        applies_to: '.spirit-button',
+        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
+      }
+    ]) }}
+
+{% endblock page_shell_content %}
