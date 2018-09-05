@@ -48,14 +48,39 @@
 
   {% call library.shell() %}
     {% call library.shell_header() %}
-        <h1 class="hostile-sink-reset">Page Shell Header</h1>
-        {{ header_nav_demo | safe }}
+        {% call library.container(padding_top="none", padding_bottom="none") %}
+            <div class="spirit-long-form-text">
+                <h1>
+                    Page Shell Header
+                </h1>
+            </div>
+            {{ header_nav_demo | safe }}
+        {% endcall %}
     {% endcall %}
     {% call library.shell_main() %}
-        <h1 class="hostile-sink-reset">Page Shell Main</h1>
+        {% call library.container(size="large", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h1>
+                    Page Shell Main Container One
+                </h1>
+            </div>
+        {% endcall %}
+        {% call library.container(size="large") %}
+            <div class="spirit-long-form-text">
+                <h2>
+                    Page Shell Main Container Two
+                </h2>
+            </div>
+        {% endcall %}
     {% endcall %}
     {% call library.shell_footer() %}
-        <h1 class="hostile-sink-reset">Page Shell Footer</h1>
+        {% call library.container(padding_top="xs", padding_bottom="xs", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h3>
+                    Page Shell Footer
+                </h3>
+            </div>
+        {% endcall %}
     {% endcall %}
   {% endcall %}
 
