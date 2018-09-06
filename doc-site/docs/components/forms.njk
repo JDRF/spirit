@@ -3,7 +3,7 @@
   {% filter markdown %}
       # Forms
 
-      <p class="spirit-long-form-text__subhead">Forms gather information from users via inputs, such as text area, radio button, and checkbox. Use <a href="#field-groups">field group</a> to wrap each input with helpful labels and indicators, laid out using <a href="#form-grid">form grid</a>. Clearly communicate instructions via <a href="#microcopy">microcopy</a> and <a href="#validation-errors">validation errors</a>.</p>
+      <p class="spirit-long-form-text__subhead">Forms gather information from users via inputs, such as text area, radio button, and checkbox. Use <a href="#field-group">field group</a> to wrap each input with helpful labels and indicators, laid out using <a href="#form-grid">form grid</a>. Clearly communicate instructions via <a href="#microcopy">microcopy</a> and <a href="#validation-errors">validation errors</a>.</p>
   {% endfilter %}
 {% endblock %}
 
@@ -14,6 +14,7 @@
   {% endfilter %}
 
   {{ esds_doc.code_example_pair(
+    class='spirit-doc-site--forms-width-constraint',
     examples=[ 
       { 
         example: library.form_input(),
@@ -54,6 +55,7 @@
   {% endfilter %}
 
   {{ esds_doc.code_example_pair(
+    class='spirit-doc-site--forms-width-constraint',
     examples=[ 
       { 
         example: library.form_textarea(),
@@ -260,12 +262,12 @@
       
   {% endfilter %}
   {{ esds_doc.code_example_pair(
+    class='spirit-doc-site--forms-width-constraint',
     examples=[ 
       { 
         example: library.form_select(
           default_text='',
           default_value='',
-          class='spirit-doc-site--forms-width-constraint',
           options=[
               {
                   text: '',
@@ -768,8 +770,8 @@
   {% endfilter %}   
 
 <style>
-.spirit-doc-site--forms-width-constraint {
-  width: 85%;
+.spirit-doc-site--forms-width-constraint .esds-doc-html-example-list__item {
+  padding-right: 20%;
 }
 </style>
 {% endblock page_shell_content %}
