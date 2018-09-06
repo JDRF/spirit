@@ -1,5 +1,6 @@
 @import '../tokens/tokens';
 @import 'mixins/typography';
+@import 'mixins/accessibility';
 
 // variables
 $header-nav-demo-max-width: 320px;
@@ -19,11 +20,30 @@ $header-nav-demo-max-width: 320px;
   will-change: transform;
   z-index: 100;
 
-  &:target {
+  &:target,
+  .-js-spirit-primary-nav-active & {
     transform: translateX(0%);
   }
 }
 
 .header-nav-demo__ul {
   list-style: none;
+}
+
+.demo-nav-close {
+  background: $spirit-elevation-color-default;
+  display: none;
+
+  .demo-screen-reader-text {
+    @include spirit-accessibly-hidden;
+  }
+
+  .-js-spirit-primary-nav-active & {
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
 }

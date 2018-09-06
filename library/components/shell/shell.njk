@@ -2,9 +2,9 @@
         class=false,
         modifier=false
         ) %}
-      <div id="spirit-shell" class="spirit-shell{{' spirit-shell--' + modifier if modifier }}{{ ' ' + class if class}}">
-        <div id="spirit-shell__site-contain" class="spirit-shell__site-contain">
-          <div id="spirit-shell__site" class="spirit-shell__site">
+      <div class="spirit-shell{{' spirit-shell--' + modifier if modifier }}{{ ' ' + class if class}}">
+        <div class="spirit-shell__site-contain">
+          <div class="spirit-shell__site">
             {{ caller() }}
           </div>
         </div>
@@ -16,20 +16,17 @@
       modifier=false
     )
   %}
-    <header id="spirit-shell__header" class="spirit-shell__header{{ ' ' + class if class}}{{' spirit-shell__header--' + modifier if modifier }}">
+    <header class="spirit-shell__header{{ ' ' + class if class}}{{' spirit-shell__header--' + modifier if modifier }}">
       {{ caller() }}
     </header>
 {% endmacro %}
 
 {% macro shell_main(
       class=false,
-      modifier=false,
-      article_id="spirit-shell__article",
-      article_class=false,
-      article_modifier=false
+      modifier=false
     )
   %}
-    <main id="spirit-shell__main" class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
+    <main class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
       {{ caller() }}
     </main>
 {% endmacro %}
@@ -39,7 +36,7 @@
       modifier=false
     )
   %}
-    <footer id="spirit-shell__footer" class="spirit-shell__footer{{ ' ' + class if class}}{{' spirit-shell__footer--' + modifier if modifier }}">
+    <footer class="spirit-shell__footer{{ ' ' + class if class}}{{' spirit-shell__footer--' + modifier if modifier }}">
       {{ caller() }}
     </footer>
 {% endmacro %}

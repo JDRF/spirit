@@ -6,10 +6,11 @@
 
 {% block body %}
     {% set header_nav_demo %}
-      <a href="#header-nav-demo">Open Navigation</a>
+      <a class="header-nav-demo-trigger" href="#header-nav-demo">Open Navigation</a>
+      <a class="header-nav-demo-trigger demo-nav-close" href="#"><p class="demo-screen-reader-text">Close Navigation<p></a>
       <nav id="header-nav-demo" class="header-nav-demo">
         <div class="header-nav-demo__container">
-            <a href="#">Close Navigation</a>
+            <a class="header-nav-demo-trigger" href="#">Close Navigation</a>
             <ul class="header-nav-demo__ul">
                 <li class="header-nav-demo__li">
                     <a href="#" class="header-nav-demo__link">
@@ -44,6 +45,7 @@
             <ul>
         </div>
       </nav>
+
     {% endset %}
 
   {% call library.shell() %}
