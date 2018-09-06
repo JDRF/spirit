@@ -226,3 +226,264 @@ $spirit-space-generic-2-x-half: 18px;
     margin-top: $spirit-space-generic-2-x * -1;
   }
 }
+
+
+.spirit-long-form-text-2 {
+  @include spirit-typography-reset;
+  @include clearfix;
+
+  h1 {
+    @include spirit-h1;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-5-x;
+  }
+
+  h2 {
+    @include spirit-h2;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-5-x;
+  }
+
+  h3 {
+    @include spirit-h3;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-2-x;
+  }
+
+  h4 {
+    @include spirit-h4;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-2-x;
+  }
+
+  h5 {
+    @include spirit-h5;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-2-x;
+  }
+
+  h6 {
+    @include spirit-h6;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-2-x;
+  }
+
+  .spirit-subhead {
+    @include spirit-subhead;
+    margin-bottom: $spirit-space-generic-4-x;
+    margin-top: 0;
+    padding-top: $spirit-space-generic-2-x;
+  }
+
+  p,
+  .spirit-body-l {
+    @include spirit-body-text-l;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+  }
+
+  .spirit-body-m {
+    @include spirit-body-text-m;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+  }
+
+  small,
+  .spirit-body-s {
+    @include spirit-body-text-s;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+  }
+
+  a {
+    @include spirit-dark-parent-light-text;
+    color: $spirit-text-color-link;
+    font-weight: $spirit-font-weight-bold;
+    text-decoration: none;
+
+    &:focus {
+      outline: $spirit-border-width-input-focus solid $spirit-interactive-color-focus-soft;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ol,
+  ul {
+    @include spirit-typography-reset;
+    margin-bottom: $spirit-space-generic-2-x-half;
+    margin-top: 0;
+    padding: 0 0 0 36px;
+
+    ol,
+    ul {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: circle;
+
+      ul {
+        list-style-type: disc;
+
+        ul {
+          list-style-type: circle;
+
+          // sass-lint:disable nesting-depth
+          ul {
+            list-style-type: disc;
+
+            ul {
+              list-style-type: circle;
+            }
+          }
+          // sass-lint:enable nesting-depth
+        }
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  li {
+    @include spirit-typography-reset(
+      $font-size: $spirit-font-size-l
+    );
+    @include spirit-body-text-l;
+    @include spirit-dark-parent-light-text;
+    margin-top: 0;
+  }
+
+  blockquote {
+    @include spirit-h3;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: $spirit-space-generic-2-x;
+  }
+
+  @mixin float-item {
+    max-width: 50%;
+    width: 352px;
+  }
+
+  @mixin float-item-left {
+    float: left;
+    margin: $spirit-space-generic-3-x $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+  }
+
+  @mixin float-item-right {
+    float: right;
+    margin: $spirit-space-generic-3-x 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
+  }
+
+  .spirit-pull-quote-left,
+  .spirit-pull-quote-right {
+    @include float-item;
+  }
+
+  .spirit-pull-quote-left {
+    @include float-item-left;
+  }
+
+  .spirit-pull-quote-right {
+    @include float-item-right;
+  }
+
+  img {
+    display: block;
+    margin-bottom: $spirit-space-generic-4-x;
+    margin-top: $spirit-space-generic-2-x;
+    max-width: 100%;
+  }
+
+  .spirit-image-left,
+  .spirit-image-right {
+    @include float-item;
+  }
+
+  .spirit-image-left {
+    @include float-item-left;
+  }
+
+  .spirit-image-right {
+    @include float-item-right;
+  }
+
+  .spirit-image-left img,
+  .spirit-image-right img {
+    margin-top: 0;
+  }
+
+  .spirit-image-left .spirit-caption,
+  .spirit-image-right .spirit-caption {
+    margin-bottom: 0;
+  }
+
+  .spirit-embed-video {
+    height: 0;
+    margin-bottom: $spirit-space-generic-4-x;
+    margin-top: $spirit-space-generic-2-x;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+  }
+
+  .spirit-embed-video iframe,
+  .spirit-embed-video object,
+  .spirit-embed-video embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .spirit-caption {
+    @include spirit-body-text-s;
+    margin-bottom: $spirit-space-generic-4-x;
+    margin-top: $spirit-space-generic-2-x;
+  }
+
+  figure {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: $spirit-space-generic-2-x;
+  }
+
+  figure > .spirit-caption {
+    margin-top: $spirit-space-generic-2-x * -1;
+  }
+
+  h2 + h3,
+  h2 + h4,
+  h2 + h5,
+  h2 + h6, 
+
+  h3 + h4,
+  h3 + h5,
+  h3 + h6, 
+
+  h4 + h5,
+  h4 + h6,
+
+  h5 + h6,  {
+    padding-top: 0;
+  }
+}
+

@@ -1,0 +1,454 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <link rel="stylesheet" href="/styles/long-form-text-sink-page.css">
+    {% filter markdown(true, "hostile-sink-reset") %}
+        # Long Form Text Sink
+    {% endfilter %}
+    <div class="spirit-container">
+        <div class="spirit-container__inner spirit-container__inner--padding-top-xs spirit-container__inner--padding-bottom-xs" style="max-width: 1400px;">
+            <div class="spirit-long-form-text">
+                <h3>What changed in "revised" LFT?</h3>
+                <ol>
+                    <li>All LFT top margins set to 0 (removes the default spacing in the reset file)</li>
+                    <li>Set the intentional top spacing using padding, not margin (on headings, mostly)</li>
+                    <li>Any descending heading combination (e.g. h2 + h3) sets the top padding to zero. This works like margin collapse, but more predictably in a fixed set of scenarios.</li>
+                    <li>List items are now the same color as body text.</li>
+                </ol>
+                <p>As you can see in this side-by-side comparison, the changes are subtle.</p>
+            </div>
+        </div>
+        <div class="spirit-container__inner spirit-container__inner--padding-top-xs" style="max-width: 1400px;">
+
+            <div class="spirit-row">
+                <div class="spirit-col-lg-6">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Original
+                    {% endfilter %}
+                    <div class="spirit-long-form-text">
+
+                        <h1>
+                            You Can Help Turn Type One Into Type None
+                        </h1>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h2>
+                            You Can Help Turn Type One Into Type None
+                        </h2>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h3>
+                            You Can Help Turn Type One Into Type None
+                        </h3>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h4>
+                            You Can Help Turn Type One Into Type None
+                        </h4>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h5>
+                            You Can Help Turn Type One Into Type None
+                        </h5>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h6>
+                            You Can Help Turn Type One Into Type None
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        </h6>
+                        <h2>
+                            You Can Help Turn Type One Into Type None
+                        </h2>
+                        <h3>
+                            You Can Help Turn Type One Into Type None
+                        </h3>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+
+                        <h3>
+                            You Can Help Turn Type One Into Type None
+                        </h3>
+                        <h4>
+                            You Can Help Turn Type One Into Type None
+                        </h4>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+
+                        <h1>
+                            You Can Help Turn Type One Into Type None
+                        </h1>
+                        <p class="spirit-subhead">Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque est tempor nec.</p>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus. </p>
+
+                        <p class="spirit-body-m">Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. Phasellus nibh dui, facilisis at finibus vel, tincidunt id ante. Proin at eleifend ligula. Integer neque eros, mattis quis mauris pharetra, placerat laoreet nisi. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+                        <p class="spirit-body-s">You can use the <code>spirit-body-s</code> class. Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus. Quisque sit amet aliquet nulla. Fusce luctus purus gravida rutrum laoreet. Phasellus in ipsum nibh. Proin tellus lorem, convallis nec sodales id, feugiat non erat. Aenean viverra nisl quis dignissim fermentum. Aliquam porta augue bibendum arcu suscipit, ac porttitor arcu venenatis. Fusce luctus, magna vitae ultrices convallis, nunc leo aliquam orci, ac viverra nisl neque pretium dolor.</p>
+
+                        <p class="spirit-body-s">Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. Phasellus nibh dui, facilisis at finibus vel, tincidunt id ante. Proin at eleifend ligula. Integer neque eros, mattis quis mauris pharetra, placerat laoreet nisi. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ul>
+
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+                            </li>
+                            <li>List item 3
+                                <ul>
+                                    <li>Nested List item 1</li>
+                                    <li>Nested List item 2</li>
+                                    <li>Nested List item 3
+                                        <ul>
+                                            <li>Nested List item 1</li>
+                                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                                Nested List item 2 is very long so that it wraps
+                                            </li>
+                                            <li>Nested List item 3</li>
+                                        </ul>
+                                    </li>
+                                    <li>Nested List item 4</li>
+                                </ul>
+                            </li>
+                            <li>List item 4</li>
+                        </ul>
+
+                        <p>Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. </p>
+                        <p>Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ul>
+                        <p>Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. </p>
+
+                        <ol>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ol>
+
+                        <ol>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+                            </li>
+                            <li>List item 3
+                                <ol>
+                                    <li>Nested List item 1</li>
+                                    <li>Nested List item 2</li>
+                                    <li>Nested List item 3
+                                        <ol>
+                                            <li>Nested List item 1</li>
+                                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                                Nested List item 2 is very long so that it wraps
+                                            </li>
+                                            <li>Nested List item 3</li>
+                                        </ol>
+                                    </li>
+                                    <li>Nested List item 4</li>
+                                </ol>
+                            </li>
+                            <li>List item 4</li>
+                        </ol>
+                        <p>Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. </p>
+                        <p>Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+                        <ol>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ol>
+                        <p>Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. </p>
+                    </div>
+
+                </div>
+                <div class="spirit-col-lg-6">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Revised
+                    {% endfilter %}
+                    <div class="spirit-long-form-text-2">
+                        <h1>
+                            You Can Help Turn Type One Into Type None
+                        </h1>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h2>
+                            You Can Help Turn Type One Into Type None
+                        </h2>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h3>
+                            You Can Help Turn Type One Into Type None
+                        </h3>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h4>
+                            You Can Help Turn Type One Into Type None
+                        </h4>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h5>
+                            You Can Help Turn Type One Into Type None
+                        </h5>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        <h6>
+                            You Can Help Turn Type One Into Type None
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+                        </h6>
+                        <h2>
+                            You Can Help Turn Type One Into Type None
+                        </h2>
+                        <h3>
+                            You Can Help Turn Type One Into Type None
+                        </h3>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+
+                        <h3>
+                            You Can Help Turn Type One Into Type None
+                        </h3>
+                        <h4>
+                            You Can Help Turn Type One Into Type None
+                        </h4>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+
+                        <h1>
+                            You Can Help Turn Type One Into Type None
+                        </h1>
+                        <p class="spirit-subhead">Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque est tempor nec.</p>
+                        <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus. </p>
+
+                        <p class="spirit-body-m">Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. Phasellus nibh dui, facilisis at finibus vel, tincidunt id ante. Proin at eleifend ligula. Integer neque eros, mattis quis mauris pharetra, placerat laoreet nisi. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+                        <p class="spirit-body-s">You can use the <code>spirit-body-s</code> class. Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus. Quisque sit amet aliquet nulla. Fusce luctus purus gravida rutrum laoreet. Phasellus in ipsum nibh. Proin tellus lorem, convallis nec sodales id, feugiat non erat. Aenean viverra nisl quis dignissim fermentum. Aliquam porta augue bibendum arcu suscipit, ac porttitor arcu venenatis. Fusce luctus, magna vitae ultrices convallis, nunc leo aliquam orci, ac viverra nisl neque pretium dolor.</p>
+
+                        <p class="spirit-body-s">Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. Phasellus nibh dui, facilisis at finibus vel, tincidunt id ante. Proin at eleifend ligula. Integer neque eros, mattis quis mauris pharetra, placerat laoreet nisi. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ul>
+
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+                            </li>
+                            <li>List item 3
+                                <ul>
+                                    <li>Nested List item 1</li>
+                                    <li>Nested List item 2</li>
+                                    <li>Nested List item 3
+                                        <ul>
+                                            <li>Nested List item 1</li>
+                                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                                Nested List item 2 is very long so that it wraps
+                                            </li>
+                                            <li>Nested List item 3</li>
+                                        </ul>
+                                    </li>
+                                    <li>Nested List item 4</li>
+                                </ul>
+                            </li>
+                            <li>List item 4</li>
+                        </ul>
+
+                        <p>Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. </p>
+                        <p>Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+                        <ul>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ul>
+                        <p>Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. </p>
+
+                        <ol>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ol>
+
+                        <ol>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+                            </li>
+                            <li>List item 3
+                                <ol>
+                                    <li>Nested List item 1</li>
+                                    <li>Nested List item 2</li>
+                                    <li>Nested List item 3
+                                        <ol>
+                                            <li>Nested List item 1</li>
+                                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                                Nested List item 2 is very long so that it wraps
+                                            </li>
+                                            <li>Nested List item 3</li>
+                                        </ol>
+                                    </li>
+                                    <li>Nested List item 4</li>
+                                </ol>
+                            </li>
+                            <li>List item 4</li>
+                        </ol>
+                        <p>Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. </p>
+                        <p>Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+                        <ol>
+                            <li>List item 1</li>
+                            <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+                            </li>
+                            <li>List item 3</li>
+                            <li>List item 4</li>
+                        </ol>
+                        <p>Vestibulum non risus in mi efficitur viverra. Proin nec eleifend eros. Vivamus sollicitudin tellus at dolor finibus, quis ullamcorper felis semper. </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="spirit-container__inner spirit-container__inner--padding-top-xs" style="max-width: 1400px;">
+
+            <div class="spirit-row">
+                <div class="spirit-col-lg-6">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Original
+                    {% endfilter %}
+                    <div class="spirit-long-form-text">
+                        <h1>Type 1 diabetes low blood sugar symptoms</h1>
+                        <p class="spirit-subhead">Type 1 diabetes in an autoimmune disease where a person’s pancreas doesn’t produce insulin—a hormone needed to convert food into energy. It affects children and adults, comes on suddenly, and it cannot be prevented or cured. Hypoglycemia, or low blood sugar, is a common and dangerous occurance with type 1 diabetes. If your blood sugar gets too low it may lead to insulin shock, which is life-threatening if not cared for. Low blood sugar can happen when your body has too little food—or glucose—or when it produces too much insulin.</p>
+                        <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+                        <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+                        <ul>
+                            <li>Sweating and shaking</li>
+                            <li>Blurry vision</li>
+                            <li>Poor coordination</li>
+                            <li>Dizziness or feeling lightheaded</li>
+                            <li>Difficulty concentrating</li>
+                            <li>Feeling anxious or irritable</li>
+                            <li>Hunger or nausea</li>
+                            <li>Erratic changes in behavior</li>
+                        </ul>
+                        <h2>What to do if you experience low blood glucose symptoms</h2>
+                        <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+                    </div>
+
+                </div>
+                <div class="spirit-col-lg-6">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Revised
+                    {% endfilter %}
+                    <div class="spirit-long-form-text-2">
+                        <h1>Type 1 diabetes low blood sugar symptoms</h1>
+                        <p class="spirit-subhead">Type 1 diabetes in an autoimmune disease where a person’s pancreas doesn’t produce insulin—a hormone needed to convert food into energy. It affects children and adults, comes on suddenly, and it cannot be prevented or cured. Hypoglycemia, or low blood sugar, is a common and dangerous occurance with type 1 diabetes. If your blood sugar gets too low it may lead to insulin shock, which is life-threatening if not cared for. Low blood sugar can happen when your body has too little food—or glucose—or when it produces too much insulin.</p>
+                        <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+                        <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+                        <ul>
+                            <li>Sweating and shaking</li>
+                            <li>Blurry vision</li>
+                            <li>Poor coordination</li>
+                            <li>Dizziness or feeling lightheaded</li>
+                            <li>Difficulty concentrating</li>
+                            <li>Feeling anxious or irritable</li>
+                            <li>Hunger or nausea</li>
+                            <li>Erratic changes in behavior</li>
+                        </ul>
+                        <h2>What to do if you experience low blood glucose symptoms</h2>
+                        <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="spirit-container__inner spirit-container__inner--padding-top-xs" style="max-width: 1400px;">
+
+            <div class="spirit-row">
+                <div class="spirit-col-lg-6">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Original
+                    {% endfilter %}
+                    <div class="spirit-long-form-text">
+                        <h2 id="sizes">Sizes</h2>
+                        <p>Scale buttons according to visual priority and available real estate. Text and icons scale with the overall button and are not independently configurable. </p>
+                        <p>The medium default size can be modified with <code>.spirit-button--extra-small</code>, <code>.spirit-button--small</code>, and <code>.spirit-button--large</code>. Icon only buttons are only available in small and default. </p>
+                        <h4 id="extra-small">Extra Small</h4>
+                        
+                    </div>
+                    <div class="spirit-left-sink-placeholder"></div>
+                    <div class="spirit-long-form-text">
+                        <h4 id="extra-small">Small</h4>
+                    </div>
+                    <div class="spirit-left-sink-placeholder"></div>
+                    <div class="spirit-long-form-text">
+                        <h2 id="guidelines">Guidelines</h2>
+                        <h3 id="use-when">Use When</h3>
+                        <ul>
+                        <li>To activate or trigger an action</li>
+                        <li>To initiate a task</li>
+                        <li>To elevate the visibility of a navigation link, particularly the ubiquitous “Learn More”</li>
+                        <li>To cancel or dismiss something</li>
+                        </ul>
+                        <h3 id="editorial">Editorial</h3>
+                    </div>
+                    <div class="spirit-left-sink-placeholder"></div>
+                    <div class="spirit-long-form-text">
+                        <h3 id="accessibility">Accessibility</h3>
+                        <ul>
+                        <li>Use the <code>aria-label</code> attribute on the SVG within an icon only button. See <a href="/visual-style/icons.html">icons</a> for additional guidance. </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spirit-col-lg-6">
+                    {% filter markdown(true, "hostile-sink-reset") %}
+                        ## Revised
+                    {% endfilter %}
+                    <div class="spirit-long-form-text-2">
+                        <h2 id="sizes">Sizes</h2>
+                        <p>Scale buttons according to visual priority and available real estate. Text and icons scale with the overall button and are not independently configurable. </p>
+                        <p>The medium default size can be modified with <code>.spirit-button--extra-small</code>, <code>.spirit-button--small</code>, and <code>.spirit-button--large</code>. Icon only buttons are only available in small and default. </p>
+                        <h4 id="extra-small">Extra Small</h4>
+                        
+                    </div>
+                    <div class="spirit-left-sink-placeholder"></div>
+                    <div class="spirit-long-form-text-2">
+                        <h4 id="extra-small">Small</h4>
+                    </div>
+                    <div class="spirit-left-sink-placeholder"></div>
+                    <div class="spirit-long-form-text-2">
+                        <h2 id="guidelines">Guidelines</h2>
+                        <h3 id="use-when">Use When</h3>
+                        <ul>
+                        <li>To activate or trigger an action</li>
+                        <li>To initiate a task</li>
+                        <li>To elevate the visibility of a navigation link, particularly the ubiquitous “Learn More”</li>
+                        <li>To cancel or dismiss something</li>
+                        </ul>
+                        <h3 id="editorial">Editorial</h3>
+                    </div>
+                    <div class="spirit-left-sink-placeholder"></div>
+                    <div class="spirit-long-form-text-2">
+                        <h3 id="accessibility">Accessibility</h3>
+                        <ul>
+                        <li>Use the <code>aria-label</code> attribute on the SVG within an icon only button. See <a href="/visual-style/icons.html">icons</a> for additional guidance. </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
