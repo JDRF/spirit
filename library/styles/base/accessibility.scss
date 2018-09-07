@@ -4,5 +4,5 @@
 
 .spirit-screen-reader-text--can-focus {
   // Includes styles for .screen-reader-text
-  @include spirit-accessibly-hidden(true);
+  @include spirit-accessibly-hidden($show-focus: true);
 }

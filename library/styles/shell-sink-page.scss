@@ -34,10 +34,6 @@ $header-nav-demo-max-width: 320px;
   background: $spirit-elevation-color-default;
   display: none;
 
-  .demo-screen-reader-text {
-    @include spirit-accessibly-hidden;
-  }
-
   .-js-spirit-primary-nav-active & {
     bottom: 0;
     display: block;
