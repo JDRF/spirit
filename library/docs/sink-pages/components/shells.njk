@@ -1,0 +1,89 @@
+{% extends "templates/sink.njk" %}
+{% block head_content_append %}
+  {{ super() }}
+  <link rel="stylesheet" href="/styles/shell-sink-page.css">
+{% endblock head_content_append %}
+
+{% block body %}
+    {% set header_nav_demo %}
+      <a class="header-nav-demo-trigger" href="#header-nav-demo">Open Navigation</a>
+      <a class="header-nav-demo-trigger demo-nav-close" href="#"><p class="demo-screen-reader-text">Close Navigation<p></a>
+      <nav id="header-nav-demo" class="header-nav-demo">
+        <div class="header-nav-demo__container">
+            <a class="header-nav-demo-trigger" href="#">Close Navigation</a>
+            <ul class="header-nav-demo__ul">
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link spirit-link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+                <li class="header-nav-demo__li">
+                    <a href="#" class="header-nav-demo__link">
+                        Nav Link
+                    </a>
+                </li>
+            <ul>
+        </div>
+      </nav>
+
+    {% endset %}
+
+  {% call library.shell() %}
+    {% call library.shell_header() %}
+        {% call library.container(padding_top="none", padding_bottom="none") %}
+            <div class="spirit-long-form-text">
+                <h1>
+                    Page Shell Header
+                </h1>
+            </div>
+            {{ header_nav_demo | safe }}
+        {% endcall %}
+    {% endcall %}
+    {% call library.shell_main() %}
+        {% call library.container(size="large", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h1>
+                    Page Shell Main Container One
+                </h1>
+            </div>
+        {% endcall %}
+        {% call library.container(size="large") %}
+            <div class="spirit-long-form-text">
+                <h2>
+                    Page Shell Main Container Two
+                </h2>
+            </div>
+        {% endcall %}
+    {% endcall %}
+    {% call library.shell_footer() %}
+        {% call library.container(padding_top="xs", padding_bottom="xs", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h3>
+                    Page Shell Footer
+                </h3>
+            </div>
+        {% endcall %}
+    {% endcall %}
+  {% endcall %}
+
+{% endblock body %}
