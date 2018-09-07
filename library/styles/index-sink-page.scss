@@ -1,0 +1,6 @@
+@import '../tokens/tokens';
+@import 'mixins/typography';
+
+body {
+  @include spirit-load-fonts;
+}
