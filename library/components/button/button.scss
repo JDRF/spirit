@@ -95,8 +95,8 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     }
   }
 
-  // Spirit Button on Dark
-  @include spirit-container-dark-parent-selectors {
+  // Spirit Button on Brand
+  .spirit-context--brand & {
     background-color: $spirit-interactive-color-on-dark;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button transparent;
     color: $spirit-interactive-color-text-primary;
@@ -561,8 +561,8 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-success;
   }
 
-  // Spirit Button Success On Dark
-  @include spirit-container-dark-parent-selectors {
+  // Spirit Button Success On Brand
+  .spirit-context--brand & {
     background-color: $spirit-feedback-color-foreground-success;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-feedback-color-foreground-success;
     color: $spirit-color-white;

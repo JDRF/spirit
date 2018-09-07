@@ -119,6 +119,7 @@
   @include spirit-box-sizing;
   @include spirit-typography-reset;
   @include spirit-card-small;
+  background-color: $spirit-color-white;
   border-radius: $spirit-border-radius-l;
   display: flex;
   flex-direction: column;

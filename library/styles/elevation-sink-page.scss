@@ -1,6 +1,6 @@
 @import '../tokens/tokens';
 @import 'mixins/elevation';
-@import 'mixins/typography.scss';
+@import 'mixins/typography';
 
 body {
   @include spirit-load-fonts;

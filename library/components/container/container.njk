@@ -50,7 +50,9 @@
   {% endif %}
   {% if bg %}
     <div class="spirit-container__wave-bg {{ ' spirit-container__wave-bg--' + bg }}">
-      {{ brush(name=bg) }}
+      <div class="spirit-container__wave-bg-inner">
+        {{ brush(name=bg) }}
+      </div>
     </div>
   {% endif %}
 {% endmacro %}

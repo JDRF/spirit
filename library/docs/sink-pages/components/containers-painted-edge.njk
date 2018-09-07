@@ -1,6 +1,6 @@
 {% extends "templates/sink.njk" %}
 {% block body %}
-    <link rel="stylesheet" href="/styles/containers-paint-sink-page.css">
+    <link rel="stylesheet" href="/styles/containers-sink-pages.css">
     {% set sample_demo_component %}
       <div class="container-sink-demo-component">
         <div class="spirit-long-form-text">
@@ -82,11 +82,6 @@
        {{ sample_longform_text_long | safe }}
   {% endcall %}  
 
-  <h2 class="hostile-sink-reset">Paint Top and Bottom - Full BG (black)</h2>
-  {% call library.container(background_color='black', painted_edge="both") %}
-      {{ sample_demo_component | safe }}
-  {% endcall %}
-
   <h2 class="hostile-sink-reset">Paint Top - Full BG</h2>
   {% call library.container(background_color='brand', painted_edge="top") %}
       {{ sample_longform_text | safe }}
@@ -111,33 +106,6 @@
   {% endcall %}
 
   {% call library.container(size="large", inner_background_color='brand', painted_edge="both") %}
-      {{ sample_demo_component | safe }}
-  {% endcall %}
-
-  <h2 class="hostile-sink-reset">Paint Top and Bottom - Large BG Inner (black)</h2>
-  {% call library.container(size="large", inner_background_color='black', painted_edge="both") %}
-      {{ sample_longform_text | safe }}
-  {% endcall %} 
-
-  {% call library.container(size="large", inner_background_color='black', painted_edge="both") %}
-      {{ sample_demo_component | safe }}
-  {% endcall %}
-
-  <h2 class="hostile-sink-reset">Paint Top - Large BG Inner (black)</h2>
-  {% call library.container(size="large", inner_background_color='black', painted_edge="top") %}
-      {{ sample_longform_text | safe }}
-  {% endcall %}
-
-  {% call library.container(size="large", inner_background_color='black', painted_edge="top") %}
-      {{ sample_demo_component | safe }}
-  {% endcall %}
-
-  <h2 class="hostile-sink-reset">Paint Bottom - Large BG Inner (black)</h2>
-  {% call library.container(size="large", inner_background_color='black', painted_edge="bottom", padding_top="none") %}
-      {{ sample_longform_text | safe }}
-  {% endcall %}
-
-  {% call library.container(size="large", inner_background_color='black', painted_edge="bottom", padding_top="none") %}
       {{ sample_demo_component | safe }}
   {% endcall %}
 
