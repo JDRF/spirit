@@ -26,7 +26,7 @@
       modifier=false
     )
   %}
-    <main class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
+    <main id="spirit-content" class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
       {{ caller() }}
     </main>
 {% endmacro %}
