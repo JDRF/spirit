@@ -23,3 +23,13 @@
 .spirit-shell__footer {
   margin-top: auto;
 }
+
+// Spirit Skip Link
+.spirit-skip-link {
+  &:focus {
+    position: absolute;
+    left: $spirit-space-inset-1-x;
+    top: $spirit-space-inset-1-x;
+    z-index: 100000; // Above All Things
+  }
+}

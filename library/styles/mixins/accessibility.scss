@@ -13,9 +13,9 @@ $spirit-screen-reader-text-line-height-xs: 1.1429;
   @if $show-focus == true {
     &:focus {
       clip: auto;
-      left: $spirit-space-inset-1-x;
-      top: $spirit-space-inset-1-x;
-      z-index: 100000; // Above All Things
+      left: auto;
+      position: static;
+      z-index: auto;
     }
   }
 }
