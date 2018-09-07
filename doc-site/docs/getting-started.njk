@@ -2,8 +2,6 @@
 {% block page_shell_content_intro %}
   {% filter markdown %}
       # Getting Started
-
-      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
   {% endfilter %}
 {% endblock %}
 
@@ -14,106 +12,174 @@
     Spirit is available via NPM and from a CDN. Installing via NPM gives you access to source scss files and design system tokens as scss variables. These source SCSS files are not available via the CDN.
     
     #### Via NPM
-    `npm install @jdrfhq/spirit --save`
+  {% endfilter %}
+      
+  {{ esds_doc.code_snippet(source='npm install @jdrfhq/spirit --save') }}
 
+  {% filter markdown %}
     #### Using CDN Assets
     CDN assets are served via an Amazon Cloudfront distribution and are available via the cdn.jdrf.design URL. All the links referenced in this guide contain a version number as part of the url. In order to upgrade to future releases of Spirit you will need to update any CDN urls accordingly.
 
     ##### Spirit Stylesheet
   {% endfilter %}
-    {{ esds_doc.code_snippet(source='<link href="https://jdrf.design/v/{{ latest_version}}/styles/spirit.min.css" rel="stylesheet"/>') }}
+
+  {{ esds_doc.code_snippet(source='<link href="https://jdrf.design/v/' + spirit_project_data.version + '/styles/spirit.min.css" rel="stylesheet"/>') }}
     
   {% filter markdown %}
-    Icon & Brush Sprites
+    ##### Icon & Brush Sprites
     Because the `<use>` element is unable to request assets from other domains, the svg sprites must be served locally on your product’s domain and cannot be referenced from the CDN
-    Fonts
+    
+    ##### Fonts
     If using the CDN stylesheet referenced above, fonts will automatically be pulled in. If you are compiling Spirit styles yourself using the source scss files available in the [npm package](/link/tbd) then you can pull in the fonts from the CDN using the following code:
-    ```
-    $spirit-font-path: "https://jdrf.design/v/{{ latest_version}}/fonts/";
+    
+  {% endfilter %}
+
+  {% set font_usage_example %}
+    $spirit-font-path: "https://jdrf.design/v/{{ spirit_project_data.version}}/fonts/";
     @import '/node_modules/@jdrf-hq/spirit/styles/base/fonts';
-    ```
-    Combining assets
+  {% endset %}
+  {{ esds_doc.code_snippet(source=font_usage_example, language="css") }}
+    
+  {% filter markdown %}
+    #### Combining assets
     You can utilize assets from both NPM and the CDN. For example you may want to reference the `spirit.css` stylesheet from the CDN and also include scss token variables in your product via an NPM install. You can mix and match assets from both sources as long as they are using the same version of Spirit.
 
-    Using CSS
+    ### Using CSS
     The easiest way to install the entire library of styles is to include the compiled Spirit stylesheet in your product:
+  {% endfilter %}
 
-    `<link rel="stylesheet" href="/path/to/spirit.css">` 
-
+  {{ esds_doc.code_snippet(source='<link rel="stylesheet" href="/path/to/spirit.css">', show_copy_button=false) }}
+    
+  {% filter markdown %}
     Or, using the CDN:
+  {% endfilter %}
 
-    `<link href="https://jdrf.design/v/{{ latest_version}}/styles/spirit.min.css" rel="stylesheet"/>`
+  {{ esds_doc.code_snippet(source='<link href="https://jdrf.design/v/' + spirit_project_data.version + '/styles/spirit.min.css" rel="stylesheet"/>') }}
 
-    Font Paths
+  {% filter markdown %}
+    #### Font Paths
     Spirit expects fonts to be located in a peer directory of the stylesheet:
     ```
-
-        ├── fonts
-        ├── styles
-            └── spirit.css
+    ├── fonts
+    └── styles
+        └── spirit.css
     ```
     Be sure the fonts are accessible in this manner or they will fail to load. If you use the CDN url the fonts will be pulled in automatically from the CDN.
 
 
-    Using SCSS
+    ### Using SCSS
     Use the source scss files from the NPM package if you want to use Spirit tokens and mixins within your own product to provide greater alignment with the Design System’s components. 
 
-    Importing SCSS
+    #### Importing SCSS
     You can `@import` individual Spirit mixins and token files as needed:
-    ```
+  {% endfilter %}
+
+  {% set scss_example %}
     /* your-product.scss */
     @import ‘node_modules/@jdrfhq/spirit/tokens/tokens’;
     @import ‘node_modules/@jdrfhq/spirit/styles/mixins/color’;
-    ```
+  {% endset %}
+  {{ esds_doc.code_snippet(source=scss_example, language="css") }}
+
+  {% filter markdown %}
      You can also `@import` individual Spirit components as needed, but at this time there is no dependency resolution when importing individual components, so you will need to use a bit of trial and error to determine which scss partials a particular component depends on.
 
-    Using Icons
+    ### Using Icons
     Spirit provides an SVG sprite containing all of the [icons](/visual-style/icons.html) in the design system. This sprite is located in the NPM package at:
 
     `node_modules/@jdrfhq/spirit/dist/spirit.svg`
 
     Place the sprite in the webroot of your product to use an absolute reference to the file and invoke a specific icon via the `<use>` tag within an SVG:
-    ```
+  {% endfilter %}
+
+  {% set svg_example %}
     <svg class="spirit-icon">
-      <use xlink:href="/your/path/to/spirit.svg#check">
+      <use xlink:href="/your/path/to/spirit.svg#check"/>
       <title>check</title>
     </svg>
-    ```
-    The icon sprite uses a hash syntax to locate the requested icon. Refer to the [icon documentation](/visual-styles/icons.html) for all of the icon names.
+  {% endset %}
+  {{ esds_doc.code_snippet(source=svg_example) }}
 
-    IE11 Support
+  {% filter markdown %}
+    The icon sprite uses a hash syntax to locate the requested icon. Refer to the [icon documentation](/visual-style/icons.html) for all of the icon names.
+
+    #### IE11 Support
     Spirit uses the [svg4everybody](https://jonathantneal.github.io/svg4everybody/) polyfill to provide IE11 compatibility.
 
-    Using Components
+    ### Using Components
     Refer to individual component pages, like [Button](/components/button.html) for detailed usage guidelines on each component. In general:
-    Use the code snippets provided in component documentation to ensure proper rendering of Spirit components in your product. Deviation from the DOM structure provided in the code snippet may cause the components to render improperly in your product.
-    When modifying components for usage within your product use the [BEM Methodology](http://getbem.com/naming/) for naming your HTML classes. For example:
-    `<button class="spirit-button your-product-cta-button">Sign Up</button>`
-    External Dependencies
-    CSS
+    * Use the code snippets provided in component documentation to ensure proper rendering of Spirit components in your product. Deviation from the DOM structure provided in the code snippet may cause the components to render improperly in your product.
+    * When modifying components for usage within your product use the [BEM Methodology](http://getbem.com/naming/) for naming your HTML classes. For example:
+    {% endfilter %}
+
+    {{ esds_doc.code_snippet(source='<button class="spirit-button your-product-cta-button">Sign Up</button>', show_copy_button=false) }}
+
+    {% filter markdown %}
+    ### External Dependencies
+    #### CSS
     When using the `spirit.css` stylesheet there are no additional dependencies or libraries required.
 
-    SCSS
+    #### SCSS
     A [SCSS](https://sass-lang.com) compiler is required to convert the source `.scss` files into a `.css` stylesheet.
-    Post Processing
+    
+    ##### Post Processing
     Spirit uses [AutoPrefixer](https://github.com/autoprefixer/autoprefixer.github.io) to keep vendor prefixes out of our source code. If you are compiling Spirit SCSS files directly you will need to add this tool into your build process to comply with Spirit’s browser requirements. Use the following AutoPrefixer config:
-    ```
-    {
-      browsers: ['last 2 versions'],
-      grid: true
-    }
-    ```
+    {% endfilter %}
 
-    JavaScript
-    [svg4everybody](https://jonathantneal.github.io/svg4everybody/) which provides IE 11 support for the Spirit icon sprite. Use version `2.1.9` or higher.
+    {% set autoprefixer_config %}
+      {
+        browsers: ['last 2 versions'],
+        grid: true
+      }
+    {% endset %}
+    {{ esds_doc.code_snippet(source=autoprefixer_config, language="js") }}
 
-    `spirit.js` adds scripting functionality to the Card Carousel, Vertical Navigation and other components as stated on individual component documentation pages.
-
-    `spirit.font-loader.js` improves loading performance of the Spirit webfont assets. See the [typography](/tbd/) documentation for details on how to boost font loading performance.
-
-    Some components, like [card](/link/tbd) use the `object-fit` css property to control image cropping and rendering. `object-fit` is not supported in IE11. If your product needs to support the `object-fit` css property you use an [object-fit polyfill](https://github.com/jonathantneal/fitie) to enable the feature.
+    {% filter markdown %}
+    #### JavaScript
+    * [svg4everybody](https://jonathantneal.github.io/svg4everybody/) which provides IE 11 support for the Spirit icon sprite. Use version `2.1.9` or higher.
+    * `spirit.js` adds scripting functionality to the Card Carousel, Vertical Navigation and other components as stated on individual component documentation pages.
+    * `spirit.font-loader.js` improves loading performance of the Spirit webfont assets. See the [typography](/visual-style/typography.html) documentation for details on how to boost font loading performance.
+    * Some components, like [Card](/components/card.html), use the `object-fit` css property to control image cropping and rendering. `object-fit` is not supported in IE11. If your product needs to support the `object-fit` css property you use an [object-fit polyfill](https://github.com/jonathantneal/fitie) to enable the feature.
 
     ## For Designers
+    ### Dependencies
+    * macOS
+    * [Sketch app](https://www.sketchapp.com/)
+    * **Font: Graphik Family**
+      * If you don’t already have one, purchase a Desktop [license](https://commercialtype.com/catalog/graphik/graphik) and add to the project invoice.
+      * After a license has been purchased, email Patrick McKowen at [pmckowen@jdrf.org](mailto:pmckowen@jdrf.org) to request a version of the font files that have been fixed to align correctly in Sketch.
+
+    ### Sketch Setup
+    #### Plugins
+    1. [Sketch Palettes](https://github.com/andrewfiorillo/sketch-palettes)
+      * Download the [Spirit Palette](https://drive.google.com/open?id=1mbjSJYXNjLRJWiJXlkiFMxR5Qw4Ba-dj) and then load using the plugin.
+    2. [Paddy](https://github.com/DWilliames/paddy-sketch-plugin) for buttons to resize automatically based on label length.
+    
+    #### Nudging Preferences
+    * Spirit uses an 8px grid. To make your life easier, go to Sketch > Preferences > Canvas > Nudging: Move objects 8px using Shift-Arrow keys.
+
+
+    #### Add Spirit UI Sketch Library
+    This Library allows use of Spirit symbols (buttons, cards, icons, etc) and styles (typography, shadows, etc) across your Sketch documents and have them update to always be in sync.
+    1. Go here to preview and install: [https://sketch.cloud/s/MMLdQ](https://sketch.cloud/s/MMLdQ) 
+    2. Click &ldquo;Add Library to Sketch&rdquo; button in upper right corner.
+    3. After confirming, Sketch > Preferences > Libraries will open automatically and Spirit will be added.
+    4. You will now find Spirit as an option in your Symbols, Text Styles, and Layer Styles.  Learn more about using a Sketch Library: [https://sketchapp.com/docs/libraries/](https://sketchapp.com/docs/libraries/) 
+
+    ### Download Spirit Marketing UI Kit
+    This file is in pretty early stages but still has some key information and resources, particularly on the grid and page layout: [https://sketch.cloud/s/pKx7r](https://sketch.cloud/s/pKx7r) 
+
+    ### Breaking from Spirit Symbols and Styles
+    **If you find yourself detaching from a Library symbol or style, that could be a signal that custom code will need to be written.**
+
+    Instead of &ldquo;detaching&rdquo;, use Symbol Overrides to keep the elements of your design linked to the Library. This helps your design keep parity with production code and stay in sync with the latest Library updates.
+
+    However, there are scenarios where it’s necessary to detach elements without requiring custom development:
+
+
+    * **Text wrapping.** For example the content for a card spans more or less lines than the card symbol, you’ll want to detach so you can adjust the vertical spacing.
+    * **Text alignment.** Spirit text styles are setup for Left alignment but center alignment is also acceptable.
+    Shadow and background colors. The elevation layer styles are setup with white backgrounds, so if you need to apply them to an image or container with another background color, you’ll need to detach.
   {% endfilter %}
 
 {% endblock page_shell_content %}
