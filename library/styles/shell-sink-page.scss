@@ -47,26 +47,3 @@ $header-nav-demo-max-width: 320px;
     top: 0;
   }
 }
-
-.screen-reader-text {
-  @include spirit-accessibly-hidden;
-
-  &:focus {
-    background-color: $spirit-color-grey-95;
-    border-radius: $spirit-border-radius-s;
-    box-shadow: $spirit-elevation-1 $spirit-elevation-color-default;
-    clip: auto;
-    color: $spirit-color-blue-100;
-    display: block;
-    font-size: $spirit-font-size-xs;
-    font-weight: $spirit-font-weight-semibold;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: $spirit-space-inset-squish-2-x;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000; // Above All Things
-  }
-}

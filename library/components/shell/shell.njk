@@ -5,6 +5,7 @@
       <div class="spirit-shell{{' spirit-shell--' + modifier if modifier }}{{ ' ' + class if class}}">
         <div class="spirit-shell__site-contain">
           <div class="spirit-shell__site">
+            <a class="spirit-skip-link spirit-screen-reader-text--can-focus" href="#spirit-shell-main">Skip to content</a>
             {{ caller() }}
           </div>
         </div>
@@ -26,7 +27,7 @@
       modifier=false
     )
   %}
-    <main id="spirit-content" class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
+    <main id="spirit-shell-main" class="spirit-shell__main{{ ' ' + class if class}}{{' spirit-shell__main--' + modifier if modifier }}">
       {{ caller() }}
     </main>
 {% endmacro %}

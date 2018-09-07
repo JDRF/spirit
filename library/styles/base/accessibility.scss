@@ -1,0 +1,8 @@
+.screen-reader-text {
+  @include spirit-accessibly-hidden;
+}
+
+.spirit-screen-reader-text--can-focus {
+  // Includes styles for .screen-reader-text
+  @include spirit-accessibly-hidden(true);
+}
