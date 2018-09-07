@@ -27,8 +27,8 @@
 // Spirit Skip Link
 .spirit-skip-link {
   &:focus {
-    position: absolute;
     left: $spirit-space-inset-1-x;
+    position: absolute;
     top: $spirit-space-inset-1-x;
     z-index: 100000; // Above All Things
   }
