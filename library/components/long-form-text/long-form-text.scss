@@ -1,7 +1,7 @@
 // Possible token
 $spirit-space-generic-2-x-half: 18px;
 
-.spirit-long-form-text {
+.spirit-long-form-text-classic {
   @include spirit-typography-reset;
   @include clearfix;
 
@@ -228,7 +228,7 @@ $spirit-space-generic-2-x-half: 18px;
 }
 
 
-.spirit-long-form-text-2 {
+.spirit-long-form-text {
   @include spirit-typography-reset;
   @include clearfix;
 
