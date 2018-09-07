@@ -18,8 +18,10 @@
 /// # Base - Default global styles
 @import 'base/fonts';
 @import 'base/typography';
+@import 'base/accessibility';
 
 /// # Components - Specific UI Components
+@import '../components/shell/shell';
 @import '../components/link/link';
 @import '../components/button/button';
 @import '../components/button_group/button_group';
