@@ -3179,6 +3179,77 @@ body {
   .spirit-context--brand .spirit-body-text-s {
     color: #ffffff; }
 
+.screen-reader-text {
+  clip: rect(0 0 0 0);
+  left: 0;
+  position: absolute;
+  z-index: -1; }
+
+.spirit-screen-reader-text--can-focus {
+  clip: rect(0 0 0 0);
+  left: 0;
+  position: absolute;
+  z-index: -1; }
+  .spirit-screen-reader-text--can-focus:focus {
+    clip: auto;
+    left: auto;
+    position: static;
+    z-index: auto; }
+
+.spirit-shell {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #00081A;
+  font-family: "Graphik Web", "Graphik Web Subset", Helvetica, Arial, sans-serif;
+  -webkit-font-feature-settings: 'liga', 'kern';
+          font-feature-settings: 'liga', 'kern';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-align: left;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  max-width: 100vw;
+  width: 100%; }
+  .spirit-shell, .spirit-shell:before, .spirit-shell:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .spirit-shell *,
+  .spirit-shell *:before,
+  .spirit-shell *:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+
+.spirit-shell__site-contain {
+  display: block;
+  max-width: 100vw;
+  overflow: hidden;
+  width: 100%; }
+
+.spirit-shell__site {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  max-width: 100%;
+  min-height: 100vh;
+  width: 100%; }
+
+.spirit-shell__footer {
+  margin-top: auto; }
+
+.spirit-skip-link:focus {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  z-index: 100000; }
+
 .spirit-link {
   background-color: transparent;
   color: #0055FF;
