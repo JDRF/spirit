@@ -894,6 +894,115 @@
 .esds-doc-reference-table tr:last-child .esds-doc-reference-table__cell {
   border-bottom-color: #AFB0B3; }
 
+.spirit-doc-release-history-detail, .spirit-doc-release-history-detail:before, .spirit-doc-release-history-detail:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.spirit-doc-release-history-detail *,
+.spirit-doc-release-history-detail *:before,
+.spirit-doc-release-history-detail *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.spirit-doc-release-history-detail h2,
+.spirit-doc-release-history-detail h3,
+.spirit-doc-release-history-detail h4 {
+  font-weight: 400;
+  margin: 0 0 16px; }
+
+.spirit-doc-release-history-detail h5,
+.spirit-doc-release-history-detail h6 {
+  margin: 0 0 16px; }
+
+.spirit-doc-release-history-detail .spirit-doc-release-history-detail__title {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #00081A;
+  font-family: "Graphik Web", "Graphik Web Subset", Helvetica, Arial, sans-serif;
+  -webkit-font-feature-settings: 'liga', 'kern';
+          font-feature-settings: 'liga', 'kern';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.333;
+  text-align: left;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  font-weight: 400;
+  margin: 0 auto 16px 0; }
+  .spirit-context--black .spirit-doc-release-history-detail .spirit-doc-release-history-detail__title,
+  .spirit-context--brand .spirit-doc-release-history-detail .spirit-doc-release-history-detail__title {
+    color: #ffffff; }
+  @media screen and (min-width: 1024px) {
+    .spirit-doc-release-history-detail .spirit-doc-release-history-detail__title {
+      font-size: 44px;
+      line-height: 1.272; } }
+
+.spirit-doc-release-history-detail__header {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  border-top: solid 1px #EDEFF2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 32px; }
+
+.spirit-doc-release-history-detail__date {
+  margin: 0 16px 0 0; }
+
+.spirit-doc-release-history-detail__doc-link {
+  background-color: transparent;
+  color: #0055FF;
+  text-decoration: none; }
+  .spirit-doc-release-history-detail__doc-link, .spirit-doc-release-history-detail__doc-link:before, .spirit-doc-release-history-detail__doc-link:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .spirit-doc-release-history-detail__doc-link *,
+  .spirit-doc-release-history-detail__doc-link *:before,
+  .spirit-doc-release-history-detail__doc-link *:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .spirit-doc-release-history-detail__doc-link:visited, .spirit-doc-release-history-detail__doc-link.spirit-link--visited {
+    color: #0055FF;
+    text-decoration: none; }
+  .spirit-doc-release-history-detail__doc-link:hover, .spirit-doc-release-history-detail__doc-link.spirit-link--hover {
+    color: #0055FF;
+    text-decoration: underline; }
+  .spirit-doc-release-history-detail__doc-link:focus, .spirit-doc-release-history-detail__doc-link:focus-within, .spirit-doc-release-history-detail__doc-link.spirit-link--focus {
+    outline: 2px solid #B3CCFF; }
+  .spirit-doc-release-history-detail__doc-link:active, .spirit-doc-release-history-detail__doc-link.spirit-link--active {
+    color: #0055FF;
+    text-decoration: underline; }
+
+.spirit-doc-release-history-detail__content-heading {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #00081A;
+  font-family: "Graphik Web", "Graphik Web Subset", Helvetica, Arial, sans-serif;
+  -webkit-font-feature-settings: 'liga', 'kern';
+          font-feature-settings: 'liga', 'kern';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-align: left;
+  text-indent: 0;
+  text-shadow: none;
+  text-transform: none;
+  font-weight: 400;
+  margin: 0 0 16px; }
+  .spirit-context--black .spirit-doc-release-history-detail__content-heading,
+  .spirit-context--brand .spirit-doc-release-history-detail__content-heading {
+    color: #ffffff; }
+  @media screen and (min-width: 1024px) {
+    .spirit-doc-release-history-detail__content-heading {
+      font-size: 24px;
+      line-height: 1.333; } }
+
 .spirit-doc-site-nav--active-link {
   color: #0055FF; }
 
@@ -1283,6 +1392,114 @@ td.es-contrast-grid__key-cell {
 .spirit-token-table__color-swatch--bordered {
   border: solid 1px #AFB0B3; }
 
+.spirit-doc-typography-swatch {
+  border: solid 1px #EDEFF2;
+  border-radius: 8px;
+  margin: 0 0 16px 0;
+  overflow: hidden; }
+  .spirit-doc-typography-swatch, .spirit-doc-typography-swatch:before, .spirit-doc-typography-swatch:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .spirit-doc-typography-swatch *,
+  .spirit-doc-typography-swatch *:before,
+  .spirit-doc-typography-swatch *:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+
+.spirit-doc-typography-swatch__sample-text {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 24px;
+  position: relative;
+  word-break: break-word; }
+  .spirit-doc-typography-swatch--space-highlighted .spirit-doc-typography-swatch__sample-text {
+    padding-bottom: 0;
+    padding-top: 0; }
+
+.spirit-doc-typography-swatch--space-highlighted {
+  background: #D9E5FF; }
+
+.spirit-doc-typography-swatch__highlight-space {
+  display: block;
+  position: absolute;
+  width: 100%; }
+
+.spirit-doc-typography-swatch__highlight-space--top {
+  background: #FFA6C4;
+  left: 0;
+  top: 0; }
+
+.spirit-doc-typography-swatch__highlight-space--bottom {
+  background: #B3CCFF;
+  bottom: 0;
+  left: 0; }
+
+.spirit-doc-typography-swatch__sample-text-secondary {
+  display: block;
+  margin-left: auto; }
+
+.spirit-doc-typography-swatch__metadata {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background: #EDEFF2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 24px; }
+
+.spirit-doc-typography-swatch__title-wrap {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%; }
+  .spirit-doc-typography-swatch--no-design-specs .spirit-doc-typography-swatch__title-wrap {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto; }
+
+.spirit-doc-typography-swatch__title {
+  background: #ffffff;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 4px; }
+
+.spirit-doc-typography-swatch__code-sample {
+  background: #EDEFF2;
+  font-family: "Andale Mono", Courier, monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 4px 2px;
+  background: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0;
+  text-align: center; }
+
+.spirit-doc-typography-swatch__design-specs-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  line-height: 1.5; }
+
+.spirit-doc-typography-swatch__design-specs {
+  width: 200px; }
+
 .spirit-doc-page-shell {
   display: -ms-grid;
   display: grid;
@@ -1487,5 +1704,6 @@ td.es-contrast-grid__key-cell {
   border: 1px solid #EDEFF2; }
 
 body {
+  font-family: "Graphik Web", "Graphik Web Subset", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0; }
