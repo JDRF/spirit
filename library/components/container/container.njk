@@ -3,11 +3,56 @@
         padding_top=false,
         padding_bottom=false,
         background_color=false,
-        inner_background_color=false
+        inner_background_color=false,
+        painted_edge=false,
+        wave_bg=false
         ) %}
+    {% if wave_bg %}
+      {% set background_color=false %}
+      {% set inner_background_color=false %}
+      {% set painted_edge=false %}
+    {% endif %}
     <div class="spirit-container{{' spirit-context--' + background_color if background_color}}">
-      <div class="spirit-container__inner{{ ' spirit-container__inner--' + size if size }} {{'spirit-container__inner--padding-top-' + padding_top if padding_top}} {{'spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}} {{'spirit-context--' + inner_background_color if inner_background_color}}">
-        {{ caller() }}
+      <div class="spirit-container__inner{{' spirit-container__inner--' + size if size }}{{' spirit-container__inner--padding-top-' + padding_top if padding_top}}{{' spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}}{{' spirit-container__inner--painted-edge-' + painted_edge if painted_edge}}{{' spirit-context--' + inner_background_color if inner_background_color}}">
+        {% if (painted_edge==='top' or painted_edge==='both') and (background_color or inner_background_color) %}
+          {{ container_brush_svg(top=true) }}
+        {% endif %}
+        {% if wave_bg %}
+           {{ container_brush_svg(bg=wave_bg) }}
+        {% endif %}
+          {{ caller() }}
+        {% if (painted_edge==='bottom' or painted_edge==='both') and (background_color or inner_background_color) %}
+          {{ container_brush_svg(bottom=true) }}
+        {% endif %}
       </div>
     </div>
+{% endmacro %}
+
+{% macro container_brush_svg(
+      top=false,
+      bottom=false,
+      bg=false
+    )
+  %}
+  {% if top %}
+    <div class="spirit-container__painted-edge-top">
+      <div class="spirit-container__painted-edge-top-inner">
+        {{ brush(name="painted-edge-top") }}
+      </div>
+    </div>
+  {% endif %}
+  {% if bottom %}
+    <div class="spirit-container__painted-edge-bottom">
+      <div class="spirit-container__painted-edge-bottom-inner">
+        {{ brush(name="painted-edge-bottom") }}
+      </div>
+    </div>
+  {% endif %}
+  {% if bg %}
+    <div class="spirit-container__wave-bg {{ ' spirit-container__wave-bg--' + bg }}">
+      <div class="spirit-container__wave-bg-inner">
+        {{ brush(name=bg) }}
+      </div>
+    </div>
+  {% endif %}
 {% endmacro %}
