@@ -144,7 +144,8 @@ $spirit-container-wave5-bg-width: 3000px;
 
   .spirit-brush {
     height: $spirit-container-painted-edge-svg-height;
-    left: 0;
+    left: 50%;
+    margin-left: -(#{$spirit-container-painted-edge-width * .5});
     position: absolute;
     width: $spirit-container-painted-edge-width;
   }
