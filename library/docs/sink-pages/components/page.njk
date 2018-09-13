@@ -218,27 +218,50 @@
         {% endcall %}
       {% endcall %}
       {% call library.container(size="large") %}
-        {% call library.form_fieldset() %}
-          {{ library.form_legend(text="Contact Info", hidden=true) }}
-          <div class="spirit-row">
-              <div class="spirit-col-md-6">
-                {% call library.form_field_group() %}
-                  {{ library.form_label(text="First Name", for="contact-info-first-name") }}
-                  {{ library.form_input(id="contact-info-first-name") }}
-                {% endcall %}
-              </div>
-              <div class="spirit-col-md-6">
-                {% call library.form_field_group() %}
-                  {{ library.form_label(text="Last Name", for="contact-info-last-name") }}
-                  {{ library.form_input(id="contact-info-last-name") }}
-                {% endcall %}
-              </div>
-          </div>
+        {% call library.form() %}
+            {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Contact Info", hidden=true) }}
+            <div class="spirit-row">
+                <div class="spirit-col-md-6">
+                    {% call library.form_field_group() %}
+                    {{ library.form_label(text="First Name", for="contact-info-first-name") }}
+                    {{ library.form_input(id="contact-info-first-name") }}
+                    {% endcall %}
+                </div>
+                <div class="spirit-col-md-6">
+                    {% call library.form_field_group() %}
+                    {{ library.form_label(text="Last Name", for="contact-info-last-name") }}
+                    {{ library.form_input(id="contact-info-last-name") }}
+                    {% endcall %}
+                </div>
+            </div>
 
-          {% call library.form_field_group() %}
-              {{ library.form_label(text="Email", for="contact-info-email") }}
-              {{ library.form_input(id="contact-info-email") }}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Email", for="contact-info-email") }}
+                {{ library.form_input(id="contact-info-email") }}
+            {% endcall %}
           {% endcall %}
+          {{ library.button(type="submit", text="Submit") }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(padding_bottom="none") %}
+          <h2 class="spirit-display-2">
+              Cards Carousel to 4up
+          </h2>
+      {% endcall %}
+      {% call library.container(wave_bg="wave3", padding_top="none") %}
+        {% call library.card_grid(carousel=true, card_count=8, class="spirit-card-grid--4-up") %}
+            {{ sample_cards | safe }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(padding_bottom="none") %}
+          <h2 class="spirit-display-2">
+              Cards List to 4up
+          </h2>
+      {% endcall %}
+      {% call library.container(padding_top="none") %}
+        {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
+            {{ sample_cards | safe }}
         {% endcall %}
       {% endcall %}
       {% call library.container(size="large", padding_bottom="none") %}
