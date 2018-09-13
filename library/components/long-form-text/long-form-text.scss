@@ -7,6 +7,11 @@
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
     padding-top: $spirit-space-generic-5-x;
+
+    &.spirit-lead-heading {
+      @include spirit-lead-heading;
+    }
+
   }
 
   h2 {
@@ -14,6 +19,11 @@
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
     padding-top: $spirit-space-generic-5-x;
+
+    &.spirit-lead-heading {
+      @include spirit-lead-heading;
+    }
+
   }
 
   h3 {
@@ -21,6 +31,11 @@
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
     padding-top: $spirit-space-generic-2-x;
+
+    &.spirit-lead-heading {
+      @include spirit-lead-heading;
+    }
+    
   }
 
   h4 {
