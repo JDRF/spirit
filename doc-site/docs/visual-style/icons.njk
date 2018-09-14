@@ -1,14 +1,131 @@
 {% extends 'templates/doc.njk' %}
 {% block page_shell_content_intro %}
   {% filter markdown %}
-      # Icons
+    <h1>Iconography</h1>
+    <p class="spirit-subhead">Icons punctuate the JDRF visual style either by reinforcing key concepts or as a visual shorthand for tertiary actions, such as social sharing.</p>
   {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
+  {% filter markdown %}
+    ### Icon Gallery
+  {% endfilter %}
+
   {% call esds_doc.icon_swatch_grid(shims=6) %}
     {% for icon in spirit_icons %}
       {{ esds_doc.icon_swatch(class="spirit-doc-icon-swatch", name=icon) }}
     {% endfor %}
   {% endcall %}
+
+  {% filter markdown %}
+    ### Using Icons in Code
+    Reference icons from the icon sprite file, `spirit.svg`, which loads and caches all Spirit icons in a single resource call. Use the following syntax:
+  {% endfilter %}
+  
+  {% set icon_markup %}
+    <svg aria-label="Made With Love" class="spirit-icon" aria-hidden="false">
+        <use xlink:href="/icons/spirit.svg#heart"></use>
+      </svg>
+  {% endset %}
+
+  {{ esds_doc.code_snippet(show_copy_button=false, source=icon_markup) }}
+
+  {% filter markdown %}
+    
+    See parameters for [color](#color) and [size](#size), below. See [Accessibility](#accessibility) guidelines.
+    
+    Within the library, we maintain individual svg files for each icon, as well as a matching set for designers in Sketch.
+
+    ### Color
+
+    The color palette for icons is intentionally limited. Icons generally follow the guidelines for text, with matching colors for interactive, reverse, and disabled.
+
+    * Use `$spirit-icon-color-blue` for directly interactive icons. Reverse to `$spirit-icon-color-on-dark` if the icon sits on JDRF blue or another dark color.
+    * Use `$spirit-icon-color-grey` secondary UI icons where the icon supplements a larger control.
+    * If an icon becomes disabled, use `$spirit-disabled-color-foreground`.
+  {% endfilter %}
+
+  {% filter markdown %}
+    #### Color Tokens
+  {% endfilter %}
+
+  {{ esds_doc.tint_stack(swatches=[
+    {
+      hex: spirit_tokens['icon-color']['blue'],
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
+      code_snippet: '$spirit-icon-color-blue',
+      color_role: 'foreground',
+      show_border: true,
+      accessibility_score: false
+    },
+    {
+      hex: spirit_tokens['icon-color']['grey'],
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
+      code_snippet: '$spirit-icon-color-grey',
+      color_role: 'foreground',
+      show_border: true,
+      accessibility_score: false
+    },
+    {
+      hex: spirit_tokens['text-color']['on-dark'],
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
+      code_snippet: '$spirit-text-color-on-dark',
+      color_role: 'foreground',
+      contrast_test_color: spirit_tokens['brand-color']['primary'],
+      label_color: spirit_tokens.color.white,
+      accessibility_score: false
+    },
+    {
+      hex: spirit_tokens['disabled-color']['foreground'],
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
+      code_snippet: '$spirit-disabled-color-foreground',
+      color_role: 'foreground',
+      show_border: true,
+      contrast_test_color: '#FFFFFF',
+      accessibility_score: false
+    }
+  ]) }}
+
+   {% filter markdown %}
+    ### Size
+
+    By default, scale icons within a component according to the standard sized below. Although we lack firm guidelines on sizing, follow these visual markers:
+
+    * Smaller elements with text, such as buttons or inputs, use smaller 16px or 20px icons.
+    * Spacious components, such as form feedback alerts, use larger 24px icons.
+    * Meaningful icons used on their own, particularly in the icon-only button, use the largest 32px icon.
+
+    Optionally, place icons inline where they match the size and color of the text. This can result in icons that do not conform to the standard sizes below, but close alignment with the adjacent text is acceptable. 
+  {% endfilter %}
+
+  {% filter markdown %}
+    #### Size Tokens
+  {% endfilter %}
+
+  {{ spirit_doc.token_table(token_node='size.icon') }}
+
+  {% filter markdown %}
+    ### Accessibility
+  {% endfilter %}
+
+  {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'label icons that lack a visible text label using `aria-label`. This is most common in icon buttons, where there is no textual cue to tell a screen reader user what the button does.',
+        img_src: '/images/iconography/Do@2x.png'
+      },
+      {
+        type: 'dont',
+        caption: 'use an `aria-label` for icons that already have a visible text label. Instead, use `aria-hidden=”true”` to hide them from screenreaders completely.',
+        img_src: '/images/iconography/Dont@2x.png'
+      }
+    ]) }}
+      {{ spirit_doc.do_dont(examples=[
+      {
+        type: 'do',
+        caption: 'apply `aria-hidden=”true”` to visual cues which are unnecessary for screenreader users, such as the down arrow in this select.',
+        img_src: '/images/iconography/Do-select@2x.png'
+      }
+    ]) }}
+      
 {% endblock page_shell_content %}
