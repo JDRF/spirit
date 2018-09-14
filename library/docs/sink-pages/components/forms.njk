@@ -19,6 +19,7 @@
   <div class="forms-sink-wrapper">
 
   {# Input #}
+    {{ library.form_input(mask=true, id="testing-mask", placeholder="MM/DD/YYYY") }}
     <h2 class="hostile-sink-reset">Input</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Required", required=true) }}

@@ -26,6 +26,7 @@ module.exports = {
     {
       name: "script-dependencies",
       sources: ["node_modules/svg4everybody/dist/svg4everybody.min.js",
+                "node_modules/vanilla-text-mask/dist/vanillaTextMask.js",
                 "scripts/typography.js"],
       destination: "_site/latest/scripts/dependencies"
     }

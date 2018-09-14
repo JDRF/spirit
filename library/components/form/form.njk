@@ -44,6 +44,7 @@
             describedby=false, 
             disabled=false, 
             id=false, 
+            mask=false,
             name=false, 
             placeholder=false, 
             type='text', 
@@ -76,6 +77,25 @@
             </div>
         {% endif %}
     </div>
+
+    {% if mask %}
+        {% set id = "testing-mask" %}
+        <script>
+        
+        var dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+        var phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+
+        // Assuming you have an input element in your HTML with the class .myInput
+        var myInput = document.querySelector('#testing-mask');
+        console.log(myInput);
+
+        var maskedInputController = vanillaTextMask.maskInput({
+            inputElement: myInput,
+            mask: dateMask
+        });
+
+        </script>
+    {% endif %}
 {% endmacro %}
 
 {% macro form_label(
