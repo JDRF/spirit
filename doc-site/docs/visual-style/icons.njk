@@ -19,7 +19,7 @@
 
   {% filter markdown %}
     ### Using Icons in Code
-    Reference icons from a layered sprite file, `spirit.svg`, which loads and caches all Spirit icons in a single resource call. Use the following syntax:
+    Reference icons from the icon sprite file, `spirit.svg`, which loads and caches all Spirit icons in a single resource call. Use the following syntax:
   {% endfilter %}
   
   {% set icon_markup %}
@@ -34,7 +34,7 @@
     
     See parameters for [color](#color) and [size](#size), below. See [Accessibility](#accessibility) guidelines.
     
-    Within the library, we maintain precompiled svg files for each layer of the sprite, as well as a matching set for designers in Sketch.
+    Within the library, we maintain individual svg files for each icon, as well as a matching set for designers in Sketch.
 
     ### Color
 
@@ -125,19 +125,6 @@
         type: 'do',
         caption: 'apply `aria-hidden=”true”` to visual cues which are unnecessary for screenreader users, such as the down arrow in this select.',
         img_src: '/images/iconography/Do-select@2x.png'
-      }
-    ]) }}
-
-  {% filter markdown %}
-    ### Class Reference
-  {% endfilter %}
-
-  {{ esds_doc.reference_table(column_widths=[25, 25, 50],
-    data=[
-      {
-        class: '.spirit-icon',
-        applies_to: '<svg>',
-        outcome: 'Applies secondary button style'
       }
     ]) }}
       
