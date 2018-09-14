@@ -1,10 +1,6 @@
 @import '../tokens/tokens';
 @import 'mixins/typography';
 
-body {
-  @include spirit-load-fonts;
-}
-
 .spirit-context--brand .hostile-sink-reset {
   h1,
   h2,

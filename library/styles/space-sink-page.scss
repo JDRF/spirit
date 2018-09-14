@@ -5,10 +5,6 @@
 $demo-border-color: #000000;
 $demo-padding-color: #00FF00;
 
-body {
-  @include spirit-load-fonts;
-}
-
 .space-sink-demos {
   display: flex;
   justify-content: flex-start;
