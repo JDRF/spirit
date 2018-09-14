@@ -52,25 +52,37 @@
   {{ esds_doc.tint_stack(swatches=[
     {
       hex: spirit_tokens['icon-color']['blue'],
-      label: 'Blue',
-      code_snippet: '$spirit-icon-color-blue'
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
+      code_snippet: '$spirit-icon-color-blue',
+      color_role: 'foreground',
+      show_border: true,
+      accessibility_score: false
     },
     {
       hex: spirit_tokens['icon-color']['grey'],
-      label: 'Grey-35',
-      code_snippet: '$spirit-icon-color-grey'
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
+      code_snippet: '$spirit-icon-color-grey',
+      color_role: 'foreground',
+      show_border: true,
+      accessibility_score: false
     },
     {
       hex: spirit_tokens['text-color']['on-dark'],
-      label: 'On Dark',
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
       code_snippet: '$spirit-text-color-on-dark',
-      color_role: 'foreground'
+      color_role: 'foreground',
+      contrast_test_color: spirit_tokens['brand-color']['primary'],
+      label_color: spirit_tokens.color.white,
+      accessibility_score: false
     },
     {
       hex: spirit_tokens['disabled-color']['foreground'],
-      label: 'Disabled',
+      label: library.icon(name="mail") + library.icon(name="heart") + library.icon(name="search"),
       code_snippet: '$spirit-disabled-color-foreground',
-      contrast_test_color: '#FFFFFF'
+      color_role: 'foreground',
+      show_border: true,
+      contrast_test_color: '#FFFFFF',
+      accessibility_score: false
     }
   ]) }}
 
