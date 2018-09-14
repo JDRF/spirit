@@ -68,7 +68,7 @@
   {% filter markdown %}
       ## Text
       ### Primary
-      Use black for the full range of standard typography, such as headings, body text, and labels.
+      Use black for the full range of prose headings, plus important component text.
   {% endfilter %}
 
   {{ esds_doc.tint_stack(swatches=[
@@ -76,14 +76,6 @@
       hex: spirit_tokens['text-color']['primary'],
       label: 'Primary',
       code_snippet: '$spirit-text-color-primary',
-      contrast_test_color: '#FFFFFF',
-      color_role: 'foreground',
-      show_border: true
-    },
-    {
-      hex: spirit_tokens['text-color']['secondary'],
-      label: 'Primary',
-      code_snippet: '$spirit-text-color-secondary',
       contrast_test_color: '#FFFFFF',
       color_role: 'foreground',
       show_border: true
@@ -100,7 +92,7 @@
 
   {% filter markdown %}
       ### Secondary
-      Use dark grey for text of secondary importance, such as microcopy or placeholder text. 
+      Use dark grey for body text, lists, and secondary component text, such as microcopy or placeholder text. 
   {% endfilter %}
 
   {{ esds_doc.tint_stack(swatches=[
