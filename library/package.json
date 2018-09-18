@@ -20,6 +20,7 @@
     "gulp-svg-sprite": "^1.4.0"
   },
   "dependencies": {
+    "inputmask": "^4.0.2",
     "svg4everybody": "^2.1.9",
     "vanilla-text-mask": "^5.1.1"
   }

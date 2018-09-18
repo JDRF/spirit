@@ -185,6 +185,14 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
   }
 }
 
+.spirit-form__input-password-toggle {
+  font-size: $spirit-font-size-s;
+  font-weight: $spirit-font-weight-bold;
+  position: absolute;
+  right: $spirit-space-generic-1-x;
+  top: $spirit-space-generic-1-x;
+}
+
 // <textarea>
 $spirit-textarea-background-color:    $spirit-form-element-background-color;
 $spirit-textarea-border:              $spirit-form-element-border;

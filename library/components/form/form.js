@@ -1,13 +1,25 @@
 class SpiritFormInputMasks {
     static enable() {
-      // Using the `text-mask` library
-      // See: https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#readme for details on how to create masks
-      const phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-      const dateMask = [/[0-1]/, /\d/, '/', /[0-3]/, /\d/, '/', /[1-2]/, /\d/, /\d/, /\d/];
+
+      // var im = new Inputmask("99-9999999");
+      // im.mask(selector);
+
+      // //or
+
+      // Inputmask({"mask": "(999) 999-9999", .... other options .....}).mask(selector);
+      // Inputmask("9-a{1,3}9{1,3}").mask(selector);
+      // Inputmask("9", { repeat: 10 }).mask(selector);
+
+      // Inputmask({ regex: "\\d*" }).mask(selector);
+      // Inputmask({ regex: String.raw`\d*` }).mask(selector);
+
+
 
       // Look for modifier classes for tel and date inputs that need masks
       const maskedPhoneInputs = Array.from(document.querySelectorAll('.spirit-form__input--tel-mask'));
       const maskedDateInputs = Array.from(document.querySelectorAll('.spirit-form__input--date-mask'));
+
+      Inputmask({mask: "mm/dd/yyyy"}).mask('.spirit-form__input--date-mask');
 
       maskedPhoneInputs.forEach((i) => {
         vanillaTextMask.maskInput({
@@ -18,11 +30,6 @@ class SpiritFormInputMasks {
       });
 
       maskedDateInputs.forEach((i) => {
-        vanillaTextMask.maskInput({
-          inputElement: i,
-          mask: dateMask,
-          keepCharPositions: true
-        });
       });
     }
 }

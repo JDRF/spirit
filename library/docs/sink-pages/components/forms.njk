@@ -19,7 +19,6 @@
   <div class="forms-sink-wrapper">
 
   {# Input #}
-    {{ library.form_input(type="date") }}
     <h2 class="hostile-sink-reset">Input</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Required", required=true) }}
@@ -823,6 +822,13 @@
     {% call library.form_field_group() %}
       {{ library.form_label(text="Home Phone", required=true) }}
       {{ library.form_input(type="tel") }}
+    {% endcall %}
+
+    
+    <h2 class="hostile-sink-reset">Password (w/toggle)</h2>
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Password", required=true) }}
+      {{ library.form_input(type="password", passwordToggle=true) }}
     {% endcall %}
 
 </div> {# closing div.forms-sink-wrapper #}

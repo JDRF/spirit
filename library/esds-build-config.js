@@ -26,7 +26,11 @@ module.exports = {
     {
       name: "script-dependencies",
       sources: ["node_modules/svg4everybody/dist/svg4everybody.min.js",
-                "node_modules/vanilla-text-mask/dist/vanillaTextMask.js",
+                "node_modules/inputmask/dist/inputmask/dependencyLibs/inputmask.dependencyLib.js",
+                "node_modules/inputmask/dist/inputmask/inputmask.js",
+                "node_modules/inputmask/dist/inputmask/inputmask.extensions.js",
+                "node_modules/inputmask/dist/inputmask/inputmask.numeric.extensions.js",
+                "node_modules/inputmask/dist/inputmask/inputmask.date.extensions.js"
                 "scripts/typography.js"],
       destination: "_site/latest/scripts/dependencies"
     }
