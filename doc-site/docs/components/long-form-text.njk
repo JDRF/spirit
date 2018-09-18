@@ -3,52 +3,252 @@
   {% filter markdown %}
       # Long Form Text
 
-      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
+      <p class="spirit-subhead">Use long form text for page body prose. </p>
   {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
   {% filter markdown %}
-      ## Section 1
-      
-      Paragraph
+      Long Form Text extends the base typography‘s size, weight, and color with spacing and specialized styles appropriate for body prose. In addition, it has styles for illustrations, blockquotes, and more. For text in components, such as Card or List, see Typography.
 
-      ### Subheading A
+      ## Usage
 
-      Paragraph
+      Wrap any sequence of headings, paragraphs, lists, and images in `.spirit-long-form-text`. Unlike other Spirit components which are encapsulated and namespaced to prevent conflicts, Long Form Text directly styles basic HTML elements, `h1`-`h6`, `p`, `ul`, `ol`, `img`, and so forth. 
+
+    {{ library.form_message(type="info", text="Avoid placing components inside a block of Long Form Text, since this can produce unpredictable results.") }}
+
   {% endfilter %}
+
+  {% set lft_example_for_docsite %}
+    <div class="spirit-long-form-text">
+      <h2 class="">Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h2 class="">What to do if you experience low blood glucose symptoms</h2>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+  {% set lft_example_clean %}
+    <div class="spirit-long-form-text">
+      <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h2>What to do if you experience low blood glucose symptoms</h2>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
 
   {{ esds_doc.code_example_pair( 
-    examples=[
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on light"
-      },
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-context--brand"
-      }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
-  )
-  }}
+      class="esds-doc-html-example-list--non-interactive",
+      examples=[ { example: lft_example_for_docsite } ],
+      code_snippet_source=lft_example_clean
+   ) }}
+
   {% filter markdown %}
 
-      * Bullet
-      * Bullet
-      * Bullet
+      ## Hierarchy
 
-      ### Subheading B
+      Establish visual hierarchy using appropriate typographic scale. 
 
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ## Section 2
-      
-      Paragraph
   {% endfilter %}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 1",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h1",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['5-x'],
+      code_sample=".long-form-text h1",
+      design_specs="margin: " + spirit_tokens.space.generic['5-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 2",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h2",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['5-x'],
+      code_sample=".long-form-text h2",
+      design_specs="margin: " + spirit_tokens.space.generic['5-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 3",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h3",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['3-x'],
+      code_sample=".long-form-text h3",
+      design_specs="margin: " + spirit_tokens.space.generic['3-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 4",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h4",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text h4",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 5",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h5",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text h5",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 6",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h6",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text h6",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Lead Paragraph",
+      sample_text="Whether you donate your time or dollars, life-changing breakthroughs in T1D treatments and therapies couldn’t happen without you.",
+      sample_text_class="spirit-subhead",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text .spirit-subhead",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['4-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Large Paragraph",
+      sample_text="Whether you donate your time or dollars, life-changing breakthroughs in T1D treatments and therapies couldn’t happen without you.",
+      sample_text_class="spirit-body-text-l",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      code_sample=".long-form-text p",
+      design_specs="margin: " + " 0 " + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Medium Paragraph",
+      sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas…",
+      sample_text_class="spirit-body-text-m",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      code_sample=".long-form-text p.spirit-body-text-l",
+      design_specs="margin: " + " 0 " + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Small Paragraph",
+      sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas…",
+      sample_text_class="spirit-body-text-s",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      code_sample=".long-form-text p.spirit-body-text-s",
+      design_specs="margin: " + " 0 " + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+
+  {% filter markdown %}
+
+      ## Spacing
+
+    In long form text, all elements have bottom spacing to create whitespace and establish relationships via relative proximity. In addition, headings have top space to create more white space between sections of text. 
+
+    When two headings are stacked, such as when an `<h3>` immediately follows an `<h2>`, the intervening top space is removed. This tightens the headings, reinforcing the hierarchical relationship. 
+
+  {% endfilter %}
+
+  <div class="">Whitespace revealed, showing how the &lt;h3&gt;’s top space is overridden to 0px.</div>
+  <div class="">Whitespace override preview</div>
+
+  {% filter markdown %}
+
+      ## Specialized Styles
+
+      ### List
+
+      Use ordered and unordered lists inside Long Form Text using raw HTML. 
+
+      #### Unordered List
+
+  {% endfilter %}
+
+  EXAMPLES
+
+  {% filter markdown %}
+
+      #### Ordered List
+
+  {% endfilter %}
+
+  EXAMPLES
+
+  {% filter markdown %}
+
+      ### Link
+
+      Use `<a>` links directly inside Long Form Text.
+
+  {% endfilter %}
+
+  EXAMPLES
+
+  {% filter markdown %}
+
+      ### Illustrations
+
+      Use photos and videos with or without captions directly inside Long Form Text. Position the illustration to fill the column or float right or left within flowing prose. 
+
+      #### Caption
+
+  {% endfilter %}
+
+  EXAMPLES
+
+  {% filter markdown %}
+
+      #### Float Left or Right
+
+  {% endfilter %}
+
+  EXAMPLES
+
+  {% filter markdown %}
+
+      #### Full Width
+
+  {% endfilter %}
+
+  EXAMPLES
+
+  {% filter markdown %}
+
+      ### Pull Quotes
+
+      Position pull quotes to float right or left within flowing prose.  
+
+      #### Pull Quote
+
+  {% endfilter %}
+
+  EXAMPLES
+
+
+
+
+
+
+
 
 
   {% filter markdown %}

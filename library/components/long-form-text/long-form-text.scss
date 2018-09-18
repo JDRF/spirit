@@ -20,6 +20,7 @@ $spirit-space-generic-2-x-half: 18px;
   h3 {
     @include spirit-h3;
     margin-bottom: $spirit-space-generic-2-x;
+    margin-top: $spirit-space-generic-3-x;
   }
 
   h4 {
