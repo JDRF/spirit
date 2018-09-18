@@ -254,3 +254,8 @@ $spirit-link-underline-height-animated: .125em;
     width: 100%;
   }
 }
+
+@mixin spirit-lead-heading {
+  margin-top: 0;
+  padding-top: 0;
+}
