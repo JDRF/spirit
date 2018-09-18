@@ -16,7 +16,7 @@
   -webkit-font-smoothing: antialiased;
   // sass-lint:enable no-vendor-prefixes
   color: $color;
-  font-family: $spirit-font-family-sans-serif;
+  font-family: $font-family;
   font-feature-settings: 'liga', 'kern';
   font-size: $font-size;
   font-style: $font-style;
@@ -27,18 +27,6 @@
   text-indent: $text-indent;
   text-shadow: $text-shadow;
   text-transform: $text-transform;
-}
-
-@mixin spirit-load-fonts() {
-  font-family: sans-serif;
-
-  .fonts-loaded-1 & {
-    font-family: 'Graphik Web Subset', sans-serif;
-  }
-
-  .fonts-loaded-2 & {
-    font-family: 'Graphik Web', sans-serif;
-  }
 }
 
 @mixin spirit-dark-parent-light-text {

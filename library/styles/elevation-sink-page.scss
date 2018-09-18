@@ -2,10 +2,6 @@
 @import 'mixins/elevation';
 @import 'mixins/typography';
 
-body {
-  @include spirit-load-fonts;
-}
-
 .elevation-example {
   height: 200px;
   transition: box-shadow $spirit-transition-timing-default;
