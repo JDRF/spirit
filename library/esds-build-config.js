@@ -30,8 +30,7 @@ module.exports = {
                 "node_modules/inputmask/dist/inputmask/inputmask.js",
                 "node_modules/inputmask/dist/inputmask/inputmask.extensions.js",
                 "node_modules/inputmask/dist/inputmask/inputmask.numeric.extensions.js",
-                "node_modules/inputmask/dist/inputmask/inputmask.date.extensions.js"
-                "scripts/typography.js"],
+                "node_modules/inputmask/dist/inputmask/inputmask.date.extensions.js"],
       destination: "_site/latest/scripts/dependencies"
     }
   ],
