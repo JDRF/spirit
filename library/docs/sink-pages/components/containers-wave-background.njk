@@ -1,0 +1,124 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    <link rel="stylesheet" href="/styles/containers-sink-pages.css">
+
+    {% set sample_demo_hero_split %}
+      <div class="container-sink-demo-hero-split">
+        <div class="container-sink-demo-hero-split__content spirit-context--black">
+            <h3 class="spirit-h3">Learn more about our role as funder and innovator leading research efforts across the globe.</h3>
+        <a href="#" class="spirit-button spirit-button--large-md">Explore The Science</a>
+        </div>
+        <div class="container-sink-demo-component__image-contain">
+            <div class="container-sink-demo-hero-split__image"></div>
+        </div>
+      </div>
+    {% endset %}
+
+    {% set sample_tiles_large %}
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile() }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
+        img_src='/images/components/tile/onewalk_baloons.jpg',
+        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
+    {% endset %}
+
+    {% set text_only_sample_cards %}
+      {{ library.card(
+        img_src=false) }}
+      {{ library.card(
+        img_src=false,
+        title_text="Blood Sugar",
+        link_text="Learn More",
+        body_text="Let’s start with hypoglycemia and look at blood sugar drop symptoms. Although symptoms may overlap&hellip;") }}
+      {{ library.card(
+        img_src=false,
+        title_text="High Blood Sugar",
+        link_text="Learn More",
+        body_text="With high blood sugar, you may also experience drowsiness, exhaustion, nausea or vomiting, confusion&hellip;") }}
+    {% endset %}
+
+  <h1 class="hostile-sink-reset">Containers Brushes</h1>
+
+  <h2 class="hostile-sink-reset">Brush Background - wave-3</h2>
+  {% call library.container(size="large", wave_bg="wave3", background_color="brand", paint="both") %}
+    {% call library.tile_grid() %}
+        {{ sample_tiles_large | safe }}
+        {{ sample_tiles_large | safe }}
+    {% endcall %}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background - wave-4</h2>
+  {% call library.container(size="large", wave_bg="wave4", background_color="brand", paint="both") %}
+    {% call library.card_grid() %}
+        {{ text_only_sample_cards | safe }}
+    {% endcall %}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background - wave-5</h2>
+  {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both") %}
+      {{ sample_demo_hero_split | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background - wave-5 - padding-top LG - padding-bottom SM</h2>
+  {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both", padding_top="lg", padding_bottom="s") %}
+      {{ sample_demo_hero_split | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background Large - wave-5 - padding-top LG - padding-bottom SM</h2>
+  {% call library.container(size="large", padding_top="lg", padding_bottom="s", background_fullbleed=false, wave_bg="wave5") %}
+    {{ sample_demo_hero_split | safe }}
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background - Lots of Text</h2>
+  {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both") %}
+      <div class="spirit-long-form-text">
+          <h2>
+              You Can Help Turn Type One Into Type None
+          </h2>
+          <h3>
+              You Can Help Turn Type One Into Type None
+          </h3>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background - Minimal of Text</h2>
+  {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both") %}
+      <div class="spirit-long-form-text">
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+  {% endcall %}
+
+  <h2 class="hostile-sink-reset">Brush Background - Minimal of Text - back to back</h2>
+
+  {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both") %}
+      <div class="spirit-long-form-text">
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+  {% endcall %}
+
+  {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both") %}
+      <div class="spirit-long-form-text">
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+  {% endcall %}
+
+    {% call library.container(size="large", wave_bg="wave5", background_color="brand", paint="both") %}
+      <div class="spirit-long-form-text">
+          <p>Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a href="#">at urna leo</a>.</p>
+      </div>
+  {% endcall %}
+
+{% endblock body %}

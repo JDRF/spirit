@@ -24,9 +24,10 @@ module.exports = {
       destination: "_site/latest/images"
     },
     {
-        name: "script-dependencies",
-        sources: ["node_modules/svg4everybody/dist/svg4everybody.min.js"],
-        destination: "_site/latest/scripts/dependencies"
+      name: "script-dependencies",
+      sources: ["node_modules/svg4everybody/dist/svg4everybody.min.js"],
+      destination: "_site/latest/scripts/dependencies"
     }
-  ]
+  ],
+  additionalWatchTasks: ['watch:brushes:generate-brushes-sprite', 'watch:styles:minify']
 };

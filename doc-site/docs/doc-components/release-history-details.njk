@@ -1,0 +1,56 @@
+{% extends "templates/base.njk" %}
+{% block body %}
+  {% filter markdown %}
+      # Release History Details Sink
+  {% endfilter %} 
+  {{ spirit_doc.release_history_detail() }}
+
+  {% set new %}
+    * Cards - Code and Sketch only (documentation pending)
+    * Containers - Code and Sketch only (documentation pending)
+    * Forms - Code and Sketch only (documentation pending)
+    * Feedback Messages - Code and Sketch only (documentation pending)
+    * Grids - Code and Sketch only (documentation pending)
+    * Links - Code and Sketch only (documentation pending)
+    * Lists - Code and Sketch only (documentation pending)
+    * Long Form Text - Code and Sketch only (documentation pending)
+    * Tiles - Code and Sketch only (documentation pending)
+    * Vertical Navigation - Code and Sketch only (documentation pending)
+  {% endset %}
+
+  {% set enhancements %}
+    ##### Doc Site
+    * Use an h5 to denote _Doc Site_ changes in one of these parent categories
+    * Added some stuff
+  {% endset %}
+
+  {% set fixes %}
+    * Fixed this thing
+    * That thing [link](http://jdrf.design)
+  {% endset %}
+
+  {% set deprecated %}
+    * Don't use this anymore
+    * Ever
+  {% endset %}
+
+  {% set additional_content %}
+    ##### Put whatever you want here
+    * Mix and match markdown
+
+    <ol>
+      <li>And HTML</li>
+    </ol>
+    ![random](http://placehold.it/200x200)
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(
+      new=new, 
+      version="1.0.1", 
+      date="09/14/2018",
+      doc_link="/v/1.0.1",
+      enhancements=enhancements,
+      fixes=fixes,
+      deprecated=deprecated,
+      additional_content=additional_content) }}
+{% endblock body %}

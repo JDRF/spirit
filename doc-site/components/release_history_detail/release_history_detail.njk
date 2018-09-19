@@ -1,0 +1,53 @@
+{% macro release_history_detail(
+        class=false,
+        date="8/22/2018",
+        doc_link=true,
+        version="1.0.0",
+        new=false,
+        enhancements=false,
+        fixes=false,
+        deprecated=false,
+        additional_content=false
+) %}
+  <div class="spirit-doc-release-history-detail">
+    <div class="spirit-doc-release-history-detail__header">
+      <h2 class="spirit-doc-release-history-detail__title">{{ version }}</h2>
+      <span class="spirit-doc-release-history-detail__date">Released {{ date }}</span>
+      {% if doc_link %}
+        {% if doc_link == true %}
+          {% set doc_link = "/v/" + version %}
+        {% endif %}
+        <a href="{{ doc_link }}" class="spirit-doc-release-history-detail__doc-link">View Docs</a>
+      {% endif %}
+    </div>
+    {% if new %}
+      <h4 class="spirit-doc-release-history-detail__content-heading">New</h4>
+      {% filter markdown %}
+          {{ new | safe }}
+      {% endfilter %}
+    {% endif %}
+    {% if enhancements %}
+      <h4 class="spirit-doc-release-history-detail__content-heading">Enhancements</h4>
+      {% filter markdown %}
+          {{ enhancements | safe }}
+      {% endfilter %}
+    {% endif %}
+    {% if fixes %}
+      <h4 class="spirit-doc-release-history-detail__content-heading">Fixes</h4>
+      {% filter markdown %}
+          {{ fixes | safe }}
+      {% endfilter %}
+    {% endif %}
+    {% if deprecated %}
+      <h4 class="spirit-doc-release-history-detail__content-heading">Deprecated</h4>
+      {% filter markdown %}
+          {{ deprecated | safe }}
+      {% endfilter %}
+    {% endif %}
+    {% if additional_content %}
+      {% filter markdown %}
+          {{ additional_content | safe }}
+      {% endfilter %}
+    {% endif %}
+  </div>
+{% endmacro %}

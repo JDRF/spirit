@@ -18,8 +18,10 @@
 /// # Base - Default global styles
 @import 'base/fonts';
 @import 'base/typography';
+@import 'base/accessibility';
 
 /// # Components - Specific UI Components
+@import '../components/shell/shell';
 @import '../components/link/link';
 @import '../components/button/button';
 @import '../components/button_group/button_group';
@@ -28,6 +30,7 @@
 @import '../components/tile/tile';
 @import '../components/form/form';
 @import '../components/icon/icon';
+@import '../components/brush/brush';
 @import '../components/vertical_navigation/vertical_navigation';
 @import '../components/long-form-text/long-form-text';
 @import '../components/list/list';

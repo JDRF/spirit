@@ -34,8 +34,11 @@
 {% if toggle %}
   {% set parent = true %}
 {% endif %}
+  {% if href %}
+    {% set href_attribute = 'href="' + href + '"' %}
+  {% endif %}
   <li class="spirit-vertical-nav__item{{ ' spirit-vertical-nav__item-parent' if toggle }}{{ ' ' + class if class }}{{ ' spirit-vertical-nav__item--' + size if size }}{{ ' spirit-vertical-nav__item--' + style if style }}{{ ' spirit-vertical-nav__item--toggle' if toggle }}">
-      <a class="spirit-vertical-nav__link{{ ' spirit-vertical-nav__link--' + size if size }}{{ ' spirit-vertical-nav__link--' + style if style }}{{' spirit-vertical-nav__link--expanded submenu-is-open' if expanded and toggle}}" {{ 'href=' + href if href }} {{ 'tabindex=0 role=button' if parent }} {{ 'target=' + target if target }}{{' aria-haspopup=true aria-expanded='  + expanded if toggle}}>
+      <a class="spirit-vertical-nav__link{{ ' spirit-vertical-nav__link--' + size if size }}{{ ' spirit-vertical-nav__link--' + style if style }}{{' spirit-vertical-nav__link--expanded submenu-is-open' if expanded and toggle}}" {{ href_attribute | safe }} {{ 'tabindex=0 role=button' if parent }} {{ 'target=' + target if target }}{{' aria-haspopup=true aria-expanded='  + expanded if toggle}}>
         {% if iconName %}
           {{ icon(name=iconName, decorative=true)}}
         {% endif %}
