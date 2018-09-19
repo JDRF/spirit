@@ -6,6 +6,28 @@
 {% endblock %}
 
 {% block page_shell_content %}
+  {# release_history_detail available sections:
+    new
+    enhancements
+    fixes
+    deprecated
+    additional_content
+  #}
+
+  {% set new %}
+    * **Grid** - Code and Sketch
+    * [Getting Started](/getting-started.html) Doc
+  {% endset %}
+
+  {% set enhancements %}
+    * [Icons](/visual-style/icons.html)
+    * **Typography** - simplified font loading
+    * **Long Form Text** - modified heading spacing
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.2", date="9/19/2018", new=new, enhancements=enhancements) }}
+
+
   {% set new %}
     * [Color](/visual-style/color.html) Tokens, Sketch, and documentation
     * [Icons](/visual-style/icons.html) Code, Sketch, and documentation
@@ -24,6 +46,5 @@
     * **Elevation** - Tokens
     * **Typography** - Tokens
   {% endset %}
-
   {{ spirit_doc.release_history_detail(version="1.0.0-alpha.1", date="8/29/2018", new=new) }}
 {% endblock page_shell_content %}
