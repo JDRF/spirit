@@ -57,7 +57,7 @@
   {% endset %}
 
   {{ esds_doc.code_example_pair( 
-      class="esds-doc-html-example-list--non-interactive",
+      class="esds-doc-html-example-list",
       examples=[ { example: lft_example_for_docsite } ],
       code_snippet_source=lft_example_clean
    ) }}
@@ -134,7 +134,7 @@
       design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['4-x'] + " 0;") }}
 
   {{ spirit_doc.typography_swatch(
-      title="Large Paragraph",
+      title="Large Paragraph (Default)",
       sample_text="Whether you donate your time or dollars, life-changing breakthroughs in T1D treatments and therapies couldn’t happen without you.",
       sample_text_class="spirit-body-text-l",
       highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
@@ -162,16 +162,20 @@
 
       ## Spacing
 
-    In long form text, all elements have bottom spacing to create whitespace and establish relationships via relative proximity. In addition, headings have top space to create more white space between sections of text. 
+      In long form text, all elements have bottom spacing to create whitespace and establish relationships via relative proximity. In addition, headings have top space to create more white space between sections of text. 
 
-    When two headings are stacked, such as when an `<h3>` immediately follows an `<h2>`, the intervening top space is removed. This tightens the headings, reinforcing the hierarchical relationship. 
+      When two headings are stacked, such as when an `<h3>` immediately follows an `<h2>`, the intervening top space is removed. This tightens the headings, reinforcing the hierarchical relationship. 
 
-  {% endfilter %}
-
-  <div class="">Whitespace revealed, showing how the &lt;h3&gt;’s top space is overridden to 0px.</div>
-  <div class="">Whitespace override preview</div>
-
-  {% filter markdown %}
+      <div class="spirit-row">
+        <div class="spirit-col">
+          <img src="/images/long-form-text/lft-overrides@2x.png" alt=""/>
+          <p>Whitespace revealed, showing how the &lt;h3&gt;’s top space is overridden to 0px.</p>
+        </div>
+        <div class="spirit-col">
+          <img src="/images/long-form-text/lft-overrides-example@2x.png" alt=""/>
+          <p>Whitespace override preview</p>
+        </div>
+      </div>
 
       ## Specialized Styles
 
@@ -183,7 +187,40 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_list %}
+    <div class="spirit-long-form-text">
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ul>
+                    <li>Nested List item 1</li>
+                    <li>Nested List item 2</li>
+                    <li>Nested List item 3
+                        <ul>
+                            <li>Nested List item 1</li>
+                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                Nested List item 2 is very long so that it wraps
+                            </li>
+                            <li>Nested List item 3</li>
+                        </ul>
+                    </li>
+                    <li>Nested List item 4</li>
+                </ul>
+            </li>
+            <li>List item 4</li>
+        </ul>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_list } ],
+      code_snippet_source=lft_example_list
+   ) }}
 
   {% filter markdown %}
 
@@ -191,7 +228,40 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_list_ol %}
+    <div class="spirit-long-form-text">
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ol>
+                    <li>Nested List item 1</li>
+                    <li>Nested List item 2</li>
+                    <li>Nested List item 3
+                        <ol>
+                            <li>Nested List item 1</li>
+                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                Nested List item 2 is very long so that it wraps
+                            </li>
+                            <li>Nested List item 3</li>
+                        </ol>
+                    </li>
+                    <li>Nested List item 4</li>
+                </ol>
+            </li>
+            <li>List item 4</li>
+        </ol>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_list_ol } ],
+      code_snippet_source=lft_example_list_ol
+   ) }}
 
   {% filter markdown %}
 
@@ -201,7 +271,18 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_link %}
+    <div class="spirit-long-form-text">
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to <a href="#">see a doctor</a> if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_link } ],
+      code_snippet_source=lft_example_link
+   ) }}
+
 
   {% filter markdown %}
 
@@ -213,7 +294,17 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_caption %}
+    <div class="spirit-long-form-text">
+      <figcaption class="spirit-caption">Transplantation of beta cells can be, literally, a life-saver</figcaption>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_caption } ],
+      code_snippet_source=lft_example_caption
+   ) }}
 
   {% filter markdown %}
 
@@ -221,7 +312,28 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_image_lr %}
+    <div class="spirit-long-form-text">
+      <figure class="spirit-image-left">
+          <img src="/images/long-form-text/TeadJDRFRunners.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">Team JDRF to Cure Diabetes</figcaption>
+      </figure>
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country. Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+    </div>
+    <div class="spirit-long-form-text">
+      <figure class="spirit-image-right">
+          <img src="/images/long-form-text/Ride_1066x546-734x376.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">JDRF Ride to Cure Diabetes</figcaption>
+      </figure>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. JDRF Ride isn’t just a bike ride: it’s an experience where hundreds of riders come together from all over the world to make new friendships, enjoy the unparalleled camaraderie of the Ride community and raise money to help end T1D. We want a cure and we won't stop until we make one a reality. Along the way, we will continue to support advances that make it safer and easier to live with this disease. By taking part in JDRF Ride to Cure Diabetes, you’ll help us get there faster.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_image_lr } ],
+      code_snippet_source=lft_example_image_lr
+   ) }}
 
   {% filter markdown %}
 
@@ -229,7 +341,22 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_image_full %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country.</p>
+      <figure class="spirit-image">
+          <img src="/images/long-form-text/JDRF-Kids-School-Fundraising-734x376.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">JDRF offers kids many ways to educate, inspire and motivate their peers</figcaption>
+      </figure>
+      <p>Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_image_full } ],
+      code_snippet_source=lft_example_image_full
+   ) }}
 
   {% filter markdown %}
 
@@ -241,7 +368,24 @@
 
   {% endfilter %}
 
-  EXAMPLES
+  {% set lft_example_blockquote %}
+    <div class="spirit-long-form-text">
+      <blockquote class="spirit-pull-quote-left">Nearly $2.5 billion in federal funding has gone into type
+          1 diabetes research since SDP
+          began.
+      </blockquote>
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country. Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+      <blockquote class="spirit-pull-quote-right">The JDRF Ride has raised more than $47 million for research to deliver life-changing therapies and, one day, a cure for type 1 diabetes (T1D).
+      </blockquote>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. JDRF Ride isn’t just a bike ride: it’s an experience where hundreds of riders come together from all over the world to make new friendships, enjoy the unparalleled camaraderie of the Ride community and raise money to help end T1D. We want a cure and we won't stop until we make one a reality. Along the way, we will continue to support advances that make it safer and easier to live with this disease. By taking part in JDRF Ride to Cure Diabetes, you’ll help us get there faster.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote } ],
+      code_snippet_source=lft_example_blockquote
+   ) }}
 
 
 
