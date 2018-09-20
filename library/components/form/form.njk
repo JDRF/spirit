@@ -45,7 +45,6 @@
             disabled=false, 
             id=false, 
             name=false, 
-            passwordToggle=false,
             placeholder=false,
             showMask=true,
             type='text', 
@@ -72,7 +71,7 @@
         {% set placeholder = '(___) ___-____' %}
     {% endif %}
 
-    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}{{ ' spirit-form__input--with-password-toggle' if password_toggle }}">
+    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
         <input 
         class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 
         type="{{ type }}"
@@ -87,9 +86,6 @@
             <div class="spirit-form__input-icon-wrap">
               {{ icon(name=validation_icon, class="spirit-form__input-icon") }}  
             </div>
-        {% endif %}
-        {% if passwordToggle %}
-            {{ link(text="Show", class="spirit-form__input-password-toggle") }}
         {% endif %}
     </div>
 {% endmacro %}
