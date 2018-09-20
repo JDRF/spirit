@@ -1,15 +1,18 @@
 @import '../tokens/tokens';
 @import 'mixins/typography';
 
-body {
-  @include spirit-load-fonts;
-}
-
 .spirit-context--brand .hostile-sink-reset {
   h1,
   h2,
   h3 {
     color: $spirit-color-white;
   }
+}
+
+.spirit-left-sink-placeholder {
+  background: $spirit-color-grey-95;
+  border-radius: 6px;
+  height: 100px;
+  margin: 0;
 }
 

@@ -29,6 +29,7 @@ $esds-doc-tint-stack-space-swatch-inset: $spirit-space-inset-3-x;
 .esds-doc-tint-stack__pill--hex,
 .esds-doc-tint-stack__pill--code-snippet {
   background: none;
+  color: inherit;
   text-align: left;
 
   .esds-doc-tint-stack__swatch--dark & {
