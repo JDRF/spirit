@@ -158,7 +158,7 @@
     @include spirit-h3;
     margin-left: 0;
     margin-right: 0;
-    padding-top: $spirit-space-generic-2-x;
+    margin-top: $spirit-space-generic-2-x;
   }
 
   @mixin float-item {
@@ -168,12 +168,12 @@
 
   @mixin float-item-left {
     float: left;
-    margin: $spirit-space-generic-3-x $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+    margin: $spirit-space-generic-2-x $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
   }
 
   @mixin float-item-right {
     float: right;
-    margin: $spirit-space-generic-3-x 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
+    margin: $spirit-space-generic-2-x 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
   }
 
   .spirit-pull-quote-left,
