@@ -1,0 +1,25 @@
+{% import 'node_modules/@jdrfhq/spirit/components/spirit.njk' as library with context %}
+<!doctype html>
+<html>
+    <head>
+        {% block head_title %}<title>Spirit Design System v{{ spirit_project_data.version }}{{ ' - ' + title if page_title }}</title>{% endblock %}
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block head_content_prepend %}{% endblock head_content_prepend %}
+        <link rel="stylesheet" href="/styles/spirit.min.css">
+        <link rel="stylesheet" href="/styles/page_sample.css">
+        <link rel="shortcut icon" href="">
+        {% block head_content_append %}{% endblock head_content_append %}
+    </head>
+    <body>
+        {% block body %}{% endblock body %}
+        <script src="/scripts/dependencies/svg4everybody.min.js"></script>
+        <script>
+            svg4everybody();
+        </script>
+        <script src="/scripts/dependencies/spirit.js"></script>
+        {% block closing_body_assets %}{% endblock closing_body_assets %}
+    </body>
+</html>

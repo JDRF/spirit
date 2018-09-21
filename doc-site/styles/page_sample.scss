@@ -1,0 +1,135 @@
+@import '../node_modules/@jdrfhq/spirit/tokens/tokens';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/accessibility';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/box-sizing';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/color';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/typography';
+@import 'shared/typography';
+
+
+// from /styles/containers-sink-pages.css in library
+
+// variables
+$spirit-container-painted-edge-width: 2000px; // from sketch
+$spirit-container-painted-edge-height: $spirit-space-generic-12-x;
+$spirit-container-painted-edge-height-l: $spirit-space-generic-24-x;
+
+.container-sink-demo-component,
+.container-sink-demo-hero-split {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .spirit-container__inner--painted-edge-both &,
+  .spirit-container__inner--painted-edge-bottom & {
+    margin-bottom: -$spirit-container-painted-edge-height;
+  }
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    align-items: center;
+    flex-flow: row nowrap;
+    margin-right: -$spirit-font-size-heading-level-1-normal;
+    width: calc(100% + #{$spirit-font-size-heading-level-1-normal});
+
+    .spirit-long-form-text,
+    .container-sink-demo-component__image-contain,
+    .container-sink-demo-hero-split__content {
+      margin-right: $spirit-font-size-heading-level-1-normal;
+      width: 50%;
+    }
+
+    .spirit-long-form-text {
+      margin-right: $spirit-font-size-heading-level-1-normal;
+      padding-bottom: $spirit-container-painted-edge-height;
+      padding-top: $spirit-container-painted-edge-height;
+      width: 50%;
+    }
+
+    .spirit-container__inner--painted-edge-both &,
+    .spirit-container__inner--painted-edge-top & {
+      margin-top: -$spirit-container-painted-edge-height;
+    }
+  }
+}
+
+.container-sink-demo-hero-split__content {
+  border-radius: $spirit-border-radius-l;
+  margin-bottom: $spirit-space-generic-3-x;
+  margin-top: $spirit-space-generic-4-x;
+  padding: $spirit-space-inset-3-x;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    margin: 0;
+    order: 1;
+    padding: $spirit-space-inset-5-x;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-xl) {
+    padding: $spirit-space-inset-8-x;
+  }
+}
+
+.container-sink-demo-component__image,
+.container-sink-demo-hero-split__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover ;
+  content: '';
+  display: block;
+  float: right;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.container-sink-demo-component__image {
+  background-image: url('/images/components/container/800x800.png');
+  padding-top: 75%;
+}
+
+.container-sink-demo-hero-split__image {
+  background-image: url('/images/components/container/father-son.png');
+  padding-top: 133.33%;
+}
+
+// from /styles/shell-sink-page.css in library
+// variables
+$header-nav-demo-max-width: 320px;
+
+.header-nav-demo {
+  @include spirit-typography-reset();
+  background: $spirit-color-white;
+  box-shadow: $spirit-elevation-1 $spirit-elevation-color-default;
+  height: 100vh;
+  left: 0;
+  max-width: $header-nav-demo-max-width;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform .3s ease-out, visibility 0s ease-out 0s;
+  width: 100%;
+  will-change: transform;
+  z-index: 100;
+
+  &:target,
+  .-js-spirit-primary-nav-active & {
+    transform: translateX(0%);
+  }
+}
+
+.header-nav-demo__ul {
+  list-style: none;
+}
+
+.demo-nav-close {
+  background: $spirit-elevation-color-default;
+  display: none;
+
+  .-js-spirit-primary-nav-active & {
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+}
+
+// from /styles/breakpoint-sink-page.css in library
