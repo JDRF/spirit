@@ -3,17 +3,15 @@
 @import '../card/card';
 $spirit-card-grid-max-width: 1100px;
 
-@mixin spirit-grid-card-size($size: 100%, $flush-right-item: null) {
+@mixin spirit-grid-card-size($size: 100%) {
 
-  @if not ($flush-right-item ) {
-    // Using half gutters ( margins ) so we don't have to use overflow: hidden on parent ( has padding of 24px ) 
-    // Especially relevant in ie11 - shows horizontal scrollbar if overflow exists
-    flex: 0 1 calc(#{$size} - #{$spirit-space-generic-4-x});
-    margin-left: $spirit-space-generic-2-x;
-    margin-right: $spirit-space-generic-2-x;
-    max-width: calc(#{$size} - #{$spirit-space-generic-4-x});
-    width: calc(#{$size} - #{$spirit-space-generic-4-x});
-  }
+  // Using half gutters ( margins ) so we don't have to use overflow: hidden on parent ( has padding of 24px ) 
+  // Especially relevant in ie11 - shows horizontal scrollbar if overflow exists
+  flex: 0 1 calc(#{$size} - #{$spirit-space-generic-4-x});
+  margin-left: $spirit-space-generic-2-x;
+  margin-right: $spirit-space-generic-2-x;
+  max-width: calc(#{$size} - #{$spirit-space-generic-4-x});
+  width: calc(#{$size} - #{$spirit-space-generic-4-x});
 }
 
 .spirit-card-grid {
