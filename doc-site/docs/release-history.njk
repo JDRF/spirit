@@ -14,6 +14,12 @@
     additional_content
   #}
 
+  {% set enhancements %}
+    * [Icon Set](/visual-style/icons.html)
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.3", date="9/19/2018", new=new, enhancements=enhancements) }}
+
   {% set new %}
     * **Grid** - Code and Sketch
     * [Getting Started](/getting-started.html) Doc
