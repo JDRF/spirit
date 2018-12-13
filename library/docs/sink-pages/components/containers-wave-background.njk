@@ -41,6 +41,14 @@
 
   <h1 class="hostile-sink-reset">Containers Brushes</h1>
 
+  <h2 class="hostile-sink-reset">Test padding resiliance - fix prior issue:</h2>
+
+  {% call library.container(size="large", wave_bg="wave4", padding_top="m", padding_bottom="m", background_color="brand", paint="both") %}
+    {% call library.card_grid() %}
+        {{ text_only_sample_cards | safe }}
+    {% endcall %}
+  {% endcall %}
+
   <h2 class="hostile-sink-reset">Brush Background - wave-3</h2>
   {% call library.container(size="large", wave_bg="wave3", background_color="brand", paint="both") %}
     {% call library.tile_grid() %}

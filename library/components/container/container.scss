@@ -410,9 +410,9 @@ $spirit-container-wave5-bg-width: 3000px;
   }
 
   .spirit-container__inner--padding-top-m & {
-    padding-top: $spirit-space-generic-6-x;
+    top: $spirit-space-generic-6-x;
     @media screen and (min-width: $spirit-container-breakpoint) {
-      padding-top: $spirit-space-generic-12-x;
+      top: $spirit-space-generic-12-x;
     }
   }
 
