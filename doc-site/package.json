@@ -12,7 +12,7 @@
     "esds-build": "^0.38.0",
     "esds-doc": "^0.19.0",
     "fs-extra": "^6.0.1",
-    "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
+    "gulp": "^4.0",
     "gulp-tap": "^1.0.1",
     "slash": "^2.0.0"
   },
