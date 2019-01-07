@@ -303,7 +303,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
     margin-top: $spirit-space-generic-2-x;
   }
 
-  figure > .spirit-caption,
+  figure .spirit-caption,
   figure figcaption {
     margin-bottom: 0;
     margin-top: $spirit-space-generic-1-x;
@@ -329,7 +329,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
 
   figure.spirit-image-center img,
   figure.spirit-image-center figcaption
-  figure.spirit-image-center > .spirit-caption {
+  figure.spirit-image-center .spirit-caption {
     margin: 0 auto;
   }
 
