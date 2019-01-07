@@ -1,24 +1,36 @@
+// Varabiles
+$spirit-long-form-text-padding-breakpoint: $spirit-breakpoint-m;
+
 .spirit-long-form-text {
   @include spirit-typography-reset;
   @include clearfix;
 
   h1 {
     @include spirit-h1;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-5-x;
+    padding-top: $spirit-space-generic-2-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-5-x;
+    }
 
     &.spirit-lead-heading {
       @include spirit-lead-heading;
     }
-
   }
 
   h2 {
     @include spirit-h2;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-5-x;
+    padding-top: $spirit-space-generic-2-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-5-x;
+    }
 
     &.spirit-lead-heading {
       @include spirit-lead-heading;
@@ -28,9 +40,14 @@
 
   h3 {
     @include spirit-h3;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-3-x;
+    }
 
     &.spirit-lead-heading {
       @include spirit-lead-heading;
@@ -40,23 +57,38 @@
 
   h4 {
     @include spirit-h4;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-2-x;
+    }
   }
 
   h5 {
     @include spirit-h5;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-2-x;
+    }
   }
 
   h6 {
     @include spirit-h6;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-2-x;
+    }
   }
 
   .spirit-subhead {
