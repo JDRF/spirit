@@ -118,7 +118,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
     margin-top: 0;
   }
 
-  a {
+  a:not(.spirit-button) {
     @include spirit-dark-parent-light-text;
     color: $spirit-text-color-link;
     font-weight: $spirit-font-weight-bold;

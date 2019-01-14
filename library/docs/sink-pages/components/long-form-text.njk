@@ -189,6 +189,22 @@
             </ul>
 
             {% filter markdown(true, "hostile-sink-reset") %}
+                #### Buttons
+            {% endfilter %}
+
+            <p>{{ library.button(text="Default Button") }}</p>
+            <p>{{ library.button(class="spirit-button--secondary", text="Secondary Button") }}</p>
+            <p>{{ library.button(class="spirit-button--minimal", text="Minimal Button") }}</p>
+
+            {% filter markdown(true, "hostile-sink-reset") %}
+                #### Buttons as links
+            {% endfilter %}
+
+            <p>{{ library.button(text="Default Button", href="#") }}</p>
+            <p>{{ library.button(class="spirit-button--secondary", text="Secondary Button", href="#") }}</p>
+            <p>{{ library.button(class="spirit-button--minimal", text="Minimal Button", href="#") }}</p>
+
+            {% filter markdown(true, "hostile-sink-reset") %}
                 ## Image
             {% endfilter %}
 
