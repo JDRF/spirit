@@ -94,15 +94,6 @@
       body_text="With high blood sugar, you may also experience drowsiness, exhaustion, nausea or vomiting, confusion&hellip;") }}
   {% endset %}
 
-  {% set sample_tiles_large %}
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile() }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-  {% endset %}
   {% set header_nav_demo %}
     <a class="header-nav-demo-trigger" href="#header-nav-demo">Open Navigation</a>
     <a class="header-nav-demo-trigger demo-nav-close" href="#"><p class="demo-screen-reader-text">Close Navigation<p></a>
@@ -191,10 +182,7 @@
           </div>
       {% endcall %}
       {% call library.container(size="large",  painted_edge="both", background_color="brand") %}
-        {% call library.tile_grid() %}
-            {{ sample_tiles_large | safe }}
-            {{ sample_tiles_large | safe }}
-        {% endcall %}
+        {{ text_only_sample_cards | safe }}
       {% endcall %}
       {% call library.container(size="large", wave_bg="wave4", background_color="brand") %}
         {% call library.card_grid(class="spirit-card-grid--3-up") %}
@@ -202,10 +190,7 @@
         {% endcall %}
       {% endcall %}
       {% call library.container(background_color="brand") %}
-        {% call library.tile_grid() %}
-            {{ sample_tiles_large | safe }}
-            {{ sample_tiles_large | safe }}
-        {% endcall %}
+        {{ text_only_sample_cards | safe }}
       {% endcall %}
       {% call library.container(wave_bg="wave3") %}
         {% call library.card_grid(class="spirit-card-grid--4-up") %}
