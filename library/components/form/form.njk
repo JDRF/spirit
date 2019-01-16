@@ -41,14 +41,14 @@
 
 {% macro form_input(
             class=false,
-            describedby=false, 
-            disabled=false, 
-            id=false, 
-            name=false, 
+            describedby=false,
+            disabled=false,
+            id=false,
+            name=false,
             placeholder=false,
-            showMask=true,
-            type='text', 
-            value=false, 
+            showMask=false,
+            type='text',
+            value=false,
             valid) %}
 
     {# Set a modifier class based on the valid argument #}
@@ -60,20 +60,25 @@
         {% set validation_icon = 'alert-circle' %}
     {% endif %}
 
-    {% if type == 'date' and showMask %}
-        {% set type = 'text' %} {# type has to be 'text' in order for the mask function to work #}
-        {% set maskClass = ' spirit-form__input--date-mask' %}
-        {% set placeholder = 'MM/DD/YYYY' %}
-    {% endif %}
-
     {% if type == 'tel' and showMask %}
-        {% set maskClass = ' spirit-form__input--tel-mask' %}
+        {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
         {% set placeholder = '(___) ___-____' %}
     {% endif %}
 
     {% if type == 'text' and showMask %}
-        {% set maskClass = ' spirit-form__input--tel-mask' %}
+        {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
         {% set placeholder = '(___) ___-____' %}
+    {% endif %}
+
+    {% if type == 'date' and showMask %}
+        {% set type = 'text' %} {# type has to be 'text' in order for the mask function to work #}
+        {% if not placeholder %}
+            {% set placeholder = 'MM/DD/YYYY' %}
+            {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date' %}
+        {% else %}
+            {% set placeholder = 'MM/YY' %}
+            {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date-mmyy' %}
+        {% endif %}
     {% endif %}
 
     <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
@@ -86,7 +91,7 @@
         {{ 'disabled' if disabled }} 
         {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
         {% if describedby %} aria-describedby="{{describedby}}" {% endif %}>
-        
+
         {% if validation_icon %}
             <div class="spirit-form__input-icon-wrap">
               {{ icon(name=validation_icon, class="spirit-form__input-icon") }}  

@@ -626,7 +626,7 @@
             <div class="spirit-col-sm-6 spirit-col-md-4">
               {% call library.form_field_group() %}
                   {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
-                  {{ library.form_input(id="payment-info-cc-expiration", placeholder="MM/YY") }}
+                  {{ library.form_input(id="payment-info-cc-expiration", type="date", placeholder="MM/YY", showMask=true) }}
               {% endcall %}
             </div>
             <div class="spirit-col-sm-6 spirit-col-md-4">
@@ -668,7 +668,7 @@
               <div class="spirit-col-sm-6 spirit-col-md-3">
                 {% call library.form_field_group() %}
                     {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
-                    {{ library.form_input(id="payment-info-cc-expiration", placeholder="MM/YY") }}
+                    {{ library.form_input(id="payment-info-cc-expiration", type="date", placeholder="MM/YY", showMask=true) }}
                 {% endcall %}
               </div>
               <div class="spirit-col-sm-6 spirit-col-md-3">
@@ -813,19 +813,25 @@
     <h2 class="hostile-sink-reset">Date (w/mask) - must be input[type="text"]</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Birthdate", required=true) }}
-      {{ library.form_input(type="date") }}
+      {{ library.form_input(type="date", showMask=true) }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">Date - MM/YY (w/mask) - must be input[type="text"]</h2>
+    {% call library.form_field_group() %}
+        {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
+        {{ library.form_input(id="payment-info-cc-expiration", type="date", placeholder="MM/YY", showMask=true) }}
     {% endcall %}
 
     <h2 class="hostile-sink-reset">Phone (w/mask) - input[type="phone"]</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Home Phone", required=true) }}
-      {{ library.form_input(type="tel") }}
+      {{ library.form_input(type="tel", showMask=true) }}
     {% endcall %}
 
     <h2 class="hostile-sink-reset">Phone (w/mask) - input[type="text"]</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Home Phone", required=true) }}
-      {{ library.form_input(type="text") }}
+      {{ library.form_input(type="text", showMask=true) }}
     {% endcall %}
 </div> {# closing div.forms-sink-wrapper #}
 {% endblock body %}
