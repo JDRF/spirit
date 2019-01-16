@@ -71,6 +71,11 @@
         {% set placeholder = '(___) ___-____' %}
     {% endif %}
 
+    {% if type == 'text' and showMask %}
+        {% set maskClass = ' spirit-form__input--tel-mask' %}
+        {% set placeholder = '(___) ___-____' %}
+    {% endif %}
+
     <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
         <input 
         class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 

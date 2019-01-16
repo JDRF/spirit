@@ -810,18 +810,22 @@
         {{ library.button(type="submit", text="Subscribe Now") }}
     {% endcall %}
 
-    
-    <h2 class="hostile-sink-reset">Date (w/mask)</h2>
+    <h2 class="hostile-sink-reset">Date (w/mask) - must be input[type="text"]</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Birthdate", required=true) }}
       {{ library.form_input(type="date") }}
     {% endcall %}
 
-    
-    <h2 class="hostile-sink-reset">Phone (w/mask)</h2>
+    <h2 class="hostile-sink-reset">Phone (w/mask) - input[type="phone"]</h2>
     {% call library.form_field_group() %}
       {{ library.form_label(text="Home Phone", required=true) }}
       {{ library.form_input(type="tel") }}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">Phone (w/mask) - input[type="text"]</h2>
+    {% call library.form_field_group() %}
+      {{ library.form_label(text="Home Phone", required=true) }}
+      {{ library.form_input(type="text") }}
     {% endcall %}
 </div> {# closing div.forms-sink-wrapper #}
 {% endblock body %}
