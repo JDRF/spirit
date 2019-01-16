@@ -143,123 +143,144 @@
     </label>
 
     {% call demo_tab(label="Carousel", id="grid-carousel") %}
+      
+      {% call library.container(padding_top="none", padding_bottom="none") %}
       <h2 class="hostile-sink-reset">Carousel at Narrow Viewport</h2>
-      {% call library.card_grid(carousel=true, card_count=7) %}
-        {{ sample_cards | safe }}
+        {% call library.card_grid(carousel=true, card_count=7) %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
-      <br>
-      <br>
     {% endcall %}
 
     {% call demo_tab(label="Carousel, Few Cards", id="grid-carousel-few") %}
-      <h2 class="hostile-sink-reset">Content Resilience, Carousel, few cards</h2>
-      {% call library.card_grid(carousel=true, card_count=3) %}
-        {{ library.card(
-          img_src='/images/components/card/bikers.png',
-          title_text="JDRF Ride to Cure Diabetes",
-          link_text="Find a Ride Near You",
-          body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
-        {{ library.card(
-          img_src='/images/components/card/runners.png',
-          title_text="Team JDRF to Cure Diabetes",
-          link_text="Find an Event Near You",
-          body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
-        {{ library.card(
-          img_src='/images/components/card/gala.png',
-          title_text="Gala",
-          link_text="Find a Gala Near You",
-          body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Content Resilience, Carousel, few cards</h2>
+        {% call library.card_grid(carousel=true, card_count=3) %}
+          {{ library.card(
+            img_src='/images/components/card/bikers.png',
+            title_text="JDRF Ride to Cure Diabetes",
+            link_text="Find a Ride Near You",
+            body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+          {{ library.card(
+            img_src='/images/components/card/runners.png',
+            title_text="Team JDRF to Cure Diabetes",
+            link_text="Find an Event Near You",
+            body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
+          {{ library.card(
+            img_src='/images/components/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+        {% endcall %}
       {% endcall %}
-      <br>
-      <br>
     {% endcall %}
 
     {% call demo_tab(label="Carousel, Too Many Cards", id="grid-carousel-too-many") %}
-      <h2 class="hostile-sink-reset">Content Resilience, Carousel, too many cards</h2>
-      {% call library.card_grid(carousel=true, card_count=14) %}
-        {{ sample_cards | safe }}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Content Resilience, Carousel, too many cards</h2>
+        {% call library.card_grid(carousel=true, card_count=14) %}
+          {{ sample_cards | safe }}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
-      <br>
-      <br>
     {% endcall %}
 
     {% call demo_tab(label="Carousel text only", id="grid-carousel-text-only") %}
-      <h2 class="hostile-sink-reset">Carousel, text only at Narrow Viewport</h2>
-      {% call library.card_grid(carousel=true, card_count=7) %}
-        {{ text_only_sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Carousel, text only at Narrow Viewport</h2>
+        {% call library.card_grid(carousel=true, card_count=7) %}
+          {{ text_only_sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
-      <br>
-      <br>
     {% endcall %}
 
     {% call demo_tab(label="3-up, medium cards", id="grid-3-up") %}
-      <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size Cards</h2>
-      {% call library.card_grid() %}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Default Behavior, Stack to 3 up, Medium Size Cards</h2>
+        {% call library.card_grid() %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="4-up, small cards", id="grid-4-up") %}
-      <h2 class="hostile-sink-reset">Stack to 4 up, Small Size Cards</h2>
-      {% call library.card_grid(class="spirit-card-grid--4-up") %}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Stack to 4 up, Small Size Cards</h2>
+        {% call library.card_grid(class="spirit-card-grid--4-up") %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="2-up, large cards", id="grid-2-up") %}
-      <h2 class="hostile-sink-reset">Stack to 2 up, Large Size Cards</h2>
-      {% call library.card_grid(class="spirit-card-grid--2-up") %}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Stack to 2 up, Large Size Cards</h2>
+        {% call library.card_grid(class="spirit-card-grid--2-up") %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="3-up, text-only", id="text-only-3-up") %}
-      <h2 class="hostile-sink-reset">Text Only, 3 up</h2>
-      {% call library.card_grid() %}
-        {{ text_only_sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Text Only, 3 up</h2>
+        {% call library.card_grid() %}
+          {{ text_only_sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="4-up, text-only", id="text-only-4-up") %}
-      <h2 class="hostile-sink-reset">Text Only, 4 up</h2>
-      {% call library.card_grid(class="spirit-card-grid--4-up") %}
-        {{ text_only_sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Text Only, 4 up</h2>
+        {% call library.card_grid(class="spirit-card-grid--4-up") %}
+          {{ text_only_sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="2-up, text-only", id="text-only-2-up") %}
-      <h2 class="hostile-sink-reset">Text Only, 2 up</h2>
-      {% call library.card_grid(class="spirit-card-grid--2-up") %}
-        {{ text_only_sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">Text Only, 2 up</h2>
+        {% call library.card_grid(class="spirit-card-grid--2-up") %}
+          {{ text_only_sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="List View", id="list-view") %}
-      <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
-      {% call library.card_grid(class="spirit-card-grid--list") %}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
+        {% call library.card_grid(class="spirit-card-grid--list") %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="List View, text-only", id="list-view-text-only") %}
-      <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
-      {% call library.card_grid(class="spirit-card-grid--list") %}
-        {{ text_only_sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
+        {% call library.card_grid(class="spirit-card-grid--list") %}
+          {{ text_only_sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="List View to 4-up", id="list-view-4-up") %}
-      <h2 class="hostile-sink-reset">List View to 4-up</h2>
-      {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">List View to 4-up</h2>
+        {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 
     {% call demo_tab(label="List View to 2-up", id="list-view-2-up") %}
-      <h2 class="hostile-sink-reset">List View to 2-up</h2>
-      {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--2-up") %}
-        {{ sample_cards | safe }}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h2 class="hostile-sink-reset">List View to 2-up</h2>
+        {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--2-up") %}
+          {{ sample_cards | safe }}
+        {% endcall %}
       {% endcall %}
     {% endcall %}
 

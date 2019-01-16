@@ -14,6 +14,19 @@
     additional_content
   #}
 
+  {% set fixes %}
+    * **Card Grid** - fix ie11 rendering of cards (xbrowser)
+    * **Container** - fix style bug on wave background padding
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.4", date="12/13/2018", new=new, fixes=fixes) }}
+
+  {% set enhancements %}
+    * [Icon Set](/visual-style/icons.html)
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.3", date="10/9/2018", new=new, enhancements=enhancements) }}
+
   {% set new %}
     * **Grid** - Code and Sketch
     * [Getting Started](/getting-started.html) Doc

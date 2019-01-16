@@ -1,13 +1,22 @@
 @import '../../tokens/tokens';
 @import '../../styles/mixins/box-sizing';
 @import '../card/card';
-
 $spirit-card-grid-max-width: 1100px;
+
+@mixin spirit-grid-card-size($size: 100%) {
+
+  // Using half gutters ( margins ) so we don't have to use overflow: hidden on parent ( has padding of 24px ) 
+  // Especially relevant in ie11 - shows horizontal scrollbar if overflow exists
+  flex: 0 1 calc(#{$size} - #{$spirit-space-generic-4-x});
+  margin-left: $spirit-space-generic-2-x;
+  margin-right: $spirit-space-generic-2-x;
+  max-width: calc(#{$size} - #{$spirit-space-generic-4-x});
+  width: calc(#{$size} - #{$spirit-space-generic-4-x});
+}
 
 .spirit-card-grid {
   @include spirit-box-sizing;
   margin: 0 auto;
-  max-width: $spirit-card-grid-max-width;
 
   .spirit-card {
     @include spirit-card-small; // Keep small card style until the large breakpoint
@@ -16,32 +25,33 @@ $spirit-card-grid-max-width: 1100px;
 
   @media screen and (min-width: 480px) {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
+    margin-left: -$spirit-space-generic-2-x;
+    margin-right: -$spirit-space-generic-2-x;
+    max-width: calc(#{$spirit-card-grid-max-width} + #{$spirit-space-generic-4-x});
+    width: calc(100% + #{$spirit-space-generic-4-x});
 
-    .spirit-card-grid__placeholder,
     .spirit-card {
-      flex: 1 1 40%;
-      margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      @include spirit-grid-card-size(50%);
+    }
 
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
+    .spirit-card-grid__placeholder {
+      display: none;
+    }
+
+    .spirit-container & {
+      max-width:  calc(100% + #{$spirit-space-generic-4-x});
     }
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
-    .spirit-card-grid__placeholder,
     .spirit-card {
-      flex: 1 1 30%;
+      @include spirit-grid-card-size(33.3333%);
+    }
 
-      &:nth-child(2n) {
-        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
-      }
-
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
+    .spirit-card-grid__placeholder {
+      display: none;
     }
   }
 
@@ -54,36 +64,26 @@ $spirit-card-grid-max-width: 1100px;
 
 .spirit-card-grid--4-up {
   @media screen and (min-width: $spirit-breakpoint-l) {
-    .spirit-card-grid__placeholder,
     .spirit-card {
       @include spirit-card-small; // Persist small card styles at all breakpoints within a 4-up grid
-      flex: 1 1 20%;
+      @include spirit-grid-card-size(25%);
+    }
 
-      &:nth-child(3n) {
-        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
-      }
-
-      &:nth-child(4n) {
-        margin-right: 0;
-      }
+    .spirit-card-grid__placeholder {
+      display: none;
     }
   }
 }
 
 .spirit-card-grid--2-up {
   @media screen and (min-width: $spirit-breakpoint-m) {
-    .spirit-card-grid__placeholder,
     .spirit-card {
       @include spirit-card-medium; // Switch to medium card since it's only 2 up
-      flex: 1 1 40%;
+      @include spirit-grid-card-size(50%);
+    }
 
-      &:nth-child(3n) {
-        margin: 0 $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
-      }
-
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
+    .spirit-card-grid__placeholder {
+      display: none;
     }
   }
 
@@ -91,7 +91,6 @@ $spirit-card-grid-max-width: 1100px;
     .spirit-card-grid__placeholder,
     .spirit-card {
       @include spirit-card-large; // Switch to large card since it's only 2 up
-      // flex: 1 1 40%;
     }
   }
 }
@@ -109,7 +108,7 @@ $spirit-card-grid-max-width: 1100px;
   @media screen and (max-width: 479px) {
     .spirit-card {
       @include spirit-card-list-item;
-      margin: $spirit-space-stack-2-x;   
+      margin: $spirit-space-stack-2-x;
     }
   }
 }
@@ -120,6 +119,17 @@ $spirit-card-grid-carousel-side-padding: $spirit-space-generic-2-x;
   @include spirit-box-sizing;
   max-width: $spirit-card-grid-max-width;
   width: 100%;
+
+  .spirit-container & {
+    max-width:  calc(100% + #{$spirit-space-generic-4-x});
+  }
+
+  @media screen and (max-width: 479px) {
+    // Make carousel flush left and right inside container
+    margin-left: -$spirit-space-generic-3-x;
+    margin-right: -$spirit-space-generic-3-x;
+    width: calc(100% + #{$spirit-space-generic-6-x});
+  }
 }
 
 $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar out of view
@@ -129,7 +139,7 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
   @media screen and (max-width: 479px) {
     -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes 
     display: flex;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
     margin-bottom: -($scrollbar-hiding-padding);
     overflow: hidden;
     overflow-x: scroll;
@@ -137,7 +147,7 @@ $scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar ou
     padding-left: $spirit-card-grid-carousel-side-padding;
     position: relative;
     scroll-padding: 0 6%;
-    scroll-snap-destination: 0% 50%; // Older spec implementation
+    scroll-snap-destination: 0 50%; // Older spec implementation
     scroll-snap-points-x: repeat(88%); // Older spec implementation
     scroll-snap-type: mandatory;
 

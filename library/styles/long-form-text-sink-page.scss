@@ -4,7 +4,9 @@
 .spirit-context--brand .hostile-sink-reset {
   h1,
   h2,
-  h3 {
+  h3,
+  p,
+  code {
     color: $spirit-color-white;
   }
 }
