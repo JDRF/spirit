@@ -73,10 +73,10 @@
     {% if type == 'date' and showMask %}
         {% set type = 'text' %} {# type has to be 'text' in order for the mask function to work #}
         {% if not placeholder %}
-            {% set placeholder = 'MM/DD/YYYY' %}
+            {% set placeholder = 'mm/dd/yyyy' %}
             {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date' %}
         {% else %}
-            {% set placeholder = 'MM/YY' %}
+            {% set placeholder = 'mm/yy' %}
             {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date-mmyy' %}
         {% endif %}
     {% endif %}
