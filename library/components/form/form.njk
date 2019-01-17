@@ -49,6 +49,7 @@
             showMask=false,
             type='text',
             value=false,
+            inputmode=false,
             valid) %}
 
     {# Set a modifier class based on the valid argument #}
@@ -66,12 +67,14 @@
     {% endif %}
 
     {% if type == 'text' and showMask %}
+        {% set inputmode = 'numeric' %}
         {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
         {% set placeholder = '(___) ___-____' %}
     {% endif %}
 
     {% if type == 'date' and showMask %}
         {% set type = 'text' %} {# type has to be 'text' in order for the mask function to work #}
+        {% set inputmode = 'numeric' %}
         {% if not placeholder %}
             {% set placeholder = 'mm/dd/yyyy' %}
             {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date' %}
@@ -85,6 +88,7 @@
         <input 
         class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 
         type="{{ type }}"
+        {% if 'numeric' == inputmode %} inputmode="numeric" pattern="[0-9]*" {% endif %}
         {% if id %} id="{{ id }}" {% endif %} 
         {% if name %} name="{{ name }}" {% endif %} 
         {% if value %} value="{{ value }}" {% endif %} 
