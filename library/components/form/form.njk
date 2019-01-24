@@ -50,8 +50,7 @@
             type='text',
             value=false,
             inputmode=false,
-            valid,
-            pattern=false) %}
+            valid) %}
 
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
@@ -79,11 +78,9 @@
         {% if not placeholder %}
             {% set placeholder = 'mm/dd/yyyy' %}
             {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date' %}
-            {% set pattern = '\d{2}/\d{2}/\d{4}' %}
         {% else %}
             {% set placeholder = 'mm/yy' %}
             {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date-mmyy' %}
-            {% set pattern = '\d{2}/\d{2}' %}
         {% endif %}
     {% endif %}
 
@@ -91,14 +88,13 @@
         <input 
         class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 
         type="{{ type }}"
-        {% if 'numeric' == inputmode %} inputmode="numeric" pattern="[0-9]*" {% endif %}
+        {% if 'numeric' == inputmode %} inputmode="numeric" {% endif %}
         {% if id %} id="{{ id }}" {% endif %} 
         {% if name %} name="{{ name }}" {% endif %} 
         {% if value %} value="{{ value }}" {% endif %} 
         {{ 'disabled' if disabled }} 
         {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
         {% if describedby %} aria-describedby="{{describedby}}" {% endif %}
-        {% if pattern %} pattern="{{pattern}}" {% endif %}
         >
 
         {% if validation_icon %}
