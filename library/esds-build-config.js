@@ -4,9 +4,9 @@ module.exports = {
   svgoConfig: {
     plugins: [{
       convertShapeToPath: false
-      }, {
-        convertPathData: false
-      }, {
+    }, {
+      convertPathData: false
+    }, {
       removeAttrs: {
         attrs: ['stroke', 'class']
       }
@@ -24,13 +24,18 @@ module.exports = {
       destination: "_site/latest/images"
     },
     {
+      name: "bundle-dependencies",
+      sources: ["scriptsforbundleonly/*.js"],
+      destination: "_site/latest/scripts/bundleonly"
+    },
+    {
       name: "script-dependencies",
       sources: ["node_modules/svg4everybody/dist/svg4everybody.min.js",
-                "node_modules/inputmask/dist/inputmask/dependencyLibs/inputmask.dependencyLib.js",
-                "node_modules/inputmask/dist/inputmask/inputmask.js",
-                "node_modules/inputmask/dist/inputmask/inputmask.extensions.js",
-                "node_modules/inputmask/dist/inputmask/inputmask.numeric.extensions.js",
-                "node_modules/inputmask/dist/inputmask/inputmask.date.extensions.js"],
+        "node_modules/inputmask/dist/inputmask/dependencyLibs/inputmask.dependencyLib.js",
+        "node_modules/inputmask/dist/inputmask/inputmask.js",
+        "node_modules/inputmask/dist/inputmask/inputmask.extensions.js",
+        "node_modules/inputmask/dist/inputmask/inputmask.numeric.extensions.js",
+        "node_modules/inputmask/dist/inputmask/inputmask.date.extensions.js"],
       destination: "_site/latest/scripts/dependencies"
     }
   ],
