@@ -25,7 +25,7 @@ module.exports = {
     },
     {
       name: "bundle-dependencies",
-      sources: ["scriptsforbundleonly/*.js"],
+      sources: ["scriptsbundleonly/*.js"],
       destination: "_site/latest/scripts/bundleonly"
     },
     {

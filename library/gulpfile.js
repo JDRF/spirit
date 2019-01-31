@@ -28,6 +28,7 @@ gulp.task('bundle-scripts', () =>
     '_site/latest/scripts/dependencies/inputmask.extensions.js',
     '_site/latest/scripts/dependencies/inputmask.numeric.extensions.js',
     '_site/latest/scripts/dependencies/inputmask.date.extensions.js',
+    '_site/latest/scripts/bundleonly/callsvg4everybody.js',
     '_site/latest/scripts/spirit.js'
   ])
     .pipe(concat('spirit.bundle.js'))
@@ -36,7 +37,6 @@ gulp.task('bundle-scripts', () =>
 
 gulp.task('minify-scripts', () =>
   gulp.src('_site/latest/scripts/*.js')
-    .pipe(uglify({ mangle: { reserved: ['svg4everybody'] } }))
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('_site/latest/scripts'))
 );
