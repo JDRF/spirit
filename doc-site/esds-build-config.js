@@ -37,7 +37,7 @@ module.exports = {
         {
             name: 'spirit-scripts',
             sources: [
-                'node_modules/@jdrfhq/spirit/dist/spirit.js'],
+                'node_modules/@jdrfhq/spirit/dist/*.js'],
             destination: '../docs/scripts/dependencies',
             watch: true
         },
@@ -83,21 +83,21 @@ module.exports = {
         browsers: ['last 2 versions', 'ie 11'],
         grid: true
     },
-    manageNunjucksEnv: function(env) {
+    manageNunjucksEnv: function (env) {
         // Adding some custom nunjucks filters for the doc site
-        env.addFilter('split', function(str, seperator) {
+        env.addFilter('split', function (str, seperator) {
             return str.split(seperator);
         });
 
-        env.addFilter('push', function(arr, value) {
+        env.addFilter('push', function (arr, value) {
             return arr.push(value);
         });
 
-        env.addFilter('isstring', function(obj) {
+        env.addFilter('isstring', function (obj) {
             return typeof obj === 'string';
         });
 
-        env.addFilter('isnumber', function(obj) {
+        env.addFilter('isnumber', function (obj) {
             return typeof obj === 'number';
         });
     }

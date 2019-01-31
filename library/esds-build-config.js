@@ -24,9 +24,9 @@ module.exports = {
       destination: "_site/latest/images"
     },
     {
-      name: "bundle-dependencies",
-      sources: ["scriptsbundleonly/*.js"],
-      destination: "_site/latest/scripts/bundleonly"
+      name: "script-scustom",
+      sources: ["scriptscustom/*.js"],
+      destination: "_site/latest/scripts/scriptscustom"
     },
     {
       name: "script-dependencies",
@@ -39,5 +39,5 @@ module.exports = {
       destination: "_site/latest/scripts/dependencies"
     }
   ],
-  additionalWatchTasks: ['watch:brushes:generate-brushes-sprite', 'watch:styles:minify']
+  additionalWatchTasks: ['watch:brushes:generate-brushes-sprite', 'watch:styles:minify', 'watch:scripts:minify']
 };

@@ -20,15 +20,23 @@ gulp.task('compile-script-to-es5', () =>
     .pipe(gulp.dest('_site/latest/scripts'))
 );
 
-gulp.task('bundle-scripts', () =>
+gulp.task('dependency-scripts', () =>
   gulp.src([
     '_site/latest/scripts/dependencies/svg4everybody.min.js',
     '_site/latest/scripts/dependencies/inputmask.dependencyLib.js',
     '_site/latest/scripts/dependencies/inputmask.js',
     '_site/latest/scripts/dependencies/inputmask.extensions.js',
     '_site/latest/scripts/dependencies/inputmask.numeric.extensions.js',
-    '_site/latest/scripts/dependencies/inputmask.date.extensions.js',
-    '_site/latest/scripts/bundleonly/callsvg4everybody.js',
+    '_site/latest/scripts/dependencies/inputmask.date.extensions.js'
+  ])
+    .pipe(concat('spirit.dependencies.js'))
+    .pipe(gulp.dest('_site/latest/scripts'))
+);
+
+gulp.task('bundle-scripts', () =>
+  gulp.src([
+    '_site/latest/scripts/spirit.dependencies.js',
+    '_site/latest/scripts/scriptscustom/index.js',
     '_site/latest/scripts/spirit.js'
   ])
     .pipe(concat('spirit.bundle.js'))
@@ -43,10 +51,11 @@ gulp.task('minify-scripts', () =>
 
 // Hook into an ESDS lifecycle point and execute the custom task
 gulp.task(
-  'esds-hook:post:scripts:build:jdrfhq-spirit',
+  'esds-hook:post:scripts:build:all',
   gulp.series(
     'clean-scripts',
     'compile-script-to-es5',
+    'dependency-scripts',
     'bundle-scripts',
     'minify-scripts'
   )
@@ -96,3 +105,4 @@ gulp.task('esds-hook:post:styles:build:all', gulp.series('minify-styles'));
 gulp.task('watch:styles:minify', () => {
   return gulp.watch(['_site/latest/styles/spirit.css'], gulp.parallel('minify-styles'));
 });
+
