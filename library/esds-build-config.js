@@ -39,5 +39,5 @@ module.exports = {
       destination: "_site/latest/scripts/dependencies"
     }
   ],
-  additionalWatchTasks: ['watch:brushes:generate-brushes-sprite', 'watch:styles:minify', 'watch:scripts:minify']
+  additionalWatchTasks: ['watch:brushes:generate-brushes-sprite', 'watch:styles:minify']
 };
