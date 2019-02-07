@@ -45,6 +45,7 @@ gulp.task('bundle-scripts', () =>
 
 gulp.task('minify-scripts', () =>
   gulp.src('_site/latest/scripts/*.js')
+    .pipe(uglify())
     .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest('_site/latest/scripts'))
 );
