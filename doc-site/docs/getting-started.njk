@@ -23,7 +23,7 @@
     ##### Spirit Stylesheet
   {% endfilter %}
 
-  {{ esds_doc.code_snippet(source='<link href="https://jdrf.design/v/' + spirit_project_data.version + '/styles/spirit.min.css" rel="stylesheet"/>') }}
+  {{ esds_doc.code_snippet(source='<link href="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/styles/spirit.min.css" rel="stylesheet"/>') }}
     
   {% filter markdown %}
     ##### Icon & Brush Sprites
@@ -35,7 +35,7 @@
   {% endfilter %}
 
   {% set font_usage_example %}
-    $spirit-font-path: "https://jdrf.design/v/{{ spirit_project_data.version}}/fonts/";
+    $spirit-font-path: "https://cdn.jdrf.design/v/{{ spirit_project_data.version}}/fonts/";
     @import '/node_modules/@jdrf-hq/spirit/styles/base/fonts';
   {% endset %}
   {{ esds_doc.code_snippet(source=font_usage_example, language="css") }}
@@ -54,7 +54,7 @@
     Or, using the CDN:
   {% endfilter %}
 
-  {{ esds_doc.code_snippet(source='<link href="https://jdrf.design/v/' + spirit_project_data.version + '/styles/spirit.min.css" rel="stylesheet"/>') }}
+  {{ esds_doc.code_snippet(source='<link href="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/styles/spirit.min.css" rel="stylesheet"/>') }}
 
   {% filter markdown %}
     #### Font Paths
@@ -136,11 +136,14 @@
 
     {% filter markdown %}
     #### JavaScript
-    When functionality can’t be achieved via HTML and CSS alone, Spirit doc site pages (Card Carousel, Vertical Navigation, and other components as stated on individual component documentation pages) may include JavaSCript to illustrate functionality. This JavaScript is included and intended for example purposes only. Spirit adopting teams may reference these examples to write their own JavaScript for their products. If there is a case where scripted bundles are needed, we do offer them on the following section - Javascript Bundles. 
+    When functionality can’t be achieved via HTML and CSS alone, Spirit doc site pages (Card Carousel, Vertical Navigation, and other components as stated on individual component documentation pages) may include JavaSCript to illustrate functionality. This JavaScript is included and intended for example purposes only. Spirit adopting teams may reference these examples to write their own JavaScript for their products. If there is a case where scripted bundles are needed, we do offer them in a following section - Javascript Bundles.
+
+    ##### Third Party Libraries
+    3rd party libraries are used to solve specific challenges in the Spirit Doc Site. We recommend these or similar packages / solutions are used on consuming properties. For reference, Spirit is using the following 3rd party packages:
 
     * [svg4everybody](https://jonathantneal.github.io/svg4everybody/) which provides IE 11 support for the Spirit icon sprite. Use version `2.1.9` or higher.
-    * [inputmask](https://www.npmjs.com/package/inputmask) provides masking for form fields (date / phone). See `form.js` in library for implementation. Use version `4.0.6` or higher.
-
+    * [inputmask](https://www.npmjs.com/package/inputmask) provides masking for form fields (date / phone). See [Form](/components/form.html) for implementation. Use version `4.0.6` or higher.
+    
     ##### Component Scripts
     `spirit.js` adds scripting functionality to the Card Carousel, Vertical Navigation and other components as stated on individual component documentation pages.
 
@@ -150,11 +153,22 @@
     ##### Spirit Script Bundles
     As stated above, the scripting used in Spirit is not intended to be used on a production level and is intended to be used as example purposes only. That being said, we do understand there may be a need (i.e. rapid prototyping) to utilize these scripts from the package.
 
-    Therefore we have made available via the npm package and the CDN three files (all are also available with the .min.js postfix).
+    Therefore we have made available via the npm package and the CDN three files (all are also available with the `.js` and `.min.js` postfixes).
 
-    * `spirit.js` - Component scripts.
-    * `spirit.dependencies.js` - Spirit dependencies (i.e. svg4everybody).
-    * `spirit.bundle.js` - Component scripts, bundle only scripts (i.e. calls to dependencies), and spirit dependencies. 
+    ##### Component Scripts
+    {% endfilter %}
+    {{ esds_doc.code_snippet(source='<script src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.min.js" rel="stylesheet"></script>') }}
+    {% filter markdown %}
+
+    ##### Spirit Dependencies - Spirit dependencies (i.e. svg4everybody)
+    {% endfilter %}
+    {{ esds_doc.code_snippet(source='<script src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.dependencies.min.js" rel="stylesheet"></script>') }}
+    {% filter markdown %}
+
+    ##### Spirit Bundle - Component scripts, bundle only scripts (i.e. calls to dependencies), and spirit dependencies. 
+    {% endfilter %}
+    {{ esds_doc.code_snippet(source='<script src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.bundle.min.js" rel="stylesheet"></script>') }}
+    {% filter markdown %}
 
     Use these scripts as needed and at the direction of the project. 
 
