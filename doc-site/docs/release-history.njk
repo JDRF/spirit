@@ -14,6 +14,25 @@
     additional_content
   #}
 
+  
+
+  {% set enhancements %}
+    * **Form** - Using npm package [inputmask](https://www.npmjs.com/package/inputmask), added the ability to add date and phone input masks
+    * **Long Form Text** - Modified margin & padding to refine the design for small screens
+    * [Icons](/visual-style/icons.html) -  added `more-vertical`, `log-in`, `log-out`, `list-ordered` icons
+  {% endset %}
+
+  {% set fixes %}
+    * **Long Form Text** - fix style bug when `.spirit-button` contained within long form text when also within `.spirit-context--brand` container where button text was unreadable and the same as the background
+    * **Forms** - fix checkbox and radio buttons not checking in some browsers
+  {% endset %}
+
+  {% set deprecated %}
+    * **Tile** - removed from system
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.5", date="2/08/2019", enhancements=enhancements, fixes=fixes, deprecated=deprecated) }}
+
   {% set fixes %}
     * **Card Grid** - fix ie11 rendering of cards (xbrowser)
     * **Container** - fix style bug on wave background padding
