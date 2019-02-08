@@ -46,24 +46,6 @@
       link_text="Start a Fundraiser",
       body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
   {% endset %}
-  {% set sample_tiles %}
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile() }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-    <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-2">{{ library.tile(
-      img_src='/images/components/tile/onewalk_baloons.jpg',
-      link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-  {% endset %}
 
   <h1 class="hostile-sink-reset">Containers Sink</h1>
 
@@ -258,12 +240,6 @@
                 {% endcall %}
             {% endcall %}
         {% endcall %}
-  {% endcall %}
-
-  {% call library.container(background_color="white") %}
-    {% call library.tile_grid() %}
-      {{ sample_tiles | safe }}
-    {% endcall %}
   {% endcall %}
 
   {% call library.container(size="large", inner_background_color="brand") %}

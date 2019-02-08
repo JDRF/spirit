@@ -41,13 +41,15 @@
 
 {% macro form_input(
             class=false,
-            describedby=false, 
-            disabled=false, 
-            id=false, 
-            name=false, 
-            placeholder=false, 
-            type='text', 
-            value=false, 
+            describedby=false,
+            disabled=false,
+            id=false,
+            name=false,
+            placeholder=false,
+            showMask=false,
+            type='text',
+            value=false,
+            inputmode=false,
             valid) %}
 
     {# Set a modifier class based on the valid argument #}
@@ -59,17 +61,42 @@
         {% set validation_icon = 'alert-circle' %}
     {% endif %}
 
+    {% if type == 'tel' and showMask %}
+        {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
+        {% set placeholder = '(___) ___-____' %}
+    {% endif %}
+
+    {% if type == 'text' and showMask %}
+        {% set inputmode = 'numeric' %}
+        {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
+        {% set placeholder = '(___) ___-____' %}
+    {% endif %}
+
+    {% if type == 'date' and showMask %}
+        {% set type = 'text' %} {# type has to be 'text' in order for the mask function to work #}
+        {% set inputmode = 'numeric' %}
+        {% if not placeholder %}
+            {% set placeholder = 'mm/dd/yyyy' %}
+            {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date' %}
+        {% else %}
+            {% set placeholder = 'mm/yy' %}
+            {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date-mmyy' %}
+        {% endif %}
+    {% endif %}
+
     <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
         <input 
-        class="spirit-form__input-field{{ ' ' + class if class }}" 
+        class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 
         type="{{ type }}"
+        {% if 'numeric' == inputmode %} inputmode="numeric" {% endif %}
         {% if id %} id="{{ id }}" {% endif %} 
         {% if name %} name="{{ name }}" {% endif %} 
         {% if value %} value="{{ value }}" {% endif %} 
         {{ 'disabled' if disabled }} 
         {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
-        {% if describedby %} aria-describedby="{{describedby}}" {% endif %}>
-        
+        {% if describedby %} aria-describedby="{{describedby}}" {% endif %}
+        >
+
         {% if validation_icon %}
             <div class="spirit-form__input-icon-wrap">
               {{ icon(name=validation_icon, class="spirit-form__input-icon") }}  
