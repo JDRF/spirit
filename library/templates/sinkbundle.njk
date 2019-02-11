@@ -1,0 +1,142 @@
+{% extends 'templates/bundle.njk' %}
+{% block head_content_prepend %}
+    <style>
+        html,
+        body {
+            /* Reset margin and padding */
+            margin: 0;
+            padding: 0;
+
+            /* Hostile inherited styles*/
+            color: darkorange;
+            font-family: Georgia;
+            font-size: 43px;
+            font-style: italic;
+            font-weight: bold;
+            letter-spacing: 0.5em;
+            line-height: 3.2;
+            text-align: center;
+            text-indent: 103px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 1px red;
+            vertical-align: middle;
+        }
+
+        h1, 
+        h2, 
+        h3, 
+        h4, 
+        h5, 
+        h6, 
+        p, 
+        input,
+        button,
+        select,
+        optgroup,
+        textarea {
+            margin-bottom: 21px;
+            margin-top: 11px;
+        }
+
+        ul, 
+        ol {
+            list-style: lower-greek;
+            margin-bottom: 64px;
+            padding: 18px;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 12px 23px;
+        }
+
+        /* Reset BrowserSync Notification styles since the defaults don't protect against the hostile sink */
+        .hostile-sink-reset,
+        .hostile-sink-reset *,
+        #__bs_notify__ {
+            font-style: normal;
+            font-weight: normal;
+            letter-spacing: 0;
+            line-height: 1;
+            text-align: left;
+            text-indent: 0;
+            text-transform: none;
+            text-shadow: none;
+        }
+
+        #__bs_notify__ {
+            font-size: 14.4px !important;
+        }
+
+        .hostile-sink-reset,
+        .hostile-sink-reset * {
+            color: {{ spirit_tokens['text-color'].secondary }};
+        }
+
+
+        h1.hostile-sink-reset::before, 
+        h2.hostile-sink-reset::before, 
+        h3.hostile-sink-reset::before, 
+        h4.hostile-sink-reset::before, 
+        h5.hostile-sink-reset::before, 
+        h6.hostile-sink-reset::before,
+        .hostile-sink-reset h1::before, 
+        .hostile-sink-reset h2::before, 
+        .hostile-sink-reset h3::before, 
+        .hostile-sink-reset h4::before, 
+        .hostile-sink-reset h5::before, 
+        .hostile-sink-reset h6::before {
+            background: {{ spirit_tokens.color.blue['30'] }};
+            content: '';
+            display: inline-block;
+            height: 1em;
+            margin: {{ spirit_tokens.space['inline-right']['1-x'] }};
+            width: 8px;
+            /* Give the headings a little different style so they don't get mixed up with sink demos */
+            text-align: left;
+        } 
+
+        h1.hostile-sink-reset, 
+        h2.hostile-sink-reset, 
+        h3.hostile-sink-reset, 
+        h4.hostile-sink-reset, 
+        h5.hostile-sink-reset, 
+        h6.hostile-sink-reset,
+        .hostile-sink-reset h1, 
+        .hostile-sink-reset h2, 
+        .hostile-sink-reset h3, 
+        .hostile-sink-reset h4, 
+        .hostile-sink-reset h5, 
+        .hostile-sink-reset h6 {
+            margin: {{ spirit_tokens.space.generic['4-x'] }} 0 {{ spirit_tokens.space.generic['1-x'] }} 0;
+        }
+
+        h1.hostile-sink-reset, 
+        .hostile-sink-reset h1 {
+            font-size: 32px;
+        }
+        h2.hostile-sink-reset, 
+        .hostile-sink-reset h2 {
+            font-size: 28px;
+        }
+        h3.hostile-sink-reset, 
+        .hostile-sink-reset h3 {
+            font-size: 24px;
+        }
+        h4.hostile-sink-reset, 
+        .hostile-sink-reset h4 {
+            font-size: 20px;
+        }
+        h5.hostile-sink-reset, 
+        .hostile-sink-reset h5 {
+            font-size: 18px;
+        }
+        h6.hostile-sink-reset, 
+        .hostile-sink-reset h6 {
+            font-size: 16px;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    ESDS sink template default content.
+{% endblock %}
