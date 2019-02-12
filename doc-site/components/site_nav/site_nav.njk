@@ -18,6 +18,7 @@
       {% endcall %}
       {% call library.vertical_navigation_item(text="Assets", style="large", size="comfortable", href="", toggle="true", expanded="true") %}
         {% call library.vertical_navigation_list( subnav='true' ) %}
+          {{ library.vertical_navigation_item(href="/tokens.html", style="small", text="Tokens") }}
           {{ library.vertical_navigation_item(href="/release-history.html", style="small", text="Release History") }}
         {% endcall %}
       {% endcall %}
