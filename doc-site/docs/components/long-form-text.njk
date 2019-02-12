@@ -21,24 +21,6 @@
 
   {% set lft_example_for_docsite %}
     <div class="spirit-long-form-text">
-      <h2 class="">Type 1 diabetes hypoglycemia symptoms</h2>
-
-      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
-
-      <ul>
-      <li>Sweating and shaking</li>
-      <li>Blurry vision</li>
-      <li>Poor coordination</li>
-      <li>Dizziness or feeling lightheaded</li>
-      </ul>
-
-      <h2 class="">What to do if you experience low blood glucose symptoms</h2>
-
-      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
-    </div>
-  {% endset %}
-  {% set lft_example_clean %}
-    <div class="spirit-long-form-text">
       <h2>Type 1 diabetes hypoglycemia symptoms</h2>
 
       <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
@@ -58,8 +40,7 @@
 
   {{ esds_doc.code_example_pair( 
       class="esds-doc-html-example-list",
-      examples=[ { example: lft_example_for_docsite } ],
-      code_snippet_source=lft_example_clean
+      examples=[ { example: lft_example_for_docsite } ]
    ) }}
 
   {% filter markdown %}
@@ -225,6 +206,27 @@
       class="esds-doc-html-example-list",
       examples=[ { example: lft_example_link } ],
       code_snippet_source=lft_example_link
+   ) }}
+  {% filter markdown %}
+      On a dark background, links within Long Form Text reverse to white.
+  {% endfilter %}
+  {% set lft_example_link_brand %}
+    <div class="spirit-context--brand" style="padding: 32px;">
+      <div class="spirit-long-form-text">
+        <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to <a href="#">see a doctor</a> if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+      </div>
+    </div>
+  {% endset %}
+  {% set lft_code_link_brand %}
+    <div class="spirit-long-form-text">
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to <a href="#">see a doctor</a> if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_link_brand } ],
+      code_snippet_source=lft_code_link_brand
    ) }}
 
   {% filter markdown %}
