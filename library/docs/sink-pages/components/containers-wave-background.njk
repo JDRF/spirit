@@ -14,16 +14,6 @@
       </div>
     {% endset %}
 
-    {% set sample_tiles_large %}
-      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile() }}</div>
-      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
-        img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-      <div class="spirit-col-6 spirit-col-md-4 spirit-col-lg-4">{{ library.tile(
-        img_src='/images/components/tile/onewalk_baloons.jpg',
-        link_text="Ways to Fundraise Lorem ipsum dolor sit amet") }}</div>
-    {% endset %}
-
     {% set text_only_sample_cards %}
       {{ library.card(
         img_src=false) }}
@@ -41,12 +31,17 @@
 
   <h1 class="hostile-sink-reset">Containers Brushes</h1>
 
+  <h2 class="hostile-sink-reset">Test padding resiliance - fix prior issue:</h2>
+
+  {% call library.container(size="large", wave_bg="wave4", padding_top="m", padding_bottom="m", background_color="brand", paint="both") %}
+    {% call library.card_grid() %}
+        {{ text_only_sample_cards | safe }}
+    {% endcall %}
+  {% endcall %}
+
   <h2 class="hostile-sink-reset">Brush Background - wave-3</h2>
   {% call library.container(size="large", wave_bg="wave3", background_color="brand", paint="both") %}
-    {% call library.tile_grid() %}
-        {{ sample_tiles_large | safe }}
-        {{ sample_tiles_large | safe }}
-    {% endcall %}
+    {{ text_only_sample_cards | safe }}
   {% endcall %}
 
   <h2 class="hostile-sink-reset">Brush Background - wave-4</h2>
