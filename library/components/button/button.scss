@@ -1,6 +1,9 @@
 // Letter Spacing
 $spirit-button-font-letter-spacing-125: .0125em;
 
+// Line Height
+$spirit-button-font-line-height-xs: 1.1429;
+
 // Text Shadow
 $spirit-text-shadow-small: 1px 2px rgba(0, 8, 26, .08);
 
@@ -95,8 +98,8 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     }
   }
 
-  // Spirit Button on Dark
-  @include spirit-container-dark-parent-selectors {
+  // Spirit Button on Brand
+  .spirit-context--brand & {
     background-color: $spirit-interactive-color-on-dark;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button transparent;
     color: $spirit-interactive-color-text-primary;
@@ -148,7 +151,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   top: 0;
   width: 100%;
 
-  [class^='spirit-icon-'] {
+  [class*='spirit-icon-'] {
     height: $spirit-size-icon-s;
     width: $spirit-size-icon-s;
   }
@@ -163,7 +166,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   justify-content: center;
   min-width: 130px;
 
-  [class^='spirit-icon-'] {
+  [class*='spirit-icon-'] {
     height: $spirit-size-icon-s;
     width: $spirit-size-icon-s;
   }
@@ -172,18 +175,18 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 // Spririt Button - Extra Small
 .spirit-button--extra-small {
   font-size: $spirit-font-size-s;
-  line-height: 1.1429;
+  line-height: $spirit-button-font-line-height-xs;
   padding: $spirit-space-inset-squish-2-x;
 
   .spirit-button__inner {
     font-size: $spirit-font-size-s;
-    line-height: 1.1429;
+    line-height: $spirit-button-font-line-height-xs;
     margin: $spirit-space-inset-squish-2-x-negative;
     padding: $spirit-space-inset-squish-2-x;
   }
 
   .spirit-button__icon-contain {
-    [class^='spirit-icon-'] {
+    [class*='spirit-icon-'] {
       height: $spirit-size-icon-xs;
       width: $spirit-size-icon-xs;
     }
@@ -220,7 +223,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -244,7 +247,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -267,7 +270,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -304,7 +307,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -325,7 +328,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -497,20 +500,20 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
 
 
-// Spririt Button - Secondary
+// Spririt Button - Icon Only
 .spirit-button--icon-only {
   border-radius: 100%;
   min-width: 0;
   padding: $spirit-space-inset-1-x;
 
-  [class^='spirit-icon-'] {
+  [class*='spirit-icon-'] {
     height: $spirit-size-icon-l;
     width: $spirit-size-icon-l;
   }
 
   // Spririt Button - Small
   &.spirit-button--small {
-    [class^='spirit-icon-'] {
+    [class*='spirit-icon-'] {
       height: $spirit-size-icon-m;
       width: $spirit-size-icon-m;
     }
@@ -519,7 +522,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   // Spririt Button - Default ( breakpoint sizing )
   &.spirit-button--default-md {
     @media screen and (min-width: $spirit-breakpoint-m) {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-l;
         width: $spirit-size-icon-l;
       }
@@ -528,7 +531,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &.spirit-button--default-lg {
     @media screen and (min-width: $spirit-breakpoint-l) {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-l;
         width: $spirit-size-icon-l;
       }
@@ -561,8 +564,8 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     box-shadow: $spirit-elevation-2 $spirit-elevation-color-default, inset 0 0 0 $spirit-border-width-button $spirit-feedback-color-foreground-success;
   }
 
-  // Spirit Button Success On Dark
-  @include spirit-container-dark-parent-selectors {
+  // Spirit Button Success On Brand
+  .spirit-context--brand & {
     background-color: $spirit-feedback-color-foreground-success;
     box-shadow: $spirit-elevation-1 transparent, inset 0 0 0 $spirit-border-width-button-secondary $spirit-feedback-color-foreground-success;
     color: $spirit-color-white;

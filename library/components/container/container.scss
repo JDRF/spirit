@@ -1,8 +1,19 @@
 // Token proposal
-$spirit-container-breakpoint: $spirit-breakpoint-grid; // from grid.scss
+$spirit-container-breakpoint: $spirit-breakpoint-grid - ($grid-gutter-width * 2); // from grid.scss
 $spirit-container-inner-horizontal-space-m: 80px;
 $spirit-container-inner-max-width-full: 1152px;
 $spirit-container-inner-max-width-large: 1000px;
+$spirit-container-painted-edge-width: 2000px; // from sketch
+$spirit-container-painted-edge-height: $spirit-space-generic-12-x;
+$spirit-container-painted-edge-svg-height: $spirit-space-generic-12-x;
+$spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-large + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1000px + 160px (max container width (large) + gutter size)
+$spirit-container-painted-edge-overlay-correct: 2px; // make sure overlay covers background color
+
+// // brush bg
+$spirit-container-wave-bg-color: $spirit-brand-color-primary;
+$spirit-container-wave3-bg-width: 1600px;
+$spirit-container-wave4-bg-width: 1460px;
+$spirit-container-wave5-bg-width: 3000px;
 
 // Shared styles
 .spirit-container {
@@ -10,6 +21,7 @@ $spirit-container-inner-max-width-large: 1000px;
   @include spirit-box-sizing(border-box);
   padding-left: 0;
   padding-right: 0;
+  position: relative;
 }
 
 .spirit-container__inner {
@@ -17,6 +29,7 @@ $spirit-container-inner-max-width-large: 1000px;
   box-sizing: border-box;
   padding-bottom: $spirit-space-generic-6-x;
   padding-top: $spirit-space-generic-6-x;
+  position: relative;
 
   @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-12-x;
@@ -113,5 +126,332 @@ $spirit-container-inner-max-width-large: 1000px;
   padding-bottom: $spirit-space-generic-12-x;
   @media screen and (min-width: $spirit-container-breakpoint) {
     padding-bottom: $spirit-space-generic-24-x;
+  }
+}
+
+// Containers Texture Styles
+
+// Paint Top and Paint Bottom
+.spirit-container__painted-edge-top,
+.spirit-container__painted-edge-bottom {
+  color: $spirit-color-white;
+  display: block;
+  height: $spirit-container-painted-edge-height;
+  left: -$spirit-space-generic-3-x;
+  position: relative;
+  width: calc(100% + (#{$spirit-space-generic-3-x} * 2));
+  z-index: 10;
+
+  .spirit-brush {
+    height: $spirit-container-painted-edge-svg-height;
+    left: 50%;
+    margin-left: -(#{$spirit-container-painted-edge-width * .5});
+    position: absolute;
+    width: $spirit-container-painted-edge-width;
+  }
+
+  &:after {
+    background: $spirit-color-white;
+    content: '';
+    display: block;
+    height: calc(#{$spirit-space-generic-6-x} + #{$spirit-container-painted-edge-overlay-correct});
+    position: absolute;
+    width: 100%;
+  }
+
+  @media screen and (min-width:  $spirit-container-painted-edge-breakpoint) {
+    .spirit-container__inner.spirit-context--brand & {
+      left: calc(((100vw - #{$spirit-container-painted-edge-breakpoint}) * -.5) - 80px);
+    }
+  }
+
+  @media screen and (min-width:  $spirit-container-inner-max-width-large) {
+    left: calc((100vw - 100%) * -.5);
+    width: 100vw;
+  }
+
+  @media screen and (min-width:  $spirit-container-painted-edge-width) {
+    .spirit-brush {
+      left: 50%;
+      margin-left: -1000px;
+    }
+  }
+}
+
+.spirit-container__painted-edge-top-inner,
+.spirit-container__painted-edge-bottom-inner {
+  display: block;
+  height: 100%;
+  max-height: $spirit-container-painted-edge-height;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.spirit-container__painted-edge-top {
+  .spirit-brush {
+    top: 0;
+  }
+
+  &:after {
+    bottom: calc(100% - #{$spirit-container-painted-edge-overlay-correct});
+  }
+
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    &:after {
+      height: calc(#{$spirit-space-generic-12-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+  }
+
+  .spirit-container__inner--padding-top-none & {
+    &:after {
+      height: $spirit-container-painted-edge-overlay-correct;
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: $spirit-container-painted-edge-overlay-correct;
+      }
+    }
+  }
+
+  .spirit-container__inner--padding-top-xs & {
+    &:after {
+      height: calc(#{$spirit-space-generic-3-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-4-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+
+
+  .spirit-container__inner--padding-top-s & {
+    &:after {
+      height: calc(#{$spirit-space-generic-4-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-8-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+
+  .spirit-container__inner--padding-top-m & {
+    &:after {
+      height: calc(#{$spirit-space-generic-6-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-12-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+
+  .spirit-container__inner--padding-top-lg & {
+    &:after {
+      height: calc(#{$spirit-space-generic-12-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-24-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+}
+
+.spirit-container__painted-edge-bottom {
+  .spirit-brush {
+    bottom: 0;
+  }
+
+  &:after {
+    top: calc(100% - #{$spirit-container-painted-edge-overlay-correct});
+  }
+
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    &:after {
+      height: calc(#{$spirit-space-generic-12-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-none & {
+    &:after {
+      height: $spirit-container-painted-edge-overlay-correct;
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: $spirit-container-painted-edge-overlay-correct;
+      }
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-xs & {
+    &:after {
+      height: calc(#{$spirit-space-generic-3-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-4-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+
+
+  .spirit-container__inner--padding-bottom-s & {
+    &:after {
+      height: calc(#{$spirit-space-generic-4-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-8-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-m & {
+    &:after {
+      height: calc(#{$spirit-space-generic-6-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-12-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-lg & {
+    &:after {
+      height: calc(#{$spirit-space-generic-12-x} + #{$spirit-container-painted-edge-overlay-correct});
+    }
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      &:after {
+        height: calc(#{$spirit-space-generic-24-x} + #{$spirit-container-painted-edge-overlay-correct});
+      }
+    }
+  }
+}
+
+// Brush Backgrounds
+.spirit-container__wave-bg {
+  bottom: $spirit-space-generic-6-x;
+  color: $spirit-container-wave-bg-color;
+  display: block;
+  left: -$spirit-space-generic-3-x;
+  overflow: hidden;
+  position: absolute;
+  right: -$spirit-space-generic-3-x;
+  top: $spirit-space-generic-6-x;
+  width: calc(100% + #{$spirit-space-generic-6-x});
+  z-index: -1;
+
+  .spirit-brush {
+    height: 100%;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $spirit-container-breakpoint) {
+    bottom: $spirit-space-generic-12-x;
+    left: 50%;
+    top: $spirit-space-generic-12-x;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
+  .spirit-container__wave-bg-inner {
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: $spirit-container-wave5-bg-width;
+  }
+
+  // Padding options
+  .spirit-container__inner--padding-top-none & {
+    top: 0;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: 0;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-none & {
+    bottom: 0;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: 0;
+    }
+  }
+
+  .spirit-container__inner--padding-top-xs & {
+    top: $spirit-space-generic-3-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-4-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-xs & {
+    bottom: $spirit-space-generic-3-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-4-x;
+    }
+  }
+
+  .spirit-container__inner--padding-top-s & {
+    top: $spirit-space-generic-4-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-8-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-s & {
+    bottom: $spirit-space-generic-4-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-8-x;
+    }
+  }
+
+  .spirit-container__inner--padding-top-m & {
+    top: $spirit-space-generic-6-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-12-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-m & {
+    bottom: $spirit-space-generic-6-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-12-x;
+    }
+  }
+
+  .spirit-container__inner--padding-top-lg & {
+    top: $spirit-space-generic-12-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      top: $spirit-space-generic-24-x;
+    }
+  }
+
+  .spirit-container__inner--padding-bottom-lg & {
+    bottom: $spirit-space-generic-12-x;
+    @media screen and (min-width: $spirit-container-breakpoint) {
+      bottom: $spirit-space-generic-24-x;
+    }
+  }
+}
+
+.spirit-container__wave-bg--wave3 {
+  .spirit-container__wave-bg-inner {
+    width: $spirit-container-wave3-bg-width;
+  }
+}
+
+.spirit-container__wave-bg--wave4 {
+  .spirit-container__wave-bg-inner {
+    width: $spirit-container-wave4-bg-width;
+  }
+}
+
+.spirit-container__wave-bg--wave5 {
+  .spirit-container__wave-bg-inner {
+    width: $spirit-container-wave5-bg-width;
   }
 }

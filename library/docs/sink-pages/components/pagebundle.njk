@@ -1,0 +1,302 @@
+{% extends "templates/sinkbundle.njk" %}
+{% block head_content_append %}
+  {{ super() }}
+  <link rel="stylesheet" href="/styles/containers-sink-pages.css">
+  <link rel="stylesheet" href="/styles/shell-sink-page.css">
+{% endblock head_content_append %}
+
+{% block body %}
+  {% set sample_demo_hero_split %}
+    <div class="container-sink-demo-hero-split">
+      <div class="container-sink-demo-hero-split__content spirit-context--black">
+          <h3 class="spirit-h3">Learn more about our role as funder and innovator leading research efforts across the globe.</h3>
+      <a href="#" class="spirit-button spirit-button--large-md">Explore The Science</a>
+      </div>
+      <div class="container-sink-demo-component__image-contain">
+          <div class="container-sink-demo-hero-split__image"></div>
+      </div>
+    </div>
+  {% endset %}
+
+  {% set sample_list %}
+    {% call library.list() %}
+      {{ library.list_item() }}
+      {{ library.list_item(title_text="This is a list item with a very long title to see how it looks in comparison") }}
+      {{ library.list_item() }}
+      {{ library.list_item(title_meta="$9999") }}
+      {{ library.list_item(href="#", href_secondary="#", href_secondary_text="Click Here") }}
+      {{ library.list_item(title_meta="$9999", href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here") }}
+      {{ library.list_item(icon_name="user", title_text="This is a list item with a very long title to see how it looks in comparison", href="#", href_text="Read More") }}
+      {{ library.list_item(icon_name="user") }}
+      {{ library.list_item(title_meta="$9999", href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", avatar_src="https://picsum.photos/100/300") }}
+      {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800") }}
+      {{ library.list_item(icon_name="user", image_src="https://picsum.photos/800/800", href="#", href_text="Read More", image_right=true) }}
+      {{ library.list_item(href="#", href_text="Read More", meta="Western Massachusetts 2018", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+      {{ library.list_item(title_meta="$9999", icon_name="user", href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+      {{ library.list_item(href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…") }}
+      {{ library.list_item(href="#", href_text="Read More", href_secondary="#", href_secondary_text="Click Here", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018", caption="The Benaroyas are recognized for their long-standing support of JDRF International   New York (July 11, 2018)— JDRF, the leading global…", image_right=true) }}
+      {{ library.list_item(href="#", title_text="This is a list item with a very long title to see how it looks in comparison", href_text="Read More About this Article", image_src="https://picsum.photos/200/300", meta="Western Massachusetts 2018-2020 - Oregon", caption="The Benaroyas are recognized for their long-standing support of JDRF International. New York (July 11, 2018)— JDRF, the leading global. Adding content here to show how more content will look in this example. There can be lots of words if not truncated by the CMS.") }}
+    {% endcall %}
+  {% endset %}
+
+  {% set sample_cards %}
+      {{ library.card() }}
+      {{ library.card(
+        img_src='/images/components/card/bikers.png',
+        title_text="JDRF Ride to Cure Diabetes",
+        link_text="Find a Ride Near You",
+        body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+      {{ library.card(
+        img_src='/images/components/card/runners.png',
+        title_text="Team JDRF to Cure Diabetes",
+        link_text="Find an Event Near You",
+        body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
+      {{ library.card(
+        img_src='/images/components/card/gala.png',
+        title_text="Gala",
+        link_text="Find a Gala Near You",
+        body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+      {{ library.card(
+        img_src='/images/components/card/golf.png',
+        title_text="Golf",
+        link_text="Find an Event Near You",
+        body_text="Participate in a golf event to raise money for T1D while indulging in your favorite pastime.") }}
+      {{ library.card(
+        img_src='/images/components/card/school.png',
+        title_text="Give Back at School",
+        link_text="Learn More",
+        body_text="JDRF offers kids many ways to educate, inspire and motivate their peers to help make a world without T1D.") }}
+      {{ library.card(
+        img_src='/images/components/card/community.png',
+        title_text="JDRF Your Way",
+        link_text="Start a Fundraiser",
+        body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
+    {{ library.card(
+        img_src='/images/components/card/community.png',
+        title_text="JDRF Your Way",
+        link_text="Start a Fundraiser",
+        body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
+    {% endset %}
+
+  {% set text_only_sample_cards %}
+    {{ library.card(
+      img_src=false) }}
+    {{ library.card(
+      img_src=false,
+      title_text="Blood Sugar",
+      link_text="Learn More",
+      body_text="Let’s start with hypoglycemia and look at blood sugar drop symptoms. Although symptoms may overlap&hellip;") }}
+    {{ library.card(
+      img_src=false,
+      title_text="High Blood Sugar",
+      link_text="Learn More",
+      body_text="With high blood sugar, you may also experience drowsiness, exhaustion, nausea or vomiting, confusion&hellip;") }}
+  {% endset %}
+
+  {% set header_nav_demo %}
+    <a class="header-nav-demo-trigger" href="#header-nav-demo">Open Navigation</a>
+    <a class="header-nav-demo-trigger demo-nav-close" href="#"><p class="demo-screen-reader-text">Close Navigation<p></a>
+    <nav id="header-nav-demo" class="header-nav-demo">
+      <div class="header-nav-demo__container">
+          <a class="header-nav-demo-trigger" href="#">Close Navigation</a>
+          <ul class="header-nav-demo__ul">
+              <li class="header-nav-demo__li">
+                  <a href="#" class="header-nav-demo__link">
+                      Nav Link
+                  </a>
+              </li>
+              <li class="header-nav-demo__li">
+                  <a href="#" class="header-nav-demo__link spirit-link">
+                      Nav Link
+                  </a>
+              </li>
+              <li class="header-nav-demo__li">
+                  <a href="#" class="header-nav-demo__link">
+                      Nav Link
+                  </a>
+              </li>
+              <li class="header-nav-demo__li">
+                  <a href="#" class="header-nav-demo__link">
+                      Nav Link
+                  </a>
+              </li>
+              <li class="header-nav-demo__li">
+                  <a href="#" class="header-nav-demo__link">
+                      Nav Link
+                  </a>
+              </li>
+              <li class="header-nav-demo__li">
+                  <a href="#" class="header-nav-demo__link">
+                      Nav Link
+                  </a>
+              </li>
+          <ul>
+      </div>
+    </nav>
+
+  {% endset %}
+
+  {% call library.shell() %}
+    {% call library.shell_header() %}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+          <div class="spirit-long-form-text">
+              <h1>
+                  Page Shell Header
+              </h1>
+          </div>
+          {{ header_nav_demo | safe }}
+      {% endcall %}
+    {% endcall %}
+    {% call library.shell_main() %}
+      {% call library.container(size="large", wave_bg="wave5", background_color="brand") %}
+        {{ sample_demo_hero_split | safe }}
+      {% endcall %}
+      {% call library.container(size="large", padding_bottom="none") %}
+          <h2 class="spirit-display-2">
+              This is a Section Heading
+          </h2>
+          <p class="spirit-subhead">This is a spirit subhead.</p>
+      {% endcall %}
+      {% call library.container(size="large", padding_top="none",  background_color="brand") %}
+          <div class="spirit-long-form-text">
+              <h2>
+                  Long Form Text Block
+              </h2>
+              <p>Cras efficitur, metus id tincidunt varius, ex massa feugiat sem, ut efficitur dolor elit at erat. Duis ut tempus arcu, id pulvinar neque. Praesent vitae erat ipsum. Cras scelerisque velit et mauris pharetra placerat. Praesent a sapien tempus, malesuada augue a, congue magna. Pellentesque luctus interdum eros eget sagittis. In consequat consectetur lorem ac vulputate. Mauris dapibus nulla et vestibulum vulputate. Cras at urna ut sapien convallis eleifend ut quis purus.</p>
+          </div>
+      {% endcall %}
+      {% call library.container(size="large") %}
+          <div class="spirit-long-form-text">
+            <div class="spirit-row">
+                <div class="spirit-col-md-6">
+                  <h2>
+                    Long Form Text 2-Col
+                  </h2>
+                  <p>Cras efficitur, metus id tincidunt varius, ex massa feugiat sem, ut efficitur dolor elit at erat. Duis ut tempus arcu, id pulvinar neque. Praesent vitae erat ipsum. Cras scelerisque velit et mauris pharetra placerat. Praesent a sapien tempus, malesuada augue a, congue magna. Pellentesque luctus interdum eros eget sagittis. In consequat consectetur lorem ac vulputate. Mauris dapibus nulla et vestibulum vulputate. Cras at urna ut sapien convallis eleifend ut quis purus.</p>
+                </div>
+                <div class="spirit-col-md-6">
+                    <p>Cras efficitur, metus id tincidunt varius, ex massa feugiat sem, ut efficitur dolor elit at erat. Duis ut tempus arcu, id pulvinar neque. Praesent vitae erat ipsum. Cras scelerisque velit et mauris pharetra placerat. Praesent a sapien tempus, malesuada augue a, congue magna. Pellentesque luctus interdum eros eget sagittis. In consequat consectetur lorem ac vulputate. Mauris dapibus nulla et vestibulum vulputate. Cras at urna ut sapien convallis eleifend ut quis purus.</p>
+                </div>
+            </div>
+          </div>
+      {% endcall %}
+      {% call library.container(size="large",  painted_edge="both", background_color="brand") %}
+        {{ text_only_sample_cards | safe }}
+      {% endcall %}
+      {% call library.container(size="large", wave_bg="wave4", background_color="brand") %}
+        {% call library.card_grid(class="spirit-card-grid--3-up") %}
+            {{ text_only_sample_cards | safe }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(background_color="brand") %}
+        {{ text_only_sample_cards | safe }}
+      {% endcall %}
+      {% call library.container(wave_bg="wave3") %}
+        {% call library.card_grid(class="spirit-card-grid--4-up") %}
+            {{ sample_cards | safe }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(size="large", wave_bg="wave3") %}
+        {% call library.card_grid(class="spirit-card-grid--4-up") %}
+            {{ sample_cards | safe }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(size="large") %}
+        {% call library.form() %}
+            {% call library.form_fieldset() %}
+            {{ library.form_legend(text="Contact Info", hidden=true) }}
+            <div class="spirit-row">
+                <div class="spirit-col-md-6">
+                    {% call library.form_field_group() %}
+                    {{ library.form_label(text="First Name", for="contact-info-first-name") }}
+                    {{ library.form_input(id="contact-info-first-name") }}
+                    {% endcall %}
+                </div>
+                <div class="spirit-col-md-6">
+                    {% call library.form_field_group() %}
+                    {{ library.form_label(text="Last Name", for="contact-info-last-name") }}
+                    {{ library.form_input(id="contact-info-last-name") }}
+                    {% endcall %}
+                </div>
+            </div>
+
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Email", for="contact-info-email") }}
+                {{ library.form_input(id="contact-info-email") }}
+            {% endcall %}
+          {% endcall %}
+          {{ library.button(type="submit", text="Submit") }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(padding_bottom="none") %}
+          <h2 class="spirit-display-2">
+              Cards Carousel to 4up
+          </h2>
+      {% endcall %}
+      {% call library.container(wave_bg="wave3", padding_top="none") %}
+        {% call library.card_grid(carousel=true, card_count=8, class="spirit-card-grid--4-up") %}
+            {{ sample_cards | safe }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(padding_bottom="none") %}
+          <h2 class="spirit-display-2">
+              Cards List to 4up
+          </h2>
+      {% endcall %}
+      {% call library.container(padding_top="none") %}
+        {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
+            {{ sample_cards | safe }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.container(size="large", padding_bottom="none") %}
+          <h2 class="spirit-display-2">
+              Some List Examples with Section Heading
+          </h2>
+      {% endcall %}
+      {% call library.container(size="large", padding_top="none") %}
+        <div class="spirit-row spirit-justify-content-md-center">
+          <div class="spirit-col-md-10 spirit-col-lg-8">
+            {{ sample_list | safe }}
+          </div>
+        </div>
+      {% endcall %}
+      
+      {% call library.container(size="large", padding_top="none") %}
+        <h2 class="hostile-sink-reset">Date (w/mask) - must be input[type="text"]</h2>
+        {% call library.form_field_group() %}
+        {{ library.form_label(text="Birthdate", required=true) }}
+        {{ library.form_input(type="date", showMask=true) }}
+        {% endcall %}
+
+        <h2 class="hostile-sink-reset">Date - MM/YY (w/mask) - must be input[type="text"]</h2>
+        {% call library.form_field_group() %}
+            {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
+            {{ library.form_input(id="payment-info-cc-expiration", type="date", placeholder="MM/YY", showMask=true) }}
+        {% endcall %}
+
+        <h2 class="hostile-sink-reset">Phone (w/mask) - input[type="phone"]</h2>
+        {% call library.form_field_group() %}
+        {{ library.form_label(text="Home Phone", required=true) }}
+        {{ library.form_input(type="tel", showMask=true) }}
+        {% endcall %}
+
+        <h2 class="hostile-sink-reset">Phone (w/mask) - input[type="text"]</h2>
+        {% call library.form_field_group() %}
+        {{ library.form_label(text="Home Phone", required=true) }}
+        {{ library.form_input(type="text", showMask=true) }}
+        {% endcall %}
+      {% endcall %}
+
+    {% endcall %}
+    {% call library.shell_footer() %}
+        {% call library.container(padding_top="xs", padding_bottom="xs", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h3>
+                    Page Shell Footer
+                </h3>
+            </div>
+        {% endcall %}
+    {% endcall %}
+  {% endcall %}
+
+{% endblock body %}

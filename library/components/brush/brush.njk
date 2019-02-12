@@ -1,0 +1,27 @@
+{#
+use with
+
+{{ library.brush(
+    name="wave1",
+    class=spirit-"brush--test"
+) }}
+
+param: name {string} [default: check] The name of the required brush
+param: class {string} [default: false] Add any required classes in a space-separated list. They will be appended to the default "spirit-brush" class.
+
+ #}
+{% macro brush(
+    name="wave5",
+    class=false
+    ) %}
+    {% if not label %}
+        {% set label = name %}
+    {% endif %}
+    <svg
+        class="spirit-brush spirit-brush--{{name if name}}{{ ' ' + class if class }}"
+        aria-hidden="true"
+    >
+        <use xlink:href="/brushes/spirit-brushes.svg#{{ name if name }}">
+        </use>
+    </svg>
+{% endmacro %}

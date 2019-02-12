@@ -41,15 +41,16 @@
 
 {% macro form_input(
             class=false,
-            describedby=false, 
-            disabled=false, 
-            id=false, 
-            name=false, 
-            placeholder=false, 
-            type='text', 
-            value=false, 
-            valid,
-            attributes=false) %}
+            describedby=false,
+            disabled=false,
+            id=false,
+            name=false,
+            placeholder=false,
+            showMask=false,
+            type='text',
+            value=false,
+            inputmode=false,
+            valid) %}
 
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
@@ -60,18 +61,42 @@
         {% set validation_icon = 'alert-circle' %}
     {% endif %}
 
+    {% if type == 'tel' and showMask %}
+        {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
+        {% set placeholder = '(___) ___-____' %}
+    {% endif %}
+
+    {% if type == 'text' and showMask %}
+        {% set inputmode = 'numeric' %}
+        {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-tel' %}
+        {% set placeholder = '(___) ___-____' %}
+    {% endif %}
+
+    {% if type == 'date' and showMask %}
+        {% set type = 'text' %} {# type has to be 'text' in order for the mask function to work #}
+        {% set inputmode = 'numeric' %}
+        {% if not placeholder %}
+            {% set placeholder = 'mm/dd/yyyy' %}
+            {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date' %}
+        {% else %}
+            {% set placeholder = 'mm/yy' %}
+            {% set maskClass = ' spirit-form__input--mask spirit-form__input--mask-date-mmyy' %}
+        {% endif %}
+    {% endif %}
+
     <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
         <input 
-        class="spirit-form__input-field{{ ' ' + class if class }}" 
+        class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 
         type="{{ type }}"
+        {% if 'numeric' == inputmode %} inputmode="numeric" {% endif %}
         {% if id %} id="{{ id }}" {% endif %} 
         {% if name %} name="{{ name }}" {% endif %} 
         {% if value %} value="{{ value }}" {% endif %} 
         {{ 'disabled' if disabled }} 
         {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
         {% if describedby %} aria-describedby="{{describedby}}" {% endif %}
-        {{ attributes | safe if attributes }} />
-        
+        >
+
         {% if validation_icon %}
             <div class="spirit-form__input-icon-wrap">
               {{ icon(name=validation_icon, class="spirit-form__input-icon") }}  
@@ -88,8 +113,7 @@
             required_tooltip_text="This field is required.",
             text="First Name",
             disabled=false,
-            annotation,
-            attributes=false) %}
+            annotation) %}
 
     {% if optional %}
         {% set required = false %}
@@ -99,8 +123,7 @@
             class="spirit-form__label{{ ' ' + class if class }}{{ ' spirit-form__label--disabled' if disabled }}"
         {% if for %}
             for="{{ for }}"
-        {% endif %}
-        {{ attributes | safe if attributes }}>
+        {% endif %}>
             {{ text | safe }}
         {% if optional %}
             <span class="spirit-form__label-optional">
@@ -134,8 +157,7 @@
             value=false,
             icon_path=false,
             indeterminate=false,
-            valid,
-            attributes) %}
+            valid) %}
 
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
@@ -156,8 +178,7 @@
             {{ 'disabled' if disabled }}
             {% if name %} name="{{ name }}" {% endif %}
             {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}
-            {% if value %} value="{{ value }}" {% endif %}
-            {{ attributes | safe if attributes }} />
+            {% if value %} value="{{ value }}" {% endif %}/>
         <span class="spirit-form__checkbox-inner">
             <span class="spirit-form__checkbox-visual">
                 {{ icon(name='check', class='spirit-form__checkbox-checked-icon')}}
@@ -199,8 +220,7 @@
             required=false, 
             required_tooltip_text="Please check the box",
             value='blue',
-            valid,
-            attributes=false) %}
+            valid) %}
     {% set random_number = range(0, 100000) | random %}
     
     {% if valid == true %}
@@ -219,10 +239,7 @@
 
     <label class="spirit-form__radio{{ ' ' + class if class }}{{ ' spirit-form__radio--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}" for="{{ id }}">
         <input id="{{ id }}" name="{{ name }}" value="{{ value }}" type="radio" class="spirit-form__radio-input" 
-            {{ 'checked' if checked }} 
-            {{ 'disabled' if disabled }} 
-            {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}
-            {{ attributes | safe if attributes }} />
+            {{ 'checked' if checked }} {{ 'disabled' if disabled }} {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}/>
         <span class="spirit-form__radio-inner">
             <span class="spirit-form__radio-visual"></span>
             <span class="spirit-form__radio-label {{'spirit-form__label--required' if required}}">
@@ -250,7 +267,6 @@
             name=false,
             icon_path=false,
             valid,
-            attributes=false,
             options=[
                 {
                     text: "",
@@ -281,8 +297,7 @@
                     name="{{ name }}"
                 {% endif %}                
                 {{ 'disabled' if disabled }} 
-                {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}
-                {{ attributes | safe if attributes }}>
+                {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}>
             {% for option in options %}
                 {{ form_select_option_builder(option) }}
             {% endfor %}
@@ -320,8 +335,7 @@
             name=false,
             placeholder=false, 
             value=false,
-            valid,
-            attributes) %}
+            valid) %}
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
         {% set validation_class = 'spirit-form__textarea--valid' %}
@@ -338,8 +352,7 @@
         {% endif %}
         {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
         {{ 'disabled' if disabled }}  
-        {% if describedby %} aria-describedby="{{describedby}}" {% endif %}
-        {{ attributes | safe if attributes }}>{{ value if value }}</textarea>
+        {% if describedby %} aria-describedby="{{describedby}}" {% endif %}>{{ value if value }}</textarea>
 {% endmacro %}
 
 
@@ -347,9 +360,8 @@
             class=false,  
             id=false,
             text='This field is required',
-            showIcon=false,
-            attributes=false) %}
-    <span class="spirit-form__field-error{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %} role="alert" {{ attributes | safe if attributes }}>
+            showIcon=false) %}
+    <span class="spirit-form__field-error{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %} role="alert">
         {% if showIcon %}
             {{ icon(name='alert-circle', class='spirit-form__field-error-icon') }}
         {% endif %}
@@ -363,9 +375,8 @@
 {% macro form_microcopy(
             class=false, 
             id=false,
-            text="Passwords must contain a letter, a number, and your favorite 80's band name",
-            attributes=false) %}
-    <span class="spirit-form__microcopy{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %}{{ attributes | safe if attributes }}>
+            text="Passwords must contain a letter, a number, and your favorite 80's band name") %}
+    <span class="spirit-form__microcopy{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %}>
         {% if text == false %}
             {{ caller() }}
         {% else %}
