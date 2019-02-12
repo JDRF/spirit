@@ -78,6 +78,13 @@ ol.spirit-list {
   }
 }
 
+// Spirit List Item - Avatar
+.spirit-list-item--avatar {
+  &:after {
+    left: $spirit-list-avatar-border-width;
+  }
+}
+
 .spirit-list-item__content {
   display: flex;
   flex-flow: column nowrap;
