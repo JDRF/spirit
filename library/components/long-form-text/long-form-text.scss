@@ -1,24 +1,37 @@
+// Varabiles
+$spirit-long-form-text-padding-breakpoint: $spirit-breakpoint-m;
+$spirit-long-form-text-ul-margin-bottom-lg: 18px;
+
 .spirit-long-form-text {
   @include spirit-typography-reset;
   @include clearfix;
 
   h1 {
     @include spirit-h1;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-5-x;
+    padding-top: $spirit-space-generic-2-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-5-x;
+    }
 
     &.spirit-lead-heading {
       @include spirit-lead-heading;
     }
-
   }
 
   h2 {
     @include spirit-h2;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-5-x;
+    padding-top: $spirit-space-generic-2-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-5-x;
+    }
 
     &.spirit-lead-heading {
       @include spirit-lead-heading;
@@ -28,35 +41,54 @@
 
   h3 {
     @include spirit-h3;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-3-x;
+    }
 
     &.spirit-lead-heading {
       @include spirit-lead-heading;
     }
-    
   }
 
   h4 {
     @include spirit-h4;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-2-x;
+    }
   }
 
   h5 {
     @include spirit-h5;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-2-x;
+    }
   }
 
   h6 {
     @include spirit-h6;
-    margin-bottom: $spirit-space-generic-2-x;
+    margin-bottom: $spirit-space-generic-1-x;
     margin-top: 0;
-    padding-top: $spirit-space-generic-2-x;
+    padding-top: $spirit-space-generic-1-x;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-2-x;
+      padding-top: $spirit-space-generic-2-x;
+    }
   }
 
   .spirit-subhead {
@@ -86,7 +118,7 @@
     margin-top: 0;
   }
 
-  a {
+  a:not(.spirit-button) {
     @include spirit-dark-parent-light-text;
     color: $spirit-text-color-link;
     font-weight: $spirit-font-weight-bold;
@@ -112,6 +144,10 @@
     ul {
       margin-bottom: 0;
       margin-top: 0;
+    }
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-long-form-text-ul-margin-bottom-lg;
     }
   }
 
@@ -154,50 +190,149 @@
     margin-top: 0;
   }
 
-  blockquote {
+  blockquote,
+  blockquote p {
     @include spirit-h3;
+  }
+
+
+  blockquote {
+    margin-bottom: $spirit-space-generic-4-x;
     margin-left: 0;
     margin-right: 0;
     margin-top: $spirit-space-generic-2-x;
+    padding-left: $spirit-space-generic-2-x;
+    padding-right: $spirit-space-generic-2-x;
+  }
+
+  blockquote p {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
   }
 
   @mixin float-item {
-    max-width: 50%;
-    width: 352px;
+    width: 100%;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      max-width: 50%;
+      width: 352px;
+    }
   }
 
-  @mixin float-item-left {
-    float: left;
-    margin: $spirit-space-generic-2-x $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+  @mixin float-item-left(
+    $margin-top-lg: $spirit-space-generic-2-x) {
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      float: left;
+      margin: $margin-top-lg $spirit-space-generic-4-x $spirit-space-generic-4-x 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
-  @mixin float-item-right {
-    float: right;
-    margin: $spirit-space-generic-2-x 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
+  @mixin float-item-right(
+    $margin-top-lg: $spirit-space-generic-2-x) {
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      float: right;
+      margin: $margin-top-lg 0 $spirit-space-generic-4-x $spirit-space-generic-4-x;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @mixin align-center(
+    $margin-top-lg: $spirit-space-generic-2-x) {
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      float: none;
+      margin: $margin-top-lg auto $spirit-space-generic-4-x;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .spirit-pull-quote-left,
-  .spirit-pull-quote-right {
+  .spirit-pull-quote-right,
+  .spirit-pull-quote-center {
     @include float-item;
   }
 
   .spirit-pull-quote-left {
-    @include float-item-left;
+    @include float-item-left(
+      $margin-top-lg: $spirit-space-generic-2-x
+    );
   }
 
   .spirit-pull-quote-right {
-    @include float-item-right;
+    @include float-item-right(
+      $margin-top-lg: $spirit-space-generic-2-x
+    );
   }
 
-  img {
+  .spirit-pull-quote-center {
+    @include align-center(
+      $margin-top-lg: $spirit-space-generic-2-x
+    );
+  }
+
+  figure,
+  img,
+  object,
+  picture,
+  video,
+  iframe {
     display: block;
+    margin: 0;
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+    max-width: 100%;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin-bottom: $spirit-space-generic-4-x;
+      margin-top: $spirit-space-generic-2-x;
+    }
+  }
+
+  figure img,
+  iframe video,
+  iframe img,
+  object video,
+  object img,
+  picture img, {
+    margin: 0;
+    padding: 0;
+
+    @media screen and (min-width: $spirit-long-form-text-padding-breakpoint) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .spirit-caption,
+  figure figcaption {
+    @include spirit-body-text-s;
+  }
+
+  .spirit-caption {
     margin-bottom: $spirit-space-generic-4-x;
     margin-top: $spirit-space-generic-2-x;
-    max-width: 100%;
+  }
+
+  figure .spirit-caption,
+  figure figcaption {
+    margin-bottom: 0;
+    margin-top: $spirit-space-generic-1-x;
   }
 
   .spirit-image-left,
-  .spirit-image-right {
+  .spirit-image-right,
+  .spirit-image-center {
     @include float-item;
   }
 
@@ -207,6 +342,16 @@
 
   .spirit-image-right {
     @include float-item-right;
+  }
+
+  .spirit-image-center {
+    @include align-center;
+  }
+
+  figure.spirit-image-center img,
+  figure.spirit-image-center figcaption
+  figure.spirit-image-center .spirit-caption {
+    margin: 0 auto;
   }
 
   .spirit-image-left img,
@@ -239,35 +384,20 @@
     width: 100%;
   }
 
-  .spirit-caption {
-    @include spirit-body-text-s;
-    margin-bottom: $spirit-space-generic-4-x;
-    margin-top: $spirit-space-generic-2-x;
-  }
-
-  figure {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: $spirit-space-generic-2-x;
-  }
-
-  figure > .spirit-caption {
-    margin-top: $spirit-space-generic-2-x * -1;
-  }
-
+  // Heading Combinators
   h2 + h3,
   h2 + h4,
   h2 + h5,
-  h2 + h6, 
+  h2 + h6,
 
   h3 + h4,
   h3 + h5,
-  h3 + h6, 
+  h3 + h6,
 
   h4 + h5,
   h4 + h6,
 
-  h5 + h6,  {
+  h5 + h6  {
     padding-top: 0;
   }
 }

@@ -151,7 +151,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   top: 0;
   width: 100%;
 
-  [class^='spirit-icon-'] {
+  [class*='spirit-icon-'] {
     height: $spirit-size-icon-s;
     width: $spirit-size-icon-s;
   }
@@ -166,7 +166,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   justify-content: center;
   min-width: 130px;
 
-  [class^='spirit-icon-'] {
+  [class*='spirit-icon-'] {
     height: $spirit-size-icon-s;
     width: $spirit-size-icon-s;
   }
@@ -186,7 +186,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   }
 
   .spirit-button__icon-contain {
-    [class^='spirit-icon-'] {
+    [class*='spirit-icon-'] {
       height: $spirit-size-icon-xs;
       width: $spirit-size-icon-xs;
     }
@@ -223,7 +223,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -247,7 +247,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -270,7 +270,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -307,7 +307,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -328,7 +328,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
     .spirit-button__icon-contain,
     &.spirit-button--is-icon {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-s;
         width: $spirit-size-icon-s;
       }
@@ -500,20 +500,20 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
 
 
-// Spririt Button - Secondary
+// Spririt Button - Icon Only
 .spirit-button--icon-only {
   border-radius: 100%;
   min-width: 0;
   padding: $spirit-space-inset-1-x;
 
-  [class^='spirit-icon-'] {
+  [class*='spirit-icon-'] {
     height: $spirit-size-icon-l;
     width: $spirit-size-icon-l;
   }
 
   // Spririt Button - Small
   &.spirit-button--small {
-    [class^='spirit-icon-'] {
+    [class*='spirit-icon-'] {
       height: $spirit-size-icon-m;
       width: $spirit-size-icon-m;
     }
@@ -522,7 +522,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   // Spririt Button - Default ( breakpoint sizing )
   &.spirit-button--default-md {
     @media screen and (min-width: $spirit-breakpoint-m) {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-l;
         width: $spirit-size-icon-l;
       }
@@ -531,7 +531,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 
   &.spirit-button--default-lg {
     @media screen and (min-width: $spirit-breakpoint-l) {
-      [class^='spirit-icon-'] {
+      [class*='spirit-icon-'] {
         height: $spirit-size-icon-l;
         width: $spirit-size-icon-l;
       }
