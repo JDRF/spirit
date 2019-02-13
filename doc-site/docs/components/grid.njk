@@ -13,7 +13,8 @@
   <style>
   [class^='spirit-col'] {
     background: rgba(0, 85, 255, 0.3);
-    border: 1px solid rgba(0, 85, 255, 0.6);
+    background-clip: content-box;
+    margin-bottom: 2px;
   }
   </style>
 
@@ -22,13 +23,13 @@
       <div class="spirit-container">
         <div class="spirit-container__inner">
           <div class="spirit-row">
-            <div class="spirit-col-sm">
+            <div class="spirit-col">
               One of three columns
             </div>
-            <div class="spirit-col-sm">
+            <div class="spirit-col">
               One of three columns
             </div>
-            <div class="spirit-col-sm">
+            <div class="spirit-col">
               One of three columns
             </div>
           </div>
@@ -46,35 +47,35 @@
     <div class="spirit-container">
       <div class="spirit-container__inner">
         <div class="spirit-row">
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of two columns
           </div>
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of two columns
           </div>
         </div>
         <div class="spirit-row">
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of three columns
           </div>
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of three columns
           </div>
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of three columns
           </div>
         </div>
         <div class="spirit-row">
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of four columns
           </div>
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of four columns
           </div>
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of four columns
           </div>
-          <div class="spirit-col-sm">
+          <div class="spirit-col">
             One of four columns
           </div>
         </div>
@@ -88,7 +89,7 @@
       Columns can be configured within a 12-column grid. Use ratio columns to create more specific layouts.
   {% endfilter %}
 
-    {% set example %}
+  {% set example %}
     <div class="spirit-container">
       <div class="spirit-container__inner">
         <div class="spirit-row">
@@ -255,23 +256,23 @@
   {% endfilter %}
 
 
-    {% set example %}
-      <div class="spirit-container">
-        <div class="spirit-container__inner">
-          <div class="spirit-row">
-            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
-              Cell 1
-            </div>
-            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
-              Cell 2
-            </div>
-            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
-              Cell 3
-            </div>
-            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
-              Cell 4
-            </div>
+  {% set example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+        <div class="spirit-row">
+          <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+            Cell 1
           </div>
+          <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+            Cell 2
+          </div>
+          <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+            Cell 3
+          </div>
+          <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+            Cell 4
+          </div>
+        </div>
       </div>
     </div>
   {% endset %}
@@ -286,67 +287,67 @@
   {% endfilter %}
 
 
-    {% set example %}
-      <div class="spirit-container">
-        <div class="spirit-container__inner">
-            <div class="spirit-row spirit-align-items-start">
-                <div class="spirit-col">
-                    Align top
-                </div>
-                <div class="spirit-col">
-                    Align top
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                <div class="spirit-col">
-                    Align top
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </div>
-            </div>
-            <div class="spirit-row spirit-align-items-center">
-                <div class="spirit-col">
-                    Align center
-                </div>
-                <div class="spirit-col">
-                    Align center
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                <div class="spirit-col">
-                    Align center
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </div>
-            </div>
-            <div class="spirit-row spirit-align-items-end">
-                <div class="spirit-col">
-                    Align bottom
-                </div>
-                <div class="spirit-col">
-                    Align bottom
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                <div class="spirit-col">
-                    Align bottom
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </div>
-            </div>
-        </div>
+  {% set example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+          <div class="spirit-row spirit-align-items-start">
+              <div class="spirit-col">
+                  Align top
+              </div>
+              <div class="spirit-col">
+                  Align top
+                  <br>
+                  <br>
+                  <br>
+              </div>
+              <div class="spirit-col">
+                  Align top
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+              </div>
+          </div>
+          <div class="spirit-row spirit-align-items-center">
+              <div class="spirit-col">
+                  Align center
+              </div>
+              <div class="spirit-col">
+                  Align center
+                  <br>
+                  <br>
+                  <br>
+              </div>
+              <div class="spirit-col">
+                  Align center
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+              </div>
+          </div>
+          <div class="spirit-row spirit-align-items-end">
+              <div class="spirit-col">
+                  Align bottom
+              </div>
+              <div class="spirit-col">
+                  Align bottom
+                  <br>
+                  <br>
+                  <br>
+              </div>
+              <div class="spirit-col">
+                  Align bottom
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+              </div>
+          </div>
+      </div>
     </div>
   {% endset %}
   {{ esds_doc.code_example_pair(example=example) }}
@@ -355,6 +356,156 @@
     Alternately, individual cells can be vertically aligned <strong>top</strong>, <strong>center</strong>, or <strong>bottom</strong> within their row.
   {% endfilter %}
 
-  
+  {% set example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+          <div class="spirit-row">
+              <div class="spirit-col spirit-align-self-start">
+                  Align top
+                  <br>
+                  <br>
+                  <br>
+              </div>
+              <div class="spirit-col spirit-align-self-center">
+                  Align center
+              </div>
+              <div class="spirit-col spirit-align-self-end">
+                  Align bottom
+                  <br>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endset %}
+{{ esds_doc.code_example_pair(example=example) }}
+
+{% filter markdown %}
+  ## Advanced Layout Options
+  ### Offset Columns
+  Push a cell to the left with an offset, leaving a blank space. Offsets follow the same measurements as columns, using the same [responsive helper classes](#responsive-column-layouts).
+{% endfilter %}
+
+{% set example %}
+  <div class="spirit-container">
+    <div class="spirit-container__inner">
+      <div class="spirit-row">
+        <div class="spirit-col-md-4">
+          Cell A
+        </div>
+        <div class="spirit-col-md-4 spirit-offset-md-4">
+          Cell B, Offset 4
+        </div>
+      </div>
+      <div class="spirit-row">
+        <div class="spirit-col-md-3 spirit-offset-md-3">
+          Cell C, Offset 3
+        </div>
+        <div class="spirit-col-md-3 spirit-offset-md-3">
+          Cell D, Offset 3
+        </div>
+      </div>
+    </div>
+  </div>
+{% endset %}
+{{ esds_doc.code_example_pair(example=example) }}
+
+{% filter markdown %}
+  ### No Gutters
+  By default, grid cells have padding, which creates visible gutters between cells in a row. Use `spirit-row--no-gutters` to remove the default gutters for an edge-to-edge cell.
+{% endfilter %}
+
+{% set example %}
+  <div class="spirit-container">
+    <div class="spirit-container__inner">
+      <div class="spirit-row spirit-row--no-gutters">
+        <div class="spirit-col-3">
+          Cell A
+        </div>
+        <div class="spirit-col-6">
+          Cell B
+        </div>
+        <div class="spirit-col-3">
+          Cell C
+        </div>
+      </div>
+    </div>
+  </div>
+{% endset %}
+{{ esds_doc.code_example_pair(example=example) }}
+
+{% filter markdown %}
+  ### Nesting
+  Nest a grid inside the cell of another grid. The nested grid fills the width of the cell and subdivides its horizontal space proportionally. Note: this should only occur at the largest breakpoint.
+{% endfilter %}
+
+{% set example %}
+  <div class="spirit-container">
+    <div class="spirit-container__inner">
+      <div class="spirit-row">
+        <div class="spirit-col-6">
+          .spirit-col-6
+        </div>
+        <div class="spirit-col-6">
+          .spirit-col-6
+          <div class="spirit-row">
+            <div class="spirit-col-4">
+              .spirit-col-4
+            </div>
+            <div class="spirit-col-4">
+              .spirit-col-4
+            </div>
+            <div class="spirit-col-4">
+              .spirit-col-4
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endset %}
+{{ esds_doc.code_example_pair(example=example) }}
+
+{% filter markdown %}
+  ## Code Reference
+{% endfilter %}
+{{ esds_doc.reference_table(column_widths=[40, 30, 30],
+    data=[
+      {
+        class: '.spirit-row--no-gutters',
+        applies_to: '.spirit-row',
+        outcome: 'Removes gutters in between cells in a row'
+      },
+      {
+        class: '.spirit-align-items-start',
+        applies_to: '.spirit-row',
+        outcome: 'Top aligns all cells in a row'
+      },
+      {
+        class: '.spirit-align-items-center',
+        applies_to: '.spirit-row',
+        outcome: 'Vertically centers all cells in a row'
+      },
+      {
+        class: '.spirit-align-items-end',
+        applies_to: '.spirit-row',
+        outcome: 'Bottom aligns all cells in a row'
+      },
+      {
+        class: '.spirit-align-self-start',
+        applies_to: '.spirit-col',
+        outcome: 'Top aligns an individual cell within a row'
+      },
+      {
+        class: '.spirit-align-self-center',
+        applies_to: '.spirit-col',
+        outcome: 'Vertically centers an individual cell within a row'
+      },
+      {
+        class: '.spirit-align-self-end',
+        applies_to: '.spirit-col',
+        outcome: 'Bottom aligns an individual cell within a row'
+      }
+    ]) }}
+
 
 {% endblock page_shell_content %}
