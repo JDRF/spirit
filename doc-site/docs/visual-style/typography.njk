@@ -3,59 +3,175 @@
   {% filter markdown %}
       # Typography
 
-      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
+      <p class="spirit-subhead">Spirit visual style reinforces JDRF’s clear, powerful message by providing an amplified type hierarchy, limited color selections, and a single font family.</p>
   {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
   {% filter markdown %}
-      ## Section 1
-      
-      Paragraph
+      Use the typographic styles on this page via Spirit [tokens](/tokens.html) and components. Aspects of typographic style, such as spacing or color, may be modified on per-component basis. For body text specifically, see the component [Long Form Text](/components/long-form-text.html), which extends this basic typography with spacing and other considerations for long blocks of text. 
 
-      ### Subheading A
+      ## Weight
 
-      Paragraph
+      Spirit provides four weights of the Graphik font family. For instructions on loading Graphik as a web font, see [Font Family](#font-family), below.
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair( 
-    examples=[
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on light"
-      },
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-context--brand"
-      }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
-  )
-  }}
+    {% set sample_styles %}
+      font-size: 32px;
+      font-weight: {{ spirit_tokens.font.weight.regular }};
+    {% endset %}
+    {% set giant_characters %}
+      font-size: 96px;
+      line-height: 1;
+      position: relative;
+      top: -9px;
+      word-break: keep-all;
+    {% endset %}
+    {{ spirit_doc.typography_swatch(
+        alphabet_sample_text=true, 
+        sample_text_styles=sample_styles,
+        secondary_sample_text="Jj", 
+        secondary_sample_text_styles=giant_characters,
+        code_sample="font-weight: $spirit-font-weight-regular",
+        design_specs=false,
+        title="Regular") }}
+
+    {% set sample_styles %}
+      font-size: 32px;
+      font-weight: {{ spirit_tokens.font.weight.medium }};
+    {% endset %}
+    {% set giant_characters %}
+      font-size: 96px;
+      line-height: 1;
+      position: relative;
+      top: -9px;
+      word-break: keep-all;
+    {% endset %}
+    {{ spirit_doc.typography_swatch(
+        alphabet_sample_text=true, 
+        sample_text_styles=sample_styles,
+        secondary_sample_text="Jj", 
+        secondary_sample_text_styles=giant_characters,
+        code_sample="font-weight: $spirit-font-weight-medium",
+        design_specs=false,
+        title="Medium") }}
+
+    {% set sample_styles %}
+      font-size: 32px;
+      font-weight: {{ spirit_tokens.font.weight.semibold }};
+    {% endset %}
+    {{ spirit_doc.typography_swatch(
+        alphabet_sample_text=true, 
+        sample_text_styles=sample_styles,
+        secondary_sample_text="Jj", 
+        secondary_sample_text_styles=giant_characters,
+        code_sample="font-weight: $spirit-font-weight-semibold",
+        design_specs=false,
+        title="Semibold") }}
+
+    {% set sample_styles %}
+      font-size: 32px;
+      font-weight: {{ spirit_tokens.font.weight.bold }};
+    {% endset %}
+    {{ spirit_doc.typography_swatch(
+        alphabet_sample_text=true, 
+        sample_text_styles=sample_styles,
+        secondary_sample_text="Jj", 
+        secondary_sample_text_styles=giant_characters,
+        code_sample="font-weight: $spirit-font-weight-bold",
+        design_specs=false,
+        title="Bold") }}
+
   {% filter markdown %}
+      ## Scale
 
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ### Subheading B
-
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ## Section 2
-      
-      Paragraph
+      Establish visual hierarchy using appropriate typographic scale. 
   {% endfilter %}
 
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-display-1",
+        title="Display 1",
+        code_sample=".spirit-display-1<br/>@include spirit-display-1;",
+        design_specs="font-size: 96px;<br/>font-weight: bold;<br/>line-height: 108px;",
+        sample_text="Improving lives. Curing Type 1 Diabetes.") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-display-2",
+        title="Display 2",
+        code_sample=".spirit-display-2<br/>@include spirit-display-2;",
+        design_specs="font-size: 72px;<br/>font-weight: bold;<br/>line-height: 76px;",
+        sample_text="Improving lives. Curing Type 1 Diabetes.") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-h1",
+        title="Heading 1",
+        code_sample=".spirit-h1<br/>@include spirit-h1;",
+        design_specs="font-size: 56px;<br/>font-weight: bold;<br/>line-height: 72px;") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-h2",
+        title="Heading 2",
+        code_sample=".spirit-h2<br/>@include spirit-h2;",
+        design_specs="font-size: 44px;<br/>font-weight: bold;<br/>line-height: 56px;") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-h3",
+        title="Heading 3",
+        code_sample=".spirit-h3<br/>@include spirit-h3;",
+        design_specs="font-size: 32px;<br/>font-weight: bold;<br/>line-height: 40px;") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-h4",
+        title="Heading 4",
+        code_sample=".spirit-h4<br/>@include spirit-h4;",
+        design_specs="font-size: 24px;<br/>font-weight: bold;<br/>line-height: 32px;") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-h5",
+        title="Heading 5",
+        code_sample=".spirit-h5<br/>@include spirit-h5;",
+        design_specs="font-size: 18px;<br/>font-weight: bold;<br/>line-height: 24px;") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-h6",
+        title="Heading 6",
+        code_sample=".spirit-h6<br/>@include spirit-h6;",
+        design_specs="font-size: 16px;<br/>font-weight: bold;<br/>line-height: 20px;") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-subhead",
+        title="Subhead",
+        code_sample=".spirit-subhead<br/>@include spirit-subhead;",
+        design_specs="font-size: 24px;<br/>font-weight: normal;<br/>line-height: 36px;",
+        sample_text="Whether you donate your time or dollars, life-changing breakthroughs in T1D treatments and therapies couldn’t happen without you") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-body-text-l",
+        title="Body Text L (Default)",
+        code_sample=".spirit-body-text-l<br/>@include spirit-body-text-l;",
+        design_specs="font-size: 18px;<br/>font-weight: normal;<br/>line-height: 27px;",
+        sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas...") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-body-text-m",
+        title="Body Text M",
+        code_sample=".spirit-body-text-m<br/>@include spirit-body-text-m;",
+        design_specs="font-size: 16px;<br/>font-weight: normal;<br/>line-height: 24px;",
+        sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas...") }}
+
+    {{ spirit_doc.typography_swatch(
+        sample_text_class="spirit-body-text-s",
+        title="Body Text S",
+        code_sample=".spirit-body-text-s<br/>@include spirit-body-text-s;",
+        design_specs="font-size: 14px;<br/>font-weight: normal;<br/>line-height: 21px;",
+        sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas...") }}
 
   {% filter markdown %}
-      ## Code Reference
-      
-      ### Color Tokens
-  {% endfilter %}   
+      ## Color
+
+      Spirit uses a limited color palette for typography, consisting of <b>black</b> for headings and <b>secondary grey</b> for body text, microcopy, and all other small text. 
+
+  {% endfilter %}
   {{ esds_doc.tint_stack(swatches=[
     {
       hex: spirit_tokens['text-color']['primary'],
@@ -66,6 +182,19 @@
       show_border: true
     },
     {
+      hex: spirit_tokens['text-color']['secondary'],
+      label: 'Secondary',
+      code_snippet: '$spirit-text-color-secondary',
+      contrast_test_color: '#FFFFFF',
+      color_role: 'foreground',
+      show_border: true
+    }
+  ]) }}
+  {% filter markdown %}
+      All typography on a dark background is white, including links. 
+  {% endfilter %}
+  {{ esds_doc.tint_stack(swatches=[
+    {
       hex: spirit_tokens['text-color']['on-dark'],
       label: 'On Dark',
       code_snippet: '$spirit-text-color-on-dark',
@@ -74,28 +203,99 @@
       class: 'esds-doc-tint-stack__swatch--dark'
     }
   ]) }}
+  {% filter markdown %}      
+      For additional guidance see <a href="color.html">Color</a>. 
 
-  {% filter markdown %}
-      ### Class Reference
+      ## Font Family
+
+      If using the Spirit NPM package, the Graphik web font is included and should be deployed directly with your product. For technical details, see <a href="../getting-started.html#for-developers">Getting Started for Developers</a>. 
+
+      If using Spirit’s styles and assets via the CDN, either use Spirit’s stylesheet directly to get the web fonts automatically or add the appropriate import string to your SCSS. For more information, see <a href="../getting-started.html#fonts">Getting Started for Developers: Using CDN Assets: Fonts</a>.
+
+      ## Code Reference
+
+      Helper classes to achieve sizes and styles.
+
+      #### Mixins and Classes
+   
+
+
   {% endfilter %}
 
     {{ esds_doc.reference_table(column_widths=[35, 30, 35],
-    data=[
-      {
-        class: '.spirit-button--secondary',
-        applies_to: '.spirit-button',
-        outcome: 'Applies secondary button style'
-      },
-      {
-        class: '.spirit-button--minimal',
-        applies_to: '.spirit-button',
-        outcome: 'Applies minimal button style'
-      },
-      {
-        class: '.spirit-button--toggle',
-        applies_to: '.spirit-button',
-        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
-      }
+      headers=[
+            'mixin',
+            'class',
+            'outcome'
+        ],
+        automatic_code_block_columns=['mixin', 'class'],
+        column_widths=[30, 30, 40],
+        data=[
+          {
+            mixin: '@mixin spirit-display-1',
+            class: '.spirit-display-1',
+            outcome: 'Applies Display 1 styling'
+          },
+          {
+            mixin: '@mixin spirit-display-2',
+            class: '.spirit-display-2',
+            outcome: 'Applies Display 2 styling'
+          },
+          {
+            mixin: '@mixin spirit-h1',
+            class: '.spirit-h1',
+            outcome: 'Applies Heading 1 styling'
+          },
+          {
+            mixin: '@mixin spirit-h2',
+            class: '.spirit-h2',
+            outcome: 'Applies Heading 2 styling'
+          },
+          {
+            mixin: '@mixin spirit-h3',
+            class: '.spirit-h3',
+            outcome: 'Applies Heading 3 styling'
+          },
+          {
+            mixin: '@mixin spirit-h4',
+            class: '.spirit-h4',
+            outcome: 'Applies Heading 4 styling'
+          },
+          {
+            mixin: '@mixin spirit-h5',
+            class: '.spirit-h5',
+            outcome: 'Applies Heading 5 styling'
+          },
+          {
+            mixin: '@mixin spirit-h6',
+            class: '.spirit-h6',
+            outcome: 'Applies Heading 6 styling'
+          },
+          {
+            mixin: '@mixin spirit-subhead',
+            class: '.spirit-subhead',
+            outcome: 'Applies subhead paragraph styling'
+          },
+          {
+            mixin: '@mixin spirit-body-text-l',
+            class: '.spirit-body-text-l',
+            outcome: 'Applies large paragraph styling'
+          },
+          {
+            mixin: '@mixin spirit-body-text-m',
+            class: '.spirit-body-text-m',
+            outcome: 'Applies medium paragraph styling'
+          },
+          {
+            mixin: '@mixin spirit-body-text-s',
+            class: '.spirit-body-text-s',
+            outcome: 'Applies small paragraph styling'
+          },
+          {
+            mixin: ' @mixin spirit-link',
+            class: '.spirit-link',
+            outcome: 'Applies basic link styling'
+          }
     ]) }}
 
 {% endblock page_shell_content %}
