@@ -44,7 +44,7 @@ $spirit-container-wave5-bg-width: 3000px;
   max-width: $spirit-container-inner-max-width-full;
   padding-left: 0;
   padding-right: 0;
-  width: calc(100% - (#{$spirit-space-generic-3-x} * 2));
+  width: calc(100vw - (#{$spirit-space-generic-3-x} * 2));
 }
 
 // Container width large
@@ -53,7 +53,7 @@ $spirit-container-wave5-bg-width: 3000px;
   padding-left: 0;
   padding-right: 0;
   @media screen and (min-width: $spirit-container-breakpoint) {
-    width: calc(100% - (#{$spirit-container-inner-horizontal-space-m} * 2));
+    width: calc(100vw - (#{$spirit-container-inner-horizontal-space-m} * 2));
   }
 }
 
