@@ -1,0 +1,360 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+
+  {% filter markdown %}
+      <h1>Grid</h1>
+
+      <p class="spirit-subhead">A mobile-first flexbox grid in 12 columns, loosely based on [Bootstrap 4](https://getbootstrap.com/docs/4.0/layout/grid/). Usually found within an outer [container](/components/container.html) that determines the grid’s maximum width.</p>
+      <p class="spirit-subhead">Certain components use their own grid. See [card grid](/components/card.html) for details.</p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  <style>
+  [class^='spirit-col'] {
+    background: rgba(0, 85, 255, 0.3);
+    border: 1px solid rgba(0, 85, 255, 0.6);
+  }
+  </style>
+
+  {% filter markdown %}
+    {% set grid_example %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+          <div class="spirit-row">
+            <div class="spirit-col-sm">
+              One of three columns
+            </div>
+            <div class="spirit-col-sm">
+              One of three columns
+            </div>
+            <div class="spirit-col-sm">
+              One of three columns
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endset %}
+
+    {{ esds_doc.html_example_list(example=grid_example) }}
+    ## Column Sizing
+    ### Auto-width Columns (default)
+    By default, columns distribute available space proportionally: two columns divide the space in half, three columns divide it into thirds, and so forth.
+  {% endfilter %}
+
+  {% set example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+        <div class="spirit-row">
+          <div class="spirit-col-sm">
+            One of two columns
+          </div>
+          <div class="spirit-col-sm">
+            One of two columns
+          </div>
+        </div>
+        <div class="spirit-row">
+          <div class="spirit-col-sm">
+            One of three columns
+          </div>
+          <div class="spirit-col-sm">
+            One of three columns
+          </div>
+          <div class="spirit-col-sm">
+            One of three columns
+          </div>
+        </div>
+        <div class="spirit-row">
+          <div class="spirit-col-sm">
+            One of four columns
+          </div>
+          <div class="spirit-col-sm">
+            One of four columns
+          </div>
+          <div class="spirit-col-sm">
+            One of four columns
+          </div>
+          <div class="spirit-col-sm">
+            One of four columns
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endset %}
+  {{ esds_doc.code_example_pair(example=example) }}
+
+  {% filter markdown %}
+      ### Ratio Columns
+      Columns can be configured within a 12-column grid. Use ratio columns to create more specific layouts.
+  {% endfilter %}
+
+    {% set example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+        <div class="spirit-row">
+          <div class="spirit-col-6">
+            .spirit-col-6
+          </div>
+          <div class="spirit-col-6">
+            .spirit-col-6
+          </div>
+        </div>
+        <div class="spirit-row">
+          <div class="spirit-col-8">
+            .spirit-col-8
+          </div>
+          <div class="spirit-col-4">
+            .spirit-col-4
+          </div>
+        </div>
+        <div class="spirit-row">
+          <div class="spirit-col-3">
+            .spirit-col-3
+          </div>
+          <div class="spirit-col-6">
+            .spirit-col-6
+          </div>
+          <div class="spirit-col-3">
+            .spirit-col-3
+          </div>
+        </div>
+        <div class="spirit-row">
+          <div class="spirit-col-3">
+            .spirit-col-3
+          </div>
+          <div class="spirit-col-3">
+            .spirit-col-3
+          </div>
+          <div class="spirit-col-6">
+            .spirit-col-6
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endset %}
+  {{ esds_doc.code_example_pair(example=example) }}
+
+  {% filter markdown %}
+    ## Responsiveness
+    ### Stack to column
+    Spirit grid starts out as a stack of inert full-width blocks, called cells.
+    <table class="esds-doc-reference-table">
+      <tr>
+        <td class="esds-doc-reference-table__cell">
+          <img src="/images/grid/responsive_stacked.png" alt="">
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          <img src="/images/grid/responsive_columns.png" alt="">
+        </td>
+      </tr>
+      <tr>
+        <td class="esds-doc-reference-table__cell">
+          Working mobile-first on the smallest viewports, the grid’s cells appear as full-width containers in a stack.
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          Cells can be configured to lay out in columns all the time or just at specific breakpoints.
+        </td>
+      </tr>
+    </table>
+
+    ### Responsive column layouts
+    Independently configure when each cell should lay out as a column. Cells are full-width by default. Column definitions always apply from the specified breakpoint and larger.
+
+    <table class="esds-doc-reference-table">
+      <tr>
+        <td class="esds-doc-reference-table__header-cell"></td>
+        <td class="esds-doc-reference-table__header-cell">
+          <strong>Extra Small</strong><br>
+          &lt;&nbsp;375px
+        </td>
+        <td class="esds-doc-reference-table__header-cell">
+          <strong>Small</strong><br>
+          ≥&nbsp;375px
+        </td>
+        <td class="esds-doc-reference-table__header-cell">
+          <strong>Medium</strong><br>
+          ≥&nbsp;768px
+        </td>
+        <td class="esds-doc-reference-table__header-cell">
+          <strong>Large</strong><br>
+          ≥&nbsp;1024px
+        </td>
+        <td class="esds-doc-reference-table__header-cell">
+          <strong>Extra Large</strong><br>
+          ≥&nbsp;1248px
+        </td>
+      </tr>
+      <tr>
+        <td class="esds-doc-reference-table__cell">
+          <strong>Max container width</strong>
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          None (auto)
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          540px
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          720px
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          960px
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          1140px
+        </td>
+      </tr>
+      <tr>
+        <td class="esds-doc-reference-table__cell">
+          <strong>Class prefix</strong>
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          `.spirit-col-`
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          `.spirit-col-sm-`
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          `.spirit-col-md-`
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          `.spirit-col-lg-`
+        </td>
+        <td class="esds-doc-reference-table__cell">
+          `.spirit-col-xl-`
+        </td>
+      </tr>
+      <tr>
+        <td class="esds-doc-reference-table__cell">
+          <strong>Number of Columns</strong>
+        </td>
+        <td class="esds-doc-reference-table__cell" colspan=5>
+          12
+        </td>
+      </tr>
+      <tr>
+        <td class="esds-doc-reference-table__cell">
+          <strong>Gutter Width</strong>
+        </td>
+        <td class="esds-doc-reference-table__cell" colspan=3>
+          <strong>Default</strong><br>
+          &lt; 1080px <br>
+          `$spirit-space-generic-2-x`
+        </td>
+        <td class="esds-doc-reference-table__cell" colspan=2>
+          <strong>$spirit-breakpoint-grid</strong><br>
+          ≥ 1080px<br>
+          `$spirit-space-generic-4-x`
+        </td>
+      </tr>
+    </table>
+
+    A single cell can have several definitions that apply at different breakpoints, changing its behavior and its relationship with other cells on the same row.
+
+    The following example appears as a <strong>row of four cells</strong> on large screens, a <strong>row of three cells with one left over</strong> on medium screens, and <strong>two rows of two cells</strong> on small screens.
+  {% endfilter %}
+
+
+    {% set example %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+          <div class="spirit-row">
+            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+              Cell 1
+            </div>
+            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+              Cell 2
+            </div>
+            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+              Cell 3
+            </div>
+            <div class="spirit-col-sm-6 spirit-col-md-4 spirit-col-lg-3">
+              Cell 4
+            </div>
+          </div>
+      </div>
+    </div>
+  {% endset %}
+  {{ esds_doc.code_example_pair(example=example) }}
+
+  {% filter markdown %}
+    ### Scaled padding
+    By default, all cells have left/right padding which creates a gutter between columns. This 8px padding adjusts to 16px at the large breakpoint.
+
+    ## Vertical Alignment
+    By default, cells align top and fill their row vertically. Optionally, whole rows can be configured to align their cells <strong>top</strong> (default), <strong>center</strong>, or <strong>bottom</strong>.
+  {% endfilter %}
+
+
+    {% set example %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner">
+            <div class="spirit-row spirit-align-items-start">
+                <div class="spirit-col">
+                    Align top
+                </div>
+                <div class="spirit-col">
+                    Align top
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="spirit-col">
+                    Align top
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="spirit-row spirit-align-items-center">
+                <div class="spirit-col">
+                    Align center
+                </div>
+                <div class="spirit-col">
+                    Align center
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="spirit-col">
+                    Align center
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="spirit-row spirit-align-items-end">
+                <div class="spirit-col">
+                    Align bottom
+                </div>
+                <div class="spirit-col">
+                    Align bottom
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="spirit-col">
+                    Align bottom
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endset %}
+  {{ esds_doc.code_example_pair(example=example) }}
+
+  {% filter markdown %}
+    Alternately, individual cells can be vertically aligned <strong>top</strong>, <strong>center</strong>, or <strong>bottom</strong> within their row.
+  {% endfilter %}
+
+  
+
+{% endblock page_shell_content %}
