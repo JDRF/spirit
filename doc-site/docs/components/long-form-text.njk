@@ -340,6 +340,7 @@
   {% filter markdown %}
 
       #### Float Left or Right
+      Position images to float right or left within flowing prose.  
 
   {% endfilter %}
 
@@ -391,8 +392,32 @@
 
   {% filter markdown %}
 
+        #### Center
+
+  {% endfilter %}
+
+  {% set lft_example_image_center %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country.</p>
+      <figure class="spirit-image-center">
+          <img src="/images/long-form-text/JDRF-Kids-School-Fundraising-734x376.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">JDRF offers kids many ways to educate, inspire and motivate their peers</figcaption>
+      </figure>
+      <p>Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_image_center } ],
+      code_snippet_source=lft_example_image_center
+   ) }}
+
+  {% filter markdown %}
+
       ### Pull Quotes
 
+      #### Float Left or Right
       Position pull quotes to float right or left within flowing prose.  
 
   {% endfilter %}
@@ -412,8 +437,43 @@
 
   {{ esds_doc.code_example_pair( 
       class="esds-doc-html-example-list",
-      examples=[ { example: lft_example_blockquote } ],
-      code_snippet_source=lft_example_blockquote
+      examples=[ { example: lft_example_blockquote } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Default
+  {% endfilter %}
+
+  {% set lft_example_blockquote_default %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+      <blockquote class="spirit-pull-quote">The JDRF Ride has raised more than $47 million for research to deliver life-changing therapies and, one day, a cure for type 1 diabetes (T1D).
+      </blockquote>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote_default } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Center
+  {% endfilter %}
+
+  {% set lft_example_blockquote_center %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+      <blockquote class="spirit-pull-quote-center">"JDRF is ... a strong force for change."
+      </blockquote>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote_center } ]
    ) }}
 
 {% endblock page_shell_content %}
