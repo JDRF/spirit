@@ -12,7 +12,8 @@
       feedbackType=false,
       feedbackText=false,
       name=false,
-      value=false
+      value=false,
+      fullwidth=false
       ) %}
   {% if href %}
     {% set el = 'a' %}
@@ -34,7 +35,7 @@
     <input {{ 'id=' + id if id }} {{ 'type=' + el }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
   {% elif el %}
     {# Using type variable for <button type="submit"> or <a type="button"> options #}
-    <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
+    <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
       {% if iconName %}
         {% if not iconLabel %}
           {% set iconLabel = iconName %}

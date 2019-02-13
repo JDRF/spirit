@@ -134,6 +134,10 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   }
 }
 
+.spirit-button--fullwidth {
+  width: 100%;
+}
+
 .spirit-button__default-text {
   .spirit-button__success-text[aria-hidden='false'] + & {
     display: none;
