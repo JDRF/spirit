@@ -37,8 +37,8 @@
 
     {% call library.form_field_group() %}
       {{ library.form_label(text="With Micro Copy", required=true) }}
-      {{ library.form_input(placeholder="First name") }}
-      {{ library.form_microcopy(text="Micro copy text goes here.") }}
+      {{ library.form_input(placeholder="First name", attributes='aria-describedby=input-with-microcopy') }}
+      {{ library.form_microcopy(text="Micro copy text goes here.", id="input-with-microcopy") }}
     {% endcall %}
 
     {% call library.form_field_group() %}
