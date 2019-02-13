@@ -108,21 +108,17 @@ $spirit-card-grid-max-width: 1100px;
   @media screen and (max-width: 479px) {
     .spirit-card {
       @include spirit-card-list-item;
-      margin: $spirit-space-stack-2-x;
+      margin: $spirit-space-stack-1-x;
     }
   }
 }
 
-$spirit-card-grid-carousel-side-padding: $spirit-space-generic-2-x;
+$spirit-card-grid-carousel-side-padding: $spirit-space-generic-3-x;
 
 .spirit-card-carousel {
   @include spirit-box-sizing;
   max-width: $spirit-card-grid-max-width;
   width: 100%;
-
-  .spirit-container & {
-    max-width:  calc(100% + #{$spirit-space-generic-4-x});
-  }
 
   @media screen and (max-width: 479px) {
     // Make carousel flush left and right inside container
@@ -132,7 +128,7 @@ $spirit-card-grid-carousel-side-padding: $spirit-space-generic-2-x;
   }
 }
 
-$scrollbar-hiding-padding: 20px; // Used to push the native browser scrollbar out of view
+$scrollbar-hiding-padding: $spirit-space-generic-3-x; // Used to push the native browser scrollbar out of view
 
 .spirit-card-carousel .spirit-card-grid {
   // Typically avoid max-width media queries, but since this alters the default state of card only at small viewports it makes sense here
