@@ -206,7 +206,6 @@ ol.spirit-list {
   @media screen and (min-width: $spirit-list-breakpoint) {
     font-size: $spirit-font-size-m;
     line-height: $spirit-list-initial-line-height-m;
-    margin-top: $spirit-space-generic-1-x;
   }
 }
 
@@ -224,10 +223,6 @@ ol.spirit-list {
     justify-content: flex-end;
     margin-left: auto;
     margin-top: 0;
-  }
-
-  @media screen and (min-width: $spirit-list-breakpoint) {
-    margin-top: $spirit-space-generic-1-x;
   }
 }
 
