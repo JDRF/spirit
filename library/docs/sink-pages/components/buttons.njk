@@ -239,6 +239,11 @@
                 {% endfilter %}
                 {{ library.button(class="spirit-button--large-lg", text="Learn More") }}
 
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### Full Width
+                {% endfilter %}
+                {{ library.button(text="Learn More", fullwidth="true") }}
+
             </div>
 
             <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
