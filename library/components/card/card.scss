@@ -35,7 +35,7 @@
   }
 
   .spirit-card__body {
-    display: none;
+    margin-top: -$spirit-space-inset-half-x;
   }
 
   .spirit-card__text {
@@ -78,6 +78,19 @@
       $font-size: $spirit-font-size-s
     );
     margin: $spirit-space-stack-2-x;
+
+    @media screen and (max-width: $spirit-breakpoint-m) {
+      // Truncate body text on small screens
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre-wrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; // Number of lines you wish to display
+      max-height: 42px; // Number of lines times line height
+      // sass-lint: enable
+    }
   }
 
   .spirit-card__link {
