@@ -104,7 +104,7 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
     @include spirit-typography-reset(
       $font-size: $spirit-font-size-heading-level-4-normal,
       $font-weight: $spirit-font-weight-bold,
-      $line-height: $spirit-font-size-heading-level-4-breakpoint-l
+      $line-height: $spirit-font-line-height-heading-level-4-normal
     );
     margin: $spirit-space-stack-1-x;
   }
