@@ -3,13 +3,23 @@
 /// setspace Mixin
 /// Output an elevation
 /// @example @include spirit-elevation( $elevation: $spirit-elevation-1, $color: $spirit-elevation-color-blue );
-/// @output box-shadow: 0 2px 4px 0 rgba(0,8,26,0.16);
+/// @output box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), 0 0 4px 0 rgba(0, 85, 255, 0.08);
 /// @param {list} $elevation [$spirit-elevation-1] - A list of attributes for the first part of the `box-shadow` property.
 /// @param {color} $color [$spirit-elevation-color-default] - The shadow color
+/// @param {color-08} $color-08 [null] - Secondary shadow color - optional - if $color is 'default' or 'blue', mixin will set $color-08
 @mixin spirit-elevation(
   $level: '1',
-  $color: $spirit-elevation-color-default
+  $color: $spirit-elevation-color-default,
+  $color-08: null
 ) {
+
+  @if( null == $color-08 ) {
+    @if($spirit-elevation-color-default == $color ) {
+      $color-08: $spirit-elevation-color-default-08;
+    } @else if($spirit-elevation-color-blue == $color) {
+      $color-08: $spirit-elevation-color-blue-08;
+    }
+  }
 
   $elevation: spirit-token('elevation', inspect($level)); // inspect() casts numbers to strings
   @if type-of($elevation) != list {
@@ -18,5 +28,13 @@
   @if type-of($color) != color {
     @error 'Received: #{$color} for $color. The $color attribute must receive a valid CSS color.';
   }
-  box-shadow: $elevation $color;
+
+  @if( null == $color-08 ) {
+    box-shadow: $elevation $color;
+  } @else {
+    @if type-of($color-08) != color {
+      @error 'Received: #{$color-08} for $color-08. The $color attribute must receive a valid CSS color.';
+    }
+    box-shadow: $elevation $color, $spirit-elevation-secondary $color-08;
+  }
 }
