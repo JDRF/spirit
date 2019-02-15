@@ -49,10 +49,6 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
     margin: $spirit-space-stack-1-x;
   }
 
-  .spirit-card__body {
-    display: none;
-  }
-
   .spirit-card__text {
     @include spirit-elevation(1, $spirit-elevation-color-blue);
     border-radius: $spirit-border-radius-l; // when there is no image
