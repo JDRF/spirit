@@ -5,6 +5,31 @@
         # Grid Sink
     {% endfilter %}
 
+    <style>
+    [class^='spirit-col'] {
+      background: rgba(0, 85, 255, 0.3);
+      background-clip: content-box;
+      margin-bottom: 2px;
+      border: 0;
+    }
+    </style>
+
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+        <div class="spirit-row">
+          <div class="spirit-col">
+            Apple
+          </div>
+          <div class="spirit-col">
+            Boysenberry
+          </div>
+          <div class="spirit-col">
+            Cherry
+          </div>
+        </div>
+      </div>
+    </div>
+
     {% filter markdown(true, "hostile-sink-reset") %}
         ### Basic 3 column grid
     {% endfilter %}
