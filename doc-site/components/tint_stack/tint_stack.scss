@@ -10,6 +10,10 @@ $esds-doc-tint-stack-space-swatch-inset: $spirit-space-inset-3-x;
 
 @import '../../node_modules/esds-doc/components/tint_stack/tint_stack';
 
+.esds-doc-tint-stack {
+  margin-bottom: 16px; 
+}
+
 .esds-doc-tint-stack__label {
   flex: 1 1 10%;
   font-size: $spirit-font-size-m;

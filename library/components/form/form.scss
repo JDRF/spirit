@@ -288,6 +288,7 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
 $spirit-checkbox-label-color:               $spirit-text-color-secondary;
 $spirit-checkbox-label-font-family:         $spirit-form-font-family;
 $spirit-checkbox-label-font-size:           $spirit-form-element-font-size;
+$spirit-checkbox-label-margin:              2px;
 $spirit-checkbox-background-color:          $spirit-color-white;
 $spirit-checkbox-border:                    solid 1px $spirit-color-grey-35; // TODO: Tokenize and work on border tokens
 $spirit-checkbox-border-color-hover-focus:  $spirit-form-element-selected-color;         
@@ -432,7 +433,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
     $font-size: $spirit-checkbox-label-font-size
   );
   @include spirit-text-crop;
-  margin-top: 5px; // Vertically center the first line of text with the checkbox - used instead of align-items: center in case the checkbox label wraps
+  margin-top: $spirit-checkbox-label-margin; // Vertically center the first line of text with the checkbox - used instead of align-items: center in case the checkbox label wraps
 
   .spirit-form__checkbox:hover &,
   .spirit-form__checkbox--hover & {
@@ -488,6 +489,7 @@ $spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 $spirit-radio-label-color:              $spirit-text-color-secondary;
 $spirit-radio-label-font-family:        $spirit-form-font-family;
 $spirit-radio-label-font-size:          $spirit-form-element-font-size;
+$spirit-radio-label-margin:             2px;
 $spirit-radio-background-color:         $spirit-color-white;
 $spirit-radio-border:                   solid 1px $spirit-color-grey-35;
 $spirit-radio-border-color-hover-focus: $spirit-form-element-selected-color;         
@@ -613,7 +615,7 @@ $spirit-radio-label-space:              $spirit-space-generic-1-x;
     $font-size: $spirit-radio-label-font-size
   );
   @include spirit-text-crop;
-  margin-top: 5px; // Vertically center the first line of text with the radio - used instead of align-items: center in case the radio label wraps
+  margin-top: $spirit-radio-label-margin; // Vertically center the first line of text with the radio - used instead of align-items: center in case the radio label wraps
 
   .spirit-form__radio:hover &,
   .spirit-form__radio--hover & {

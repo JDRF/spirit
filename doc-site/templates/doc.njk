@@ -24,7 +24,7 @@
           {% set table_of_contents_header %}
             <h3 class="spirit-doc-page-shell__page-navigation-heading">Contents</h3>
           {% endset %}
-          {{ esds_doc.page_navigation(anchor_link_target_selector=".spirit-doc-page-shell__content h2, .spirit-doc-page-shell__content h3", fixed_distance_from_top="53", top_content=table_of_contents_header) }}
+          {{ esds_doc.page_navigation(anchor_link_target_selector=".spirit-doc-page-shell__content > .spirit-long-form-text > h2, .spirit-doc-page-shell__content > .spirit-long-form-text > h3", fixed_distance_from_top="53", top_content=table_of_contents_header) }}
         {% endblock page_shell_page_navigation %}
       </div>
     {% endif %}
