@@ -31,17 +31,3 @@ body {
   margin: 0;
   padding: 0;
 }
-
-// Markdown Table Styling
-.spirit-doc-page-shell__content .spirit-long-form-text table {
-  border-collapse: collapse;
-  width: 100%;
-
-  th, td {
-    padding: $spirit-space-inset-1-x;
-  }
-
-  td {
-    border: solid 1px $spirit-color-grey-95;
-  }
-}
