@@ -3,7 +3,7 @@
   {% filter markdown %}
       # Feedback Messages
 
-      <p class="spirit-long-form-text__subhead">Feedback messages communicate status.</p>
+      <p class="spirit-subhead">Feedback messages communicate status.</p>
 
       Messages come in three varieties based on urgency.
   {% endfilter %}
@@ -14,13 +14,53 @@
       <h2 class="spirit-doc-hidden-heading">Variations</h2>
       ### Informational Messages
       Informational messages communicate non-critical information.
-      
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(example=library.form_message(text="Only 21 seats remaining.")) }}
+
+  {% filter markdown %}
       ### Success Messages
+      Success messages communicate that a user action was successful.
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(example=library.form_message(type="success", text="Donation received! Thank you for your support.")) }}
+
+  {% filter markdown %}
+      If a user task doesn’t end with a page dedicated to confirming success, then use a success message to clearly communicate that their task ended successfully.
 
       ### Error Messages
+      Error messages communicate critical information.
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(example=library.form_message(type="error", text="The form contains errors. Correct them to continue.")) }}
+
+  {% filter markdown %}
+      Use error messages for [form validation errors](/components/forms.html#validation-errors) and whenever the user’s path is blocked.
 
       ## Guidelines
+      * Use sentence case and end messages with a period.
+      * Use a link within the message to provide the user with more information about a message. Use links sparingly here.
+      * Use bullets to list individual errors or steps toward recovery. In form validation, prefer instructions as error messages on each input instead of a list in a feedback message.
 
-      ## Code Reference
+      ## CSS Reference
   {% endfilter %}
+
+  {{ esds_doc.reference_table(column_widths=[45, 35, 20],
+    data=[
+      {
+        class: '.spirit-form__message--info',
+        applies_to: '.spirit-form__message',
+        outcome: 'Applies informational style'
+      },
+      {
+        class: '.spirit-form__message--success',
+        applies_to: '.spirit-form__message',
+        outcome: 'Applies success style'
+      },
+      {
+        class: '.spirit-form__message--error',
+        applies_to: '.spirit-form__message',
+        outcome: 'Applies error style'
+      }
+    ]) }}
 {% endblock page_shell_content %}
