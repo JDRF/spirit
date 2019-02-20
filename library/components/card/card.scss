@@ -10,11 +10,11 @@
   width: 100%;
 
   &:hover {
-    @include spirit-elevation(4, $spirit-elevation-color-blue); // Reduce the box shadow spread in a carousel
+    @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
   }
 
   &:active {
-    @include spirit-elevation(3, $spirit-elevation-color-blue);
+    @include spirit-elevation(3, 'blue');
   }
 
   .spirit-card__image-wrap {
@@ -152,12 +152,12 @@
 
   &.spirit-card--hover,
   &:hover {
-    @include spirit-elevation(5, $spirit-elevation-color-blue);
+    @include spirit-elevation(5, 'blue');
   }
 
   &.spirit-card--active,
   &:active {
-    @include spirit-elevation(4, $spirit-elevation-color-blue);
+    @include spirit-elevation(4, 'blue');
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {

@@ -2,39 +2,20 @@
 
 /// setspace Mixin
 /// Output an elevation
-/// @example @include spirit-elevation( $elevation: $spirit-elevation-1, $color: $spirit-elevation-color-blue );
+/// @example @include spirit-elevation( $leval: 1, $color: 'blue );
 /// @output box-shadow: 0 2px 4px 0 rgba(0, 85, 255, 0.16), 0 0 4px 0 rgba(0, 85, 255, 0.08);
-/// @param {list} $elevation [$spirit-elevation-1] - A list of attributes for the first part of the `box-shadow` property.
-/// @param {color} $color [$spirit-elevation-color-default] - The shadow color
-/// @param {color-08} $color-08 [null] - Secondary shadow color - optional - if $color is 'default' or 'blue', mixin will set $color-08
+/// @param {number} $level ['1'] - The elevation number
+/// @param {string} $color ['blue'] - The shadow color definition for the box shadow
 @mixin spirit-elevation(
-  $level: '1',
-  $color: $spirit-elevation-color-default,
-  $color-08: null
+  $level: 1,
+  $color: 'default'
 ) {
 
-  @if( null == $color-08 ) {
-    @if($spirit-elevation-color-default == $color ) {
-      $color-08: $spirit-elevation-color-default-08;
-    } @else if($spirit-elevation-color-blue == $color) {
-      $color-08: $spirit-elevation-color-blue-08;
-    }
+  $elevation-shadow: spirit-token('elevation', 'shadow', $color, inspect($level));
+
+  @if type-of($elevation-shadow) != list {
+    @error 'Received: #{$elevation-shadow} for $color. The $color attribute must receive a valid CSS color.';
   }
 
-  $elevation: spirit-token('elevation', inspect($level)); // inspect() casts numbers to strings
-  @if type-of($elevation) != list {
-    @error 'Received #{$elevation} for $elevation.It looks like you\'ve supplied an incorrect $elevation value for the elevation mixin. It should be in the form of a list of lengths as per the box-shadow CSS property. See https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow for more info.';
-  }
-  @if type-of($color) != color {
-    @error 'Received: #{$color} for $color. The $color attribute must receive a valid CSS color.';
-  }
-
-  @if( null == $color-08 ) {
-    box-shadow: $elevation $color;
-  } @else {
-    @if type-of($color-08) != color {
-      @error 'Received: #{$color-08} for $color-08. The $color attribute must receive a valid CSS color.';
-    }
-    box-shadow: $elevation $color, $spirit-elevation-secondary $color-08;
-  }
+  box-shadow: $elevation-shadow;
 }
