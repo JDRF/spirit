@@ -79,7 +79,7 @@
     );
     margin: $spirit-space-stack-2-x;
 
-    @media screen and (max-width: $spirit-breakpoint-m) {
+    @media screen and (max-width: $spirit-breakpoint-m - 1) {
       // Truncate body text on small screens
       // sass-lint:disable no-vendor-prefixes property-sort-order
       overflow: hidden;
@@ -89,6 +89,7 @@
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2; // Number of lines you wish to display
       max-height: 42px; // Number of lines times line height
+      max-height: #{$spirit-font-line-height-body * 2}em; // Line height * number of lines
       // sass-lint: enable
     }
   }
