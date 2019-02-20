@@ -157,11 +157,11 @@ $scrollbar-hiding-padding: $spirit-space-generic-3-x; // Used to push the native
       width: 100%;
 
       &:hover {
-        @include spirit-elevation(4, $spirit-elevation-color-blue); // Reduce the box shadow spread in a carousel
+        @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
       }
 
       &:active {
-        @include spirit-elevation(3, $spirit-elevation-color-blue);
+        @include spirit-elevation(3, 'blue');
       }
 
       // // Use an absolutely positioned pseudo element to create additional scroll space within the scrolling flex-parent
