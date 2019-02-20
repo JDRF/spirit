@@ -1,0 +1,227 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      <h1>Container</h1>
+
+      <p class="spirit-subhead">A container is an often-invisible layout element that pushes in from the viewport edges, providing an outer margin and background styling to a row of content. A container often holds the [grid component](/components/grid.html), used for detailed layout within the row. </p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+    ## Width Options
+    Containers come in two widths: <strong>large</strong> and <strong>full-width</strong>. They are identical on smaller devices, only deviating above 1080px viewport width.
+
+    ### Large
+    The large container reaches a 1000px maximum width on large viewports.
+
+
+  {% endfilter %}
+  {% set code_example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner spirit-container__inner--large">
+        <h3>Large Container</h3>
+      </div>
+    </div>
+
+  {% endset %}
+  {{ esds_doc.code_example_pair(example="<img src='/images/container/diagram1.png' style='max-width: 100%;'/>", code_snippet_source=code_example) }}
+
+  {% filter markdown %}
+    * Never use vertical  navigation in this container.
+    * Above 1080px, outer left/right margins are 80px. Width locks at 1000px.
+
+    ### Full Width
+    The full-width container reaches a 1152px maximum width on large viewports.
+  {% endfilter %}
+
+  {% set code_example %}
+    <div class="spirit-container">
+      <div class="spirit-container__inner">
+        <h3>Large Container</h3>
+      </div>
+    </div>
+
+  {% endset %}
+  {{ esds_doc.code_example_pair(example="<img src='/images/container/diagram2.png' style='max-width: 100%;'/>", code_snippet_source=code_example) }}
+
+  {% filter markdown %}
+    * Use for sidebar-plus-body layouts, particularly with vertical  navigation.
+    * Above 1080px, outer left/right margins are 24px. Width locks at 1152px.
+
+    ## Vertical Padding
+    Containers can be configured with vertical padding in four pre-set sizes: extra-small, small, medium, and large. These sizes are responsive, as shown below.
+  {% endfilter %}
+
+  {{ esds_doc.reference_table(headers=['class', {below: 'Below 1080px'}, 'value', {above:'1080px and up'}, {value_2: 'Value'}],
+    data=[
+      {
+        class: 'spirit-container__inner--padding-[top|bottom]-xs',
+        below: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['3-x'] + '; padding-bottom:' + spirit_tokens.space.generic['3-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value: '24px',
+        above: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['4-x'] + '; padding-bottom:' + spirit_tokens.space.generic['4-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value_2: '32px'
+      },
+      {
+        class: 'spirit-container__inner--padding-[top|bottom]-sm',
+        below: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['4-x'] + '; padding-bottom:' + spirit_tokens.space.generic['4-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value: '32px',
+        above: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['8-x'] + '; padding-bottom:' + spirit_tokens.space.generic['8-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value_2: '64px'
+      },
+      {
+        class: 'spirit-container__inner--padding-[top|bottom]-md',
+        below: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['6-x'] + '; padding-bottom:' + spirit_tokens.space.generic['6-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value: '48px',
+        above: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['12-x'] + '; padding-bottom:' + spirit_tokens.space.generic['12-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value_2: '96px'
+      },
+      {
+        class: 'spirit-container__inner--padding-[top|bottom]-lg',
+        below: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['12-x'] + '; padding-bottom:' + spirit_tokens.space.generic['12-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value: '96px',
+        above: '<div class="spirit-doc-space__highlight" style="padding-top:' + spirit_tokens.space.generic['24-x'] + '; padding-bottom:' + spirit_tokens.space.generic['24-x'] + ';"><div class="spirit-doc-space__mask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></div>',
+        value_2: '192px'
+      }
+    ]) }}
+    {% filter markdown %}
+      Mix and match top and bottom padding sizes to fit your layout needs. The following full-width container has <strong>large</strong> top padding and <strong>extra small</strong> bottom padding.
+    {% endfilter %}
+
+    {% set example %}
+      <div class="spirit-container spirit-doc-space__highlight" style="display: block;">
+        <div class="spirit-container__inner spirit-container__inner--padding-top-lg spirit-container__inner--padding-bottom-xs">
+          <div style="background: white;">
+            Padding top lg and padding bottom xs
+          </div>
+        </div>
+      </div>
+    {% endset %}
+
+    {% set code_example %}
+      <div class="spirit-container">
+        <div class="spirit-container__inner spirit-container__inner--padding-top-lg spirit-container__inner--padding-bottom-xs">
+          Padding top lg and padding bottom xs
+        </div>
+      </div>
+    {% endset %}
+    {{ esds_doc.code_example_pair(example=example, code_snippet_source=code_example) }}
+
+    {% filter markdown %}
+      ## Background Colors
+      Containers provide two different background placement options: outer and inner.
+    {% endfilter %}
+
+      {{ esds_doc.reference_table(headers=['outer', 'inner'],
+        data=[
+          {
+            outer: '`.spirit-container`<br/><br/>
+            Apply an outer background to paint the entire row. This background stretches to the left and right viewport edges.',
+            inner: '`.spirit-container__inner`<br/><br/>
+            Apply an inner background to paint just the container. This background ends at the container’s left and right margins.'
+          },
+          {
+            outer: '<img src="/images/container/outer.png" style="max-width: 100%;"/>',
+            inner: '<img src="/images/container/inner.png" style="max-width: 100%;"/>'
+          }
+        ]) }}
+
+    {% filter markdown %}
+      ### Background Color Classes
+      Apply these helper classes to outer `.spirit-container` or inner `.spirit-container__inner` as shown above.
+    {% endfilter %}
+
+    {{ esds_doc.reference_table(headers=['class', 'color'],
+        data=[
+          {
+            class: 'none',
+            color: 'transparent'
+          },
+          {
+            class: '.spirit-context--white',
+            color: '`$spirit-background-color-white`'
+          },
+          {
+            class: '.spirit-context--brand',
+            color: '`$spirit-background-color-brand`'
+          },
+          {
+            class: '.spirit-context--black',
+            color: '`$spirit-background-color-black`'
+          }
+    ]) }}
+
+    {% filter markdown %}
+      ## Brushes
+      Brushes are a key hallmark of Spirit visual style. <strong>Container</strong> is one way to orient and structure brushes within a layout. For more information about brush specifications, see [brush](/components/brush.html)
+
+      ### Painted Edges
+      Use brushes to mask the top and/or bottom edges of a container’s background and contents. The brush mask creates the appearance of a brush stroke across the container.
+
+      Always use the JDRF blue background, `.spirit-context--brand`.
+
+      #### Painted Edge Example
+      ![painted edge example](/images/container/painted-edge.png)
+
+      #### Construction
+      1. Set up the container normally, using either <strong>large</strong> or <strong>full-width</strong> size. All container padding options are compatible with brushes.
+      * Apply background color `.spirit-context--brand` to `spirit-container`.
+      * Add a helper class to `spirit-container__inner` to modify it for painted edges, using `spirit-container__inner--painted-edge-top`, ` spirit-container__inner--painted-edge-bottom`, or ` spirit-container__inner--painted-edge-both`.
+      * Add a painted-edge svg to the <strong>top</strong> and/or <strong>bottom</strong> of the container’s content. Follow the code blocks below.
+
+      #### Top Painted Edge SVG
+    {% endfilter %}
+
+    {% set code_example %}
+      <div class="spirit-container__painted-edge-top">
+        <div class="spirit-container__painted-edge-top-inner">
+          <svg class="spirit-brush spirit-brush--painted-edge-top" aria-hidden="true">
+              <use xlink:href="/brushes/spirit-brushes.svg#painted-edge-top"></use>
+          </svg>
+        </div>
+      </div>
+    {% endset %}
+    {{ esds_doc.code_snippet(source=code_example) }}
+
+  {% filter markdown %}
+    #### Bottom Painted Edge SVG
+  {% endfilter %}
+
+  {% set code_example %}
+    <div class="spirit-container__painted-edge-bottom">
+      <div class="spirit-container__painted-edge-bottom-inner">
+       <svg class="spirit-brush spirit-brush--painted-edge-bottom" aria-hidden="true">
+            <use xlink:href="/brushes/spirit-brushes.svg#painted-edge-bottom"></use>
+        </svg>
+      </div>
+    </div>
+  {% endset %}
+  {{ esds_doc.code_snippet(source=code_example) }}
+
+  {% filter markdown %}
+    ### Wave Background
+    Use brushes to accent a row by adding waves to a container. The brush sits lower in the z-index than other content, peaking playfully from behind. See various examples below.
+
+    #### Wave 5 Example
+    ![wave 5 example](/images/container/wave5.png)
+
+    #### Construction
+    1. Set up the container normally, using either <strong>large</strong> or <strong>full-width</strong> size. All container padding options are compatible with brushes.
+    * Add a wave svg to the <strong>top</strong> or <strong>bottom</strong> of the container’s content. Follow the code block below.
+
+
+    #### Wave 5 SVG
+  {% endfilter %}
+
+  {% set code_example %}
+    <div class="spirit-container__wave-bg  spirit-container__wave-bg--wave5">
+      <div class="spirit-container__wave-bg-inner">
+        <svg class="spirit-brush spirit-brush--wave5" aria-hidden="true">
+            <use xlink:href="/brushes/spirit-brushes.svg#wave5"></use>
+        </svg>
+      </div>
+    </div>
+  {% endset %}
+  {{ esds_doc.code_snippet(source=code_example) }}
+
+{% endblock page_shell_content %}
