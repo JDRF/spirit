@@ -21,9 +21,7 @@ color :
     100 : &color-red-100  "#F40050"
 elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
-  default-08 :  &elevation-color-default  rgba(0,8,26,0.08)   # based on color-black
   blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-100
-  blue-08 :     &elevation-color-blue     rgba(0,85,255,0.08) # based on color-blue-100
 
 # ====== assignments ======= #
 brand-color : 

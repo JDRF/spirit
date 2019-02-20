@@ -50,7 +50,7 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   }
 
   .spirit-card__text {
-    @include spirit-elevation(1, $spirit-elevation-color-blue);
+    @include spirit-elevation(1, 'blue');
     border-radius: $spirit-border-radius-l; // when there is no image
     margin: -$spirit-space-generic-1-x;
     padding: $spirit-space-inset-2-x;
@@ -59,11 +59,11 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   }
 
   &:hover .spirit-card__text {
-    @include spirit-elevation(4, $spirit-elevation-color-blue); // Reduce the box shadow spread in a carousel
+    @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
   }
 
   &:active .spirit-card__text {
-    @include spirit-elevation(3, $spirit-elevation-color-blue);
+    @include spirit-elevation(3, 'blue');
   }
 
   .spirit-card__image-wrap + .spirit-card__text {
@@ -161,7 +161,7 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   @include spirit-box-sizing;
   @include spirit-typography-reset;
   @include spirit-card-small;
-  @include spirit-elevation(1, $spirit-elevation-color-blue);
+  @include spirit-elevation(1, 'blue');
   background-color: $spirit-color-white;
   border-radius: $spirit-border-radius-l;
   display: flex;

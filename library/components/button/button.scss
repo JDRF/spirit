@@ -343,7 +343,7 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
 // Spririt Button - Secondary
 .spirit-button--secondary {
   background-color: $spirit-interactive-color-on-dark;
-  box-shadow: $spirit-elevation-shadow-transparent-1arent-1, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
+  box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
   color: $spirit-interactive-color-text-primary;
   text-shadow: none;
 
