@@ -457,7 +457,7 @@ $spirit-checkbox-group-label-color:       $spirit-text-color-primary;
 $spirit-checkbox-group-label-font-family: $spirit-checkbox-label-font-family;
 $spirit-checkbox-group-label-font-size:   $spirit-checkbox-label-font-size;
 $spirit-checkbox-group-label-margin:      $spirit-space-stack-2-x;
-$spirit-checkbox-group-label-max-width:   100%; // Fix overflow issue on mobile
+$spirit-checkbox-group-label-max-width:   100%; // Fix overflow issue on ie11
 $spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 
 .spirit-form__checkbox-group {
