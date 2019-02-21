@@ -39,6 +39,7 @@ $spirit-form-element-height:                48px;
 
 // max-width
 $spirit-form-element-max-width:             none;
+$spirit-form-element-max-width-100:         100%;
 
 // space
 $spirit-form-element-padding:               10px 12px;
@@ -311,7 +312,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   display: block;
   font-size: 0;
   margin: $spirit-checkbox-margin;
-  max-width: $spirit-checkbox-max-width;
+  max-width: $spirit-form-element-max-width-100; // Fix overflow issue on ie11
   position: relative;
 
   .spirit-form__field-group--horizontal & {
@@ -457,7 +458,7 @@ $spirit-checkbox-group-label-color:       $spirit-text-color-primary;
 $spirit-checkbox-group-label-font-family: $spirit-checkbox-label-font-family;
 $spirit-checkbox-group-label-font-size:   $spirit-checkbox-label-font-size;
 $spirit-checkbox-group-label-margin:      $spirit-space-stack-2-x;
-$spirit-checkbox-group-label-max-width:   100%; // Fix overflow issue on ie11
+$spirit-checkbox-group-label-max-width:   $spirit-form-element-max-width-100; // Fix overflow issue on ie11
 $spirit-checkbox-group-max-width:         $spirit-form-element-max-width;
 
 .spirit-form__checkbox-group {
@@ -511,7 +512,7 @@ $spirit-radio-label-space:              $spirit-space-generic-1-x;
   @include spirit-typography-reset;
   display: block;
   margin: $spirit-radio-margin;
-  max-width: $spirit-radio-max-width;
+  max-width: $spirit-form-element-max-width-100; // Fix overflow issue on ie11;
   position: relative;
 
   .spirit-form__field-group--horizontal & {
