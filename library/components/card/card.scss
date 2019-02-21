@@ -110,8 +110,7 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
       $color: $spirit-text-color-secondary,
       $font-size: $spirit-font-size-s
     );
-<<<<<<< HEAD
-    margin: $spirit-space-stack-2-x;
+    margin: $spirit-space-stack-1-x;
 
     @media screen and (max-width: $spirit-breakpoint-m - 1) {
       // Truncate body text on small screens
@@ -122,13 +121,9 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2; // Number of lines you wish to display
-      max-height: 42px; // Number of lines times line height
       max-height: #{$spirit-font-line-height-body * 2}em; // Line height * number of lines
       // sass-lint: enable
     }
-=======
-    margin: $spirit-space-stack-1-x;
->>>>>>> develop
   }
 
   .spirit-card__link {
