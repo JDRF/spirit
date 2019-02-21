@@ -7,6 +7,7 @@ $spirit-card-title-line-height-medium: 32px;
 $spirit-card-title-line-height-large: 40px;
 $spirit-card-cta-line-height-small: 20px;
 $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-secondary;
+$spirit-card-list-image-width-sm: 72px;
 
 @mixin spirit-card-list-item {
   @include spirit-elevation(0, $spirit-elevation-color-blue);
@@ -36,13 +37,13 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   }
 
   .spirit-card__image-wrap {
-    flex-shrink: 0;
-    width: 72px;
     display: block;
+    flex-shrink: 0;
+    height: $spirit-card-list-image-width-sm;
     margin: $spirit-space-inline-right-1-x;
-    position: relative;
-    height: 72px;
     padding: 0;
+    position: relative;
+    width: $spirit-card-list-image-width-sm;
   }
 
   .spirit-card__title {
@@ -241,24 +242,20 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   flex-shrink: 0;
   margin: $spirit-space-stack-1-x;
   overflow: hidden;
+  padding-top: $spirit-ratio-wide;
   position: relative;
   width: 100%;
-  padding-top: $spirit-ratio-wide;
   z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
-}
-
-.spirit-card__image-contain {
-  // @TODO CREATE MACRO FOR OBJECT FIT IMAGE
 }
 
 .spirit-card__image {
   display: block;
   height: 100%;
-  object-fit: cover;
-  width: 100%;
-  position: absolute;
   left: 0;
+  object-fit: cover;
+  position: absolute;
   top: 0;
+  width: 100%;
 }
 
 .spirit-card__image-list-item {
