@@ -7,7 +7,7 @@ $spirit-card-title-line-height-medium: 32px;
 $spirit-card-title-line-height-large: 40px;
 $spirit-card-cta-line-height-small: 20px;
 $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-secondary;
-$spirit-card-list-image-width-sm: 72px;
+$spirit-card-list-image-size-sm: 72px;
 
 @mixin spirit-card-list-item {
   @include spirit-elevation(0, $spirit-elevation-color-blue);
@@ -39,11 +39,11 @@ $spirit-card-list-image-width-sm: 72px;
   .spirit-card__image-wrap {
     display: block;
     flex-shrink: 0;
-    height: $spirit-card-list-image-width-sm;
+    height: $spirit-card-list-image-size-sm;
     margin: $spirit-space-inline-right-1-x;
     padding: 0;
     position: relative;
-    width: $spirit-card-list-image-width-sm;
+    width: $spirit-card-list-image-size-sm;
   }
 
   .spirit-card__title {
