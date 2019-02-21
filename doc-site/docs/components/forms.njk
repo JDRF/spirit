@@ -12,30 +12,30 @@
 
   {% filter markdown %}
       ## Input
-      Use input to gather a short string of text or a number. Also known as a text box. 
+      Use input to gather a short string of text or a number. Also known as a text box.
   {% endfilter %}
 
   {{ esds_doc.code_example_pair(
     class='spirit-doc-site--forms-width-constraint',
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_input(),
         label: "Default"
-        
+
       },
-      { 
+      {
         example: library.form_input(placeholder="Optional"),
         label: "with Placeholder"
       },
-      { 
+      {
         example: library.form_input(disabled=true),
         label: "Disabled"
       },
-      { 
+      {
         example: library.form_input(valid=false, attributes='aria-invalid="true"'),
         label: "Error"
       },
-      { 
+      {
         example: library.form_input(valid=true),
         label: "Valid"
       } ],
@@ -46,8 +46,8 @@
   }}
   {% filter markdown %}
 
-      * Use for a single word, number, or line of text. For longer text, use Text Area. 
-      * Wrap in a Form Group to attach label, microcopy, required indicator, and more. 
+      * Use for a single word, number, or line of text. For longer text, use Text Area.
+      * Wrap in a Form Group to attach label, microcopy, required indicator, and more.
 
     ### Input Masks
 
@@ -76,9 +76,9 @@
       {% endcall %}
     {% endset %}
 
-    {{ esds_doc.code_example_pair( 
+    {{ esds_doc.code_example_pair(
       examples=[ { example: mask_example_2 } ]
-      ) 
+      )
     }}
   {% filter markdown %}
     <h4>Phone Number - input[type="phone"]</h4>
@@ -90,9 +90,9 @@
       {% endcall %}
     {% endset %}
 
-    {{ esds_doc.code_example_pair( 
+    {{ esds_doc.code_example_pair(
       examples=[ { example: mask_example_3 } ]
-      ) 
+      )
     }}
   {% filter markdown %}
     <h4>Phone Number - input[type="text"]</h4>
@@ -104,37 +104,37 @@
       {% endcall %}
     {% endset %}
 
-    {{ esds_doc.code_example_pair( 
+    {{ esds_doc.code_example_pair(
       examples=[ { example: mask_example_4 } ]
-      ) 
+      )
     }}
   {% filter markdown %}
 
       ## Text Area
-      Use text area to gather multiple lines of text. 
-      
+      Use text area to gather multiple lines of text.
+
   {% endfilter %}
 
   {{ esds_doc.code_example_pair(
     class='spirit-doc-site--forms-width-constraint',
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_textarea(),
         label: "Default"
       },
-      { 
+      {
         example: library.form_textarea(placeholder="Optional"),
         label: "with Placeholder"
       },
-      { 
+      {
         example: library.form_textarea(disabled=true),
         label: "Disabled"
       },
-      { 
+      {
         example: library.form_textarea(valid=false, attributes='aria-invalid="true"'),
         label: "Error"
       },
-      { 
+      {
         example: library.form_textarea(valid=true),
         label: "Valid"
       } ],
@@ -145,17 +145,17 @@
   }}
 
   {% filter markdown %}
-      
-      * Use for long text entry. Although Text Area has no minimum, use Input when expecting only one line of text. 
-      * Wrap in a Form Group to attach label, microcopy, required indicator, and more. 
-      * Allow the user to resize the the text area if the browser supports it. 
-      
+
+      * Use for long text entry. Although Text Area has no minimum, use Input when expecting only one line of text.
+      * Wrap in a Form Group to attach label, microcopy, required indicator, and more.
+      * Allow the user to resize the the text area if the browser supports it.
+
       ## Radio Group
-      Use radio group to gather a selection from a list of options. Radio groups have two layout options: stacked (default) and horizontal. 
-      
-      
+      Use radio group to gather a selection from a list of options. Radio groups have two layout options: stacked (default) and horizontal.
+
+
       ### Stacked
-      This is the default and preferred arrangement for a radio group. 
+      This is the default and preferred arrangement for a radio group.
 
   {% endfilter %}
   {% set radio_example_stacked %}
@@ -173,7 +173,7 @@
   {% filter markdown %}
 
       ### Horizontal
-      Use this arrangement when vertical space is at a premium for a few options with very short labels. 
+      Use this arrangement when vertical space is at a premium for a few options with very short labels.
 
   {% endfilter %}
   {% set radio_example_horizontal %}
@@ -194,22 +194,22 @@
   {% filter markdown %}
 
       #### Guidelines
-      * Use radio group to gather a selection from a list of 2-5 options. 
-      * Use radio when offering unfamiliar or lengthy options. 
-      * Use a [Select](#select) when presenting a choice of more than 5 options, especially if the options are well known (such as a list of US states). 
-      * Label a radio group with a legend. 
+      * Use radio group to gather a selection from a list of 2-5 options.
+      * Use radio when offering unfamiliar or lengthy options.
+      * Use a [Select](#select) when presenting a choice of more than 5 options, especially if the options are well known (such as a list of US states).
+      * Label a radio group with a legend.
       * Never use a single radio button. Use Checkbox instead.
-      
+
       ##### Accessibility
 
-      * Always include a label, even if adapting radio button for other purposes. Hide the visible label by applying a `spirit-screenreader-only` class. 
+      * Always include a label, even if adapting radio button for other purposes. Hide the visible label by applying a `spirit-screenreader-only` class.
       * Use `fieldset` and `legend` for grouped Form elements, such as Radio Buttons and Checkboxes.
 
       ## Checkbox Group
-      Use checkbox group to gather one or more selections from a list of options. Checkbox groups have two layout options: stacked (default) and horizontal. 
+      Use checkbox group to gather one or more selections from a list of options. Checkbox groups have two layout options: stacked (default) and horizontal.
 
       <h3 id="checkbox-stacked">Stacked</h3>
-      This is the default and preferred arrangement for a checkbox group. 
+      This is the default and preferred arrangement for a checkbox group.
   {% endfilter %}
   {% set check_example_stacked %}
     {% call library.form_checkbox_group(label="Public Recognition", required=true) %}
@@ -226,8 +226,8 @@
   {% filter markdown %}
 
       <h3 id="checkbox-horizontal">Horizontal</h3>
-      Use this arrangement when vertical space is at a premium for a few options with very short labels. 
-      
+      Use this arrangement when vertical space is at a premium for a few options with very short labels.
+
   {% endfilter %}
   {% set check_example_horizontal %}
     {% call library.form_field_group(horizontal=true) %}
@@ -246,28 +246,28 @@
   }}
   {% filter markdown %}
       ### Checkbox
-      Use an individual checkbox to capture a binary selection. All the states shown are also available within a checkbox group. 
+      Use an individual checkbox to capture a binary selection. All the states shown are also available within a checkbox group.
 
   {% endfilter %}
   {{ esds_doc.code_example_pair(
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_checkbox(label="I accept the terms and conditions"),
         label: "Default"
       },
-      { 
+      {
         example: library.form_checkbox(label="I accept the terms and conditions", checked=true),
         label: "Checked"
       },
-      { 
+      {
         example: library.form_checkbox(label="I accept the terms and conditions", disabled=true),
         label: "Disabled"
       },
-      { 
+      {
         example: library.form_checkbox(label="I accept the terms and conditions", valid=false, attributes='aria-invalid="true"'),
         label: "Error"
       },
-      { 
+      {
         example: library.form_checkbox(label="I accept the terms and conditions", indeterminate=true),
         label: "Indeterminate"
       } ],
@@ -280,9 +280,9 @@
 
       #### Guidelines
 
-      * Use checkbox group to gather one or more selections from a list of options. 
-      * Optionally, use a single checkbox to set state on a binary question, such as an agreement or setting. 
-      * Label a checkbox group with a legend. 
+      * Use checkbox group to gather one or more selections from a list of options.
+      * Optionally, use a single checkbox to set state on a binary question, such as an agreement or setting.
+      * Label a checkbox group with a legend.
 
   {% endfilter %}
   {{ spirit_doc.do_dont(examples=[
@@ -314,18 +314,18 @@
     {% filter markdown %}
 
       ##### Accessibility
-      
-      * Always include a label, even if adapting checkbox for other purposes. Hide the visible label by applying a `spirit-screenreader-only` class. 
+
+      * Always include a label, even if adapting checkbox for other purposes. Hide the visible label by applying a `spirit-screenreader-only` class.
       * Use `fieldset` and `legend` for grouped Form elements, such as Radio Buttons and Checkboxes.
-      
+
       ## Select / Dropdown
-      Use a select to capture a selection from a list of options. Unlike a radio button, a user can chose to make no selection. 
-      
+      Use a select to capture a selection from a list of options. Unlike a radio button, a user can chose to make no selection.
+
   {% endfilter %}
   {{ esds_doc.code_example_pair(
     class='spirit-doc-site--forms-width-constraint',
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_select(
           default_text='',
           default_value='',
@@ -376,63 +376,63 @@
   }}
   {% filter markdown %}
 
-      * Use select when offering several mutually-exclusive options. 
-      * Ideal for long lists of known items, such as US states. 
-      * For options with lengthy labels, prefer radio group. 
-      
+      * Use select when offering several mutually-exclusive options.
+      * Ideal for long lists of known items, such as US states.
+      * For options with lengthy labels, prefer radio group.
+
 
       ## Label
       Use to describe a form input and indicate whether the input is required or optional.
 
   {% endfilter %}
   {{ esds_doc.code_example_pair(
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_label(text="City", required=false)
       } ]
     )
   }}
   {% filter markdown %}
-      
+
       ## Required and Optional Indicators
       Use the required indicator to enumerate which fields are required.
-           
+
   {% endfilter %}
   {{ esds_doc.code_example_pair(
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_label(text="First Name", required=true)
       } ]
     )
   }}
   {% filter markdown %}
 
-      * If most fields are required, yet one or two are optional, use the optional indicator instead. When "Optional" next to the label won’t fit, "Optional" as a Placeholder is preferred, for example Street Address Line 2 when placed on the same row as Street Address Line 1. 
+      * If most fields are required, yet one or two are optional, use the optional indicator instead. When "Optional" next to the label won’t fit, "Optional" as a Placeholder is preferred, for example Street Address Line 2 when placed on the same row as Street Address Line 1.
 
   {% endfilter %}
   {{ esds_doc.code_example_pair(
-    examples=[ 
-      { 
+    examples=[
+      {
         example: library.form_label(text="Middle Initial", optional=true)
       } ]
     )
   }}
   {% filter markdown %}
-      
+
       #### Guidelines
       ##### Accessibility
-      
-      * Use a label with all form inputs, no exceptions. If adapting a form input for an application where the default visible label isn’t needed, hide the visible label with `.spirit-screenreader-only`. A `placeholder` does not replace a label — include a hidden `label` to supplement the placeholder. 
-      * For required fields, include both the visible required field indicator and the `.spirit-screenreader-only` required field message.  
+
+      * Use a label with all form inputs, no exceptions. If adapting a form input for an application where the default visible label isn’t needed, hide the visible label with `.spirit-screenreader-only`. A `placeholder` does not replace a label — include a hidden `label` to supplement the placeholder.
+      * For required fields, include both the visible required field indicator and the `.spirit-screenreader-only` required field message.
       Include a `for` attribute on each `label` with a value matching the `id` attribute on the corresponding `input`, `textarea` or `select`.
 
       ##### Editorial
 
       * For text inputs, use title case. Avoid punctuation.
       * Clearly written labels should eliminate the need for placeholder text in text boxes and text areas.
-      
+
       ## Microcopy
-      Supplement a label with additional instructions, context, or rules. 
+      Supplement a label with additional instructions, context, or rules.
 
   {% endfilter %}
   {% set microcopy_example %}
@@ -448,8 +448,8 @@
       </div>
   {% endset %}
   {{ esds_doc.code_example_pair(
-    examples=[ 
-      { 
+    examples=[
+      {
         example: microcopy_example
       } ]
     )
@@ -462,11 +462,11 @@
       * Include an `aria-describedby` attribute on each `input`, `textarea`, or `select` that has an `.spirit-form__microcopy` component providing additional information. The value of the `aria-describedby` attribute must match the `id` attribute on the `.spirit-form__microcopy` component.
 
       ## Validation Errors
-      
-      Use to indicate form inputs with missing or invalid entries, and describe the error. Validation errors manifest in specific positions within a field group, as shown below. Use a feedback message a the top of a form to attract the user’s attention to validation errors. 
-      
+
+      Use to indicate form inputs with missing or invalid entries, and describe the error. Validation errors manifest in specific positions within a field group, as shown below. Use a [feedback message](/components/feedback-messages.html#error-messages) a the top of a form to attract the user’s attention to validation errors. 
+
       ##### Place error messages below Input, Textarea, and Select.
-      
+
   {% endfilter %}
   {% set input_example_error %}
     {% call library.form_field_group() %}
@@ -535,21 +535,21 @@
 
       #### Guidelines
 
-      * Use the error state of each element, such as `.spirit-form__input--invalid`. 
-      * Use an error message that appears below each element or label as shown above, styled with `.spirit-form__field-error-text`. 
-      
+      * Use the error state of each element, such as `.spirit-form__input--invalid`.
+      * Use an error message that appears below each element or label as shown above, styled with `.spirit-form__field-error-text`.
+
       ##### Editorial
       * Acknowledge what is keeping a user from proceeding, but don’t make them feel like they did something wrong.
-      * Provide a user at least one way to resolve the problem. 
-      
+      * Provide a user at least one way to resolve the problem.
+
       ##### Accessibility
       * Add `aria-invalid="true"` to an element where a validation error has occurred.
       * Always include `role=alert` on `.spirit-form__field-error` elements.
 
       ## Field Group
-      
-      Use field groups to consistently organize the elements that make up an input, including label, microcopy, error messaging, and so on. 
-      
+
+      Use field groups to consistently organize the elements that make up an input, including label, microcopy, error messaging, and so on.
+
   {% endfilter %}
   {% set field_group_example %}
     {% call library.form_field_group() %}
@@ -637,111 +637,111 @@
                                 value: ''
                             },
                             {
-                            text: 'United States', 
+                            text: 'United States',
                             value: '1'
                             },
                             {
-                            text: 'Afghanistan', 
+                            text: 'Afghanistan',
                             value: '2'
                             },
                             {
-                            text: 'Aland Islands', 
+                            text: 'Aland Islands',
                             value: '3'
                             },
                             {
-                            text: 'Albania', 
+                            text: 'Albania',
                             value: '4'
                             },
                             {
-                            text: 'Algeria', 
+                            text: 'Algeria',
                             value: '5'
                             },
                             {
-                            text: 'American Samoa', 
+                            text: 'American Samoa',
                             value: '6'
                             },
                             {
-                            text: 'Andorra', 
+                            text: 'Andorra',
                             value: '7'
                             },
                             {
-                            text: 'Angola', 
+                            text: 'Angola',
                             value: '8'
                             },
                             {
-                            text: 'Anguilla', 
+                            text: 'Anguilla',
                             value: '9'
                             },
                             {
-                            text: 'Antarctica', 
+                            text: 'Antarctica',
                             value: '10'
                             },
                             {
-                            text: 'Antigua and Barbuda', 
+                            text: 'Antigua and Barbuda',
                             value: '11'
                             },
                             {
-                            text: 'Argentina', 
+                            text: 'Argentina',
                             value: '12'
                             },
                             {
-                            text: 'Armenia', 
+                            text: 'Armenia',
                             value: '13'
                             },
                             {
-                            text: 'Aruba', 
+                            text: 'Aruba',
                             value: '14'
                             },
                             {
-                            text: 'Australia', 
+                            text: 'Australia',
                             value: '15'
                             },
                             {
-                            text: 'Austria', 
+                            text: 'Austria',
                             value: '16'
                             },
                             {
-                            text: 'Azerbaijan', 
+                            text: 'Azerbaijan',
                             value: '17'
                             },
                             {
-                            text: 'Bahamas', 
+                            text: 'Bahamas',
                             value: '18'
                             },
                             {
-                            text: 'Bahrain', 
+                            text: 'Bahrain',
                             value: '19'
                             },
                             {
-                            text: 'Bangladesh', 
+                            text: 'Bangladesh',
                             value: '20'
                             },
                             {
-                            text: 'Barbados', 
+                            text: 'Barbados',
                             value: '21'
                             },
                             {
-                            text: 'Belarus', 
+                            text: 'Belarus',
                             value: '22'
                             },
                             {
-                            text: 'Belgium', 
+                            text: 'Belgium',
                             value: '23'
                             },
                             {
-                            text: 'Belize', 
+                            text: 'Belize',
                             value: '24'
                             },
                             {
-                            text: 'Benin', 
+                            text: 'Benin',
                             value: '25'
                             },
                             {
-                            text: 'Bermuda', 
+                            text: 'Bermuda',
                             value: '26'
                             },
                             {
-                            text: 'Bhutan', 
+                            text: 'Bhutan',
                             value: '27'
                             }
                         ]) }}
@@ -759,7 +759,7 @@
   {% filter markdown %}
       ## Form Grid
 
-      Use the standard grid to lay out forms with multiple inputs per line. 
+      Use the standard grid to lay out forms with multiple inputs per line.
   {% endfilter %}
   {% set form_grid_example %}
         {% call library.form_fieldset() %}
@@ -818,17 +818,17 @@
   }}
   {% filter markdown %}
 
-      See Grid for more detailed documentation. 
-      
+      See Grid for more detailed documentation.
+
       #### Guidelines
 
       * Prefer narrow columns of stacked inputs, rather than complex layouts.
-      * Use the grid sparingly. 
-      * Use the grid to place closely-related inputs on a line together, such as State + Zip Code or First Name + Last Name. 
-      * Never place unrelated inputs on the same line. 
+      * Use the grid sparingly.
+      * Use the grid to place closely-related inputs on a line together, such as State + Zip Code or First Name + Last Name.
+      * Never place unrelated inputs on the same line.
       * Consider how a form layout works on narrow viewports and responds on wider viewports.
 
-  {% endfilter %}   
+  {% endfilter %}
 
 <style>
 .spirit-doc-site--forms-width-constraint .esds-doc-html-example-list__item {
