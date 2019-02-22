@@ -1,10 +1,9 @@
 {% extends 'templates/doc.njk' %}
 {% block page_shell_content_intro %}
   <style>
-    {% for name, value in spirit_tokens.elevation %}
+    {% for name, value in spirit_tokens.elevation.shadow.default %}
       .spirit-doc-elevation-{{ name }} {
-        box-shadow: {{ value }};
-        color: {{ spirit_tokens['elevation-color'].default }};
+        box-shadow: {{ value | hextorgb }};
         display: inline-block;
         margin: 30px 0;
         height: 80px;
@@ -12,9 +11,15 @@
       }
     {% endfor %}
 
-    .spirit-doc-elevation--blue {
-      color: {{ spirit_tokens['elevation-color'].blue }};
-    }
+    {% for name, value in spirit_tokens.elevation.shadow.blue %}
+      .spirit-doc-elevation-blue-{{ name }} {
+        box-shadow: {{ value | hextorgb }};
+        display: inline-block;
+        margin: 30px 0;
+        height: 80px;
+        width: 80px;
+      }
+    {% endfor %}
   </style>
   {% filter markdown %}
     <h1>Depth</h1>
@@ -43,28 +48,27 @@
 
     | Scenario | At Rest | Hover | Activate |
     | --- | --- | --- | --- |
-    | <strong>A Small Interactive</strong><br> e.g. [Button](/components/button.html) | _Flat or_ `$spirit-elevation-1` | `$spirit-elevation-3` | `$spirit-elevation-2` |
-    | <strong>A Container</strong><br> e.g. [Card](/components/card.html) | _Flat or_ `$spirit-elevation-1` | `$spirit-elevation-4` | `$spirit-elevation-3` |
+    | <strong>A Small Interactive</strong><br> e.g. [Button](/components/button.html) | _Flat or_ `spirit-elevation(1)` | `spirit-elevation(3)` | `spirit-elevation(2)` |
+    | <strong>A Container</strong><br> e.g. [Card](/components/card.html) | _Flat or_ `spirit-elevation(1)` | `spirit-elevation(4)` | `spirit-elevation(3)` |
 
     ## Shadow
     Use shadow color to accent or compliment the color of the component. Shadow dimensions are determined by elevation, described above.
 
     ### Grey Shadow
-    Use `$spirit-elevation-color-default`.
 
     | | | | | |
     |:---:|:---:|:---:|:---:|:---:|:---:|
     | <div class="spirit-doc-elevation-1"></div> | <div class="spirit-doc-elevation-2"></div> | <div class="spirit-doc-elevation-3"></div> | <div class="spirit-doc-elevation-4"></div> | <div class="spirit-doc-elevation-5"></div> |
 
     ### Blue Shadow
-    Use `$spirit-elevation-color-blue`. This can be passed as the second value to the `spirit-elevation` scss mixin.
+    Pass `'blue'` as the second argument to the `spirit-elevation` scss mixin.
     ```
-      @include spirit-elevation(3, $spirit-elevation-color-blue);
+      @include spirit-elevation(3, 'blue');
     ```
 
     | | | | | |
     |:---:|:---:|:---:|:---:|:---:|:---:|
-    | <div class="spirit-doc-elevation--blue spirit-doc-elevation-1"></div> | <div class="spirit-doc-elevation--blue spirit-doc-elevation-2"></div> | <div class="spirit-doc-elevation--blue spirit-doc-elevation-3"></div> | <div class="spirit-doc-elevation--blue spirit-doc-elevation-4"></div> | <div class="spirit-doc-elevation--blue spirit-doc-elevation-5"></div> |
+    | <div class="spirit-doc-elevation-blue-1"></div> | <div class="spirit-doc-elevation-blue-2"></div> | <div class="spirit-doc-elevation-blue-3"></div> | <div class="spirit-doc-elevation-blue-4"></div> | <div class="spirit-doc-elevation-blue-5"></div> |
   {% endfilter %}
 
 
