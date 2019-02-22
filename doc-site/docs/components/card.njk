@@ -8,9 +8,19 @@
 {% endblock %}
 
 {% block page_shell_content %}
+<style>
+  .spirit-doc__card-grid-overflow {
+    overflow-x: scroll;
+  }
+  .spirit-doc__card-grid-overflow .spirit-container {
+    width: 1152px;
+  }
+</style>
   {% filter markdown %}
       ## Anatomy
       
+      <img src="/images/card/card-anatomy@2x.png" style="max-width: 492px;" alt="Anatomy of a card" />
+
       Title and Action are the only required elements.
       
       ### Image
@@ -27,13 +37,69 @@
 
   {% endfilter %}
 
+  {% set demo_example %}
+    <div class="spirit-doc__card-grid-overflow">
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        {% call library.card_grid(class="spirit-card-grid--3-up") %}
+          {{ library.card(
+            img_src='/images/card/bikers.png',
+            title_text="JDRF Ride to Cure Diabetes",
+            link_text="Find a Ride Near You",
+            body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+        {% endcall %}
+      {% endcall %}
+      <p>This example is scaled for a 3-card row.</p>
+    </div>
+  {% endset %}
+  {% set demo_code %}
+          {{ library.card(
+            img_src='/images/card/bikers.png',
+            title_text="JDRF Ride to Cure Diabetes",
+            link_text="Find a Ride Near You",
+            body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: demo_example } ],
+    code_snippet_source=(demo_code)
+    )
+  }}
  
   {% filter markdown %}
       ## Text Only
       Text only cards are used when the textual content should be the initial focal point for a user’s attention. They are made up of a title, a description and a call to action.
   {% endfilter %}
 
- 
+  {% set demo_example %}
+    <div class="spirit-doc__card-grid-overflow">
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+         {% call library.card_grid(class="spirit-card-grid--3-up") %}
+          {{ library.card(
+            title_text="JDRF Ride to Cure Diabetes",
+            link_text="Find a Ride Near You",
+            body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.",
+            img_src=false
+          ) }}
+        {% endcall %}
+      {% endcall %}
+      <p>This example is scaled for a 3-card row.</p>
+    </div>
+  {% endset %}
+  {% set demo_code %}
+          {{ library.card(
+            title_text="JDRF Ride to Cure Diabetes",
+            link_text="Find a Ride Near You",
+            body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.",
+            img_src=false
+          ) }}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: demo_example } ],
+    code_snippet_source=(demo_code)
+    )
+  }}
+
   {% filter markdown %}
       ## Sizes
       Cards can be scaled according to the total amount of cards, resulting in 2-4 columns and 1 or many rows. Text and images scale with the overall card and are not independently configurable. The height of the cards in a row is determined by the tallest card’s height. The default card size (medium) is recommended for most situations. 
@@ -41,13 +107,106 @@
       ### Small
   {% endfilter %}
 
+  {% set demo_example %}
+    <div class="spirit-doc__card-grid-overflow">
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        {% call library.card_grid(class="spirit-card-grid--4-up") %}
+          {{ library.card(
+            size="small",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+        {% endcall %}
+      {% endcall %}
+      <p>This example is scaled for a 4-card row.</p>
+    </div>
+  {% endset %}
+  {% set demo_code %}
+          {{ library.card(
+            size="medium",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: demo_example } ],
+    code_snippet_source=(demo_code)
+    )
+  }}
+
+
+
   {% filter markdown %}
       ### Medium (default)
   {% endfilter %}
 
+  {% set demo_example %}
+    <div class="spirit-doc__card-grid-overflow">
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        {% call library.card_grid(class="spirit-card-grid--3-up") %}
+          {{ library.card(
+            size="medium",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+        {% endcall %}
+      {% endcall %}
+      <p>This example is scaled for a 3-card row.</p>
+    </div>
+  {% endset %}
+  {% set demo_code %}
+          {{ library.card(
+            size="medium",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: demo_example } ],
+    code_snippet_source=(demo_code)
+    )
+  }}
+
+
   {% filter markdown %}
       ### Large
   {% endfilter %}
+
+  {% set demo_example %}
+    <div class="spirit-doc__card-grid-overflow">
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        {% call library.card_grid(class="spirit-card-grid--2-up") %}
+          {{ library.card(
+            size="large",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+        {% endcall %}
+      {% endcall %}
+      <p>This example is scaled for a 2-card row.</p>
+    </div>
+  {% endset %}
+  {% set demo_code %}
+          {{ library.card(
+            size="medium",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: demo_example } ],
+    code_snippet_source=(demo_code)
+    )
+  }}
 
 
   {% filter markdown %}
@@ -55,6 +214,60 @@
       Cards are arranged in a grid with consistent card heights in each row. They are ordered from left to right, with the first card positioned at the top left. The number of cards per row is determined by the size of the cards and adapts to the available screen real estate (up to 4 on larger screens, and down to 1 on smaller screens).
 
   {% endfilter %}
+
+  {% set demo_example %}
+    <div class="spirit-doc__card-grid-overflow">
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        {% call library.card_grid(class="spirit-card-grid--3-up") %}
+          {{ library.card(
+            img_src='/images/card/bikers.png',
+            title_text="JDRF Ride to Cure Diabetes",
+            link_text="Find a Ride Near You",
+            body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+          {{ library.card(
+            img_src='/images/card/runners.png',
+            title_text="Team JDRF to Cure Diabetes",
+            link_text="Find an Event Near You",
+            body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
+          {{ library.card(
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+          {{ library.card(
+            img_src='/images/card/golf.png',
+            title_text="Golf",
+            link_text="Find an Event Near You",
+            body_text="Participate in a golf event to raise money for T1D while indulging in your favorite pastime.") }}
+          {{ library.card(
+            img_src='/images/card/school.png',
+            title_text="Give Back at School",
+            link_text="Learn More",
+            body_text="JDRF offers kids many ways to educate, inspire and motivate their peers to help make a world without T1D.") }}
+          {{ library.card(
+            img_src='/images/card/community.png',
+            title_text="JDRF Your Way",
+            link_text="Start a Fundraiser",
+            body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
+        {% endcall %}
+      {% endcall %}
+      <p><b>This example is scaled down</b> to fit all three columns in this demo box.</p>
+    </div>
+  {% endset %}
+  {% set demo_code %}
+          {{ library.card(
+            size="medium",
+            img_src='/images/card/gala.png',
+            title_text="Gala",
+            link_text="Find a Gala Near You",
+            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: demo_example } ],
+    code_snippet_source=(demo_code)
+    )
+  }}
 
 
   {% filter markdown %}
@@ -65,41 +278,47 @@
 
       #### Stacked
       By default, cards stack into one column.
-      <img src="/images/grid/3-column.png" alt="Stacked Cards" />
+      <img src="/images/card/card-mobile-stack@2x.png" style="max-width: 439px;" alt="Anatomy of a card" />
 
       #### List
       Cards can be shown in a list view to make comparisons across cards easier on small screens.
-      <img src="/images/grid/3-column.png" alt="Card in a List" />
+      <img src="/images/card/card-mobile-list@2x.png" style="max-width: 439px;" alt="Anatomy of a card" />
 
       #### Carousel
       Cards can be displayed in a carousel when the content of each card is unrelated to the others and needs no comparison. Use Spirit’s demonstration-only Javascript as a starting point for wiring up the carousel in your product. 
-      <img src="/images/grid/3-column.png" alt="Card Carousel" />
+      <img src="/images/card/card-mobile-carousel@2x.png" style="max-width: 439px;" alt="Anatomy of a card" />
 
       ## Guidelines
 
       ### Use When
+      
       Presenting multiple, easy-to-compare options.
 
       #### Do not use when
+      
       Listing hierarchical or alphabetical options such as people, teams, donors, donations, events, or chapters. Use [List](/components/list.html). 
 
       ### Visual Language
+      
       Use a consistent arrangement of elements for every card in a card deck. For example, if some cards have an image and others don’t, consider using placeholder images or text cards, to keep the cards balanced and consistent.  
 
       ### Editorial
 
       #### Titles
-      Make titles concise and scannable.
-      Set clear expectations about the card’s purpose.
-      Avoid using punctuation such as periods, commas, or semicolons. 
+
+      * Make titles concise and scannable.
+      * Set clear expectations about the card’s purpose.
+      * Avoid using punctuation such as periods, commas, or semicolons. 
 
       #### Descriptions
-      Use full sentences with punctuation.
-      Do not include multiple paragraphs.
+      
+      * Use full sentences with punctuation.
+      * Do not include multiple paragraphs.
 
       #### Calls To Action
-      Keep action labels terse. One or two words is ideal.
-      Lead with a strong verb that encourages action. 
+      
+      * Keep action labels terse. One or two words is ideal.
+      * Lead with a strong verb that encourages action. 
 
 
   {% endfilter %}
