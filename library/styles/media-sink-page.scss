@@ -1,0 +1,59 @@
+@import '../tokens/tokens';
+@import '../styles/mixins/box-sizing';
+
+// Media Examples
+
+// Object Fit Image 
+
+.media-sink-test--narrow {
+  max-width: 500px;
+  overflow: visible;
+
+  figure {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.sink-test__image-wrap {
+  @include spirit-box-sizing;
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.sink-test__image {
+  @include spirit-box-sizing;
+  display: block;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  object-fit: cover;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.sink-test__image-wrap--portrait {
+  padding-top: $spirit-ratio-portrait;
+}
+
+.sink-test__image-wrap--square {
+  padding-top: $spirit-ratio-square;
+}
+
+.sink-test__image-wrap--tall-wide {
+  padding-top: $spirit-ratio-tall-wide;
+}
+
+.sink-test__image-wrap--wide {
+  padding-top: $spirit-ratio-wide;
+}
+
+.sink-test__image-wrap--short-wide {
+  padding-top: $spirit-ratio-short-wide;
+}

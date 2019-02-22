@@ -27,12 +27,13 @@
 
   <a href="{{ href }}" class="spirit-card{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" aria-label="{{ aria_label }}">
     {% if img_src %}
-      <span class="spirit-card__image-wrap">
-        {% if img_src_list_item %}
-          <img class="spirit-card__image-list-item" src="{{ img_src_list_item }}" alt="{{ img_alt_text }}">
-        {% endif %}
-        <img class="spirit-card__image" src="{{ img_src }}" alt="{{ img_alt_text }}">
-      </span>
+      {{ objectfitimage(
+        container_class="spirit-card",
+        img_src=img_src,
+        img_src_alt=img_src_list_item,
+        img_class_alt="spirit-card__image-list-item",
+        img_alt_text=img_alt_text
+      ) }}
     {% endif %}
     <span class="spirit-card__text">
       <h3 class="spirit-card__title">{{ title_text | safe }}</h3>

@@ -93,6 +93,10 @@ $spirit-card-list-image-size-sm: 72px;
   }
 
   // Show an art directed alternate image if it's present in the markup
+  .spirit-card__image-list-item + .spirit-card__image {
+    display: none;
+  }
+
   .spirit-card__image-list-item {
     display: block;
   }
@@ -158,6 +162,16 @@ $spirit-card-list-image-size-sm: 72px;
   .spirit-card__link {
     font-size: $spirit-font-size-l;
   }
+}
+
+@mixin spirit-card-image {
+  display: block;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .spirit-card {
@@ -249,13 +263,8 @@ $spirit-card-list-image-size-sm: 72px;
 }
 
 .spirit-card__image {
+  @include spirit-card-image;
   display: block;
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }
 
 .spirit-card__image-list-item {

@@ -121,6 +121,46 @@
         body_text="The reality is that signs of type 1 diabetes usually develop suddenly. And, that’s why it can be&hellip;") }}
     {% endset %}
 
+    {% set sample_cards_list %}
+      {{ library.card() }}
+      {{ library.card(
+        img_src='/images/components/card/bikers.png',
+        img_src_list_item='/images/components/card/bikers.png',
+        title_text="JDRF Ride to Cure Diabetes",
+        link_text="Find a Ride Near You",
+        body_text="Experience a fun-filled weekend like no other where riders of all levels meet their personal goals—and raise funds for T1D research.") }}
+      {{ library.card(
+        img_src='/images/components/card/runners.png',
+        img_src_list_item='/images/components/card/bikers.png',
+        title_text="Team JDRF to Cure Diabetes",
+        link_text="Find an Event Near You",
+        body_text="Join Team JDRF at some of the most exciting challenge events across the country and get moving for a cure.") }}
+      {{ library.card(
+        img_src='/images/components/card/gala.png',
+        img_src_list_item='/images/components/card/bikers.png',
+        title_text="Gala",
+        link_text="Find a Gala Near You",
+        body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
+      {{ library.card(
+        img_src='/images/components/card/golf.png',
+        img_src_list_item='/images/components/card/bikers.png',
+        title_text="Golf",
+        link_text="Find an Event Near You",
+        body_text="Participate in a golf event to raise money for T1D while indulging in your favorite pastime.") }}
+      {{ library.card(
+        img_src='/images/components/card/school.png',
+        img_src_list_item='/images/components/card/bikers.png',
+        title_text="Give Back at School",
+        link_text="Learn More",
+        body_text="JDRF offers kids many ways to educate, inspire and motivate their peers to help make a world without T1D.") }}
+      {{ library.card(
+        img_src='/images/components/card/community.png',
+        img_src_list_item='/images/components/card/bikers.png',
+        title_text="JDRF Your Way",
+        link_text="Start a Fundraiser",
+        body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
+    {% endset %}
+
 
     <style>
       #{{ id }}:checked ~ [data-tab='{{ id }}'] {
@@ -259,7 +299,7 @@
       {% call library.container(padding_top="none", padding_bottom="none") %}
         <h2 class="hostile-sink-reset">List View at smallest viewport</h2>
         {% call library.card_grid(class="spirit-card-grid--list") %}
-          {{ sample_cards | safe }}
+          {{ sample_cards_list | safe }}
         {% endcall %}
       {% endcall %}
     {% endcall %}
@@ -277,7 +317,7 @@
       {% call library.container(padding_top="none", padding_bottom="none") %}
         <h2 class="hostile-sink-reset">List View to 4-up</h2>
         {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
-          {{ sample_cards | safe }}
+          {{ sample_cards_list | safe }}
         {% endcall %}
       {% endcall %}
     {% endcall %}
@@ -286,7 +326,7 @@
       {% call library.container(padding_top="none", padding_bottom="none") %}
         <h2 class="hostile-sink-reset">List View to 2-up</h2>
         {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--2-up") %}
-          {{ sample_cards | safe }}
+          {{ sample_cards_list | safe }}
         {% endcall %}
       {% endcall %}
     {% endcall %}

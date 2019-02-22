@@ -2,9 +2,10 @@
 $spirit-list-text-light: $spirit-color-grey-35;
 $spirit-list-border-color: $spirit-color-grey-95;
 $spirit-list-border-width: 1px;
-$spirit-image-width: 72px;
-$spirit-image-width-l: 180px;
-$spirit-image-height-l: 120px;
+$spirit-image-size: 72px;
+$spirit-image-size-l: 180px;
+$spirit-image-ratio: $spirit-ratio-square;
+$spirit-image-ratio-l: $spirit-ratio-tall-wide;
 $spirit-list-avatar-width: $spirit-space-generic-6-x;
 $spirit-list-icon-size: $spirit-size-icon-s;
 $spirit-list-focus-background: $spirit-interactive-color-focus-soft;
@@ -12,9 +13,8 @@ $spirit-list-initial-line-height: 20px;
 $spirit-list-initial-line-height-xl: $spirit-font-line-height-heading-level-2-normal;
 $spirit-list-initial-line-height-m: 24px;
 $spirit-list-avatar-border-width: $spirit-list-avatar-width + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // avatar width + padding + gutter
-$spirit-list-image-border-width: $spirit-image-width + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width + padding + gutter
-$spirit-list-image-border-width-l: $spirit-image-width-l + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width l + padding + gutter
-
+$spirit-list-image-border-width: $spirit-image-size + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width + padding + gutter
+$spirit-list-image-border-width-l: $spirit-image-size-l + $spirit-space-generic-2-x + $spirit-space-generic-2-x; // image width l + padding + gutter
 
 // Breakpoint based on spirit-h4 sizing breakpoint
 $spirit-list-breakpoint: $spirit-breakpoint-l;
@@ -98,17 +98,30 @@ ol.spirit-list {
 }
 
 .spirit-list-item__image-contain {
-  background-color: $spirit-brand-color-primary;
-  border-radius: $spirit-border-radius-l;
-  flex: 0 0 $spirit-image-width;
-  height: $spirit-image-width;
+  flex: 0 0 $spirit-image-size;
+  margin-bottom: auto;
   margin-right: $spirit-space-generic-2-x;
   overflow: hidden;
-  width: $spirit-image-width;
+  width: $spirit-image-size;
   @media screen and (min-width: $spirit-list-breakpoint) {
-    flex-basis: $spirit-image-width-l;
-    height: $spirit-image-height-l;
-    width: $spirit-image-width-l;
+    flex-basis: $spirit-image-size-l;
+    width: $spirit-image-size-l;
+  }
+}
+
+.spirit-list-item__image-wrap {
+  background-color: $spirit-brand-color-primary;
+  border-radius: $spirit-border-radius-l;
+  display: block;
+  overflow: hidden;
+  padding-top: $spirit-image-ratio;
+  position: relative;
+  width: 100%;
+}
+
+.spirit-list-item__image-wrap--standard {
+  @media screen and (min-width: $spirit-list-breakpoint) {
+    padding-top: $spirit-image-ratio-l;
   }
 }
 
@@ -133,18 +146,34 @@ ol.spirit-list {
   line-height: $spirit-list-icon-size;
   margin-right: $spirit-space-generic-2-x;
   overflow: hidden;
+  position: relative;
   width: $spirit-list-avatar-width;
 }
 
 .spirit-list-item__image {
   display: block;
   height: 100%;
+  left: 0;
   object-fit: cover;
+  position: absolute;
+  top: 0;
   width: 100%;
 }
 
 .spirit-list-item__link-avatar {
+  align-items: center;
   color: $spirit-text-color-link;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.spirit-list-item__link-image {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .spirit-list-item__title {
