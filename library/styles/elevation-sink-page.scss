@@ -14,7 +14,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-1 $spirit-elevation-color-default;
+    box-shadow: $spirit-elevation-shadow-default-1;
   }
 }
 
@@ -24,7 +24,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-2 $spirit-elevation-color-default;
+    box-shadow: $spirit-elevation-shadow-default-2;
   }
 }
 
@@ -34,7 +34,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-3 $spirit-elevation-color-default;
+    box-shadow: $spirit-elevation-shadow-default-3;
   }
 }
 
@@ -43,7 +43,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-4 $spirit-elevation-color-default;
+    box-shadow: $spirit-elevation-shadow-default-4;
   }
 }
 
@@ -52,7 +52,7 @@
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-elevation-color-default;
+    box-shadow: $spirit-elevation-shadow-default-5;
   }
 }
 
@@ -66,82 +66,82 @@
 }
 
 .elevation-example--0-blue {
-  @include spirit-elevation($level: '0', $color: $spirit-elevation-color-blue);
+  @include spirit-elevation($level: '0', $color: 'blue');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-elevation-color-blue;
+    box-shadow: $spirit-elevation-shadow-blue-5;
   }
 }
 
 .elevation-example--1-blue {
-  @include spirit-elevation($level: '1', $color: $spirit-elevation-color-blue);
+  @include spirit-elevation($level: '1', $color: 'blue');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-elevation-color-blue;
+    box-shadow: $spirit-elevation-shadow-blue-5;
   }
 }
 
 .elevation-example--2-blue {
-  @include spirit-elevation($level: '2', $color: $spirit-elevation-color-blue);
+  @include spirit-elevation($level: '2', $color: 'blue');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-elevation-color-blue;
+    box-shadow: $spirit-elevation-shadow-blue-5;
   }
 }
 
 .elevation-example--3-blue {
-  @include spirit-elevation($level: '3', $color: $spirit-elevation-color-blue);
+  @include spirit-elevation($level: '3', $color: 'blue');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-elevation-color-blue;
+    box-shadow: $spirit-elevation-shadow-blue-5;
   }
 }
 
 .elevation-example--4-blue {
-  @include spirit-elevation($level: '4', $color: $spirit-elevation-color-blue);
+  @include spirit-elevation($level: '4', $color: 'blue');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-elevation-color-blue;
+    box-shadow: $spirit-elevation-shadow-blue-5;
   }
 }
 
 .elevation-example--5-blue {
-  @include spirit-elevation($level: '5', $color: $spirit-elevation-color-blue);
+  @include spirit-elevation($level: '5', $color: 'blue');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-1 $spirit-elevation-color-blue;
+    box-shadow: $spirit-elevation-shadow-blue-1;
   }
 }
 
 .elevation-example--success {
-  @include spirit-elevation($level: '2', $color: $spirit-feedback-color-background-success);
+  @include spirit-elevation($level: '2', $color: 'success');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-feedback-color-background-success;
+    box-shadow: $spirit-elevation-shadow-success-5;
   }
 }
 
 .elevation-example--info {
-  @include spirit-elevation($level: '2', $color: $spirit-feedback-color-background-info);
+  @include spirit-elevation($level: '2', $color: 'info');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-feedback-color-background-info;
+    box-shadow: $spirit-elevation-shadow-info-5;
   }
 }
 
 .elevation-example--danger {
-  @include spirit-elevation($level: '2', $color: $spirit-feedback-color-background-danger);
+  @include spirit-elevation($level: '2', $color: 'danger');
 
   &:hover,
   &:focus {
-    box-shadow: $spirit-elevation-5 $spirit-feedback-color-background-danger;
+    box-shadow: $spirit-elevation-shadow-danger-5;
   }
 }

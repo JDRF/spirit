@@ -8,7 +8,7 @@ $header-nav-demo-max-width: 320px;
 .header-nav-demo {
   @include spirit-typography-reset();
   background: $spirit-color-white;
-  box-shadow: $spirit-elevation-1 $spirit-elevation-color-default;
+  box-shadow: $spirit-elevation-shadow-default-1;
   height: 100vh;
   left: 0;
   max-width: $header-nav-demo-max-width;

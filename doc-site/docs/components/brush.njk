@@ -1,0 +1,106 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Brush
+
+      <p class="spirit-subhead">Brushes are svg illustrations used to decorate pages and highlight content, while conveying a human touch.</p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+      ## Wave
+      Waves represent our strides and constant progress in the search for a cure for T1D. They can be used as accents over images, or as background graphics (see [Container](/components/containers.html)).
+
+      <img src="/images/brush/wave-4-example.png" alt="Example of a wave 4 brush behind a block quote" />
+  {% endfilter %}
+
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
+      {
+        example: library.brush(name="wave1"),
+        label: "Wave 1"
+      },
+      {
+        example: library.brush(name="wave2"),
+        label: "Wave 2"
+      },
+      {
+        example: library.brush(name="wave3"),
+        label: "Wave 3"
+      },
+      {
+        example: library.brush(name="wave4"),
+        label: "Wave 4"
+      },
+      {
+        example: library.brush(name="wave5"),
+        label: "Wave 5"
+      }
+    ],
+    code_snippet_source=(library.brush(name="wave1"))
+  )
+  }}
+  {% filter markdown %}
+      ## Painted Edge
+      Adding painted edges to a [container](/components/containers.html) creates a branded color band with rough edges simulating the stroke of a paintbrush. It is used to draw a user’s attention to a section of the page containing  important information.
+
+      <img src="/images/brush/painted-edge-example.png" alt="Example of a container masked by painted edges" />
+
+  {% endfilter %}
+
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
+      {
+        example: library.brush(name="painted-edge-top"),
+        label: "Painted Edge - Top"
+      },
+      {
+        example: library.brush(name="painted-edge-bottom"),
+        label: "Painted Edge - Bottom"
+      }
+    ],
+    code_snippet_source=(library.brush(name="painted-edge-top") + library.brush(name="painted-edge-bottom"))
+  )
+  }}
+
+  {% filter markdown %}
+      ## Guidelines
+      Use When
+
+      * Use brushes sparingly, and in a meaningful way.
+      * Use brushes as supportive elements to the content they elevate.
+      * Do not distract or overwhelm users.
+      * Use wave backgrounds and painted brushes to tell stories and connect with our audience by evoking the human spirit.
+
+      ## Code Reference
+      
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+    data=[
+      {
+        class: '.spirit-container__wave-bg',
+        applies_to: 'Child container of `.spirit-container__inner`, peer to the container’s content',
+        outcome: 'Displays container holding a spirit wave svg.'
+      },
+      {
+        class: '.spirit-container__wave-bg--[wave]',
+        applies_to: '.spirit-container__wave-bg',
+        outcome: 'Displays wave svg based on the wave number. Use `--wave1`, `--wave2`, `--wave3`, `--wave4`, `--wave5`'
+      },
+      {
+        class: '.spirit-container__inner[--painted-edge-position]',
+        applies_to: '.spirit-container__inner',
+        outcome: 'Adjusts spirit container styles for where a painted edge will be used. Use `--painted-edge-both`, `--painted-edge-top`, `--painted-edge-bottom`'
+      },
+      {
+        class: '.spirit-container__painted-edge[-position]',
+        applies_to: 'Container holding painted edge contents within `.spirit-container__inner`, peer to the container’s content',
+        outcome: 'Applies painted edge wrapper styles and controls width and height. Will be inside `spirit-container__inner` either as first or last element depending if top or bottom. Use `-top`, or `-bottom`.'
+      }
+    ]) }}
+
+{% endblock page_shell_content %}
