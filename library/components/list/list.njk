@@ -42,7 +42,7 @@
             {% if href %}
               <a class="spirit-list-item__link-image" href="{{href}}">
             {% endif %}
-              {{ objectfitimage(
+              {{ image(
                 container_class="spirit-list-item",
                 type="standard",
                 img_src=image_src,
@@ -58,7 +58,7 @@
           {% if href %}
             <a class="spirit-list-item__link-avatar" href="{{href}}">
           {% endif %}
-            {{ objectfitimage(
+            {{ image(
               container_class="spirit-list-item",
               img_src=avatar_src,
               img_alt_text=image_alt
@@ -113,7 +113,7 @@
           {% if href %}
             <a class="spirit-list-item__link-image" href="{{href}}">
           {% endif %}
-            {{ objectfitimage(
+            {{ image(
               container_class="spirit-list-item",
               type="standard",
               img_src=image_src,

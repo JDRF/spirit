@@ -109,7 +109,14 @@ ol.spirit-list {
   }
 }
 
-.spirit-list-item__image-wrap {
+// List item images
+.spirit-list-item .spirit-image {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.spirit-list-item .spirit-image__image-wrap {
   background-color: $spirit-brand-color-primary;
   border-radius: $spirit-border-radius-l;
   display: block;
@@ -119,7 +126,7 @@ ol.spirit-list {
   width: 100%;
 }
 
-.spirit-list-item__image-wrap--standard {
+.spirit-list-item .spirit-image__image-wrap--standard {
   @media screen and (min-width: $spirit-list-breakpoint) {
     padding-top: $spirit-image-ratio-l;
   }
@@ -148,16 +155,6 @@ ol.spirit-list {
   overflow: hidden;
   position: relative;
   width: $spirit-list-avatar-width;
-}
-
-.spirit-list-item__image {
-  display: block;
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }
 
 .spirit-list-item__link-avatar {

@@ -19,7 +19,7 @@ $spirit-card-list-image-size-sm: 72px;
   &:hover {
     @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
 
-    .spirit-card__image-wrap + .spirit-card__text {
+    .spirit-image + .spirit-card__text {
       &:after {
         display: none;
       }
@@ -29,17 +29,16 @@ $spirit-card-list-image-size-sm: 72px;
   &:active {
     @include spirit-elevation(3, 'blue');
 
-    .spirit-card__image-wrap + .spirit-card__text {
+    .spirit-image + .spirit-card__text {
       &:after {
         display: none;
       }
     }
   }
 
-  .spirit-card__image-wrap {
+  .spirit-image {
     display: block;
     flex-shrink: 0;
-    height: $spirit-card-list-image-size-sm;
     margin: $spirit-space-inline-right-1-x;
     padding: 0;
     position: relative;
@@ -69,7 +68,7 @@ $spirit-card-list-image-size-sm: 72px;
     @include spirit-elevation(3, 'blue');
   }
 
-  .spirit-card__image-wrap + .spirit-card__text {
+  .spirit-image + .spirit-card__text {
     // If an image is present with the __text reset the border, margin and padding back to their original values
     border: 0;
     border-radius: 0;
@@ -92,12 +91,16 @@ $spirit-card-list-image-size-sm: 72px;
     }
   }
 
+  .spirit-image__image-wrap  {
+    padding-top: $spirit-ratio-square;
+  }
+
   // Show an art directed alternate image if it's present in the markup
-  .spirit-card__image-list-item + .spirit-card__image {
+  .spirit-image__image-list-item + .spirit-image__image  {
     display: none;
   }
 
-  .spirit-card__image-list-item {
+  .spirit-image__image-list-item {
     display: block;
   }
 }
@@ -162,16 +165,6 @@ $spirit-card-list-image-size-sm: 72px;
   .spirit-card__link {
     font-size: $spirit-font-size-l;
   }
-}
-
-@mixin spirit-card-image {
-  display: block;
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }
 
 .spirit-card {
@@ -250,27 +243,6 @@ $spirit-card-list-image-size-sm: 72px;
   @include spirit-card-list-item;
 }
 
-.spirit-card__image-wrap {
-  border-radius: $spirit-border-radius-l;
-  display: block;
-  flex-shrink: 0;
-  margin: $spirit-space-stack-1-x;
-  overflow: hidden;
-  padding-top: $spirit-ratio-wide;
-  position: relative;
-  width: 100%;
-  z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
-}
-
-.spirit-card__image {
-  @include spirit-card-image;
-  display: block;
-}
-
-.spirit-card__image-list-item {
-  display: none;
-}
-
 .spirit-card__cta {
   margin-top: auto; // Keeps the cta anchored to the bottom of the card, maintains alignment in a grid of cards
 }
@@ -284,4 +256,30 @@ $spirit-card-list-image-size-sm: 72px;
   .spirit-card:hover & {
     @include spirit-link-animated-underline;
   }
+}
+
+
+// Spirit Card Image Styles
+.spirit-card .spirit-image {
+  flex-shrink: 0;
+  margin: $spirit-space-stack-1-x;
+}
+
+.spirit-card .spirit-image__image-wrap {
+  border-radius: $spirit-border-radius-l;
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  padding-top: $spirit-ratio-wide;
+  position: relative;
+  width: 100%;
+  z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
+}
+
+.spirit-card .spirit-image__image {
+  display: block;
+}
+
+.spirit-card .spirit-image__image-list-item {
+  display: none;
 }

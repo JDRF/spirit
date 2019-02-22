@@ -1,7 +1,7 @@
 {% macro card(
         class=false,
         href="#",
-        img_src="/images/components/container/800x800.png",
+        img_src="/images/components/image/pexels-photo-1569076.jpeg",
         img_src_list_item,
         img_alt_text="JDRF Walkers",
         title_text="JDRF One Walk&reg;",
@@ -27,11 +27,11 @@
 
   <a href="{{ href }}" class="spirit-card{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" aria-label="{{ aria_label }}">
     {% if img_src %}
-      {{ objectfitimage(
+      {{ image(
         container_class="spirit-card",
         img_src=img_src,
         img_src_alt=img_src_list_item,
-        img_class_alt="spirit-card__image-list-item",
+        img_class_alt="spirit-image__image-list-item",
         img_alt_text=img_alt_text
       ) }}
     {% endif %}
