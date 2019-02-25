@@ -31,6 +31,7 @@
 @keyframes spirit-icon-spinner-animation {
   100% {
     transform: rotate(360deg);
+    transform-origin: center;
   }
 }
 
@@ -38,6 +39,7 @@
   100%,
   0% {
     stroke: currentColor;
+    transform-origin: center;
   }
 
   40% {
@@ -58,6 +60,7 @@
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
+    transform-origin: center;
   }
 
   50% {

@@ -3,99 +3,64 @@
   {% filter markdown %}
       # Feedback Messages
 
-      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
+      <p class="spirit-subhead">Feedback messages communicate status.</p>
+
+      Messages come in three varieties based on urgency.
   {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
   {% filter markdown %}
-      ## Section 1
-      
-      Paragraph
-
-      ### Subheading A
-
-      Paragraph
+      <h2 class="spirit-doc-hidden-heading">Variations</h2>
+      ### Informational Messages
+      Informational messages communicate non-critical information.
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair( 
-    examples=[
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on light"
-      },
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-context--brand"
-      }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
-  )
-  }}
+  {{ esds_doc.code_example_pair(example=library.form_message(text="Only 21 seats remaining.")) }}
+
   {% filter markdown %}
-
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ### Subheading B
-
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ## Section 2
-      
-      Paragraph
+      ### Success Messages
+      Success messages communicate that a user action was successful.
   {% endfilter %}
 
+  {{ esds_doc.code_example_pair(example=library.form_message(type="success", text="Donation received! Thank you for your support.")) }}
 
   {% filter markdown %}
-      ## Code Reference
-      
-      ### Color Tokens
-  {% endfilter %}   
-  {{ esds_doc.tint_stack(swatches=[
-    {
-      hex: spirit_tokens['text-color']['primary'],
-      label: 'Primary',
-      code_snippet: '$spirit-text-color-primary',
-      contrast_test_color: '#FFFFFF',
-      color_role: 'foreground',
-      show_border: true
-    },
-    {
-      hex: spirit_tokens['text-color']['on-dark'],
-      label: 'On Dark',
-      code_snippet: '$spirit-text-color-on-dark',
-      contrast_test_color: spirit_tokens.color.black,
-      color_role: 'foreground',
-      class: 'esds-doc-tint-stack__swatch--dark'
-    }
-  ]) }}
+      If a user task doesn’t end with a page dedicated to confirming success, then use a success message to clearly communicate that their task ended successfully.
 
-  {% filter markdown %}
-      ### Class Reference
+      ### Error Messages
+      Error messages communicate critical information.
   {% endfilter %}
 
-    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+  {{ esds_doc.code_example_pair(example=library.form_message(type="error", text="The form contains errors. Correct them to continue.")) }}
+
+  {% filter markdown %}
+      Use error messages for [form validation errors](/components/forms.html#validation-errors) and whenever the user’s path is blocked.
+
+      ## Guidelines
+      * Use sentence case and end messages with a period.
+      * Use a link within the message to provide the user with more information about a message. Use links sparingly here.
+      * Use bullets to list individual errors or steps toward recovery. In form validation, prefer instructions as error messages on each input instead of a list in a feedback message.
+
+      ## CSS Reference
+  {% endfilter %}
+
+  {{ esds_doc.reference_table(column_widths=[45, 35, 20],
     data=[
       {
-        class: '.spirit-button--secondary',
-        applies_to: '.spirit-button',
-        outcome: 'Applies secondary button style'
+        class: '.spirit-form__message--info',
+        applies_to: '.spirit-form__message',
+        outcome: 'Applies informational style'
       },
       {
-        class: '.spirit-button--minimal',
-        applies_to: '.spirit-button',
-        outcome: 'Applies minimal button style'
+        class: '.spirit-form__message--success',
+        applies_to: '.spirit-form__message',
+        outcome: 'Applies success style'
       },
       {
-        class: '.spirit-button--toggle',
-        applies_to: '.spirit-button',
-        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
+        class: '.spirit-form__message--error',
+        applies_to: '.spirit-form__message',
+        outcome: 'Applies error style'
       }
     ]) }}
-
 {% endblock page_shell_content %}

@@ -384,6 +384,37 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
     width: 100%;
   }
 
+  // Helper Classes
+  .spirit-text-align--center {
+    text-align: center;
+  }
+
+  .spirit-text-align--left {
+    text-align: left;
+  }
+
+  .spirit-text-align--right {
+    text-align: right;
+  }
+
+  &.spirit-text-align--center {
+    > * {
+      text-align: center;
+    }
+  }
+
+  &.spirit-text-align--left {
+    > * {
+      text-align: left;
+    }
+  }
+
+  &.spirit-text-align--right {
+    > * {
+      text-align: right;
+    }
+  }
+
   // Heading Combinators
   h2 + h3,
   h2 + h4,
@@ -402,3 +433,24 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 }
 
+// Enable body text modifier on container
+.spirit-long-form-text--l {
+  p,
+  li {
+    @include spirit-body-text-l;
+  }
+}
+
+.spirit-long-form-text--m {
+  p,
+  li {
+    @include spirit-body-text-m;
+  }
+}
+
+.spirit-long-form-text--s {
+  p,
+  li {
+    @include spirit-body-text-s;
+  }
+}

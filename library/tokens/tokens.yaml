@@ -22,6 +22,7 @@ color :
 elevation-color : # === structure change ===
   default :  &elevation-color-default  rgba(0,8,26,0.16)   # based on color-black
   blue :     &elevation-color-blue     rgba(0,85,255,0.16) # based on color-blue-100
+
 # ====== assignments ======= #
 brand-color : 
   primary :   *color-blue-100
@@ -93,12 +94,56 @@ transition:
     default: .3s
 
 elevation :
-  0 : "0 0 0 0"
-  1 : "0 2px 4px 0"
-  2 : "0 4px 8px 0"
-  3 : "0 8px 16px 0"
-  4 : "0 12px 24px 0"
-  5 : "0 24px 48px 0"
+  0 : &elevation-dimensions-0 "0 0 0 0"
+  1 : &elevation-dimensions-1 "0 2px 4px 0"
+  2 : &elevation-dimensions-2 "0 4px 8px 0"
+  3 : &elevation-dimensions-3 "0 8px 16px 0"
+  4 : &elevation-dimensions-4 "0 12px 24px 0"
+  5 : &elevation-dimensions-5 "0 24px 48px 0"
+  secondary: &elevation-dimensions-secondary "0 0 4px 0"
+  shadow:
+    default:
+      0 : "!{*elevation-dimensions-0} rgba(!{*color-black}, .16), !{*elevation-dimensions-0} rgba(!{*color-black}, .08)"
+      1 : "!{*elevation-dimensions-1} rgba(!{*color-black}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-black}, .08)"
+      2 : "!{*elevation-dimensions-2} rgba(!{*color-black}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-black}, .08)"
+      3 : "!{*elevation-dimensions-3} rgba(!{*color-black}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-black}, .08)"
+      4 : "!{*elevation-dimensions-4} rgba(!{*color-black}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-black}, .08)"
+      5 : "!{*elevation-dimensions-5} rgba(!{*color-black}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-black}, .08)"
+    blue:
+      0 : "!{*elevation-dimensions-0} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-0} rgba(!{*color-blue-100}, .08)"
+      1 : "!{*elevation-dimensions-1} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      2 : "!{*elevation-dimensions-2} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      3 : "!{*elevation-dimensions-3} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      4 : "!{*elevation-dimensions-4} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      5 : "!{*elevation-dimensions-5} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+    success:
+      0 : "!{*elevation-dimensions-0} rgba(!{*color-green-67}, .16), !{*elevation-dimensions-0} rgba(!{*color-green-67}, .08)"
+      1 : "!{*elevation-dimensions-1} rgba(!{*color-green-67}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-green-67}, .08)"
+      2 : "!{*elevation-dimensions-2} rgba(!{*color-green-67}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-green-67}, .08)"
+      3 : "!{*elevation-dimensions-3} rgba(!{*color-green-67}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-green-67}, .08)"
+      4 : "!{*elevation-dimensions-4} rgba(!{*color-green-67}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-green-67}, .08)"
+      5 : "!{*elevation-dimensions-5} rgba(!{*color-green-67}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-green-67}, .08)"
+    info:
+      0 : "!{*elevation-dimensions-0} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-0} rgba(!{*color-blue-100}, .08)"
+      1 : "!{*elevation-dimensions-1} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      2 : "!{*elevation-dimensions-2} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      3 : "!{*elevation-dimensions-3} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      4 : "!{*elevation-dimensions-4} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+      5 : "!{*elevation-dimensions-5} rgba(!{*color-blue-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-blue-100}, .08)"
+    danger:
+      0 : "!{*elevation-dimensions-0} rgba(!{*color-red-100}, .16), !{*elevation-dimensions-0} rgba(!{*color-red-100}, .08)"
+      1 : "!{*elevation-dimensions-1} rgba(!{*color-red-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-red-100}, .08)"
+      2 : "!{*elevation-dimensions-2} rgba(!{*color-red-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-red-100}, .08)"
+      3 : "!{*elevation-dimensions-3} rgba(!{*color-red-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-red-100}, .08)"
+      4 : "!{*elevation-dimensions-4} rgba(!{*color-red-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-red-100}, .08)"
+      5 : "!{*elevation-dimensions-5} rgba(!{*color-red-100}, .16), !{*elevation-dimensions-secondary} rgba(!{*color-red-100}, .08)"
+    transparent:
+      0 : "!{*elevation-dimensions-0} transparent, !{*elevation-dimensions-0} transparent"
+      1 : "!{*elevation-dimensions-1} transparent, !{*elevation-dimensions-secondary} transparent"
+      2 : "!{*elevation-dimensions-2} transparent, !{*elevation-dimensions-secondary} transparent"
+      3 : "!{*elevation-dimensions-3} transparent, !{*elevation-dimensions-secondary} transparent"
+      4 : "!{*elevation-dimensions-4} transparent, !{*elevation-dimensions-secondary} transparent"
+      5 : "!{*elevation-dimensions-5} transparent, !{*elevation-dimensions-secondary} transparent"
 
 
 size :

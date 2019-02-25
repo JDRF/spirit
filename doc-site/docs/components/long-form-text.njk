@@ -3,99 +3,477 @@
   {% filter markdown %}
       # Long Form Text
 
-      <p class="spirit-long-form-text__subhead">Lead paragraph</p>
+      <p class="spirit-subhead">Use long form text for page body prose. </p>
   {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
   {% filter markdown %}
-      ## Section 1
-      
-      Paragraph
+      Long Form Text extends the base <a href="../visual-style/typography.html">Typography</a>‘s size, weight, and color with <b>spacing</b> and <b>specialized styles</b> appropriate for body prose. In addition, it has styles for illustrations, blockquotes, and more. For text in components, such as Card or List, see <a href="../visual-style/typography.html">Typography</a>.
 
-      ### Subheading A
+      ## Usage
 
-      Paragraph
+      Wrap any sequence of headings, paragraphs, lists, and images in `.spirit-long-form-text`. Unlike other Spirit components which are encapsulated and namespaced to prevent conflicts, Long Form Text directly styles basic HTML elements, `h1`-`h6`, `p`, `ul`, `ol`, `img`, and so forth. 
+
+    {{ library.form_message(type="info", text="Avoid placing components inside a block of Long Form Text, since this can produce unpredictable results.") }}
+
   {% endfilter %}
+
+  {% set lft_example_for_docsite %}
+    <div class="spirit-long-form-text">
+      <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h2>What to do if you experience low blood glucose symptoms</h2>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
 
   {{ esds_doc.code_example_pair( 
-    examples=[
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on light"
-      },
-      {
-        example: library.button(text="Donate"),
-        label: "Primary on dark",
-        class: "spirit-context--brand"
-      }
-    ],
-    code_snippet_source=('<div class="spirit-container spirit-container--dark">' + library.button(text="Donate") + '</div>')
-  )
-  }}
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_for_docsite } ]
+   ) }}
+
   {% filter markdown %}
 
-      * Bullet
-      * Bullet
-      * Bullet
+      ## Hierarchy
 
-      ### Subheading B
+      Establish visual hierarchy using appropriate typographic scale. 
 
-      * Bullet
-      * Bullet
-      * Bullet
-
-      ## Section 2
-      
-      Paragraph
   {% endfilter %}
 
+  {{ spirit_doc.typography_swatch(
+      title="Heading 1",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h1",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['5-x'],
+      code_sample=".long-form-text h1",
+      design_specs="margin: " + spirit_tokens.space.generic['5-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 2",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h2",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['5-x'],
+      code_sample=".long-form-text h2",
+      design_specs="margin: " + spirit_tokens.space.generic['5-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 3",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h3",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['3-x'],
+      code_sample=".long-form-text h3",
+      design_specs="margin: " + spirit_tokens.space.generic['3-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 4",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h4",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text h4",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 5",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h5",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text h5",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Heading 6",
+      sample_text="You Can Help Turn Type One Into Type None",
+      sample_text_class="spirit-h6",
+      highlighted_bottom_margin=spirit_tokens.space.generic['2-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text h6",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Lead Paragraph",
+      sample_text="Whether you donate your time or dollars, life-changing breakthroughs in T1D treatments and therapies couldn’t happen without you.",
+      sample_text_class="spirit-subhead",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      highlighted_top_margin=spirit_tokens.space.generic['2-x'],
+      code_sample=".long-form-text .spirit-subhead",
+      design_specs="margin: " + spirit_tokens.space.generic['2-x'] + " 0 " + spirit_tokens.space.generic['4-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Large Paragraph (Default)",
+      sample_text="Whether you donate your time or dollars, life-changing breakthroughs in T1D treatments and therapies couldn’t happen without you.",
+      sample_text_class="spirit-body-text-l",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      code_sample=".long-form-text p",
+      design_specs="margin: " + " 0 " + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Medium Paragraph",
+      sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas…",
+      sample_text_class="spirit-body-text-m",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      code_sample=".long-form-text p.spirit-body-text-l",
+      design_specs="margin: " + " 0 " + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
+  {{ spirit_doc.typography_swatch(
+      title="Small Paragraph",
+      sample_text="Youth Ambassadors are invited to create a one-of-a-kind project to be featured in the auction of the upcoming One Night in Vegas…",
+      sample_text_class="spirit-body-text-s",
+      highlighted_bottom_margin=spirit_tokens.space.generic['4-x'],
+      code_sample=".long-form-text p.spirit-body-text-s",
+      design_specs="margin: " + " 0 " + " 0 " + spirit_tokens.space.generic['2-x'] + " 0;") }}
+
 
   {% filter markdown %}
-      ## Code Reference
-      
-      ### Color Tokens
-  {% endfilter %}   
-  {{ esds_doc.tint_stack(swatches=[
-    {
-      hex: spirit_tokens['text-color']['primary'],
-      label: 'Primary',
-      code_snippet: '$spirit-text-color-primary',
-      contrast_test_color: '#FFFFFF',
-      color_role: 'foreground',
-      show_border: true
-    },
-    {
-      hex: spirit_tokens['text-color']['on-dark'],
-      label: 'On Dark',
-      code_snippet: '$spirit-text-color-on-dark',
-      contrast_test_color: spirit_tokens.color.black,
-      color_role: 'foreground',
-      class: 'esds-doc-tint-stack__swatch--dark'
-    }
-  ]) }}
 
-  {% filter markdown %}
-      ### Class Reference
+      ## Spacing
+
+      In long form text, all elements have bottom spacing to create whitespace and establish relationships via relative proximity. In addition, headings have top space to create more white space between sections of text. 
+
+      When two headings are stacked, such as when an `<h3>` immediately follows an `<h2>`, the intervening top space is removed. This tightens the headings, reinforcing the hierarchical relationship. 
+
+      <div class="spirit-row">
+        <div class="spirit-col">
+          <img src="/images/long-form-text/lft-overrides@2x.png" alt=""/>
+          <p>Whitespace revealed, showing how the &lt;h3&gt;’s top space is overridden to 0px.</p>
+        </div>
+        <div class="spirit-col">
+          <img src="/images/long-form-text/lft-overrides-example@2x.png" alt=""/>
+          <p>Whitespace override preview</p>
+        </div>
+      </div>
+
+      ## Specialized Styles
+
+      ### Lead Heading
+
+      Use `spirit-lead-heading` to collapse the space above a heading when it appears first in a column. 
+
   {% endfilter %}
 
-    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
-    data=[
-      {
-        class: '.spirit-button--secondary',
-        applies_to: '.spirit-button',
-        outcome: 'Applies secondary button style'
-      },
-      {
-        class: '.spirit-button--minimal',
-        applies_to: '.spirit-button',
-        outcome: 'Applies minimal button style'
-      },
-      {
-        class: '.spirit-button--toggle',
-        applies_to: '.spirit-button',
-        outcome: 'Use in place of a standard radio/checkbox group. See <a href="#toggle-button">Toggle Button</a> for specific implementation details on this custom component.'
-      }
-    ]) }}
+  {% set lft_example_blockquote %}
+    <div class="spirit-row">
+      <div class="spirit-col">
+        <div class="spirit-long-form-text">
+          <h3 class="spirit-lead-heading">JDRF Ride</h3>
+          <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country. Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+        </div>
+      </div>
+      <div class="spirit-col">
+        <div class="spirit-long-form-text">
+          <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. JDRF Ride isn’t just a bike ride: it’s an experience where hundreds of riders come together from all over the world to make new friendships, enjoy the unparalleled camaraderie of the Ride community and raise money to help end T1D. We want a cure and we won't stop until we make one a reality. Along the way, we will continue to support advances that make it safer and easier to live with this disease.</p>
+        </div>
+      </div>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote } ],
+      code_snippet_source=lft_example_blockquote
+   ) }}
+
+  {% filter markdown %}
+
+      ### Link
+
+      Use `<a>` links directly inside Long Form Text.
+
+  {% endfilter %}
+
+  {% set lft_example_link %}
+    <div class="spirit-long-form-text">
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to <a href="#">see a doctor</a> if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_link } ],
+      code_snippet_source=lft_example_link
+   ) }}
+  {% filter markdown %}
+      On a dark background, links within Long Form Text reverse to white.
+  {% endfilter %}
+  {% set lft_example_link_brand %}
+    <div class="spirit-context--brand" style="padding: 32px;">
+      <div class="spirit-long-form-text">
+        <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to <a href="#">see a doctor</a> if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+      </div>
+    </div>
+  {% endset %}
+  {% set lft_code_link_brand %}
+    <div class="spirit-long-form-text">
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to <a href="#">see a doctor</a> if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_link_brand } ],
+      code_snippet_source=lft_code_link_brand
+   ) }}
+
+  {% filter markdown %}
+
+      ### List
+
+      Use ordered and unordered lists inside Long Form Text using raw HTML. 
+
+      #### Unordered List
+
+  {% endfilter %}
+
+  {% set lft_example_list %}
+    <div class="spirit-long-form-text">
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ul>
+                    <li>Nested List item 1</li>
+                    <li>Nested List item 2</li>
+                    <li>Nested List item 3
+                        <ul>
+                            <li>Nested List item 1</li>
+                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                Nested List item 2 is very long so that it wraps
+                            </li>
+                            <li>Nested List item 3</li>
+                        </ul>
+                    </li>
+                    <li>Nested List item 4</li>
+                </ul>
+            </li>
+            <li>List item 4</li>
+        </ul>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_list } ],
+      code_snippet_source=lft_example_list
+   ) }}
+
+  {% filter markdown %}
+
+      #### Ordered List
+
+  {% endfilter %}
+
+  {% set lft_example_list_ol %}
+    <div class="spirit-long-form-text">
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ol>
+                    <li>Nested List item 1</li>
+                    <li>Nested List item 2</li>
+                    <li>Nested List item 3
+                        <ol>
+                            <li>Nested List item 1</li>
+                            <li>Nested List item 2 is very long so that it wraps Nested List item 2 is very
+                                long so that it wraps Nested List item 2 is very long so that it wraps
+                                Nested List item 2 is very long so that it wraps
+                            </li>
+                            <li>Nested List item 3</li>
+                        </ol>
+                    </li>
+                    <li>Nested List item 4</li>
+                </ol>
+            </li>
+            <li>List item 4</li>
+        </ol>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_list_ol } ],
+      code_snippet_source=lft_example_list_ol
+   ) }}
+
+  {% filter markdown %}
+
+      ### Illustrations
+
+      Use photos and videos with or without captions directly inside Long Form Text. Position the illustration to fill the column or float right or left within flowing prose. 
+
+      #### Caption
+
+  {% endfilter %}
+
+  {% set lft_example_caption %}
+    <div class="spirit-long-form-text">
+      <figcaption class="spirit-caption">Transplantation of beta cells can be, literally, a life-saver</figcaption>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_caption } ],
+      code_snippet_source=lft_example_caption
+   ) }}
+
+  {% filter markdown %}
+
+      #### Float Left or Right
+      Position images to float right or left within flowing prose.  
+
+  {% endfilter %}
+
+  {% set lft_example_image_lr %}
+    <div class="spirit-long-form-text">
+      <figure class="spirit-image-left">
+          <img src="/images/long-form-text/TeadJDRFRunners.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">Team JDRF to Cure Diabetes</figcaption>
+      </figure>
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country. Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+    </div>
+    <div class="spirit-long-form-text">
+      <figure class="spirit-image-right">
+          <img src="/images/long-form-text/Ride_1066x546-734x376.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">JDRF Ride to Cure Diabetes</figcaption>
+      </figure>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. JDRF Ride isn’t just a bike ride: it’s an experience where hundreds of riders come together from all over the world to make new friendships, enjoy the unparalleled camaraderie of the Ride community and raise money to help end T1D. We want a cure and we won't stop until we make one a reality. Along the way, we will continue to support advances that make it safer and easier to live with this disease. By taking part in JDRF Ride to Cure Diabetes, you’ll help us get there faster.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_image_lr } ],
+      code_snippet_source=lft_example_image_lr
+   ) }}
+
+  {% filter markdown %}
+
+      #### Default
+
+  {% endfilter %}
+
+  {% set lft_example_image_full %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country.</p>
+      <figure class="spirit-image">
+          <img src="/images/long-form-text/JDRF-Kids-School-Fundraising-734x376.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">JDRF offers kids many ways to educate, inspire and motivate their peers</figcaption>
+      </figure>
+      <p>Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_image_full } ],
+      code_snippet_source=lft_example_image_full
+   ) }}
+
+  {% filter markdown %}
+
+        #### Center
+
+  {% endfilter %}
+
+  {% set lft_example_image_center %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country.</p>
+      <figure class="spirit-image-center">
+          <img src="/images/long-form-text/JDRF-Kids-School-Fundraising-734x376.jpg" alt="An adorable kitten">
+          <figcaption class="spirit-caption">JDRF offers kids many ways to educate, inspire and motivate their peers</figcaption>
+      </figure>
+      <p>Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_image_center } ],
+      code_snippet_source=lft_example_image_center
+   ) }}
+
+  {% filter markdown %}
+
+      ### Pull Quotes
+
+      #### Float Left or Right
+      Position pull quotes to float right or left within flowing prose.  
+
+  {% endfilter %}
+
+  {% set lft_example_blockquote %}
+    <div class="spirit-long-form-text">
+      <blockquote class="spirit-pull-quote-left">Nearly $2.5 billion in federal funding has gone into type
+          1 diabetes research since SDP
+          began.
+      </blockquote>
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. There are six 2018 JDRF Rides across the country. Each of the Rides, which occur August through November, offer a unique and unforgettable experience. From riding the rolling hills of upstate New York to the desert of Santa Fe, JDRF has a Ride for you. JDRF is the leading global organization funding T1D research.</p>
+      <blockquote class="spirit-pull-quote-right">The JDRF Ride has raised more than $47 million for research to deliver life-changing therapies and, one day, a cure for type 1 diabetes (T1D).
+      </blockquote>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. JDRF Ride isn’t just a bike ride: it’s an experience where hundreds of riders come together from all over the world to make new friendships, enjoy the unparalleled camaraderie of the Ride community and raise money to help end T1D. We want a cure and we won't stop until we make one a reality. Along the way, we will continue to support advances that make it safer and easier to live with this disease. By taking part in JDRF Ride to Cure Diabetes, you’ll help us get there faster.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Default
+  {% endfilter %}
+
+  {% set lft_example_blockquote_default %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+      <blockquote class="spirit-pull-quote">The JDRF Ride has raised more than $47 million for research to deliver life-changing therapies and, one day, a cure for type 1 diabetes (T1D).
+      </blockquote>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote_default } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Center
+  {% endfilter %}
+
+  {% set lft_example_blockquote_center %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+      <blockquote class="spirit-pull-quote-center">"JDRF is ... a strong force for change."
+      </blockquote>
+      <p>JDRF Ride to Cure Diabetes is a charitable bike ride that to-date has raised over $47 million for type 1 diabetes (T1D) research. The Ride gives cyclists of all ages and skill levels the opportunity to support breakthroughs that transform the lives of people with T1D, until there is a cure. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_blockquote_center } ]
+   ) }}
 
 {% endblock page_shell_content %}

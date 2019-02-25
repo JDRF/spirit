@@ -37,8 +37,8 @@
 
     {% call library.form_field_group() %}
       {{ library.form_label(text="With Micro Copy", required=true) }}
-      {{ library.form_input(placeholder="First name") }}
-      {{ library.form_microcopy(text="Micro copy text goes here.") }}
+      {{ library.form_input(placeholder="First name", attributes='aria-describedby=input-with-microcopy') }}
+      {{ library.form_microcopy(text="Micro copy text goes here.", id="input-with-microcopy") }}
     {% endcall %}
 
     {% call library.form_field_group() %}
@@ -449,6 +449,13 @@
     {% call library.form_checkbox_group(label="What is your connection to type 1 diabetes?", required=true) %}
         {{ library.form_checkbox(label="Option 1") }}
         {{ library.form_checkbox(label="Option 2") }}
+        {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
+    {% endcall %}
+
+    <h5 class="hostile-sink-reset">Group Stacked Label Content Resilience</h5>
+    {% call library.form_checkbox_group(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. Cumque? .", required=true) %}
+        {{ library.form_checkbox(label="Option 1") }}
+        {{ library.form_checkbox(label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet deleniti quos molestiae placeat eaque in sunt corporis vel excepturi assumenda odit est rerum, debitis similique impedit alias quas ab. ") }}
         {{ library.form_checkbox(label="Option 3, Disabled", disabled=true) }}
     {% endcall %}
 

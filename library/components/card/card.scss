@@ -3,58 +3,90 @@
 @import '../../styles/mixins/elevation';
 @import '../../styles/mixins/typography';
 
+$spirit-card-title-line-height-medium: 32px;
+$spirit-card-title-line-height-large: 40px;
+$spirit-card-cta-line-height-small: 20px;
+$spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-secondary;
+
 @mixin spirit-card-list-item {
+  @include spirit-elevation(0, 'blue');
   align-items: flex-start;
   flex-direction: row;
-  padding: 0;
+  padding: $spirit-space-inset-1-x;
   width: 100%;
 
   &:hover {
-    @include spirit-elevation(4, $spirit-elevation-color-blue); // Reduce the box shadow spread in a carousel
+    @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
+
+    .spirit-card__image-wrap + .spirit-card__text {
+      &:after {
+        display: none;
+      }
+    }
   }
 
   &:active {
-    @include spirit-elevation(3, $spirit-elevation-color-blue);
+    @include spirit-elevation(3, 'blue');
+
+    .spirit-card__image-wrap + .spirit-card__text {
+      &:after {
+        display: none;
+      }
+    }
   }
 
   .spirit-card__image-wrap {
     flex-shrink: 0;
     height: 72px;
-    margin: 0;
+    margin: $spirit-space-inline-right-1-x;
     position: relative;
     width: 72px;
   }
 
   .spirit-card__title {
     font-size: $spirit-font-size-heading-level-4-normal;
-    margin: $spirit-space-stack-half-x;
-  }
-
-  .spirit-card__link {
-    font-size: $spirit-font-size-xs;
-  }
-
-  .spirit-card__body {
-    display: none;
+    line-height: $spirit-font-line-height-heading-level-4-normal;
+    margin: $spirit-space-stack-1-x;
   }
 
   .spirit-card__text {
-    border: solid $spirit-border-width-card $spirit-color-grey-95;
-    border-radius: $spirit-border-radius-l;
+    @include spirit-elevation(1, 'blue');
+    border-radius: $spirit-border-radius-l; // when there is no image
+    margin: -$spirit-space-generic-1-x;
     padding: $spirit-space-inset-2-x;
     transition: border $spirit-transition-timing-default;
-    width: 100%;
+    width: calc(100% + $spirit-space-generic-2-x);
   }
 
   &:hover .spirit-card__text {
-    border-color: transparent;
+    @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
+  }
+
+  &:active .spirit-card__text {
+    @include spirit-elevation(3, 'blue');
   }
 
   .spirit-card__image-wrap + .spirit-card__text {
     // If an image is present with the __text reset the border, margin and padding back to their original values
     border: 0;
+    border-radius: 0;
+    box-shadow: none;
     margin: 0;
-    padding: $spirit-space-inset-1-x;
+    padding-bottom: 0;
+    padding-left: $spirit-space-inset-1-x;
+    padding-right: $spirit-space-inset-1-x;
+    padding-top: 0;
+    position: relative;
+
+    &:after {
+      bottom: -8px;
+      box-shadow: $spirit-card-list-text-box-shadow;
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      width: 100%;
+    }
   }
 
   // Show an art directed alternate image if it's present in the markup
@@ -66,8 +98,9 @@
 @mixin spirit-card-small {
   .spirit-card__title {
     @include spirit-typography-reset(
-      $font-size: $spirit-font-size-heading-level-3-normal,
-      $font-weight: $spirit-font-weight-bold
+      $font-size: $spirit-font-size-heading-level-4-normal,
+      $font-weight: $spirit-font-weight-bold,
+      $line-height: $spirit-font-line-height-heading-level-4-normal
     );
     margin: $spirit-space-stack-1-x;
   }
@@ -77,18 +110,26 @@
       $color: $spirit-text-color-secondary,
       $font-size: $spirit-font-size-s
     );
-    margin: $spirit-space-stack-2-x;
+    margin: $spirit-space-stack-1-x;
   }
 
   .spirit-card__link {
     font-size: $spirit-font-size-s;
     font-weight: $spirit-font-weight-bold;
+    line-height: $spirit-card-cta-line-height-small;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    .spirit-card__title {
+      @include spirit-h5;
+    }
   }
 }
 
 @mixin spirit-card-medium {
   .spirit-card__title {
     font-size: $spirit-font-size-heading-level-2-normal;
+    line-height: $spirit-card-title-line-height-medium;
   }
 
   .spirit-card__link,
@@ -102,12 +143,13 @@
 
   .spirit-card__title {
     font-size: $spirit-font-size-heading-level-1-normal;
-    margin: $spirit-space-stack-2-x;
+    line-height: $spirit-card-title-line-height-large;
+    margin: $spirit-space-stack-1-x;
   }
 
   .spirit-card__body {
     font-size: $spirit-font-size-l;
-    margin: $spirit-space-stack-3-x;
+    margin: $spirit-space-stack-2-x;
   }
 
   .spirit-card__link {
@@ -119,6 +161,7 @@
   @include spirit-box-sizing;
   @include spirit-typography-reset;
   @include spirit-card-small;
+  @include spirit-elevation(1, 'blue');
   background-color: $spirit-color-white;
   border-radius: $spirit-border-radius-l;
   display: flex;
@@ -152,12 +195,12 @@
 
   &.spirit-card--hover,
   &:hover {
-    @include spirit-elevation(5, $spirit-elevation-color-blue);
+    @include spirit-elevation(5, 'blue');
   }
 
   &.spirit-card--active,
   &:active {
-    @include spirit-elevation(4, $spirit-elevation-color-blue);
+    @include spirit-elevation(4, 'blue');
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
@@ -194,7 +237,7 @@
   border-radius: $spirit-border-radius-l;
   display: block;
   flex-shrink: 0;
-  margin: $spirit-space-stack-2-x;
+  margin: $spirit-space-stack-1-x;
   overflow: hidden;
   position: relative;
   width: 100%;
