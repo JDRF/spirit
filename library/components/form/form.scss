@@ -99,6 +99,26 @@ $spirit-space-field-group-horizontal-margin:  0 16px 0 0;
   }
 }
 
+.spirit-form__fieldgroup--input-with-button {
+  position: relative;
+
+  .spirit-form__label {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .spirit-button {
+    bottom: 0;
+    margin: 0 $spirit-space-generic-2-x $spirit-space-generic-1-x 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .spirit-form__input-field {
+    padding-right: 120px; // Add some padding inside the form input to accomodate the button width, will likely need overridden on a case-by-case basis
+  }
+}
+
 // <input[type='text|email|phone|number|etc']/>
 $spirit-text-input-background-color:  $spirit-form-element-background-color;
 $spirit-text-input-border:            $spirit-form-element-border;
@@ -285,6 +305,10 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
   font-weight: $spirit-font-weight-regular;
 }
 
+.spirit-form__label--accessibly_hidden {
+  @include spirit-accessibly-hidden;
+}
+
 // <input[type='checkbox']/>
 $spirit-checkbox-label-color:               $spirit-text-color-secondary;
 $spirit-checkbox-label-font-family:         $spirit-form-font-family;
@@ -292,11 +316,11 @@ $spirit-checkbox-label-font-size:           $spirit-form-element-font-size;
 $spirit-checkbox-label-margin:              2px;
 $spirit-checkbox-background-color:          $spirit-color-white;
 $spirit-checkbox-border:                    solid 1px $spirit-color-grey-35; // TODO: Tokenize and work on border tokens
-$spirit-checkbox-border-color-hover-focus:  $spirit-form-element-selected-color;         
-$spirit-checkbox-border-width-hover-focus:  2px;         
+$spirit-checkbox-border-color-hover-focus:  $spirit-form-element-selected-color;
+$spirit-checkbox-border-width-hover-focus:  2px;
 $spirit-checkbox-border-radius:             $spirit-border-radius-s;
-$spirit-checkbox-text-color-hover:          $spirit-text-color-primary;         
-$spirit-checkbox-text-color-focus:          $spirit-form-element-selected-color;         
+$spirit-checkbox-text-color-hover:          $spirit-text-color-primary;
+$spirit-checkbox-text-color-focus:          $spirit-form-element-selected-color;
 $spirit-checkbox-fill-color:                $spirit-form-element-selected-color;
 $spirit-checkbox-checkmark-fill-color:      $spirit-color-white;
 $spirit-checkbox-checkmark-size:            $spirit-size-icon-xs;
@@ -383,7 +407,7 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
   .spirit-form__checkbox-input:disabled:checked + .spirit-form__checkbox-inner & {
     background-color: $spirit-disabled-color-foreground;
   }
-  
+
 
   // Invalid state
   .spirit-form__checkbox-group--invalid &,
@@ -493,11 +517,11 @@ $spirit-radio-label-font-size:          $spirit-form-element-font-size;
 $spirit-radio-label-margin:             2px;
 $spirit-radio-background-color:         $spirit-color-white;
 $spirit-radio-border:                   solid 1px $spirit-color-grey-35;
-$spirit-radio-border-color-hover-focus: $spirit-form-element-selected-color;         
-$spirit-radio-border-width-hover-focus: 2px;         
+$spirit-radio-border-color-hover-focus: $spirit-form-element-selected-color;
+$spirit-radio-border-width-hover-focus: 2px;
 $spirit-radio-border-radius:            $spirit-form-element-border-radius;
-$spirit-radio-text-color-hover:         $spirit-text-color-primary;         
-$spirit-radio-text-color-focus:         $spirit-form-element-selected-color; 
+$spirit-radio-text-color-hover:         $spirit-text-color-primary;
+$spirit-radio-text-color-focus:         $spirit-form-element-selected-color;
 $spirit-radio-checked-background-color: $spirit-form-element-selected-color;
 $spirit-radio-fill-color:               $spirit-color-white;
 $spirit-radio-fill-size:                8px;
@@ -882,7 +906,7 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
   @include spirit-typography-reset(
     $color: $spirit-text-color-primary,
     $font-size: $spirit-font-size-heading-level-1-normal,
-    $font-weight: $spirit-font-weight-bold 
+    $font-weight: $spirit-font-weight-bold
   );
   margin: $spirit-space-stack-2-x;
   max-width: $spirit-legend-max-width;
