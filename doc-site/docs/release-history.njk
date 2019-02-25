@@ -14,7 +14,34 @@
     additional_content
   #}
 
-  
+  {% set new %}
+    * [Typography](/visual-style/typography.html) Doc
+    * [Grid](/components/grid.html) Doc
+    * [Container](/components/container.html) Doc
+    * [Brush](/components/brush.html) Doc
+    * [Link](/components/links.html) Doc
+    * [Feedback Messages](/components/feedback-messages.html) Doc
+    * [Vertical Navigation](/components/vertical-navigation.html) Doc
+  {% endset %}
+
+  {% set enhancements %}
+    * [Button](/components/buttons.html) - Add `spirit-button--fullwidth` option to `spirit-button` that allows button to span entire width of parent container
+    * [Icons](/visual-style/icons.html) - Added `users-plus`, `contacts`, `cash` icons
+    * [Getting Started](/getting-started.html) - Add note about CSS reset / normalize
+    * **JavaScript** - update build tools to include bundled javascript packages in release and updated [Getting Started](/getting-started.html) in doc-site to explain additions
+    * **List** - style refinements
+    * **Card** - style refinements
+    * **Long Form Text** - style refinements (add text align and size classes)
+    * **Elevation** - style refinements (add shadow layer, update mixin, update tokens)
+  {% endset %}
+
+  {% set fixes %}
+    * [Form](/components/forms.html) - Fixed style issue with radio and checkbox labels not wrapping cross-browser (IE11)
+    * [Button](/components/buttons.html) - Fixed issue where button spinner animation would not render properly with no transform-origin specified
+
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0-alpha.6", date="2/25/2019", new=new, enhancements=enhancements, fixes=fixes) }}
 
   {% set enhancements %}
     * **Form** - Using npm package [inputmask](https://www.npmjs.com/package/inputmask), added the ability to add date and phone input masks
