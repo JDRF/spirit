@@ -1,3 +1,9 @@
+@mixin spirit-image-caption {
+  @include spirit-body-text-s;
+  margin-bottom: $spirit-space-generic-4-x;
+  margin-top: $spirit-space-generic-2-x;
+}
+
 .spirit-image {
   @include spirit-typography-reset();
   display: block;
@@ -51,8 +57,6 @@
   padding-top: $spirit-ratio-short-wide;
 }
 
-.spirit-caption {
-  @include spirit-body-text-s;
-  margin-bottom: $spirit-space-generic-4-x;
-  margin-top: $spirit-space-generic-2-x;
+.spirit-image__caption {
+  @include spirit-image-caption;
 }

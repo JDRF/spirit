@@ -129,6 +129,10 @@ $spirit-card-list-image-size-sm: 72px;
     line-height: $spirit-card-cta-line-height-small;
   }
 
+  .spirit-image__image-wrap {
+    padding-top: $spirit-ratio-tall-wide;
+  }
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     .spirit-card__title {
       @include spirit-h5;
@@ -270,7 +274,6 @@ $spirit-card-list-image-size-sm: 72px;
   display: block;
   margin: 0;
   overflow: hidden;
-  padding-top: $spirit-ratio-wide;
   position: relative;
   width: 100%;
   z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
