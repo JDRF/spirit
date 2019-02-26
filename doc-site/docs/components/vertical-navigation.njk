@@ -1,0 +1,155 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Vertical Navigation
+
+      <p class="spirit-subhead">Vertical navigation is specialized navigation for deep sections of the site. It is presented as a list of links, in the left column of a two-column layout.</p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+    ## Layout
+
+    On large viewports, vertical navigation is always displayed in a two-column layout, where the left column contains a list of navigation links, and the right column is for content. A product’s grid must provide layout for vertical navigation.
+
+    Vertical navigation should appear below the content on small screens (see responsive illustration, below). Product teams are responsible for their own source-ordering and layout approach.
+
+    ![large screen view](/images/vertical-navigation/desktop.png)
+
+    ## Behavior
+    The navigation links in the left column update the content area (right column).
+
+    ## Anatomy
+    ### Levels
+    Vertical navigation accommodates up to three levels, all descendents of the main parent page (children, grandchildren).
+  {% endfilter %}
+
+  {% set nav_example %}
+    {% call library.vertical_navigation() %}
+      {% call library.vertical_navigation_list() %}
+        {{ library.vertical_navigation_item(href="#", text="T1D Symptoms") }}
+        {{ library.vertical_navigation_item(href="#", text="Frequent Urination") }}
+        {{ library.vertical_navigation_item(href="#", text="Extreme Thirst") }}
+
+        {% call library.vertical_navigation_item(text="Blood Sugar Levels", href="#", expanded="true") %}
+          {% call library.vertical_navigation_list( subnav='true' ) %}
+            {{ library.vertical_navigation_item(href="#", text="High") }}
+            {{ library.vertical_navigation_item(href="#", text="Low") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% call library.vertical_navigation_item(text="Children", href="#", expanded="true") %}
+          {% call library.vertical_navigation_list( subnav='true' ) %}
+            {{ library.vertical_navigation_item(href="#", text="Infants and Toddlers") }}
+            {{ library.vertical_navigation_item(href="#", text="Teens") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% call library.vertical_navigation_item(text="Adults", href="#", expanded="true") %}
+          {% call library.vertical_navigation_list( subnav='true' ) %}
+            {{ library.vertical_navigation_item(href="#", text="Women") }}
+            {{ library.vertical_navigation_item(href="#", text="Men") }}
+          {% endcall %}
+        {% endcall %}
+
+      {% endcall %}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(example=nav_example) }}
+
+  {% filter markdown %}
+    ### Icons
+    Chevrons (up/down) can be added to expand and collapse child nodes. The first level items of the vertical navigation can also display an Icon on the left to indicate the content type or action. Do not combine first level items with and without icons.
+  {% endfilter %}
+
+  {% set sample_vnav_nav %}
+    {% call library.vertical_navigation_list() %}
+      {{ library.vertical_navigation_item(text="Home", style="large", size="comfortable") }}
+      {% call library.vertical_navigation_item(text="Our Work", style="large", size="comfortable", toggle="true", expanded="true") %}
+        {% call library.vertical_navigation_list( subnav='true' ) %}
+          {{ library.vertical_navigation_item(href="#", style="medium", text="Test") }}
+          {{ library.vertical_navigation_item(href="#", style="medium", text="Test") }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.vertical_navigation_item(text="T1D Resources", style="large", size="comfortable", toggle="true", expanded="true") %}
+        {% call library.vertical_navigation_list( subnav='true' ) %}
+          {{ library.vertical_navigation_item(href="#", style="medium", text="Test") }}
+          {{ library.vertical_navigation_item(href="#", style="medium", text="Test") }}
+        {% endcall %}
+      {% endcall %}
+      {% call library.vertical_navigation_item(text="Get Involved", style="large", size="comfortable", toggle="true") %}
+        {% call library.vertical_navigation_list( subnav='true' ) %}
+          {% call library.vertical_navigation_item(text="Fundraise", style="medium", toggle="true") %}
+              {% call library.vertical_navigation_list( subnav='true' ) %}
+                {{ library.vertical_navigation_item(href="#", size="compact", text="Walk") }}
+                {{ library.vertical_navigation_item(href="#", size="compact", text="Ride") }}
+                {{ library.vertical_navigation_item(href="#", size="compact", text="Run / Challenge") }}
+                {{ library.vertical_navigation_item(href="#", size="compact", text="Create Your Own") }}
+                {{ library.vertical_navigation_item(href="#", size="compact", text="Gala") }}
+                {{ library.vertical_navigation_item(href="#", size="compact", text="View All") }}
+              {% endcall %}
+          {% endcall %}
+          {{ library.vertical_navigation_item(text="Give", style="medium", toggle="true") }}
+          {{ library.vertical_navigation_item(text="Community", style="medium", toggle="true") }}
+          {{ library.vertical_navigation_item(text="Advocacy", style="medium", toggle="true") }}
+          {{ library.vertical_navigation_item(text="More", style="medium", toggle="true") }}
+        {% endcall %}
+        {{ library.vertical_navigation_item(text="Sign Up", style="large", size="comfortable") }}
+      {% endcall %}
+    {% endcall %}
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(example=sample_vnav_nav) }}
+
+
+  {% filter markdown %}
+    ## Responsive Sizing
+    Vertical Navigation has large and small viewport configurations. See kitchen sink for an interactive example.
+
+    ### Large Screen Preview
+    ![large screen view](/images/vertical-navigation/desktop.png)
+
+    ### Small Screen Preview
+    <img src="/images/vertical-navigation/mobile.png" style="max-width: 400px"/>
+
+    ## Code Reference
+    ### Class Reference
+  {% endfilter %}
+
+  {{ esds_doc.reference_table(column_widths=[40, 40, 20],
+    data=[
+      {
+        class: '.spirit-vertical-nav__subnav',
+        applies_to: '.spirit-vertical-nav__list',
+        outcome: 'Denotes a navigation list is a sub-list within a parent item. In practical terms, this modifier indents the sub-list. '
+      },
+      {
+        class: '`.spirit-vertical-nav__item-parent`<br/>`.spirit-vertical-nav__item--toggle`',
+        applies_to: '.spirit-vertical-nav__item',
+        outcome: 'Denotes a list item is a parent containing a sub-list.'
+      },
+      {
+        class: '.spirit-vertical-nav__link--comfortable',
+        applies_to: '.spirit-vertical-nav__link',
+        outcome: 'Increases the spacing between items to comfortable.'
+      },
+      {
+        class: '.spirit-vertical-nav__link--medium',
+        applies_to: '.spirit-vertical-nav__link',
+        outcome: 'Increases the item size to medium.'
+      },
+      {
+        class: '.spirit-vertical-nav__link--large',
+        applies_to: '.spirit-vertical-nav__link',
+        outcome: 'Increases the item size to large.'
+      },
+      {
+        class: '.spirit-vertical-nav__link--disabled',
+        applies_to: '.spirit-vertical-nav__item',
+        outcome: 'Disables a nav item.'
+      }
+    ]) }}
+
+{% endblock page_shell_content %}

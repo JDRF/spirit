@@ -1,0 +1,103 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Links
+
+      <p class="spirit-subhead">Links are clickable text elements used to navigate to other pages or display additional information. </p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+      ## Animated
+      When feasible, prefer animated links. Use animated links within components that control link wrapping, such as Card, List, or Vertical Navigation. Components with wrapping text, such as [Long Form Text](/components/long-form-text.html), should fall back to traditional links. 
+
+  {% endfilter %}
+
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
+      {
+        example: library.link(href="#", class="spirit-link--animated"),
+        label: "Default"
+      },
+      {
+        example: library.link(href="#", class="spirit-link--animated spirit-link--hover"),
+        label: "Hover"
+      },
+      {
+        example: library.link(href="#", class="spirit-link--animated spirit-link--focus"),
+        label: "Focus"
+      },
+      {
+        example: library.link(href="#", class="spirit-link--animated spirit-link--active"),
+        label: "Active"
+      }
+    ],
+    code_snippet_source=(library.link(href="#", class="spirit-link--animated"))
+  )
+  }}
+  {% filter markdown %}
+      ## Traditional
+      Fall back to traditional links when animated links are not feasible, such as within [Long Form Text](/components/long-form-text.html). Use traditional link where the link label may wrap, such as when it occurs inline with paragraphs of prose. 
+
+
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair( 
+    examples=[
+      {
+        example: library.link(href="#"),
+        label: "Default"
+      },
+      {
+        example: library.link(href="#", class="spirit-link--hover"),
+        label: "Hover"
+      },
+      {
+        example: library.link(href="#", class="spirit-link--focus"),
+        label: "Focus"
+      },
+      {
+        example: library.link(href="#", class="spirit-link--active"),
+        label: "Active"
+      }
+    ],
+    code_snippet_source=(library.link(href="#"))
+  )
+  }}
+
+  {% filter markdown %}
+      ## Guidelines
+
+      Use When
+
+      * Leading a user to another page
+      * Displaying additional information
+
+      Do not use when
+
+      * Submitting or confirming an action. Use a [Button](/components/buttons.html) instead.
+      * Adding emphasis to your main call to action. Use a [Button](/components/buttons.html)  instead. 
+
+      Editorial
+
+      * Keep link text short
+      * Be descriptive of the destination or offer a clear indication of where the link leads
+      * Avoid using generic content, such as “click here”, which do not describe the intended action.
+
+
+      ## Code Reference
+      
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+    data=[
+      {
+        class: '.spirit-link--animated',
+        applies_to: '.spirit-link',
+        outcome: 'Applies link animation on hover.'
+      }
+    ]) }}
+
+{% endblock page_shell_content %}
