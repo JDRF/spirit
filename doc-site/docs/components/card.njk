@@ -112,7 +112,6 @@
       {% call library.container(padding_top="none", padding_bottom="none") %}
         {% call library.card_grid(class="spirit-card-grid--4-up") %}
           {{ library.card(
-            size="small",
             img_src='/images/card/gala.png',
             title_text="Gala",
             link_text="Find a Gala Near You",
@@ -124,7 +123,7 @@
   {% endset %}
   {% set demo_code %}
           {{ library.card(
-            size="medium",
+            size="small",
             img_src='/images/card/gala.png',
             title_text="Gala",
             link_text="Find a Gala Near You",
@@ -148,7 +147,6 @@
       {% call library.container(padding_top="none", padding_bottom="none") %}
         {% call library.card_grid(class="spirit-card-grid--3-up") %}
           {{ library.card(
-            size="medium",
             img_src='/images/card/gala.png',
             title_text="Gala",
             link_text="Find a Gala Near You",
@@ -183,7 +181,6 @@
       {% call library.container(padding_top="none", padding_bottom="none") %}
         {% call library.card_grid(class="spirit-card-grid--2-up") %}
           {{ library.card(
-            size="large",
             img_src='/images/card/gala.png',
             title_text="Gala",
             link_text="Find a Gala Near You",
@@ -195,7 +192,7 @@
   {% endset %}
   {% set demo_code %}
           {{ library.card(
-            size="medium",
+            size="large",
             img_src='/images/card/gala.png',
             title_text="Gala",
             link_text="Find a Gala Near You",
@@ -213,11 +210,13 @@
       ## Card Grid
       Cards are arranged in a grid with consistent card heights in each row. They are ordered from left to right, with the first card positioned at the top left. The number of cards per row is determined by the size of the cards and adapts to the available screen real estate (up to 4 on larger screens, and down to 1 on smaller screens).
 
+      <img src="/images/card/card-grid-desktop.png" alt="Card grid preview with six cards in rows of three" />
+
+      The example above is an image. View a <a href="card-grid.html">full-screen preview</a> of card grid.
+
   {% endfilter %}
 
-  {% set demo_example %}
-    <div class="spirit-doc__card-grid-overflow">
-      {% call library.container(padding_top="none", padding_bottom="none") %}
+  {% set demo_code %}
         {% call library.card_grid(class="spirit-card-grid--3-up") %}
           {{ library.card(
             img_src='/images/card/bikers.png',
@@ -250,25 +249,9 @@
             link_text="Start a Fundraiser",
             body_text="Be a part of the most effective community taking on T1D. You decide how you want to fundraise and JDRF provides the tools to make it happen.") }}
         {% endcall %}
-      {% endcall %}
-      <p><b>This example is scaled down</b> to fit all three columns in this demo box.</p>
-    </div>
   {% endset %}
-  {% set demo_code %}
-          {{ library.card(
-            size="medium",
-            img_src='/images/card/gala.png',
-            title_text="Gala",
-            link_text="Find a Gala Near You",
-            body_text="Attend a JDRF Gala by getting involved with your local chapter—be part of an inspiring community committed to finding a cure.") }}
-  {% endset %}
-
-  {{ esds_doc.code_example_pair(
-    examples=[ { example: demo_example } ],
-    code_snippet_source=(demo_code)
-    )
-  }}
-
+  
+  {{ esds_doc.code_snippet(source=demo_code) }}
 
   {% filter markdown %}
       As in this example, include two invisible placeholder cards to prevent the card grid from stretching orphaned cards unpredictably. 
@@ -333,17 +316,17 @@
       {
         class: '.spirit-card--small',
         applies_to: '.spirit-card',
-        outcome: 'Applies the small size to the card.'
+        outcome: 'Applies the small size to the card, when not in `spirit-card-grid`.'
       },
       {
         class: '.spirit-card--medium',
         applies_to: '.spirit-card',
-        outcome: 'Applies the (default) medium size to the card.'
+        outcome: 'Applies the (default) medium size to the card, when not in `spirit-card-grid`.'
       },
       {
         class: '.spirit-card--large',
         applies_to: '.spirit-card',
-        outcome: 'Applies the large size to the card.'
+        outcome: 'Applies the large size to the card, when not in `spirit-card-grid`.'
       },
       {
         class: '.spirit-card-grid--carousel',
