@@ -100,5 +100,32 @@ module.exports = {
         env.addFilter('isnumber', function (obj) {
             return typeof obj === 'number';
         });
+
+        env.addFilter('hextorgb', function (string) {
+          const regex = /#[0-9a-fA-F]{6}/gm;
+          let m;
+
+          while ((m = regex.exec(string)) !== null) {
+            // This is necessary to avoid infinite loops with zero-width matches
+            if (m.index === regex.lastIndex) {
+                regex.lastIndex++;
+            }
+
+            // The result can be accessed through the `m`-variable.
+            m.forEach((hex, groupIndex) => {
+              let rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+              rgb = rgb ? {
+                  r: parseInt(rgb[1], 16),
+                  g: parseInt(rgb[2], 16),
+                  b: parseInt(rgb[3], 16)
+              } : null;
+
+              const hexRegex = new RegExp(hex, 'g');
+              string = string.replace(new RegExp(hex, 'g'), `${rgb.r},${rgb.g},${rgb.b}`);
+            });
+          }
+
+          return string;
+        });
     }
 };
