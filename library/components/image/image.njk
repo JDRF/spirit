@@ -1,0 +1,31 @@
+{# Default image is royalty free from: https://www.pexels.com/photo/two-women-looking-and-pointing-at-macbook-laptop-1569076/ #}
+
+{% macro image(
+    type,
+    img_src="/images/components/image/pexels-photo-1569076.jpeg",
+    img_alt_text="Test Image",
+    img_src_alt,
+    img_class_alt,
+    img_caption
+    ) %}
+    {% if img_src %}
+      {% if img_src_alt and not img_class_alt %}
+        {% set img_class_alt = "spirit-image__image-alt" %}
+      {% endif %}
+      {% if type %}
+        {% set type_class = "spirit-image__image-wrap--" + type %}
+      {% endif %}
+      <figure class="spirit-image" itemprop="image" itemtype="http://schema.org/ImageObject">
+        <span class="spirit-image__image-wrap {{" " + type_class if type_class}}">
+          {% if img_src_alt %}
+            <img class="spirit-image__image {{img_class_alt}}" src="{{ img_src_alt }}" alt="{{ img_alt_text }}">
+          {% endif %}
+          <img class="spirit-image__image" src="{{ img_src }}" alt="{{ img_alt_text }}">
+        </span>
+        {% if img_caption %}
+          <figcaption class="spirit-image__caption">{{img_caption}}</figcaption>
+        {% endif %}
+      </figure>
+
+    {% endif %}
+{% endmacro %}

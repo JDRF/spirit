@@ -7,6 +7,7 @@ $spirit-card-title-line-height-medium: 32px;
 $spirit-card-title-line-height-large: 40px;
 $spirit-card-cta-line-height-small: 20px;
 $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-secondary;
+$spirit-card-list-image-size-sm: 72px;
 
 @mixin spirit-card-list-item {
   @include spirit-elevation(0, 'blue');
@@ -18,7 +19,7 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   &:hover {
     @include spirit-elevation(4, 'blue'); // Reduce the box shadow spread in a carousel
 
-    .spirit-card__image-wrap + .spirit-card__text {
+    .spirit-image + .spirit-card__text {
       &:after {
         display: none;
       }
@@ -28,19 +29,20 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   &:active {
     @include spirit-elevation(3, 'blue');
 
-    .spirit-card__image-wrap + .spirit-card__text {
+    .spirit-image + .spirit-card__text {
       &:after {
         display: none;
       }
     }
   }
 
-  .spirit-card__image-wrap {
+  .spirit-image {
+    display: block;
     flex-shrink: 0;
-    height: 72px;
     margin: $spirit-space-inline-right-1-x;
+    padding: 0;
     position: relative;
-    width: 72px;
+    width: $spirit-card-list-image-size-sm;
   }
 
   .spirit-card__title {
@@ -66,7 +68,7 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
     @include spirit-elevation(3, 'blue');
   }
 
-  .spirit-card__image-wrap + .spirit-card__text {
+  .spirit-image + .spirit-card__text {
     // If an image is present with the __text reset the border, margin and padding back to their original values
     border: 0;
     border-radius: 0;
@@ -89,8 +91,16 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
     }
   }
 
+  .spirit-image__image-wrap  {
+    padding-top: $spirit-ratio-square;
+  }
+
   // Show an art directed alternate image if it's present in the markup
-  .spirit-card__image-list-item {
+  .spirit-image__image-list-item + .spirit-image__image  {
+    display: none;
+  }
+
+  .spirit-image__image-list-item {
     display: block;
   }
 }
@@ -117,6 +127,10 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
     font-size: $spirit-font-size-s;
     font-weight: $spirit-font-weight-bold;
     line-height: $spirit-card-cta-line-height-small;
+  }
+
+  .spirit-image__image-wrap {
+    padding-top: $spirit-ratio-tall-wide;
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
@@ -233,28 +247,6 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   @include spirit-card-list-item;
 }
 
-.spirit-card__image-wrap {
-  border-radius: $spirit-border-radius-l;
-  display: block;
-  flex-shrink: 0;
-  margin: $spirit-space-stack-1-x;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
-}
-
-.spirit-card__image {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-.spirit-card__image-list-item {
-  display: none;
-}
-
 .spirit-card__cta {
   margin-top: auto; // Keeps the cta anchored to the bottom of the card, maintains alignment in a grid of cards
 }
@@ -268,4 +260,29 @@ $spirit-card-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-se
   .spirit-card:hover & {
     @include spirit-link-animated-underline;
   }
+}
+
+
+// Spirit Card Image Styles
+.spirit-card .spirit-image {
+  flex-shrink: 0;
+  margin: $spirit-space-stack-1-x;
+}
+
+.spirit-card .spirit-image__image-wrap {
+  border-radius: $spirit-border-radius-l;
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 2; // Needed to preserve border radius crop while image is scaled on hover
+}
+
+.spirit-card .spirit-image__image {
+  display: block;
+}
+
+.spirit-card .spirit-image__image-list-item {
+  display: none;
 }
