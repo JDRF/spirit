@@ -1,0 +1,49 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+  <style>
+    /* Adding a little bit of padding and left-aligning this sink page */
+    body {
+      line-height: 1;
+      padding: {{ spirit_tokens.space.inset['1-x'] }};
+      text-align: left;
+    }
+
+    .forms-sink-wrapper {
+      margin: 0 auto;
+      max-width: 700px;
+    }
+  </style>
+  <h1 class="hostile-sink-reset">Form Input With Button Sink</h1>
+
+  {# wrapping the whole page to set a max width #}
+  <div class="forms-sink-wrapper">
+
+    <h2 class="hostile-sink-reset">Input with Button</h2>
+    {% call library.form() %}
+      {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
+        {{ library.form_label(text="Email", for="email-signup") }}
+        {{ library.form_input(type="email", id="email-signup") }}
+        {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
+      {% endcall %}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">Content Resilience Example</h2>
+    {% call library.form() %}
+      {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
+        {{ library.form_label(text="Email", for="email-signup-cr") }}
+        {{ library.form_input(type="email", id="email-signup-cr", value="john.doe.longname.lorem.ipsum.reallyreallyreallylong@super-duper-long-subdomain.example.com") }}
+        {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
+      {% endcall %}
+    {% endcall %}
+
+    <h2 class="hostile-sink-reset">Accessibly Hidden Label</h2>
+    {% call library.form() %}
+      {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
+        {{ library.form_label(text="Search This Site", for="search", accessibly_hidden=true) }}
+        {{ library.form_input(type="text", id="search", placeholder="Search This Site") }}
+        {{ library.button(type="submit", text="Go", class="spirit-button--extra-small") }}
+      {% endcall %}
+    {% endcall %}
+
+  </div> {# closing div.forms-sink-wrapper #}
+{% endblock body %}
