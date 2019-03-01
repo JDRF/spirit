@@ -173,6 +173,7 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
   display: block;
   margin: 0;
   max-width: $spirit-text-input-max-width;
+  min-height: 48px; // Needed for IE11
   padding: $spirit-text-input-padding;
   width: 100%;
 
