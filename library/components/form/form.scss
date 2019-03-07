@@ -969,3 +969,20 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 .spirit-form__message-text {
   margin-top: 2px; // Vertically align first line of text with icon
 }
+
+.spirit-form__input--password-toggle {
+    position: relative;
+
+    .spirit-form__input-field {
+        padding-right: 70px; // Push content away from "Show/Hide" toggle
+    }
+}
+
+.spirit-form__input-password-toggle {
+    @include spirit-typography-reset($color: $spirit-text-color-link, $font-weight: $spirit-font-weight-bold);
+    position: absolute;
+    right: $spirit-space-generic-2-x;
+    text-decoration: none;
+    top: 50%;
+    transform: translateY(-50%);
+}
