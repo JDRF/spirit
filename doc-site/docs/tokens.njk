@@ -100,26 +100,21 @@
 
   {% filter markdown %}
       ## Font
-      #### Family
+      #### Font Family
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='font.family') }}
   {% filter markdown %}
-      #### Weight
+      #### Font Weight
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='font.weight') }}
   {% filter markdown %}
-      #### Size
+      #### Font Size
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='font.size') }}
   {% filter markdown %}
-      #### Line-height
+      #### Font Line-height
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='line-height') }}
-
-
-
-  
-
 
   {% filter markdown %}
       ## Size
@@ -127,7 +122,6 @@
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='size.icon') }}
 
-    
   {% filter markdown %}
       ## Space
       #### Generic
@@ -160,8 +154,9 @@
   {% endfilter %}
   {{ spirit_doc.token_table(token_node='transition') }}
 
-
-
-
+  {% filter markdown %}
+      ## Image Ratio
+  {% endfilter %}
+  {{ spirit_doc.token_table(token_node='ratio') }}
 
 {% endblock page_shell_content %}

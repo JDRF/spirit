@@ -476,4 +476,183 @@
       examples=[ { example: lft_example_blockquote_center } ]
    ) }}
 
+  {% filter markdown %}
+
+      ### Text Alignment
+
+      #### Text align left (default), right or center
+      Position text alignment with class modifiers. Alignment can be on set on a particular element or on the Long Form Text container.
+
+  {% endfilter %}
+
+  {% filter markdown %}
+      #### Element Align - Default
+  {% endfilter %}
+
+  {% set lft_example_alignment_default %}
+    <div class="spirit-long-form-text">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_alignment_default } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Element Align - Center
+  {% endfilter %}
+
+  {% set lft_example_alignment_center %}
+    <div class="spirit-long-form-text">
+      <p class="spirit-text-align--center">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_alignment_center } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Element Align - Left
+  {% endfilter %}
+
+  {% set lft_example_alignment_left %}
+    <div class="spirit-long-form-text">
+      <p class="spirit-text-align--left">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_alignment_left } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Element Align - Right
+  {% endfilter %}
+
+  {% set lft_example_alignment_right %}
+    <div class="spirit-long-form-text">
+      <p class="spirit-text-align--right">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone. </p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-list",
+      examples=[ { example: lft_example_alignment_right } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Alignment on LFT Container - Default
+  {% endfilter %}
+
+  {% set lft_align_default_for_docsite %}
+    <div class="spirit-long-form-text">
+      <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h3>What to do if you experience low blood glucose symptoms</h3>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      examples=[ { example: lft_align_default_for_docsite } ]
+   ) }}
+
+   {% filter markdown %}
+      #### Alignment on LFT Container - Center
+  {% endfilter %}
+
+  {% set lft_align_center_for_docsite %}
+    <div class="spirit-long-form-text spirit-text-align--center">
+      <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h3>What to do if you experience low blood glucose symptoms</h3>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      examples=[ { example: lft_align_center_for_docsite } ]
+   ) }}
+
+{% filter markdown %}
+      #### Alignment on LFT Container - Left
+  {% endfilter %}
+
+  {% set lft_align_center_for_docsite %}
+    <div class="spirit-long-form-text spirit-text-align--left">
+      <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h3>What to do if you experience low blood glucose symptoms</h3>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      examples=[ { example: lft_align_center_for_docsite } ]
+   ) }}
+
+{% filter markdown %}
+      #### Alignment on LFT Container - Right
+  {% endfilter %}
+
+  {% set lft_align_center_for_docsite %}
+    <div class="spirit-long-form-text spirit-text-align--right">
+      <h2>Type 1 diabetes hypoglycemia symptoms</h2>
+
+      <p>So what are the low blood sugar symptoms you should look out for? It’s important to realize that the signs of low blood sugar will vary depending on the person. However, people with type 1 diabetes—whether it’s been diagnosed or not—may experience one or more of the following:</p>
+
+      <ul>
+      <li>Sweating and shaking</li>
+      <li>Blurry vision</li>
+      <li>Poor coordination</li>
+      <li>Dizziness or feeling lightheaded</li>
+      </ul>
+
+      <h3>What to do if you experience low blood glucose symptoms</h3>
+
+      <p>Severely low blood-sugar levels can lead to hypoglycemic seizures, unconsciousness, coma, and death if left untreated. That’s why it’s important to see a doctor if you think you have low blood sugar so he or she can check your blood-glucose levels—look into whether type 1 diabetes may be a cause—and provide the necessary treatment.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      examples=[ { example: lft_align_center_for_docsite } ]
+   ) }}
+
 {% endblock page_shell_content %}
+
+
