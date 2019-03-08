@@ -50,7 +50,9 @@
             type='text',
             value=false,
             inputmode=false,
-            valid) %}
+            valid,
+            password_toggle=false,
+            password_toggle_visible=false) %}
 
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
@@ -84,7 +86,11 @@
         {% endif %}
     {% endif %}
 
-    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
+    {% if password_toggle and password_toggle_visible %}
+        {% set type = 'text' %}
+    {% endif %}
+
+    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}{{ ' spirit-form__input--password-toggle' if password_toggle }}">
         <input
         class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}"
         type="{{ type }}"
@@ -101,6 +107,14 @@
             <div class="spirit-form__input-icon-wrap">
               {{ icon(name=validation_icon, class="spirit-form__input-icon") }}
             </div>
+        {% endif %}
+        {% if password_toggle %}
+            {% if password_toggle_visible %}
+                {% set password_toggle_text = "Hide" %}
+            {% else %}
+                {% set password_toggle_text = "Show" %}
+            {% endif %}
+          {{ link(class="spirit-form__input-password-toggle", text=password_toggle_text, href="#") }}
         {% endif %}
     </div>
 {% endmacro %}
@@ -123,7 +137,7 @@
     {% endif %}
 
     <label
-            class="spirit-form__label{{ ' ' + class if class }}{{ ' spirit-form__label--disabled' if disabled }}{{ ' spirit-form__label--accessibly_hidden' if accessibly_hidden }}"
+            class="spirit-form__label{{ ' ' + class if class }}{{ ' spirit-form__label--disabled' if disabled }}{{ ' spirit-form__label--accessibly-hidden' if accessibly_hidden }}"
         {% if for %}
             for="{{ for }}"
         {% endif %}>
