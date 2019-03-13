@@ -74,6 +74,21 @@ $spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-
 // Form
 .spirit-form {
   @include spirit-typography-reset;
+
+  // Form Grid Styles
+  @media (min-width: $spirit-breakpoint-grid) {
+
+    .spirit-row {
+      margin-left: -($spirit-grid-gutter-width / 2);
+      margin-right: -($spirit-grid-gutter-width / 2);
+    }
+
+    .spirit-row > .spirit-col,
+    .spirit-row > [class*='spirit-col-'] {
+      padding-left: ($spirit-grid-gutter-width / 2);
+      padding-right: ($spirit-grid-gutter-width / 2);
+    }
+  }
 }
 
 // Field Group
@@ -306,9 +321,11 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
   font-weight: $spirit-font-weight-regular;
 }
 
+// sass-lint:disable class-name-format
 .spirit-form__label--accessibly_hidden {
   @include spirit-accessibly-hidden;
 }
+// sass-lint:enable class-name-format
 
 // <input[type='checkbox']/>
 $spirit-checkbox-label-color:               $spirit-text-color-secondary;
