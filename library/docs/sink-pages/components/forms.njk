@@ -581,68 +581,72 @@
 
     <h2 class="hostile-sink-reset">Fieldset &amp; Legend</h2>
     <h5 class="hostile-sink-reset">Fieldset, hidden legend</h5>
-    {% call library.form_fieldset() %}
-        {{ library.form_legend(text="Contact Info", hidden=true) }}
-        <div class="spirit-row">
-            <div class="spirit-col-md-6">
-              {% call library.form_field_group() %}
-                {{ library.form_label(text="First Name", for="contact-info-first-name") }}
-                {{ library.form_input(id="contact-info-first-name") }}
-              {% endcall %}
-            </div>
-            <div class="spirit-col-md-6">
-              {% call library.form_field_group() %}
-                {{ library.form_label(text="Last Name", for="contact-info-last-name") }}
-                {{ library.form_input(id="contact-info-last-name") }}
-              {% endcall %}
-            </div>
-        </div>
+    {% call library.form() %}
+      {% call library.form_fieldset() %}
+          {{ library.form_legend(text="Contact Info", hidden=true) }}
+          <div class="spirit-row">
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group() %}
+                  {{ library.form_label(text="First Name", for="contact-info-first-name") }}
+                  {{ library.form_input(id="contact-info-first-name") }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-md-6">
+                {% call library.form_field_group() %}
+                  {{ library.form_label(text="Last Name", for="contact-info-last-name") }}
+                  {{ library.form_input(id="contact-info-last-name") }}
+                {% endcall %}
+              </div>
+          </div>
 
-        {% call library.form_field_group() %}
-            {{ library.form_label(text="Email", for="contact-info-email") }}
-            {{ library.form_input(id="contact-info-email") }}
-        {% endcall %}
+          {% call library.form_field_group() %}
+              {{ library.form_label(text="Email", for="contact-info-email") }}
+              {{ library.form_input(id="contact-info-email") }}
+          {% endcall %}
+      {% endcall %}
     {% endcall %}
 
 
 
     <h5 class="hostile-sink-reset">Fieldset with Legend</h5>
-    {% call library.form_fieldset() %}
-        {{ library.form_legend(text="Payment Info") }}
-        {% call library.form_field_group() %}
-            {{ library.form_label(text="Credit Card Number", for="payment-info-cc-number") }}
-            {{ library.form_input(id="payment-info-cc-number") }}
-        {% endcall %}
-        <div class="spirit-row">
-            <div class="spirit-col-md-4">
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="Payment Type", for="payment-info-type") }}
-                  {{ library.form_select(id="payment-info-type", 
-                    options=[
-                      {
-                          text: "Credit Card",
-                          value: "credit"
-                      },
-                      {
-                          text: "Bank Account",
-                          value: "bank_account"
-                      }
-                  ]) }}
-              {% endcall %}
-            </div>
-            <div class="spirit-col-sm-6 spirit-col-md-4">
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
-                  {{ library.form_input(id="payment-info-cc-expiration", type="date", placeholder="MM/YY", showMask=true) }}
-              {% endcall %}
-            </div>
-            <div class="spirit-col-sm-6 spirit-col-md-4">
-              {% call library.form_field_group() %}
-                  {{ library.form_label(text="CVV", for="payment-info-cvv") }}
-                  {{ library.form_input(id="payment-info-cvv") }}
-              {% endcall %}
-            </div>
-        </div>
+    {% call library.form() %}
+      {% call library.form_fieldset() %}
+          {{ library.form_legend(text="Payment Info") }}
+          {% call library.form_field_group() %}
+              {{ library.form_label(text="Credit Card Number", for="payment-info-cc-number") }}
+              {{ library.form_input(id="payment-info-cc-number") }}
+          {% endcall %}
+          <div class="spirit-row">
+              <div class="spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Payment Type", for="payment-info-type") }}
+                    {{ library.form_select(id="payment-info-type", 
+                      options=[
+                        {
+                            text: "Credit Card",
+                            value: "credit"
+                        },
+                        {
+                            text: "Bank Account",
+                            value: "bank_account"
+                        }
+                    ]) }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="Expiration", for="payment-info-cc-expiration") }}
+                    {{ library.form_input(id="payment-info-cc-expiration", type="date", placeholder="MM/YY", showMask=true) }}
+                {% endcall %}
+              </div>
+              <div class="spirit-col-sm-6 spirit-col-md-4">
+                {% call library.form_field_group() %}
+                    {{ library.form_label(text="CVV", for="payment-info-cvv") }}
+                    {{ library.form_input(id="payment-info-cvv") }}
+                {% endcall %}
+              </div>
+          </div>
+      {% endcall %}
     {% endcall %}
 
 

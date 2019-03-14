@@ -76,6 +76,21 @@ $spirit-form-input-password-toggle-padding: 70px;
 // Form
 .spirit-form {
   @include spirit-typography-reset;
+
+  // Form Grid Styles
+  @media (min-width: $spirit-breakpoint-grid) {
+
+    .spirit-row {
+      margin-left: -($spirit-grid-gutter-width / 2);
+      margin-right: -($spirit-grid-gutter-width / 2);
+    }
+
+    .spirit-row > .spirit-col,
+    .spirit-row > [class*='spirit-col-'] {
+      padding-left: ($spirit-grid-gutter-width / 2);
+      padding-right: ($spirit-grid-gutter-width / 2);
+    }
+  }
 }
 
 // Field Group
@@ -308,7 +323,7 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
   font-weight: $spirit-font-weight-regular;
 }
 
-.spirit-form__label--accessibly-hidden {
+.spirit-form__label--accessibly-hidden { // sass-lint:disable-line class-name-format
   @include spirit-accessibly-hidden;
 }
 
