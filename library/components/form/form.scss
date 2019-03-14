@@ -47,6 +47,8 @@ $spirit-form-element-stack:                 $spirit-space-stack-half-x;
 $spirit-form-group-stack:                   $spirit-space-stack-2-x;
 $spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-space-generic-2-x 0;
 
+$spirit-form-input-password-toggle-padding: 70px;
+
 @mixin invalid-styles {
   border-color: $spirit-form-element-border-color-error;
 }
@@ -321,11 +323,9 @@ $spirit-required-field-indicator-color: $spirit-form-element-error-color;
   font-weight: $spirit-font-weight-regular;
 }
 
-// sass-lint:disable class-name-format
-.spirit-form__label--accessibly_hidden {
+.spirit-form__label--accessibly-hidden { // sass-lint:disable-line class-name-format
   @include spirit-accessibly-hidden;
 }
-// sass-lint:enable class-name-format
 
 // <input[type='checkbox']/>
 $spirit-checkbox-label-color:               $spirit-text-color-secondary;
@@ -985,4 +985,21 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 
 .spirit-form__message-text {
   margin-top: 2px; // Vertically align first line of text with icon
+}
+
+.spirit-form__input--password-toggle {
+  position: relative;
+
+  .spirit-form__input-field {
+    padding-right: $spirit-form-input-password-toggle-padding; // Push content away from "Show/Hide" toggle
+  }
+}
+
+.spirit-form__input-password-toggle {
+  @include spirit-typography-reset($color: $spirit-text-color-link, $font-weight: $spirit-font-weight-bold);
+  position: absolute;
+  right: $spirit-space-generic-2-x;
+  text-decoration: none;
+  top: 50%;
+  transform: translateY(-50%);
 }
