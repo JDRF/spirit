@@ -3,24 +3,26 @@
 {% set show_page_navigation = show_page_navigation | default(true) %}
 {% block body %}
   <div class="spirit-doc-page-shell">
-    {{ library.button(id="doc-site-nav-toggle", class="spirit-button--icon-only spirit-button--secondary spirit-button--small spirit-doc-nav-toggle", iconName="menu") }}
-    <div id="doc-site-nav" class="doc-site-nav spirit-doc-page-shell__navigation">
-      <div class="spirit-doc-page-shell__navigation-inner">
-        {% block page_shell_nav %}
-          <h1 class="spirit-doc-page-shell__brand-title">
-            <a class="spirit-doc-page-shell__brand-title-link" href="/">
-              {{ library.icon(
-                  name="jdrf",
-                  label="JDRF",
-                  class="spirit-icon--jdrf",
-                  decorative=false
-                ) }}
-            </a>
-          </h1>
-          {{ spirit_doc.site_nav() }}
-        {% endblock page_shell_nav %}
+    <header class="spirit-doc-page-header" role="banner">
+      <h1 class="spirit-doc-page-shell__brand-title">
+        <a class="spirit-doc-page-shell__brand-title-link" href="/">
+          {{ library.icon(
+              name="jdrf",
+              label="JDRF",
+              class="spirit-icon--jdrf",
+              decorative=false
+            ) }}
+        </a>
+      </h1>
+      {{ library.button(id="doc-site-nav-toggle", class="spirit-button--icon-only spirit-button--secondary spirit-button--small spirit-doc-nav-toggle", iconName="menu") }}
+      <div id="doc-site-nav" class="doc-site-nav spirit-doc-page-shell__navigation">
+        <div class="spirit-doc-page-shell__navigation-inner">
+          {% block page_shell_nav %}
+            {{ spirit_doc.site_nav() }}
+          {% endblock page_shell_nav %}
+        </div>
       </div>
-    </div>
+    </header>
     {% if show_content_intro %}
     <div class="spirit-doc-page-shell__content-intro">
       {% block page_shell_content_intro %}{% endblock %}

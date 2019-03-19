@@ -59,13 +59,13 @@ class SpiritDocSiteNavToggle {
 
     const toggleNav = function () {
       const expanded = toggle.getAttribute('aria-expanded');
-      const logoLink = navContain.querySelectorAll('.spirit-doc-page-shell__brand-title-link')[0];
+      const firstLink = navContain.querySelectorAll('.spirit-vertical-nav__link')[0];
 
       if (expanded === 'false') {
         toggle.setAttribute('aria-expanded', 'true');
         navContain.setAttribute('aria-hidden', 'false');
         document.addEventListener('keydown', listenerNavTabFocus);
-        logoLink.focus();
+        firstLink.focus();
       } else {
         toggle.setAttribute('aria-expanded', 'false');
         navContain.setAttribute('aria-hidden', 'true');
