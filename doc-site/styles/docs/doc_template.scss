@@ -1,11 +1,19 @@
 $spirit-doc-layout-breakpoint: 1289px;
+$spirit-doc-nav-width-flyout: 256px;
 
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
-  display: grid;
-  grid-template-columns: 256px 1fr;
-  grid-template-rows: auto auto auto;
+  padding-left: $spirit-space-generic-2-x;
+  padding-right: $spirit-space-generic-2-x;
   width: 100%;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: grid;
+    grid-template-columns: 256px 1fr;
+    grid-template-rows: auto auto auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-template-columns: 256px 1fr 800px 32px 200px 1fr;
@@ -13,9 +21,41 @@ $spirit-doc-layout-breakpoint: 1289px;
   }
 }
 
+.spirit-doc-nav-toggle {
+  position: absolute;
+  right: $spirit-space-generic-2-x;
+  top: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: none;
+  }
+}
+
 .spirit-doc-page-shell__navigation {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 3;
+  background: $spirit-background-color-white;
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform $spirit-transition-timing-default;
+  width: $spirit-doc-nav-width-flyout;
+  will-change: transform;
+  z-index: 10;
+
+  &[aria-hidden='false'] {
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 3;
+    height: auto;
+    position: static;
+    width: auto;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-row: 1 / span 2;
@@ -23,10 +63,14 @@ $spirit-doc-layout-breakpoint: 1289px;
 }
 
 .spirit-doc-page-shell__content-intro {
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
-  min-width: 0;
-  padding-right: $spirit-space-generic-2-x;
+  display: block;
+  width: 100%;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;min-width: 0;
+    padding-right: $spirit-space-generic-2-x;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-column: 3 / span 1;

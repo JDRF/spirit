@@ -3,7 +3,8 @@
 {% set show_page_navigation = show_page_navigation | default(true) %}
 {% block body %}
   <div class="spirit-doc-page-shell">
-    <div class="spirit-doc-page-shell__navigation">
+    {{ library.button(id="doc-site-nav-toggle", class="spirit-button--icon-only spirit-button--secondary spirit-button--small spirit-doc-nav-toggle", iconName="menu") }}
+    <div id="doc-site-nav" class="doc-site-nav spirit-doc-page-shell__navigation">
       <div class="spirit-doc-page-shell__navigation-inner">
         {% block page_shell_nav %}
           <h1 class="spirit-doc-page-shell__brand-title">
