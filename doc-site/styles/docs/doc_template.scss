@@ -1,5 +1,14 @@
 $spirit-doc-layout-breakpoint: 1289px;
 $spirit-doc-nav-width-flyout: 256px;
+$spirit-doc-nav-z-index: 15;
+$brand-logo-width: 83px;
+$brand-logo-width-m: 111px;
+$brand-logo-height-ratio: .288288;
+$brand-logo-bg-hover: $spirit-brand-color-lightest-blue;
+$spirit-space-brand-logo-nav-3-x: 24px;
+$spirit-space-brand-logo-nav-2dot25-x: 18px;
+$spirit-space-brand-logo-nav-bot-marg: 14px;
+$spirit-space-brand-logo-nav-inset-squish: $spirit-space-brand-logo-nav-2dot25-x $spirit-space-brand-logo-nav-3-x;
 
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
@@ -32,6 +41,7 @@ $spirit-doc-nav-width-flyout: 256px;
 }
 
 .spirit-doc-page-shell__navigation {
+  @include spirit-elevation($level: '0');
   background: $spirit-background-color-white;
   display: block;
   height: 100%;
@@ -40,13 +50,14 @@ $spirit-doc-nav-width-flyout: 256px;
   position: absolute;
   top: 0;
   transform: translateX(-100%);
-  transition: transform $spirit-transition-timing-default;
+  transition: transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
   width: $spirit-doc-nav-width-flyout;
   will-change: transform;
-  z-index: 10;
+  z-index: $spirit-doc-nav-z-index;
 
   &[aria-hidden='false'] {
     transform: translateX(0);
+    @include spirit-elevation($level: '3');
   }
 
   @media screen and (min-width: $spirit-breakpoint-l) {
@@ -54,6 +65,7 @@ $spirit-doc-nav-width-flyout: 256px;
     grid-row: 1 / span 3;
     height: auto;
     position: static;
+    transform: translateX(0);
     width: auto;
   }
 
@@ -152,13 +164,37 @@ $spirit-doc-nav-width-flyout: 256px;
 
 .spirit-doc-page-shell__brand-title {
   margin: 0;
-  margin-bottom: $spirit-space-generic-4-x;
-  margin-top: $spirit-space-generic-6-x;
-  padding-left: $spirit-space-generic-3-x;
+  margin-bottom: $spirit-space-brand-logo-nav-bot-marg;
+  margin-top: $spirit-space-brand-logo-nav-3-x;
 }
 
 .spirit-doc-page-shell__brand-title-link {
-  @include spirit-h2;
   color: $spirit-text-color-link;
   text-decoration: none;
+  display: block;
+  border-radius: $spirit-border-radius-l;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color $spirit-transition-timing-default;
+  padding: $spirit-space-brand-logo-nav-inset-squish;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-logo-bg-hover;
+    outline: none;
+    text-decoration: none;
+  }
+
+
+}
+
+.spirit-doc-page-shell__brand-title-link .spirit-icon--jdrf {
+  width: $brand-logo-width;
+  height: $brand-logo-width * $brand-logo-height-ratio;
+  display: block;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    width: $brand-logo-width-m;
+    height: $brand-logo-width-m * $brand-logo-height-ratio;
+  }
 }

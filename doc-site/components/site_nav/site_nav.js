@@ -59,13 +59,32 @@ class SpiritDocSiteNavToggle {
 
     const toggleNav = function () {
       const expanded = toggle.getAttribute('aria-expanded');
+      const logoLink = navContain.querySelectorAll('.spirit-doc-page-shell__brand-title-link')[0];
 
       if (expanded === 'false') {
         toggle.setAttribute('aria-expanded', 'true');
         navContain.setAttribute('aria-hidden', 'false');
+        document.addEventListener('keydown', listenerNavTabFocus);
+        logoLink.focus();
       } else {
         toggle.setAttribute('aria-expanded', 'false');
         navContain.setAttribute('aria-hidden', 'true');
+        document.removeEventListener('keydown', listenerNavTabFocus);
+      }
+    };
+
+    const listenerNavTabFocus = function (e) {
+
+      console.log('here');
+      if (navContain) {
+        const navLinks = navContain.querySelectorAll('.spirit-vertical-nav__link');
+        const lastLink = navLinks[navLinks.length - 1];
+        console.log(lastLink);
+
+        if (lastLink === document.activeElement && e.which === 9) {
+          e.preventDefault();
+          toggle.focus();
+        }
       }
     };
 
@@ -84,7 +103,7 @@ class SpiritDocSiteNavToggle {
       };
     };
 
-    var navDebounce = debounce(function (toggle, navContain) {
+    var navDebounce = debounce(function () {
       activateNav(toggle, navContain);
     });
 

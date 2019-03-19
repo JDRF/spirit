@@ -8,7 +8,14 @@
       <div class="spirit-doc-page-shell__navigation-inner">
         {% block page_shell_nav %}
           <h1 class="spirit-doc-page-shell__brand-title">
-            <a class="spirit-doc-page-shell__brand-title-link" href="/">Spirit</a>
+            <a class="spirit-doc-page-shell__brand-title-link" href="/">
+              {{ library.icon(
+                  name="jdrf",
+                  label="JDRF",
+                  class="spirit-icon--jdrf",
+                  decorative=false
+                ) }}
+            </a>
           </h1>
           {{ spirit_doc.site_nav() }}
         {% endblock page_shell_nav %}
