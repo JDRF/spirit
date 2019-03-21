@@ -1,0 +1,152 @@
+{% extends 'templates/base.njk' %}
+{% set show_content_intro = show_content_intro | default(true) %}
+{% set show_page_navigation = show_page_navigation | default(true) %}
+{% block body %}
+    {% set doc_landing_hero %}
+<div class="spirit-container">
+      <div class="spirit-container__inner spirit-container__inner--large">
+        
+        
+           
+  
+  
+  
+    <div class="spirit-container__wave-bg  spirit-container__wave-bg--wave5">
+      <div class="spirit-container__wave-bg-inner">
+        
+    
+        
+    
+    <svg class="spirit-brush spirit-brush--wave5" aria-hidden="true">
+        <use xlink:href="/brushes/spirit-brushes.svg#wave5">
+        </use>
+    </svg>
+
+      </div>
+    </div>
+  
+
+        
+          
+        
+    <div class="container-sink-demo-hero-split">
+      <div class="container-sink-demo-hero-split__content spirit-context--black">
+          <h3 class="spirit-h3">Learn more about our role as funder and innovator leading research efforts across the globe.</h3>
+      <a href="#" class="spirit-button spirit-button--large-md">Explore The Science</a>
+      </div>
+      <div class="container-sink-demo-component__image-contain">
+          <div class="container-sink-demo-hero-split__image"></div>
+      </div>
+    </div>
+  
+      
+        
+      </div>
+    </div>
+
+    
+        <div class="spirit-container jdrf-hero-split-screen">
+            <div class="spirit-container__inner spirit-container__inner--padding-top-s">
+                <div class="jdrf-hero-split-screen__contents">
+                    <div class="jdrf-hero-split-screen__text jdrf-hero-split-screen__message">
+
+                        <h1 class="jdrf-hero-split-screen__title jdrf-hero-message__title--large">
+                            <span class="jdrf-brush-highlight">
+                                <span class="jdrf-brush-highlight__text">
+                                    Spirit
+                                    <img class="spirit-icon spirit-icon--upload jdrf-brush-highlight__brush" aria-hidden="true" alt="" src="https://www.jdrf.org/wp-content/uploads/2018/10/Highlight-1.svg">
+                                </span>
+                            </span>
+                        </h1>
+
+                        <div class="jdrf-hero-split-screen__description jdrf-hero-message__description--large">
+                            <p>Resources and design guidelines to help us work together to create digital experiences for the type 1 diabetes community.</p>
+                            <a class="spirit-button" href="/getting-started.html" >Get Started</a>
+                        </div>
+                    </div>
+
+                    <figure class="jdrf-hero-split-screen__image-container jdrf-hero-split-screen__image-container--align-right jdrf-hero-split-screen__image-container--mobile-bottom">
+                        <img src="/images/landing/father-son.png" class="jdrf-hero-split-screen__image" alt="alt">
+                        <div class="jdrf-hero-split-screen__image--hide" aria-hidden="true">
+                            <svg width="1601" height="282" viewBox="0 0 1601 282" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#FFF" d="M0 157.009726l12.8672722 32.672776 26.2490439 14.623749 91.4038179-18.416687 100.289104-79.177875 66.913365-65.15465 75.134484-12.8721398 115.022344 26.7767275L590.49806 141.279078l130.461264 101.050839 128.033099-11.304349 55.828664-95.51816 72.539025-28.795719 64.986858 20.595884 76.20517 51.627175 85.02878 25.371503h55.69005l45.92959-47.296525 76.05221-78.466197 105.99799-6.8399673 92.78647 55.6040113 19.74605 12.403887v141.799685H0z"></path><path d="M235.7 125.3c-1.1-.3-5.4 6.4-8.1 9.7 1.6-.9 5-5.6 8.1-9.7m5.6-7c0-1.6-3.8 3.8-4.6 5.4.9-.5 2.6-2.6 4.6-5.4m4.7-6.3c-.9.8-3.2 3.8-3.7 4.9.1.6 4.7-5.2 3.7-4.9m722.7 16.9c-.1-.8-3.5-.3-4-.1 0 .5 3.1.3 4 .1m29 5.1c5.7 1.8 11.6 4 16.8 6-10-5.2-21.3-9.2-32.7-10.2 4.7 1 10.2 2.4 15.9 4.2m34 14.7c1.4.8 3 1.6 3.6 1.8-1.4-1.1-4.7-3.2-6.3-3.7 0 .3 1.2 1.1 2.7 1.9m56.1 39.4c29.7 21.9 62.7 45.2 100.1 50.8-7.8-4-17.7-4.8-26-8-11-4.3-21.6-9.7-31.8-15.6-19.6-11.4-37.8-25-56.1-38.3 3.5 3.2 8.2 7 13.8 11.1m13.8 6.5c-1.8-1.4-4.2-3.4-4.7-2.9 1.6 1 5.1 3.9 4.7 2.9m134.1 42.1c1.1.1 1.9-.2 2.3-1.1-1.8.4-3.6.9-5.4 1.2-.1.3 1.6.2 3.1-.1m34.2-13.7c5-2.8 9.7-6.2 14.2-9.9-6.3 3.4-11.9 8.2-18.2 11.7 1-.2 2.4-.8 4-1.8m23.5-18.1c.6.8 6.7-5.9 5.5-5.8-.6.4-6 5.4-5.5 5.8m10.7-10.8c2.1-2 3.8-4.3 6.1-6.2-.3-.4 2.7-3.6 1.7-3.4-2.9 3.4-7.5 6.9-9.4 11 .4-.3 1-.8 1.6-1.4m28.1-35c3.6-4.7 7.5-9.9 11.9-15.3-8.6 5-16.9 20.4-22.3 28.3 3.3-3.9 6.7-8.2 10.4-13m20-24.3c3-3.4 6.1-6.8 9.4-9.9-6.7 4.4-11.7 11.4-16.6 17.5 2-1.6 4.4-4.4 7.2-7.6m46.4-32.9c.9-.3 4.7-1 4.8-2.2-1.2.2-5.8 1.8-4.8 2.2M0 153c.9-.8 1.9-.9 3.1-2 1.2 5.4 9.6 38.8 16.7 37.9-3.5-5-6.3-10.7-7.9-16.6-.2-.6-1.8-10.9.1-9.5 3.3 2.5 4.9 8.1 7.4 11.4-1-4.1 1-4.1 2.5-7.1-.4-2.6-1.2-9.1 2.7-8.8 3.7.2 2.6 6.6 5.4 7.5-.3-1.7.1-3.1 1.1-4.3 0 0 10.7 16.5 12.2 17.4.3-.5.3-1.1-.1-1.6-.1 1 14 11.3 16.2 11-5.1.6-14-13.3-15.2-17.8 1.2 1.8 2.6 3.6 4.2 5 0-.7-.2-1.4-.6-2C49.1 179 66.1 187 71 188.1c-.3-1.1 4.7-.3 4.5-.7-4.2-2.2-18.3-7.7-18.2-13.7 0 1.2 8.9 4.6 9.2 5.1-1.4-2.9-7.3-4.4-7.6-8.1.1.6 3.4 2.1 3.9 2.2-2-1.8-3.4-4.1-4.9-6.3-.3-.5-1.3-4.1-1.1-4.8 2.2.5 6.4 6.6 8.8 8.3 4.2 3 9.2 5.2 14.1 6.7 9.6 3.1 19.8 3.5 29.6 1.3 19.2-4.2 35.1-17.2 49-30.3 31.4-29.7 53.9-67.2 85.7-96.3 33.2-30.4 73.8-48.7 119.2-50.4 46.3-1.7 92.7 12.2 133.3 33.6 23.3 12.2 44.9 27.7 65.5 43.9 19.1 15 40.2 31.8 56.4 49.9 18.8 14.3 34.7 32.4 52.9 47.4 17.4 14.4 35.9 27.7 56.1 38.1 34.7 17.8 81.3 30.5 111.6-1.6 15-15.9 20.8-36.9 30.4-55.9 8-15.7 17.8-31 30.5-43.4 29-28.4 69.1-31.6 107-20.9 39.5 11.2 71.6 35.3 104 59.1 27.7 20.3 59.2 43.6 94.9 45.6 42 2.4 69.4-30.7 92.3-61 23.8-31.6 52.7-57.9 90.1-72.6 41.2-16.2 87.2-15.5 128.3.8 20.3 8 39.3 19.7 55.2 34.7 8.1 7.6 15.4 16.2 21.4 25.6 2.8 4.3 13.6 22.3 1.1 14.8 0 2.2 2.4 4.1 2.5 6.4-4.7-4.7-6.5-2.6-6.4 3.2 0-.5-5.8-.4-6.6-1.2-.3 6.3-7.5 2.7-6.3 8.5-1.3-1.5-8.3-8-8.3-1.6 0-1.5-4.4-1.7-5.4-2.5-3.5-2.6-5.5-7-8.2-10.4-6.2-8-13.9-14.5-21.3-21.4.6.7.5.9-.3.6-4.3-3.1-8.5-6.7-13-9.5-1.8-.5 2.2 2.5 1.7 1.9-7.6-3.4-15.1-7.2-23-10.1-4.5-1.6-14.9-2.7-17.9-6.2 2.8.5 5.6 1.1 8.4 1.7-2.5-1.5-6.2-2.2-9.1-2.6-.7 1.5-11-1.1-12.4-1.6 1.1.3 2.1.3 3.1-.1-1.2-2.7-17.9-.9-19.4-.9 2.2.9-2.6-.7-5.6-.7-7.5-.1-15.1.3-22.4 2 1 .3 4.5-.4 4.1.4-13.1 3.1-26.9 5.4-39.1 11.5-.6-.3 2.1-1.5.2-1.1-3.7.9-8.9 4-11.6 6.7 2.4-1.4 6.4-3.9 7.4-3.7-5.7 5.1-13 8.5-18.9 13.7-5.4 4.8-10.6 9.8-15.4 15.3-12 13.6-22.4 28.6-33.8 42.8-22.9 28.4-50.2 51.8-86.9 59.7 32.4-7 56-22.4 77.9-47.1 10.3-11.7 19.7-24.2 29.3-36.5 9.3-11.8 19.7-28.5 33.5-35.6-.4.2-3.8 3.9-3.4 3.5-5.9 2.9-11.4 11-15.6 15.8-7.4 8.4-14.2 17.4-20.9 26.4-12.1 16.2-24.6 32.1-39.9 45.4-29 25.1-63.8 36.5-102 29-37.3-7.3-69.6-27.6-99.6-49.9-28.6-21.2-57.2-44.7-92-54.8-33.5-9.7-64.5-1.7-81.4 30.3-9 17.1-14.1 35.6-24.3 52.3-10.1 16.6-22.6 32.2-38.6 43.5-63.9 44.8-144.3.7-197.6-39.9-38.9-29.7-74.6-63.7-111.4-95.9-17.4-15.3-35.3-30.3-55-42.6-21-13.1-44-21.7-67.1-30.2 16.3 5.9 32.9 12.1 49.3 17.7-5.7-1.9-14.3-6.6-19.2-10.4-7.1-2.3-14.3-4.8-21-7.8 10.4 2.9 20.2 7.5 30.4 11-26.9-14.4-58.8-21.6-89.3-21.7-14.7-.1-29.5 1.7-43.6 6-8.2 2.5-31.4 9.2-35.7 17.9.7-.2 1.3-.8 2-.9-.9 2.5-7 5-8.9 6.7 1.3-1.2 4.6-3.1 5.3-4.8-2.2 5.2-13.5 8-16.5 13.8.8-1.6-8.4 7.1-9.7 8.4-5.3 5.4-10.4 11.1-15 17.2 6.3-4.9 9.8-13.2 16.7-17.5-12.6 13.7-23.5 28.1-35.1 42.6-5.1 6.3-10.2 12.7-15.3 18.9-5.7 7-13.8 13.2-18.2 20.9 4.7-3.1 8-10.3 13.2-12.4-13.6 19.8-31.1 35.4-51.8 48-10.5 6.4-21.4 12.2-33.2 15.9-10.4 3.3-22.1 2.1-32.1 5.4 16.3 1 32.3-2.7 47.3-8.9 7.7-3.2 15.2-7.1 22.6-11 2.3-1.2 17.9-8.5 18.1-9.9-12.8 14.5-36.3 26.9-54.7 32.1-15 4.2-31.2 5.5-46.5 4.2C40.5 231.6-.5 194.5 0 153" fill="#0055FF" fill-rule="nonzero"></path></g></svg>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    {% endset %}
+
+    {% set doc_landing_cards %}
+        {% call library.container(padding_top="none", padding_bottom="none") %}
+            {% call library.card_grid(class="spirit-card-grid--4-up") %}
+                {{ library.card(
+                    img_src=false,
+                    title_text="Visual Style",
+                    link_text="More",
+                    body_text="Caption: Provides additional text to clarify or establish the card content. Should not contain multiple paragraphs.",
+                    href="/visual-style/color.html"
+                ) }}
+                {{ library.card(
+                    img_src=false,
+                    title_text="Components",
+                    link_text="More",
+                    body_text="Caption: Provides additional text to clarify or establish the card content. Should not contain multiple paragraphs.",
+                    href="/components/brush.html"
+                ) }}
+                {{ library.card(
+                    img_src=false,
+                    title_text="Add Sketch UI Library",
+                    link_text="More",
+                    body_text="Caption: Provides additional text to clarify or establish the card content. Should not contain multiple paragraphs.",
+                    href="/getting-started.html#sketch-resources"
+                ) }}
+                {{ library.card(
+                    img_src=false,
+                    title_text="See What's New",
+                    link_text="More",
+                    body_text="Caption: Provides additional text to clarify or establish the card content. Should not contain multiple paragraphs.",
+                    href="/release-history.html"
+                ) }}
+            {% endcall %}
+        {% endcall %}
+    {% endset %}
+
+    {% call library.shell() %}
+        {% call library.shell_header() %}
+            {% call library.container(padding_top="none", padding_bottom="none") %}
+                <h2 class="spirit-doc-page-shell__brand-title">
+                    <a class="spirit-doc-page-shell__brand-title-link" href="/">
+                    {{ library.icon(
+                        name="jdrf",
+                        label="JDRF",
+                        class="spirit-icon--jdrf",
+                        decorative=false
+                        ) }}
+                    </a>
+                </h2>
+            {% endcall %} 
+        {% endcall %} 
+
+        {% call library.shell_main() %}
+            {{ doc_landing_hero | safe }}
+            {{ doc_landing_cards | safe }}
+            {% call library.container(size="large", padding_bottom="none") %}
+                <a target="_blank" href="https://www.jdrf.org/community/take-action/imthetype/">link to example hero</a>
+                <h2 class="spirit-display-2">
+                    Principles
+                </h2>
+                <p class="spirit-subhead">This is a spirit subhead.</p>
+            {% endcall %}
+        {% endcall %}
+
+        {% call library.shell_footer() %}
+            {% call library.container(padding_top="xs", padding_bottom="xs", background_color="brand") %}
+                <div class="spirit-long-form-text">
+                    <h3>
+                        Page Shell Footer
+                    </h3>
+                </div>
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+{% endblock body %}
