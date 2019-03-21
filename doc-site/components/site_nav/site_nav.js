@@ -40,7 +40,7 @@ class SpiritDocSiteNavToggle {
       toggle.setAttribute('aria-controls', 'doc-site-nav');
       navContain.setAttribute('aria-hidden', 'true');
 
-      document.addEventListener('click', toggleNav);
+      toggle.addEventListener('click', toggleNav);
     };
 
     const destroyNav = function () {
@@ -54,7 +54,7 @@ class SpiritDocSiteNavToggle {
       toggle.removeAttribute('aria-controls');
       navContain.removeAttribute('aria-hidden');
 
-      document.removeEventListener('click', toggleNav);
+      toggle.removeEventListener('click', toggleNav);
     };
 
     const toggleNav = function () {
@@ -65,21 +65,20 @@ class SpiritDocSiteNavToggle {
         toggle.setAttribute('aria-expanded', 'true');
         navContain.setAttribute('aria-hidden', 'false');
         document.addEventListener('keydown', listenerNavTabFocus);
+        document.documentElement.classList.add('-spirit-no-scroll');
         firstLink.focus();
       } else {
         toggle.setAttribute('aria-expanded', 'false');
         navContain.setAttribute('aria-hidden', 'true');
         document.removeEventListener('keydown', listenerNavTabFocus);
+        document.documentElement.classList.remove('-spirit-no-scroll');
       }
     };
 
     const listenerNavTabFocus = function (e) {
-
-      console.log('here');
       if (navContain) {
         const navLinks = navContain.querySelectorAll('.spirit-vertical-nav__link');
         const lastLink = navLinks[navLinks.length - 1];
-        console.log(lastLink);
 
         if (lastLink === document.activeElement && e.which === 9) {
           e.preventDefault();
@@ -90,7 +89,7 @@ class SpiritDocSiteNavToggle {
 
     var debounce = function (fn) {
       return function () {
-        const context = this;
+        const self = this;
         const args = arguments;
 
         if (timeout) {
@@ -98,7 +97,7 @@ class SpiritDocSiteNavToggle {
         }
 
         timeout = window.requestAnimationFrame(function () {
-          fn.apply(context, args);
+          fn.apply(self, args);
         });
       };
     };

@@ -14,7 +14,10 @@
             ) }}
         </a>
       </h1>
-      {{ library.button(id="doc-site-nav-toggle", class="spirit-button--icon-only spirit-button--secondary spirit-button--small spirit-doc-nav-toggle", iconName="menu") }}
+      <button id="doc-site-nav-toggle" class="spirit-button spirit-button--icon-only spirit-button--secondary spirit-button--small spirit-doc-nav-toggle spirit-button--is-icon">
+        {{ library.icon(name='menu', class="spirit-icon--menu", label='Open Site Nav', decorative=false)}}
+        {{ library.icon(name='x',class="spirit-icon--x", label='Close Site Nav', decorative=false)}}
+      </button>
       <div id="doc-site-nav" class="doc-site-nav spirit-doc-page-shell__navigation">
         <div class="spirit-doc-page-shell__navigation-inner">
           {% block page_shell_nav %}
