@@ -362,18 +362,21 @@ html.-spirit-no-scroll {
   list-style: none;
   margin: 0;
   padding: 0;
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     display: block;
   }
 
   .spirit-nav-block__item {
     flex: 1 0 50%;
+
     @media screen and (min-width: $spirit-breakpoint-m) {
       display: inline-block;
       margin-right: $spirit-space-generic-3-x;
     }
 
     &:last-of-type {
+
       @media screen and (min-width: $spirit-breakpoint-m) {
         margin-right: 0;
       }
@@ -389,6 +392,7 @@ html.-spirit-no-scroll {
     line-height: 20px;
     padding: 12px 24px;
     text-decoration: none;
+
     @media screen and (min-width: $spirit-breakpoint-m) {
       display: inline-block;
       padding: 0;
