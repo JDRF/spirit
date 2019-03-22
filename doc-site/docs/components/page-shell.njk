@@ -1,0 +1,76 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+
+  {% filter markdown %}
+      <h1>Page Shell</h1>
+
+      <p class="spirit-subhead">Use a Page Shell to organize content and add semantics that improve accessibility.</p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+  {% filter markdown %}
+    ## Anatomy
+    The Spirit Page Shell contains three sections:
+    * Header
+    * Main
+    * Footer
+
+    Each section must only appear once on each page.
+
+    Page Shell also includes a “Skip to content” link which provides accessible navigation to the main content of the page..
+
+    ![Page Shell Diagram](/images/page-shell/page-shell.png)
+
+    ## Header
+    Put navigation, search, branding, and other global page controls in the Page Shell’s header.
+  {% endfilter %}
+
+  {{ esds_doc.code_snippet(source='
+    <header class="spirit-shell_header">
+      <!-- Navigation goes here -->
+    </header>') }}
+
+  {% filter markdown %}
+    ## Main
+    The content of the page goes inside the Main section.
+  {% endfilter %}
+
+  {{ esds_doc.code_snippet(source='
+    <main id=”spirit-shell-main” class=”spirit-shell__main”>
+      <!-- Page content goes here →
+    </main>') }}
+
+  {% filter markdown %}
+    ## Footer
+    Use the Footer section for utility links not included in the primary navigation in Header. If the content of the page is shorter than the user’s browser window, the Footer will remain attached to the bottom of the page.
+  {% endfilter %}
+
+  {{ esds_doc.code_snippet(source='
+    <footer class=”spirit-shell__footer”>
+      <!-- Utility links go here -->
+    </footer>') }}
+
+  {% filter markdown %}
+    ## Putting it all together
+    The full page shell markup is:
+  {% endfilter %}
+
+  {{ esds_doc.code_snippet(class='esds-doc-code-snippet--no-max-height', source='
+  <div class="spirit-shell">
+      <div class="spirit-shell__site-contain">
+        <div class="spirit-shell__site">
+          <a class="spirit-skip-link spirit-screen-reader-text--can-focus spirit-button spirit-button spirit-button--minimal spirit-button--extra-small" href="#spirit-shell-main">Skip to content</a>
+          <header class=”spirit-shell__header”>
+            <!-- Navigation goes here -->
+          </header>
+          <main id=”spirit-shell-main” class=”spirit-shell__main”>
+          <!-- Page content goes here -->
+          </main>
+          <footer class=”spirit-shell__footer”>
+          <!-- Utility links go here -->
+          </footer>
+                  </div>
+                </div>
+              </div>') }}
+{% endblock page_shell_content %}
