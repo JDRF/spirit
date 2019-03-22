@@ -47,11 +47,21 @@ html.-spirit-no-scroll {
 }
 
 .spirit-doc-page-header {
-  background-color: $spirit-background-color-white;
   box-shadow: inset 0 -1px 0 0 $spirit-color-grey-95;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    height: $spirit-doc-header-height-m;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    box-shadow: none;
+  }
+}
+
+.spirit-doc-page-header--shell {
+  background-color: $spirit-background-color-white;
   display: flex;
   flex-flow: row nowrap;
-  height: $spirit-doc-header-height;
   justify-content: space-between;
   margin-left: -$spirit-space-generic-2-x;
   margin-right: -$spirit-space-generic-2-x;
@@ -71,11 +81,6 @@ html.-spirit-no-scroll {
       width: 100vw;
       z-index: -1;
     }
-  }
-
-
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    height: $spirit-doc-header-height-m;
   }
 
   @media screen and (min-width: $spirit-breakpoint-l) {
@@ -179,6 +184,13 @@ html.-spirit-no-scroll {
   }
 }
 
+.spirit-doc-page-shell__content-intro,
+.spirit-doc-page-shell__page-navigation,
+.spirit-doc-page-shell__content {
+  position: relative;
+  z-index: -10;
+}
+
 .spirit-doc-page-shell__content-intro {
   display: block;
   width: 100%;
@@ -267,16 +279,20 @@ html.-spirit-no-scroll {
   }
 }
 
-.spirit-doc-page-shell__brand-title {
+.spirit-brand-title {
   margin: 0;
-
   @media screen and (min-width: $spirit-breakpoint-l) {
-    margin-left: $spirit-space-generic-3-x;
-    margin-top: $spirit-space-generic-4-x;
+    margin-top: $spirit-space-generic-1-x;
+  }
+
+  .spirit-doc-page-header--shell & {
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      margin-top: $spirit-space-generic-4-x;
+    }
   }
 }
 
-.spirit-doc-page-shell__brand-title-link {
+.spirit-brand-title__link {
   background-color: transparent;
   border-radius: $spirit-border-radius-l;
   color: $spirit-text-color-link;
@@ -286,7 +302,6 @@ html.-spirit-no-scroll {
   padding-top: $spirit-space-generic-2-x;
   text-decoration: none;
   transition: background-color $spirit-transition-timing-default;
-  // padding: $spirit-space-brand-logo-nav-inset-squish;
 
   &:hover,
   &:focus {
@@ -294,9 +309,16 @@ html.-spirit-no-scroll {
     outline: none;
     text-decoration: none;
   }
+
+  .spirit-doc-page-header & {
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      padding-left: $spirit-space-generic-3-x;
+      padding-right: $spirit-space-generic-3-x;
+    }
+  }
 }
 
-.spirit-doc-page-shell__brand-title-link .spirit-icon--jdrf {
+.spirit-brand-title__link .spirit-icon--jdrf {
   display: block;
   height: $brand-logo-width * $brand-logo-height-ratio;
   width: $brand-logo-width;
@@ -304,5 +326,72 @@ html.-spirit-no-scroll {
   @media screen and (min-width: $spirit-breakpoint-m) {
     height: $brand-logo-width-m * $brand-logo-height-ratio;
     width: $brand-logo-width-m;
+  }
+}
+
+// Footer
+.spirit-doc-site-footer {
+  box-shadow: inset 0 1px 0 0 $spirit-color-grey-95;
+
+  .spirit-container__inner {
+    padding: 12px 0;
+    width: 100%;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      padding: 26px 0;
+      width: calc(100% - 48px);
+    }
+  }
+}
+
+.spirit-doc-site-footer--shell {
+  .spirit-container__inner {
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      max-width: none;
+      padding: 26px 24px;
+      width: 100%;
+    }
+  }
+}
+
+// Footer Nav
+.spirit-nav-block {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    display: block;
+  }
+
+  .spirit-nav-block__item {
+    flex: 1 0 50%;
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      display: inline-block;
+      margin-right: $spirit-space-generic-3-x;
+    }
+
+    &:last-of-type {
+      @media screen and (min-width: $spirit-breakpoint-m) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .spirit-nav-block__link {
+    color: $spirit-color-grey-35;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .15px;
+    line-height: 20px;
+    padding: 12px 24px;
+    text-decoration: none;
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      display: inline-block;
+      padding: 0;
+    }
   }
 }

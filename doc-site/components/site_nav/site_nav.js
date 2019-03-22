@@ -29,6 +29,23 @@ class SpiritDocSiteNavToggle {
       }
     };
 
+    // Close navigation with esc or click outside navigation
+		const listenerCloseOpenMenus = function(e) {
+			if (document.documentElement.classList.contains('-spirit-no-scroll')) {
+
+				// if the event is keyup and it was the ESC key
+				if (e.type === 'keyup' && e.keyCode === 27) {
+					toggleNav();
+
+					// If the event was a mouseup or touchend
+				} else if (e.type === 'mouseup' || e.type === 'touchend') {
+					if (!navContain.contains(e.target) && toggle !== e.target) {
+						toggleNav();
+					}
+				}
+			}
+		};
+
     const createNav = function () {
       const toggleExpanded = toggle.getAttribute('aria-expanded');
 
@@ -41,6 +58,11 @@ class SpiritDocSiteNavToggle {
       navContain.setAttribute('aria-hidden', 'true');
 
       toggle.addEventListener('click', toggleNav);
+
+      // Close the menu by clicking off of them or hitting ESC
+      document.addEventListener('mouseup', listenerCloseOpenMenus);
+      document.addEventListener('touchend', listenerCloseOpenMenus);
+      document.addEventListener('keyup', listenerCloseOpenMenus);
     };
 
     const destroyNav = function () {
