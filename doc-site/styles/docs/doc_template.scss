@@ -6,6 +6,7 @@ $spirit-doc-nav-z-index: 15;
 $spirit-doc-nav-overlay-color: rgba($spirit-color-black, .5);
 $spirit-doc-header-height: 56px;
 $spirit-doc-header-height-m: 66px;
+$spirit-doc-header-title-margin-top-shell: 42px;
 $brand-logo-width: 83px;
 $brand-logo-width-m: 116px;
 $brand-logo-height-ratio: .288288;
@@ -48,6 +49,7 @@ html.-spirit-no-scroll {
 
 .spirit-doc-page-header {
   box-shadow: inset 0 -1px 0 0 $spirit-color-grey-95;
+  position: relative;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     height: $spirit-doc-header-height-m;
@@ -68,13 +70,14 @@ html.-spirit-no-scroll {
   padding-left: $spirit-space-generic-2-x;
   padding-right: $spirit-space-generic-2-x;
   width: calc(100% + #{$spirit-space-generic-4-x});
+  z-index: 20;
 
   html.-spirit-no-scroll & {
     &:after {
       background: $spirit-doc-nav-overlay-color;
       content: '';
       display: block;
-      height: 100%;
+      height: 100vh;
       left: 0;
       position: absolute;
       top: 0;
@@ -149,7 +152,7 @@ html.-spirit-no-scroll {
   @include spirit-elevation(1);
   background: $spirit-doc-nav-bg;
   display: block;
-  height: calc(100% - #{$spirit-doc-header-height});
+  height: calc(100vh - #{$spirit-doc-header-height});
   left: 0;
   overflow: hidden;
   padding-bottom: $spirit-space-generic-2-x;
@@ -157,7 +160,7 @@ html.-spirit-no-scroll {
   position: absolute;
   top: $spirit-doc-header-height;
   transform: translateX(-100%);
-  transition: transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
+  transition: visibility 0s $spirit-transition-timing-default, transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
   visibility: hidden;
   width: $spirit-doc-nav-width-flyout;
   will-change: transform;
@@ -165,6 +168,7 @@ html.-spirit-no-scroll {
 
   &[aria-hidden='false'] {
     transform: translateX(0);
+    transition: visibility 0s 0s, transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
     visibility: visible;
   }
 
@@ -188,7 +192,6 @@ html.-spirit-no-scroll {
 .spirit-doc-page-shell__page-navigation,
 .spirit-doc-page-shell__content {
   position: relative;
-  z-index: -10;
 }
 
 .spirit-doc-page-shell__content-intro {
@@ -287,7 +290,7 @@ html.-spirit-no-scroll {
 
   .spirit-doc-page-header--shell & {
     @media screen and (min-width: $spirit-breakpoint-l) {
-      margin-top: $spirit-space-generic-4-x;
+      margin-top: $spirit-doc-header-title-margin-top-shell;
     }
   }
 }
