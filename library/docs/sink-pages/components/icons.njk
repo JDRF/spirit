@@ -97,6 +97,47 @@
                             label="Go Right",
                             decorative=true
                         ) }}</a></h2>
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ### JDRF Icon
+                {% endfilter %}
+
+                {{ library.icon(
+                    name="jdrf",
+                    label="JDRF",
+                    class="spirit-icon--jdrf"
+                ) }}
+
+                <a href="#">
+                    {{ library.icon(
+                        name="jdrf",
+                        label="JDRF",
+                        class="spirit-icon--jdrf"
+                    ) }}
+                </a>
+
+                <p style="font-size: 16px;
+                    letter-spacing: initial;
+                    font-style: normal;
+                    text-shadow: none;
+                    text-align: left;
+                    text-indent: 0;
+                    text-transform: initial;
+                    color: black;
+                    line-height: 1.5;
+                    font-weight: normal;
+                    font-family: sans-serif;"
+                >This is JDRF{{ library.icon(
+                        name="jdrf",
+                        label="JDRF",
+                        decorative=true,
+                        class="spirit-icon--jdrf"
+                    ) }}, and <a href="#">this is a link {{ library.icon(
+                            name="jdrf",
+                            label="JDRF",
+                            decorative=true,
+                            class="spirit-icon--jdrf"
+                        ) }}</a></p>
             </div>
         </div>
     </div>

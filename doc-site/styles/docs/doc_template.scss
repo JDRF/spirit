@@ -7,9 +7,8 @@ $spirit-doc-nav-overlay-color: rgba($spirit-color-black, .5);
 $spirit-doc-header-height: 56px;
 $spirit-doc-header-height-m: 66px;
 $spirit-doc-header-title-margin-top-shell: 42px;
-$brand-logo-width: 83px;
-$brand-logo-width-m: 116px;
-$brand-logo-height-ratio: .288288;
+$brand-logo-font-size: 24px;
+$brand-logo-font-size-m: 32px;
 $brand-logo-bg-hover: $spirit-brand-color-lightest-blue;
 $spirit-space-brand-logo-nav-3-x: 24px;
 $spirit-space-brand-logo-nav-2dot25-x: 18px;
@@ -300,6 +299,7 @@ html.-spirit-no-scroll {
   border-radius: $spirit-border-radius-l;
   color: $spirit-text-color-link;
   display: block;
+  font-size: $brand-logo-font-size;
   overflow: hidden;
   padding-bottom: $spirit-space-generic-2-x;
   padding-top: $spirit-space-generic-2-x;
@@ -313,6 +313,10 @@ html.-spirit-no-scroll {
     text-decoration: none;
   }
 
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    font-size: $brand-logo-font-size-m;
+  }
+
   .spirit-doc-page-header & {
     @media screen and (min-width: $spirit-breakpoint-l) {
       padding-left: $spirit-space-generic-3-x;
@@ -323,13 +327,6 @@ html.-spirit-no-scroll {
 
 .spirit-brand-title__link .spirit-icon--jdrf {
   display: block;
-  height: $brand-logo-width * $brand-logo-height-ratio;
-  width: $brand-logo-width;
-
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    height: $brand-logo-width-m * $brand-logo-height-ratio;
-    width: $brand-logo-width-m;
-  }
 }
 
 // Footer

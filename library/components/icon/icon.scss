@@ -1,3 +1,6 @@
+//Variables
+$spirit-jdrf-icon-width: 3.632em; // in relation to 1em height
+
 .spirit-icon {
   @include spirit-box-sizing; // just in case some extra styling gets applied to the icon.
   display: inline-block;
@@ -10,6 +13,10 @@
   stroke-width: 2px; // Set inline on the SVGs but stripped by the polyfill we use for IE11
   vertical-align: middle;
   width: 1em;
+}
+
+.spirit-icon--jdrf {
+  width: $spirit-jdrf-icon-width;
 }
 
 //Loading Spinner 
