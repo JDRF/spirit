@@ -10,6 +10,7 @@
     {% endset %}
 
     {% set doc_home_hero %}
+        {{ doc_top_watermark | safe }}
         {% call library.container(class="spirit-container--hero-split-screen", padding_top="xs", padding_bottom="xs") %}
             <div class="spirit-hero-split-screen__contents">
                 <div class="spirit-hero-split-screen__message spirit-hero-message">
@@ -176,7 +177,6 @@
     {% call library.shell() %}
         {% call library.shell_header(class="spirit-doc-page-header spirit-doc-page-header--home") %}
             {% call library.container(padding_top="none", padding_bottom="none") %}
-                {{ doc_top_watermark | safe }}
                 <div class="spirit-d-flex">
                     <h2 class="spirit-brand-title">
                         <a class="spirit-brand-title__link" href="/">
