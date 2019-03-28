@@ -5,12 +5,14 @@
 
       <p class="spirit-subhead">Use long form text for page body prose. </p>
   {% endfilter %}
+
+  {% filter markdown %}
+    Long Form Text extends the base <a href="../visual-style/typography.html">Typography</a>‘s size, weight, and color with <b>spacing</b> and <b>specialized styles</b> appropriate for body prose. In addition, it has styles for illustrations, blockquotes, and more. For text in components, such as Card or List, see <a href="../visual-style/typography.html">Typography</a>.
+  {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
   {% filter markdown %}
-      Long Form Text extends the base <a href="../visual-style/typography.html">Typography</a>‘s size, weight, and color with <b>spacing</b> and <b>specialized styles</b> appropriate for body prose. In addition, it has styles for illustrations, blockquotes, and more. For text in components, such as Card or List, see <a href="../visual-style/typography.html">Typography</a>.
-
       ## Usage
 
       Wrap any sequence of headings, paragraphs, lists, and images in `.spirit-long-form-text`. Unlike other Spirit components which are encapsulated and namespaced to prevent conflicts, Long Form Text directly styles basic HTML elements, `h1`-`h6`, `p`, `ul`, `ol`, `img`, and so forth. 

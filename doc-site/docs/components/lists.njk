@@ -17,6 +17,10 @@
     {% endcall %}
   {% endset %}
 
+  {% filter markdown %}
+    ## Example
+  {% endfilter %}
+
   {{ esds_doc.html_example_list(example=component_example) }}
 
   {% filter markdown %}

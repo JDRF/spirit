@@ -12,7 +12,7 @@ $spirit-container-inner-max-width-large: 1000px;
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
 $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-large + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1000px + 160px (max container width (large) + gutter size)
 
-.spirit-container--hero-split-screen {
+.spirit-container--hero-doc-home {
   position: relative;
   z-index: 10;
 
@@ -217,5 +217,13 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
 .spirit-section-heading__title,
 .spirit-section-heading__subhead  {
   text-align: center;
+}
+
+.spirit-section-heading__title {
+  margin-bottom: $spirit-space-inset-2-x;
+}
+
+.spirit-section-heading__subhead {
+  margin-top: 0;
 }
 

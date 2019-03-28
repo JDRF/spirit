@@ -315,31 +315,23 @@ html.-spirit-no-scroll {
 
 .spirit-brand-title__link {
   background-color: transparent;
-  border-radius: $spirit-border-radius-l;
   color: $spirit-text-color-link;
   display: block;
   font-size: $brand-logo-font-size;
+  margin-bottom: $spirit-space-generic-2-x;
+  margin-top: $spirit-space-generic-2-x;
   overflow: hidden;
-  padding-bottom: $spirit-space-generic-2-x;
-  padding-top: $spirit-space-generic-2-x;
   text-decoration: none;
   transition: background-color $spirit-transition-timing-default;
-
-  &:hover,
-  &:focus {
-    background-color: $brand-logo-bg-hover;
-    outline: none;
-    text-decoration: none;
-  }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     font-size: $brand-logo-font-size-m;
   }
 
-  .spirit-doc-page-header & {
+  .spirit-doc-page-header--shell & {
     @media screen and (min-width: $spirit-breakpoint-l) {
-      padding-left: $spirit-space-generic-3-x;
-      padding-right: $spirit-space-generic-3-x;
+      margin-left: $spirit-space-generic-3-x;
+      margin-right: $spirit-space-generic-3-x;
     }
   }
 }

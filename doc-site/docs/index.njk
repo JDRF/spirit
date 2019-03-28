@@ -11,7 +11,7 @@
 
     {% set doc_home_hero %}
         {{ doc_top_watermark | safe }}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="xs", padding_bottom="xs") %}
+        {% call library.container(class="spirit-container--hero-split-screen spirit-container--hero-doc-home", padding_top="xs", padding_bottom="xs") %}
             <div class="spirit-hero-split-screen__contents">
                 <div class="spirit-hero-split-screen__message spirit-hero-message">
                     <h1 class="spirit-hero-split-screen__title spirit-display-2">
@@ -195,13 +195,16 @@
         {% call library.shell_main() %}
             {{ doc_home_hero | safe }}
             {{ doc_home_cards | safe }}
-            {% call library.container(class="spirit-section-heading", size="large", padding_top="s", padding_bottom="xs") %}
-                <h2 class="spirit-section-heading__title spirit-h1">
-                    Our Principles
-                </h2>
-                <p class="spirit-section-heading__title spirit-subhead">
-                    Medium subhead,calling on insurance companies to provide these three things that will help people with T1D control the disease.
-                </p>
+            {% call library.container(class="spirit-section-heading", size="large", padding_top="s") %}
+                <div class="spirit-row">
+                    <h2 class="spirit-section-heading__title spirit-h1 spirit-col-12">
+                        Our Principles
+                    </h2>
+                
+                    <p class="spirit-section-heading__subhead spirit-subhead spirit-col-12 spirit-col-md-10 spirit-offset-md-1">
+                        Medium subhead,calling on insurance companies to provide these three things that will help people with T1D control the disease.
+                    </p>
+                </div>
             {% endcall %}
             {{ doc_home_principles | safe }}
         {% endcall %}
