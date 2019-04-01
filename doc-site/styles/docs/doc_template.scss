@@ -1,11 +1,44 @@
 $spirit-doc-layout-breakpoint: 1289px;
+$spirit-doc-nav-bg: $spirit-color-grey-98;
+$spirit-doc-nav-width-flyout: 256px;
+$spirit-doc-nav-box-shadow: inset -4px 0 8px -4px rgba(0, 8, 26, .16), inset 0 0 4px 0 rgba(0, 8, 26, .16);
+$spirit-doc-nav-z-index: 15;
+$spirit-doc-nav-overlay-color: rgba($spirit-color-black, .5);
+$spirit-doc-header-height: 56px;
+$spirit-doc-header-height-m: 64px;
+$spirit-doc-header-title-margin-top-shell: 42px;
+$brand-logo-font-size: 24px;
+$brand-logo-font-size-m: 32px;
+$brand-logo-bg-hover: $spirit-brand-color-lightest-blue;
+$spirit-space-brand-logo-nav-3-x: 24px;
+$spirit-space-brand-logo-nav-2dot25-x: 18px;
+$spirit-space-brand-logo-nav-bot-marg: 14px;
+$spirit-space-brand-logo-nav-inset-squish: $spirit-space-brand-logo-nav-2dot25-x $spirit-space-brand-logo-nav-3-x;
 
+// No Scroll
+html,
+body {
+  height: 100%;
+}
+
+html.-spirit-no-scroll {
+  overflow: hidden;
+}
+
+// Page Shell
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
-  display: grid;
-  grid-template-columns: 256px 1fr;
-  grid-template-rows: auto auto auto;
+  padding-left: $spirit-space-generic-2-x;
+  padding-right: $spirit-space-generic-2-x;
   width: 100%;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: grid;
+    grid-template-columns: 256px 1fr;
+    grid-template-rows: auto auto auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-template-columns: 256px 1fr 800px 32px 200px 1fr;
@@ -13,24 +46,186 @@ $spirit-doc-layout-breakpoint: 1289px;
   }
 }
 
-.spirit-doc-page-shell__navigation {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 3;
+.spirit-doc-page-header {
+  position: relative;
+  z-index: 20;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    height: $spirit-doc-header-height-m;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    box-shadow: none;
+  }
+}
+
+.spirit-doc-page-header--shell {
+  background-color: $spirit-background-color-white;
+  box-shadow: inset 0 -1px 0 0 $spirit-color-grey-95;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-left: -$spirit-space-generic-2-x;
+  margin-right: -$spirit-space-generic-2-x;
+  padding-left: $spirit-space-generic-2-x;
+  padding-right: $spirit-space-generic-2-x;
+  width: calc(100% + #{$spirit-space-generic-4-x});
+
+  html.-spirit-no-scroll & {
+    &:after {
+      background: $spirit-doc-nav-overlay-color;
+      content: '';
+      display: block;
+      height: 100vh;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      z-index: -1;
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    background: $spirit-doc-nav-bg;
+    box-shadow: $spirit-doc-nav-box-shadow;
+    display: block;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 3;
+    height: auto;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: static;
+    transform: translateX(0);
+    width: auto;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-row: 1 / span 2;
   }
 }
 
+.spirit-shell__main .spirit-container--brush-watermark:first-child {
+  top: -$spirit-doc-header-height;
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    top: -$spirit-doc-header-height-m;
+  }
+}
+
+.spirit-doc-nav-toggle {
+  background: transparent;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary transparent;
+  color: $spirit-text-color-secondary;
+  display: block;
+  right: $spirit-space-generic-2-x;
+  top: $spirit-space-generic-2-x;
+
+  * {
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
+    transform: translateY(0);
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: none;
+  }
+}
+
+.spirit-icon--menu {
+  .spirit-doc-nav-toggle[aria-expanded='true'] & {
+    display: none;
+  }
+}
+
+.spirit-icon--x {
+  .spirit-doc-nav-toggle & {
+    display: none;
+  }
+
+  .spirit-doc-nav-toggle[aria-expanded='true'] & {
+    display: inline-block;
+  }
+}
+
+.spirit-doc-page-shell__navigation {
+  @include spirit-elevation(1);
+  background: $spirit-doc-nav-bg;
+  display: block;
+  height: calc(100vh - #{$spirit-doc-header-height});
+  left: 0;
+  overflow: hidden;
+  padding-bottom: $spirit-space-generic-2-x;
+  padding-top: $spirit-space-generic-2-x;
+  position: absolute;
+  top: $spirit-doc-header-height;
+  transform: translateX(-100%);
+  transition: visibility 0s $spirit-transition-timing-default, transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
+  visibility: hidden;
+  width: $spirit-doc-nav-width-flyout;
+  will-change: transform;
+  z-index: $spirit-doc-nav-z-index;
+
+  &[aria-hidden='false'] {
+    transform: translateX(0);
+    transition: visibility 0s 0s, transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
+    visibility: visible;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    height: calc(100% - #{$spirit-doc-header-height-m});
+    top: $spirit-doc-header-height-m;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    background: transparent;
+    box-shadow: none;
+    height: auto;
+    position: static;
+    transform: translateX(0);
+    visibility: visible;
+    width: auto;
+  }
+}
+
+.spirit-doc-page-shell__content-intro,
+.spirit-doc-page-shell__page-navigation,
+.spirit-doc-page-shell__content {
+  position: relative;
+}
+
 .spirit-doc-page-shell__content-intro {
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
-  min-width: 0;
-  padding-right: $spirit-space-generic-2-x;
+  display: block;
+  margin: $spirit-space-stack-2-x;
+  width: 100%;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    margin: $spirit-space-stack-5-x;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    min-width: 0;
+    padding: 0 $spirit-space-generic-3-x;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-column: 3 / span 1;
     grid-row: 1 / span 1;
+  }
+}
+
+// Long form Text Styles 
+.spirit-doc-page-shell__content .spirit-long-form-text {
+  > *:first-child {
+    padding-top: 0;
   }
 }
 
@@ -39,22 +234,17 @@ $spirit-doc-layout-breakpoint: 1289px;
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
   min-width: 0;
-  padding-right: $spirit-space-generic-2-x;
+  padding: 0;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    padding: 0 $spirit-space-generic-3-x;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-column: 5 / span 1;
     grid-row: 2 / span 1;
-    padding: 0 $spirit-space-generic-3-x;
+    padding: 0;
   }
-}
-
-.spirit-doc-page-shell__navigation-inner {
-  left: 0;
-  max-height: 100vh;
-  overflow-y: auto;
-  padding: 0 $spirit-space-generic-3-x;
-  position: fixed;
-  top: 0;
 }
 
 .spirit-doc-page-shell__content {
@@ -63,6 +253,10 @@ $spirit-doc-layout-breakpoint: 1289px;
   min-width: 0;
   padding-bottom: $spirit-space-generic-6-x;
   padding-right: $spirit-space-generic-2-x;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    padding: 0 $spirit-space-generic-3-x;
+  }
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     grid-column: 3 / span 1;
@@ -99,22 +293,120 @@ $spirit-doc-layout-breakpoint: 1289px;
 
 // Don't highlight active links in this layout since the nav isn't fixed
 .esds-doc-page-navigation__link.esds-doc-page-navigation__link--active {
-  color: $spirit-text-color-secondary;
+  color: $spirit-text-color-link;
 
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
     color: $spirit-text-color-link;
   }
 }
 
-.spirit-doc-page-shell__brand-title {
+.spirit-brand-title {
   margin: 0;
-  margin-bottom: $spirit-space-generic-4-x;
-  margin-top: $spirit-space-generic-6-x;
-  padding-left: $spirit-space-generic-3-x;
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    margin-top: $spirit-space-generic-1-x;
+  }
+
+  .spirit-doc-page-header--shell & {
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      margin-top: $spirit-doc-header-title-margin-top-shell;
+    }
+  }
 }
 
-.spirit-doc-page-shell__brand-title-link {
-  @include spirit-h2;
+.spirit-brand-title__link {
+  background-color: transparent;
   color: $spirit-text-color-link;
+  display: block;
+  font-size: $brand-logo-font-size;
+  margin-bottom: $spirit-space-generic-2-x;
+  margin-top: $spirit-space-generic-2-x;
+  overflow: hidden;
   text-decoration: none;
+  transition: background-color $spirit-transition-timing-default;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    font-size: $brand-logo-font-size-m;
+  }
+
+  .spirit-doc-page-header--shell & {
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      margin-left: $spirit-space-generic-3-x;
+      margin-right: $spirit-space-generic-3-x;
+    }
+  }
+}
+
+.spirit-brand-title__link .spirit-icon--jdrf {
+  display: block;
+}
+
+// Footer
+.spirit-doc-site-footer {
+  box-shadow: inset 0 1px 0 0 $spirit-color-grey-95;
+
+  .spirit-container__inner {
+    padding: 12px 0;
+    width: 100%;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      padding: 26px 0;
+      width: calc(100% - 48px);
+    }
+  }
+}
+
+.spirit-doc-site-footer--shell {
+  .spirit-container__inner {
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      max-width: none;
+      padding: 26px 24px;
+      width: 100%;
+    }
+  }
+}
+
+// Footer Nav
+.spirit-nav-block {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    display: block;
+  }
+
+  .spirit-nav-block__item {
+    flex: 1 0 50%;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      display: inline-block;
+      margin-right: $spirit-space-generic-3-x;
+    }
+
+    &:last-of-type {
+
+      @media screen and (min-width: $spirit-breakpoint-m) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .spirit-nav-block__link {
+    color: $spirit-color-grey-35;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .15px;
+    line-height: 20px;
+    padding: 12px 24px;
+    text-decoration: none;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      display: inline-block;
+      padding: 0;
+    }
+  }
 }

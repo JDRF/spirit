@@ -4,6 +4,7 @@
 @import '../node_modules/@jdrfhq/spirit/styles/mixins/box-sizing';
 @import '../node_modules/@jdrfhq/spirit/styles/mixins/color';
 @import '../node_modules/@jdrfhq/spirit/styles/mixins/typography';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/elevation';
 @import 'shared/typography';
 @import 'doc_components/esds_doc_component_overrides';
 
@@ -24,6 +25,7 @@
 // Page-specific styles
 @import 'docs/buttons_doc';
 @import 'docs/space_doc';
+@import 'docs/doc_home';
 
 body {
   // Basic reset

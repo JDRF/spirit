@@ -1,7 +1,7 @@
 {% macro site_nav() %}
   {# Just call straight through to the vertical navigation component #}
-  {% call library.vertical_navigation() %}
-    {% call library.vertical_navigation_list(class="spirit-doc-site-nav") %}
+  {% call library.vertical_navigation(class="spirit-doc-site-nav", label="site") %}
+    {% call library.vertical_navigation_list(class="spirit-doc-site-nav__ul") %}
       {{ library.vertical_navigation_item(href="/getting-started.html", style="large", text="Getting Started") }}
       {% call library.vertical_navigation_item(text="Visual Style", style="large", size="comfortable", href="", toggle="true", expanded="true") %}
         {% call library.vertical_navigation_list( subnav='true' ) %}

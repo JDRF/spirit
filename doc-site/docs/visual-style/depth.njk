@@ -22,7 +22,7 @@
     {% endfor %}
   </style>
   {% filter markdown %}
-    <h1>Depth</h1>
+    # Depth
     <p class="spirit-subhead">Spirit provides a systematic language for conveying depth using shadows. To invite interaction or increase prominence, animate a component along the Z axis to simulate depth.</p>
   {% endfilter %}
 {% endblock %}
@@ -35,7 +35,7 @@
     | | | | | |
     |:---:|:---:|:---:|:---:|:---:|:---:|
     | <div class="spirit-doc-elevation-0"></div> | <div class="spirit-doc-elevation-1"></div> | <div class="spirit-doc-elevation-2"></div> | <div class="spirit-doc-elevation-3"></div> | <div class="spirit-doc-elevation-4"></div> | <div class="spirit-doc-elevation-5"></div> |
-    | `@include spirit-elevation(0);` | `@include spirit-elevation(1);` | `@include spirit-elevation(2);` | `@include spirit-elevation(3);` | `@include spirit-elevation(4);` | `@include spirit-elevation(5);` |
+    | <span class="spirit-body-text-s">`@include spirit-elevation(0);`</span> | <span class="spirit-body-text-s">`@include spirit-elevation(1);`</span> | <span class="spirit-body-text-s">`@include spirit-elevation(2);`</span> | <span class="spirit-body-text-s">`@include spirit-elevation(3);`</span> | <span class="spirit-body-text-s">`@include spirit-elevation(4);`</span> | <span class="spirit-body-text-s">`@include spirit-elevation(5);`</span> |
 
     ### Guidelines
     * Scale the elevation with object size. Small objects lose context at high elevations, so use `elevation` 1, 2, and 3.
@@ -59,6 +59,7 @@
     | | | | | |
     |:---:|:---:|:---:|:---:|:---:|:---:|
     | <div class="spirit-doc-elevation-1"></div> | <div class="spirit-doc-elevation-2"></div> | <div class="spirit-doc-elevation-3"></div> | <div class="spirit-doc-elevation-4"></div> | <div class="spirit-doc-elevation-5"></div> |
+    | `@include spirit-elevation(1);` | `@include spirit-elevation(2);` | `@include spirit-elevation(3);`| `@include spirit-elevation(4);` | `@include spirit-elevation(5);` |
 
     ### Blue Shadow
     Pass `'blue'` as the second argument to the `spirit-elevation` scss mixin.
@@ -69,6 +70,7 @@
     | | | | | |
     |:---:|:---:|:---:|:---:|:---:|:---:|
     | <div class="spirit-doc-elevation-blue-1"></div> | <div class="spirit-doc-elevation-blue-2"></div> | <div class="spirit-doc-elevation-blue-3"></div> | <div class="spirit-doc-elevation-blue-4"></div> | <div class="spirit-doc-elevation-blue-5"></div> |
+    | `@include spirit-elevation(1, 'blue');` | `@include spirit-elevation(2, 'blue');` | `@include spirit-elevation(3, 'blue');` | `@include spirit-elevation(4, 'blue');` | `@include spirit-elevation(5, 'blue');` |
   {% endfilter %}
 
 
