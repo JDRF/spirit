@@ -204,10 +204,14 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
 
 // Brush Watermark
 .spirit-container--brush-watermark {
-  display: block;
+  display: none;
   height: 0;
   position: relative;
   z-index: -1;
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: block;
+  }
 }
 
 .spirit-container__inner--brush-watermark {
