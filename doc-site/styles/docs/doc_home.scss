@@ -16,6 +16,24 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
   position: relative;
   z-index: 10;
 
+  + .spirit-container {
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        background: $spirit-background-color-white;
+        width: 50%;
+        height: calc( 100% + #{$spirit-space-generic-8-x} + 10px);
+        right: 0;
+        top: calc( -#{$spirit-space-generic-8-x} - 10px);
+        z-index: -1;
+      }
+      
+    }
+  }
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     margin-bottom: $spirit-space-generic-8-x;
     margin-top: -$spirit-doc-header-height-m;
@@ -132,6 +150,17 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
   display: block;
   left: -18px;
   position: absolute;
+
+  svg {
+    display: block;
+    height: auto;
+    width: 130%;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      width: auto;
+    }
+  }
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     bottom: auto;
     left: -450px;
@@ -142,16 +171,6 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
     left: -85px;
     top: calc(100% - 185px);
     transform: scale(1);
-  }
-
-  svg {
-    display: block;
-    height: auto;
-    width: 130%;
-
-    @media screen and (min-width: $spirit-breakpoint-m) {
-      width: auto;
-    }
   }
 }
 
