@@ -21,16 +21,15 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
       position: relative;
 
       &:after {
-        content: '';
-        position: absolute;
         background: $spirit-background-color-white;
-        width: 50%;
-        height: calc( 100% + #{$spirit-space-generic-8-x} + 10px);
+        content: '';
+        height: calc(100% + #{$spirit-space-generic-8-x} + 10px);
+        position: absolute;
         right: 0;
-        top: calc( -#{$spirit-space-generic-8-x} - 10px);
+        top: calc(-#{$spirit-space-generic-8-x} - 10px);
+        width: 50%;
         z-index: -1;
       }
-      
     }
   }
 
