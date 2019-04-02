@@ -15,12 +15,11 @@ $esds-doc-icon-swatch-border: 0;
 }
 
 .esds-doc-icon-swatch__icon {
-  fill: transparent;
+  fill: $spirit-color-black;
   margin: $spirit-space-generic-3-x 0;
-  stroke: $spirit-color-black;
 
   .esds-doc-icon-swatch:hover & {
-    stroke: $spirit-color-white;
+    fill: $spirit-color-white;
   }
 }
 
