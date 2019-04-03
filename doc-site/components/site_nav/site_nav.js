@@ -94,7 +94,6 @@ class SpiritDocSiteNavToggle {
         navContain.setAttribute('aria-hidden', 'false');
         document.addEventListener('keydown', listenerNavTabFocus);
         document.documentElement.classList.add('-spirit-no-scroll');
-        firstLink.focus();
       } else {
         toggle.setAttribute('aria-expanded', 'false');
         navContain.setAttribute('aria-hidden', 'true');
