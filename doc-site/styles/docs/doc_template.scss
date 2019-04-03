@@ -23,6 +23,11 @@ body {
 html.-spirit-no-scroll {
   height: 100%;
   overflow: hidden;
+
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 // Page Shell
@@ -211,6 +216,18 @@ html.-spirit-no-scroll {
     transform: translateX(0);
     visibility: visible;
     width: auto;
+  }
+}
+
+.spirit-doc-page-shell__navigation-inner {
+  height: 100%; //sass-lint:disable-line property-sort-order
+  overflow: scroll; //sass-lint:disable-line property-sort-order
+  -webkit-overflow-scrolling: touch; //sass-lint:disable-line property-sort-order no-vendor-prefixes
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: block;
+    height: auto;
+    overflow: auto;
   }
 }
 
