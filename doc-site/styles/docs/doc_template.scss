@@ -361,6 +361,11 @@ html.-spirit-no-scroll {
   text-decoration: none;
   transition: background-color $spirit-transition-timing-default;
 
+  &:focus {
+    box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
+    outline: none;
+  }
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     font-size: $brand-logo-font-size-m;
   }
