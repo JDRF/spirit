@@ -4,13 +4,10 @@ $spirit-jdrf-icon-width: 3.632em; // in relation to 1em height
 .spirit-icon {
   @include spirit-box-sizing; // just in case some extra styling gets applied to the icon.
   display: inline-block;
-  fill: transparent; // Otherwise IE11 fills in every icon with black
+  fill: currentColor;
   height: 1em;
   line-height: 1em;
-  stroke: currentColor;
-  stroke-linecap: round; // Set inline on the SVGs but stripped by the polyfill we use for IE11
-  stroke-linejoin: round; // Set inline on the SVGs but stripped by the polyfill we use for IE11
-  stroke-width: 2px; // Set inline on the SVGs but stripped by the polyfill we use for IE11
+  stroke-width: 0;
   vertical-align: middle;
   width: 1em;
 }

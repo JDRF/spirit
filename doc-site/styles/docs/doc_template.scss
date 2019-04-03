@@ -16,21 +16,31 @@ $spirit-space-brand-logo-nav-bot-marg: 14px;
 $spirit-space-brand-logo-nav-inset-squish: $spirit-space-brand-logo-nav-2dot25-x $spirit-space-brand-logo-nav-3-x;
 
 // No Scroll
-html,
 body {
-  height: 100%;
+  width: 100%;
 }
 
 html.-spirit-no-scroll {
+  height: 100%;
   overflow: hidden;
+
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 // Page Shell
 .spirit-doc-page-shell {
   @include spirit-box-sizing;
+  overflow: hidden;
   padding-left: $spirit-space-generic-2-x;
   padding-right: $spirit-space-generic-2-x;
   width: 100%;
+
+  code {
+    word-wrap: break-word;
+  }
 
   @media screen and (min-width: $spirit-breakpoint-l) {
     display: grid;
@@ -76,12 +86,25 @@ html.-spirit-no-scroll {
       background: $spirit-doc-nav-overlay-color;
       content: '';
       display: block;
-      height: 100vh;
+      height: calc(100vh - #{$spirit-doc-header-height});
       left: 0;
       position: absolute;
-      top: 0;
+      top: $spirit-doc-header-height;
       width: 100vw;
       z-index: -1;
+    }
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      &:after {
+        height: calc(100vh - #{$spirit-doc-header-height-m});
+        top: $spirit-doc-header-height-m;
+      }
+    }
+
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      &:after {
+        display: none;
+      }
     }
   }
 
@@ -119,6 +142,7 @@ html.-spirit-no-scroll {
   box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary transparent;
   color: $spirit-text-color-secondary;
   display: block;
+  margin-left: auto;
   right: $spirit-space-generic-2-x;
   top: $spirit-space-generic-2-x;
 
@@ -159,13 +183,13 @@ html.-spirit-no-scroll {
   background: $spirit-doc-nav-bg;
   display: block;
   height: calc(100vh - #{$spirit-doc-header-height});
-  left: 0;
   overflow: hidden;
   padding-bottom: $spirit-space-generic-2-x;
   padding-top: $spirit-space-generic-2-x;
-  position: absolute;
+  position: fixed;
+  right: 0;
   top: $spirit-doc-header-height;
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: visibility 0s $spirit-transition-timing-default, transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
   visibility: hidden;
   width: $spirit-doc-nav-width-flyout;
@@ -173,6 +197,7 @@ html.-spirit-no-scroll {
   z-index: $spirit-doc-nav-z-index;
 
   &[aria-hidden='false'] {
+    position: fixed;
     transform: translateX(0);
     transition: visibility 0s 0s, transform $spirit-transition-timing-default, box-shadow $spirit-transition-timing-default;
     visibility: visible;
@@ -191,6 +216,18 @@ html.-spirit-no-scroll {
     transform: translateX(0);
     visibility: visible;
     width: auto;
+  }
+}
+
+.spirit-doc-page-shell__navigation-inner {
+  height: 100%; //sass-lint:disable-line property-sort-order
+  overflow: scroll; //sass-lint:disable-line property-sort-order
+  -webkit-overflow-scrolling: touch; //sass-lint:disable-line property-sort-order no-vendor-prefixes
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    display: block;
+    height: auto;
+    overflow: auto;
   }
 }
 
@@ -323,6 +360,11 @@ html.-spirit-no-scroll {
   overflow: hidden;
   text-decoration: none;
   transition: background-color $spirit-transition-timing-default;
+
+  &:focus {
+    box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary $spirit-interactive-color-secondary;
+    outline: none;
+  }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     font-size: $brand-logo-font-size-m;

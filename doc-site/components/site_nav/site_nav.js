@@ -31,6 +31,11 @@ class SpiritDocSiteNavToggle {
 
     // Close navigation with esc or click outside navigation
     const listenerCloseOpenMenus = function(e) {
+      // Open and close nav with 'return'
+      if (e.type === 'keyup' && e.keyCode === 13) {
+        toggleNav();
+      }
+
       if (document.documentElement.classList.contains('-spirit-no-scroll')) {
 
         // if the event is keyup and it was the ESC key
@@ -80,6 +85,7 @@ class SpiritDocSiteNavToggle {
     };
 
     const toggleNav = function () {
+      console.log('toggled');
       const expanded = toggle.getAttribute('aria-expanded');
       const firstLink = navContain.querySelectorAll('.spirit-vertical-nav__link')[0];
 
@@ -88,7 +94,6 @@ class SpiritDocSiteNavToggle {
         navContain.setAttribute('aria-hidden', 'false');
         document.addEventListener('keydown', listenerNavTabFocus);
         document.documentElement.classList.add('-spirit-no-scroll');
-        firstLink.focus();
       } else {
         toggle.setAttribute('aria-expanded', 'false');
         navContain.setAttribute('aria-hidden', 'true');
