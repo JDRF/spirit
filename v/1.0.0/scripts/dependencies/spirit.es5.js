@@ -413,54 +413,6 @@ var SpiritFormPasswordToggle = function () {
 SpiritFormPasswordToggle.enable();
 
 /**
- * Vertical Navigation Setup + Actions -- for Demonstration Purposes
- *
- * @return {void}
- */
-var demoPrimaryNavigation = function demoPrimaryNavigation() {
-  var headerNav = document.getElementById('header-nav-demo');
-
-  if (!headerNav) {
-    return;
-  }
-
-  /**
-   * Initialize Each Vertical Nav
-   *
-   * @return {void}
-   */
-  var demoNavActions = function demoNavActions() {
-    var navTriggers = Array.from(document.querySelectorAll('.header-nav-demo-trigger'));
-    var spiritNavActiveClass = '-js-spirit-primary-nav-active';
-
-    if (!navTriggers) {
-      return;
-    }
-
-    /**
-     * Toggle Navigation - add or remove class to body if toggle clicked
-     *
-     * @param {object} e event
-     */
-    var toggleNavigation = function toggleNavigation(e) {
-      e.preventDefault();
-      document.body.classList.toggle(spiritNavActiveClass);
-    };
-
-    /**
-     * Loop through nav triggers
-     */
-    navTriggers.forEach(function (n) {
-      n.addEventListener('click', toggleNavigation);
-    });
-  };
-
-  demoNavActions();
-};
-
-demoPrimaryNavigation();
-
-/**
  * Vertical Navigation Setup + Actions
  *
  * @return {void}
@@ -616,3 +568,51 @@ var spiritVerticalNavigation = function spiritVerticalNavigation() {
 };
 
 spiritVerticalNavigation();
+
+/**
+ * Vertical Navigation Setup + Actions -- for Demonstration Purposes
+ *
+ * @return {void}
+ */
+var demoPrimaryNavigation = function demoPrimaryNavigation() {
+  var headerNav = document.getElementById('header-nav-demo');
+
+  if (!headerNav) {
+    return;
+  }
+
+  /**
+   * Initialize Each Vertical Nav
+   *
+   * @return {void}
+   */
+  var demoNavActions = function demoNavActions() {
+    var navTriggers = Array.from(document.querySelectorAll('.header-nav-demo-trigger'));
+    var spiritNavActiveClass = '-js-spirit-primary-nav-active';
+
+    if (!navTriggers) {
+      return;
+    }
+
+    /**
+     * Toggle Navigation - add or remove class to body if toggle clicked
+     *
+     * @param {object} e event
+     */
+    var toggleNavigation = function toggleNavigation(e) {
+      e.preventDefault();
+      document.body.classList.toggle(spiritNavActiveClass);
+    };
+
+    /**
+     * Loop through nav triggers
+     */
+    navTriggers.forEach(function (n) {
+      n.addEventListener('click', toggleNavigation);
+    });
+  };
+
+  demoNavActions();
+};
+
+demoPrimaryNavigation();

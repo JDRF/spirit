@@ -190,9 +190,7 @@ class SpiritDocSiteNavToggle {
     };
 
     const toggleNav = function () {
-      console.log('toggled');
       const expanded = toggle.getAttribute('aria-expanded');
-      const firstLink = navContain.querySelectorAll('.spirit-vertical-nav__link')[0];
 
       if (expanded === 'false') {
         toggle.setAttribute('aria-expanded', 'true');
