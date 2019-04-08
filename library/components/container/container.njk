@@ -5,14 +5,15 @@
         background_color=false,
         inner_background_color=false,
         painted_edge=false,
-        wave_bg=false
+        wave_bg=false,
+        class=false
         ) %}
     {% if wave_bg %}
       {% set background_color=false %}
       {% set inner_background_color=false %}
       {% set painted_edge=false %}
     {% endif %}
-    <div class="spirit-container{{' spirit-context--' + background_color if background_color}}">
+    <div class="spirit-container{{' spirit-context--' + background_color if background_color}}{{ ' ' + class if class }}">
       <div class="spirit-container__inner{{' spirit-container__inner--' + size if size }}{{' spirit-container__inner--padding-top-' + padding_top if padding_top}}{{' spirit-container__inner--padding-bottom-' + padding_bottom if padding_bottom}}{{' spirit-container__inner--painted-edge-' + painted_edge if painted_edge}}{{' spirit-context--' + inner_background_color if inner_background_color}}">
         {% if (painted_edge==='top' or painted_edge==='both') and (background_color or inner_background_color) %}
           {{ container_brush_svg(top=true) }}

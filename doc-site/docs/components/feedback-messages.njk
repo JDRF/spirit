@@ -10,8 +10,11 @@
 {% endblock %}
 
 {% block page_shell_content %}
+  <h2 class="spirit-doc-hidden-heading" id="variations">Variations</h2>
   {% filter markdown %}
       <h2 class="spirit-doc-hidden-heading">Variations</h2>
+  {% endfilter %}
+  {% filter markdown %}
       ### Informational Messages
       Informational messages communicate non-critical information.
   {% endfilter %}

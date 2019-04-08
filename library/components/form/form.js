@@ -10,3 +10,24 @@ class SpiritFormInputMasks {
 }
 
 SpiritFormInputMasks.enable();
+
+class SpiritFormPasswordToggle {
+  static enable() {
+    const passwordToggleInputs = Array.from(document.querySelectorAll('.spirit-form__input--password-toggle'));
+    passwordToggleInputs.forEach(i => {
+      const input = i.querySelector('input');
+      const trigger = i.querySelector('a');
+      trigger.addEventListener('click', e => {
+        if (input.type === 'text') {
+          input.type = 'password';
+          trigger.textContent = 'Show';
+        } else {
+          input.type = 'text';
+          trigger.textContent = 'Hide';
+        }
+      });
+    });
+  }
+}
+
+SpiritFormPasswordToggle.enable();

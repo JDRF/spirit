@@ -1,0 +1,404 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+  {% filter markdown %}
+      # Lists
+
+      <p class="spirit-subhead">Display a simple list of stacked items or compose a more complex arrangement of elements.</p>
+  {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+
+  {% set component_example %}
+    {% call library.list() %}
+        {{ library.list_item(title_text="Frederick Banting", icon_name="user", meta="JDRF One Walk, Denver 2018") }}
+        {{ library.list_item(title_text="Frederick Eloie", icon_name="user", meta="JDRF One Walk, New Orleans 2019") }}
+        {{ library.list_item(title_text="Frederick Sacks", icon_name="user", meta="JDRF 2019 Saratoga Springs Ride to Cure Diabetes") }}
+    {% endcall %}
+  {% endset %}
+
+  {% filter markdown %}
+    ## Example
+  {% endfilter %}
+
+  {{ esds_doc.html_example_list(example=component_example) }}
+
+  {% filter markdown %}
+      ## Elements
+      A List item can include various elements, depending on context and intended behavior.
+      
+      ### Title
+      The title describes the list item using a word or phrase. Title is the only required element for a list item. 
+      
+      #### Text
+      The default is a simple, unlinked word or phrase that describes the list item. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Washington, DC") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+      #### Linked
+      If the item is an invitation to read more, link the title to the page with more details. Except for conventional patterns familiar to users, such as search results, always reinforce a linked title with a separate action link. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Delaware Chapter",href="#") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+
+
+      ### Microcopy
+      Microcopy supports the item title with additional details. 
+      
+      #### Title Metadata
+      Use title metadata for important but terse details, such as an donation amount or event date. It is positioned opposite the title on the same row. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Frederick Banting", title_meta="$9999") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+      #### Item Metadata
+      Use item metadata to supplement the title with useful structured data, such as a location or date. Each list item (without Caption) can have up to two item metadata fields.
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Frederick Banting", meta="September 13, 2018") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+      #### Item Caption 
+      Use item caption to summarize the item. This is useful for lists of articles or press releases. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Distinction in Innovation Award", caption="JDRF celebrates Sherry and Larry Benaroya’s noteworthy contributions as volunteer supporters with the Distinction in Innovation Award.") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+
+
+      ### Action links
+      Invite action with one or two links per list item, positioning underneath the item or to the right of the title. Match the first action's link to the title's link.
+      
+      #### Underneath
+      Use action links underneath the item when the items often have long titles that may wrap. Although the component prevents conflict, it is more aesthetically pleasing to put the links underneath. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Hy-Vee Finishes Strong at JDRF Ride to Cure Diabetes® in La Crosse, WI", href_text="Read More", href="#", href_secondary_text="Donate", href_secondary="#") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+      #### On the right
+      Use action links on the right for single-line list items, when you want to keep the list as compact as possible. Avoid using item metadata with action links on the right. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Christine Jakubowski", href_text="View", href="#", href_secondary_text="Donate", href_secondary="#", links_right=true) }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+
+
+      ### Numbers (Ordered List) 
+      Use an ordered list for a leaderboard. Numbers are supplied automatically. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list(ordered="true") %}
+          {{ library.list_item(title_text="John Hughes") }}
+          {{ library.list_item(title_text="Jeff Weiser") }}
+          {{ library.list_item(title_text="Christine Jakubowski") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+  ### Avatar
+  
+  Use an avatar to personalize and differentiate list items. If no image is available, fallback to an icon placeholder. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="John Hughes", icon_name="user") }}
+          {{ library.list_item(title_text="Jeff Weiser", icon_name="user") }}
+          {{ library.list_item(title_text="Christine Jakubowski", avatar_src="https://picsum.photos/300/100?image=64") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+
+
+      ### Icon
+      Use icons in lists displaying various types of content to increase scannability and help differentiate list items. 
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+        {{ library.list_item(title_text="Frederick Banting", icon_name="user", meta="JDRF One Walk, Denver 2018", href_text="View Participant", href="#", links_right=false) }}
+        {{ library.list_item(title_text="JDRF One Walk, Four Rivers 2018", icon_name="calendar", href_text="View Event", href="#", links_right=false) }}
+        {{ library.list_item(title_text="Frederick Sacks", icon_name="user", meta="JDRF 2019 Saratoga Springs Ride to Cure Diabetes", href_text="View Rider", href="#", links_right=false) }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+
+      ### Photo
+      Use a photo to differentiate list items and/or to support an item title. Photos can be positioned to the left (default) or right. 
+
+      #### Left (Default)
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="Ravens rookie tight end Mark Andrews inspires fellow Type 1 diabetics to follow their dreams", href_text="Read More", href="#", meta="09/09/2018 – Baltimore Sun", image_src="https://picsum.photos/300/300?image=63") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+      #### Right
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="How To Organize The Perfect Fundraising Gala", href_text="Read More", href="#", meta="08/28/2018 – Forbes", image_src="https://picsum.photos/300/300?image=58", image_right=true) }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+
+
+      ## Sizes
+      Lists can be scaled for a variety of scenarios. Scaling only affects the item title, and thus the visual prominence of the list. The default (extra large) is recommended for most situations. 
+      
+      #### Extra Large (default)
+  {% endfilter %}
+
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="How To Organize The Perfect Fundraising Gala", href_text="Read More", href="#", meta="08/28/2018 – Forbes", image_src="https://picsum.photos/300/300?image=63", size="xl") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+
+  {% filter markdown %}
+
+      #### Large
+  {% endfilter %}
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="How To Organize The Perfect Fundraising Gala", href_text="Read More", href="#", meta="08/28/2018 – Forbes", image_src="https://picsum.photos/300/300?image=63", size="l") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+  {% filter markdown %}
+
+      #### Medium
+  {% endfilter %}
+    {% set component_example %}
+      {% call library.list() %}
+          {{ library.list_item(title_text="How To Organize The Perfect Fundraising Gala", href_text="Read More", href="#", meta="08/28/2018 – Forbes", image_src="https://picsum.photos/300/300?image=63", size="m") }}
+      {% endcall %}
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+      examples=[ { example: component_example } ],
+      code_snippet_source=(component_example)
+      )
+    }}
+  {% filter markdown %}
+
+      ## Guidelines
+      
+      ### Use When
+      * Linking several content blurbs to the corresponding content pages. List is the “hub” in the “hub and spoke” navigation model. 
+      * Listing a homogeneous set of items, such as people, teams, donors, donations, events, or chapters. 
+      
+      #### Do not use when
+      * You need to structure prose text into an numbered or bulleted list. Use Long Form Text. 
+      
+      ### Visual Language
+      * Use a consistent arrangement of elements for every item in a list. For example, if some items have an avatar and others don’t, use a placeholder image to keep the list balanced and consistent.  
+      
+      ### Behavior
+      * Link images, avatars and icons to the same destination as the item title. 
+      
+      ### Editorial
+      
+      #### Item Titles
+      * Keep list item titles brief. 
+      * Match the release title if linking to a press release. 
+      * For named items, like people, teams, or events, just use the name. Further explanation is unnecessary. 
+      * Consider truncating redundant information from item titles and including it in a heading above the list instead. A list entitled “Chapters” should contain a “New York” item, rather than “New York Chapter”. 
+      
+      #### Numbering
+      * Use an ordered list when the rank of items is significant, such as on a leaderboard. 
+      * Don’t number items to convey chronological order, such as press releases. Use an unordered list. 
+      
+      #### Action Links
+      * Always use an action link when linking an item. Add redundant links on the title, icon, avatar, and image for the default action.  
+      * Keep action labels terse. One or two words is ideal. 
+      * Keep the number of actions to a minimum. One or two links is ideal. 
+      
+      #### Title Metadata
+      * Limit this to dollar amounts, counts, or dates. Due to sharing a line with the title, this functions best when it is very short and a number. 
+      
+      #### Metadata
+      * Add relevant metadata to each list item to support your messaging goals. For example, include dates in a list of press releases or donation amounts in a list of donations. 
+
+      #### Item Caption
+      * Keep the caption brief. One sentence is ideal. 
+
+      ## Code Reference
+      
+  {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+    data=[
+      {
+        class: '.spirit-list',
+        applies_to: '`<ul>` or `<ol>`',
+        outcome: 'Applies list styling to an overall list. `<ol>` adds item numbers. '
+      },
+      {
+        class: '.spirit-list-item',
+        applies_to: '<li>',
+        outcome: 'Applies list styling to a list item.'
+      },
+      {
+        class: '.spirit-list-item--[size]',
+        applies_to: '.spirit-list-item',
+        outcome: 'Use `--xl`, `--l`,  `--m.` Default size (xl) is implied and does not need to be specified.'
+      },
+      {
+        class: '.spirit-list-item__content--links-right',
+        applies_to: '.spirit-list-item__content',
+        outcome: 'Switches layout on content links to align them to the right of the list item.'
+      },
+      {
+        class: '.spirit-list-item--avatar',
+        applies_to: '.spirit-list-item',
+        outcome: 'Changes list item layout to support an avatar.'
+      },
+      {
+        class: '.spirit-list-item--image',
+        applies_to: '.spirit-list-item',
+        outcome: 'Changes list item layout to support an image.'
+      },
+      {
+        class: '.spirit-list-item--image--right',
+        applies_to: '.spirit-list-item--image',
+        outcome: 'Switches the layout on the image to align it to the right of the list item. '
+      }
+    ]) }}
+
+
+{% endblock page_shell_content %}

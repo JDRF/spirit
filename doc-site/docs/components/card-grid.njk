@@ -1,0 +1,41 @@
+{% extends 'templates/base.njk' %}
+{% block body %}
+
+  {% call library.container(padding_top="medium", padding_bottom="medium") %}
+    <!-- card grid starts here -->
+    {% call library.card_grid(class="spirit-card-grid--3-up") %}
+      {{ library.card(
+        img_src='/images/card/diagnosed.jpg',
+        title_text="Just Diagnosed? Start Here",
+        link_text="Learn More",
+        body_text="Adjusting to life with T1D isn’t always easy, but we’re here to help. Find everything you need to establish your new normal.") }}
+      {{ library.card(
+        img_src='/images/card/basics.jpg',
+        title_text="T1D Basics",
+        link_text="Learn More",
+        body_text="Learn what causes T1D, how it affects the body, what treatments are available, and how to find health insurance to help pay for care.") }}
+      {{ library.card(
+        img_src='/images/card/living_with.jpg',
+        title_text="Living With T1D",
+        link_text="Learn More",
+        body_text="Get practical tips for dealing with T1D at all ages. Topics include nutrition, driving safety, and how to stay healthy while away at school or on vacation.") }}
+      {{ library.card(
+        img_src='/images/card/technology.jpg',
+        title_text="Technology",
+        link_text="Learn More",
+        body_text="Find out the latest on the T1D tech that helps you stay healthier.") }}
+      {{ library.card(
+        img_src='/images/card/peak.jpg',
+        title_text="For Healthcare Professionals",
+        link_text="Learn More",
+        body_text="The JDRF PEAK program explores the environmental, dietary, physiological and psychological elements that impact physical activity in people with type 1 diabetes.") }}
+      {{ library.card(
+        img_src='/images/card/spanish.jpg',
+        title_text="Recursos en Español",
+        link_text="Aprende Más",
+        body_text="Ya sea que necesite asesoramiento de alguien que haya estado allí o que esté buscando herramientas educativas para ayudarlo a usted o a su ser querido a manejar la enfermedad, la JDRF está aquí para ayudarle.") }}
+    {% endcall %}
+    <!-- card grid ends here -->
+  {% endcall %}
+
+{% endblock body %}

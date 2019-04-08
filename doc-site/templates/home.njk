@@ -1,0 +1,6 @@
+{% extends 'templates/base.njk' %}
+{% set show_content_intro = show_content_intro | default(true) %}
+{% set show_page_navigation = show_page_navigation | default(true) %}
+{% block body %}
+    {% block page_shell_content %}{% endblock page_shell_content %}
+{% endblock body %}

@@ -288,7 +288,12 @@ font :
         normal:        1.231
         breakpoint-l : 1.25
 
-
+ratio:
+  portrait : 133.3333%
+  square: 100%
+  tall-wide: 66.66667%
+  wide: 56.25%
+  short-wide: 33.3333%
 breakpoint : 
   xs : 0
   s  : 375px

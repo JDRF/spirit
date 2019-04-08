@@ -587,6 +587,7 @@
 
   {% endfilter %}
   {% set form_grid_example %}
+      {% call library.form() %}
         {% call library.form_fieldset() %}
             {{ library.form_legend(text="Contributor") }}
             <div class="spirit-row">
@@ -749,6 +750,7 @@
               </div>
             </div>
         {% endcall %}
+      {% endcall %}
   {% endset %}
 
   {{ esds_doc.code_example_pair(
@@ -762,6 +764,21 @@
       Use the standard grid to lay out forms with multiple inputs per line.
   {% endfilter %}
   {% set form_grid_example %}
+      {% call library.form() %}
+        <div class="spirit-row">
+            <div class="spirit-col-md-6">
+              {% call library.form_field_group() %}
+                  {{ library.form_label(text="First Name", for="full-form-first-name") }}
+                  {{ library.form_input(id="full-form-first-name") }}
+              {% endcall %}
+            </div>
+            <div class="spirit-col-md-6">
+              {% call library.form_field_group() %}
+                  {{ library.form_label(text="Last Name", for="full-form-last-name") }}
+                  {{ library.form_input(id="full-form-last-name") }}
+              {% endcall %}
+            </div>
+          </div>
         {% call library.form_fieldset() %}
             {{ library.form_legend(text="Billing Address") }}
             {% call library.form_field_group() %}
@@ -809,6 +826,7 @@
               </div>
             </div>
         {% endcall %}
+      {% endcall %}
   {% endset %}
 
   {{ esds_doc.code_example_pair(

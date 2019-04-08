@@ -6,13 +6,13 @@
 
       <p class="spirit-subhead">Space defines the whitespace between elements, setting visual standards for proximity, rhythm, and alignment.</p>
   {% endfilter %}
+  {% filter markdown %}
+      Three spatial concepts are woven into the fabric of all Spirit system components, creating a unified visual order: <b>inset</b> space within components, vertical <b>stack</b> space between elements and components, and horizontal <b>inline</b> spacing between elements in a row. 
+  {% endfilter %}
 {% endblock %}
 
 
 {% block page_shell_content %}
-  {% filter markdown %}
-      Three spatial concepts are woven into the fabric of all Spirit system components, creating a unified visual order: <b>inset</b> space within components, vertical <b>stack</b> space between elements and components, and horizontal <b>inline</b> spacing between elements in a row. 
-  {% endfilter %}
   {% filter markdown %}
       ## Inset
       An inset applies padding on all sides of a block or inline element. By default, all four sides are equal. 

@@ -1,5 +1,5 @@
 {% macro form(
-            action='form/processor', 
+            action='form/processor',
             class=false,
             method='post') %}
     <form class="spirit-form{{ ' ' + class  if class }}" method="{{ method }}" action="{{ action }}">
@@ -20,7 +20,7 @@
 
 
 {% macro form_legend(
-            class=false, 
+            class=false,
             text="A grouping of form fields",
             hidden=false) %}
     <legend class="spirit-form__legend{{ ' ' + class  if class }}{{ ' spirit-form__legend--hidden' if hidden }}">{{ text }}</legend>
@@ -28,7 +28,7 @@
 
 
 {% macro form_field_group(
-            class=false, 
+            class=false,
             error=false,
             horizontal=false) %}
     <div class="spirit-form__field-group{{ ' spirit-form__field-group--horizontal' if horizontal }}{{ ' spirit-form--error' if error }}{{ ' ' + class  if class }}">
@@ -50,7 +50,9 @@
             type='text',
             value=false,
             inputmode=false,
-            valid) %}
+            valid,
+            password_toggle=false,
+            password_toggle_visible=false) %}
 
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
@@ -84,43 +86,58 @@
         {% endif %}
     {% endif %}
 
-    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}">
-        <input 
-        class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}" 
+    {% if password_toggle and password_toggle_visible %}
+        {% set type = 'text' %}
+    {% endif %}
+
+    <div class="spirit-form__input{{ ' spirit-form__input--with-icon' if validation_icon }}{{ ' ' + validation_class if validation_class }}{{ ' spirit-form__input--password-toggle' if password_toggle }}">
+        <input
+        class="spirit-form__input-field{{ ' ' + class if class }}{{ maskClass }}"
         type="{{ type }}"
         {% if 'numeric' == inputmode %} inputmode="numeric" {% endif %}
-        {% if id %} id="{{ id }}" {% endif %} 
-        {% if name %} name="{{ name }}" {% endif %} 
-        {% if value %} value="{{ value }}" {% endif %} 
-        {{ 'disabled' if disabled }} 
+        {% if id %} id="{{ id }}" {% endif %}
+        {% if name %} name="{{ name }}" {% endif %}
+        {% if value %} value="{{ value }}" {% endif %}
+        {{ 'disabled' if disabled }}
         {% if placeholder %} placeholder="{{ placeholder }}" {% endif %}
         {% if describedby %} aria-describedby="{{describedby}}" {% endif %}
         >
 
         {% if validation_icon %}
             <div class="spirit-form__input-icon-wrap">
-              {{ icon(name=validation_icon, class="spirit-form__input-icon") }}  
+              {{ icon(name=validation_icon, class="spirit-form__input-icon") }}
             </div>
+        {% endif %}
+        {% if password_toggle %}
+            {% if password_toggle_visible %}
+                {% set password_toggle_text = "Hide" %}
+            {% else %}
+                {% set password_toggle_text = "Show" %}
+            {% endif %}
+          {{ link(class="spirit-form__input-password-toggle", text=password_toggle_text, href="#") }}
         {% endif %}
     </div>
 {% endmacro %}
 
+
+
 {% macro form_label(
-            class=false, 
-            for=false, 
-            optional=false, 
-            required=true, 
+            class=false,
+            for=false,
+            optional=false,
+            required=true,
             required_tooltip_text="This field is required.",
             text="First Name",
             disabled=false,
-            annotation) %}
+            annotation,
+            accessibly_hidden) %}
 
     {% if optional %}
         {% set required = false %}
     {% endif %}
-    
-    <label 
-            class="spirit-form__label{{ ' ' + class if class }}{{ ' spirit-form__label--disabled' if disabled }}"
+
+    <label
+            class="spirit-form__label{{ ' ' + class if class }}{{ ' spirit-form__label--disabled' if disabled }}{{ ' spirit-form__label--accessibly-hidden' if accessibly_hidden }}"
         {% if for %}
             for="{{ for }}"
         {% endif %}>
@@ -145,10 +162,10 @@
 
 {% macro form_checkbox(
             class=false,
-            checked=false, 
-            describedby=false, 
-            disabled=false, 
-            id=false, 
+            checked=false,
+            describedby=false,
+            disabled=false,
+            id=false,
             label='I accept the terms and conditions',
             name=false,
             optional=false,
@@ -173,8 +190,8 @@
     {% endif %}
 
     <label class="spirit-form__checkbox{{ ' ' + class if class }}{{ ' spirit-form__checkbox--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}" for="{{ id }}">
-        <input id="{{ id }}" type="checkbox" class="spirit-form__checkbox-input" 
-            {{ 'checked' if checked }} 
+        <input id="{{ id }}" type="checkbox" class="spirit-form__checkbox-input"
+            {{ 'checked' if checked }}
             {{ 'disabled' if disabled }}
             {% if name %} name="{{ name }}" {% endif %}
             {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}
@@ -209,20 +226,20 @@
 
 
 {% macro form_radio(
-            checked=false, 
-            class=false, 
-            describedby=false, 
-            disabled=false, 
-            id=false, 
-            label='Choose this one', 
+            checked=false,
+            class=false,
+            describedby=false,
+            disabled=false,
+            id=false,
+            label='Choose this one',
             name=false,
             optional=false,
-            required=false, 
+            required=false,
             required_tooltip_text="Please check the box",
             value='blue',
             valid) %}
     {% set random_number = range(0, 100000) | random %}
-    
+
     {% if valid == true %}
         {% set validation_class = 'spirit-form__radio--valid' %}
     {% elif valid == false %}
@@ -232,13 +249,13 @@
     {% if id == false %}
         {% set id = label | replace(' ', '-') | lower + '--' + random_number %}
     {% endif %}
-    
+
     {% if name == false %}
         {% set name = 'group-name--' + random_number %}
     {% endif %}
 
     <label class="spirit-form__radio{{ ' ' + class if class }}{{ ' spirit-form__radio--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}" for="{{ id }}">
-        <input id="{{ id }}" name="{{ name }}" value="{{ value }}" type="radio" class="spirit-form__radio-input" 
+        <input id="{{ id }}" name="{{ name }}" value="{{ value }}" type="radio" class="spirit-form__radio-input"
             {{ 'checked' if checked }} {{ 'disabled' if disabled }} {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}/>
         <span class="spirit-form__radio-inner">
             <span class="spirit-form__radio-visual"></span>
@@ -289,14 +306,14 @@
         {% set validation_class = 'spirit-form__select--invalid' %}
     {% endif %}
     <div class="spirit-form__select{{ ' ' + class if class }}{{ ' spirit-form__select-input--disabled' if disabled }}{{ ' ' + validation_class if validation_class }}">
-        <select class="spirit-form__select-input" 
+        <select class="spirit-form__select-input"
                 {% if id %}
                     id="{{ id }}"
-                {% endif %} 
+                {% endif %}
                 {% if name %}
                     name="{{ name }}"
-                {% endif %}                
-                {{ 'disabled' if disabled }} 
+                {% endif %}
+                {{ 'disabled' if disabled }}
                 {% if describedby %} aria-describedby="{{ describedby }}" {% endif %}>
             {% for option in options %}
                 {{ form_select_option_builder(option) }}
@@ -328,12 +345,12 @@
 
 
 {% macro form_textarea(
-            class=false, 
-            describedby=false, 
-            disabled=false, 
-            id=false, 
+            class=false,
+            describedby=false,
+            disabled=false,
+            id=false,
             name=false,
-            placeholder=false, 
+            placeholder=false,
             value=false,
             valid) %}
     {# Set a modifier class based on the valid argument #}
@@ -343,21 +360,21 @@
         {% set validation_class = 'spirit-form__textarea--invalid' %}
     {% endif %}
 
-    <textarea class="spirit-form__textarea{{ ' ' + class  if class }}{{ ' ' + validation_class if validation_class }}" 
+    <textarea class="spirit-form__textarea{{ ' ' + class  if class }}{{ ' ' + validation_class if validation_class }}"
         {% if id %}
             id="{{ id }}"
-        {% endif %} 
+        {% endif %}
         {% if name %}
             name="{{ name }}"
         {% endif %}
         {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
-        {{ 'disabled' if disabled }}  
+        {{ 'disabled' if disabled }}
         {% if describedby %} aria-describedby="{{describedby}}" {% endif %}>{{ value if value }}</textarea>
 {% endmacro %}
 
 
 {% macro form_field_error(
-            class=false,  
+            class=false,
             id=false,
             text='This field is required',
             showIcon=false) %}
@@ -373,7 +390,7 @@
 
 
 {% macro form_microcopy(
-            class=false, 
+            class=false,
             id=false,
             text="Passwords must contain a letter, a number, and your favorite 80's band name") %}
     <span class="spirit-form__microcopy{{ ' ' + class  if class }}" {% if id %} id="{{ id }}" {% endif %}>
@@ -392,13 +409,13 @@
 {% endmacro %}
 
 {% macro form_checkbox_group(
-            class=false, 
+            class=false,
             label=false,
             optional=false,
             required=false,
             required_tooltip_text="Please select at least one option.",
             valid) %}
-    
+
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
         {% set validation_class = 'spirit-form__checkbox-group--valid' %}
@@ -428,7 +445,7 @@
 {% endmacro %}
 
 {% macro form_radio_group(
-            class=false, 
+            class=false,
             label=false,
             optional=false,
             required=false,

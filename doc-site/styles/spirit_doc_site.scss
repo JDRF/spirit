@@ -4,6 +4,7 @@
 @import '../node_modules/@jdrfhq/spirit/styles/mixins/box-sizing';
 @import '../node_modules/@jdrfhq/spirit/styles/mixins/color';
 @import '../node_modules/@jdrfhq/spirit/styles/mixins/typography';
+@import '../node_modules/@jdrfhq/spirit/styles/mixins/elevation';
 @import 'shared/typography';
 @import 'doc_components/esds_doc_component_overrides';
 
@@ -24,10 +25,26 @@
 // Page-specific styles
 @import 'docs/buttons_doc';
 @import 'docs/space_doc';
+@import 'docs/doc_home';
 
 body {
   // Basic reset
   font-family: $spirit-font-family-sans-serif;
   margin: 0;
   padding: 0;
+}
+
+// Markdown Table Styling
+.spirit-doc-page-shell__content .spirit-long-form-text table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th,
+  td {
+    padding: $spirit-space-inset-1-x;
+  }
+
+  td {
+    border: solid 1px $spirit-color-grey-95;
+  }
 }

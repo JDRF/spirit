@@ -5,23 +5,35 @@
   width: 100%;
 
   .esds-doc-page-navigation__list {
+    @include spirit-typography-reset();
     padding-left: 0;
     padding-right: 0;
+    padding-top: $spirit-space-generic-1-x;
   }
+}
+
+.esds-doc-page-navigation__item {
+  display: block;
+  font-size: $spirit-font-size-s;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
 }
 
 .esds-doc-page-navigation__link {
   color: $spirit-text-color-primary;
-  font-size: $spirit-font-size-s;
+  font-size: inherit;
   font-weight: $spirit-font-weight-semibold;
-  padding: $spirit-space-inset-1-x;
-  padding-left: 0;
-  padding-right: 0;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  padding-bottom: $spirit-space-generic-1-x;
+  padding-top: $spirit-space-generic-1-x;
 
   .esds-doc-page-navigation__item--child & {
     color: $spirit-text-color-secondary;
     font-weight: $spirit-font-weight-medium;
-    padding-left: $spirit-space-generic-2-x;
+    padding-left: $spirit-space-inset-3-x;
   }
 
   &:hover,
@@ -31,7 +43,7 @@
 }
 
 .esds-doc-page-navigation__inner {
-  max-width: 152px;
+  max-width: 200px;
   padding: 0;
 }
 

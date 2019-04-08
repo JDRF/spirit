@@ -314,20 +314,8 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
     }
   }
 
-  .spirit-caption,
   figure figcaption {
-    @include spirit-body-text-s;
-  }
-
-  .spirit-caption {
-    margin-bottom: $spirit-space-generic-4-x;
-    margin-top: $spirit-space-generic-2-x;
-  }
-
-  figure .spirit-caption,
-  figure figcaption {
-    margin-bottom: 0;
-    margin-top: $spirit-space-generic-1-x;
+    @include spirit-image-caption;
   }
 
   .spirit-image-left,
@@ -350,7 +338,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
 
   figure.spirit-image-center img,
   figure.spirit-image-center figcaption
-  figure.spirit-image-center .spirit-caption {
+  figure.spirit-image-center .spirit-image__caption {
     margin: 0 auto;
   }
 
@@ -359,8 +347,8 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
     margin-top: 0;
   }
 
-  .spirit-image-left .spirit-caption,
-  .spirit-image-right .spirit-caption {
+  .spirit-image-left .spirit-image__caption,
+  .spirit-image-right .spirit-image__caption {
     margin-bottom: 0;
   }
 

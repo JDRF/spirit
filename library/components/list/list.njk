@@ -25,6 +25,7 @@
   href_secondary_text="Donate",
   image_src=false,
   image_right=false,
+  image_alt="Test Image",
   avatar_src=false,
   icon_name=false,
   meta=false,
@@ -41,7 +42,11 @@
             {% if href %}
               <a class="spirit-list-item__link-image" href="{{href}}">
             {% endif %}
-              <img class="spirit-list-item__image" src="{{image_src}}">
+              {{ image(
+                type="standard",
+                img_src=image_src,
+                img_alt_text=image_alt
+              ) }}
             {% if href %}
               </a>
             {% endif %}
@@ -52,7 +57,10 @@
           {% if href %}
             <a class="spirit-list-item__link-avatar" href="{{href}}">
           {% endif %}
-           <img class="spirit-list-item__image" src="{{avatar_src}}">
+            {{ image(
+              img_src=avatar_src,
+              img_alt_text=image_alt
+            ) }}
           {% if href %}
             </a>
           {% endif %}
@@ -103,7 +111,11 @@
           {% if href %}
             <a class="spirit-list-item__link-image" href="{{href}}">
           {% endif %}
-            <img class="spirit-list-item__image" src="{{image_src}}">
+            {{ image(
+              type="standard",
+              img_src=image_src,
+              img_alt_text=image_alt
+            ) }}
           {% if href %}
             </a>
           {% endif %}
