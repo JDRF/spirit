@@ -14,7 +14,35 @@
     additional_content
   #}
 
-  
+  {% set new %}
+    * [Home Page](/) - Home Page doc site page added. This update includes hamburger navigation and layout updates, general doc site style updates, and content updates.
+    * [Card](/components/card.html) - Card doc site page added in Components
+    * [List](/components/lists.html) - List doc site page added in Components
+    * [Page Shell](/components/page-shell.html) - Page Shell doc site page added in Components
+    * [Depth](/visual-style/depth.html) - Depth doc site page added in Visual Style
+    * [Image Ratio](/tokens.html#image-ratio) - Token variables added for default image size ratios
+    * **Image** - Code - Image macro and sink page added to library for consistent image markup output and styles when `object-fit` is used. Macro now used in card and list components
+    * **Form Input with Button** - Code - Library sink page and styles added along with updates to form field group macro to allow for form input with a button
+    * **Password Input with Toggle** - Code - Library sink page and styles added along with updates to form input macro to allow for password input with toggle
+  {% endset %}
+
+  {% set enhancements %}
+    * [Card](/components/card.html) - Update image output and styles using new Image macro in library for enhanced consistency and xbrowser fixes
+    * [Card](/components/card.html) - Update images and text used for card demo purposes for better quality and to match existing [JDRF.org](https://www.jdrf.org/) content
+    * [List](/components/lists.html) - Update image output and styles using new Image macro in library for enhanced consistency and xbrowser fixes
+    * [Long Form Text](/components/long-form-text.html#specialized-styles) - Alignment classes and styles added
+    * [Forms](/components/forms.html#form-grid) - Refine form grid to use maintain 16px gutters across all breakpoints
+    * [Icons](/visual-style/icons.html) - Add JDRF icon to icon library
+    * [Getting Started for Designers](/getting-started.html#for-designers) - Content and links updated
+    * **Form Legend** - Style - Override default browser styles in reset
+    * **Spirit Button** - Style - When in Long Form Text, remove default browser margin in library sink page
+  {% endset %}
+
+  {% set fixes %}
+    * [Icons](/visual-style/icons.html) - Update provided svg icons to all use paths instead of strokes for cross browser compatibility and more reliable styling and output
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.0", date="3/08/2019", new=new, enhancements=enhancements, fixes=fixes) }}
 
   {% set enhancements %}
     * **Form** - Using npm package [inputmask](https://www.npmjs.com/package/inputmask), added the ability to add date and phone input masks
