@@ -14,6 +14,13 @@
     additional_content
   #}
 
+  {% set enhancements %}
+    * [Card](/components/card.html) - Update card to output correct image size ratio (`$spirit-ratio-wide`)
+    * [Getting Started Javascript](/getting-started.html#javascript) - Script code samples updated
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.1", date="6/26/2019", enhancements=enhancements) }}
+
   {% set new %}
     * [Home Page](/) - Home Page doc site page added. This update includes hamburger navigation and layout updates, general doc site style updates, and content updates.
     * [Card](/components/card.html) - Card doc site page added in Components
