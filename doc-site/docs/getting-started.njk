@@ -160,17 +160,17 @@
 
     ##### Component Scripts
     {% endfilter %}
-    {{ esds_doc.code_snippet(source='<script src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.min.js" rel="stylesheet"></script>') }}
+    {{ esds_doc.code_snippet(source='<script type="text/javascript" src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.min.js"></script>') }}
     {% filter markdown %}
 
     ##### Spirit Dependencies - Spirit dependencies (i.e. svg4everybody)
     {% endfilter %}
-    {{ esds_doc.code_snippet(source='<script src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.dependencies.min.js" rel="stylesheet"></script>') }}
+    {{ esds_doc.code_snippet(source='<script type="text/javascript" src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.dependencies.min.js"></script>') }}
     {% filter markdown %}
 
     ##### Spirit Bundle - Component scripts, bundle only scripts (i.e. calls to dependencies), and spirit dependencies.
     {% endfilter %}
-    {{ esds_doc.code_snippet(source='<script src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.bundle.min.js" rel="stylesheet"></script>') }}
+    {{ esds_doc.code_snippet(source='<script type="text/javascript" src="https://cdn.jdrf.design/v/' + spirit_project_data.version + '/scripts/dependencies/spirit.bundle.min.js"></script>') }}
     {% filter markdown %}
 
     Use these scripts as needed and at the direction of the project.
