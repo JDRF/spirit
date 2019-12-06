@@ -350,7 +350,9 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
 
 .spirit-form__checkbox {
   @include spirit-box-sizing;
-  @include spirit-typography-reset;
+  @include spirit-typography-reset(
+    $color: $spirit-checkbox-checkmark-fill-color
+  );
   display: block;
   font-size: 0;
   margin: $spirit-checkbox-margin;
