@@ -182,7 +182,7 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
   @include spirit-typography-reset(
     $color: $spirit-text-input-color,
     $font-size: $spirit-text-input-font-size,
-    $font-weight: $spirit-font-weight-medium
+    $font-weight: $spirit-font-weight-regular
   );
   background-color: $spirit-text-input-background-color;
   border: $spirit-text-input-border;
@@ -242,7 +242,7 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
   @include spirit-typography-reset(
     $color: $spirit-textarea-color,
     $font-size: $spirit-textarea-font-size,
-    $font-weight: $spirit-font-weight-medium
+    $font-weight: $spirit-font-weight-regular
   );
   background-color: $spirit-textarea-background-color;
   border: $spirit-textarea-border;
@@ -284,7 +284,8 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
 // <label>
 $spirit-label-color:        $spirit-form-label-color;
 $spirit-label-font-family:  $spirit-form-font-family;
-$spirit-label-font-size:    $spirit-font-size-s;
+$spirit-label-font-size:    $spirit-font-size-m;
+$spirit-label-line-height:  $spirit-font-line-height-heading-level-3-normal;
 $spirit-label-margin:       $spirit-form-element-stack;
 $spirit-label-max-width:    $spirit-form-element-max-width;
 
@@ -293,7 +294,8 @@ $spirit-label-max-width:    $spirit-form-element-max-width;
   @include spirit-typography-reset(
     $color: $spirit-label-color,
     $font-size: $spirit-label-font-size,
-    $font-weight: $spirit-font-weight-semibold
+    $font-weight: $spirit-font-weight-medium,
+    $line-height: $spirit-label-line-height
   );
   display: block;
   margin: $spirit-label-margin;
