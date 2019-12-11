@@ -41,6 +41,9 @@ $spirit-form-element-height:                48px;
 $spirit-form-element-max-width:             none;
 $spirit-form-element-max-width-100:         100%;
 
+// line height
+$spirit-form-label-line-height:             1.3;
+
 // space
 $spirit-form-element-padding:               10px 12px;
 $spirit-form-element-stack:                 $spirit-space-stack-half-x;
@@ -285,7 +288,7 @@ $spirit-textarea-placeholder-color:   $spirit-form-element-placeholder-color;
 $spirit-label-color:        $spirit-form-label-color;
 $spirit-label-font-family:  $spirit-form-font-family;
 $spirit-label-font-size:    $spirit-font-size-m;
-$spirit-label-line-height:  $spirit-font-line-height-heading-level-3-normal;
+$spirit-label-line-height:  $spirit-form-label-line-height;
 $spirit-label-margin:       $spirit-form-element-stack;
 $spirit-label-max-width:    $spirit-form-element-max-width;
 
