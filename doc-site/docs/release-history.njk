@@ -15,6 +15,17 @@
   #}
 
   {% set enhancements %}
+    * [Button](/components/buttons.html) - Update font weight of buttons text to `$spirit-font-weight-semibold` for better layout componsitions
+    * [Form](/components/forms.html#input) - Update font weight of input and text-area elements to `$spirit-font-weight-regular` for better form consistency.
+  {% endset %}
+
+  {% set fixes %}
+    * [Form](/components/forms.html#checkbox-group) - Fixed issue with checkbox icons not being accessible when in selected state.
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.0.2", date="12/17/2019", enhancements=enhancements, fixes=fixes) }}
+
+  {% set enhancements %}
     * [Card](/components/card.html) - Update card to output correct image size ratio (`$spirit-ratio-wide`)
     * [Getting Started Javascript](/getting-started.html#javascript) - Script code samples updated
   {% endset %}
