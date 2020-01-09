@@ -15,6 +15,13 @@
       Use input to gather a short string of text or a number. Also known as a text box.
   {% endfilter %}
 
+  {% set input_with_button %}
+    {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
+      {{ library.form_input(type="email", id="email-signup") }}
+      {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
+    {% endcall %}
+  {% endset %}
+
   {{ esds_doc.code_example_pair(
     class='spirit-doc-site--forms-width-constraint',
     examples=[
@@ -26,6 +33,10 @@
       {
         example: library.form_input(placeholder="Optional"),
         label: "with Placeholder"
+      },
+      {
+        example: input_with_button,
+        label: "with Button"
       },
       {
         example: library.form_input(disabled=true),
@@ -40,7 +51,7 @@
         label: "Valid"
       } ],
     code_snippet_source=(
-      library.form_input() + library.form_input(placeholder="Optional") + library.form_input(disabled=true) + library.form_input(valid=false, attributes='aria-invalid="true"') + library.form_input(valid=true)
+      library.form_input() + library.form_input(placeholder="Optional") + input_with_button + library.form_input(disabled=true) + library.form_input(valid=false, attributes='aria-invalid="true"') + library.form_input(valid=true)
     )
     )
   }}
