@@ -114,7 +114,7 @@
             {% else %}
                 {% set password_toggle_text = "Show" %}
             {% endif %}
-          {{ link(class="spirit-form__input-password-toggle", text=password_toggle_text, href="#") }}
+          {{ link(class="spirit-form__input-password-toggle", text=password_toggle_text, role="button") }}
         {% endif %}
     </div>
 {% endmacro %}
