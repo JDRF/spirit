@@ -18,7 +18,7 @@ class SpiritFormPasswordToggle {
       const input = i.querySelector('input');
       const trigger = i.querySelector('a');
 
-      if ( 'Show' === trigger.textContent ) {
+      if (trigger.innerText === 'Show') {
         trigger.setAttribute('aria-pressed', 'false');
       } else {
         trigger.setAttribute('aria-pressed', 'true');
