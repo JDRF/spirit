@@ -15,13 +15,6 @@
       Use input to gather a short string of text or a number. Also known as a text box.
   {% endfilter %}
 
-  {% set input_with_button %}
-    {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
-      {{ library.form_input(type="email", id="email-signup") }}
-      {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
-    {% endcall %}
-  {% endset %}
-
   {{ esds_doc.code_example_pair(
     class='spirit-doc-site--forms-width-constraint',
     examples=[
@@ -33,10 +26,6 @@
       {
         example: library.form_input(placeholder="Optional"),
         label: "with Placeholder"
-      },
-      {
-        example: input_with_button,
-        label: "with Button"
       },
       {
         example: library.form_input(disabled=true),
@@ -51,7 +40,7 @@
         label: "Valid"
       } ],
     code_snippet_source=(
-      library.form_input() + library.form_input(placeholder="Optional") + input_with_button + library.form_input(disabled=true) + library.form_input(valid=false, attributes='aria-invalid="true"') + library.form_input(valid=true)
+      library.form_input() + library.form_input(placeholder="Optional") + library.form_input(disabled=true) + library.form_input(valid=false, attributes='aria-invalid="true"') + library.form_input(valid=true)
     )
     )
   }}
@@ -59,6 +48,25 @@
 
       * Use for a single word, number, or line of text. For longer text, use Text Area.
       * Wrap in a Form Group to attach label, microcopy, required indicator, and more.
+
+      ### Input with Button
+      To be used sparingly, in come cases an input with button may be used when an entire form consists of a single input field and a submit. When used, the submit button is included within the design of the input itself.
+
+  {% endfilter %}
+
+  {% set input_button %}
+    {% call library.form() %}
+      {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
+        {{ library.form_label(text="Email", for="email-signup") }}
+        {{ library.form_input(type="email", id="email-signup") }}
+        {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
+      {% endcall %}
+    {% endcall %}
+   {% endset %}
+
+  {{ esds_doc.code_example_pair( example=input_button ) }}
+
+  {% filter markdown %}
 
     ### Input Masks
 
@@ -434,6 +442,23 @@
       ##### Accessibility
 
       * Use a label with all form inputs, no exceptions. If adapting a form input for an application where the default visible label isn’t needed, hide the visible label with `.spirit-screenreader-only`. A `placeholder` does not replace a label — include a hidden `label` to supplement the placeholder.
+
+  {% endfilter %}
+        {% set input_label_placeholder_accessibility %}
+      {% call library.form_field_group() %}
+        {{ library.form_label(text="Search This Site", for="search", accessibly_hidden=true, required=false) }}
+        {{ library.form_input(type="text", id="search", placeholder="Search This Site") }}
+      {% endcall %}
+    {% endset %}
+
+      {{ esds_doc.code_example_pair(
+    examples=[
+      {
+        example: input_label_placeholder_accessibility
+      } ]
+    )
+  }}
+  {% filter markdown %}
       * For required fields, include both the visible required field indicator and the `.spirit-screenreader-only` required field message.
       Include a `for` attribute on each `label` with a value matching the `id` attribute on the corresponding `input`, `textarea` or `select`.
 
