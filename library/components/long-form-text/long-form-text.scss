@@ -99,12 +99,14 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 
   p,
+  .spirit-body-text-l,
   .spirit-body-l {
     @include spirit-body-text-l;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
   }
 
+  .spirit-body-text-m,
   .spirit-body-m {
     @include spirit-body-text-m;
     margin-bottom: $spirit-space-generic-2-x;
@@ -112,6 +114,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 
   small,
+  .spirit-body-text-s,
   .spirit-body-s {
     @include spirit-body-text-s;
     margin-bottom: $spirit-space-generic-2-x;
@@ -194,7 +197,6 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   blockquote p {
     @include spirit-h3;
   }
-
 
   blockquote {
     margin-bottom: $spirit-space-generic-4-x;
@@ -304,7 +306,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   iframe img,
   object video,
   object img,
-  picture img, {
+  picture img {
     margin: 0;
     padding: 0;
 
@@ -421,7 +423,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 }
 
-// Enable body text modifier on container
+// Enable body text modifier on spirit-long-form-text container
 .spirit-long-form-text--l {
   p,
   li {
