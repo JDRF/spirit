@@ -1,6 +1,8 @@
 $spirit-doc-layout-breakpoint: 1289px;
 $spirit-doc-nav-bg: $spirit-color-grey-98;
 $spirit-doc-nav-width-flyout: 256px;
+$spirit-doc-nav-min-width: 256px;
+$spirit-doc-footer-left-margin: 256px;
 $spirit-doc-nav-box-shadow: inset -4px 0 8px -4px rgba(0, 8, 26, .16), inset 0 0 4px 0 rgba(0, 8, 26, .16);
 $spirit-doc-nav-z-index: 15;
 $spirit-doc-nav-overlay-color: rgba($spirit-color-black, .5);
@@ -114,11 +116,13 @@ html.-spirit-no-scroll {
     display: block;
     grid-column: 1 / span 1;
     grid-row: 1 / span 3;
-    height: auto;
+    height: 100vh;
     margin: 0;
+    min-width: $spirit-doc-nav-min-width;
+    overflow: auto;
     padding-left: 0;
     padding-right: 0;
-    position: static;
+    position: fixed;
     transform: translateX(0);
     width: auto;
   }
@@ -184,7 +188,7 @@ html.-spirit-no-scroll {
   display: block;
   height: calc(100vh - #{$spirit-doc-header-height});
   overflow: hidden;
-  padding-bottom: $spirit-space-generic-2-x;
+  padding-bottom: $spirit-space-generic-8-x;
   padding-top: $spirit-space-generic-2-x;
   position: fixed;
   right: 0;
@@ -385,6 +389,10 @@ html.-spirit-no-scroll {
 // Footer
 .spirit-doc-site-footer {
   box-shadow: inset 0 1px 0 0 $spirit-color-grey-95;
+  
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    margin-left: $spirit-doc-footer-left-margin;
+  }
 
   .spirit-container__inner {
     padding: 12px 0;
