@@ -1,0 +1,284 @@
+{% extends "templates/sink.njk" %}
+{% block head_content_append %}
+  {{ super() }}
+  <link rel="stylesheet" href="/styles/containers-sink-pages.css">
+  <link rel="stylesheet" href="/styles/shell-sink-page.css">
+{% endblock head_content_append %}
+
+{% set test_content_default %}
+
+    <h1 class="spirit-h1">
+        h1.You Can Help Turn Type One Into Type None
+    </h1>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+    <h2 class="spirit-h2">
+        h2.You Can Help Turn Type One Into Type None
+    </h2>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+    <h3 class="spirit-h3">
+        h3.You Can Help Turn Type One Into Type None
+    </h3>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+    <h4 class="spirit-h4">
+        h4.You Can Help Turn Type One Into Type None
+    </h4>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+    <h5 class="spirit-h5">
+        h5.You Can Help Turn Type One Into Type None
+    </h5>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+    <h6 class="spirit-h6">
+        h6.You Can Help Turn Type One Into Type None
+    </h6>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+
+    <h1 class="spirit-lead-heading spirit-h1">
+        h1.Lead Heading
+    </h1>
+    <h1 class="spirit-h1">
+        h1.heading-combinator.You Can Help Turn Type One Into Type None
+    </h1>
+    <h2 class="spirit-h2">
+        h2.heading-combinator.You Can Help Turn Type One Into Type None
+    </h2>
+    <h3 class="spirit-h3">
+        h3.heading-combinator.You Can Help Turn Type One Into Type None
+    </h3>
+    <h3 class="spirit-h3">
+        h3.heading-combinator.You Can Help Turn Type One Into Type None
+    </h3>
+    <h4 class="spirit-h4">
+        h4.heading-combinator.You Can Help Turn Type One Into Type None
+    </h4>
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>.</p class="spirit-body-text-l">
+
+    <h1 class="spirit-h1">
+        h1.You Can Help Turn Type One Into Type None
+    </h1>
+    <p class="spirit-subhead">spirit-subhead.Has class spirit-subhead. Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque est tempor nec.</p class="spirit-body-text-l">
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus. </p class="spirit-body-text-l">
+
+    <p class="spirit-body-text-l">p.spirit-body-text-l.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus.</p class="spirit-body-text-l">
+    <p class="spirit-body-text-m">p.spirit-body-text-m.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus.</p class="spirit-body-text-l">
+    <p class="spirit-body-text-s">p.spirit-body-text-s.Donec quis ex tristique, venenatis justo nec, interdum ipsum. Proin sed gravida enim. Proin facilisis eros sapien, eget scelerisque <code>est tempor</code> nec. Phasellus ex dui, blandit eget dictum sed, convallis in metus. Donec <a class="spirit-link" href="#">at urna leo</a>. Maecenas tempor felis et mattis viverra. Sed auctor ligula eu ex volutpat rhoncus.</p class="spirit-body-text-l">
+
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2 is very long so that it wraps onto the next line so that I can illustrate how this will look.
+        </li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+    </ul>
+
+    <p class="spirit-body-text-l">IMAGE BELOW - DEFAULT. Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l"><img class="spirit-image" src="/images/components/long-form-text/ImpactHero.png"></p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l"><img src="/images/components/long-form-text/ImpactHero.png" class="spirit-image spirit-image-right">IMAGE BESIDE - RIGHT. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l"><img src="/images/components/long-form-text/ImpactHero.png" class="spirit-image spirit-image-center">IMAGE BESIDE - LEFT. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <img class="spirit-image" src="/images/components/card/bikers.png">
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l"><img src="/images/components/card/bikers.png" class="spirit-image spirit-image-left">IMAGE BESIDE - LEFT. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l"><img src="/images/components/card/bikers.png" class="spirit-image spirit-image-right">IMAGE BESIDE - RIGHT. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l"><img src="/images/components/card/bikers.png" class="spirit-image spirit-image-center">IMAGE ABOVE - CENTER. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <figure>
+        <img class="spirit-image" src="/images/components/long-form-text/ImpactHero.png">
+        <figcaption>Image Caption</figcaption>
+    </figure>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <figure class="spirit-image-left">
+        <img class="spirit-image" src="/images/components/long-form-text/ImpactHero.png">
+        <figcaption>Image Caption</figcaption>
+    </figure><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <figure class="spirit-image-right">
+        <img class="spirit-image" src="/images/components/long-form-text/ImpactHero.png">
+        <figcaption>Image Caption</figcaption>
+    </figure>
+    <p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <figure class="spirit-image-center">
+        <img class="spirit-image" src="/images/components/long-form-text/ImpactHero.png">
+        <figcaption>Image Caption</figcaption>
+    </figure>
+    <p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <blockquote class="spirit-pull-quote">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum.</blockquote><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <blockquote class="spirit-pull-quote"><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum.</p></blockquote><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <blockquote class="spirit-pull-quote-left">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum.</blockquote><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <blockquote class="spirit-pull-quote-right">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum.</blockquote><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <blockquote class="spirit-pull-quote-center">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum.</blockquote><p class="spirit-body-text-l">Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus. Ut sit amet augue fermentum, vehicula nulla eget, eleifend ipsum. Nunc laoreet et urna quis fermentum. Nunc eget pellentesque odio. Morbi consequat, quam ac scelerisque pellentesque, erat mauris commodo mauris, at malesuada massa dolor nec risus. Pellentesque bibendum arcu ac sapien accumsan, sit amet fringilla nisl luctus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l">Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l spirit-text-align--center">text-align-center.Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l spirit-text-align--left">text-align-left.Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+    <p class="spirit-body-text-l spirit-text-align--right">text-align-right.Suspendisse sem ipsum, semper id lacinia ac, auctor non massa. Etiam sed diam non turpis pellentesque bibendum at at purus.</p>
+
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+    ### Display 1
+    {% endfilter %}
+    <h1 class="spirit-display-1">You Can Help Turn Type One Into Type None</h1>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Display 2
+    {% endfilter %}
+    <h1 class="spirit-display-2">You Can Help Turn Type One Into Type None</h1>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### h1
+    {% endfilter %}
+    <h1 class="spirit-h1">You Can Help Turn Type One Into Type None</h1>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### h2
+    {% endfilter %}
+    <h2 class="spirit-h2">You Can Help Turn Type One Into Type None</h2>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### h3
+    {% endfilter %}
+    <h3 class="spirit-h3">You Can Help Turn Type One Into Type None</h3>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### h4
+    {% endfilter %}
+    <h4 class="spirit-h4">You Can Help Turn Type One Into Type None</h4>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### h5
+    {% endfilter %}
+    <h5 class="spirit-h5">You Can Help Turn Type One Into Type None</h5>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### h6
+    {% endfilter %}
+    <h6 class="spirit-h6">You Can Help Turn Type One Into Type None</h6>
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Subhead
+    {% endfilter %}
+    <p class="spirit-subhead">JDRF is the leading global organization funding type 1 diabetes (T1D) research. Our strength lies in our exclusive focus and singular influence on the worldwide effort to end T1D.</p class="spirit-body-text-l">
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Body Text Large
+    {% endfilter %}
+    <p class="spirit-body-text-l">Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p class="spirit-body-text-l">
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Body Text Medium
+    {% endfilter %}
+    <p class="spirit-body-text-m">Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p class="spirit-body-text-l">
+
+    {% filter markdown(true, "hostile-sink-reset") %}
+        ### Body Text Small
+    {% endfilter %}
+    <p class="spirit-body-text-s">Boris Kovatchev, Ph.D.</p class="spirit-body-text-l">
+{% endset %}
+
+{% block body %}
+
+  {% call library.shell() %}
+    {% call library.shell_header() %}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+        <h1>
+            Long Form Text vs Global Styles Comparison
+        </h1>
+      {% endcall %}
+    {% endcall %}
+    {% call library.shell_main() %}
+      {% call library.container() %}
+        <h1>
+            Page Shell Header
+        </h1>
+        <div class="spirit-row">
+            <div class="spirit-col-lg-6">
+                <h1>
+                    Default Styles with Classes
+                </h1>
+                <p>{{ library.button(text="Default Button") }}</p>
+                <p>{{ library.button(class="spirit-button--secondary", text="Secondary Button") }}</p>
+                <p>{{ library.button(class="spirit-button--minimal", text="Minimal Button") }}</p>
+                {{ test_content_default | safe }}
+            </div>
+            <div class="spirit-col-lg-6">
+                <h1>
+                    Long Form Text Styles
+                </h1>
+                <div class="spirit-long-form-text">
+                    <p>{{ library.button(text="Default Button") }}</p>
+                    <p>{{ library.button(class="spirit-button--secondary", text="Secondary Button") }}</p>
+                    <p>{{ library.button(class="spirit-button--minimal", text="Minimal Button") }}</p>
+                    {{ test_content_default | safe }}
+                </div>
+            </div>
+            <div class="spirit-col-lg-6 spirit-context--brand">
+                <h1>
+                    Default Styles with Classes
+                </h1>
+                <p>{{ library.button(text="Default Button") }}</p>
+                <p>{{ library.button(class="spirit-button--secondary", text="Secondary Button") }}</p>
+                <p>{{ library.button(class="spirit-button--minimal", text="Minimal Button") }}</p>
+                {{ test_content_default | safe }}
+            </div>
+            <div class="spirit-col-lg-6 spirit-context--brand">
+                <h1>
+                    Long Form Text Styles
+                </h1>
+                <div class="spirit-long-form-text">
+                    <p>{{ library.button(text="Default Button") }}</p>
+                    <p>{{ library.button(class="spirit-button--secondary", text="Secondary Button") }}</p>
+                    <p>{{ library.button(class="spirit-button--minimal", text="Minimal Button") }}</p>
+                    {{ test_content_default | safe }}
+                </div>
+            </div>
+        </div>
+      {% endcall %}
+    {% endcall %}
+  {% endcall %}
+
+{% endblock body %}
