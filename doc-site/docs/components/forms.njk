@@ -49,25 +49,6 @@
       * Use for a single word, number, or line of text. For longer text, use Text Area.
       * Wrap in a Form Group to attach label, microcopy, required indicator, and more.
 
-      ### Input with Button
-      To be used sparingly, in come cases an input with button may be used when an entire form consists of a single input field and a submit. When used, the submit button is included within the design of the input itself.
-
-  {% endfilter %}
-
-  {% set input_button %}
-    {% call library.form() %}
-      {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
-        {{ library.form_label(text="Email", for="email-signup") }}
-        {{ library.form_input(type="email", id="email-signup") }}
-        {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
-      {% endcall %}
-    {% endcall %}
-   {% endset %}
-
-  {{ esds_doc.code_example_pair( example=input_button ) }}
-
-  {% filter markdown %}
-
     ### Input Masks
 
     Masking depends on Javascript. See [Getting Started for Developers](/getting-started.html#external-dependencies) for information on the necessary dependencies.
@@ -127,6 +108,26 @@
       examples=[ { example: mask_example_4 } ]
       )
     }}
+
+  {% filter markdown %}
+
+      ### With Button
+      Useful when a compact layout is needed and the entire form consists of a single input and submit button.
+
+  {% endfilter %}
+
+  {% set input_button %}
+    {% call library.form() %}
+      {% call library.form_field_group(class="spirit-form__fieldgroup--input-with-button") %}
+        {{ library.form_label(text="Email", for="email-signup") }}
+        {{ library.form_input(type="email", id="email-signup") }}
+        {{ library.button(type="submit", text="Sign Up", class="spirit-button--extra-small") }}
+      {% endcall %}
+    {% endcall %}
+   {% endset %}
+
+  {{ esds_doc.code_example_pair( example=input_button ) }}
+
   {% filter markdown %}
 
       ## Text Area
