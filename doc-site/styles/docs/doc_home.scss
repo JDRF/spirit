@@ -153,7 +153,7 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
   svg {
     display: block;
     height: auto;
-    width: 130%;
+    width: 100vw;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
       width: auto;
@@ -161,13 +161,14 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
-    bottom: auto;
     left: -450px;
     top: calc(100% - 189px);
     transform: scale(.5);
   }
   @media screen and (min-width: $spirit-breakpoint-xl) {
+    bottom: 0;
     left: -85px;
+    right: 0;
     top: calc(100% - 185px);
     transform: scale(1);
   }
