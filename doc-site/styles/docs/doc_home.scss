@@ -85,6 +85,11 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
     align-items: center;
     flex-flow: row;
     justify-content: space-between;
+    padding-left: $spirit-space-generic-5-x;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    padding-left: $spirit-space-generic-8-x;
   }
 }
 
