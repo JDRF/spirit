@@ -1,16 +1,6 @@
 {% set show_page_navigation = false %}
 {% extends 'templates/home.njk' %}
 {% block page_shell_content %}
-    {% set doc_top_watermark %}
-        <section class="spirit-container spirit-container--brush-watermark">
-            <div class="spirit-container__inner spirit-container__inner--padding-top-none spirit-container__inner--padding-bottom-none spirit-container__inner--brush-watermark" style="top: 0px; left: 0px;">
-                <div class="spirit-brush-watermark spirit-brush-watermark__background-3" style="opacity: 0.7"></div>
-            </div>
-        </section>
-    {% endset %}
-
-    {% set show_principles = false %}
-
     {% set doc_home_hero %}
         {{ doc_top_watermark | safe }}
         {% call library.container(class="spirit-container--hero-split-screen spirit-container--hero-doc-home", padding_top="xs", padding_bottom="xs") %}
@@ -29,6 +19,9 @@
                         <p class="spirit-hero-message__button-container">
                             {{ library.link(class="spirit-link--animated spirit-h4", text="Get Started", href="/getting-started.html") }}
                         </p>
+                        <p class="spirit-body-text-s">
+                            Current release: {{ library.link(class="spirit-link--animated", text="Version 1.0.2", href="/release-history.html") }}
+                        </p>
                     </div>
 
                 </div>
@@ -44,101 +37,37 @@
     {% endset %}
 
     {% set doc_home_cards %}
-        {% call library.container(padding_top="none", padding_bottom="s") %}
-            {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
+        {% call library.container(padding_top="none", padding_bottom="s", class="spirit-d-lg-none") %}
+            {% call library.card_grid(class="spirit-card-grid--4-up") %}
                 {{ library.card(
                     img_src=false,
                     title_text="Visual Style",
                     link_text="More",
                     body_text="Delve into best practices for color, typography, depth, icons, and space.",
-                    href="/visual-style/color.html",
-                    class="spirit-card--list-item"
+                    href="/visual-style/color.html"
                 ) }}
                 {{ library.card(
                     img_src=false,
                     title_text="Components",
                     link_text="More",
                     body_text="Explore live examples and code snippets for our buttons, cards, grid, forms, brushes, and more.",
-                    href="/components/brush.html",
-                    class="spirit-card--list-item"
+                    href="/components/brush.html"
                 ) }}
                 {{ library.card(
                     img_src=false,
                     title_text="Add Sketch UI Library",
                     link_text="More",
                     body_text="Start using Spirit symbols and styles across your Sketch documents.",
-                    href="/getting-started.html#sketch-resources",
-                    class="spirit-card--list-item"
+                    href="/getting-started.html#sketch-resources"
                 ) }}
                 {{ library.card(
                     img_src=false,
                     title_text="See What's New",
                     link_text="More",
                     body_text="Learn about the new additions, enhancements and fixes in our latest release.",
-                    href="/release-history.html",
-                    class="spirit-card--list-item"
+                    href="/release-history.html"
                 ) }}
             {% endcall %}
-        {% endcall %}
-    {% endset %}
-
-    {% set doc_home_principles %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Human</h2>
-                    <div class="spirit-long-form-text">
-                        <p>Always start with the people we’re designing for and keep them in mind throughout the process.  Choices should be rooted in research and validated through user testing.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-left spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                </figure>
-            </div>
-        {% endcall %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Recognizable</h2>
-                    <div class="spirit-long-form-text">
-                        <p>A monochromatic color scheme is used to strengthen the connection with JDRF Blue through consistent repetition.  Color recognition is especially important for JDRF because we have few other recognizable brand elements.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-right spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                </figure>
-            </div>
-        {% endcall %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Approachable</h2>
-                    <div class="spirit-long-form-text">
-                        <p>We use simple shapes with rounded corners to help our designs feel familiar and approachable. White space, bold typography and strong hierarchy creates balance and structure on the screen without the need for lots of lines, borders and shading.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-left spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                </figure>
-            </div>
-        {% endcall %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Striking</h2>
-                    <div class="spirit-long-form-text">
-                        <p>Brush strokes represent the human spirit of the people that drive our mission forward. They provide warmth to our striking, minimal aesthetic that is at risk of feeling clinical and unapproachable.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-right spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                    <div class="spirit-hero-split-screen__image--accent" aria-hidden="true">
-                    {{ library.brush(
-                        name="wave1"
-                    ) }}
-                </div>
-                </figure>
-            </div>
         {% endcall %}
     {% endset %}
 
@@ -177,43 +106,11 @@
     {% endset %}
 
     {% call library.shell() %}
-        {% call library.shell_header(class="spirit-doc-page-header spirit-doc-page-header--home") %}
-            {% call library.container(padding_top="none", padding_bottom="none") %}
-                <div class="spirit-d-flex">
-                    <h2 class="spirit-brand-title">
-                        <a class="spirit-brand-title__link" href="/">
-                        {{ library.icon(
-                            name="jdrf",
-                            label="JDRF",
-                            class="spirit-icon--jdrf",
-                            decorative=false
-                            ) }}
-                        </a>
-                    </h2>
-                </div>
-            {% endcall %} 
-        {% endcall %} 
-
         {% call library.shell_main() %}
             {{ doc_home_hero | safe }}
             {{ doc_home_cards | safe }}
-            {% if ( show_principles ) %}
-            {% call library.container(class="spirit-section-heading", size="large", padding_top="s") %}
-                <div class="spirit-row">
-                    <h2 class="spirit-section-heading__title spirit-h1 spirit-col-12">
-                        Our Principles
-                    </h2>
-                
-                    <p class="spirit-section-heading__subhead spirit-subhead spirit-col-12 spirit-col-md-10 spirit-offset-md-1">
-                        Medium subhead,calling on insurance companies to provide these three things that will help people with T1D control the disease.
-                    </p>
-                </div>
-            {% endcall %}
-            {{ doc_home_principles | safe }}
-            {% endif %}
         {% endcall %}
-
-        {% call library.shell_footer(class="spirit-doc-site-footer") %}
+        {% call library.shell_footer(class="spirit-doc-site-footer spirit-doc-site-footer--home") %}
             {{ doc_footer | safe }}
         {% endcall %}
     {% endcall %}

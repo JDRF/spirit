@@ -2,5 +2,33 @@
 {% set show_content_intro = show_content_intro | default(true) %}
 {% set show_page_navigation = show_page_navigation | default(true) %}
 {% block body %}
-    {% block page_shell_content %}{% endblock page_shell_content %}
+    <div class="spirit-doc-page-shell spirit-home-page-shell">
+    <header class="spirit-doc-page-header spirit-doc-page-header--shell" role="banner">
+      <h2 class="spirit-brand-title">
+        <a class="spirit-brand-title__link" href="/">
+          {{ library.icon(
+              name="jdrf",
+              label="JDRF",
+              class="spirit-icon--jdrf",
+              decorative=false
+            ) }}
+        </a>
+      </h2>
+      <button id="doc-site-nav-toggle" class="spirit-button spirit-button--icon-only spirit-button--secondary spirit-button--small spirit-doc-nav-toggle spirit-button--is-icon">
+        {{ library.icon(name='menu', class="spirit-icon--menu", label='Open Site Nav', decorative=false)}}
+        {{ library.icon(name='x',class="spirit-icon--x", label='Close Site Nav', decorative=false)}}
+      </button>
+      <div id="doc-site-nav" class="doc-site-nav spirit-doc-page-shell__navigation">
+        <div class="spirit-doc-page-shell__navigation-inner">
+          {% block page_shell_nav %}
+            {{ spirit_doc.site_nav() }}
+          {% endblock page_shell_nav %}
+        </div>
+      </div>
+    </header>
+    <div class="spirit-home-page-shell__content">
+      {% block page_shell_content %}{% endblock page_shell_content %}
+    </div>
+
+  </div>
 {% endblock body %}
