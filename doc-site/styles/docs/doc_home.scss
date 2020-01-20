@@ -12,7 +12,7 @@ $spirit-container-inner-max-width-large: 1000px;
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
 $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-large + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1000px + 160px (max container width (large) + gutter size)
 
-// Heo Split Screen - Image Hide
+// Hero Split Screen - Image Hide
 $spirit-split-screen-image-hide-bottom-position: -10px;
 $spirit-split-screen-image-hide-left-position: -18px;
 $spirit-split-screen-image-hide-left-position-m: -50px;
@@ -166,7 +166,7 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
   bottom: $spirit-split-screen-image-hide-bottom-position;
   display: block;
   height: auto;
-  $spirit-split-screen-image-hide-left-position: -18px;
+  left: $spirit-split-screen-image-hide-left-position;
   margin: 0;
   max-width: $spirit-split-screen-image-hide-width;
   min-height: 1px; // Xbrowser fix to make sure image displays correctly
