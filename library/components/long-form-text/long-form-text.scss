@@ -99,20 +99,23 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 
   p,
-  .spirit-body-l {
+  .spirit-body-l,
+  .spirit-body-text-l {
     @include spirit-body-text-l;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
   }
 
-  .spirit-body-m {
+  .spirit-body-m,
+  .spirit-body-text-m {
     @include spirit-body-text-m;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
   }
 
   small,
-  .spirit-body-s {
+  .spirit-body-s,
+  .spirit-body-text-s {
     @include spirit-body-text-s;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
@@ -194,7 +197,6 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   blockquote p {
     @include spirit-h3;
   }
-
 
   blockquote {
     margin-bottom: $spirit-space-generic-4-x;
@@ -304,7 +306,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   iframe img,
   object video,
   object img,
-  picture img, {
+  picture img {
     margin: 0;
     padding: 0;
 
