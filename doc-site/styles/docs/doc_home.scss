@@ -12,6 +12,15 @@ $spirit-container-inner-max-width-large: 1000px;
 $spirit-container-painted-edge-height: $spirit-space-generic-12-x;
 $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-large + $spirit-container-inner-horizontal-space-m + $spirit-container-inner-horizontal-space-m; // 1000px + 160px (max container width (large) + gutter size)
 
+// Hero Split Screen - Image Hide
+$spirit-split-screen-image-hide-bottom-position: -10px;
+$spirit-split-screen-image-hide-left-position: -18px;
+$spirit-split-screen-image-hide-left-position-m: -50px;
+$spirit-split-screen-image-hide-left-position-xl: -85px;
+$spirit-split-screen-image-hide-width: 130%;
+$spirit-split-screen-image-hide-width-m: 817px;
+$spirit-split-screen-image-hide-inner-ratio: 17.6%;
+
 .spirit-container--hero-doc-home {
   position: relative;
   z-index: 10;
@@ -89,6 +98,15 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
   margin: 0;
   margin-top: $spirit-space-generic-3-x;
   position: relative;
+
+  img {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+  }
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     margin-top: 0;
     width: calc(50% - #{$spirit-space-generic-6-x});
@@ -145,31 +163,45 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
 }
 
 .spirit-hero-split-screen__image--hide {
-  bottom: -18px;
+  bottom: $spirit-split-screen-image-hide-bottom-position;
   display: block;
-  left: -18px;
+  height: auto;
+  left: $spirit-split-screen-image-hide-left-position;
+  margin: 0;
+  max-width: $spirit-split-screen-image-hide-width;
+  min-height: 1px; // Xbrowser fix to make sure image displays correctly
+  padding: 0;
   position: absolute;
+  width: $spirit-split-screen-image-hide-width;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    bottom: $spirit-split-screen-image-hide-bottom-position;
+    left: $spirit-split-screen-image-hide-left-position-m;
+    max-width: $spirit-split-screen-image-hide-width-m;
+    top: auto;
+    width: $spirit-split-screen-image-hide-width-m;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-xl) {
+    left: $spirit-split-screen-image-hide-left-position-xl;
+  }
+
+  .spirit-hero-split-screen__image--hide--inner {
+    display: block;
+    padding-top: $spirit-split-screen-image-hide-inner-ratio;
+    position: relative;
+    width: 100%;
+  }
 
   svg {
     display: block;
-    height: auto;
-    width: 130%;
-
-    @media screen and (min-width: $spirit-breakpoint-m) {
-      width: auto;
-    }
-  }
-
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    bottom: auto;
-    left: -450px;
-    top: calc(100% - 189px);
-    transform: scale(.5);
-  }
-  @media screen and (min-width: $spirit-breakpoint-xl) {
-    left: -85px;
-    top: calc(100% - 185px);
-    transform: scale(1);
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 
@@ -248,4 +280,3 @@ $spirit-container-painted-edge-breakpoint: $spirit-container-inner-max-width-lar
 .spirit-section-heading__subhead {
   margin-top: 0;
 }
-
