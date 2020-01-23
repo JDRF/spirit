@@ -655,6 +655,166 @@
       examples=[ { example: lft_align_center_for_docsite } ]
    ) }}
 
+  {% filter markdown %}
+
+      ### Sizes
+
+      Spirit text [size classes](/visual-style/typography.html#scale) size classes can be used in coordination with `.spirit-long-form-text` elements to control font sizing.
+
+  {% endfilter %}
+
+  {% set sizing_basic_for_docsite %}
+    <div class="spirit-long-form-text">
+      <p class="spirit-body-text-l">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+      <p class="spirit-body-text-m">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+      <p class="spirit-body-text-s">Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-sizing",
+      examples=[ { example: sizing_basic_for_docsite } ]
+   ) }}
+
+  {% filter markdown %}
+      #### Wrapper Sizing
+
+      Additionally, specialized font size modifiers can be added to the `.spirit-long-form-text` wrappers to apply specific font sizing to contained `<p>` and `<li>` elements.
+
+      ##### Wrapper Size Large (default)
+  {% endfilter %}
+
+  {% set sizing_wrapper_large_for_docsite %}
+    <div class="spirit-long-form-text spirit-long-form-text--l">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+      <ul>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ul>
+                    <li>Nested List item 1</li>
+                </ul>
+            </li>
+            <li>List item 4</li>
+        </ul>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-sizing",
+      examples=[ { example: sizing_wrapper_large_for_docsite } ]
+   ) }}
+
+   {% filter markdown %}
+      ##### Wrapper Size Medium
+  {% endfilter %}
+
+  {% set sizing_wrapper_large_for_docsite %}
+    <div class="spirit-long-form-text spirit-long-form-text--m">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+      <ul>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ul>
+                    <li>Nested List item 1</li>
+                </ul>
+            </li>
+            <li>List item 4</li>
+        </ul>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-sizing",
+      examples=[ { example: sizing_wrapper_large_for_docsite } ]
+   ) }}
+
+   {% filter markdown %}
+      ##### Wrapper Size Small
+  {% endfilter %}
+
+  {% set sizing_wrapper_large_for_docsite %}
+    <div class="spirit-long-form-text spirit-long-form-text--s">
+      <p>Over the decades, JDRF has funded myriad studies into the causes and progression of type 1 diabetes (T1D). The results have been incredible, helping to unlock the science that is moving us closer to prevention and a cure. We know that T1D doesn’t develop the same way in everyone.</p>
+      <ul>
+            <li>List item 1</li>
+            <li>List item 2 is very long so that it wraps List item 2 is very long so that it wraps List
+                item 2 is very long so that it wraps List item 2 is very long so that it wraps
+            </li>
+            <li>List item 3
+                <ul>
+                    <li>Nested List item 1</li>
+                </ul>
+            </li>
+            <li>List item 4</li>
+        </ul>
+    </div>
+  {% endset %}
+
+  {{ esds_doc.code_example_pair( 
+      class="esds-doc-html-example-sizing",
+      examples=[ { example: sizing_wrapper_large_for_docsite } ]
+  ) }}
+
+  {% filter markdown %}
+    ## Code Reference
+    ### Class Reference
+  {% endfilter %}
+
+  {{ esds_doc.reference_table(column_widths=[38, 30, 32],
+    data=[
+    {
+      class: '.spirit-text-align--center',
+      applies_to: '`.spirit-long-form-text` or contained element',
+      outcome: 'Aligns text center.'
+    },
+    {
+      class: '.spirit-text-align--left',
+      applies_to: '`.spirit-long-form-text` or contained element',
+      outcome: 'Aligns text left.'
+    },
+        {
+      class: '.spirit-text-align--right',
+      applies_to: '`.spirit-long-form-text` or contained element',
+      outcome: 'Aligns text right.'
+    },
+    {
+      class: '.spirit-body-text-l',
+      applies_to: '`.spirit-long-form-text` contained elements (i.e. `<p>` or `<li>`)',
+      outcome: 'Applies large (default) text sizing to element with class.'
+    },
+    {
+      class: '.spirit-body-text-m',
+      applies_to: '`.spirit-long-form-text` contained elements (i.e. `<p>` or `<li>`)',
+      outcome: 'Applies medium text sizing to element with class.'
+    },
+    {
+      class: '.spirit-body-text-s',
+      applies_to: '`.spirit-long-form-text` contained elements (i.e. `<p>` or `<li>`)',
+      outcome: 'Applies small text sizing to element with class.'
+    },
+    {
+      class: '.spirit-long-form-text--l',
+      applies_to: '.spirit-long-form-text',
+      outcome: 'Applies large (default) text sizing (`.spirit-body-text-l`) to contained `<p>` and `<li>` elements.'
+    },
+    {
+      class: '.spirit-long-form-text--m',
+      applies_to: '.spirit-long-form-text',
+      outcome: 'Applies medium text sizing (`.spirit-body-text-l`) to contained `<p>` and `<li>` elements.'
+    },
+    {
+      class: '.spirit-long-form-text--l',
+      applies_to: '.spirit-long-form-text',
+      outcome: 'Applies small text sizing (`.spirit-body-text-l`) to contained `<p>` and `<li>` elements.'
+    }
+  ]) }}
+
 {% endblock page_shell_content %}
 
 
