@@ -433,7 +433,6 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
     background-color: $spirit-disabled-color-foreground;
   }
 
-
   // Invalid state
   .spirit-form__checkbox-group--invalid &,
   .spirit-form__checkbox--invalid & {
@@ -499,7 +498,6 @@ $spirit-checkbox-label-space:               $spirit-space-generic-1-x;
     color: $spirit-disabled-color-foreground;
   }
 }
-
 
 // Checkbox Group
 // <label> for group of <input[type='checkbox']/>
@@ -840,7 +838,6 @@ $spirit-select-icon-size:                 $spirit-size-icon-s;
   }
 }
 
-
 // Microcopy
 $spirit-microcopy-text-color:   $spirit-form-element-text-color-secondary;
 $spirit-microcopy-font-family:  $spirit-form-font-family;
@@ -858,7 +855,6 @@ $spirit-microcopy-max-width:    $spirit-form-element-max-width;
   margin: $spirit-microcopy-margin;
   max-width: $spirit-form-element-max-width;
 }
-
 
 // Required Fields Key
 $spirit-required-key-text-color:    $spirit-form-element-text-color-secondary;
@@ -942,10 +938,6 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
   @include spirit-accessibly-hidden;
 }
 
-
-
-
-
 // Form Level Messages
 .spirit-form__message {
   @include spirit-box-sizing;
@@ -1005,6 +997,7 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 
 .spirit-form__input-password-toggle {
   @include spirit-typography-reset($color: $spirit-text-color-link, $font-weight: $spirit-font-weight-bold);
+  cursor: pointer;
   position: absolute;
   right: $spirit-space-generic-2-x;
   text-decoration: none;
