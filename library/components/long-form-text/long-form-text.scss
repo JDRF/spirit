@@ -99,23 +99,23 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 
   p,
-  .spirit-body-l,
-  .spirit-body-text-l {
+  .spirit-body-text-l,
+  .spirit-body-l {
     @include spirit-body-text-l;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
   }
 
-  .spirit-body-m,
-  .spirit-body-text-m {
+  .spirit-body-text-m,
+  .spirit-body-m {
     @include spirit-body-text-m;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
   }
 
   small,
-  .spirit-body-s,
-  .spirit-body-text-s {
+  .spirit-body-text-s,
+  .spirit-body-s {
     @include spirit-body-text-s;
     margin-bottom: $spirit-space-generic-2-x;
     margin-top: 0;
@@ -423,7 +423,7 @@ $spirit-long-form-text-ul-margin-bottom-lg: 18px;
   }
 }
 
-// Enable body text modifier on container
+// Enable body text modifier on spirit-long-form-text container
 .spirit-long-form-text--l {
   p,
   li {

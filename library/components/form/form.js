@@ -17,13 +17,23 @@ class SpiritFormPasswordToggle {
     passwordToggleInputs.forEach(i => {
       const input = i.querySelector('input');
       const trigger = i.querySelector('a');
+
+      if (trigger.innerText === 'Show') {
+        trigger.setAttribute('aria-pressed', 'false');
+      } else {
+        trigger.setAttribute('aria-pressed', 'true');
+      }
+
       trigger.addEventListener('click', e => {
+        e.preventDefault();
         if (input.type === 'text') {
           input.type = 'password';
           trigger.textContent = 'Show';
+          trigger.setAttribute('aria-pressed', 'false');
         } else {
           input.type = 'text';
           trigger.textContent = 'Hide';
+          trigger.setAttribute('aria-pressed', 'true');
         }
       });
     });
