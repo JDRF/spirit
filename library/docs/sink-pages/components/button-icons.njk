@@ -1,0 +1,86 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+    {% call library.container(padding_bottom="none") %}
+        {% filter markdown(true, "hostile-sink-reset") %}
+            # Buttons Icons Sink
+        {% endfilter %}
+    {% endcall %}
+
+    {% set sample_icon_buttons %}
+        <h1 class="spirit-h4">Primary</h1>
+
+        <h2 class="spirit-h5">Large</h2>
+        <p>{{ library.button(class="spirit-button--large", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Large with Icon Left</h2>
+        <p>{{ library.button(class="spirit-button--large", text="Donate Today", iconName="camera") }}</p>
+
+        <h2 class="spirit-h5">Medium (Default)</h2>
+        <p>{{ library.button(text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Medium (Default) with Icon Left</h2>
+        <p>{{ library.button(text="Donate Today", iconName="camera") }}</p>
+
+
+        <h2 class="spirit-h5">Variants MAY NEED INNER CONTAINER - INLINE FLEX BLOCK</h2>
+        <div class="spirit-long-form-text">
+        <p>Some links to compare - to have an inner div or not?</p>
+            <ul>
+            
+                <li><a href="https://www.lightningdesignsystem.com/components/buttons/">Salesforce</a></li>
+                <li><a href="https://developer.microsoft.com/en-us/fabric#/components/button">Fabric</a></li>
+                <li><a href="https://opensource.adobe.com/spectrum-css/components/button-primary/">Adobe</a></li>
+                <li><a href="https://material.io/components/buttons/#">Material</a></li>
+                <li><a href="https://rei.github.io/rei-cedar-docs/components/buttons/">Cedar</a></li>
+            </ul>
+        </div>
+
+
+        <p>{{ library.button(el="checkbox", text="Donate Today", iconName="camera") }}</p>
+        <p>{{ library.button(el="radio", text="Donate Today", iconName="camera") }}</p>
+        <p>{{ library.button(el="a", href="#", text="Donate Today", iconName="camera") }}</p>
+
+        <h2 class="spirit-h5">Medium (Default) with Icon Right</h2>
+        <p>{{ library.button(text="Donate Today", iconName="camera") }}</p>
+
+        <p>Should the next button be the same icon size as above or remain as `$spirit-size-icon-s`?</p>
+        {{ library.button(loader="true", feedbackType="true", text="Submit Donation") }}
+
+        {{ library.button(class="spirit-button--icon-only", iconName="chevron-right") }}
+
+         <h2 class="spirit-h5">Small</h2>
+        <p>{{ library.button(class="spirit-button--small", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Extra Small</h2>
+        <p>{{ library.button(class="spirit-button--extra-small", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Full Width</h2>
+        <p>{{ library.button(text="Donate Today", fullwidth="true") }}</p>
+
+        <h2 class="spirit-h5">Default to Large LG Breakpoint</h2>
+        <p>{{ library.button(class="spirit-button--large-lg", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Default to Large MD Breakpoint</h2>
+        <p>{{ library.button(class="spirit-button--large-md", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Small to Default LG Breakpoint</h2>
+        <p>{{ library.button(class="spirit-button--small spirit-button--default-lg", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Small to Default MD Breakpoint</h2>
+        <p>{{ library.button(class="spirit-button--small spirit-button--default-md", text="Donate Today") }}</p>
+
+        <h2 class="spirit-h5">Extra Small to Small MD Breakpoint to Default LG Breakpoint</h2>
+        <p>{{ library.button(class="spirit-button--extra-small spirit-button--small-md spirit-button--default-lg", text="Donate Today") }}</p>
+    {% endset %}
+
+    {% call library.container(padding_bottom="none") %}
+        <div class="spirit-row">
+            <div class="spirit-col-md">
+                {{ sample_icon_buttons | safe }}
+            </div>
+            <div class="spirit-col-md spirit-context--brand">
+                {{ sample_icon_buttons | safe }}
+            </div>
+        </div>
+    {% endcall %}
+{% endblock body %}

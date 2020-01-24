@@ -144,6 +144,30 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   }
 }
 
+// Has icon and with text
+.spirit-button--has-icon,
+.spirit-button__inner--has-icon {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  [class*='spirit-icon-'] {
+    height: $spirit-size-icon-m;
+    width: $spirit-size-icon-m;
+    margin-top: -5px;
+    margin-bottom: -3px;
+    flex: 0 0 $spirit-size-icon-m;
+  }
+
+  [class*='spirit-icon-']:first-child {
+    margin-right: $spirit-space-generic-1-x;
+  }
+
+  [class*='spirit-icon-']:last-child {
+    margin-left: $spirit-space-generic-1-x;
+  }
+}
+
 .spirit-button__icon-contain {
   align-items: center;
   display: flex;
@@ -158,9 +182,9 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
   [class*='spirit-icon-'] {
     height: $spirit-size-icon-s;
     width: $spirit-size-icon-s;
+    margin: 0;
   }
 }
-
 
 // Has icon and no text
 .spirit-button--is-icon {
@@ -501,8 +525,6 @@ $spirit-space-inset-squish-6-x-negative: -24px -48px !default;
     cursor: not-allowed;
   }
 }
-
-
 
 // Spririt Button - Icon Only
 .spirit-button--icon-only {

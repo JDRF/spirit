@@ -5,6 +5,7 @@
       text=false,
       iconName=false,
       iconLabel=false,
+      iconPosition=false,
       el="button",
       type=false,
       href=false,
@@ -21,7 +22,7 @@
   {% if ( el === 'checkbox' ) or ( el === 'radio' ) %}
     <div class="spirit-button spirit-button--toggle{{ ' ' + class if class }}">
       <input class="spirit-button__input spirit-button__{{ el }}" {{ 'type=' + el }} {{ 'name=' + name if name }} {{ 'id=' + id if id }} {{ 'value=' + value if value }} tabindex="-1"/>
-      <label {{ 'for=' + id if id }} class="spirit-button__inner" tabindex="0">
+      <label {{ 'for=' + id if id }} class="spirit-button__inner{{ ' spirit-button__inner--has-icon' if icon and text}}" tabindex="0">
         {% if iconName %}
           {% if not iconLabel %}
             {% set iconLabel = iconName %}
@@ -35,7 +36,7 @@
     <input {{ 'id=' + id if id }} {{ 'type=' + el }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
   {% elif el %}
     {# Using type variable for <button type="submit"> or <a type="button"> options #}
-    <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
+    <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--has-icon' if icon and text}}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
       {% if iconName %}
         {% if not iconLabel %}
           {% set iconLabel = iconName %}
