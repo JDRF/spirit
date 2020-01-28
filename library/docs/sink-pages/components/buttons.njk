@@ -451,9 +451,24 @@
                 {% endfilter %}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Extra Small
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--extra-small", iconName="chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
                     ### Small
                 {% endfilter %}
                 {{ library.button(class="spirit-button--icon-only spirit-button--small", iconName="chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Medium
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only ", iconName="chevron-right") }}
+
+                {% filter markdown(true, "hostile-sink-reset") %}
+                    ## Large
+                {% endfilter %}
+                {{ library.button(class="spirit-button--icon-only spirit-button--large", iconName="chevron-right") }}
 
                 {% filter markdown(true, "hostile-sink-reset") %}
                     ### Small to Default MD

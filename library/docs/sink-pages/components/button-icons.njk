@@ -6,71 +6,495 @@
         {% endfilter %}
     {% endcall %}
 
-    {% set sample_icon_buttons %}
-        <h1 class="spirit-h4">Primary</h1>
-
-        <h2 class="spirit-h5">Large</h2>
-        <p>{{ library.button(class="spirit-button--large", text="Donate Today") }}</p>
-
-        <h2 class="spirit-h5">Large with Icon Left</h2>
-        <p>{{ library.button(class="spirit-button--large", text="Donate Today", iconName="camera") }}</p>
-
-        <h2 class="spirit-h5">Medium (Default)</h2>
-        <p>{{ library.button(text="Donate Today") }}</p>
-
-        <h2 class="spirit-h5">Medium (Default) with Icon Left</h2>
-        <p>{{ library.button(text="Donate Today", iconName="camera") }}</p>
-
-
-        <h2 class="spirit-h5">Variants MAY NEED INNER CONTAINER - INLINE FLEX BLOCK</h2>
+    {% call library.container(padding_bottom="none") %}
         <div class="spirit-long-form-text">
-        <p>Some links to compare - to have an inner div or not?</p>
+            <p>Related Sink Pages:</p>
             <ul>
-            
+                <li>
+                    <a href="/sink-pages/components/buttons.html">Buttons</a>
+                </li>
+                <li>
+                    <a href="/sink-pages/components/button-groups.html">Button Groups</a>
+                </li>
+            </ul>
+        </div>
+    {% endcall %}
+
+    {% set sample_icon_buttons %}
+
+        <div class="spirit-long-form-text">
+            <p>This sink page is to test new styles / updates for buttons with icons and resiliency.</p>
+            <h3 class="spirit-h6">Current issues questions to be resolved:</h3>
+            <ul>
+                <li><b>Note</b>: There is no 'upload' icon in library. Do we need to add?</li>
+                <li><b>Side note</b>: spirit heading classes ignored in long form text - like `spirit-h6`. May want to add ticket in backlog?</li>
+                <li>Removed `.spirit-button--has-icon` and `spirit-button__inner--has-icon` styles as now inherited directly from `spirit-button`</li>
+                <li>Removed explicit instances of `.spirit-icon` styles (sizing) as not inherited from `spirit-button`</li>
+                <li><b>Engineering decision</b>: to use span around 'text' or 'label' on all buttons?
+                    <ul>
+                        <li>Chose no inner span for 'text' as to maintain current markup as much as possible and avoid any potential 'breaking changes.'</li>
+                        <li>Potential issue with no span for text: centered text when text wraps. See below.</li>
+                    </ul>
+                </li>
+                <li>Buttons with only icon as text (like submit button - not round), set icon to same size as new update (was smaller). Need confirmation. </li>
+                <li>Button groups on dark - border not visible. Should update here? </li>
+                <li>Updated toggle buttons sink to use different IDs </li>
+            </ul>
+            <h3 class="spirit-h6">Some desgin system reference links:</h3>
+            <ul>
                 <li><a href="https://www.lightningdesignsystem.com/components/buttons/">Salesforce</a></li>
-                <li><a href="https://developer.microsoft.com/en-us/fabric#/components/button">Fabric</a></li>
                 <li><a href="https://opensource.adobe.com/spectrum-css/components/button-primary/">Adobe</a></li>
                 <li><a href="https://material.io/components/buttons/#">Material</a></li>
                 <li><a href="https://rei.github.io/rei-cedar-docs/components/buttons/">Cedar</a></li>
             </ul>
         </div>
 
+        <h2 class="spirit-h4">Primary</h2>
 
-        <p>{{ library.button(el="checkbox", text="Donate Today", iconName="camera") }}</p>
-        <p>{{ library.button(el="radio", text="Donate Today", iconName="camera") }}</p>
-        <p>{{ library.button(el="a", href="#", text="Donate Today", iconName="camera") }}</p>
+        <h3 class="spirit-h5">Large</h3>
+        <p>{{ library.button(class="spirit-button--large", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Medium (Default) with Icon Right</h2>
+        <h3 class="spirit-h5">Large with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--large", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Large with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--large", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default)</h3>
+        <p>{{ library.button(text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Left</h3>
         <p>{{ library.button(text="Donate Today", iconName="camera") }}</p>
 
-        <p>Should the next button be the same icon size as above or remain as `$spirit-size-icon-s`?</p>
-        {{ library.button(loader="true", feedbackType="true", text="Submit Donation") }}
+        <h3 class="spirit-h5">Medium (Default) with Icon Right</h3>
+        <p>{{ library.button(text="Donate Today", iconName="camera", iconPosition="right") }}</p>
 
-        {{ library.button(class="spirit-button--icon-only", iconName="chevron-right") }}
-
-         <h2 class="spirit-h5">Small</h2>
+        <h3 class="spirit-h5">Small</h3>
         <p>{{ library.button(class="spirit-button--small", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Extra Small</h2>
+        <h3 class="spirit-h5">Small with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--small", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Small with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--small", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Extra Small</h3>
         <p>{{ library.button(class="spirit-button--extra-small", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Full Width</h2>
+        <h3 class="spirit-h5">Extra Small with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--extra-small", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Extra Small with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--extra-small", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Full Width</h3>
         <p>{{ library.button(text="Donate Today", fullwidth="true") }}</p>
 
-        <h2 class="spirit-h5">Default to Large LG Breakpoint</h2>
+        <h3 class="spirit-h5">Full Width with Icon Left</h3>
+        <p>{{ library.button(text="Donate Today", fullwidth="true", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Full Width with Icon Right</h3>
+        <p>{{ library.button(text="Donate Today", fullwidth="true", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Default to Large LG Breakpoint</h3>
         <p>{{ library.button(class="spirit-button--large-lg", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Default to Large MD Breakpoint</h2>
+        <h3 class="spirit-h5">Default to Large LG Breakpoint with icon Left</h3>
+        <p>{{ library.button(class="spirit-button--large-lg", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Default to Large LG Breakpoint with icon Right</h3>
+        <p>{{ library.button(class="spirit-button--large-lg", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Default to Large MD Breakpoint</h3>
         <p>{{ library.button(class="spirit-button--large-md", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Small to Default LG Breakpoint</h2>
+        <h3 class="spirit-h5">Default to Large MD Breakpoint with icon Left</h3>
+        <p>{{ library.button(class="spirit-button--large-md", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Default to Large MD Breakpoint with icon Right</h3>
+        <p>{{ library.button(class="spirit-button--large-md", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Small to Default LG Breakpoint</h3>
         <p>{{ library.button(class="spirit-button--small spirit-button--default-lg", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Small to Default MD Breakpoint</h2>
+        <h3 class="spirit-h5">Small to Default LG Breakpoint with icon Left</h3>
+        <p>{{ library.button(class="spirit-button--small spirit-button--default-lg", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Small to Default LG Breakpoint with icon Right</h3>
+        <p>{{ library.button(class="spirit-button--small spirit-button--default-lg", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Small to Default MD Breakpoint</h3>
         <p>{{ library.button(class="spirit-button--small spirit-button--default-md", text="Donate Today") }}</p>
 
-        <h2 class="spirit-h5">Extra Small to Small MD Breakpoint to Default LG Breakpoint</h2>
+        <h3 class="spirit-h5">Small to Default MD Breakpoint with icon Left</h3>
+        <p>{{ library.button(class="spirit-button--small spirit-button--default-md", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Small to Default MD Breakpoint with icon Right</h3>
+        <p>{{ library.button(class="spirit-button--small spirit-button--default-md", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Extra Small to Small MD Breakpoint to Default LG Breakpoint</h3>
         <p>{{ library.button(class="spirit-button--extra-small spirit-button--small-md spirit-button--default-lg", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Extra Small to Small MD Breakpoint to Default LG Breakpoint with icon Left</h3>
+        <p>{{ library.button(class="spirit-button--extra-small spirit-button--small-md spirit-button--default-lg", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Extra Small to Small MD Breakpoint to Default LG Breakpoint with icon Right</h3>
+        <p>{{ library.button(class="spirit-button--extra-small spirit-button--small-md spirit-button--default-lg", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Left with text resiliency</h3>
+        <p>{{ library.button(text="This is a Long Text Block to Test Button Text Resiliency whe the Text Goes More Than One Line", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Right with text resiliency</h3>
+        <p>{{ library.button(text="This is a Long Text Block to Test Button Text Resiliency whe the Text Goes More Than One Line", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Icon Only Extra Small</h3>
+        {{ library.button(class="spirit-button--icon-only spirit-button--extra-small", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Small</h3>
+        {{ library.button(class="spirit-button--icon-only spirit-button--small", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Medium</h3>
+        {{ library.button(class="spirit-button--icon-only ", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Large</h3>
+        {{ library.button(class="spirit-button--icon-only spirit-button--large", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Small to Default MD</h3>
+        {{ library.button(class="spirit-button--icon-only spirit-button--small spirit-button--default-md", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Small to Default LG</h3>
+        {{ library.button(class="spirit-button--icon-only spirit-button--small spirit-button--default-lg", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Small to Default MD to Large LG</h3>
+        {{ library.button(class="spirit-button--icon-only spirit-button--small spirit-button--default-md spirit-button--large-lg", iconName="eye-off") }}
+
+        <h2 class="spirit-h4">Secondary</h2>
+
+        <h3 class="spirit-h5">Large</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--large", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Large with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--large", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Large with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--large", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default)</h3>
+        <p>{{ library.button(class="spirit-button--secondary", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--secondary", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--secondary", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Small</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--small", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Small with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--small", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Small with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--small", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Extra Small</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--extra-small", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Extra Small with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--extra-small", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Extra Small with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--secondary spirit-button--extra-small", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Full Width</h3>
+        <p>{{ library.button(class="spirit-button--secondary", text="Donate Today", fullwidth="true") }}</p>
+
+        <h3 class="spirit-h5">Full Width with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--secondary", text="Donate Today", fullwidth="true", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Full Width with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--secondary", text="Donate Today", fullwidth="true", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Icon Only Extra Small</h3>
+        {{ library.button(class="spirit-button--secondary spirit-button--icon-only spirit-button--extra-small", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Small</h3>
+        {{ library.button(class="spirit-button--secondary spirit-button--icon-only spirit-button--small", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Medium</h3>
+        {{ library.button(class="spirit-button--secondary spirit-button--icon-only ", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Large</h3>
+        {{ library.button(class="spirit-button--secondary spirit-button--icon-only spirit-button--large", iconName="eye-off") }}
+
+        <h2 class="spirit-h4">Minimal</h2>
+
+        <h3 class="spirit-h5">Large</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--large", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Large with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--large", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Large with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--large", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default)</h3>
+        <p>{{ library.button(class="spirit-button--minimal", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--minimal", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Medium (Default) with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--minimal", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Small</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--small", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Small with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--small", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Small with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--small", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Extra Small</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--extra-small", text="Donate Today") }}</p>
+
+        <h3 class="spirit-h5">Extra Small with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--extra-small", text="Donate Today", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Extra Small with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--minimal spirit-button--extra-small", text="Donate Today", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Full Width</h3>
+        <p>{{ library.button(class="spirit-button--minimal", text="Donate Today", fullwidth="true") }}</p>
+
+        <h3 class="spirit-h5">Full Width with Icon Left</h3>
+        <p>{{ library.button(class="spirit-button--minimal", text="Donate Today", fullwidth="true", iconName="camera") }}</p>
+
+        <h3 class="spirit-h5">Full Width with Icon Right</h3>
+        <p>{{ library.button(class="spirit-button--minimal", text="Donate Today", fullwidth="true", iconName="camera", iconPosition="right") }}</p>
+
+        <h3 class="spirit-h5">Icon Only Extra Small</h3>
+        {{ library.button(class="spirit-button--minimal spirit-button--icon-only spirit-button--extra-small", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Small</h3>
+        {{ library.button(class="spirit-button--minimal spirit-button--icon-only spirit-button--small", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Medium</h3>
+        {{ library.button(class="spirit-button--minimal spirit-button--icon-only ", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Icon Only Large</h3>
+        {{ library.button(class="spirit-button--minimal spirit-button--icon-only spirit-button--large", iconName="eye-off") }}
+
+        <h2 class="spirit-h4">Button Groups</h2>
+
+        <h3 class="spirit-h5">Button Groups Extra Small</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10") }}
+            {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15") }}
+            {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Extra Small Icon Left</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10", iconName="camera") }}
+            {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15", iconName="camera") }}
+            {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20", iconName="camera") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Extra Small Icon Right</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10", iconName="camera", iconPosition="right") }}
+            {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15", iconName="camera", iconPosition="right") }}
+            {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20", iconName="camera", iconPosition="right") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Extra Small Icon Only</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option12", value="10", iconName="camera", buttonTitle="$10") }}
+            {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option13", value="15", iconName="camera", buttonTitle="$15") }}
+            {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option14", value="20", iconName="camera", buttonTitle="$20") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Small</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22", value="10") }}
+            {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23", value="15") }}
+            {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24", value="20") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Small Icon Left</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22", value="10", iconName="camera") }}
+            {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23", value="15", iconName="camera") }}
+            {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24", value="20", iconName="camera") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Small Icon Right</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22", value="10", iconName="camera", iconPosition="right") }}
+            {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23", value="15", iconName="camera", iconPosition="right") }}
+            {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24", value="20", iconName="camera", iconPosition="right") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Small Icon Only</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option22", value="10", iconName="camera", buttonTitle="$10") }}
+            {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option23", value="15", iconName="camera", buttonTitle="$15") }}
+            {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option24", value="20", iconName="camera", buttonTitle="$20") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Standard / Default</h3>
+        {% call library.button_group() %}
+            {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="10") }}
+            {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="15") }}
+            {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="20") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Standard / Default Icon Left</h3>
+        {% call library.button_group() %}
+            {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="10", iconName="camera") }}
+            {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="15", iconName="camera") }}
+            {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="20", iconName="camera") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Standard / Default Icon Right</h3>
+        {% call library.button_group() %}
+            {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="10", iconName="camera", iconPosition="right") }}
+            {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="15", iconName="camera", iconPosition="right") }}
+            {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="20", iconName="camera", iconPosition="right") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Standard / Default Icon Only</h3>
+        {% call library.button_group() %}
+            {{ library.button(el="radio", name="radio-group", id="option32", value="10", iconName="camera", buttonTitle="$10") }}
+            {{ library.button(el="radio", name="radio-group", id="option33", value="15", iconName="camera", buttonTitle="$10") }}
+            {{ library.button(el="radio", name="radio-group", id="option34", value="20", iconName="camera", buttonTitle="$10") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Large</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42", value="10") }}
+            {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43", value="15") }}
+            {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44", value="20") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Large Icon Left</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42", value="10", iconName="camera") }}
+            {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43", value="15", iconName="camera") }}
+            {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44", value="20", iconName="camera") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Large Icon Right</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42", value="10", iconName="camera", iconPosition="right") }}
+            {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43", value="15", iconName="camera", iconPosition="right") }}
+            {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44", value="20", iconName="camera", iconPosition="right") }}
+        {% endcall %}
+
+        <h3 class="spirit-h5">Button Groups Large Icon Only</h3>
+        {% call library.button_group() %}
+            {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option42", value="10", iconName="camera", buttonTitle="$10") }}
+            {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option43", value="15", iconName="camera", buttonTitle="$10") }}
+            {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option44", value="20", iconName="camera", buttonTitle="$10") }}
+        {% endcall %}
+
+        <h2 class="spirit-h4">Toggle Groups</h2>
+
+        <h3 class="spirit-h5">Default</h3>
+
+        {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250") }}
+        {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120") }}
+        {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60") }}
+        {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30") }}
+
+        <h3 class="spirit-h5">Default Icon Left</h3>
+
+        {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250", iconName="camera") }}
+        {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120", iconName="camera") }}
+        {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60", iconName="camera") }}
+        {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30", iconName="camera") }}
+
+        <h3 class="spirit-h5">Default Icon Right</h3>
+
+        {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250", iconName="camera", iconPosition="right") }}
+        {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120", iconName="camera", iconPosition="right") }}
+        {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60", iconName="camera", iconPosition="right") }}
+        {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30", iconName="camera", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Default Icon Only</h3>
+
+        {{ library.button(el="radio", name="radiogroup", id="radio-option1", value="250", iconName="camera", buttonTitle="$250") }}
+        {{ library.button(el="radio", name="radiogroup", id="radio-option2", value="120", iconName="camera", buttonTitle="$120") }}
+        {{ library.button(el="radio", name="radiogroup", id="radio-option3", value="60", iconName="camera", buttonTitle="$60") }}
+        {{ library.button(el="radio", name="radiogroup", id="radio-option4", value="30", iconName="camera", buttonTitle="$30") }}
+
+        <h2 class="spirit-h4">Additional Testing Variants</h2>
+
+        <h3 class="spirit-h5">Submit Icon Only</h3>
+
+        {{ library.button(loader="true", feedbackType="true", text="Submit Donation") }}
+
+        <h3 class="spirit-h5">Submit - input type submit - cannot have icon</h3>
+        {{ library.button(text="Primary Button Submit", el="submit") }}
+
+        <h3 class="spirit-h5">Submit - input type button - Icon Left</h3>
+        {{ library.button(el="button", type="submit", loader="true", text="Submit Donation", iconName="eye-off") }}
+
+        <h3 class="spirit-h5">Submit - input type button - Icon Right</h3>
+        {{ library.button(el="button", type="submit", loader="true", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Submit - input type button - Icon Only</h3>
+        {{ library.button(el="button", type="submit", loader="true", iconName="eye-off", iconPosition="right", buttonTitle="Submit Donation") }}
+
+        <h2 class="spirit-h4">Loading / Submit Buttons with Icons</h2>
+
+        <h3 class="spirit-h5">Normal Loader</h3>
+
+        {{ library.button(loader="true", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Sumbit Loader</h3>
+        {{ library.button(tag="button", el="submit", loader="true", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Loader Loading</h3>
+        {{ library.button(class="spirit-button--loading", loader="true", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Submit Loader Loading</h3>
+        {{ library.button(class="spirit-button--loading", el="button", type="submit", loader="true", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Success with Loader</h3>
+        {{ library.button(loader="true", feedbackType="true", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Success no Loader</h3>
+        {{ library.button(feedbackType="success", text="Submit Donation", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Success - with Loader and Success Text</h3>
+        {{ library.button(loader="true", feedbackType="success", text="Submit Donation", feedbackText="Success", iconName="eye-off", iconPosition="right") }}
+
+        <h3 class="spirit-h5">Success - no Loader and Success Text</h3>
+        {{ library.button(feedbackType="success", text="Submit Donation", feedbackText="Success", iconName="eye-off", iconPosition="right") }}
+
+        <h2 class="spirit-h4">Button with only icon as text output - sizes</h2>
+        <p>
+            {{ library.button(class="spirit-button--success spirit-button--extra-small", iconName="check", iconLabel="Success") }}
+        </p>
+
+        <p>
+            {{ library.button(class="spirit-button--success spirit-button--small", iconName="check", iconLabel="Success") }}
+        </p>
+
+
+        <p>
+            {{ library.button(class="spirit-button--success", iconName="check", iconLabel="Success") }}
+        </p>
+
+
+        <p>
+            {{ library.button(class="spirit-button--success spirit-button--large", iconName="check", iconLabel="Success") }}
+        </p>
+
+                
     {% endset %}
 
     {% call library.container(padding_bottom="none") %}

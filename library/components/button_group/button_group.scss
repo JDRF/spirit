@@ -10,6 +10,12 @@
     flex: 0 1 auto;
     margin: 0;
     position: relative;
+
+    &:hover,
+    &:active,
+    &:focus {
+      z-index: 2;
+    }
   }
 
   .spirit-button:not(:first-child) {
