@@ -143,7 +143,7 @@
           <svg aria-label="Loading" role="img" class="spirit-icon--spinner" viewBox="25 25 50 50" xmlns="http://www.w3.org/2000/svg"><circle class="spirit-icon--spinner__path" cx="50" cy="50" r="20" stroke-width="4" stroke-miterlimit="10"/></svg>
         </span>
         {% if feedbackText %}
-          <span class="spirit-button__default-text spirit-button__success-text" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
+          <span class="spirit-button__success-text" aria-hidden="{{feedbackTextHidden if feedbackTextHidden}}">
             {{ feedbackText if feedbackText }}
           </span>
         {% else %}
@@ -162,7 +162,7 @@
         </span>
       {% elif feedbackType and feedbackType === 'success' %}
         {% if feedbackText %}
-          <span class="spirit-button__default-text spirit-button__success-text" aria-hidden="false">
+          <span class="spirit-button__success-text" aria-hidden="false">
             {{ feedbackText if feedbackText }}
           </span>
         {% else %}

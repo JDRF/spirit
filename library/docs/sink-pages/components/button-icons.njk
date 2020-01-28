@@ -22,33 +22,6 @@
 
     {% set sample_icon_buttons %}
 
-        <div class="spirit-long-form-text">
-            <p>This sink page is to test new styles / updates for buttons with icons and resiliency.</p>
-            <h3 class="spirit-h6">Current issues questions to be resolved:</h3>
-            <ul>
-                <li><b>Note</b>: There is no 'upload' icon in library. Do we need to add?</li>
-                <li><b>Side note</b>: spirit heading classes ignored in long form text - like `spirit-h6`. May want to add ticket in backlog?</li>
-                <li>Removed `.spirit-button--has-icon` and `spirit-button__inner--has-icon` styles as now inherited directly from `spirit-button`</li>
-                <li>Removed explicit instances of `.spirit-icon` styles (sizing) as not inherited from `spirit-button`</li>
-                <li><b>Engineering decision</b>: to use span around 'text' or 'label' on all buttons?
-                    <ul>
-                        <li>Chose no inner span for 'text' as to maintain current markup as much as possible and avoid any potential 'breaking changes.'</li>
-                        <li>Potential issue with no span for text: centered text when text wraps. See below.</li>
-                    </ul>
-                </li>
-                <li>Buttons with only icon as text (like submit button - not round), set icon to same size as new update (was smaller). Need confirmation. </li>
-                <li>Button groups on dark - border not visible. Should update here? </li>
-                <li>Updated toggle buttons sink to use different IDs </li>
-            </ul>
-            <h3 class="spirit-h6">Some desgin system reference links:</h3>
-            <ul>
-                <li><a href="https://www.lightningdesignsystem.com/components/buttons/">Salesforce</a></li>
-                <li><a href="https://opensource.adobe.com/spectrum-css/components/button-primary/">Adobe</a></li>
-                <li><a href="https://material.io/components/buttons/#">Material</a></li>
-                <li><a href="https://rei.github.io/rei-cedar-docs/components/buttons/">Cedar</a></li>
-            </ul>
-        </div>
-
         <h2 class="spirit-h4">Primary</h2>
 
         <h3 class="spirit-h5">Large</h3>
