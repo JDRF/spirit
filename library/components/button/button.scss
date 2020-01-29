@@ -114,13 +114,6 @@ $spirit-button-is-icon-padding-l: 20px;
     }
   }
 
-  .spirit-button__default-text:not([aria-hidden='true']) {
-    .spirit-button__icon--left,
-    .spirit-button__icon--right {
-      visibility: visible;
-    }
-  }
-
   [class*='spirit-icon-'] {
     flex: 0 0 $spirit-size-icon-m;
     height: $spirit-size-icon-m;
@@ -172,6 +165,12 @@ $spirit-button-is-icon-padding-l: 20px;
 .spirit-button__default-text {
   .spirit-button__success-text[aria-hidden='false'] + & {
     display: none;
+  }
+
+  &:not([aria-hidden='true']) {
+    .spirit-button__icon {
+      visibility: visible;
+    }
   }
 }
 
