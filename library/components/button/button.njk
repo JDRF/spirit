@@ -30,9 +30,9 @@
         {% set iconPosition = 'left' %}
       {% endif %}
       {% if iconPosition %}
-        {% set iconClass = 'spirit-icon--' + iconName + ' spirit-icon--' + iconPosition %}
+        {% set iconClass = 'spirit-icon--' + iconName + ' spirit-button__icon spirit-button__icon--' + iconPosition %}
        {% else %}
-        {% set iconClass = 'spirit-icon--' + iconName %}
+        {% set iconClass = 'spirit-icon--' + iconName + ' spirit-button__icon' %}
       {% endif %}
       {{ icon(name=iconName, class=iconClass, decorative=iconDecorative, label=iconName if not iconDecorative )}}
     {% endset %}

@@ -259,150 +259,6 @@
         <h3 class="spirit-h5">Icon Only Large</h3>
         {{ library.button(class="spirit-button--minimal spirit-button--icon-only spirit-button--large", iconName="eye-off") }}
 
-        <h2 class="spirit-h4">Button Groups</h2>
-
-        <h3 class="spirit-h5">Button Groups Extra Small</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10") }}
-            {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15") }}
-            {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Extra Small Icon Left</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10", iconName="camera") }}
-            {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15", iconName="camera") }}
-            {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20", iconName="camera") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Extra Small Icon Right</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10", iconName="camera", iconPosition="right") }}
-            {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15", iconName="camera", iconPosition="right") }}
-            {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20", iconName="camera", iconPosition="right") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Extra Small Icon Only</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option12", value="10", iconName="camera", buttonTitle="$10") }}
-            {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option13", value="15", iconName="camera", buttonTitle="$15") }}
-            {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option14", value="20", iconName="camera", buttonTitle="$20") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Small</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22", value="10") }}
-            {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23", value="15") }}
-            {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24", value="20") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Small Icon Left</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22", value="10", iconName="camera") }}
-            {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23", value="15", iconName="camera") }}
-            {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24", value="20", iconName="camera") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Small Icon Right</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22", value="10", iconName="camera", iconPosition="right") }}
-            {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23", value="15", iconName="camera", iconPosition="right") }}
-            {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24", value="20", iconName="camera", iconPosition="right") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Small Icon Only</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option22", value="10", iconName="camera", buttonTitle="$10") }}
-            {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option23", value="15", iconName="camera", buttonTitle="$15") }}
-            {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option24", value="20", iconName="camera", buttonTitle="$20") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Standard / Default</h3>
-        {% call library.button_group() %}
-            {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="10") }}
-            {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="15") }}
-            {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="20") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Standard / Default Icon Left</h3>
-        {% call library.button_group() %}
-            {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="10", iconName="camera") }}
-            {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="15", iconName="camera") }}
-            {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="20", iconName="camera") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Standard / Default Icon Right</h3>
-        {% call library.button_group() %}
-            {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="10", iconName="camera", iconPosition="right") }}
-            {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="15", iconName="camera", iconPosition="right") }}
-            {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="20", iconName="camera", iconPosition="right") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Standard / Default Icon Only</h3>
-        {% call library.button_group() %}
-            {{ library.button(el="radio", name="radio-group", id="option32", value="10", iconName="camera", buttonTitle="$10") }}
-            {{ library.button(el="radio", name="radio-group", id="option33", value="15", iconName="camera", buttonTitle="$10") }}
-            {{ library.button(el="radio", name="radio-group", id="option34", value="20", iconName="camera", buttonTitle="$10") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Large</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42", value="10") }}
-            {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43", value="15") }}
-            {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44", value="20") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Large Icon Left</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42", value="10", iconName="camera") }}
-            {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43", value="15", iconName="camera") }}
-            {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44", value="20", iconName="camera") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Large Icon Right</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42", value="10", iconName="camera", iconPosition="right") }}
-            {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43", value="15", iconName="camera", iconPosition="right") }}
-            {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44", value="20", iconName="camera", iconPosition="right") }}
-        {% endcall %}
-
-        <h3 class="spirit-h5">Button Groups Large Icon Only</h3>
-        {% call library.button_group() %}
-            {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option42", value="10", iconName="camera", buttonTitle="$10") }}
-            {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option43", value="15", iconName="camera", buttonTitle="$10") }}
-            {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option44", value="20", iconName="camera", buttonTitle="$10") }}
-        {% endcall %}
-
-        <h2 class="spirit-h4">Toggle Groups</h2>
-
-        <h3 class="spirit-h5">Default</h3>
-
-        {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250") }}
-        {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120") }}
-        {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60") }}
-        {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30") }}
-
-        <h3 class="spirit-h5">Default Icon Left</h3>
-
-        {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250", iconName="camera") }}
-        {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120", iconName="camera") }}
-        {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60", iconName="camera") }}
-        {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30", iconName="camera") }}
-
-        <h3 class="spirit-h5">Default Icon Right</h3>
-
-        {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option1", value="250", iconName="camera", iconPosition="right") }}
-        {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option2", value="120", iconName="camera", iconPosition="right") }}
-        {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option3", value="60", iconName="camera", iconPosition="right") }}
-        {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option4", value="30", iconName="camera", iconPosition="right") }}
-
-        <h3 class="spirit-h5">Default Icon Only</h3>
-
-        {{ library.button(el="radio", name="radiogroup", id="radio-option1", value="250", iconName="camera", buttonTitle="$250") }}
-        {{ library.button(el="radio", name="radiogroup", id="radio-option2", value="120", iconName="camera", buttonTitle="$120") }}
-        {{ library.button(el="radio", name="radiogroup", id="radio-option3", value="60", iconName="camera", buttonTitle="$60") }}
-        {{ library.button(el="radio", name="radiogroup", id="radio-option4", value="30", iconName="camera", buttonTitle="$30") }}
-
         <h2 class="spirit-h4">Additional Testing Variants</h2>
 
         <h3 class="spirit-h5">Submit Icon Only</h3>
@@ -466,17 +322,302 @@
         <p>
             {{ library.button(class="spirit-button--success spirit-button--large", iconName="check", iconLabel="Success") }}
         </p>
-
-                
     {% endset %}
 
-    {% call library.container(padding_bottom="none") %}
+    {% call library.container(padding_top="none") %}
         <div class="spirit-row">
             <div class="spirit-col-md">
                 {{ sample_icon_buttons | safe }}
+                <h2 class="spirit-h4">Button Groups</h2>
+
+                <h3 class="spirit-h5">Button Groups Extra Small</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option12", value="10") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option13", value="15") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option14", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Extra Small Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option15", value="10", iconName="camera") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option16", value="15", iconName="camera") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option17", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Extra Small Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option18", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option19", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option20", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Extra Small Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option21", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option22", value="15", iconName="camera", buttonTitle="$15") }}
+                    {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option23", value="20", iconName="camera", buttonTitle="$20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option221", value="10") }}
+                    {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option231", value="15") }}
+                    {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option241", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option222", value="10", iconName="camera") }}
+                    {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option232", value="15", iconName="camera") }}
+                    {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option242", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option223", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option233", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option243", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option22", value="104", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option23", value="154", iconName="camera", buttonTitle="$15") }}
+                    {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option24", value="204", iconName="camera", buttonTitle="$20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default</h3>
+                {% call library.button_group() %}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option325", value="10") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option335", value="15") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option345", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="106", iconName="camera") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="156", iconName="camera") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="206", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option32", value="107", iconName="camera", iconPosition="right") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option33", value="157", iconName="camera", iconPosition="right") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option34", value="207", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(el="radio", name="radio-group", id="option328", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(el="radio", name="radio-group", id="option338", value="15", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(el="radio", name="radio-group", id="option348", value="20", iconName="camera", buttonTitle="$10") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option429", value="10") }}
+                    {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option439", value="15") }}
+                    {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option449", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option4211", value="10", iconName="camera") }}
+                    {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option4311", value="15", iconName="camera") }}
+                    {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option4411", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option4222", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option4322", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option4422", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option4233", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option4333", value="15", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option4433", value="20", iconName="camera", buttonTitle="$10") }}
+                {% endcall %}
+
+                <h2 class="spirit-h4">Toggle Groups</h2>
+
+                <h3 class="spirit-h5">Default</h3>
+
+                {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option11", value="250") }}
+                {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option21", value="120") }}
+                {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option31", value="60") }}
+                {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option41", value="30") }}
+
+                <h3 class="spirit-h5">Default Icon Left</h3>
+
+                {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option12", value="250", iconName="camera") }}
+                {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option22", value="120", iconName="camera") }}
+                {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option32", value="60", iconName="camera") }}
+                {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option42", value="30", iconName="camera") }}
+
+                <h3 class="spirit-h5">Default Icon Right</h3>
+
+                {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option13", value="250", iconName="camera", iconPosition="right") }}
+                {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option23", value="120", iconName="camera", iconPosition="right") }}
+                {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option33", value="60", iconName="camera", iconPosition="right") }}
+                {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option43", value="30", iconName="camera", iconPosition="right") }}
+
+                <h3 class="spirit-h5">Default Icon Only</h3>
+
+                {{ library.button(el="radio", name="radiogroup", id="radio-option14", value="250", iconName="camera", buttonTitle="$250") }}
+                {{ library.button(el="radio", name="radiogroup", id="radio-option24", value="120", iconName="camera", buttonTitle="$120") }}
+                {{ library.button(el="radio", name="radiogroup", id="radio-option34", value="60", iconName="camera", buttonTitle="$60") }}
+                {{ library.button(el="radio", name="radiogroup", id="radio-option44", value="30", iconName="camera", buttonTitle="$30") }}
             </div>
             <div class="spirit-col-md spirit-context--brand">
                 {{ sample_icon_buttons | safe }}
+
+                <h2 class="spirit-h4">Button Groups</h2>
+
+                <h3 class="spirit-h5">Button Groups Extra Small</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option1255", value="10") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option1355", value="15") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option1455", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Extra Small Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option1266", value="10", iconName="camera") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option1366", value="15", iconName="camera") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option1466", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Extra Small Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", text="$10", el="radio", name="radio-group", id="option1277", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$20", el="radio", name="radio-group", id="option1377", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--extra-small", text="$30", el="radio", name="radio-group", id="option1477", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Extra Small Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option1288", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option1388", value="15", iconName="camera", buttonTitle="$15") }}
+                    {{ library.button(class="spirit-button--extra-small", el="radio", name="radio-group", id="option1488", value="20", iconName="camera", buttonTitle="$20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option2299", value="10") }}
+                    {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option2399", value="15") }}
+                    {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option2499", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option2200", value="10", iconName="camera") }}
+                    {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option2300", value="15", iconName="camera") }}
+                    {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option2400", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", text="$10", el="radio", name="radio-group", id="option22111", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--small", text="$20", el="radio", name="radio-group", id="option23111", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--small", text="$30", el="radio", name="radio-group", id="option24111", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Small Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option22222", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option23222", value="15", iconName="camera", buttonTitle="$15") }}
+                    {{ library.button(class="spirit-button--small", el="radio", name="radio-group", id="option24222", value="20", iconName="camera", buttonTitle="$20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default</h3>
+                {% call library.button_group() %}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option32333", value="10") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option33333", value="15") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option34333", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option32444", value="10", iconName="camera") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option33444", value="15", iconName="camera") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option34444", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(text="$10", el="radio", name="radio-group", id="option32555", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(text="$20", el="radio", name="radio-group", id="option33555", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(text="$30", el="radio", name="radio-group", id="option34555", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Standard / Default Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(el="radio", name="radio-group", id="option32666", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(el="radio", name="radio-group", id="option33666", value="15", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(el="radio", name="radio-group", id="option34666", value="20", iconName="camera", buttonTitle="$10") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42777", value="10") }}
+                    {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43777", value="15") }}
+                    {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44777", value="20") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large Icon Left</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42888", value="10", iconName="camera") }}
+                    {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43888", value="15", iconName="camera") }}
+                    {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44888", value="20", iconName="camera") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large Icon Right</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", text="$10", el="radio", name="radio-group", id="option42999", value="10", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--large", text="$20", el="radio", name="radio-group", id="option43999", value="15", iconName="camera", iconPosition="right") }}
+                    {{ library.button(class="spirit-button--large", text="$30", el="radio", name="radio-group", id="option44999", value="20", iconName="camera", iconPosition="right") }}
+                {% endcall %}
+
+                <h3 class="spirit-h5">Button Groups Large Icon Only</h3>
+                {% call library.button_group() %}
+                    {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option42000", value="10", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option43000", value="15", iconName="camera", buttonTitle="$10") }}
+                    {{ library.button(class="spirit-button--large", el="radio", name="radio-group", id="option44000", value="20", iconName="camera", buttonTitle="$10") }}
+                {% endcall %}
+
+                <h2 class="spirit-h4">Toggle Groups</h2>
+
+                <h3 class="spirit-h5">Default</h3>
+
+                {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option111", value="250") }}
+                {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option211", value="120") }}
+                {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option311", value="60") }}
+                {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option411", value="30") }}
+
+                <h3 class="spirit-h5">Default Icon Left</h3>
+
+                {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option122", value="250", iconName="camera") }}
+                {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option222", value="120", iconName="camera") }}
+                {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option322", value="60", iconName="camera") }}
+                {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option422", value="30", iconName="camera") }}
+
+                <h3 class="spirit-h5">Default Icon Right</h3>
+
+                {{ library.button(text="$250", el="radio", name="radiogroup", id="radio-option133", value="250", iconName="camera", iconPosition="right") }}
+                {{ library.button(text="$120", el="radio", name="radiogroup", id="radio-option233", value="120", iconName="camera", iconPosition="right") }}
+                {{ library.button(text="$60", el="radio", name="radiogroup", id="radio-option333", value="60", iconName="camera", iconPosition="right") }}
+                {{ library.button(text="$30", el="radio", name="radiogroup", id="radio-option433", value="30", iconName="camera", iconPosition="right") }}
+
+                <h3 class="spirit-h5">Default Icon Only</h3>
+
+                {{ library.button(el="radio", name="radiogroup", id="radio-option144", value="250", iconName="camera", buttonTitle="$250") }}
+                {{ library.button(el="radio", name="radiogroup", id="radio-option244", value="120", iconName="camera", buttonTitle="$120") }}
+                {{ library.button(el="radio", name="radiogroup", id="radio-option344", value="60", iconName="camera", buttonTitle="$60") }}
+                {{ library.button(el="radio", name="radiogroup", id="radio-option444", value="30", iconName="camera", buttonTitle="$30") }}
             </div>
         </div>
     {% endcall %}

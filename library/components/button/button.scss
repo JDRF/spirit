@@ -31,7 +31,7 @@ $spirit-button-icon-margin-bottom-small: -2px;
 $spirit-button-icon-margin-top-small: -2px;
 
 // Is Icon Button
-$spirit-button-is-icon-width: 130px;
+$spirit-button-is-icon-min-width: 130px;
 $spirit-button-is-icon-padding-default: 12px;
 $spirit-button-is-icon-padding-xs: 6px;
 $spirit-button-is-icon-padding-s: 10px;
@@ -115,8 +115,8 @@ $spirit-button-is-icon-padding-l: 20px;
   }
 
   .spirit-button__default-text:not([aria-hidden='true']) {
-    .spirit-icon--left,
-    .spirit-icon--right {
+    .spirit-button__icon--left,
+    .spirit-button__icon--right {
       visibility: visible;
     }
   }
@@ -127,14 +127,6 @@ $spirit-button-is-icon-padding-l: 20px;
     margin-bottom: $spirit-button-icon-margin-bottom-default;
     margin-top: $spirit-button-icon-margin-top-default;
     width: $spirit-size-icon-m;
-  }
-
-  .spirit-icon--left {
-    margin-right: $spirit-space-generic-1-x;
-  }
-
-  .spirit-icon--right {
-    margin-left: $spirit-space-generic-1-x;
   }
 
   // Spirit Button on Brand
@@ -183,6 +175,14 @@ $spirit-button-is-icon-padding-l: 20px;
   }
 }
 
+.spirit-button__icon--left {
+  margin-right: $spirit-space-generic-1-x;
+}
+
+.spirit-button__icon--right {
+  margin-left: $spirit-space-generic-1-x;
+}
+
 .spirit-button__icon-contain {
   align-items: center;
   display: flex;
@@ -205,7 +205,7 @@ $spirit-button-is-icon-padding-l: 20px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  min-width: $spirit-button-is-icon-width;
+  min-width: $spirit-button-is-icon-min-width;
 }
 
 // Spririt Button - Extra Small
