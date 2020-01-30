@@ -76,7 +76,6 @@
       Use for non-critical actions. 
   {% endfilter %}
 
-
   {% set button_state_example_secondary %}
     <div class="spirit-doc-button-states-example-wrap">
       <div class="spirit-doc-button-states-example">
@@ -116,8 +115,8 @@
   {% endfilter %}
   {% filter markdown %}
       ### Minimal
-      
-      Use for tertiary actions. 
+
+      Use for tertiary actions.
   {% endfilter %}
 
   {% set button_state_example_minimal %}
@@ -153,7 +152,7 @@
 
   {% filter markdown %}
       #### On Dark
-      Use instead of secondary button on dark. 
+      Use instead of secondary button on dark.
   {% endfilter %}
 
   {{ esds_doc.code_example_pair( 
@@ -173,6 +172,69 @@
   }}
 
   {% filter markdown %}
+      ### With Icon
+
+      Icons can be used in buttons when additional clarity is required.  Avoid adding icons for decoration.
+  {% endfilter %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[
+      {
+        example: library.button(text="Edit", iconName="camera"),
+        label: "Icon Left (default)"
+      },
+      {
+        example: library.button(text="Next", iconName="arrow-right", iconPosition="right"),
+        label: "Icon Right"
+      },
+      {
+        example: library.button(type="submit", loader="true", text="Search", iconName="search"),
+        label: "Status Button with Icon Left"
+      }
+    ],
+    code_snippet_source=(
+      library.button(text="Edit", iconName="camera") +
+      library.button(text="Next", iconName="arrow-right", iconPosition="right") +
+      library.button(type="submit", loader="true", text="Search", iconName="search")
+    )
+  )
+  }}
+
+  <div class="spirit-form__message spirit-form__message--info">
+    <div class="spirit-form__message-icon-wrap">
+      <svg aria-label="help-circle" class="spirit-icon spirit-form__message-icon" aria-hidden="true">
+          <use xlink:href="/icons/spirit.svg#help-circle"></use>
+      </svg>
+    </div>
+    <div class="spirit-form__message-text">
+        Submit button with icon is shown in reference to icon placement in markup. See <a href="##status-buttons">Status Buttons</a> for more information on this button type.
+    </div>
+  </div>
+
+  {% filter markdown %}
+      ##### Button With Icon Class Reference
+  {% endfilter %}
+
+  {{ esds_doc.reference_table(column_widths=[40, 25, 35],
+    data=[
+      {
+        class: '.spirit-button__icon',
+        applies_to: '.spirit-icon',
+        outcome: 'Applies default styles for `.spirit-icon` contained within a `.spirit-button`.'
+      },
+      {
+        class: '.spirit-button__icon--left',
+        applies_to: '.spirit-icon',
+        outcome: 'Applies horizontal spacing when `.spirit-button__icon` appears to the left of the button label.'
+      },
+      {
+        class: '.spirit-button__icon--right',
+        applies_to: '.spirit-icon',
+        outcome: 'Applies horizontal spacing when `.spirit-button__icon` appears to the right of the button label.'
+      }
+    ]) }}
+
+  {% filter markdown %}
       ### Icon Only
       Use where an action can be fully represented by an icon and a label don’t fit comfortably alongside that icon. 
   {% endfilter %}
@@ -181,23 +243,23 @@
   {% set button_state_example_icon_only %}
     <div class="spirit-doc-button-states-example-wrap">
       <div class="spirit-doc-button-states-example">
-        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only") }}
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only", buttonTitle="Open Modal") }}
         <span class="spirit-doc-button-states-label">Normal</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--hover") }}
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--hover", buttonTitle="Open Modal") }}
         <span class="spirit-doc-button-states-label">Hover</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--active") }}
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--active", buttonTitle="Open Modal") }}
         <span class="spirit-doc-button-states-label">Active</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--focus") }}
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--focus", buttonTitle="Open Modal") }}
         <span class="spirit-doc-button-states-label">Focus</span>
       </div>
       <div class="spirit-doc-button-states-example">
-        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--disabled", disabled="true") }}
+        {{ library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--disabled", disabled="true", buttonTitle="Open Modal") }}
         <span class="spirit-doc-button-states-label">Disabled</span>
       </div>
     </div>
@@ -205,16 +267,19 @@
 
   {{ esds_doc.code_example_pair(
     examples=[ { example: button_state_example_icon_only } ],
-    code_snippet_source=(library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--focus"))
+    code_snippet_source=(library.button(iconName="chevron-right", class="spirit-button--icon-only spirit-button--focus", buttonTitle="Open Modal"))
     )
   }}
 
 
   {% filter markdown %}
-      * Use only where the icon’s meaning is unambiguous. 
+      #### Icon Only Guidelines
+
+      * Use only where the icon’s meaning is unambiguous.
       * Ideal for UI manipulation, such as advancing a carousel or expanding an accordion. 
       * Ideal for toolbars of recognizable icons, such as social sharing. 
-      * Avoid using for important CTAs. Prefer primary button. 
+      * Avoid using for important CTAs. Prefer primary button.
+      * Do use `aria-label` and `title` for assistive technologies and assistive indicators for all users.
 
       #### On Dark
 
@@ -268,20 +333,18 @@
   )
   }}
 
-  {% filter markdown %}
-
-    <div class="spirit-form__message spirit-form__message--info">
-        <div class="spirit-form__message-icon-wrap">
-          <svg aria-label="help-circle" class="spirit-icon spirit-form__message-icon" aria-hidden="true">
-              <use xlink:href="/icons/spirit.svg#help-circle">
-                  
-              </use>
-          </svg>
-        </div>
-        <div class="spirit-form__message-text">
-            These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.
-        </div>
+  <div class="spirit-form__message spirit-form__message--info">
+    <div class="spirit-form__message-icon-wrap">
+      <svg aria-label="help-circle" class="spirit-icon spirit-form__message-icon" aria-hidden="true">
+          <use xlink:href="/icons/spirit.svg#help-circle"></use>
+      </svg>
     </div>
+    <div class="spirit-form__message-text">
+        These button states are presented without Javascript. Product teams should wire up these visual states using their own application logic.
+    </div>
+  </div>
+
+  {% filter markdown %}
 
     #### Feedback
     Use feedback colors to communicate success or danger on a primary button. 
@@ -497,10 +560,9 @@
   {% endset %}
   {{ esds_doc.html_example_list( example=button_size_example_large ) }}
   {% filter markdown %}
-  
+
       ### Responsive Sizing
-      Buttons can be sized responsively. By default, buttons stay the same size on all viewports. By adding breakpoint-specific classes, a button can have different sizes for small, medium, and large viewports. 
-    
+      Buttons can be sized responsively. By default, buttons stay the same size on all viewports. By adding breakpoint-specific classes, a button can have different sizes for small, medium, and large viewports.
 
     A class of: `.spirit-button--extra-small-lg`
 
@@ -578,11 +640,11 @@
   {% endfilter %}
   {% filter markdown %}
       ## Code Reference
-      
+
       ### Markup
-      
+
       Where feasible, use `<button>`. For applications that generate markup beyond your control, using `<input type=”submit”>` is also acceptable. 
-      
+
       ### Class Reference
   {% endfilter %}
 
