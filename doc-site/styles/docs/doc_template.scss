@@ -44,6 +44,14 @@ html.-spirit-no-scroll {
     word-wrap: break-word;
   }
 
+  .spirit-shell__site {
+    min-height: calc(100vh - #{$spirit-doc-header-height});
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      min-height: calc(100vh - #{$spirit-doc-header-height-m});
+    }
+  }
+
   @media screen and (min-width: $spirit-breakpoint-l) {
     display: grid;
     grid-template-columns: 256px 1fr;
