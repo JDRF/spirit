@@ -1,4 +1,6 @@
 // Variables
+$home-shell-background-color: $spirit-color-grey-98;
+$spirit-container-context-white: $spirit-color-white;
 
 // from grid
 $spirit-grid-gutter-width: $spirit-space-generic-2-x;
@@ -20,6 +22,7 @@ $spirit-split-screen-image-hide-left-position-xl: -85px;
 $spirit-split-screen-image-hide-width: 130%;
 $spirit-split-screen-image-hide-width-m: 817px;
 $spirit-split-screen-image-hide-inner-ratio: 17.6%;
+$spirit-split-screen-spaxing-left-xl: 56px;
 
 .spirit-home-page-shell {
   @media screen and (min-width: $spirit-doc-layout-breakpoint) {
@@ -28,8 +31,11 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
   }
 
   .spirit-shell__site {
+    background-color: $home-shell-background-color;
+
     @media screen and (min-width: $spirit-breakpoint-l) {
       min-height: 100vh;
+      background-color: $spirit-container-context-white;
     }
   }
 }
@@ -55,9 +61,65 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
   }
 }
 
+.spirit--context-white {
+  background-color: $spirit-container-context-white;
+}
+
 .spirit-container--hero-doc-home {
   position: relative;
   z-index: 10;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    padding-top: $spirit-space-generic-6-x;
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    padding-top: $spirit-space-generic-12-x;
+
+    .spirit-container__inner {
+      padding-top: 0;
+    }
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-xl) {
+    margin-bottom: $spirit-space-generic-8-x;
+    padding-left: $spirit-split-screen-spaxing-left-xl;
+  }
+
+  .spirit-display-2,
+  .spirit-long-form-text p {
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      text-align: center;
+    }
+
+    @media screen and (min-width: $spirit-breakpoint-l) {
+      text-align: left;
+    }
+  }
+
+  .spirit-display-2 {
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      font-size: $spirit-font-size-display-level-2-breakpoint-l;
+      line-height: $spirit-font-line-height-display-level-2-breakpoint-l;
+    }
+  }
+
+  .spirit-subhead {
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      font-size: $spirit-font-size-subhead-breakpoint-l;
+    }
+  }
+
+  .spirit-h4 {
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      font-size: $spirit-font-size-heading-level-4-breakpoint-l;
+      line-height: $spirit-font-line-height-heading-level-4-breakpoint-l;
+
+    }
+  }
 
   + .spirit-container {
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -76,9 +138,6 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
     }
   }
 
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    margin-bottom: $spirit-space-generic-8-x;
-  }
 }
 
 .spirit-doc-site-footer--home {
@@ -90,14 +149,14 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
 .spirit-hero-split-screen__contents {
   display: flex;
   flex-flow: column;
-  @media screen and (min-width: $spirit-breakpoint-m) {
+  @media screen and (min-width: $spirit-breakpoint-xl) {
     align-items: center;
     flex-flow: row;
     justify-content: space-between;
     padding-left: $spirit-space-generic-5-x;
   }
 
-  @media screen and (min-width: $spirit-breakpoint-l) {
+  @media screen and (min-width: $spirit-breakpoint-xl) {
     padding-left: $spirit-space-generic-8-x;
   }
 }
@@ -122,21 +181,21 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
   max-width: 100%;
 }
 
-.spirit-hero-split-screen__image--hide-on-mobile {
-  display: none;
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    display: block;
-  }
-}
+// .spirit-hero-split-screen__image--hide-on-mobile {
+//   display: none;
+//   @media screen and (min-width: $spirit-breakpoint-m) {
+//     display: block;
+//   }
+// }
 
-.spirit-hero-split-screen__image-mobile {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    display: none;
-  }
-}
+// .spirit-hero-split-screen__image-mobile {
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   @media screen and (min-width: $spirit-breakpoint-m) {
+//     display: none;
+//   }
+// }
 
 .spirit-hero-split-screen__image-container {
   margin: 0;
@@ -157,12 +216,12 @@ $spirit-split-screen-image-hide-inner-ratio: 17.6%;
   }
 }
 
-.spirit-hero-split-screen__image-container--mobile-hidden {
-  display: none;
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    display: block;
-  }
-}
+// .spirit-hero-split-screen__image-container--xl-hidden {
+//   display: none;
+//   @media screen and (min-width: $spirit-breakpoint-m) {
+//     display: block;
+//   }
+// }
 
 .spirit-hero-split-screen__image-container--mobile-top {
   margin-top: 0;
