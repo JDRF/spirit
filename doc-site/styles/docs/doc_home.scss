@@ -34,8 +34,8 @@ $spirit-split-screen-spaxing-left-xl: 56px;
     background-color: $home-shell-background-color;
 
     @media screen and (min-width: $spirit-breakpoint-l) {
-      min-height: 100vh;
       background-color: $spirit-container-context-white;
+      min-height: 100vh;
     }
   }
 }
