@@ -181,22 +181,6 @@ $spirit-split-screen-spaxing-left-xl: 56px;
   max-width: 100%;
 }
 
-// .spirit-hero-split-screen__image--hide-on-mobile {
-//   display: none;
-//   @media screen and (min-width: $spirit-breakpoint-m) {
-//     display: block;
-//   }
-// }
-
-// .spirit-hero-split-screen__image-mobile {
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-//   @media screen and (min-width: $spirit-breakpoint-m) {
-//     display: none;
-//   }
-// }
-
 .spirit-hero-split-screen__image-container {
   margin: 0;
   margin-top: $spirit-space-generic-3-x;
@@ -215,13 +199,6 @@ $spirit-split-screen-spaxing-left-xl: 56px;
     width: calc(50% - #{$spirit-space-generic-6-x});
   }
 }
-
-// .spirit-hero-split-screen__image-container--xl-hidden {
-//   display: none;
-//   @media screen and (min-width: $spirit-breakpoint-m) {
-//     display: block;
-//   }
-// }
 
 .spirit-hero-split-screen__image-container--mobile-top {
   margin-top: 0;
