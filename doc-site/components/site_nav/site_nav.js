@@ -5,7 +5,10 @@ class SpiritDocSiteNav {
     const currentUrl = window.location.pathname;
     if (currentUrl !== '/') {
       const activeLink = siteNav.querySelector('a[href*="' + currentUrl + '"]');
-      activeLink.classList.add('spirit-doc-site-nav--active-link');
+
+      if (activeLink) {
+        activeLink.classList.add('spirit-doc-site-nav--active-link');
+      }
     }
   }
 }

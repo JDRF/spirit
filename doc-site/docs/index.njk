@@ -1,149 +1,61 @@
 {% set show_page_navigation = false %}
 {% extends 'templates/home.njk' %}
 {% block page_shell_content %}
-    {% set doc_top_watermark %}
-        <section class="spirit-container spirit-container--brush-watermark">
-            <div class="spirit-container__inner spirit-container__inner--padding-top-none spirit-container__inner--padding-bottom-none spirit-container__inner--brush-watermark" style="top: 0px; left: 0px;">
-                <div class="spirit-brush-watermark spirit-brush-watermark__background-3" style="opacity: 0.7"></div>
-            </div>
-        </section>
-    {% endset %}
-
-    {% set show_principles = false %}
-
     {% set doc_home_hero %}
         {{ doc_top_watermark | safe }}
-        {% call library.container(class="spirit-container--hero-split-screen spirit-container--hero-doc-home", padding_top="xs", padding_bottom="xs") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h1 class="spirit-hero-split-screen__title spirit-display-2">
-                        <span class="spirit-brush-highlight">
-                            <span class="spirit-brush-highlight__text">
-                                Spirit
-                                <img class="spirit-icon spirit-icon--upload spirit-brush-highlight__brush" aria-hidden="true" alt="" src="/images/home/highlight_small.svg">
-                            </span>
-                        </span>
-                    </h1>
-                    <div class="spirit-long-form-text">
-                        <p class="spirit-subhead">Resources and design guidelines to help us work together to create digital experiences for the type 1 diabetes community.</p>				
-                        <p class="spirit-hero-message__button-container">
-                            {{ library.link(class="spirit-link--animated spirit-h4", text="Get Started", href="/getting-started.html") }}
-                        </p>
+        {% call library.container(class="spirit--context-white spirit-container--hero-split-screen spirit-container--hero-doc-home", padding_top="xs", padding_bottom="xs") %}
+            <div class="spirit-row">
+                <div class="spirit-col-md-10 spirit-offset-md-1 spirit-col-lg-8 spirit-offset-lg-2 spirit-col-xl-12 spirit-offset-xl-0">
+                    <div class="spirit-hero-split-screen__contents">
+                        <div class="spirit-hero-split-screen__message spirit-hero-message">
+                            <h1 class="spirit-hero-split-screen__title spirit-display-2">
+                                <span class="spirit-brush-highlight">
+                                    <span class="spirit-brush-highlight__text">
+                                        Spirit
+                                        <img class="spirit-icon spirit-icon--upload spirit-brush-highlight__brush" aria-hidden="true" alt="" src="/images/home/highlight_small.svg">
+                                    </span>
+                                </span>
+                            </h1>
+                            <div class="spirit-long-form-text">
+                                <p class="spirit-subhead">JDRF’s design system helps us work together to create digital experiences for the type 1 diabetes community.</p>
+                                <p class="spirit-hero-message__button-container">
+                                    {{ library.link(class="spirit-link--animated spirit-h4", text="Get Started", href="/getting-started.html") }}
+                                </p>
+                                <p class="spirit-body-text-s">
+                                    Current release: {{ library.link(class="spirit-link--animated", text="Version 1.0.2", href="/release-history.html") }}
+                                </p>
+                            </div>
+                        </div>
+                        <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-right spirit-d-none spirit-d-xl-block">
+                            <img src="/images/home/father-son.png" class="spirit-hero-split-screen__image" alt="alt">
+                            <div class="spirit-hero-split-screen__image--hide" aria-hidden="true">
+                                <div class="spirit-hero-split-screen__image--hide--inner">
+                                    <svg width="1601" height="282" viewBox="0 0 1601 282" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#FFF" d="M0 157.009726l12.8672722 32.672776 26.2490439 14.623749 91.4038179-18.416687 100.289104-79.177875 66.913365-65.15465 75.134484-12.8721398 115.022344 26.7767275L590.49806 141.279078l130.461264 101.050839 128.033099-11.304349 55.828664-95.51816 72.539025-28.795719 64.986858 20.595884 76.20517 51.627175 85.02878 25.371503h55.69005l45.92959-47.296525 76.05221-78.466197 105.99799-6.8399673 92.78647 55.6040113 19.74605 12.403887v141.799685H0z"></path><path d="M235.7 125.3c-1.1-.3-5.4 6.4-8.1 9.7 1.6-.9 5-5.6 8.1-9.7m5.6-7c0-1.6-3.8 3.8-4.6 5.4.9-.5 2.6-2.6 4.6-5.4m4.7-6.3c-.9.8-3.2 3.8-3.7 4.9.1.6 4.7-5.2 3.7-4.9m722.7 16.9c-.1-.8-3.5-.3-4-.1 0 .5 3.1.3 4 .1m29 5.1c5.7 1.8 11.6 4 16.8 6-10-5.2-21.3-9.2-32.7-10.2 4.7 1 10.2 2.4 15.9 4.2m34 14.7c1.4.8 3 1.6 3.6 1.8-1.4-1.1-4.7-3.2-6.3-3.7 0 .3 1.2 1.1 2.7 1.9m56.1 39.4c29.7 21.9 62.7 45.2 100.1 50.8-7.8-4-17.7-4.8-26-8-11-4.3-21.6-9.7-31.8-15.6-19.6-11.4-37.8-25-56.1-38.3 3.5 3.2 8.2 7 13.8 11.1m13.8 6.5c-1.8-1.4-4.2-3.4-4.7-2.9 1.6 1 5.1 3.9 4.7 2.9m134.1 42.1c1.1.1 1.9-.2 2.3-1.1-1.8.4-3.6.9-5.4 1.2-.1.3 1.6.2 3.1-.1m34.2-13.7c5-2.8 9.7-6.2 14.2-9.9-6.3 3.4-11.9 8.2-18.2 11.7 1-.2 2.4-.8 4-1.8m23.5-18.1c.6.8 6.7-5.9 5.5-5.8-.6.4-6 5.4-5.5 5.8m10.7-10.8c2.1-2 3.8-4.3 6.1-6.2-.3-.4 2.7-3.6 1.7-3.4-2.9 3.4-7.5 6.9-9.4 11 .4-.3 1-.8 1.6-1.4m28.1-35c3.6-4.7 7.5-9.9 11.9-15.3-8.6 5-16.9 20.4-22.3 28.3 3.3-3.9 6.7-8.2 10.4-13m20-24.3c3-3.4 6.1-6.8 9.4-9.9-6.7 4.4-11.7 11.4-16.6 17.5 2-1.6 4.4-4.4 7.2-7.6m46.4-32.9c.9-.3 4.7-1 4.8-2.2-1.2.2-5.8 1.8-4.8 2.2M0 153c.9-.8 1.9-.9 3.1-2 1.2 5.4 9.6 38.8 16.7 37.9-3.5-5-6.3-10.7-7.9-16.6-.2-.6-1.8-10.9.1-9.5 3.3 2.5 4.9 8.1 7.4 11.4-1-4.1 1-4.1 2.5-7.1-.4-2.6-1.2-9.1 2.7-8.8 3.7.2 2.6 6.6 5.4 7.5-.3-1.7.1-3.1 1.1-4.3 0 0 10.7 16.5 12.2 17.4.3-.5.3-1.1-.1-1.6-.1 1 14 11.3 16.2 11-5.1.6-14-13.3-15.2-17.8 1.2 1.8 2.6 3.6 4.2 5 0-.7-.2-1.4-.6-2C49.1 179 66.1 187 71 188.1c-.3-1.1 4.7-.3 4.5-.7-4.2-2.2-18.3-7.7-18.2-13.7 0 1.2 8.9 4.6 9.2 5.1-1.4-2.9-7.3-4.4-7.6-8.1.1.6 3.4 2.1 3.9 2.2-2-1.8-3.4-4.1-4.9-6.3-.3-.5-1.3-4.1-1.1-4.8 2.2.5 6.4 6.6 8.8 8.3 4.2 3 9.2 5.2 14.1 6.7 9.6 3.1 19.8 3.5 29.6 1.3 19.2-4.2 35.1-17.2 49-30.3 31.4-29.7 53.9-67.2 85.7-96.3 33.2-30.4 73.8-48.7 119.2-50.4 46.3-1.7 92.7 12.2 133.3 33.6 23.3 12.2 44.9 27.7 65.5 43.9 19.1 15 40.2 31.8 56.4 49.9 18.8 14.3 34.7 32.4 52.9 47.4 17.4 14.4 35.9 27.7 56.1 38.1 34.7 17.8 81.3 30.5 111.6-1.6 15-15.9 20.8-36.9 30.4-55.9 8-15.7 17.8-31 30.5-43.4 29-28.4 69.1-31.6 107-20.9 39.5 11.2 71.6 35.3 104 59.1 27.7 20.3 59.2 43.6 94.9 45.6 42 2.4 69.4-30.7 92.3-61 23.8-31.6 52.7-57.9 90.1-72.6 41.2-16.2 87.2-15.5 128.3.8 20.3 8 39.3 19.7 55.2 34.7 8.1 7.6 15.4 16.2 21.4 25.6 2.8 4.3 13.6 22.3 1.1 14.8 0 2.2 2.4 4.1 2.5 6.4-4.7-4.7-6.5-2.6-6.4 3.2 0-.5-5.8-.4-6.6-1.2-.3 6.3-7.5 2.7-6.3 8.5-1.3-1.5-8.3-8-8.3-1.6 0-1.5-4.4-1.7-5.4-2.5-3.5-2.6-5.5-7-8.2-10.4-6.2-8-13.9-14.5-21.3-21.4.6.7.5.9-.3.6-4.3-3.1-8.5-6.7-13-9.5-1.8-.5 2.2 2.5 1.7 1.9-7.6-3.4-15.1-7.2-23-10.1-4.5-1.6-14.9-2.7-17.9-6.2 2.8.5 5.6 1.1 8.4 1.7-2.5-1.5-6.2-2.2-9.1-2.6-.7 1.5-11-1.1-12.4-1.6 1.1.3 2.1.3 3.1-.1-1.2-2.7-17.9-.9-19.4-.9 2.2.9-2.6-.7-5.6-.7-7.5-.1-15.1.3-22.4 2 1 .3 4.5-.4 4.1.4-13.1 3.1-26.9 5.4-39.1 11.5-.6-.3 2.1-1.5.2-1.1-3.7.9-8.9 4-11.6 6.7 2.4-1.4 6.4-3.9 7.4-3.7-5.7 5.1-13 8.5-18.9 13.7-5.4 4.8-10.6 9.8-15.4 15.3-12 13.6-22.4 28.6-33.8 42.8-22.9 28.4-50.2 51.8-86.9 59.7 32.4-7 56-22.4 77.9-47.1 10.3-11.7 19.7-24.2 29.3-36.5 9.3-11.8 19.7-28.5 33.5-35.6-.4.2-3.8 3.9-3.4 3.5-5.9 2.9-11.4 11-15.6 15.8-7.4 8.4-14.2 17.4-20.9 26.4-12.1 16.2-24.6 32.1-39.9 45.4-29 25.1-63.8 36.5-102 29-37.3-7.3-69.6-27.6-99.6-49.9-28.6-21.2-57.2-44.7-92-54.8-33.5-9.7-64.5-1.7-81.4 30.3-9 17.1-14.1 35.6-24.3 52.3-10.1 16.6-22.6 32.2-38.6 43.5-63.9 44.8-144.3.7-197.6-39.9-38.9-29.7-74.6-63.7-111.4-95.9-17.4-15.3-35.3-30.3-55-42.6-21-13.1-44-21.7-67.1-30.2 16.3 5.9 32.9 12.1 49.3 17.7-5.7-1.9-14.3-6.6-19.2-10.4-7.1-2.3-14.3-4.8-21-7.8 10.4 2.9 20.2 7.5 30.4 11-26.9-14.4-58.8-21.6-89.3-21.7-14.7-.1-29.5 1.7-43.6 6-8.2 2.5-31.4 9.2-35.7 17.9.7-.2 1.3-.8 2-.9-.9 2.5-7 5-8.9 6.7 1.3-1.2 4.6-3.1 5.3-4.8-2.2 5.2-13.5 8-16.5 13.8.8-1.6-8.4 7.1-9.7 8.4-5.3 5.4-10.4 11.1-15 17.2 6.3-4.9 9.8-13.2 16.7-17.5-12.6 13.7-23.5 28.1-35.1 42.6-5.1 6.3-10.2 12.7-15.3 18.9-5.7 7-13.8 13.2-18.2 20.9 4.7-3.1 8-10.3 13.2-12.4-13.6 19.8-31.1 35.4-51.8 48-10.5 6.4-21.4 12.2-33.2 15.9-10.4 3.3-22.1 2.1-32.1 5.4 16.3 1 32.3-2.7 47.3-8.9 7.7-3.2 15.2-7.1 22.6-11 2.3-1.2 17.9-8.5 18.1-9.9-12.8 14.5-36.3 26.9-54.7 32.1-15 4.2-31.2 5.5-46.5 4.2C40.5 231.6-.5 194.5 0 153" fill="#0055FF" fill-rule="nonzero"></path></g></svg>
+                                </div>
+                            </div>
+                        </figure>
                     </div>
-
                 </div>
-
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-right spirit-hero-split-screen__image-container--mobile-hidden">
-                    <img src="/images/home/father-son.png" class="spirit-hero-split-screen__image" alt="alt">
-                    <div class="spirit-hero-split-screen__image--hide" aria-hidden="true">
-                        <svg width="1601" height="282" viewBox="0 0 1601 282" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#FFF" d="M0 157.009726l12.8672722 32.672776 26.2490439 14.623749 91.4038179-18.416687 100.289104-79.177875 66.913365-65.15465 75.134484-12.8721398 115.022344 26.7767275L590.49806 141.279078l130.461264 101.050839 128.033099-11.304349 55.828664-95.51816 72.539025-28.795719 64.986858 20.595884 76.20517 51.627175 85.02878 25.371503h55.69005l45.92959-47.296525 76.05221-78.466197 105.99799-6.8399673 92.78647 55.6040113 19.74605 12.403887v141.799685H0z"></path><path d="M235.7 125.3c-1.1-.3-5.4 6.4-8.1 9.7 1.6-.9 5-5.6 8.1-9.7m5.6-7c0-1.6-3.8 3.8-4.6 5.4.9-.5 2.6-2.6 4.6-5.4m4.7-6.3c-.9.8-3.2 3.8-3.7 4.9.1.6 4.7-5.2 3.7-4.9m722.7 16.9c-.1-.8-3.5-.3-4-.1 0 .5 3.1.3 4 .1m29 5.1c5.7 1.8 11.6 4 16.8 6-10-5.2-21.3-9.2-32.7-10.2 4.7 1 10.2 2.4 15.9 4.2m34 14.7c1.4.8 3 1.6 3.6 1.8-1.4-1.1-4.7-3.2-6.3-3.7 0 .3 1.2 1.1 2.7 1.9m56.1 39.4c29.7 21.9 62.7 45.2 100.1 50.8-7.8-4-17.7-4.8-26-8-11-4.3-21.6-9.7-31.8-15.6-19.6-11.4-37.8-25-56.1-38.3 3.5 3.2 8.2 7 13.8 11.1m13.8 6.5c-1.8-1.4-4.2-3.4-4.7-2.9 1.6 1 5.1 3.9 4.7 2.9m134.1 42.1c1.1.1 1.9-.2 2.3-1.1-1.8.4-3.6.9-5.4 1.2-.1.3 1.6.2 3.1-.1m34.2-13.7c5-2.8 9.7-6.2 14.2-9.9-6.3 3.4-11.9 8.2-18.2 11.7 1-.2 2.4-.8 4-1.8m23.5-18.1c.6.8 6.7-5.9 5.5-5.8-.6.4-6 5.4-5.5 5.8m10.7-10.8c2.1-2 3.8-4.3 6.1-6.2-.3-.4 2.7-3.6 1.7-3.4-2.9 3.4-7.5 6.9-9.4 11 .4-.3 1-.8 1.6-1.4m28.1-35c3.6-4.7 7.5-9.9 11.9-15.3-8.6 5-16.9 20.4-22.3 28.3 3.3-3.9 6.7-8.2 10.4-13m20-24.3c3-3.4 6.1-6.8 9.4-9.9-6.7 4.4-11.7 11.4-16.6 17.5 2-1.6 4.4-4.4 7.2-7.6m46.4-32.9c.9-.3 4.7-1 4.8-2.2-1.2.2-5.8 1.8-4.8 2.2M0 153c.9-.8 1.9-.9 3.1-2 1.2 5.4 9.6 38.8 16.7 37.9-3.5-5-6.3-10.7-7.9-16.6-.2-.6-1.8-10.9.1-9.5 3.3 2.5 4.9 8.1 7.4 11.4-1-4.1 1-4.1 2.5-7.1-.4-2.6-1.2-9.1 2.7-8.8 3.7.2 2.6 6.6 5.4 7.5-.3-1.7.1-3.1 1.1-4.3 0 0 10.7 16.5 12.2 17.4.3-.5.3-1.1-.1-1.6-.1 1 14 11.3 16.2 11-5.1.6-14-13.3-15.2-17.8 1.2 1.8 2.6 3.6 4.2 5 0-.7-.2-1.4-.6-2C49.1 179 66.1 187 71 188.1c-.3-1.1 4.7-.3 4.5-.7-4.2-2.2-18.3-7.7-18.2-13.7 0 1.2 8.9 4.6 9.2 5.1-1.4-2.9-7.3-4.4-7.6-8.1.1.6 3.4 2.1 3.9 2.2-2-1.8-3.4-4.1-4.9-6.3-.3-.5-1.3-4.1-1.1-4.8 2.2.5 6.4 6.6 8.8 8.3 4.2 3 9.2 5.2 14.1 6.7 9.6 3.1 19.8 3.5 29.6 1.3 19.2-4.2 35.1-17.2 49-30.3 31.4-29.7 53.9-67.2 85.7-96.3 33.2-30.4 73.8-48.7 119.2-50.4 46.3-1.7 92.7 12.2 133.3 33.6 23.3 12.2 44.9 27.7 65.5 43.9 19.1 15 40.2 31.8 56.4 49.9 18.8 14.3 34.7 32.4 52.9 47.4 17.4 14.4 35.9 27.7 56.1 38.1 34.7 17.8 81.3 30.5 111.6-1.6 15-15.9 20.8-36.9 30.4-55.9 8-15.7 17.8-31 30.5-43.4 29-28.4 69.1-31.6 107-20.9 39.5 11.2 71.6 35.3 104 59.1 27.7 20.3 59.2 43.6 94.9 45.6 42 2.4 69.4-30.7 92.3-61 23.8-31.6 52.7-57.9 90.1-72.6 41.2-16.2 87.2-15.5 128.3.8 20.3 8 39.3 19.7 55.2 34.7 8.1 7.6 15.4 16.2 21.4 25.6 2.8 4.3 13.6 22.3 1.1 14.8 0 2.2 2.4 4.1 2.5 6.4-4.7-4.7-6.5-2.6-6.4 3.2 0-.5-5.8-.4-6.6-1.2-.3 6.3-7.5 2.7-6.3 8.5-1.3-1.5-8.3-8-8.3-1.6 0-1.5-4.4-1.7-5.4-2.5-3.5-2.6-5.5-7-8.2-10.4-6.2-8-13.9-14.5-21.3-21.4.6.7.5.9-.3.6-4.3-3.1-8.5-6.7-13-9.5-1.8-.5 2.2 2.5 1.7 1.9-7.6-3.4-15.1-7.2-23-10.1-4.5-1.6-14.9-2.7-17.9-6.2 2.8.5 5.6 1.1 8.4 1.7-2.5-1.5-6.2-2.2-9.1-2.6-.7 1.5-11-1.1-12.4-1.6 1.1.3 2.1.3 3.1-.1-1.2-2.7-17.9-.9-19.4-.9 2.2.9-2.6-.7-5.6-.7-7.5-.1-15.1.3-22.4 2 1 .3 4.5-.4 4.1.4-13.1 3.1-26.9 5.4-39.1 11.5-.6-.3 2.1-1.5.2-1.1-3.7.9-8.9 4-11.6 6.7 2.4-1.4 6.4-3.9 7.4-3.7-5.7 5.1-13 8.5-18.9 13.7-5.4 4.8-10.6 9.8-15.4 15.3-12 13.6-22.4 28.6-33.8 42.8-22.9 28.4-50.2 51.8-86.9 59.7 32.4-7 56-22.4 77.9-47.1 10.3-11.7 19.7-24.2 29.3-36.5 9.3-11.8 19.7-28.5 33.5-35.6-.4.2-3.8 3.9-3.4 3.5-5.9 2.9-11.4 11-15.6 15.8-7.4 8.4-14.2 17.4-20.9 26.4-12.1 16.2-24.6 32.1-39.9 45.4-29 25.1-63.8 36.5-102 29-37.3-7.3-69.6-27.6-99.6-49.9-28.6-21.2-57.2-44.7-92-54.8-33.5-9.7-64.5-1.7-81.4 30.3-9 17.1-14.1 35.6-24.3 52.3-10.1 16.6-22.6 32.2-38.6 43.5-63.9 44.8-144.3.7-197.6-39.9-38.9-29.7-74.6-63.7-111.4-95.9-17.4-15.3-35.3-30.3-55-42.6-21-13.1-44-21.7-67.1-30.2 16.3 5.9 32.9 12.1 49.3 17.7-5.7-1.9-14.3-6.6-19.2-10.4-7.1-2.3-14.3-4.8-21-7.8 10.4 2.9 20.2 7.5 30.4 11-26.9-14.4-58.8-21.6-89.3-21.7-14.7-.1-29.5 1.7-43.6 6-8.2 2.5-31.4 9.2-35.7 17.9.7-.2 1.3-.8 2-.9-.9 2.5-7 5-8.9 6.7 1.3-1.2 4.6-3.1 5.3-4.8-2.2 5.2-13.5 8-16.5 13.8.8-1.6-8.4 7.1-9.7 8.4-5.3 5.4-10.4 11.1-15 17.2 6.3-4.9 9.8-13.2 16.7-17.5-12.6 13.7-23.5 28.1-35.1 42.6-5.1 6.3-10.2 12.7-15.3 18.9-5.7 7-13.8 13.2-18.2 20.9 4.7-3.1 8-10.3 13.2-12.4-13.6 19.8-31.1 35.4-51.8 48-10.5 6.4-21.4 12.2-33.2 15.9-10.4 3.3-22.1 2.1-32.1 5.4 16.3 1 32.3-2.7 47.3-8.9 7.7-3.2 15.2-7.1 22.6-11 2.3-1.2 17.9-8.5 18.1-9.9-12.8 14.5-36.3 26.9-54.7 32.1-15 4.2-31.2 5.5-46.5 4.2C40.5 231.6-.5 194.5 0 153" fill="#0055FF" fill-rule="nonzero"></path></g></svg>
-                    </div>
-                </figure>
             </div>
 		{% endcall %}
     {% endset %}
 
     {% set doc_home_cards %}
-        {% call library.container(padding_top="none", padding_bottom="s") %}
-            {% call library.card_grid(class="spirit-card-grid--list spirit-card-grid--4-up") %}
-                {{ library.card(
-                    img_src=false,
-                    title_text="Visual Style",
-                    link_text="More",
-                    body_text="Delve into best practices for color, typography, depth, icons, and space.",
-                    href="/visual-style/color.html",
-                    class="spirit-card--list-item"
-                ) }}
-                {{ library.card(
-                    img_src=false,
-                    title_text="Components",
-                    link_text="More",
-                    body_text="Explore live examples and code snippets for our buttons, cards, grid, forms, brushes, and more.",
-                    href="/components/brush.html",
-                    class="spirit-card--list-item"
-                ) }}
-                {{ library.card(
-                    img_src=false,
-                    title_text="Add Sketch UI Library",
-                    link_text="More",
-                    body_text="Start using Spirit symbols and styles across your Sketch documents.",
-                    href="/getting-started.html#sketch-resources",
-                    class="spirit-card--list-item"
-                ) }}
-                {{ library.card(
-                    img_src=false,
-                    title_text="See What's New",
-                    link_text="More",
-                    body_text="Learn about the new additions, enhancements and fixes in our latest release.",
-                    href="/release-history.html",
-                    class="spirit-card--list-item"
-                ) }}
-            {% endcall %}
-        {% endcall %}
-    {% endset %}
-
-    {% set doc_home_principles %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Human</h2>
-                    <div class="spirit-long-form-text">
-                        <p>Always start with the people we’re designing for and keep them in mind throughout the process.  Choices should be rooted in research and validated through user testing.</p>
-                    </div>
+        {% call library.container(class="spirit-d-lg-none") %}
+            <div class="spirit-row">
+                <div class="spirit-offset-md-1 spirit-col-md-10">
+                    {% call library.list() %}
+                        {{ library.list_item(title_text="Visual Style", meta="Delve into best practices for color, typography, depth, icons, and space.", href_text="More", href="/visual-style/color.html") }}
+                        {{ library.list_item(title_text="Components", meta="Explore live examples and code snippets for our buttons, cards, grid, forms, brushes, and more.", href_text="More", href="/components/brush.html") }}
+                        {{ library.list_item(title_text="See What's New", meta="Learn about the new additions, enhancements and fixes in our latest release.", href_text="More", href="/release-history.html") }}
+                    {% endcall %}
                 </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-left spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                </figure>
-            </div>
-        {% endcall %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Recognizable</h2>
-                    <div class="spirit-long-form-text">
-                        <p>A monochromatic color scheme is used to strengthen the connection with JDRF Blue through consistent repetition.  Color recognition is especially important for JDRF because we have few other recognizable brand elements.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-right spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                </figure>
-            </div>
-        {% endcall %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Approachable</h2>
-                    <div class="spirit-long-form-text">
-                        <p>We use simple shapes with rounded corners to help our designs feel familiar and approachable. White space, bold typography and strong hierarchy creates balance and structure on the screen without the need for lots of lines, borders and shading.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-left spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                </figure>
-            </div>
-        {% endcall %}
-        {% call library.container(class="spirit-container--hero-split-screen", padding_top="none", padding_bottom="sm") %}
-            <div class="spirit-hero-split-screen__contents">
-                <div class="spirit-hero-split-screen__message spirit-hero-message">
-                    <h2 class="spirit-hero-message__title spirit-h2">Striking</h2>
-                    <div class="spirit-long-form-text">
-                        <p>Brush strokes represent the human spirit of the people that drive our mission forward. They provide warmth to our striking, minimal aesthetic that is at risk of feeling clinical and unapproachable.</p>
-                    </div>
-                </div>
-                <figure class="spirit-hero-split-screen__image-container spirit-hero-split-screen__image-container--align-right spirit-hero-split-screen__image-container--mobile-top">
-                    <img src="/images/home/one-walk.png" class="spirit-hero-split-screen__image spirit-hero-split-screen__image" alt="https://stagingjdrf.wpengine.com/wp-content/uploads/2018/11/long-sleeve-tee.jpg">
-                    <div class="spirit-hero-split-screen__image--accent" aria-hidden="true">
-                    {{ library.brush(
-                        name="wave1"
-                    ) }}
-                </div>
-                </figure>
             </div>
         {% endcall %}
     {% endset %}
 
     {% set doc_footer %}
-        {% call library.container(padding_top="none", padding_bottom="none") %}
+        {% call library.container(padding_top="none", padding_bottom="none", background_color="white") %}
             <nav>
                 <ul id="menu-footer" class="spirit-nav-block">
                     <li class="spirit-nav-block__item">
@@ -177,43 +89,11 @@
     {% endset %}
 
     {% call library.shell() %}
-        {% call library.shell_header(class="spirit-doc-page-header spirit-doc-page-header--home") %}
-            {% call library.container(padding_top="none", padding_bottom="none") %}
-                <div class="spirit-d-flex">
-                    <h2 class="spirit-brand-title">
-                        <a class="spirit-brand-title__link" href="/">
-                        {{ library.icon(
-                            name="jdrf",
-                            label="JDRF",
-                            class="spirit-icon--jdrf",
-                            decorative=false
-                            ) }}
-                        </a>
-                    </h2>
-                </div>
-            {% endcall %} 
-        {% endcall %} 
-
         {% call library.shell_main() %}
             {{ doc_home_hero | safe }}
             {{ doc_home_cards | safe }}
-            {% if ( show_principles ) %}
-            {% call library.container(class="spirit-section-heading", size="large", padding_top="s") %}
-                <div class="spirit-row">
-                    <h2 class="spirit-section-heading__title spirit-h1 spirit-col-12">
-                        Our Principles
-                    </h2>
-                
-                    <p class="spirit-section-heading__subhead spirit-subhead spirit-col-12 spirit-col-md-10 spirit-offset-md-1">
-                        Medium subhead,calling on insurance companies to provide these three things that will help people with T1D control the disease.
-                    </p>
-                </div>
-            {% endcall %}
-            {{ doc_home_principles | safe }}
-            {% endif %}
         {% endcall %}
-
-        {% call library.shell_footer(class="spirit-doc-site-footer") %}
+        {% call library.shell_footer(class="spirit-doc-site-footer spirit-doc-site-footer--home") %}
             {{ doc_footer | safe }}
         {% endcall %}
     {% endcall %}

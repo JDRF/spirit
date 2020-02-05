@@ -4,7 +4,8 @@
       disabled=false,
       text=false,
       iconName=false,
-      iconLabel=false,
+      iconPosition,
+      iconDecorative=true,
       el="button",
       type=false,
       href=false,
@@ -13,35 +14,117 @@
       feedbackText=false,
       name=false,
       value=false,
-      fullwidth=false
+      fullwidth=false,
+      buttonTitle=false,
+      displayIcon
       ) %}
   {% if href %}
     {% set el = 'a' %}
   {% endif %}
+  {% if iconName and not text and not buttonTitle  %}
+    {% set iconDecorative = false %}
+  {% endif %}
+  {% if iconName %}
+    {% set displayIcon %}
+      {% if text and not iconPosition %}
+        {% set iconPosition = 'left' %}
+      {% endif %}
+      {% if iconPosition %}
+        {% set iconClass = 'spirit-icon--' + iconName + ' spirit-button__icon spirit-button__icon--' + iconPosition %}
+       {% else %}
+        {% set iconClass = 'spirit-icon--' + iconName + ' spirit-button__icon' %}
+      {% endif %}
+      {{ icon(name=iconName, class=iconClass, decorative=iconDecorative, label=iconName if not iconDecorative )}}
+    {% endset %}
+  {% endif %}
+
+
   {% if ( el === 'checkbox' ) or ( el === 'radio' ) %}
     <div class="spirit-button spirit-button--toggle{{ ' ' + class if class }}">
-      <input class="spirit-button__input spirit-button__{{ el }}" {{ 'type=' + el }} {{ 'name=' + name if name }} {{ 'id=' + id if id }} {{ 'value=' + value if value }} tabindex="-1"/>
-      <label {{ 'for=' + id if id }} class="spirit-button__inner" tabindex="0">
-        {% if iconName %}
-          {% if not iconLabel %}
-            {% set iconLabel = iconName %}
-          {% endif %}
-          {{ icon(name=iconName, label=iconLabel, class='spirit-icon--' + iconName, decorative=false)}}
+      <input 
+        class="spirit-button__input spirit-button__{{ el }}"
+        type="{{el}}"
+        {% if name %}
+          name="{{name}}"
         {% endif %}
-        {{ text if text }}
+        {% if id %}
+          id="{{id}}"
+        {% endif %}
+        {% if value %}
+          value="{{value}}"
+        {% endif %}
+        tabindex="-1"
+      />
+      <label 
+        {% if id %}
+          for="{{id}}"
+        {% endif %}
+        {% if buttonTitle and not text %}
+          aria-label="{{buttonTitle}}"
+        {% endif %}
+        class="spirit-button__inner"
+        {% if buttonTitle %}
+          title="{{buttonTitle}}"
+        {% endif %}
+        tabindex="0"
+      >
+        {% if displayIcon and ( iconPosition === "left" or not iconPosition ) %}
+          {{ displayIcon | safe }}
+        {% endif %}
+        {% if text %}
+          <span class="spirit-button__default-text">
+            {{ text }}
+          </span>
+        {% endif %}
+        {% if displayIcon and iconPosition === "right" %}
+          {{ displayIcon | safe }}
+        {% endif %}
       </label>
     </div>
   {% elif ( el === 'submit' or el === 'reset' ) %}
-    <input {{ 'id=' + id if id }} {{ 'type=' + el }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if icon and not text}}" value="{{text if text}}" {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} />
+    <input
+      {% if id %}
+        id="{{id}}"
+      {% endif %}
+      {% if type %}
+        type="{{type}}"
+      {% endif %}
+      class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--is-icon' if iconName and not text}}"
+      value="{{text if text}}"
+      {% if loader %}
+        data-loader="{{loader}}"
+      {% endif %}
+      {% if feedbackType %}
+        data-type="{{feedbackType}}"
+      {% endif %}
+    />
   {% elif el %}
     {# Using type variable for <button type="submit"> or <a type="button"> options #}
-    <{{el}} {{ 'id=' + id if id }} {{ 'type=' + type if type }} class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--is-icon' if icon and not text}}" {{ 'href=' + href if href }} {{ 'data-loader=' + loader if loader }} {{ 'data-type=' + feedbackType if feedbackType }} {{ 'disabled' if disabled }}>
-      {% if iconName %}
-        {% if not iconLabel %}
-          {% set iconLabel = iconName %}
-        {% endif %}
-          {{ icon(name=iconName, label=iconLabel, class='spirit-icon--' + iconName, decorative=false)}}
+    <{{el}}
+      {% if id %}
+        id="{{id}}"
       {% endif %}
+      {% if type %}
+        type="{{type}}"
+      {% endif %}
+      {% if href %}
+        href="{{href}}"
+      {% endif %}
+      class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--is-icon' if icon and not text}}"
+      {% if loader %}
+        data-loader="{{loader}}"
+      {% endif %}
+      {% if feedbackType %}
+        data-type="{{feedbackType}}"
+      {% endif %}
+      {% if buttonTitle %}
+        title="{{buttonTitle}}"
+      {% endif %}
+      {% if buttonTitle and not text %}
+        aria-label="{{buttonTitle}}"
+      {% endif %}
+      {{ 'disabled' if disabled }}
+    >
       {% if loader %}
         {% if class and 'spirit-button--loading' in class %}
           {% set loaderHidden = 'false' %}
@@ -69,7 +152,13 @@
           </span>
         {% endif %}
         <span class="spirit-button__default-text" aria-hidden="{{loaderTextHidden if loaderTextHidden}}">
+          {% if displayIcon and ( iconPosition === "left" or not iconPosition ) %}
+            {{ displayIcon | safe }}
+          {% endif %}
           {{ text if text }}
+          {% if displayIcon and iconPosition === "right" %}
+            {{ displayIcon | safe }}
+          {% endif %}
         </span>
       {% elif feedbackType and feedbackType === 'success' %}
         {% if feedbackText %}
@@ -82,11 +171,23 @@
           </span>
         {% endif %}
         <span class="spirit-button__default-text" {{'aria-hidden=true' if feedbackType === 'success' }}>
+          {% if displayIcon and ( iconPosition === "left" or not iconPosition ) %}
+            {{ displayIcon | safe }}
+          {% endif %}
           {{ text if text }}
+          {% if displayIcon and iconPosition === "right" %}
+            {{ displayIcon | safe }}
+          {% endif %}
         </span>
-      {% else %}
-        {{ text if text }}  
+      {% elif text or displayIcon%}
+        {% if displayIcon and ( iconPosition === "left" or not iconPosition ) %}
+          {{ displayIcon | safe }}
+        {% endif %}
+        {{ text if text }}
+        {% if displayIcon and iconPosition === "right" %}
+          {{ displayIcon | safe }}
+        {% endif %}
       {% endif %}
-      </{{el}}>
+    </{{el}}>
   {% endif %}
 {% endmacro %}
