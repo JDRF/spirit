@@ -14,6 +14,33 @@
     additional_content
   #}
 
+  {% set new %}
+    * [Button With Icon](/components/buttons.html#with-icon) - Code, Sketch UI Library, Documentation
+    * [Form Input With Button](/components/forms.html#with-button) - Code, Documentation
+    * [Form Input With Password Toggle](/components/forms.html#with-password-toggle) - Code, Documentation
+    * **Long Form Text Styles** - Library sink page added
+  {% endset %}
+
+  {% set enhancements %}
+    * **Doc Site Navigation** - Now persistently visibile across all pages
+    * [Home Page](/) - New homepage design including navigation and layout changes
+    * [Icon Only Button](/components/buttons.html#icon-only) - Code - styles updated along with updates to button macro to allow for enhancements to icon only button - including `aria-label` and `title`
+    * [Long Form Text](/components/long-form-text.html)
+      * [Sizes Section](/components/long-form-text.html#sizes) added - defines classes used to output variants of font size
+      * [Code Reference](/components/long-form-text.html#code-reference) added - table defining alignment and sizing classes that can be used with long form text
+  {% endset %}
+
+  {% set fixes %}
+    * [Home Page](/) - Fix hero wave svg appearing broken on IE11
+    * [Long Form Text](/components/long-form-text.html) - `.spirit-body-text-s`, `.spirit-body-text-m`, and `.spirit-body-text-l` classes (for text size) added to long form text in doc site. References to `.spirit-body-s`, `.spirit-body-m`, and `.spirit-body-l` were removed
+    * **Long Form Text Classes** - Code - `spirit-body-text-s`, `spirit-body-text-m`, and `spirit-body-text-l` classes (for text size) added to long form text in codebase. `spirit-body-s`, `spirit-body-m`, and `spirit-body-l` were incorrectly being used
+      * **Please note**: both long form text classes mentioned here are enabled for this release, but `spirit-body-` classes will be deprecated in the **next major release**
+    * **Form Checkbox Icon** - Code - Checkbox icons updated to be white over blue when selected to match original designs for better contrast and usability
+    * **Doc Site General** - Long form text class was written incorrectly as `.long-form-text` instead of `.spirit-long-form-text`
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.2.0", date="2/5/2020", new=new, enhancements=enhancements, fixes=fixes) }}
+
   {% set enhancements %}
     * [Button](/components/buttons.html) - Update font weight of buttons text to `$spirit-font-weight-semibold` for better layout componsitions
     * [Form](/components/forms.html#input) - Update font weight of input and text-area elements to `$spirit-font-weight-regular` for better form consistency.
