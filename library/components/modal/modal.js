@@ -24,7 +24,7 @@ const spiritModals = function() {
         const handleKey = (e) => {
             const modalDialog = modal.querySelector('dialog');
 
-            if (modalDialog.hasAttribute('role') && modalDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
+            if (modalDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
                 e.preventDefault();
             }
         };
