@@ -1,0 +1,336 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .demo-tabs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .demo-tab {
+        display: none;
+    }
+
+    #all:checked ~ .demo-tab {
+        display: block;
+    }
+
+    .demo-tab-radio {
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: solid 1px black;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+    }
+
+    .demo-tab-input {
+        display: none;
+    }
+
+    .demo-tab-input:checked + .demo-tab-radio-label .demo-tab-radio {
+        border-width: 6px;
+    }
+
+    .demo-tab-radio-label {
+        font-size: 14px;
+        order: -1;
+        vertical-align: middle;
+    }
+
+  </style>
+
+  {% call library.shell() %}
+    {% call library.shell_header() %}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+          <div class="spirit-long-form-text">
+              <h1>
+                  Modals
+              </h1>
+          </div>
+          {{ header_nav_demo | safe }}
+      {% endcall %}
+    {% endcall %}
+    {% call library.shell_main() %}
+      {% call library.container(size="large") %}
+        {% macro demo_tab(label, id) %}
+
+          {% set content_short %}
+            {% call library.modal_content() %}
+              <div class="spirit-long-form-text">
+                <h1 class="spirit-h4 spirit-lead-heading">Content Here</h1>
+                <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+              </div>
+            {% endcall %}
+          {% endset %}
+
+          {% set content_long %}
+            {% call library.modal_content() %}
+              <div class="spirit-long-form-text">
+                <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+                <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+                <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+              </div>
+            {% endcall %}
+          {% endset %}
+
+          {% set content_list %}
+            {% call library.modal_content() %}
+              {% call library.list() %}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+                {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {% endcall %}
+            {% endcall %}
+          {% endset %}
+
+
+
+
+          <style>
+            #{{ id }}:checked ~ [data-tab='{{ id }}'] {
+                display: block;
+            }
+          </style>
+          <input class="demo-tab-input" type="radio" name="demo-tabs" id="{{ id }}">
+          <label for="{{ id }}" class="demo-tab-radio-label hostile-sink-reset">
+            <span class="demo-tab-radio"></span>
+              <span class="demo-tab-radio-label-text">
+                {{ label }}
+            </span>
+          </label>
+          <div class="demo-tab" data-tab="{{ id }}">
+          {{ caller() }}
+          </div>
+        {% endmacro %}
+
+        <div class="demo-tabs">
+            <input class="demo-tab-input" type="radio" name="demo-tabs" id="all" checked>
+            <label for="all" class="demo-tab-radio-label hostile-sink-reset">
+            <span class="demo-tab-radio"></span>
+              <span class="demo-tab-radio-label-text">
+                  All Demos
+              </span>
+            </label>
+
+            {% call demo_tab(label="S Modal Blank", id="modal-demo-blank-s") %}
+              {% set modal_id = "modal-demo-blank-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Blank</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {{ library.modal(modal_id=modal_id) }}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple", id="modal-demo-simple-s") %}
+              {% set modal_id = "modal-demo-simple-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Footer", id="modal-demo-simple-foot-s") %}
+              {% set modal_id = "modal-demo-simple-foot-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Footer</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+                {{ content_short | safe }}
+                {% call library.modal_footer() %}
+                    {{ library.button(class="spirit-button--minimal", text="Cancel") }}
+                    {{ library.button(text="Save") }}
+                {% endcall %}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Footer", id="modal-demo-simple-foot-long-s") %}
+              {% set modal_id = "modal-demo-simple-foot-long-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Footer Long Labels</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+                {{ content_short | safe }}
+                {% call library.modal_footer() %}
+                    {{ library.button(text="This Label Is Way Too Long") }}
+                    {{ library.button(class="spirit-button--minimal", text="Choose A Shorter Label") }}
+                {% endcall %}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Content Resiliance", id="modal-demo-simple-res-s") %}
+              {% set modal_id = "modal-demo-simple-res-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Content Resiliance</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+                {{ content_long | safe }}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Content Resiliance Footer", id="modal-demo-simple-res-foot-s") %}
+              {% set modal_id = "modal-demo-simple-res-foot-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Content Resiliance Footer</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+                {{ content_long | safe }}
+                {% call library.modal_footer() %}
+                    {{ library.button(class="spirit-button--minimal", text="Cancel") }}
+                    {{ library.button(text="Save") }}
+                {% endcall %}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Top", id="modal-demo-simple-top-s") %}
+              {% set modal_id = "modal-demo-simple-top-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Top</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(class="spirit-modal--top", modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
+                {{ content_long | safe }}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Alert - Locked", id="modal-demo-simple-alert-s") %}
+              {% set modal_id = "modal-demo-simple-alert-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Alert - Locked</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
+                {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
+                {% call library.modal_content() %}
+                  <div class="spirit-long-form-text">
+                    <p>Alert Dialog Description.</p>
+                  </div>
+                {% endcall %}
+                {% call library.modal_footer() %}
+                    {{ library.button(class="spirit-button--minimal", text="Cancel") }}
+                    {{ library.button(text="Discard", modal_close=true) }}
+                {% endcall %}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Full Screen", id="modal-demo-simple-fs-s") %}
+              {% set modal_id = "modal-demo-simple-fs-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Full Screen</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(class="spirit-modal--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+                {{ content_long | safe }}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Full Footer", id="modal-demo-simple-fs-foot-s") %}
+              {% set modal_id = "modal-demo-simple-fs-foot-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Full Footer</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(class="spirit-modal--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+                {{ content_long | safe }}
+                {% call library.modal_footer() %}
+                    {{ library.button(class="spirit-button--minimal", text="Cancel") }}
+                    {{ library.button(text="Save") }}
+                {% endcall %}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Full Screen Confirmation", id="modal-demo-simple-fs-con-s") %}
+              {% set modal_id = "modal-demo-simple-fs-con-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Full Screen Confirmation</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(class="spirit-modal--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+                {{ content_list | safe }}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="S Modal Simple Multiple Actions", id="modal-demo-simple-ma-s") %}
+              {% set modal_id = "modal-demo-simple-ma-s" %}
+              <div class="spirit-long-form-text">
+                  <h2>S Modal Simple Multiple Actions</h2>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+                {{ library.modal_header(title_text="Multiple Actions", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+              {% endcall %}
+            {% endcall %}
+
+            {% call demo_tab(label="Modal Complex", id="modal-demo-complex") %}
+              {% set modal_id="modal-demo-complex" %}
+              <div class="spirit-long-form-text">
+                  <h2>Modal Complex</h2>
+                  <p>The following button opens a base modal.</p>
+                  {{ library.button(text="Open Modal", modal_id=modal_id) }}
+              </div>
+              {% call library.modal(modal_id=modal_id, has_title="true") %}
+                  {{ library.modal_header(title_text="Contacts", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+                  {% call library.modal_content() %}
+                      <p>This is modal content.</p>
+                  {% endcall %}
+                  {% call library.modal_footer() %}
+                      {{ library.button(class="spirit-button--minimal", text="Cancel") }}
+                      {{ library.button(text="Save") }}
+                  {% endcall %}
+              {% endcall %}
+            {% endcall %}
+        </div>
+      {% endcall %}
+    {% endcall %}
+    {% call library.shell_footer() %}
+        {% call library.container(padding_top="xs", padding_bottom="xs", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h3>
+                    Footer
+                </h3>
+            </div>
+        {% endcall %}
+    {% endcall %}
+  {% endcall %}
+
+{% endblock body %}
