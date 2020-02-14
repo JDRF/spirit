@@ -21,7 +21,7 @@ const spiritModals = function() {
     modals.forEach(modal => {
         const dialog = new A11yDialog(modal, defaults.container);
 
-        const handleKey = (e) => {
+        const maybeDisableEscToClose = (e) => {
             const modalDialog = modal.querySelector('dialog');
 
             if (modalDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
@@ -31,12 +31,12 @@ const spiritModals = function() {
 
         dialog.on('show', function () {
             document.body.classList.add(defaults.noScrollClass);
-            document.addEventListener('keydown', handleKey);
+            document.addEventListener('keydown', maybeDisableEscToClose);
         });
 
         dialog.on('hide', function () {
             document.body.classList.remove(defaults.noScrollClass);
-            document.removeEventListener('keydown', handleKey);
+            document.removeEventListener('keydown', maybeDisableEscToClose);
         });
     });
 };

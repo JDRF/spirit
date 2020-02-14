@@ -5,20 +5,23 @@
     dialog_class=false,
     has_title=false,
     has_close=false,
-    alert=false
+    alert=false,
+    position=false
 ) %}
     <div
         class="spirit-modal {{ ' ' + class if class }}"
         id="{{modal_id if modal_id}}"
     >
         <div class="spirit-modal__overlay" tabindex="-1" {{'data-a11y-dialog-hide' if not alert}}></div>
-        <dialog
-            class="spirit-modal__dialog{{ ' ' + dialog_class if dialog_class }}"
+        <div
+            class="spirit-modal__dialog{{' spirit-modal__dialog--' + position if position }}{{ ' ' + dialog_class if dialog_class }}"
             {% if modal_id and has_title %}
                 aria-labelledby="{{modal_id}}-spirit-modal-title"
             {% endif %}
             {% if alert  %}
                 role="alertdialog"
+            {% else %}
+                role="dialog"
             {% endif %}
         >
             {% if not has_close %}
@@ -28,7 +31,7 @@
                 {{ caller() }}
             {% endif %}
 
-        </dialog>
+        </div>
     </div>
 {% endmacro %}
 
@@ -46,7 +49,6 @@
   {% endif %}
     <div
         class="spirit-modal__header"
-
     >
         <{{title_el}}
             {% if title_id %}
@@ -73,9 +75,10 @@
 
 {# Modal Content #}
 {% macro modal_content(
+    padding=false
 ) %}
     <div
-        class="spirit-modal__content"
+        class="spirit-modal__content{{' spirit-modal__content--' + padding if padding }}"
     >
         {{ caller() }}
     </div>
