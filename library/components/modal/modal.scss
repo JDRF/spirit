@@ -241,9 +241,9 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
   flex: 1 0 auto;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  margin-bottom: -16px;
-  margin-right: -16px;
-  margin-top: -16px;
+  margin-bottom: -$spirit-space-generic-2-x;
+  margin-right: -$spirit-space-generic-2-x;
+  margin-top: -$spirit-space-generic-2-x;
 
 }
 
@@ -285,5 +285,4 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
       margin-left: 0;
     }
   }
-
 }
