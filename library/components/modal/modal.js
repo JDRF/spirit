@@ -16,6 +16,7 @@ const spiritModals = function() {
     const defaults = {
         container: '#spirit-shell-main',
         noScrollClass: '-spirit-no-scroll',
+        visibleClass: 'spirit-modal--visible'
     };
 
     modals.forEach(modal => {
@@ -29,13 +30,15 @@ const spiritModals = function() {
             }
         };
 
-        dialog.on('show', function () {
+        dialog.on('show', function (el) {
             document.body.classList.add(defaults.noScrollClass);
+            el.classList.add(defaults.visibleClass);
             document.addEventListener('keydown', maybeDisableEscToClose);
         });
 
-        dialog.on('hide', function () {
+        dialog.on('hide', function (el) {
             document.body.classList.remove(defaults.noScrollClass);
+            el.classList.remove(defaults.visibleClass);
             document.removeEventListener('keydown', maybeDisableEscToClose);
         });
     });
