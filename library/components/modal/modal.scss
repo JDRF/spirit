@@ -168,19 +168,28 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
 
 .spirit-modal__dialog--small-lg {
   @media screen and (min-width: $spirit-breakpoint-l) {
+    @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width;
   }
 }
 
 .spirit-modal__dialog--medium-lg {
   @media screen and (min-width: $spirit-breakpoint-l) {
+    @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width-m;
   }
 }
 
 .spirit-modal__dialog--large-lg {
   @media screen and (min-width: $spirit-breakpoint-l) {
+    @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width-l;
+  }
+}
+
+.spirit-modal__dialog--fullscreen-lg {
+  @media screen and (min-width: $spirit-breakpoint-l) {
+    @include spirit-modal-dialog-fullscreen;
   }
 }
 
