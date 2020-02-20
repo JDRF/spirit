@@ -52,6 +52,23 @@ $spirit-form-element-grid-space:            0 $spirit-space-generic-2-x $spirit-
 
 $spirit-form-input-password-toggle-padding: 70px;
 
+@mixin input-styles {
+  @include spirit-box-sizing;
+  @include spirit-typography-reset(
+    $color: $spirit-text-input-color,
+    $font-size: $spirit-text-input-font-size,
+    $font-weight: $spirit-font-weight-regular
+  );
+  background-color: $spirit-text-input-background-color;
+  border: $spirit-text-input-border;
+  border-radius: $spirit-form-element-border-radius;
+  display: block;
+  margin: 0;
+  max-width: $spirit-text-input-max-width;
+  min-height: 48px; // Needed for IE11
+  width: 100%;
+}
+
 @mixin invalid-styles {
   border-color: $spirit-form-element-border-color-error;
 }
@@ -74,6 +91,7 @@ $spirit-form-input-password-toggle-padding: 70px;
   border: solid $spirit-form-element-border-width $spirit-form-element-focus-color;
   outline: none;
 }
+
 // ********************** End shared form variables
 
 // Form
@@ -181,21 +199,8 @@ $spirit-text-input-padding:           $spirit-form-element-padding;
 }
 
 .spirit-form__input-field {
-  @include spirit-box-sizing;
-  @include spirit-typography-reset(
-    $color: $spirit-text-input-color,
-    $font-size: $spirit-text-input-font-size,
-    $font-weight: $spirit-font-weight-regular
-  );
-  background-color: $spirit-text-input-background-color;
-  border: $spirit-text-input-border;
-  border-radius: $spirit-form-element-border-radius;
-  display: block;
-  margin: 0;
-  max-width: $spirit-text-input-max-width;
-  min-height: 48px; // Needed for IE11
+  @include input-styles;
   padding: $spirit-text-input-padding;
-  width: 100%;
 
   &::placeholder {
     @include spirit-typography-reset(
@@ -988,19 +993,56 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 }
 
 .spirit-form__input--password-toggle {
+  @include spirit-box-sizing;
+  @include spirit-typography-reset;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row nowrap;
   position: relative;
 
+  &:after {
+    @include input-styles;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
   .spirit-form__input-field {
-    padding-right: $spirit-form-input-password-toggle-padding; // Push content away from "Show/Hide" toggle
+    background-color: transparent;
+    border-width: 0;
+  }
+}
+
+.spirit-form__input--password-toggle--focus {
+  &:after {
+    @include focus-styles;
+    height: 100%;
   }
 }
 
 .spirit-form__input-password-toggle {
   @include spirit-typography-reset($color: $spirit-text-color-link, $font-weight: $spirit-font-weight-bold);
   cursor: pointer;
-  position: absolute;
-  right: $spirit-space-generic-2-x;
+  height: 48px;
+  position: static;
   text-decoration: none;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 48px;
+  z-index: 20; // insure above password helper image
+
+  .spirit-icon {
+    pointer-events: none;
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
+  }
+}
+
+// Disable Styles for LastPass form helpers
+div[id^=__lpform_] {
+  display: none !important; // sass-lint:disable-line no-important - have to target LassPass styles directly
 }
