@@ -1,15 +1,17 @@
 // Variables
-$spirit-modal-overlay: rgba(0, 0, 0, .7);
+$spirit-modal-breakpoint-sm-max: 767.98px;
+$spirit-modal-overlay: rgba(0, 0, 0, .4);
+$spirit-modal-overlay-dark: rgba(0, 0, 0, .7);
 $spirit-modal-z-index: 20;
 $spirit-modal-width: calc(100vw - #{$spirit-space-generic-4-x});
 $spirit-modal-max-width: 484px; // Equivelant to 6col in large container
 $spirit-modal-max-width-m: 656px; // Equivelant to 8col in large container
-$spirit-modal-max-width-l: 1000px; // Equivelant to 12col in large container
+$spirit-modal-max-width-l: 828px; // Equivelant to 12col in large container
 $spirit-modal-max-height: calc(100vh - #{$spirit-space-generic-4-x});
 $spirit-modal-min-height: 300px;
 $spirit-modal-content-padding: $spirit-space-inset-2-x;
-$spirit-modal-content-padding-cozy: $spirit-space-inset-3-x;
-$spirit-modal-content-padding-comfortable: $spirit-space-inset-4-x;
+$spirit-modal-content-padding-md: $spirit-space-inset-3-x;
+$spirit-modal-content-padding-lg: $spirit-space-inset-4-x;
 $spirit-modal-header-padding: $spirit-space-inset-2-x;
 $spirit-modal-footer-border-color: $spirit-color-grey-95;
 $spirit-modal-footer-padding: $spirit-space-inset-2-x $spirit-space-inset-3-x 0;
@@ -98,10 +100,18 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
     opacity: 1;
     visibility: visible;
   }
+
+  .spirit-modal--overlay-dark & {
+    background-color: $spirit-modal-overlay-dark;
+  }
 }
 
 .spirit-modal__dialog::backdrop {
   background-color: $spirit-modal-overlay;
+
+  .spirit-modal--overlay-dark & {
+    background-color: $spirit-modal-overlay-dark;
+  }
 }
 
 .spirit-modal__dialog {
@@ -162,33 +172,6 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
 
 .spirit-modal__dialog--fullscreen-md {
   @media screen and (min-width: $spirit-breakpoint-m) {
-    @include spirit-modal-dialog-fullscreen;
-  }
-}
-
-.spirit-modal__dialog--small-lg {
-  @media screen and (min-width: $spirit-breakpoint-l) {
-    @include spirit-modal-dialog;
-    max-width: $spirit-modal-max-width;
-  }
-}
-
-.spirit-modal__dialog--medium-lg {
-  @media screen and (min-width: $spirit-breakpoint-l) {
-    @include spirit-modal-dialog;
-    max-width: $spirit-modal-max-width-m;
-  }
-}
-
-.spirit-modal__dialog--large-lg {
-  @media screen and (min-width: $spirit-breakpoint-l) {
-    @include spirit-modal-dialog;
-    max-width: $spirit-modal-max-width-l;
-  }
-}
-
-.spirit-modal__dialog--fullscreen-lg {
-  @media screen and (min-width: $spirit-breakpoint-l) {
     @include spirit-modal-dialog-fullscreen;
   }
 }
@@ -295,19 +278,56 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
   display: block;
   overflow-y: scroll;
   padding: $spirit-modal-content-padding;
-}
 
-// Spacing
-.spirit-modal__content--compact {
-  padding: $spirit-modal-content-padding;
-}
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    padding: $spirit-modal-content-padding-md;
+  }
 
-.spirit-modal__content--cozy {
-  padding: $spirit-modal-content-padding-cozy;
-}
+  // Modal Sizes
+  .spirit-modal__dialog--medium & {
+    padding: $spirit-modal-content-padding-md;
 
-.spirit-modal__content--comfortable {
-  padding: $spirit-modal-content-padding-comfortable;
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      padding: $spirit-modal-content-padding-lg;
+    }
+  }
+
+  .spirit-modal__dialog--large & {
+    padding: $spirit-modal-content-padding-lg;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      padding: $spirit-modal-content-padding-lg;
+    }
+  }
+
+  .spirit-modal__dialog--fullscreen & {
+    padding: $spirit-modal-content-padding-md;
+  }
+
+  // Spacing
+  &.spirit-modal__content--padding-small {
+
+    // Custom padding only on small screens
+    @media screen and (max-width: $spirit-modal-breakpoint-sm-max) {
+      padding: $spirit-modal-content-padding;
+    }
+  }
+
+  &.spirit-modal__content--padding-medium {
+
+    // Custom padding only on small screens
+    @media screen and (max-width: $spirit-modal-breakpoint-sm-max) {
+      padding: $spirit-modal-content-padding-md;
+    }
+  }
+
+  &.spirit-modal__content--padding-large {
+
+    // Custom padding only on small screens
+    @media screen and (max-width: $spirit-modal-breakpoint-sm-max) {
+      padding: $spirit-modal-content-padding-lg;
+    }
+  }
 }
 
 // Spirit Modal Footer

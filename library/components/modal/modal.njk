@@ -6,15 +6,18 @@
     has_title=false,
     has_close=false,
     alert=false,
-    position=false
+    position=false,
+    overlay_opacity=false,
+    size=false,
+    size_break=false
 ) %}
     <div
-        class="spirit-modal {{ ' ' + class if class }}"
+        class="spirit-modal {{ ' ' + class if class }}{{ ' spirit-modal--overlay-' + overlay_opacity if overlay_opacity }}"
         id="{{modal_id if modal_id}}"
     >
         <div class="spirit-modal__overlay" tabindex="-1" {{'data-a11y-dialog-hide' if not alert}}></div>
         <div
-            class="spirit-modal__dialog{{' spirit-modal__dialog--' + position if position }}{{ ' ' + dialog_class if dialog_class }}"
+            class="spirit-modal__dialog{{' spirit-modal__dialog--' + size if size }}{{' spirit-modal__dialog--' + size_break + '-md' if size_break }}{{' spirit-modal__dialog--' + position if position }}{{ ' ' + dialog_class if dialog_class }}"
             {% if modal_id and has_title %}
                 aria-labelledby="{{modal_id}}-spirit-modal-title"
             {% endif %}
@@ -78,7 +81,7 @@
     padding=false
 ) %}
     <div
-        class="spirit-modal__content{{' spirit-modal__content--' + padding if padding }}"
+        class="spirit-modal__content{{' spirit-modal__content--padding-' + padding if padding }}"
     >
         {{ caller() }}
     </div>

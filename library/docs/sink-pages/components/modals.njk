@@ -73,539 +73,622 @@
           {% endcall %}
         {% endset %}
 
+        {% set content_list_small_padding %}
+          {% call library.modal_content(padding="small") %}
+            {% call library.list() %}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+            {% endcall %}
+          {% endcall %}
+        {% endset %}
+
         {% set modal_id = "modal-demo-blank-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Blank</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {{ library.modal(modal_id=modal_id) }}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Blank</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {{ library.modal(modal_id=modal_id) }}
 
-          {% set modal_id = "modal-demo-simple-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+        {% set modal_id = "modal-demo-simple-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple--overlay-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Dark Overlay</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(overlay_opacity="dark", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Dark Overlay", modal_id=modal_id) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal with Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", modal_id=modal_id) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-mult-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal with Multiple Actions</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Multiple Actions", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-mult-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal with Multiple Actions and Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-foot-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_short | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-title-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal with Long Title</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", modal_id=modal_id) }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-mult-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal with Multiple Actions</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Multiple Actions", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+        {% set modal_id = "modal-demo-simple-foot-s-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Footer padding medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Padding Medium", modal_id=modal_id) }}
+          {% call library.modal_content(padding="medium") %}
+            {{ content_short | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-mult-title-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal with Multiple Actions and Long Title</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-foot-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-foot-s-large" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Footer padding large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Padding Large", modal_id=modal_id) }}
+          {% call library.modal_content(padding="large") %}
+            {{ content_short | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-foot-s-cozy" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Footer Cozy</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content(padding="cozy") %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-foot-s-comfortable" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Footer Comfortable</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content(padding="comfortable") %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-foot-long-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Footer Long Labels</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_short | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-foot-long-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Footer Long Labels</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(text="This Label Is Way Too Long") }}
-                {{ library.button(class="spirit-button--minimal", text="Choose A Shorter Label") }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--small-md", text="This Label Is Way Too Long") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Choose A Shorter Label") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-res-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Content Resiliance</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-res-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Content Resiliance</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-res-foot-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Content Resiliance Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-res-foot-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Content Resiliance Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-res-foot-s-cozy" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Content Resiliance Footer Cozy</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content(padding="cozy") %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-res-foot-s-comfortable" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Content Resiliance Footer Comfortable</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content(padding="comfortable") %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-res-foot-s-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Content Resiliance Footer padding medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Padding Medium", modal_id=modal_id) }}
+          {% call library.modal_content(padding="medium") %}
+            {{ content_long | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-res-foot-to-fs" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Content Resiliance Footer to Fullscreen</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen-md", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-top-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Top</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(position="top", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-res-foot-s-large" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Content Resiliance Footer padding large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Padding Large", modal_id=modal_id) }}
+          {% call library.modal_content(padding="large") %}
+            {{ content_long | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-simple-alert-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Alert - Locked</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
-            {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
-            {% call library.modal_content() %}
-              <div class="spirit-long-form-text">
-                <p>Alert Dialog Description.</p>
-              </div>
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Discard", modal_close=true) }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-ma-s" %}
-          <div class="spirit-long-form-text">
-              <h6>S Modal Multiple Actions</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Multiple Actions", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+        {% set modal_id = "modal-demo-simple-res-foot-to-fs" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Content Resiliance Footer to Fullscreen</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size_break="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-blank-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Blank</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {{ library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id) }}
-
-          {% set modal_id = "modal-demo-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-foot-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-res-foot-to-fs-padl" %}
+        <div class="spirit-long-form-text">
+            <h6>S To Fullscreen Padding Large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size_break="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="To Fullscreen Padding Large", modal_id=modal_id) }}
+          {% call library.modal_content(padding="large") %}
+            {{ content_long | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-foot-long-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Footer Long Labels</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(text="This Label Is Way Too Long") }}
-                {{ library.button(class="spirit-button--minimal", text="Choose A Shorter Label") }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-res-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Content Resiliance</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-top-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Top</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(position="top", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-res-foot-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Content Resiliance Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-alert-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Alert - Locked</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
+          {% call library.modal_content() %}
+            <div class="spirit-long-form-text">
+              <p>Alert Dialog Description.</p>
+            </div>
           {% endcall %}
-
-          {% set modal_id = "modal-demo-top-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Top</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", position="top", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Discard", modal_close=true) }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-alert-m" %}
-          <div class="spirit-long-form-text">
-              <h6>M Modal Alert - Locked</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--medium", modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
-            {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
-            {% call library.modal_content() %}
-              <div class="spirit-long-form-text">
-                <p>Alert Dialog Description.</p>
-              </div>
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Discard", modal_close=true) }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-simple-ma-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Modal Multiple Actions</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Multiple Actions", modal_id=modal_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-blank-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Blank</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {{ library.modal(size="medium", modal_id=modal_id) }}
+
+        {% set modal_id = "modal-demo-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-foot-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_short | safe }}
           {% endcall %}
-
-          {% set modal_id = "modal-demo-blank-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Blank</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {{ library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id) }}
-
-          {% set modal_id = "modal-demo-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-foot-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-foot-long-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Footer Long Labels</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_short | safe }}
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--small-md", text="This Label Is Way Too Long") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Choose A Shorter Label") }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-foot-long-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Footer Long Labels</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_short | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(text="This Label Is Way Too Long") }}
-                {{ library.button(class="spirit-button--minimal", text="Choose A Shorter Label") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-res-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Content Resiliance</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-res-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Content Resiliance</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-res-foot-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Content Resiliance Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-res-foot-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Content Resiliance Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-top-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Top</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", position="top", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-top-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Top</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", position="top", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-alert-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Modal Alert - Locked</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
+          {% call library.modal_content() %}
+            <div class="spirit-long-form-text">
+              <p>Alert Dialog Description.</p>
+            </div>
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Discard", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-alert-l" %}
-          <div class="spirit-long-form-text">
-              <h6>L Modal Alert - Locked</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--large", modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
-            {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
-            {% call library.modal_content() %}
-              <div class="spirit-long-form-text">
-                <p>Alert Dialog Description.</p>
-              </div>
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Discard", modal_close=true) }}
-            {% endcall %}
-          {% endcall %}
+        {% set modal_id = "modal-demo-blank-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Blank</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {{ library.modal(size="large", modal_id=modal_id) }}
 
-          {% set modal_id = "modal-demo-simple-fs-s" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
-          {% endcall %}
+        {% set modal_id = "modal-demo-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-fs-foot-s" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Footer</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {% call library.modal_content() %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-foot-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_short | safe }}
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-fs-foot-s-cozy" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Footer Cozy</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {% call library.modal_content(padding="cozy") %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-foot-long-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Footer Long Labels</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Simple", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_short | safe }}
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--small-md", text="This Label Is Way Too Long") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Choose A Shorter Label") }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-fs-foot-s-comfortable" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Footer Comfortable</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {% call library.modal_content(padding="comfortable") %}
-              {{ content_long | safe }}
-            {% endcall %}
-            {% call library.modal_footer() %}
-                {{ library.button(class="spirit-button--minimal", text="Cancel") }}
-                {{ library.button(text="Save") }}
-            {% endcall %}
+        {% set modal_id = "modal-demo-res-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Content Resiliance</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id = "modal-demo-simple-fs-con-s" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Confirmation</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {{ content_list | safe }}
+        {% set modal_id = "modal-demo-res-foot-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Content Resiliance Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id="modal-demo-simple-fs-con-to-s" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Confirmation to Small</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen spirit-modal__dialog--small-md", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {{ content_list | safe }}
+        {% set modal_id = "modal-demo-top-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Top</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", position="top", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
           {% endcall %}
+        {% endcall %}
 
-          {% set modal_id="modal-demo-simple-fs-con-to-m" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Confirmation to Medium</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen spirit-modal__dialog--medium-md", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {{ content_list | safe }}
+        {% set modal_id = "modal-demo-simple-res-foot-l-to-fs-pads" %}
+        <div class="spirit-long-form-text">
+            <h6>L To Fullscreen Padding Small</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", size_break="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="To Fullscreen Padding Large", modal_id=modal_id) }}
+          {% call library.modal_content(padding="small") %}
+            {{ content_long | safe }}
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
 
-          {% set modal_id="modal-demo-simple-fs-con-to-l" %}
-          <div class="spirit-long-form-text">
-              <h6>Full Screen Modal Confirmation to Large</h6>
-              {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
-          </div>
-          {% call library.modal(dialog_class="spirit-modal__dialog--fullscreen spirit-modal__dialog--large-md", modal_id=modal_id, has_title=true, has_close=true) %}
-            {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
-            {{ content_list | safe }}
+
+        {% set modal_id = "modal-demo-alert-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Modal Alert - Locked</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.modal_header(title_text="Alert Dialog", modal_id=modal_id, has_header_close=false) }}
+          {% call library.modal_content() %}
+            <div class="spirit-long-form-text">
+              <p>Alert Dialog Description.</p>
+            </div>
           {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Discard", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-fs-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-fs-foot-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+          {% call library.modal_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-fs-foot-s-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Footer padding medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen Padding Medium", modal_id=modal_id) }}
+          {% call library.modal_content(padding="medium") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-fs-foot-s-large" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Footer padding large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen Padding Large", modal_id=modal_id) }}
+          {% call library.modal_content(padding="large") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-fs-con-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Confirmation</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-fs-con-to-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Confirmation to Small</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", size_break="small", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-fs-con-to-m" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Confirmation to Medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", size_break="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-fs-con-to-l" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Confirmation to Large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", size_break="large", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen", modal_id=modal_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-fs-con-to-m-pad-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Modal Padding Small to Medium Size</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", size_break="medium", modal_id=modal_id, has_title=true, has_close=true) %}
+          {{ library.modal_header(title_text="Modal Fullscreen Pad Small to Size S", modal_id=modal_id) }}
+          {{ content_list_small_padding | safe }}
+        {% endcall %}
 
       {% endcall %}
     {% endcall %}
