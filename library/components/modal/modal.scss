@@ -9,6 +9,7 @@ $spirit-modal-max-width-m: 656px; // Equivelant to 8col in large container
 $spirit-modal-max-width-l: 828px; // Equivelant to 12col in large container
 $spirit-modal-max-height: calc(100vh - #{$spirit-space-generic-4-x});
 $spirit-modal-min-height: 300px;
+$spirit-modal-alert-min-height: 170px;
 $spirit-modal-content-padding: $spirit-space-inset-2-x;
 $spirit-modal-content-padding-md: $spirit-space-inset-3-x;
 $spirit-modal-content-padding-lg: $spirit-space-inset-4-x;
@@ -16,7 +17,9 @@ $spirit-modal-header-padding: $spirit-space-inset-2-x;
 $spirit-modal-footer-border-color: $spirit-color-grey-95;
 $spirit-modal-footer-padding: $spirit-space-inset-2-x $spirit-space-inset-3-x 0;
 $spirit-modal-footer-margin: auto 0 $spirit-space-generic-1-x;
+$spirit-modal-alert-footer-margin: auto 0 $spirit-space-generic-1-x;
 $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-inset-1-x;
+$spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
 
 // Reset / Xbrowser Modal setup
 .spirit-modal[data-a11y-dialog-native] .spirit-modal__overlay {
@@ -128,49 +131,76 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
   z-index: $spirit-modal-z-index;
 }
 
+// Alert Dialog
+.spirit-modal__dialog[role='alertdialog'] {
+  min-height: $spirit-modal-alert-min-height;
+
+  .spirit-modal__header {
+    @include spirit-elevation(0);
+    padding: $spirit-modal-content-padding-md $spirit-modal-content-padding-md $spirit-modal-content-padding;
+  }
+
+  .spirit-modal__content {
+    padding: 0 $spirit-modal-content-padding-md $spirit-modal-content-padding;
+  }
+
+  .spirit-modal__footer {
+    border-top: 0;
+    margin: $spirit-modal-alert-footer-margin;
+
+    .spirit-button:last-child {
+      margin-right: -8px;
+    }
+
+    .spirit-button--minimal:last-child {
+      margin-right: -16px;
+    }
+  }
+}
+
 .spirit-modal__dialog--top {
   @include spirit-modal-dialog-top;
 }
 
 // Sizes
-.spirit-modal__dialog--small {
+.spirit-modal__dialog--small:not([role='alertdialog']) {
   max-width: $spirit-modal-max-width;
 }
 
-.spirit-modal__dialog--medium {
+.spirit-modal__dialog--medium:not([role='alertdialog']) {
   max-width: $spirit-modal-max-width-m;
 }
 
-.spirit-modal__dialog--large {
+.spirit-modal__dialog--large:not([role='alertdialog']) {
   max-width: $spirit-modal-max-width-l;
 }
 
-.spirit-modal__dialog--fullscreen {
+.spirit-modal__dialog--fullscreen:not([role='alertdialog']) {
   @include spirit-modal-dialog-fullscreen;
 }
 
-.spirit-modal__dialog--small-md {
+.spirit-modal__dialog--small-md:not([role='alertdialog']) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width;
   }
 }
 
-.spirit-modal__dialog--medium-md {
+.spirit-modal__dialog--medium-md:not([role='alertdialog']) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width-m;
   }
 }
 
-.spirit-modal__dialog--large-md {
+.spirit-modal__dialog--large-md:not([role='alertdialog']) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width-l;
   }
 }
 
-.spirit-modal__dialog--fullscreen-md {
+.spirit-modal__dialog--fullscreen-md:not([role='alertdialog']) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog-fullscreen;
   }
@@ -284,7 +314,7 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
   }
 
   // Modal Sizes
-  .spirit-modal__dialog--medium & {
+  .spirit-modal__dialog--medium:not([role='alertdialog']) & {
     padding: $spirit-modal-content-padding-md;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -292,7 +322,7 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
     }
   }
 
-  .spirit-modal__dialog--large & {
+  .spirit-modal__dialog--large:not([role='alertdialog']) & {
     padding: $spirit-modal-content-padding-lg;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -300,7 +330,7 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
     }
   }
 
-  .spirit-modal__dialog--fullscreen & {
+  .spirit-modal__dialog--fullscreen:not([role='alertdialog']) & {
     padding: $spirit-modal-content-padding-md;
   }
 
@@ -346,5 +376,9 @@ $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-in
     &:first-child {
       margin-left: 0;
     }
+  }
+
+  .spirit-button--minimal + .spirit-button--minimal {
+    margin: $spirit-modal-footer-button-minimal-margin;
   }
 }
