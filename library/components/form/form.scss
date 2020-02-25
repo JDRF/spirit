@@ -1027,10 +1027,11 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
 .spirit-form__input-password-toggle {
   @include spirit-typography-reset($color: $spirit-text-color-link, $font-weight: $spirit-font-weight-bold);
   cursor: pointer;
+  flex: 1 0 $spirit-form-element-height;
   height: $spirit-form-element-height;
+  max-width: $spirit-form-element-height;
   position: static;
   text-decoration: none;
-  width: $spirit-form-element-height;
   z-index: 20; // insure above password helper image
 
   .spirit-icon {
