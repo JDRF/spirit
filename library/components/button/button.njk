@@ -110,7 +110,7 @@
       {% if href %}
         href="{{href}}"
       {% endif %}
-      class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--is-icon' if icon and not text}}"
+      class="spirit-button{{ ' ' + class if class }}{{ ' spirit-button--fullwidth' if fullwidth }}{{ ' spirit-button--is-icon' if iconName and not text}}"
       {% if loader %}
         data-loader="{{loader}}"
       {% endif %}
@@ -175,6 +175,7 @@
             {{ displayIcon | safe }}
           {% endif %}
           {{ text if text }}
+          {{ caller() if caller }}
           {% if displayIcon and iconPosition === "right" %}
             {{ displayIcon | safe }}
           {% endif %}
@@ -184,9 +185,12 @@
           {{ displayIcon | safe }}
         {% endif %}
         {{ text if text }}
+        {{ caller() if caller }}
         {% if displayIcon and iconPosition === "right" %}
           {{ displayIcon | safe }}
         {% endif %}
+      {% else %}
+        {{ caller() if caller }}
       {% endif %}
     </{{el}}>
   {% endif %}

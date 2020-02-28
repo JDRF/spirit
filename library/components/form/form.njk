@@ -52,7 +52,9 @@
             inputmode=false,
             valid,
             password_toggle=false,
-            password_toggle_visible=false) %}
+            password_toggle_visible=false
+        )
+    %}
 
     {# Set a modifier class based on the valid argument #}
     {% if valid == true %}
@@ -110,11 +112,16 @@
         {% endif %}
         {% if password_toggle %}
             {% if password_toggle_visible %}
-                {% set password_toggle_text = "Hide" %}
+                {% call button(class="spirit-form__input-password-toggle spirit-button--icon-only spirit-button--extra-small spirit-button--is-icon spirit-button--minimal", buttonTitle="toggle password visibility") %}
+                    {{ icon(name="eye", class="spirit-icon--input-helper", decorative=false, label="Show" )}}
+                    {{ icon(name="eye-off", class="spirit-icon--input-helper", decorative=true, label="Hide" )}}
+                {% endcall %}
             {% else %}
-                {% set password_toggle_text = "Show" %}
+                {% call button(class="spirit-form__input-password-toggle spirit-button--icon-only spirit-button--extra-small spirit-button--is-icon spirit-button--minimal", buttonTitle="toggle password visibility") %}
+                    {{ icon(name="eye", class="spirit-icon--input-helper", decorative=true, label="Show" )}}
+                    {{ icon(name="eye-off", class="spirit-icon--input-helper", decorative=false, label="Hide" )}}
+                {% endcall %}
             {% endif %}
-          {{ link(class="spirit-form__input-password-toggle", text=password_toggle_text, role="button") }}
         {% endif %}
     </div>
 {% endmacro %}

@@ -4,6 +4,7 @@
   href=false,
   target=false,
   type=false,
+  label=false,
   role
 ) %}
   <a 
@@ -11,7 +12,8 @@
     {% if href %} href="{{ href }}" {% endif %}
     {% if type %} type="{{ type }}" {% endif %}
     {% if target %} target="{{ target }}" {% endif %}
-    {% if role %} role="{{ role }}" {% endif %}>
+    {% if role %} role="{{ role }}" {% endif %}
+    {% if label %} aria-label="{{ label }}" {% endif %}>
       {{text if text}}
       {{ caller() if caller }}
     </a>
