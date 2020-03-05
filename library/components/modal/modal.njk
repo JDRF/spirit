@@ -6,6 +6,7 @@
     has_title=false,
     has_close=false,
     alert=false,
+    confirmation=false,
     position=false,
     overlay_opacity=false,
     size=false,
@@ -15,13 +16,13 @@
         class="spirit-modal {{ ' ' + class if class }}{{ ' spirit-modal--overlay-' + overlay_opacity if overlay_opacity }}"
         id="{{modal_id if modal_id}}"
     >
-        <div class="spirit-modal__overlay" tabindex="-1" {{'data-a11y-dialog-hide' if not alert}}></div>
+        <div class="spirit-modal__overlay" tabindex="-1" {{'data-a11y-dialog-hide' if not alert and not confirmation}}></div>
         <div
-            class="spirit-modal__dialog{{' spirit-modal__dialog--' + size if size }}{{' spirit-modal__dialog--' + size_break + '-md' if size_break }}{{' spirit-modal__dialog--' + position if position }}{{ ' ' + dialog_class if dialog_class }}"
+            class="spirit-modal__dialog{{' spirit-modal__dialog--' + size if size }}{{' spirit-modal__dialog--' + size_break + '-md' if size_break }}{{' spirit-modal__dialog--' + position if position }}{{' spirit-modal__dialog--alert' if alert }}{{ ' ' + dialog_class if dialog_class }}"
             {% if modal_id and has_title %}
                 aria-labelledby="{{modal_id}}-spirit-modal-title"
             {% endif %}
-            {% if alert  %}
+            {% if alert or confirmation %}
                 role="alertdialog"
             {% else %}
                 role="dialog"

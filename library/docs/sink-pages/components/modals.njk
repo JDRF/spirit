@@ -230,6 +230,104 @@
           {% endcall %}
         {% endcall %}
 
+        {% set modal_id = "modal-demo-simple-confirmation-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Confirmation Dialog", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id = "modal-demo-simple-confirmation-l-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation Dialog Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Confirmation Dialog with a Long Wrapping Title to Test Resilience When a Long Title is Used", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-confirmation-m" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation M Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="medium", modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Medium Size Confirmation Dialog (test)", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-confirmation-l" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation L Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="large", modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Large Size Confirmation Dialog (test)", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-foot-confirmation-p-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation Padding Large Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Confirmation Padding Large Test", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-res-foot-to-fs-confirmation" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation Dialog to Fullscreen Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size_break="fullscreen", modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Content Resiliancy Example with Long Header Text", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set modal_id="modal-demo-simple-fs-con-to-m-pad-s-confirmation" %}
+        <div class="spirit-long-form-text">
+            <h6>Confirmation Full Screen to Medium Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(size="fullscreen", size_break="medium", modal_id=modal_id, has_title=true, has_close=true, confirmation=true) %}
+          {{ library.modal_header(title_text="Confirmation Full Screen to Medium Size Test", modal_id=modal_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
         {% set modal_id = "modal-demo-blank-s" %}
         <div class="spirit-long-form-text">
             <h6>S Modal Blank</h6>

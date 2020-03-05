@@ -136,7 +136,7 @@ $spirit-modal-transition-duration-short: 75ms;
 }
 
 // Alert Dialog
-.spirit-modal__dialog[role='alertdialog'] {
+.spirit-modal__dialog--alert {
   min-height: $spirit-modal-alert-min-height;
 
   .spirit-modal__header {
@@ -172,44 +172,44 @@ $spirit-modal-transition-duration-short: 75ms;
 }
 
 // Sizes
-.spirit-modal__dialog--small:not([role='alertdialog']) {
+.spirit-modal__dialog--small:not(.spirit-modal__dialog--alert) {
   max-width: $spirit-modal-max-width;
 }
 
-.spirit-modal__dialog--medium:not([role='alertdialog']) {
+.spirit-modal__dialog--medium:not(.spirit-modal__dialog--alert) {
   max-width: $spirit-modal-max-width-m;
 }
 
-.spirit-modal__dialog--large:not([role='alertdialog']) {
+.spirit-modal__dialog--large:not(.spirit-modal__dialog--alert) {
   max-width: $spirit-modal-max-width-l;
 }
 
-.spirit-modal__dialog--fullscreen:not([role='alertdialog']) {
+.spirit-modal__dialog--fullscreen:not(.spirit-modal__dialog--alert) {
   @include spirit-modal-dialog-fullscreen;
 }
 
-.spirit-modal__dialog--small-md:not([role='alertdialog']) {
+.spirit-modal__dialog--small-md:not(.spirit-modal__dialog--alert) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width;
   }
 }
 
-.spirit-modal__dialog--medium-md:not([role='alertdialog']) {
+.spirit-modal__dialog--medium-md:not(.spirit-modal__dialog--alert) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width-m;
   }
 }
 
-.spirit-modal__dialog--large-md:not([role='alertdialog']) {
+.spirit-modal__dialog--large-md:not(.spirit-modal__dialog--alert) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog;
     max-width: $spirit-modal-max-width-l;
   }
 }
 
-.spirit-modal__dialog--fullscreen-md:not([role='alertdialog']) {
+.spirit-modal__dialog--fullscreen-md:not(.spirit-modal__dialog--alert) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-modal-dialog-fullscreen;
   }
@@ -323,7 +323,7 @@ $spirit-modal-transition-duration-short: 75ms;
   }
 
   // Modal Sizes
-  .spirit-modal__dialog--medium:not([role='alertdialog']) & {
+  .spirit-modal__dialog--medium:not(.spirit-modal__dialog--alert) & {
     padding: $spirit-modal-content-padding-md;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -331,7 +331,7 @@ $spirit-modal-transition-duration-short: 75ms;
     }
   }
 
-  .spirit-modal__dialog--large:not([role='alertdialog']) & {
+  .spirit-modal__dialog--large:not(.spirit-modal__dialog--alert) & {
     padding: $spirit-modal-content-padding-lg;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -339,7 +339,7 @@ $spirit-modal-transition-duration-short: 75ms;
     }
   }
 
-  .spirit-modal__dialog--fullscreen:not([role='alertdialog']) & {
+  .spirit-modal__dialog--fullscreen:not(.spirit-modal__dialog--alert) & {
     padding: $spirit-modal-content-padding-md;
   }
 
