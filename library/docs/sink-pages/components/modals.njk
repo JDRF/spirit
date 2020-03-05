@@ -122,6 +122,24 @@
           {% endcall %}
         {% endcall %}
 
+        {% set modal_id = "modal-demo-simple-alert-l-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert Dialog Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Modal", modal_id=modal_id) }}
+        </div>
+        {% call library.modal(modal_id=modal_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.modal_header(title_text="Alert Dialog with a Long Wrapping Title to Test Resilience When a Long Title is Used", modal_id=modal_id, has_header_close=false) }}
+          {% call library.modal_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--s">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.modal_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", modal_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
         {% set modal_id="modal-demo-alert-m" %}
         <div class="spirit-long-form-text">
             <h6>Alert M Size Test</h6>
@@ -428,7 +446,7 @@
         {% call library.modal(position="top", modal_id=modal_id, has_title=true, has_close=true) %}
           {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
           {% call library.modal_content() %}
-            {{ content_long | safe }}
+            {{ content_short | safe }}
           {% endcall %}
         {% endcall %}
 
@@ -525,7 +543,7 @@
         {% call library.modal(size="medium", position="top", modal_id=modal_id, has_title=true, has_close=true) %}
           {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
           {% call library.modal_content() %}
-            {{ content_long | safe }}
+            {{ content_short | safe }}
           {% endcall %}
         {% endcall %}
 
@@ -613,7 +631,7 @@
         {% call library.modal(size="large", position="top", modal_id=modal_id, has_title=true, has_close=true) %}
           {{ library.modal_header(title_text="Modal Top", modal_id=modal_id) }}
           {% call library.modal_content() %}
-            {{ content_long | safe }}
+            {{ content_short | safe }}
           {% endcall %}
         {% endcall %}
 

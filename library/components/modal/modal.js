@@ -23,9 +23,9 @@ const spiritModals = function() {
         const dialog = new A11yDialog(modal, defaults.container);
 
         const maybeDisableEscToClose = (e) => {
-            const modalDialog = modal.querySelector('dialog');
+            const modalDialog = modal.querySelector('.spirit-modal__dialog');
 
-            if (modalDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
+            if (modalDialog && modalDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
                 e.preventDefault();
             }
         };

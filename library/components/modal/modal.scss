@@ -8,6 +8,8 @@ $spirit-modal-max-width: 484px; // Equivelant to 6col in large container
 $spirit-modal-max-width-m: 656px; // Equivelant to 8col in large container
 $spirit-modal-max-width-l: 828px; // Equivelant to 12col in large container
 $spirit-modal-max-height: calc(100vh - #{$spirit-space-generic-4-x});
+$spirit-modal-top-med: 56px;
+$spirit-modal-max-height-med: calc(100vh - (#{$spirit-modal-top-med} * 2));
 $spirit-modal-min-height: 300px;
 $spirit-modal-alert-min-height: 170px;
 $spirit-modal-content-padding: $spirit-space-inset-2-x;
@@ -20,19 +22,16 @@ $spirit-modal-footer-margin: auto 0 $spirit-space-generic-1-x;
 $spirit-modal-alert-footer-margin: auto 0 $spirit-space-generic-1-x;
 $spirit-modal-footer-button-margin: 0 0 $spirit-space-inset-1-x $spirit-space-inset-1-x;
 $spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
+$spirit-modal-transition-duration: 150ms;
+$spirit-modal-transition-duration-short: 75ms;
 
 // Reset / Xbrowser Modal setup
 .spirit-modal[data-a11y-dialog-native] .spirit-modal__overlay {
   display: none;
 }
 
-.spirit-modal__dialog[open] {
-  display: flex;
-  visibility: visible;
-}
-
 .spirit-modal[aria-hidden='true'] {
-  transition: visibility 0s linear .3s;
+  transition: visibility 0s linear $spirit-modal-transition-duration;
   visibility: hidden;
 }
 
@@ -42,43 +41,35 @@ $spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
   height: auto;
   left: 50%;
   max-height: $spirit-modal-max-height;
-  opacity: 0;
   top: 50%;
-  transform: translate3d(-50%, -100%, 0);
-  transition: transform .2s ease-out, opacity .2s ease-out;
+  transform-origin: top left;
   width: $spirit-modal-width;
   will-change: transform, opacity;
 
-  .spirit-modal--visible & {
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0);
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    max-height: $spirit-modal-max-height-med;
   }
 }
 
 @mixin spirit-modal-dialog-top {
   top: $spirit-space-generic-2-x;
-  transform: translate3d(-50%, -50%, 0);
+  transform: scale(.8) translate(-50%, 0);
 
-  .spirit-modal--visible & {
-    transform: translate3d(-50%, 0, 0);
+  &[open] {
+    transform: scale(1) translate(-50%, 0%);
+  }
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    top: $spirit-modal-top-med;
   }
 }
 
 @mixin spirit-modal-dialog-fullscreen {
   border-radius: 0;
   height: 100%;
-  left: 0;
   max-height: none;
   max-width: none;
-  opacity: 1;
-  top: 0;
-  transform: translate3d(-100%, 0, 0);
   width: 100%;
-  will-change: transform;
-
-  .spirit-modal--visible & {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 .spirit-modal {
@@ -126,9 +117,22 @@ $spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
   margin: 0;
   max-width: $spirit-modal-max-width;
   min-height: $spirit-modal-min-height;
+  opacity: 0;
   padding: 0;
   position: fixed;
+  transform: scale(.8) translate(-50%, -50%);
+  transition: transform 0s linear $spirit-modal-transition-duration-short, opacity $spirit-modal-transition-duration-short linear;
+
+  visibility: hidden;
   z-index: $spirit-modal-z-index;
+
+  &[open] {
+    display: flex;
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+    transition: transform $spirit-modal-transition-duration ease-in 0s, opacity $spirit-modal-transition-duration-short linear, visibility $spirit-modal-transition-duration linear 0s;
+    visibility: visible;
+  }
 }
 
 // Alert Dialog
@@ -138,6 +142,11 @@ $spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
   .spirit-modal__header {
     @include spirit-elevation(0);
     padding: $spirit-modal-content-padding-md $spirit-modal-content-padding-md $spirit-modal-content-padding;
+  }
+
+  .spirit-modal__header-title {
+    text-overflow: clip;
+    white-space: normal;
   }
 
   .spirit-modal__content {
@@ -304,7 +313,7 @@ $spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
 
 // Spirit Modal Content
 .spirit-modal__content {
-  -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes 
+  -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes
   display: block;
   overflow-y: scroll;
   padding: $spirit-modal-content-padding;
@@ -362,7 +371,6 @@ $spirit-modal-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
 
 // Spirit Modal Footer
 .spirit-modal__footer {
-  border-top: 1px solid $spirit-modal-footer-border-color;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
