@@ -12,12 +12,15 @@
     "esds-build": "^0.39.1",
     "esds-doc": "^0.25.0",
     "fs-extra": "^6.0.1",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-tap": "^1.0.1",
     "slash": "^2.0.0"
   },
   "dependencies": {
     "@jdrfhq/spirit": "^1.2.0",
-    "inputmask": "^4.0.6"
+    "inputmask": "^4.0.9"
+  },
+  "resolutions": {
+    "**/**/node-gyp": "5.0.0"
   }
 }
