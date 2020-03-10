@@ -19,8 +19,5 @@
   "dependencies": {
     "@jdrfhq/spirit": "^1.2.0",
     "inputmask": "^4.0.9"
-  },
-  "resolutions": {
-    "**/**/node-gyp": "5.0.0"
   }
 }
