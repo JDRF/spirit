@@ -1,7 +1,7 @@
 
 /*global A11yDialog*/
 
-const spiritModals = function() {
+const spiritDialogs = function() {
     if (typeof A11yDialog !== "function") {
         return;
     }
@@ -48,4 +48,4 @@ const spiritModals = function() {
     });
 };
 
-spiritModals();
+spiritDialogs();
