@@ -17,8 +17,8 @@
       fullwidth=false,
       buttonTitle=false,
       displayIcon,
-      modal_id=false,
-      modal_close=false
+      dialog_id=false,
+      dialog_close=false
       ) %}
   {% if href %}
     {% set el = 'a' %}
@@ -125,10 +125,10 @@
       {% if buttonTitle and not text %}
         aria-label="{{buttonTitle}}"
       {% endif %}
-      {% if modal_id %}
-        data-a11y-dialog-show="{{modal_id}}"
+      {% if dialog_id %}
+        data-a11y-dialog-show="{{dialog_id}}"
       {% endif %}
-      {% if modal_close %}
+      {% if dialog_close %}
         data-a11y-dialog-hide
       {% endif %}
       {{ 'disabled' if disabled }}

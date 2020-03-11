@@ -6,9 +6,9 @@ const spiritModals = function() {
         return;
     }
 
-    const modals = Array.from(document.querySelectorAll('.spirit-modal'));
+    const dialogs = Array.from(document.querySelectorAll('.spirit-dialog'));
 
-    if (!modals) {
+    if (!dialogs) {
         return;
     }
 
@@ -16,16 +16,20 @@ const spiritModals = function() {
     const defaults = {
         container: '#spirit-shell-main',
         noScrollClass: '-spirit-no-scroll',
-        visibleClass: 'spirit-modal--visible'
+        visibleClass: 'spirit-dialog--visible'
     };
 
-    modals.forEach(modal => {
-        const dialog = new A11yDialog(modal, defaults.container);
+    dialogs.forEach(item => {
+        const dialog = new A11yDialog(item, defaults.container);
+
+        console.log('there');
 
         const maybeDisableEscToClose = (e) => {
-            const modalDialog = modal.querySelector('.spirit-modal__dialog');
+            const spiritDialog = item.querySelector('.spirit-dialog__dialog');
 
-            if (modalDialog && modalDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
+            console.log(item);
+
+            if (spiritDialog && spiritDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
                 e.preventDefault();
             }
         };
