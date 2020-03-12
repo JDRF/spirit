@@ -90,7 +90,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   will-change: opacity;
   z-index: $spirit-dialog-z-index;
 
-  .spirit-dialog--visible & {
+  .spirit-dialog:not([aria-hidden='true']) & {
     opacity: 1;
     visibility: visible;
   }
