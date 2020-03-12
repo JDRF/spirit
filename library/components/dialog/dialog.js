@@ -21,12 +21,8 @@ const spiritDialogs = function() {
     dialogs.forEach(item => {
         const dialog = new A11yDialog(item, defaults.container);
 
-        console.log('there');
-
         const maybeDisableEscToClose = (e) => {
             const spiritDialog = item.querySelector('.spirit-dialog__dialog');
-
-            console.log(item);
 
             if (spiritDialog && spiritDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
                 e.preventDefault();
