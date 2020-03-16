@@ -20,9 +20,9 @@ const spiritDialogs = function() {
 
     dialogs.forEach(item => {
         const dialog = new A11yDialog(item, defaults.container);
+        const spiritDialog = item.querySelector('.spirit-dialog__dialog');
 
         const maybeDisableEscToClose = (e) => {
-            const spiritDialog = item.querySelector('.spirit-dialog__dialog');
 
             if (spiritDialog && spiritDialog.getAttribute('role') === 'alertdialog' && e.which === 27) {
                 e.preventDefault();
@@ -30,6 +30,20 @@ const spiritDialogs = function() {
         };
 
         dialog.on('show', function (el) {
+
+            // Ensure focus is on first item - wait until animation finished first
+            spiritDialog.addEventListener('transitionend', transitionEndCallback);
+
+            function transitionEndCallback() {
+                const focusable = spiritDialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+
+                if (focusable && focusable[0]) {
+                    focusable[0].focus();
+                }
+
+                spiritDialog.removeEventListener('transitionend', transitionEndCallback);
+            }
+
             document.body.classList.add(defaults.noScrollClass);
             document.addEventListener('keydown', maybeDisableEscToClose);
         });
