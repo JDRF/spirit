@@ -1,0 +1,72 @@
+{% extends 'templates/doc.njk' %}
+{% block page_shell_content_intro %}
+    {% filter markdown %}
+        <h1>Dialog</h1>
+
+        <p class="spirit-subhead">A dialog is a temporary contextual UI element that overlays the web page or application content and provides information to the user and, often, requires user input. When these overlays are active or open, interactions with the web page or application are disabled until the overlay is closed or required interaction is completed.</p>
+        <p>Dialogs are disruptive intentionally and should be used thoughtfully and sparingly depending on the informational context and/or need.</p>
+        <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [Guidelines - JavaScript](/#) for information javascript usage and the necessary dependencies.</p>
+    {% endfilter %}
+{% endblock %}
+
+{% block page_shell_content %}
+    {% filter markdown %}
+        ## Anatomy
+
+        {image here}
+
+        ### Dialog
+        The dialog contains three primary elements. First, the `.spirit-dialog` container with a unique dialog id. Second, the `.spirit-dialog__overlay` container to display a darkened background behind the dialog. Third, the `.spirit-dialog__dialog` container that has within the visual content of the dialog.
+
+        ### Close Button (optional)
+        When a close button is used, it is an [Icon Only](/components/buttons.html#icon-only) button. Depending on the dialog type (see below), the close button can either be the first element within the `.spirit-dialog__dialog` and displayed outside the dialog content area, or can be within the `.spirit-dialog__header` (see below). The close icon has attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and uses the Spirit `x` icon .
+
+        ### Header (optional)
+        When a header is used, the `.spirit-dialog__header` is the first element within the `.spirit-dialog__dialog.` Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
+
+        ### Content
+        The dialog’s primary content is always contained within the `.spirit-dialog__content` element.
+
+        ### Footer (optional)
+        If primary action items or other information is needed below the content of the dialog, an optional `.spirit-dialog__footer` is used.
+
+        ### Trigger (optional)
+        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show=”dialog-id”` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](/#).
+
+        ## Simple
+
+        Use when displaying information that does not require a user action, such as a read-only document or a supplemental video.
+    {% endfilter %}
+
+    {% set dialog_simple %}
+        
+            {% set dialog_id = "doc-sample-simple" %}
+            {{ library.button(class="spirit-button--extra-small", text="Open Simple Dialog", dialog_id=dialog_id) }}
+            {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+                {{ library.dialog_header(title_text="Simple Dialog", dialog_id=dialog_id) }}
+                {% call library.dialog_content() %}
+                    <div class="spirit-long-form-text">
+                        <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+                    </div>
+                {% endcall %}
+            {% endcall %}
+        
+    {% endset %}
+
+  {{ esds_doc.code_example_pair(
+    examples=[ { example: dialog_simple } ],
+    code_snippet_source=(dialog_simple)
+    )
+  }}
+
+    {% filter markdown %}
+        * Requires a close [Icon Only](/components/buttons.html#icon-only) button within the `.spirit-dialog__header` with the attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and using the `x` icon.
+        * Dismiss dialog by clicking the close button, pressing the escape key, or clicking outside the dialog.
+        * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__dialog` container as `aria-labelledby=”title-id”` to enhance accessibility UX.
+        * The title will be truncated to one line (unless dialog is an [Alert Dialog](/#)).
+        * Multiple [Icon Only](/components/buttons.html#icon-only) button action items can be added to the `.spirit-dialog__header-icons container`. The close icon should always be the right most icon.
+        
+        ## Modal
+    {% endfilter %}
+
+{% endblock page_shell_content %}
