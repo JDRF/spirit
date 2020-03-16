@@ -16,7 +16,9 @@
       value=false,
       fullwidth=false,
       buttonTitle=false,
-      displayIcon
+      displayIcon,
+      dialog_id=false,
+      dialog_close=false
       ) %}
   {% if href %}
     {% set el = 'a' %}
@@ -122,6 +124,12 @@
       {% endif %}
       {% if buttonTitle and not text %}
         aria-label="{{buttonTitle}}"
+      {% endif %}
+      {% if dialog_id %}
+        data-a11y-dialog-show="{{dialog_id}}"
+      {% endif %}
+      {% if dialog_close %}
+        data-a11y-dialog-hide
       {% endif %}
       {{ 'disabled' if disabled }}
     >

@@ -23,11 +23,12 @@ gulp.task('compile-script-to-es5', () =>
 gulp.task('dependency-scripts', () =>
   gulp.src([
     '_site/latest/scripts/dependencies/svg4everybody.min.js',
+    '_site/latest/scripts/dependencies/a11y-dialog.min.js',
     '_site/latest/scripts/dependencies/inputmask.dependencyLib.js',
     '_site/latest/scripts/dependencies/inputmask.js',
     '_site/latest/scripts/dependencies/inputmask.extensions.js',
     '_site/latest/scripts/dependencies/inputmask.numeric.extensions.js',
-    '_site/latest/scripts/dependencies/inputmask.date.extensions.js'
+    '_site/latest/scripts/dependencies/inputmask.date.extensions.js',
   ])
     .pipe(concat('spirit.dependencies.js'))
     .pipe(gulp.dest('_site/latest/scripts'))
@@ -106,4 +107,3 @@ gulp.task('esds-hook:post:styles:build:all', gulp.series('minify-styles'));
 gulp.task('watch:styles:minify', () => {
   return gulp.watch(['_site/latest/styles/spirit.css'], gulp.parallel('minify-styles'));
 });
-

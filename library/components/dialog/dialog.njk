@@ -1,0 +1,99 @@
+{# List Modal #}
+{% macro dialog(
+    dialog_id=false,
+    class=false,
+    dialog_class=false,
+    has_title=false,
+    has_close=false,
+    alert=false,
+    modal=false,
+    position=false,
+    overlay_opacity=false,
+    size=false,
+    size_break=false
+) %}
+    <div
+        class="spirit-dialog {{ ' ' + class if class }}{{ ' spirit-dialog--overlay-' + overlay_opacity if overlay_opacity }}"
+        id="{{dialog_id if dialog_id}}"
+    >
+        <div class="spirit-dialog__overlay" tabindex="-1" {{'data-a11y-dialog-hide' if not alert and not modal}}></div>
+        <div
+            class="spirit-dialog__dialog{{' spirit-dialog__dialog--' + size if size }}{{' spirit-dialog__dialog--' + size_break + '-md' if size_break }}{{' spirit-dialog__dialog--' + position if position }}{{' spirit-dialog__dialog--alert' if alert }}{{ ' ' + dialog_class if dialog_class }}"
+            {% if dialog_id and has_title %}
+                aria-labelledby="{{dialog_id}}-spirit-dialog-title"
+            {% endif %}
+            {% if alert or modal %}
+                role="alertdialog"
+            {% else %}
+                role="dialog"
+            {% endif %}
+        >
+            {% if not has_close %}
+                {{ button(el="button", class="spirit-dialog__close spirit-button--icon-only spirit-button--medium spirit-button--minimal", iconName="x", buttonTitle="Close Modal", dialog_close=true) }}
+            {% endif %}
+            {% if caller %}
+                {{ caller() }}
+            {% endif %}
+
+        </div>
+    </div>
+{% endmacro %}
+
+{# Modal Header #}
+{% macro dialog_header(
+    title_text="Modal Header",
+    dialog_id=false,
+    title_el="h1",
+    title_id=false,
+    has_header_close=true,
+    header_icons=false
+) %}
+  {% if dialog_id %}
+    {% set title_id = dialog_id + "-spirit-dialog-title" %}
+  {% endif %}
+    <div
+        class="spirit-dialog__header"
+    >
+        <{{title_el}}
+            {% if title_id %}
+                id="{{ title_id}}"
+            {% endif %}
+            class="spirit-dialog__header-title spirit-h3"
+        >
+            {{title_text}}
+        </{{title_el}}>
+        {% if has_header_close or header_icons %}
+            <span class="spirit-dialog__header-icons">
+                {% for icon in header_icons %}
+                    {% if icon.iconName and icon.buttonTitle %}
+                        {{ button(el="button", class="spirit-button--icon-only spirit-button--medium spirit-button--minimal", iconName=icon.iconName, buttonTitle=icon.buttonTitle) }}
+                    {% endif %}
+                {% endfor %}
+                {% if has_header_close %}
+                    {{ button(el="button", class="spirit-dialog__header-close spirit-button--icon-only spirit-button--medium spirit-button--minimal", iconName="x", buttonTitle="Close Dialog", dialog_close=true) }}
+                {% endif %}
+            </span>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{# Modal Content #}
+{% macro dialog_content(
+    padding=false
+) %}
+    <div
+        class="spirit-dialog__content{{' spirit-dialog__content--padding-' + padding if padding }}"
+    >
+        {{ caller() }}
+    </div>
+{% endmacro %}
+
+{# Modal Footer #}
+{% macro dialog_footer(
+) %}
+    <div
+        class="spirit-dialog__footer"
+    >
+        {{ caller() }}
+    </div>
+{% endmacro %}
