@@ -5,11 +5,33 @@
 
         <p class="spirit-subhead">A dialog is a temporary contextual UI element that overlays the web page or application content and provides information to the user and, often, requires user input. When these overlays are active or open, interactions with the web page or application are disabled until the overlay is closed or required interaction is completed.</p>
         <p>Dialogs are disruptive intentionally and should be used thoughtfully and sparingly depending on the informational context and/or need.</p>
-        <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [Guidelines - JavaScript](/#) for information javascript usage and the necessary dependencies.</p>
+        <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [Guidelines - JavaScript](#javascript) for information javascript usage and the necessary dependencies.</p>
     {% endfilter %}
 {% endblock %}
 
 {% block page_shell_content %}
+
+    {% set content_long %}
+        <div class="spirit-long-form-text">
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+        </div>
+    {% endset %}
+
+
     {% filter markdown %}
         ## Anatomy
 
@@ -21,6 +43,8 @@
         ### Close Button (optional)
         When a close button is used, it is an [Icon Only](/components/buttons.html#icon-only) button. Depending on the dialog type (see below), the close button can either be the first element within the `.spirit-dialog__dialog` and displayed outside the dialog content area, or can be within the `.spirit-dialog__header` (see below). The close icon has attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and uses the Spirit `x` icon .
 
+        See [A11y Dialog DOM API](https://edenspiekermann.github.io/a11y-dialog/#dom-api) for more references on closing and opening the dialogs.
+
         ### Header (optional)
         When a header is used, the `.spirit-dialog__header` is the first element within the `.spirit-dialog__dialog.` Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
 
@@ -31,7 +55,7 @@
         If primary action items or other information is needed below the content of the dialog, an optional `.spirit-dialog__footer` is used.
 
         ### Trigger (optional)
-        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show=”dialog-id”` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](/#).
+        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show=”dialog-id”` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](#javascript).
 
         ## Simple
 
@@ -39,9 +63,9 @@
     {% endfilter %}
 
     {% set dialog_simple %}
-        
-            {% set dialog_id = "doc-sample-simple" %}
-            {{ library.button(class="spirit-button--extra-small", text="Open Simple Dialog", dialog_id=dialog_id) }}
+
+            {% set dialog_id="doc-sample-simple" %}
+            {{ library.button(text="Open Simple Dialog", dialog_id=dialog_id) }}
             {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
                 {{ library.dialog_header(title_text="Simple Dialog", dialog_id=dialog_id) }}
                 {% call library.dialog_content() %}
@@ -50,14 +74,14 @@
                     </div>
                 {% endcall %}
             {% endcall %}
-        
+
     {% endset %}
 
-  {{ esds_doc.code_example_pair(
-    examples=[ { example: dialog_simple } ],
-    code_snippet_source=(dialog_simple)
-    )
-  }}
+    {{ esds_doc.code_example_pair(
+            examples=[ { example: dialog_simple } ],
+            code_snippet_source=(dialog_simple)
+        )
+    }}
 
     {% filter markdown %}
         * Requires a close [Icon Only](/components/buttons.html#icon-only) button within the `.spirit-dialog__header` with the attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and using the `x` icon.
@@ -65,8 +89,679 @@
         * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__dialog` container as `aria-labelledby=”title-id”` to enhance accessibility UX.
         * The title will be truncated to one line (unless dialog is an [Alert Dialog](/#)).
         * Multiple [Icon Only](/components/buttons.html#icon-only) button action items can be added to the `.spirit-dialog__header-icons container`. The close icon should always be the right most icon.
-        
+
         ## Modal
+
+        A modal dialog is used when action is required by the user before it can be closed.
+    {% endfilter %}
+
+    {% set dialog_modal %}
+
+        {% set dialog_id="doc-sample-modal" %}
+        {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", modal=true, has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="Modal Dialog", dialog_id=dialog_id, has_header_close=false) }}
+            {% call library.dialog_content() %}
+                <div class="spirit-long-form-text">
+                    <h2>I’m Walking for a World Without T1D</h2>
+                    <p>I'm participating in JDRF One Walk® to raise money to create a better future for the millions of people living with type 1 diabetes (T1D).</p>
+                    <p>When you have T1D, your pancreas stops producing insulin—a hormone essential to turning food into energy. This means you must constantly monitor your blood-sugar level, administer insulin, and carefully balance these insulin doses with your eating and activity just to stay alive.</p>
+                    <p>With T1D there are no days off and there is no cure. But there is hope.</p>
+                    <p>Your donation will support life-changing breakthroughs that make it safer and easier to live with T1D, until we find a cure.</p>
+                    <p>Your support makes it all possible.</p>
+                </div>
+            {% endcall %}
+            {% call library.dialog_footer() %}
+                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+                {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open Modal Dialog", dialog_id="doc-sample-modal") + dialog_modal
+                }
+            ],
+            code_snippet_source=(dialog_modal)
+        )
+    }}
+
+    {% filter markdown %}
+        * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__dialog` element to  `role="alertdialog"`.
+        * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
+        * A dialog footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](/#) for further guidance.
+
+        ## Alert
+
+        An alert dialog is a minimal, yet important, communication dialog that, like a modal dialog, requires a specific action to close. The alert dialog, due to its importance and intended lack of content, has a unique set of styles from the other dialogs. Custom modifier classes for padding and sizing to not apply to the alert dialog.
+    {% endfilter %}
+
+    {% set dialog_alert %}
+
+        {% set dialog_id="doc-sample-alert" %}
+        {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", alert=true, has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="Alert Dialog", dialog_id=dialog_id, has_header_close=false) }}
+            {% call library.dialog_content() %}
+                <div class="spirit-long-form-text">
+                    <p>Alert dialog description.</p>
+                </div>
+            {% endcall %}
+            {% call library.dialog_footer() %}
+                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open Alert Dialog", dialog_id="doc-sample-alert") + dialog_alert
+                }
+            ],
+            code_snippet_source=(dialog_alert)
+        )
+    }}
+
+    {% filter markdown %}
+        * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__dialog` element to  `role="alertdialog"`.
+        * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
+        * A dialog footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
+
+        ## Blank
+    {% endfilter %}
+
+    {% set dialog_blank %}
+
+        {% set dialog_id="doc-sample-blank" %}
+        {% call library.dialog(dialog_id=dialog_id) %}
+            {% call library.dialog_content() %}
+                <div class="spirit-long-form-text">
+                    <p>Blank Dialog</p>
+                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+                </div>
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open Alert Dialog", dialog_id="doc-sample-blank") + dialog_blank
+                }
+            ],
+            code_snippet_source=(dialog_blank)
+        )
+    }}
+
+    {% filter markdown %}
+        * If no dialog title being used and the dialog is not a [modal](#modal) or [alert](#alert) dialog, it requires a [close button](#close-button-optional) as the first item in the dialog.
+        * Dismiss dialog by clicking the close button, pressing the escape key, or clicking outside the dialog.
+
+        ## Sizes
+
+        Dialogs can be scaled to fit their contained content strategically. Other than the `fullscreen` size, dialog sizing sets the `max-width` of the dialog. Dialog sizes do not apply to alert dialogs.
+
+        ### Small (Default)
+
+        A small dialog reaches a 484px maximum width (equivalent to 6 columns inside a [large container](/components/container.html#large)) on large viewports.
+
+    {% endfilter %}
+
+    {% set dialog_small %}
+
+        {% set dialog_id="doc-sample-small" %}
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="Small (Default) Dialog", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                <div class="spirit-long-form-text">
+                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+                </div>
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open Small (Default) Dialog", dialog_id="doc-sample-small") + dialog_small
+                }
+            ],
+            code_snippet_source=(dialog_small)
+        )
+    }}
+
+    {% filter markdown %}
+        ### Medium
+
+        A medium dialog reaches a 656px maximum width (equivalent to 8 columns inside a [large container](/components/container.html#large)) on large viewports.
+    {% endfilter %}
+
+    {% set dialog_medium %}
+
+        {% set dialog_id="doc-sample-medium" %}
+        {% call library.dialog(dialog_id=dialog_id, size="medium", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="Medium Dialog", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                <div class="spirit-long-form-text">
+                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+                </div>
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Medium Dialog", dialog_id="doc-sample-medium") + dialog_medium
+                }
+            ],
+            code_snippet_source=(dialog_medium)
+        )
+    }}
+
+    {% filter markdown %}
+        ### Large
+
+        A large dialog reaches a 828px maximum width (equivalent to 12 columns inside a [large container](/components/container.html#large)) on large viewports.
+
+    {% endfilter %}
+
+    {% set dialog_large %}
+
+        {% set dialog_id="doc-sample-large" %}
+        {% call library.dialog(dialog_id=dialog_id, size="large", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="Large Dialog", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                <div class="spirit-long-form-text">
+                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+                </div>
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open Large Dialog", dialog_id="doc-sample-large") + dialog_large
+                }
+            ],
+            code_snippet_source=(dialog_large)
+        )
+    }}
+
+    {% filter markdown %}
+        ### Fullscreen
+
+        A fullscreen dialog is full viewport width and height at all viewports.
+
+    {% endfilter %}
+
+    {% set dialog_fullscreen %}
+
+        {% set dialog_id="doc-sample-fullscreen" %}
+        {% call library.dialog(dialog_id=dialog_id, size="fullscreen", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="Fullscreen Dialog", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                {{ content_long | safe }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open Fullscreen Dialog", dialog_id="doc-sample-fullscreen") + dialog_fullscreen
+                }
+            ],
+            code_snippet_source=(dialog_fullscreen)
+        )
+    }}
+
+    {% filter markdown %}
+        ### Sizes Reference
+    {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+        data=[
+            {
+                class: '.spirit-dialog__dialog--small',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Replicates the default dialog sizing 484px maximum width (equivalent to 6 columns inside a [large container](/components/container.html#large)) on large viewports.'
+            },
+            {
+                class: '.spirit-dialog__dialog--medium',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies 656px maximum width (equivalent to 8 columns inside a [large container](/components/container.html#large)) on large viewports.'
+            },
+            {
+                class: '.spirit-dialog__dialog--large',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Appplies 828px maximum width (equivalent to 12 columns inside a [large container](/components/container.html#large)) on large viewports.'
+            },
+            {
+                class: '.spirit-dialog__dialog--fullscreen',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies full viewport width and height on all viewport widths.'
+            }
+        ]) 
+    }}
+
+    {% filter markdown %}
+        ### Responsive Sizes
+
+        Dialogs can change their sizing behavior at medium [breakpoints](/tokens.html#breakpoint) (768px) with modifier classes.
+
+        #### To Small
+    {% endfilter %}
+
+    {% set dialog_to_small %}
+
+        {% set dialog_id="doc-sample-to-small" %}
+        {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="To Small", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                {{ content_long | safe }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open To Small Dialog", dialog_id="doc-sample-to-small") + dialog_to_small
+                }
+            ],
+            code_snippet_source=(dialog_to_small)
+        )
+    }}
+
+   {% filter markdown %}
+        #### To Medium
+    {% endfilter %}
+
+    {% set dialog_to_medium %}
+
+        {% set dialog_id="doc-sample-to-medium" %}
+        {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="medium", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="To Small", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                {{ content_long | safe }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open To Medium Dialog", dialog_id="doc-sample-to-medium") + dialog_to_medium
+                }
+            ],
+            code_snippet_source=(dialog_to_small)
+        )
+    }}
+
+   {% filter markdown %}
+        #### To Large
+    {% endfilter %}
+
+    {% set dialog_to_large %}
+
+        {% set dialog_id="doc-sample-to-large" %}
+        {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="large", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="To Large", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                {{ content_long | safe }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open To Large Dialog", dialog_id="doc-sample-to-large") + dialog_to_large
+                }
+            ],
+            code_snippet_source=(dialog_to_large)
+        )
+    }}
+
+   {% filter markdown %}
+        #### To Fullscreen
+    {% endfilter %}
+
+    {% set dialog_to_fullscreen %}
+
+        {% set dialog_id="doc-sample-to-fullscreen" %}
+        {% call library.dialog(dialog_id=dialog_id, size="small", size_break="fullscreen", has_title=true, has_close=true) %}
+            {{ library.dialog_header(title_text="To Fullscreen", dialog_id=dialog_id) }}
+            {% call library.dialog_content() %}
+                {{ content_long | safe }}
+            {% endcall %}
+        {% endcall %}
+
+    {% endset %}
+
+    {{ esds_doc.code_example_pair(
+            examples=[ 
+                {
+                    example: library.button(text="Open To Fullscreen Dialog", dialog_id="doc-sample-to-fullscreen") + dialog_to_fullscreen
+                }
+            ],
+            code_snippet_source=(dialog_to_fullscreen)
+        )
+    }}
+
+    {% filter markdown %}
+        #### Responsive Sizing
+    {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+        data=[
+            {
+                class: '.spirit-dialog__dialog--small-md',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies the [small](#small-default) size on medium viewports.'
+            },
+            {
+                class: '.spirit-dialog__dialog--medium-md',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies the [medium](#medium) size on medium viewports.'
+            },
+            {
+                class: '.spirit-dialog__dialog--large-md',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies the [large](#large) size on medium viewports.'
+            },
+            {
+                class: '.spirit-dialog__dialog--fullscreen-md',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies the [fullscreen](#fullscreen) size on medium viewports.'
+            }
+        ])
+    }}
+
+    {% filter markdown %}
+        ## Padding
+
+        Dialog [content](#content) has set padding padding based on the dialog [size](#sizes).
+    {% endfilter %}
+
+    {% filter markdown %}
+        <table class="esds-doc-reference-table">
+            <tr>
+                <td class="esds-doc-reference-table__header-cell"></td>
+                <td class="esds-doc-reference-table__header-cell">
+                    <strong>&lt;&nbsp;768px</strong>
+                </td>
+                <td class="esds-doc-reference-table__header-cell">
+                    <strong>≥&nbsp;768px</strong><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    <strong>Small (default)</strong>
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    16px
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    24px
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    <strong>Medium</strong>
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    24px
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    32px
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    <strong>Fullsceen</strong>
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    24px
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    24px
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    <strong>Large</strong>
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    32px
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    32px
+                </td>
+            </tr>
+        </table>
+    {% endfilter %}
+
+    {% filter markdown %}
+        ### Responsive Padding
+
+        Dialog [content](#content) can have custom padding below 768px viewport widths with a modifier class. Above the 768px viewport with, the dialog inherits the padding from the dialog [size](#sizes). Dialog custom padding does not apply to [alert](#alert) dialogs.
+    {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+        data=[
+            {
+                class: '.spirit-dialog__content--padding-small',
+                applies_to: '.spirit-dialog__content',
+                outcome: 'Applies 16px padding below medium [breakpoints](/tokens.html#breakpoint) (768px).'
+            },
+            {
+                class: '.spirit-dialog__content--padding-medium',
+                applies_to: '.spirit-dialog__content',
+                outcome: 'Applies 24px padding below medium [breakpoints](/tokens.html#breakpoint) (768px).'
+            },
+            {
+                class: '.spirit-dialog__content--padding-large',
+                applies_to: '.spirit-dialog__content',
+                outcome: 'Applies 32px padding below medium [breakpoints](/tokens.html#breakpoint) (768px).'
+            }
+        ]) 
+    }}
+
+    {% filter markdown %}
+        ## Guidelines
+
+        ### Use When
+
+        Dialogs are invasive and should be used sparingly. The ability of the user to access and view the primary content is the primary focus of a positive user experience.
+    {% endfilter %}
+
+    {% filter markdown %}
+       <table class="esds-doc-reference-table">
+            <tr>
+                <td class="esds-doc-reference-table__header-cell">
+                    <strong>Do</strong>
+                </td>
+                <td class="esds-doc-reference-table__header-cell">
+                    <strong>Don&apos;t</strong>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    Use dialogs for quick, actionable interactions, such as making a choice or needing the user to provide information.
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t overuse dialogs. To some extent they can be perceived as interrupting workflow, and too many can be a bad user experience.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    When possible, try a dialog before resorting to a "blocking" modal or alert dialog.
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t use "Are you sure?" or confirmation dialogs unless the user is making an irreversible or destructive choice.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    Only include information needed to help users make a decision.
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t use a blocking modal or alert dialog unless absolutely necessary because they are very disruptive.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    Button text should reflect the actions available to the user (e.g. save, delete).
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t have long sentences or complicated choices.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    Validate that the user's entries are acceptable before closing the dialog. Show an inline validation error near the field they must correct.
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t use generic button labels like "Ok" if you can be more specific about the action a user is about to complete.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    Choose alternative UI options to a dialog if providing a lot of information or complex choices.
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t dismiss the dialog if underlying problem is not fixed. Don&apos;t put the user back into a broken/error state.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+                    Place confirming actions to the right of dismissive actions in the dialog footer when used.
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t provide the user with more than 3 buttons.
+                </td>
+            </tr>
+            <tr>
+                <td class="esds-doc-reference-table__cell">
+
+                </td>
+                <td class="esds-doc-reference-table__cell">
+                    Don&apos;t use ambiguous dialog titles or button text.
+                </td>
+            </tr>
+        </table>
+    {% endfilter %}
+
+    {% filter markdown %}
+
+        ### Editorial
+
+        * Limit the number of interactions within a dialog. Remove elements or content that do not support the task.
+        * Avoid complexity within a dialog such as tabbed interfaces, internal navigation, etc.
+        * Using multiple methods of dismissal is encouraged, but using both the [close button](#close-button-optional) and a cancel or close button in the dialog footer are not required.
+        * Dialog titles should be short and concise (if used). Dialog titles will be truncated to one line (unless an alert dialog).
+
+        ### Visual Style
+
+        Fix the dialog to the top of the screen with `.spirit-dialog__dialog-top` if the dialog contains dynamic content to prevent the dialog from jumping positions on the screen (see below for class reference).
+
+        ### Accessibility
+
+        Dialogs, by definition, trap focus. That means if a user presses Tab or Shift+Tab while their keyboard focus is in the dialog, their focus should stay inside the dialog and cycle through the dialog’s content.
+
+        * Use the `aria-labelledby` attribute on the `.spirit-dialog__dialog` component to target the dialog header (if exists). 
+        * Use the inherited logic, structure from the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component, including the following:
+            * Trap focus inside dialog when dialog opened
+            * Focus on first focusable dialog child element when opened
+
+        ### Markup
+
+        #### Expected Keyboard Interactions
+
+        * `Escape` key or clicking outside the dialog closes the dialog and moves focus to whatever triggered the dialog to open (unless the dialog is a modal dialog or alert dialog).
+        * When a dialog is opened, focus is placed on the first focusable element in the dialog.
+        * `Tab` key used at the bottom of the dialog cycles focus back to the first focusable element at the top of the dialog.
+        * `Shift + Tab` keys used at the top of the dialog cycles focus back to the last focusable element at the bottom of the dialog.
+        * `Enter` key submits the dialog’s form data - if applicable.
+
+        ### JavaScript
+
+        We are using the 3rd party scripts for the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component to construct our dialogs. See [Getting Started](/getting-started.html) for more information on using 3rd party libraries.
+
+        As with other Spirit components, the JavaScript used for dialog is used to illustrate functionality. Spirit adopting teams may reference [this example](https://github.com/JDRF/spirit/tree/develop/library/components/dialog/dialog.js) and write their own JavaScript for their products. As with other scripts used in Spirit, they are included in the Javascript Bundles found in the Getting Started guide.
+
+        Any custom UX (i.e. modal dialog actions) will need to be custom coded per dialog usage. For guidance on custom events, callbacks, etc, see the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) documentation.
+
+        Currently, [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) does not support nested dialogs. If needed, see recommended modifications to the [A11y Dialog](http://edenspiekermann.github.io/a11y-dialog/#implementations) scripts or crafting custom JavaScript by adopting teams to achieve the interactions needed.
+
+        Adopting teams may work with dialog components that are not in the DOM and/or inject dialog content via an api. This is expected and will require custom scripts crafted by adopting teams to achieve desired results. 
+
+        If using custom scripts, be sure to adhere to [accessibility](#accessibility) recommendations. Minimally, dialogs should replicate accessibility standards found in the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/).
+
+        [React and Vue](http://edenspiekermann.github.io/a11y-dialog/#implementations) implementations for A11y Dialog are also available.
+
+        ## Code Reference
+
+        ### Markup
+
+        * Due to current issues with Chrome and the `<dialog>` component, use `<div role="dialog">` or `<div role="alertdialog">` as shown in examples above.
+        * Dialogs either have a `role="dialog"` or, if a modal or alert dialog, `role="alertdialog"`.
+        * Use `role="alertdialog"` instead of `role="dialog"` for Modal or Alert dialog types to prevent the dialog from closing using the escape key or clicking outside the dialog.
+        * The dialog has an `aria-hidden` attribute set to `true` unless the dialog is open.
+        * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__dialog` container as `aria-labelledby="the-title-id"` to enhance accessibility UX.
+        * See the [Close Button](#close-button-optional)
+        * Add `data-a11y-dialog-hide` attribute to `.spirit-dialog__overlay` to allow hiding the dialog by clicking on the overlay. This is included in the examples above.
+        * Use a unique dialog id to trigger dialog effectively.
+
+        ### Class Reference
+
+    {% endfilter %}
+
+    {{ esds_doc.reference_table(column_widths=[35, 30, 35],
+        data=[
+            {
+                class: '.spirit-dialog--overlay-dark',
+                applies_to: '.spirit-dialog',
+                outcome: 'Darkens the overlay color from `rgba(0, 0, 0, .4)` to `rgba(0, 0, 0, .7)`.'
+            },
+            {
+                class: '.spirit-dialog__dialog-top',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Fixes the dialog to the top of the viewport.'
+            },
+            {
+                class: '.spirit-dialog__dialog--alert',
+                applies_to: '.spirit-dialog__dialog',
+                outcome: 'Applies [Alert](#alert) styles to the dialog.'
+            },
+            {
+                class: '.-spirit-no-scroll',
+                applies_to: 'body',
+                outcome: 'Prevents body scrolling in the background.'
+            }
+        ]) 
+    }}
+
+    {% filter markdown %}
+        Dialogs can have custom sizing and be sized responsively. See [Sizes](#sizes) Reference and [Responsive Sizes](#responsive-sizes).
+
+        Dialogs can have responsive padding . See [Responsive Padding](#responsive-padding).
     {% endfilter %}
 
 {% endblock page_shell_content %}
