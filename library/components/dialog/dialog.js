@@ -35,10 +35,11 @@ const spiritDialogs = function() {
             spiritDialog.addEventListener('transitionend', transitionEndCallback);
 
             function transitionEndCallback() {
-                const focusable = spiritDialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const focusableChildren = spiritDialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const focused = spiritDialog.querySelector('[autofocus]') || focusableChildren[0];
 
-                if (focusable && focusable[0]) {
-                    focusable[0].focus();
+                if (focused) {
+                    focused.focus();
                 }
 
                 spiritDialog.removeEventListener('transitionend', transitionEndCallback);
