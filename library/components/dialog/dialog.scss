@@ -42,7 +42,6 @@ $spirit-dialog-transition-duration-short: 75ms;
   left: 50%;
   max-height: $spirit-dialog-max-height;
   top: 50%;
-  transform-origin: top left;
   width: $spirit-dialog-width;
   will-change: transform, opacity;
 
@@ -56,7 +55,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   transform: scale(.8) translate(-50%, 0);
 
   &[open] {
-    transform: scale(1) translate(-50%, 0%);
+    animation: dialog-in-out-top $spirit-dialog-transition-duration-short ease-in forwards;
   }
 
   @media screen and (min-width: $spirit-breakpoint-m) {
@@ -120,17 +119,16 @@ $spirit-dialog-transition-duration-short: 75ms;
   opacity: 0;
   padding: 0;
   position: fixed;
-  transform: scale(.8) translate(-50%, -50%);
-  transition: transform 0s linear $spirit-dialog-transition-duration-short, opacity $spirit-dialog-transition-duration-short linear;
-
+  transform: translate(-50%, -50%);
+  transition: opacity $spirit-dialog-transition-duration-short linear, visibility 0s linear $spirit-dialog-transition-duration-short;
   visibility: hidden;
   z-index: $spirit-dialog-z-index;
 
   &[open] {
+    animation: dialog-in-out $spirit-dialog-transition-duration-short ease-in forwards;
     display: flex;
     opacity: 1;
-    transform: scale(1) translate(-50%, -50%);
-    transition: transform $spirit-dialog-transition-duration ease-in 0s, opacity $spirit-dialog-transition-duration-short linear, visibility $spirit-dialog-transition-duration linear 0s;
+    transition: opacity $spirit-dialog-transition-duration-short linear, visibility $spirit-dialog-transition-duration linear 0s;
     visibility: visible;
   }
 }
@@ -282,12 +280,13 @@ $spirit-dialog-transition-duration-short: 75ms;
 .spirit-dialog__header {
   @include spirit-elevation(1, 'blue');
   display: flex;
+  flex: 0 0 auto;
   flex-flow: row nowrap;
   padding: $spirit-dialog-header-padding;
 }
 
 .spirit-dialog__header-title {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -315,6 +314,7 @@ $spirit-dialog-transition-duration-short: 75ms;
 .spirit-dialog__content {
   -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes
   display: block;
+  flex: 1 1 auto;
   overflow-y: scroll;
   padding: $spirit-dialog-content-padding;
 
@@ -372,6 +372,7 @@ $spirit-dialog-transition-duration-short: 75ms;
 // Spirit Modal Footer
 .spirit-dialog__footer {
   display: flex;
+  flex: 0 0 auto;
   flex-flow: row wrap;
   justify-content: flex-end;
   margin: $spirit-dialog-footer-margin;
@@ -388,5 +389,25 @@ $spirit-dialog-transition-duration-short: 75ms;
 
   .spirit-button--minimal + .spirit-button--minimal {
     margin: $spirit-dialog-footer-button-minimal-margin;
+  }
+}
+
+@keyframes dialog-in-out {
+  0% {
+    transform: translate(-50%, -50%) scale(.8);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes dialog-in-out-top {
+  0% {
+    transform: translate(-50%, 0%) scale(.8);
+  }
+
+  100% {
+    transform: translate(-50%, 0%) scale(1);
   }
 }
