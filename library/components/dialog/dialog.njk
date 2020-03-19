@@ -28,12 +28,14 @@
                 role="dialog"
             {% endif %}
         >
-            {% if not has_close %}
-                {{ button(el="button", class="spirit-dialog__close spirit-button--icon-only spirit-button--medium spirit-button--minimal", iconName="x", buttonTitle="Close Modal", dialog_close=true) }}
-            {% endif %}
-            {% if caller %}
-                {{ caller() }}
-            {% endif %}
+            <div class="spirit-dialog__dialog-inner">
+                {% if not has_close %}
+                    {{ button(el="button", class="spirit-dialog__close spirit-button--icon-only spirit-button--medium spirit-button--minimal", iconName="x", buttonTitle="Close Modal", dialog_close=true) }}
+                {% endif %}
+                {% if caller %}
+                    {{ caller() }}
+                {% endif %}
+            </div>
 
         </div>
     </div>
