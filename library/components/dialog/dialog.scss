@@ -44,9 +44,6 @@ $spirit-dialog-transition-duration-short: 75ms;
   will-change: transform, opacity;
 
   .spirit-dialog__dialog-inner {
-    border-radius: $spirit-border-radius-l;
-    display: flex;
-    flex-flow: column nowrap;
     max-height: $spirit-dialog-max-height;
     width: $spirit-dialog-width;
   
@@ -71,7 +68,6 @@ $spirit-dialog-transition-duration-short: 75ms;
 
 @mixin spirit-dialog-item-fullscreen {
   height: 100%;
-  
   width: 100%;
 
   .spirit-dialog__dialog-inner {
@@ -124,6 +120,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   @include spirit-dialog-item;
   background-color: $spirit-background-color-white;
   border: 0;
+  display: flex;
   flex-direction: row;
   margin: 0;
   opacity: 0;
@@ -136,7 +133,6 @@ $spirit-dialog-transition-duration-short: 75ms;
 
   &[open] {
     animation: dialog-in-out $spirit-dialog-transition-duration-short ease-in forwards;
-    display: flex;
     opacity: 1;
     transition: opacity $spirit-dialog-transition-duration-short linear, visibility $spirit-dialog-transition-duration linear 0s;
     visibility: visible;
@@ -144,6 +140,12 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 .spirit-dialog__dialog-inner {
+  border-radius: $spirit-border-radius-l;
+  display: flex;
+  flex-flow: column nowrap;
+  // Dialog inner was added to more reliably display the dialog content with an overflow scroll
+  // The initial styles for .spirit-dialog__dialog were moved here
+  // The .spirit-dialog__dialog was given flex-flow: row-nowrap; to contain the content
   max-width: $spirit-dialog-max-width;
   min-height: $spirit-dialog-min-height;
 }
