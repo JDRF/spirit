@@ -37,16 +37,19 @@ $spirit-dialog-transition-duration-short: 75ms;
 
 // Spirit Modal Styles
 @mixin spirit-dialog-item {
-  border-radius: $spirit-border-radius-l;
   height: auto;
   left: 50%;
-  max-height: $spirit-dialog-max-height;
   top: 50%;
-  width: $spirit-dialog-width;
+  width: auto;
   will-change: transform, opacity;
 
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    max-height: $spirit-dialog-max-height-med;
+  .spirit-dialog__dialog-inner {
+    max-height: $spirit-dialog-max-height;
+    width: $spirit-dialog-width;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      max-height: $spirit-dialog-max-height-med;
+    }
   }
 }
 
@@ -64,11 +67,16 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 @mixin spirit-dialog-item-fullscreen {
-  border-radius: 0;
   height: 100%;
-  max-height: none;
-  max-width: none;
   width: 100%;
+
+  .spirit-dialog__dialog-inner {
+    border-radius: 0;
+    height: 100vh;
+    max-height: none;
+    max-width: none;
+    width: 100vw;
+  }
 }
 
 .spirit-dialog {
@@ -112,27 +120,35 @@ $spirit-dialog-transition-duration-short: 75ms;
   @include spirit-dialog-item;
   background-color: $spirit-background-color-white;
   border: 0;
-  flex-flow: column nowrap;
+  display: flex;
+  flex-direction: row;
   margin: 0;
-  max-width: $spirit-dialog-max-width;
-  min-height: $spirit-dialog-min-height;
   opacity: 0;
   padding: 0;
   position: fixed;
   transform: translate(-50%, -50%);
   transition: opacity $spirit-dialog-transition-duration-short linear, visibility 0s linear $spirit-dialog-transition-duration-short;
-
   visibility: hidden;
 
   z-index: $spirit-dialog-z-index;
 
   &[open] {
     animation: dialog-in-out $spirit-dialog-transition-duration-short ease-in forwards;
-    display: flex;
     opacity: 1;
     transition: opacity $spirit-dialog-transition-duration-short linear, visibility $spirit-dialog-transition-duration linear 0s;
     visibility: visible;
   }
+}
+
+.spirit-dialog__dialog-inner {
+  border-radius: $spirit-border-radius-l;
+  display: flex;
+  flex-flow: column nowrap;
+  // Dialog inner was added to more reliably display the dialog content with an overflow scroll
+  // The initial styles for .spirit-dialog__dialog were moved here
+  // The .spirit-dialog__dialog was given flex-flow: row-nowrap; to contain the content
+  max-width: $spirit-dialog-max-width;
+  min-height: $spirit-dialog-min-height;
 }
 
 // Alert Dialog
@@ -173,15 +189,22 @@ $spirit-dialog-transition-duration-short: 75ms;
 
 // Sizes
 .spirit-dialog__dialog--small:not(.spirit-dialog__dialog--alert) {
-  max-width: $spirit-dialog-max-width;
+  .spirit-dialog__dialog-inner {
+    max-width: $spirit-dialog-max-width;
+  }
 }
 
 .spirit-dialog__dialog--medium:not(.spirit-dialog__dialog--alert) {
-  max-width: $spirit-dialog-max-width-m;
+  .spirit-dialog__dialog-inner {
+    max-width: $spirit-dialog-max-width-m;
+  }
 }
 
 .spirit-dialog__dialog--large:not(.spirit-dialog__dialog--alert) {
-  max-width: $spirit-dialog-max-width-l;
+
+  .spirit-dialog__dialog-inner {
+    max-width: $spirit-dialog-max-width-l;
+  }
 }
 
 .spirit-dialog__dialog--fullscreen:not(.spirit-dialog__dialog--alert) {
@@ -189,23 +212,35 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 .spirit-dialog__dialog--small-md:not(.spirit-dialog__dialog--alert) {
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
-    max-width: $spirit-dialog-max-width;
+
+    .spirit-dialog__dialog-inner {
+      max-width: $spirit-dialog-max-width;
+    }
   }
 }
 
 .spirit-dialog__dialog--medium-md:not(.spirit-dialog__dialog--alert) {
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
-    max-width: $spirit-dialog-max-width-m;
+
+    .spirit-dialog__dialog-inner {
+      max-width: $spirit-dialog-max-width-m;
+    }
   }
 }
 
 .spirit-dialog__dialog--large-md:not(.spirit-dialog__dialog--alert) {
+
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
-    max-width: $spirit-dialog-max-width-l;
+
+    .spirit-dialog__dialog-inner {
+      max-width: $spirit-dialog-max-width-l;
+    }
   }
 }
 
@@ -220,6 +255,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   bottom: 100%;
   box-shadow: $spirit-elevation-shadow-transparent-1, inset 0 0 0 $spirit-border-width-button-secondary transparent;
   color: $spirit-color-white;
+  display: block;
   position: absolute;
   right: 0;
   text-shadow: $spirit-text-shadow-small;
@@ -282,13 +318,13 @@ $spirit-dialog-transition-duration-short: 75ms;
 .spirit-dialog__header {
   @include spirit-elevation(1, 'blue');
   display: flex;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   flex-flow: row nowrap;
   padding: $spirit-dialog-header-padding;
 }
 
 .spirit-dialog__header-title {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -374,7 +410,7 @@ $spirit-dialog-transition-duration-short: 75ms;
 // Spirit Modal Footer
 .spirit-dialog__footer {
   display: flex;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   flex-flow: row wrap;
   justify-content: flex-end;
   margin: $spirit-dialog-footer-margin;
