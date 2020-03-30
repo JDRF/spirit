@@ -7,8 +7,10 @@ $spirit-dialog-width: calc(100vw - #{$spirit-space-generic-4-x});
 $spirit-dialog-max-width: 484px; // Equivelant to 6col in large container
 $spirit-dialog-max-width-m: 656px; // Equivelant to 8col in large container
 $spirit-dialog-max-width-l: 828px; // Equivelant to 12col in large container
-$spirit-dialog-max-height: calc(100vh - #{$spirit-space-generic-4-x});
 $spirit-dialog-top-med: 56px;
+$spirit-dialog-viewport-max-height: calc(100% - #{$spirit-space-generic-4-x}); // To enable dialot do display properly in iOS with safari navbar open or closed
+$spirit-dialog-viewport-max-height-med: calc(100% - (#{$spirit-dialog-top-med} * 2)); // To enable dialot do display properly in iOS with safari navbar open or closed
+$spirit-dialog-max-height: calc(100vh - #{$spirit-space-generic-4-x});
 $spirit-dialog-max-height-med: calc(100vh - (#{$spirit-dialog-top-med} * 2));
 $spirit-dialog-min-height: 300px;
 $spirit-dialog-alert-min-height: 170px;
@@ -25,23 +27,19 @@ $spirit-dialog-footer-button-minimal-margin: 0 0 $spirit-space-inset-1-x 0;
 $spirit-dialog-transition-duration: 150ms;
 $spirit-dialog-transition-duration-short: 75ms;
 
-// Reset / Xbrowser Modal setup
-.spirit-dialog[data-a11y-dialog-native] .spirit-dialog__overlay {
-  display: none;
-}
-
-.spirit-dialog[aria-hidden='true'] {
-  transition: visibility 0s linear $spirit-dialog-transition-duration;
-  visibility: hidden;
-}
-
 // Spirit Modal Styles
 @mixin spirit-dialog-item {
+  border-radius: $spirit-border-radius-l;
   height: auto;
   left: 50%;
+  max-height: $spirit-dialog-viewport-max-height;
   top: 50%;
   width: auto;
   will-change: transform, opacity;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    max-height: $spirit-dialog-viewport-max-height-med;
+  }
 
   .spirit-dialog__dialog-inner {
     max-height: $spirit-dialog-max-height;
@@ -67,21 +65,46 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 @mixin spirit-dialog-item-fullscreen {
+  border-radius: 0;
   height: 100%;
+  max-height: 100vh;
   width: 100%;
 
   .spirit-dialog__dialog-inner {
-    border-radius: 0;
-    height: 100vh;
+    height: 100%;
     max-height: none;
     max-width: none;
     width: 100vw;
   }
 }
 
+// Reset / Xbrowser Modal setup
+.spirit-dialog[data-a11y-dialog-native] .spirit-dialog__overlay {
+  display: none;
+}
+
+// Styles enhanced for iOS to not extend beyond the iOS navbar
 .spirit-dialog {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
+  display: block;
+  height: 100%;
+  left: 0;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $spirit-dialog-z-index;
+}
+
+.spirit-dialog[aria-hidden='true'] {
+  display: block;
+  transition: visibility 0s linear $spirit-dialog-transition-duration;
+  visibility: hidden;
+  z-index: -1;
 }
 
 .spirit-dialog__overlay {
@@ -95,7 +118,6 @@ $spirit-dialog-transition-duration-short: 75ms;
   transition: opacity .3s ease-out, visibility .3s ease-out;
   visibility: hidden;
   will-change: opacity;
-  z-index: $spirit-dialog-z-index;
 
   .spirit-dialog:not([aria-hidden='true']) & {
     opacity: 1;
@@ -130,8 +152,6 @@ $spirit-dialog-transition-duration-short: 75ms;
   transition: opacity $spirit-dialog-transition-duration-short linear, visibility 0s linear $spirit-dialog-transition-duration-short;
   visibility: hidden;
 
-  z-index: $spirit-dialog-z-index;
-
   &[open] {
     animation: dialog-in-out $spirit-dialog-transition-duration-short ease-in forwards;
     opacity: 1;
@@ -141,7 +161,6 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 .spirit-dialog__dialog-inner {
-  border-radius: $spirit-border-radius-l;
   display: flex;
   flex-flow: column nowrap;
   // Dialog inner was added to more reliably display the dialog content with an overflow scroll
@@ -382,27 +401,29 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 
   // Spacing
-  &.spirit-dialog__content--padding-small {
+  .spirit-dialog__dialog:not(.spirit-dialog__dialog--alert) & {
+    &.spirit-dialog__content--padding-small {
 
-    // Custom padding only on small screens
-    @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
-      padding: $spirit-dialog-content-padding;
+      // Custom padding only on small screens
+      @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
+        padding: $spirit-dialog-content-padding;
+      }
     }
-  }
 
-  &.spirit-dialog__content--padding-medium {
+    &.spirit-dialog__content--padding-medium {
 
-    // Custom padding only on small screens
-    @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
-      padding: $spirit-dialog-content-padding-md;
+      // Custom padding only on small screens
+      @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
+        padding: $spirit-dialog-content-padding-md;
+      }
     }
-  }
 
-  &.spirit-dialog__content--padding-large {
+    &.spirit-dialog__content--padding-large {
 
-    // Custom padding only on small screens
-    @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
-      padding: $spirit-dialog-content-padding-lg;
+      // Custom padding only on small screens
+      @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
+        padding: $spirit-dialog-content-padding-lg;
+      }
     }
   }
 }
