@@ -7,9 +7,9 @@ $spirit-dialog-width: calc(100vw - #{$spirit-space-generic-4-x});
 $spirit-dialog-max-width: 484px; // Equivelant to 6col in large container
 $spirit-dialog-max-width-m: 656px; // Equivelant to 8col in large container
 $spirit-dialog-max-width-l: 828px; // Equivelant to 12col in large container
-$spirit-dialog-max-height: calc(100% - #{$spirit-space-generic-4-x});
+$spirit-dialog-max-height: calc(100vh - #{$spirit-space-generic-4-x});
 $spirit-dialog-top-med: 56px;
-$spirit-dialog-max-height-med: calc(100% - (#{$spirit-dialog-top-med} * 2));
+$spirit-dialog-max-height-med: calc(100vh - (#{$spirit-dialog-top-med} * 2));
 $spirit-dialog-min-height: 300px;
 $spirit-dialog-alert-min-height: 170px;
 $spirit-dialog-content-padding: $spirit-space-inset-2-x;
@@ -37,21 +37,19 @@ $spirit-dialog-transition-duration-short: 75ms;
 
 // Spirit Modal Styles
 @mixin spirit-dialog-item {
-  border-radius: $spirit-border-radius-l;
   height: auto;
   left: 50%;
-  max-height: $spirit-dialog-max-height;
   top: 50%;
-  width: $spirit-dialog-width;
+  width: auto;
   will-change: transform, opacity;
 
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    max-height: $spirit-dialog-max-height-med;
-  }
-
   .spirit-dialog__dialog-inner {
-    max-height: 100%;
-    width: 100%;
+    max-height: $spirit-dialog-max-height;
+    width: $spirit-dialog-width;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      max-height: $spirit-dialog-max-height-med;
+    }
   }
 }
 
@@ -69,12 +67,16 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 @mixin spirit-dialog-item-fullscreen {
-  border-radius: 0;
   height: 100%;
-  max-height: none;
-  max-width: none;
   width: 100%;
 
+  .spirit-dialog__dialog-inner {
+    border-radius: 0;
+    height: 100vh;
+    max-height: none;
+    max-width: none;
+    width: 100vw;
+  }
 }
 
 .spirit-dialog {
@@ -121,8 +123,6 @@ $spirit-dialog-transition-duration-short: 75ms;
   display: flex;
   flex-direction: row;
   margin: 0;
-  max-width: $spirit-dialog-max-width;
-  min-height: $spirit-dialog-min-height;
   opacity: 0;
   padding: 0;
   position: fixed;
@@ -141,15 +141,14 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 .spirit-dialog__dialog-inner {
-  
+  border-radius: $spirit-border-radius-l;
   display: flex;
   flex-flow: column nowrap;
-  max-height: 100%;
-  max-width: 100%;
   // Dialog inner was added to more reliably display the dialog content with an overflow scroll
   // The initial styles for .spirit-dialog__dialog were moved here
   // The .spirit-dialog__dialog was given flex-flow: row-nowrap; to contain the content
-
+  max-width: $spirit-dialog-max-width;
+  min-height: $spirit-dialog-min-height;
 }
 
 // Alert Dialog
@@ -190,15 +189,22 @@ $spirit-dialog-transition-duration-short: 75ms;
 
 // Sizes
 .spirit-dialog__dialog--small:not(.spirit-dialog__dialog--alert) {
-  max-width: $spirit-dialog-max-width;
+  .spirit-dialog__dialog-inner {
+    max-width: $spirit-dialog-max-width;
+  }
 }
 
 .spirit-dialog__dialog--medium:not(.spirit-dialog__dialog--alert) {
-  max-width: $spirit-dialog-max-width-m;
+  .spirit-dialog__dialog-inner {
+    max-width: $spirit-dialog-max-width-m;
+  }
 }
 
 .spirit-dialog__dialog--large:not(.spirit-dialog__dialog--alert) {
-  max-width: $spirit-dialog-max-width-l;
+
+  .spirit-dialog__dialog-inner {
+    max-width: $spirit-dialog-max-width-l;
+  }
 }
 
 .spirit-dialog__dialog--fullscreen:not(.spirit-dialog__dialog--alert) {
@@ -209,7 +215,10 @@ $spirit-dialog-transition-duration-short: 75ms;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
-    max-width: $spirit-dialog-max-width;
+
+    .spirit-dialog__dialog-inner {
+      max-width: $spirit-dialog-max-width;
+    }
   }
 }
 
@@ -217,7 +226,10 @@ $spirit-dialog-transition-duration-short: 75ms;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
-    max-width: $spirit-dialog-max-width-m;
+
+    .spirit-dialog__dialog-inner {
+      max-width: $spirit-dialog-max-width-m;
+    }
   }
 }
 
@@ -225,7 +237,10 @@ $spirit-dialog-transition-duration-short: 75ms;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
-    max-width: $spirit-dialog-max-width-l;
+
+    .spirit-dialog__dialog-inner {
+      max-width: $spirit-dialog-max-width-l;
+    }
   }
 }
 
@@ -367,29 +382,27 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 
   // Spacing
-  .spirit-dialog:not(.spirit-dialog__dialog--alert) & {
-    &.spirit-dialog__content--padding-small {
+  &.spirit-dialog__content--padding-small {
 
-      // Custom padding only on small screens
-      @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
-        padding: $spirit-dialog-content-padding;
-      }
+    // Custom padding only on small screens
+    @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
+      padding: $spirit-dialog-content-padding;
     }
+  }
 
-    &.spirit-dialog__content--padding-medium {
+  &.spirit-dialog__content--padding-medium {
 
-      // Custom padding only on small screens
-      @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
-        padding: $spirit-dialog-content-padding-md;
-      }
+    // Custom padding only on small screens
+    @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
+      padding: $spirit-dialog-content-padding-md;
     }
+  }
 
-    &.spirit-dialog__content--padding-large {
+  &.spirit-dialog__content--padding-large {
 
-      // Custom padding only on small screens
-      @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
-        padding: $spirit-dialog-content-padding-lg;
-      }
+    // Custom padding only on small screens
+    @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
+      padding: $spirit-dialog-content-padding-lg;
     }
   }
 }

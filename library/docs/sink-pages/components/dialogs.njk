@@ -617,18 +617,6 @@
           {% endcall %}
         {% endcall %}
 
-        {% set dialog_id = "dialog-demo-res-ps-m" %}
-        <div class="spirit-long-form-text">
-            <h6>M Dialog Content Resiliance Small Padding</h6>
-            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
-        </div>
-        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
-          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
-          {% call library.dialog_content(padding="small") %}
-            {{ content_long | safe }}
-          {% endcall %}
-        {% endcall %}
-
         {% set dialog_id = "dialog-demo-res-foot-m" %}
         <div class="spirit-long-form-text">
             <h6>M Dialog Content Resiliance Footer</h6>
