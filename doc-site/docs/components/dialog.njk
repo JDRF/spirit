@@ -3,7 +3,7 @@
     {% filter markdown %}
         <h1>Dialog</h1>
 
-        <p class="spirit-subhead">A dialog is a temporary contextual UI element that overlays the web page or application content and provides information to the user and, often, requires user input. When these overlays are active or open, interactions with the web page or application are disabled until the overlay is closed or required interaction is completed.</p>
+        <p class="spirit-subhead">A dialog is a temporary UI element that provides contextual information to the user and, often, requires user input. When active, they overlay the main content and interactions with the web page or application are disabled until the dialog is closed. </p>
         <p>Dialogs are disruptive intentionally and should be used thoughtfully and sparingly depending on the informational context and/or need.</p>
         <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [Guidelines - JavaScript](#javascript) for information javascript usage and the necessary dependencies.</p>
     {% endfilter %}
@@ -52,14 +52,17 @@
         The dialog’s primary content is always contained within the `.spirit-dialog__content` element.
 
         ### Footer (optional)
-        If primary action items or other information is needed below the content of the dialog, an optional `.spirit-dialog__footer` is used.
+        An optional `.spirit-dialog__footer` is used primarily with Modals to house buttons. The footer is always visible with longer content scrolling underneath.
+
+        ### Positioning (optional)
+        Fix the dialog to the top of the screen with `.spirit-dialog__dialog-top` if the dialog contains dynamic content to prevent the dialog from jumping positions on the screen (see below for [class reference](#class-reference)).
 
         ### Trigger (optional)
         A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show=”dialog-id”` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](#javascript).
 
         ## Simple
 
-        Use when displaying information that does not require a user action, such as a read-only document or a supplemental video.
+        Use when displaying information that does not require user action, such as a read-only document or promotional information.
     {% endfilter %}
 
     {% set dialog_simple %}
@@ -119,7 +122,7 @@
     {% endset %}
 
     {{ esds_doc.code_example_pair(
-            examples=[ 
+            examples=[
                 {
                     example: library.button(text="Open Modal Dialog", dialog_id="doc-sample-modal") + dialog_modal
                 }
@@ -131,11 +134,11 @@
     {% filter markdown %}
         * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__dialog` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
-        * A dialog footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](/#) for further guidance.
+        * Footer is required with buttons that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
 
         ## Alert
 
-        An alert dialog is a minimal, yet important, communication dialog that, like a modal dialog, requires a specific action to close. The alert dialog, due to its importance and intended lack of content, has a unique set of styles from the other dialogs. Custom modifier classes for padding and sizing to not apply to the alert dialog.
+        An alert dialog is used primarily to confirm actions that can’t be undone, such as discarding unsaved changes. The alert dialog, due to its importance and intended lack of content, has a unique set of styles from the other dialogs. Custom modifier classes for padding and sizing do not apply to the alert dialog.
     {% endfilter %}
 
     {% set dialog_alert %}
