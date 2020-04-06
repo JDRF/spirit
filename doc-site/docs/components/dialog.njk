@@ -3,7 +3,7 @@
     {% filter markdown %}
         <h1>Dialog</h1>
 
-        <p class="spirit-subhead">A dialog is a temporary UI element that provides contextual information to the user and, often, requires user input. When active, they overlay the main content and interactions with the web page or application are disabled until the dialog is closed. </p>
+        <p class="spirit-subhead">Dialogs focus the user’s attention on a single task or piece of information and often require decisions. They appear over the interface and block further interactions.</p>
         <p>Dialogs are disruptive intentionally and should be used thoughtfully and sparingly depending on the informational context and/or need.</p>
         <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [Guidelines - JavaScript](#javascript) for information javascript usage and the necessary dependencies.</p>
     {% endfilter %}
@@ -35,18 +35,18 @@
     {% filter markdown %}
         ## Anatomy
 
-        {image here}
+        <img src="/images/dialog/dialog_anatomy.png" style="max-width: 524px;" alt="Anatomy of a dialog" />
 
         ### Dialog
         The dialog contains three primary elements. First, the `.spirit-dialog` container with a unique dialog id. Second, the `.spirit-dialog__overlay` container to display a darkened background behind the dialog. Third, the `.spirit-dialog__dialog` container that has within the visual content of the dialog.
+
+        ### Header (optional)
+        The header `.spirit-dialog__header` is the first element within the `.spirit-dialog__dialog`. Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
 
         ### Close Button (optional)
         When a close button is used, it is an [Icon Only](/components/buttons.html#icon-only) button. Depending on the dialog type (see below), the close button can either be the first element within the `.spirit-dialog__dialog` and displayed outside the dialog content area, or can be within the `.spirit-dialog__header` (see below). The close icon has attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and uses the Spirit `x` icon .
 
         See [A11y Dialog DOM API](https://edenspiekermann.github.io/a11y-dialog/#dom-api) for more references on closing and opening the dialogs.
-
-        ### Header (optional)
-        When a header is used, the `.spirit-dialog__header` is the first element within the `.spirit-dialog__dialog.` Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
 
         ### Content
         The dialog’s primary content is always contained within the `.spirit-dialog__content` element.
@@ -54,15 +54,17 @@
         ### Footer (optional)
         An optional `.spirit-dialog__footer` is used primarily with Modals to house buttons. The footer is always visible with longer content scrolling underneath.
 
-        ### Positioning (optional)
-        Fix the dialog to the top of the screen with `.spirit-dialog__dialog-top` if the dialog contains dynamic content to prevent the dialog from jumping positions on the screen (see below for [class reference](#class-reference)).
+        ## Behavior
 
-        ### Trigger (optional)
-        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show=”dialog-id”` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](#javascript).
+        ### Positioning
+        Dialogs appear in the center of the screen and above all other elements.  If the dialog contains dynamic content that will cause it to change height, pin the dialog to the top of the screen with `.spirit-dialog__dialog-top`.  Pinning will provide a smoother user experience by providing an visual anchor point while the dialog content grows or shrinks.
+
+        ### Trigger
+        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show="dialog-id"` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](#javascript).
 
         ## Simple
 
-        Use when displaying information that does not require user action, such as a read-only document or promotional information.
+        Simple dialogs display information that the user needs to be aware of concerning their current task but does not require actions for the user to take.
     {% endfilter %}
 
     {% set dialog_simple %}
