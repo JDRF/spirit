@@ -116,7 +116,7 @@
                 </div>
             {% endcall %}
             {% call library.dialog_footer() %}
-                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel", dialog_close=true) }}
                 {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
             {% endcall %}
         {% endcall %}
@@ -154,7 +154,7 @@
                 </div>
             {% endcall %}
             {% call library.dialog_footer() %}
-                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel", dialog_close=true) }}
                 {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
             {% endcall %}
         {% endcall %}
