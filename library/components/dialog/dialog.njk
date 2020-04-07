@@ -18,7 +18,7 @@
     >
         <div class="spirit-dialog__overlay" tabindex="-1" {{'data-a11y-dialog-hide' if not alert and not modal}}></div>
         <div
-            class="spirit-dialog__dialog{{' spirit-dialog__dialog--' + size if size }}{{' spirit-dialog__dialog--' + size_break + '-md' if size_break }}{{' spirit-dialog__dialog--' + position if position }}{{' spirit-dialog__dialog--alert' if alert }}{{ ' ' + dialog_class if dialog_class }}"
+            class="spirit-dialog__content{{' spirit-dialog__content--' + size if size }}{{' spirit-dialog__content--' + size_break + '-md' if size_break }}{{' spirit-dialog__content--' + position if position }}{{' spirit-dialog__content--alert' if alert }}{{ ' ' + dialog_class if dialog_class }}"
             {% if dialog_id and has_title %}
                 aria-labelledby="{{dialog_id}}-spirit-dialog-title"
             {% endif %}
@@ -28,7 +28,7 @@
                 role="dialog"
             {% endif %}
         >
-            <div class="spirit-dialog__dialog-inner">
+            <div class="spirit-dialog__content-inner">
                 {% if not has_close %}
                     {{ button(el="button", class="spirit-dialog__close spirit-button--icon-only spirit-button--medium spirit-button--minimal", iconName="x", buttonTitle="Close Modal", dialog_close=true) }}
                 {% endif %}
@@ -84,7 +84,7 @@
     padding=false
 ) %}
     <div
-        class="spirit-dialog__content{{' spirit-dialog__content--padding-' + padding if padding }}"
+        class="spirit-dialog__body{{' spirit-dialog__body--padding-' + padding if padding }}"
     >
         {{ caller() }}
     </div>

@@ -41,7 +41,7 @@ $spirit-dialog-transition-duration-short: 75ms;
     max-height: $spirit-dialog-viewport-max-height-med;
   }
 
-  .spirit-dialog__dialog-inner {
+  .spirit-dialog__content-inner {
     max-height: $spirit-dialog-max-height;
     width: $spirit-dialog-width;
 
@@ -70,7 +70,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   max-height: 100vh;
   width: 100%;
 
-  .spirit-dialog__dialog-inner {
+  .spirit-dialog__content-inner {
     height: 100%;
     max-height: none;
     max-width: none;
@@ -129,7 +129,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 }
 
-.spirit-dialog__dialog::backdrop {
+.spirit-dialog__content::backdrop {
   background-color: $spirit-dialog-overlay;
 
   .spirit-dialog--overlay-dark & {
@@ -137,7 +137,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 }
 
-.spirit-dialog__dialog {
+.spirit-dialog__content {
   @include spirit-elevation(5);
   @include spirit-dialog-item;
   background-color: $spirit-background-color-white;
@@ -160,18 +160,18 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 }
 
-.spirit-dialog__dialog-inner {
+.spirit-dialog__content-inner {
   display: flex;
   flex-flow: column nowrap;
   // Dialog inner was added to more reliably display the dialog content with an overflow scroll
-  // The initial styles for .spirit-dialog__dialog were moved here
-  // The .spirit-dialog__dialog was given flex-flow: row-nowrap; to contain the content
+  // The initial styles for .spirit-dialog__content were moved here
+  // The .spirit-dialog__content was given flex-flow: row-nowrap; to contain the content
   max-width: $spirit-dialog-max-width;
   min-height: $spirit-dialog-min-height;
 }
 
 // Alert Dialog
-.spirit-dialog__dialog--alert {
+.spirit-dialog__content--alert {
   min-height: $spirit-dialog-alert-min-height;
 
   .spirit-dialog__header {
@@ -184,7 +184,7 @@ $spirit-dialog-transition-duration-short: 75ms;
     white-space: normal;
   }
 
-  .spirit-dialog__content {
+  .spirit-dialog__body {
     padding: 0 $spirit-dialog-content-padding-md $spirit-dialog-content-padding;
   }
 
@@ -202,68 +202,68 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 }
 
-.spirit-dialog__dialog--top {
+.spirit-dialog__content--top {
   @include spirit-dialog-item-top;
 }
 
 // Sizes
-.spirit-dialog__dialog--small:not(.spirit-dialog__dialog--alert) {
-  .spirit-dialog__dialog-inner {
+.spirit-dialog__content--small:not(.spirit-dialog__content--alert) {
+  .spirit-dialog__content-inner {
     max-width: $spirit-dialog-max-width;
   }
 }
 
-.spirit-dialog__dialog--medium:not(.spirit-dialog__dialog--alert) {
-  .spirit-dialog__dialog-inner {
+.spirit-dialog__content--medium:not(.spirit-dialog__content--alert) {
+  .spirit-dialog__content-inner {
     max-width: $spirit-dialog-max-width-m;
   }
 }
 
-.spirit-dialog__dialog--large:not(.spirit-dialog__dialog--alert) {
+.spirit-dialog__content--large:not(.spirit-dialog__content--alert) {
 
-  .spirit-dialog__dialog-inner {
+  .spirit-dialog__content-inner {
     max-width: $spirit-dialog-max-width-l;
   }
 }
 
-.spirit-dialog__dialog--fullscreen:not(.spirit-dialog__dialog--alert) {
+.spirit-dialog__content--fullscreen:not(.spirit-dialog__content--alert) {
   @include spirit-dialog-item-fullscreen;
 }
 
-.spirit-dialog__dialog--small-md:not(.spirit-dialog__dialog--alert) {
+.spirit-dialog__content--small-md:not(.spirit-dialog__content--alert) {
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
 
-    .spirit-dialog__dialog-inner {
+    .spirit-dialog__content-inner {
       max-width: $spirit-dialog-max-width;
     }
   }
 }
 
-.spirit-dialog__dialog--medium-md:not(.spirit-dialog__dialog--alert) {
+.spirit-dialog__content--medium-md:not(.spirit-dialog__content--alert) {
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
 
-    .spirit-dialog__dialog-inner {
+    .spirit-dialog__content-inner {
       max-width: $spirit-dialog-max-width-m;
     }
   }
 }
 
-.spirit-dialog__dialog--large-md:not(.spirit-dialog__dialog--alert) {
+.spirit-dialog__content--large-md:not(.spirit-dialog__content--alert) {
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item;
 
-    .spirit-dialog__dialog-inner {
+    .spirit-dialog__content-inner {
       max-width: $spirit-dialog-max-width-l;
     }
   }
 }
 
-.spirit-dialog__dialog--fullscreen-md:not(.spirit-dialog__dialog--alert) {
+.spirit-dialog__content--fullscreen-md:not(.spirit-dialog__content--alert) {
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-dialog-item-fullscreen;
   }
@@ -316,7 +316,7 @@ $spirit-dialog-transition-duration-short: 75ms;
     top: 0;
   }
 
-  .spirit-dialog__dialog--large & {
+  .spirit-dialog__content--large & {
     @media screen and (min-width: $spirit-breakpoint-m) {
       bottom: 100%;
       left: auto;
@@ -368,7 +368,7 @@ $spirit-dialog-transition-duration-short: 75ms;
 }
 
 // Spirit Modal Content
-.spirit-dialog__content {
+.spirit-dialog__body {
   -webkit-overflow-scrolling: touch; //sass-lint:disable-line no-vendor-prefixes
   display: block;
   flex: 1 1 auto;
@@ -380,7 +380,7 @@ $spirit-dialog-transition-duration-short: 75ms;
   }
 
   // Modal Sizes
-  .spirit-dialog__dialog--medium:not(.spirit-dialog__dialog--alert) & {
+  .spirit-dialog__content--medium:not(.spirit-dialog__content--alert) & {
     padding: $spirit-dialog-content-padding-md;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -388,7 +388,7 @@ $spirit-dialog-transition-duration-short: 75ms;
     }
   }
 
-  .spirit-dialog__dialog--large:not(.spirit-dialog__dialog--alert) & {
+  .spirit-dialog__content--large:not(.spirit-dialog__content--alert) & {
     padding: $spirit-dialog-content-padding-lg;
 
     @media screen and (min-width: $spirit-breakpoint-m) {
@@ -396,13 +396,13 @@ $spirit-dialog-transition-duration-short: 75ms;
     }
   }
 
-  .spirit-dialog__dialog--fullscreen:not(.spirit-dialog__dialog--alert) & {
+  .spirit-dialog__content--fullscreen:not(.spirit-dialog__content--alert) & {
     padding: $spirit-dialog-content-padding-md;
   }
 
   // Spacing
-  .spirit-dialog__dialog:not(.spirit-dialog__dialog--alert) & {
-    &.spirit-dialog__content--padding-small {
+  .spirit-dialog__content:not(.spirit-dialog__content--alert) & {
+    &.spirit-dialog__body--padding-small {
 
       // Custom padding only on small screens
       @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
@@ -410,7 +410,7 @@ $spirit-dialog-transition-duration-short: 75ms;
       }
     }
 
-    &.spirit-dialog__content--padding-medium {
+    &.spirit-dialog__body--padding-medium {
 
       // Custom padding only on small screens
       @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {
@@ -418,7 +418,7 @@ $spirit-dialog-transition-duration-short: 75ms;
       }
     }
 
-    &.spirit-dialog__content--padding-large {
+    &.spirit-dialog__body--padding-large {
 
       // Custom padding only on small screens
       @media screen and (max-width: $spirit-dialog-breakpoint-sm-max) {

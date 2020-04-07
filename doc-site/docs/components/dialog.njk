@@ -37,19 +37,19 @@
 
         <img src="/images/dialog/dialog_anatomy.png" style="max-width: 524px;" alt="Anatomy of a dialog" />
 
-        ### Dialog
-        The dialog contains three primary elements. First, the `.spirit-dialog` container with a unique dialog id. Second, the `.spirit-dialog__overlay` container to display a darkened background behind the dialog. Third, the `.spirit-dialog__dialog` container that has within the visual content of the dialog.
+        ### Content
+        The dialog contains three primary elements. First, the `.spirit-dialog` container with a unique dialog id. Second, the `.spirit-dialog__overlay` container to display a darkened background behind the dialog. Third, the `.spirit-dialog__content` container that has within the visual content of the dialog.
 
         ### Header (optional)
-        The header `.spirit-dialog__header` is the first element within the `.spirit-dialog__dialog`. Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
+        The header `.spirit-dialog__header` is the first element within the `.spirit-dialog__content`. Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
 
         ### Close Button (optional)
-        When a close button is used, it is an [Icon Only](/components/buttons.html#icon-only) button. Depending on the dialog type (see below), the close button can either be the first element within the `.spirit-dialog__dialog` and displayed outside the dialog content area, or can be within the `.spirit-dialog__header` (see below). The close icon has attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and uses the Spirit `x` icon .
+        When a close button is used, it is an [Icon Only](/components/buttons.html#icon-only) button. Depending on the dialog type (see below), the close button can either be the first element within the `.spirit-dialog__content` and displayed outside the dialog content area, or can be within the `.spirit-dialog__header` (see below). The close icon has attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and uses the Spirit `x` icon .
 
         See [A11y Dialog DOM API](https://edenspiekermann.github.io/a11y-dialog/#dom-api) for more references on closing and opening the dialogs.
 
-        ### Content
-        The dialog’s primary content is always contained within the `.spirit-dialog__content` element.
+        ### Body
+        The dialog’s primary content is always contained within the `.spirit-dialog__body` element.
 
         ### Footer (optional)
         An optional `.spirit-dialog__footer` is used primarily with Modals to house buttons. The footer is always visible with longer content scrolling underneath.
@@ -57,7 +57,7 @@
         ## Behavior
 
         ### Positioning
-        Dialogs appear in the center of the screen and above all other elements.  If the dialog contains dynamic content that will cause it to change height, pin the dialog to the top of the screen with `.spirit-dialog__dialog-top`.  Pinning will provide a smoother user experience by providing an visual anchor point while the dialog content grows or shrinks.
+        Dialogs appear in the center of the screen and above all other elements.  If the dialog contains dynamic content that will cause it to change height, pin the dialog to the top of the screen with `.spirit-dialog__content-top`.  Pinning will provide a smoother user experience by providing an visual anchor point while the dialog content grows or shrinks.
 
         ### Trigger
         A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show="dialog-id"` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](#javascript).
@@ -91,7 +91,7 @@
     {% filter markdown %}
         * Requires a close [Icon Only](/components/buttons.html#icon-only) button within the `.spirit-dialog__header` with the attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and using the `x` icon.
         * Dismiss dialog by clicking the close button, pressing the escape key, or clicking outside the dialog.
-        * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__dialog` container as `aria-labelledby=”title-id”` to enhance accessibility UX.
+        * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__content` container as `aria-labelledby=”title-id”` to enhance accessibility UX.
         * The title will be truncated to one line (unless dialog is an [Alert Dialog](/#)).
         * Multiple [Icon Only](/components/buttons.html#icon-only) button action items can be added to the `.spirit-dialog__header-icons container`. The close icon should always be the right most icon.
 
@@ -134,7 +134,7 @@
     }}
 
     {% filter markdown %}
-        * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__dialog` element to  `role="alertdialog"`.
+        * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__content` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
         * Footer is required with buttons that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
 
@@ -172,7 +172,7 @@
     }}
 
     {% filter markdown %}
-        * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__dialog` element to  `role="alertdialog"`.
+        * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__content` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
         * A dialog footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
 
@@ -338,23 +338,23 @@
     {{ esds_doc.reference_table(column_widths=[35, 30, 35],
         data=[
             {
-                class: '.spirit-dialog__dialog--small',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--small',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Replicates the default dialog sizing 484px maximum width (equivalent to 6 columns inside a [large container](/components/container.html#large)) on large viewports.'
             },
             {
-                class: '.spirit-dialog__dialog--medium',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--medium',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies 656px maximum width (equivalent to 8 columns inside a [large container](/components/container.html#large)) on large viewports.'
             },
             {
-                class: '.spirit-dialog__dialog--large',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--large',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Appplies 828px maximum width (equivalent to 12 columns inside a [large container](/components/container.html#large)) on large viewports.'
             },
             {
-                class: '.spirit-dialog__dialog--fullscreen',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--fullscreen',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies full viewport width and height on all viewport widths.'
             }
         ]) 
@@ -475,23 +475,23 @@
     {{ esds_doc.reference_table(column_widths=[35, 30, 35],
         data=[
             {
-                class: '.spirit-dialog__dialog--small-md',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--small-md',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies the [small](#small-default) size on medium viewports.'
             },
             {
-                class: '.spirit-dialog__dialog--medium-md',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--medium-md',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies the [medium](#medium) size on medium viewports.'
             },
             {
-                class: '.spirit-dialog__dialog--large-md',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--large-md',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies the [large](#large) size on medium viewports.'
             },
             {
-                class: '.spirit-dialog__dialog--fullscreen-md',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--fullscreen-md',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies the [fullscreen](#fullscreen) size on medium viewports.'
             }
         ])
@@ -570,18 +570,18 @@
     {{ esds_doc.reference_table(column_widths=[35, 30, 35],
         data=[
             {
-                class: '.spirit-dialog__content--padding-small',
-                applies_to: '.spirit-dialog__content',
+                class: '.spirit-dialog__body--padding-small',
+                applies_to: '.spirit-dialog__body',
                 outcome: 'Applies 16px padding below medium [breakpoints](/tokens.html#breakpoint) (768px).'
             },
             {
-                class: '.spirit-dialog__content--padding-medium',
-                applies_to: '.spirit-dialog__content',
+                class: '.spirit-dialog__body--padding-medium',
+                applies_to: '.spirit-dialog__body',
                 outcome: 'Applies 24px padding below medium [breakpoints](/tokens.html#breakpoint) (768px).'
             },
             {
-                class: '.spirit-dialog__content--padding-large',
-                applies_to: '.spirit-dialog__content',
+                class: '.spirit-dialog__body--padding-large',
+                applies_to: '.spirit-dialog__body',
                 outcome: 'Applies 32px padding below medium [breakpoints](/tokens.html#breakpoint) (768px).'
             }
         ]) 
@@ -684,13 +684,13 @@
 
         ### Visual Style
 
-        Fix the dialog to the top of the screen with `.spirit-dialog__dialog-top` if the dialog contains dynamic content to prevent the dialog from jumping positions on the screen (see below for class reference).
+        Fix the dialog to the top of the screen with `.spirit-dialog__content-top` if the dialog contains dynamic content to prevent the dialog from jumping positions on the screen (see below for class reference).
 
         ### Accessibility
 
         Dialogs, by definition, trap focus. That means if a user presses Tab or Shift+Tab while their keyboard focus is in the dialog, their focus should stay inside the dialog and cycle through the dialog’s content.
 
-        * Use the `aria-labelledby` attribute on the `.spirit-dialog__dialog` component to target the dialog header (if exists). 
+        * Use the `aria-labelledby` attribute on the `.spirit-dialog__content` component to target the dialog header (if exists). 
         * Use the inherited logic, structure from the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component, including the following:
             * Trap focus inside dialog when dialog opened
             * Focus on first focusable dialog child element when opened
@@ -729,7 +729,7 @@
         * Dialogs either have a `role="dialog"` or, if a modal or alert dialog, `role="alertdialog"`.
         * Use `role="alertdialog"` instead of `role="dialog"` for Modal or Alert dialog types to prevent the dialog from closing using the escape key or clicking outside the dialog.
         * The dialog has an `aria-hidden` attribute set to `true` unless the dialog is open.
-        * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__dialog` container as `aria-labelledby="the-title-id"` to enhance accessibility UX.
+        * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__content` container as `aria-labelledby="the-title-id"` to enhance accessibility UX.
         * See the [Close Button](#close-button-optional)
         * Add `data-a11y-dialog-hide` attribute to `.spirit-dialog__overlay` to allow hiding the dialog by clicking on the overlay. This is included in the examples above.
         * Use a unique dialog id to trigger dialog effectively.
@@ -746,13 +746,13 @@
                 outcome: 'Darkens the overlay color from `rgba(0, 0, 0, .4)` to `rgba(0, 0, 0, .7)`.'
             },
             {
-                class: '.spirit-dialog__dialog-top',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content-top',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Fixes the dialog to the top of the viewport.'
             },
             {
-                class: '.spirit-dialog__dialog--alert',
-                applies_to: '.spirit-dialog__dialog',
+                class: '.spirit-dialog__content--alert',
+                applies_to: '.spirit-dialog__content',
                 outcome: 'Applies [Alert](#alert) styles to the dialog.'
             },
             {
