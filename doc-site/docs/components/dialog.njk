@@ -398,7 +398,7 @@
 
         {% set dialog_id="doc-sample-to-medium" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="medium", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="To Small", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="To Small Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
                 {{ content_long | safe }}
             {% endcall %}
@@ -424,7 +424,7 @@
 
         {% set dialog_id="doc-sample-to-large" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="large", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="To Large", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="To Large Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
                 {{ content_long | safe }}
             {% endcall %}
@@ -450,7 +450,7 @@
 
         {% set dialog_id="doc-sample-to-fullscreen" %}
         {% call library.dialog(dialog_id=dialog_id, size="small", size_break="fullscreen", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="To Fullscreen", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="To Fullscreen Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
                 {{ content_long | safe }}
             {% endcall %}
