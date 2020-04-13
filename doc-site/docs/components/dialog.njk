@@ -31,14 +31,53 @@
         </div>
     {% endset %}
 
+    {% set content_donor_list_med %}
+        {% call library.list() %}
+            {{ library.list_item(title_text="Frederick Banting", size="m", title_meta="$1,000") }}
+            {{ library.list_item(title_text="Marie Curie", size="m", title_meta="$980") }}
+            {{ library.list_item(title_text="Carl Sagan", size="m", title_meta="$960") }}
+            {{ library.list_item(title_text="Albert Einstein", size="m", title_meta="$650") }}
+            {{ library.list_item(title_text="Stephen Hawking", size="m", title_meta="$500") }}
+            {{ library.list_item(title_text="Arnold Kadish", size="m", title_meta="$500") }}
+            {{ library.list_item(title_text="Ada Lovelace", size="m", title_meta="$500") }}
+            {{ library.list_item(title_text="Rachel Carson", size="m", title_meta="$100") }}
+            {{ library.list_item(title_text="Jocelyn Bell Burnell", size="m", title_meta="$75") }}
+            {{ library.list_item(title_text="Richard Feynman", size="m", title_meta="$75") }}
+            {{ library.list_item(title_text="Werner Heisenberg", size="m", title_meta="$75") }}
+            {{ library.list_item(title_text="Tim Berners-Lee", size="m", title_meta="$75") }}
+            {{ library.list_item(title_text="Isaac Newton", size="m", title_meta="$75") }}
+            {{ library.list_item(title_text="Mary Anning", size="m", title_meta="$30") }}
+            {{ library.list_item(title_text="Rosalind Franklin", size="m", title_meta="$30") }}
+            {{ library.list_item(title_text="Alexander Graham Bell", size="m", title_meta="$20") }}
+            {{ library.list_item(title_text="Enrico Fermi", size="m", title_meta="$10") }}
+        {% endcall %}
+    {% endset %}
+
+    {% set content_modal_form %}
+        {% call library.form() %}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="First Name", for="full-form-first-name") }}
+                {{ library.form_input(id="full-form-first-name", placeholder="Frederick") }}
+            {% endcall %}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Last Name", for="full-form-last-name") }}
+                {{ library.form_input(id="full-form-last-name", placeholder="Banting") }}
+            {% endcall %}
+            {% call library.form_field_group() %}
+                {{ library.form_label(text="Email", for="full-form-email") }}
+                {{ library.form_input(id="full-form-email", placeholder="fbanting@nobelprize.org") }}
+            {% endcall %}
+        {% endcall %}
+    {% endset %}
+
 
     {% filter markdown %}
         ## Anatomy
 
-        <img src="/images/dialog/dialog_anatomy.png" style="max-width: 524px;" alt="Anatomy of a dialog" />
+        <img src="/images/dialog/dialog_anatomy.png" alt="Anatomy of a dialog" />
 
         ### Content
-        The dialog contains three primary elements. First, the `.spirit-dialog` container with a unique dialog id. Second, the `.spirit-dialog__overlay` container to display a darkened background behind the dialog. Third, the `.spirit-dialog__content` container that has within the visual content of the dialog.
+        The dialog contains three primary elements. First, the `.spirit-dialog` container with a unique dialog id. Second, the `.spirit-dialog__overlay` container to display a darkened background behind the dialog. Third, the `.spirit-dialog__content` container is the primary visual component that is positioned above the page content and contains the close button (optional), dialog header (optional), dialog content, and the dialog footer (optional).
 
         ### Header (optional)
         The header `.spirit-dialog__header` is the first element within the `.spirit-dialog__content`. Within this header, a `.spirit-dialog__header-title` is required. Optionally, a container `.spirt-dialog__header-icons` can be used to house a close or other action [Icon Only](/components/buttons.html#icon-only) buttons.
@@ -49,7 +88,7 @@
         See [A11y Dialog DOM API](https://edenspiekermann.github.io/a11y-dialog/#dom-api) for more references on closing and opening the dialogs.
 
         ### Body
-        The dialog’s primary content is always contained within the `.spirit-dialog__body` element.
+        The dialog’s primary content is always contained within the     .spirit-dialog__body` element. The content area has set padding based on the dialog size.
 
         ### Footer (optional)
         An optional `.spirit-dialog__footer` is used primarily with Modals to house buttons. The footer is always visible with longer content scrolling underneath.
@@ -64,7 +103,11 @@
 
         ## Simple
 
-        Simple dialogs display information that the user needs to be aware of concerning their current task but does not require actions for the user to take.
+        Simple dialogs contain items that are immediately actionable.  They don’t have footer buttons.
+
+        Simple dialogs can also be used to progressively show a large quantity of items that are non-critical to the current task.  For example, displaying the first 5 items in a list in the main content and offering the full list in a simple dialog.
+
+        <img src="/images/dialog/dialog_simple.png" alt="Simple Dialog Example" />
     {% endfilter %}
 
     {% set dialog_simple %}
@@ -72,11 +115,9 @@
             {% set dialog_id="doc-sample-simple" %}
             {{ library.button(text="Open Simple Dialog", dialog_id=dialog_id) }}
             {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
-                {{ library.dialog_header(title_text="Simple Dialog", dialog_id=dialog_id) }}
+                {{ library.dialog_header(title_text="Donors", dialog_id=dialog_id) }}
                 {% call library.dialog_content() %}
-                    <div class="spirit-long-form-text">
-                        <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
-                    </div>
+                    {{ content_donor_list_med | safe }}
                 {% endcall %}
             {% endcall %}
 
@@ -92,28 +133,23 @@
         * Requires a close [Icon Only](/components/buttons.html#icon-only) button within the `.spirit-dialog__header` with the attribute `data-a11y-dialog-hide` and `aria-label=”Close Dialog”` and using the `x` icon.
         * Dismiss dialog by clicking the close button, pressing the escape key, or clicking outside the dialog.
         * If a title is used, it is recommended to give the title a unique ID and add that ID to the `.spirit-dialog__content` container as `aria-labelledby=”title-id”` to enhance accessibility UX.
-        * The title will be truncated to one line (unless dialog is an [Alert Dialog](/#)).
+        * The title will be truncated to one line (unless dialog is `.spirit-dialog__content--alert` - see [alert](#alert) dialog below).
         * Multiple [Icon Only](/components/buttons.html#icon-only) button action items can be added to the `.spirit-dialog__header-icons container`. The close icon should always be the right most icon.
 
         ## Modal
 
-        A modal dialog is used when action is required by the user before it can be closed.
+        A modal dialog requires the user to confirm or cancel an action before it can be closed.
+
+        <img src="/images/dialog/dialog_modal.png" alt="Modal Dialog Example" />
     {% endfilter %}
 
     {% set dialog_modal %}
 
         {% set dialog_id="doc-sample-modal" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", modal=true, has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Modal Dialog", dialog_id=dialog_id, has_header_close=false) }}
+            {{ library.dialog_header(title_text="Edit Content", dialog_id=dialog_id, has_header_close=false) }}
             {% call library.dialog_content() %}
-                <div class="spirit-long-form-text">
-                    <h2>I’m Walking for a World Without T1D</h2>
-                    <p>I'm participating in JDRF One Walk® to raise money to create a better future for the millions of people living with type 1 diabetes (T1D).</p>
-                    <p>When you have T1D, your pancreas stops producing insulin—a hormone essential to turning food into energy. This means you must constantly monitor your blood-sugar level, administer insulin, and carefully balance these insulin doses with your eating and activity just to stay alive.</p>
-                    <p>With T1D there are no days off and there is no cure. But there is hope.</p>
-                    <p>Your donation will support life-changing breakthroughs that make it safer and easier to live with T1D, until we find a cure.</p>
-                    <p>Your support makes it all possible.</p>
-                </div>
+                {{ content_modal_form | safe }}
             {% endcall %}
             {% call library.dialog_footer() %}
                 {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel", dialog_close=true) }}
@@ -137,20 +173,23 @@
         * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__content` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
         * Footer is required with buttons that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
+        * Validate that the user's entries are acceptable before closing the dialog. Show an inline validation error near the field they must correct.
 
         ## Alert
 
-        An alert dialog is used primarily to confirm actions that can’t be undone, such as discarding unsaved changes. The alert dialog, due to its importance and intended lack of content, has a unique set of styles from the other dialogs. Custom modifier classes for padding and sizing do not apply to the alert dialog.
+        An alert dialog is used primarily to confirm actions that can’t be undone, such as discarding unsaved changes.  To close an alert dialog, one of its actions must be selected.
+
+        <img src="/images/dialog/dialog_alert.png" alt="Alert Dialog Example" />
     {% endfilter %}
 
     {% set dialog_alert %}
 
         {% set dialog_id="doc-sample-alert" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", alert=true, has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Alert Dialog", dialog_id=dialog_id, has_header_close=false) }}
+            {{ library.dialog_header(title_text="Discard Changes?", dialog_id=dialog_id, has_header_close=false) }}
             {% call library.dialog_content() %}
                 <div class="spirit-long-form-text">
-                    <p>Alert dialog description.</p>
+                    <p>Your pohoto has changes that have not been saved. Do you want to discard changes?</p>
                 </div>
             {% endcall %}
             {% call library.dialog_footer() %}
@@ -172,11 +211,15 @@
     }}
 
     {% filter markdown %}
+        * A `.spirit-dialog__content--alert modifier` class is added to the `.spirit-dialog__content` container to provide style enhancements.
+        * Custom modifier classes for padding and sizing do not apply to the alert dialog.
         * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__content` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
-        * A dialog footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
+        * Footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
 
         ## Blank
+
+        The basic dialog structure and functionality needed for teams to extend this component for custom product needs.
     {% endfilter %}
 
     {% set dialog_blank %}
@@ -184,10 +227,6 @@
         {% set dialog_id="doc-sample-blank" %}
         {% call library.dialog(dialog_id=dialog_id) %}
             {% call library.dialog_content() %}
-                <div class="spirit-long-form-text">
-                    <p>Blank Dialog</p>
-                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
-                </div>
             {% endcall %}
         {% endcall %}
 
@@ -196,7 +235,7 @@
     {{ esds_doc.code_example_pair(
             examples=[ 
                 {
-                    example: library.button(text="Open Alert Dialog", dialog_id="doc-sample-blank") + dialog_blank
+                    example: library.button(text="Open Blank Dialog", dialog_id="doc-sample-blank") + dialog_blank
                 }
             ],
             code_snippet_source=(dialog_blank)
@@ -204,16 +243,16 @@
     }}
 
     {% filter markdown %}
-        * If no dialog title being used and the dialog is not a [modal](#modal) or [alert](#alert) dialog, it requires a [close button](#close-button-optional) as the first item in the dialog.
-        * Dismiss dialog by clicking the close button, pressing the escape key, or clicking outside the dialog.
+        * If no dialog title being used and the dialog is not a [modal](#modal) or [alert](#alert) dialog (see below), it requires a `.spirit-button spirit-dialog__close` button as the first item in the dialog.
+        * Dismiss dialog by clicking the close button, pressing the `escape` key, or clicking outside the dialog.
 
         ## Sizes
 
-        Dialogs can be scaled to fit their contained content strategically. Other than the `fullscreen` size, dialog sizing sets the `max-width` of the dialog. Dialog sizes do not apply to alert dialogs.
+        Dialogs can be scaled to fit their contained content strategically. Other than the `fullscreen` size, dialog sizing sets the `max-width` of the dialog. Dialog sizes do not apply to [alert](#alert) dialogs.
 
         ### Small (Default)
 
-        A small dialog reaches a 484px maximum width (equivalent to 6 columns inside a [large container](/components/container.html#large)) on large viewports.
+        A small dialog reaches a 484px maximum width (equivalent to 6 columns inside a [large container](/components/container.html#large)) on large viewports. Small is the default size.
 
     {% endfilter %}
 
@@ -221,11 +260,9 @@
 
         {% set dialog_id="doc-sample-small" %}
         {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Small (Default) Dialog", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="Donors", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                <div class="spirit-long-form-text">
-                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
-                </div>
+                {{ content_donor_list_med | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -251,11 +288,9 @@
 
         {% set dialog_id="doc-sample-medium" %}
         {% call library.dialog(dialog_id=dialog_id, size="medium", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Medium Dialog", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="Donors", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                <div class="spirit-long-form-text">
-                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
-                </div>
+                {{ content_donor_list_med | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -264,7 +299,7 @@
     {{ esds_doc.code_example_pair(
             examples=[ 
                 {
-                    example: library.button(text="Medium Dialog", dialog_id="doc-sample-medium") + dialog_medium
+                    example: library.button(text="Oopen Medium Dialog", dialog_id="doc-sample-medium") + dialog_medium
                 }
             ],
             code_snippet_source=(dialog_medium)
@@ -282,11 +317,9 @@
 
         {% set dialog_id="doc-sample-large" %}
         {% call library.dialog(dialog_id=dialog_id, size="large", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Large Dialog", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="Donors", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                <div class="spirit-long-form-text">
-                    <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
-                </div>
+                {{ content_donor_list_med | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -313,9 +346,13 @@
 
         {% set dialog_id="doc-sample-fullscreen" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Fullscreen Dialog", dialog_id=dialog_id) }}
-            {% call library.dialog_content() %}
-                {{ content_long | safe }}
+            {{ library.dialog_header(title_text="Edit Content", dialog_id=dialog_id, has_header_close=false) }}
+                {% call library.dialog_content() %}
+                    {{ content_modal_form | safe }}
+                {% endcall %}
+            {% call library.dialog_footer() %}
+                {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel", dialog_close=true) }}
+                {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
             {% endcall %}
         {% endcall %}
 
@@ -372,9 +409,9 @@
 
         {% set dialog_id="doc-sample-to-small" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="To Small", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="To Small Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                {{ content_long | safe }}
+                {{ content_donor_list_med | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -398,9 +435,9 @@
 
         {% set dialog_id="doc-sample-to-medium" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="medium", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="To Small Dialog", dialog_id=dialog_id) }}
+            {{ library.dialog_header(title_text="To Medium Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                {{ content_long | safe }}
+                {{ content_donor_list_med | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -426,7 +463,7 @@
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="large", has_title=true, has_close=true) %}
             {{ library.dialog_header(title_text="To Large Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                {{ content_long | safe }}
+                {{ content_donor_list_med | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -452,7 +489,7 @@
         {% call library.dialog(dialog_id=dialog_id, size="small", size_break="fullscreen", has_title=true, has_close=true) %}
             {{ library.dialog_header(title_text="To Fullscreen Dialog", dialog_id=dialog_id) }}
             {% call library.dialog_content() %}
-                {{ content_long | safe }}
+                {{ content_modal_form | safe }}
             {% endcall %}
         {% endcall %}
 
@@ -590,9 +627,52 @@
     {% filter markdown %}
         ## Guidelines
 
+        ### Editorial
+
+        * Dialog titles should be short and concise (if used). Dialog titles will be truncated to one line (unless an [alert](#alert) dialog).
+        * Limit the number of interactions within a dialog. Remove elements or content that do not support the task.
+        * Dismissive buttons are placed to the left of confirming buttons.
+        * Don’t use button text that fails to indicate what the selection will do.
+
+        ### Accessibility
+
+        Dialogs, by definition, trap focus. That means if a user presses Tab or Shift+Tab while their keyboard focus is in the dialog, their focus should stay inside the dialog and cycle through the dialog’s content.
+
+        * Use the `aria-labelledby` attribute on the `.spirit-dialog__content` component to target the dialog header (if exists). 
+        * Use the inherited logic, structure from the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component, including the following:
+            * Trap focus inside dialog when dialog opened
+            * Focus on first focusable dialog child element when opened
+
+        ### Markup
+
+        #### Expected Keyboard Interactions
+
+        * `Esc` key or clicking outside the dialog closes the dialog and moves focus to whatever triggered the dialog to open (unless the dialog is a modal dialog or alert dialog).
+        * When a dialog is opened, focus is placed on the first focusable element in the dialog.
+        * `Tab` key used at the bottom of the dialog cycles focus back to the first focusable element at the top of the dialog.
+        * `Shift + Tab` keys used at the top of the dialog cycles focus back to the last focusable element at the bottom of the dialog.
+        * `Enter` key submits the dialog’s form data - if applicable.
+
+        ### JavaScript
+
+        We are using the 3rd party scripts for the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component to construct our dialogs. See [Getting Started](/getting-started.html) for more information on using 3rd party libraries.
+
+        As with other Spirit components, the JavaScript used for dialog is used to illustrate functionality. Spirit adopting teams may reference [this example](https://github.com/JDRF/spirit/tree/develop/library/components/dialog/dialog.js) and write their own JavaScript for their products. As with other scripts used in Spirit, they are included in the Javascript Bundles found in the Getting Started guide.
+
+        Any custom UX (i.e. modal dialog actions) will need to be custom coded per dialog usage. For guidance on custom events, callbacks, etc, see the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) documentation.
+
+        Currently, [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) does not support nested dialogs. If needed, see recommended modifications to the [A11y Dialog](http://edenspiekermann.github.io/a11y-dialog/#implementations) scripts or crafting custom JavaScript by adopting teams to achieve the interactions needed.
+
+        Adopting teams may work with dialog components that are not in the DOM and/or inject dialog content via an api. This is expected and will require custom scripts crafted by adopting teams to achieve desired results. 
+
+        If using custom scripts, be sure to adhere to [accessibility](#accessibility) recommendations. Minimally, dialogs should replicate accessibility standards found in the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/).
+
+        [React and Vue](http://edenspiekermann.github.io/a11y-dialog/#implementations) implementations for A11y Dialog are also available.
+
         ### Use When
 
         Dialogs are invasive and should be used sparingly. The ability of the user to access and view the primary content is the primary focus of a positive user experience.
+
     {% endfilter %}
 
     {% filter markdown %}
@@ -675,52 +755,6 @@
 
     {% filter markdown %}
 
-        ### Editorial
-
-        * Limit the number of interactions within a dialog. Remove elements or content that do not support the task.
-        * Avoid complexity within a dialog such as tabbed interfaces, internal navigation, etc.
-        * Using multiple methods of dismissal is encouraged, but using both the [close button](#close-button-optional) and a cancel or close button in the dialog footer are not required.
-        * Dialog titles should be short and concise (if used). Dialog titles will be truncated to one line (unless an alert dialog).
-
-        ### Visual Style
-
-        Fix the dialog to the top of the screen with `.spirit-dialog__content-top` if the dialog contains dynamic content to prevent the dialog from jumping positions on the screen (see below for class reference).
-
-        ### Accessibility
-
-        Dialogs, by definition, trap focus. That means if a user presses Tab or Shift+Tab while their keyboard focus is in the dialog, their focus should stay inside the dialog and cycle through the dialog’s content.
-
-        * Use the `aria-labelledby` attribute on the `.spirit-dialog__content` component to target the dialog header (if exists). 
-        * Use the inherited logic, structure from the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component, including the following:
-            * Trap focus inside dialog when dialog opened
-            * Focus on first focusable dialog child element when opened
-
-        ### Markup
-
-        #### Expected Keyboard Interactions
-
-        * `Escape` key or clicking outside the dialog closes the dialog and moves focus to whatever triggered the dialog to open (unless the dialog is a modal dialog or alert dialog).
-        * When a dialog is opened, focus is placed on the first focusable element in the dialog.
-        * `Tab` key used at the bottom of the dialog cycles focus back to the first focusable element at the top of the dialog.
-        * `Shift + Tab` keys used at the top of the dialog cycles focus back to the last focusable element at the bottom of the dialog.
-        * `Enter` key submits the dialog’s form data - if applicable.
-
-        ### JavaScript
-
-        We are using the 3rd party scripts for the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) component to construct our dialogs. See [Getting Started](/getting-started.html) for more information on using 3rd party libraries.
-
-        As with other Spirit components, the JavaScript used for dialog is used to illustrate functionality. Spirit adopting teams may reference [this example](https://github.com/JDRF/spirit/tree/develop/library/components/dialog/dialog.js) and write their own JavaScript for their products. As with other scripts used in Spirit, they are included in the Javascript Bundles found in the Getting Started guide.
-
-        Any custom UX (i.e. modal dialog actions) will need to be custom coded per dialog usage. For guidance on custom events, callbacks, etc, see the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) documentation.
-
-        Currently, [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) does not support nested dialogs. If needed, see recommended modifications to the [A11y Dialog](http://edenspiekermann.github.io/a11y-dialog/#implementations) scripts or crafting custom JavaScript by adopting teams to achieve the interactions needed.
-
-        Adopting teams may work with dialog components that are not in the DOM and/or inject dialog content via an api. This is expected and will require custom scripts crafted by adopting teams to achieve desired results. 
-
-        If using custom scripts, be sure to adhere to [accessibility](#accessibility) recommendations. Minimally, dialogs should replicate accessibility standards found in the [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/).
-
-        [React and Vue](http://edenspiekermann.github.io/a11y-dialog/#implementations) implementations for A11y Dialog are also available.
-
         ## Code Reference
 
         ### Markup
@@ -733,6 +767,7 @@
         * See the [Close Button](#close-button-optional)
         * Add `data-a11y-dialog-hide` attribute to `.spirit-dialog__overlay` to allow hiding the dialog by clicking on the overlay. This is included in the examples above.
         * Use a unique dialog id to trigger dialog effectively.
+
 
         ### Class Reference
 
