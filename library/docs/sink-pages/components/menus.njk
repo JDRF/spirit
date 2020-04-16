@@ -1,0 +1,67 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+
+    {% call library.shell() %}
+        {% call library.shell_header() %}
+            {% call library.container(padding_top="none", padding_bottom="none") %}
+                <div class="spirit-long-form-text">
+                    <h1>
+                        Menus
+                    </h1>
+                </div>
+            {% endcall %}
+        {% endcall %}
+        {% call library.shell_main() %}
+            {% call library.container(size="large", padding_top="none") %}
+                <h2 class="hostile-sink-reset">Default</h2>
+                <div class="demo-page-grid">
+                    <div>
+                        <h5 class="hostile-sink-reset">Default</h5>
+                        {{ library.menu() }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Focus</h5>
+                        {{ library.menu(class="spirit-menu--focus") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Hover</h5>
+                        {{ library.menu(class="spirit-menu--hover") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Active</h5>
+                        {{ library.menu(class="spirit-menu--active") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Disabled</h5>
+                        {{ library.menu(class="spirit-menu--disabled") }}
+                    </div>
+                </div>
+            {% endcall %}
+            {% call library.container(size="large", padding_top="xs") %}
+                <h2 class="hostile-sink-reset">With Icon</h2>
+                <div class="demo-page-grid">
+                    <div>
+                        <h5 class="hostile-sink-reset">Default</h5>
+                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Focus</h5>
+                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--focus") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Hover</h5>
+                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--hover") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Active</h5>
+                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--active") }}
+                    </div>
+                    <div>
+                        <h5 class="hostile-sink-reset">Disabled</h5>
+                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--disabled") }}
+                    </div>
+                </div>
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+{% endblock body %}
