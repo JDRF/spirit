@@ -6,23 +6,56 @@
 //$spirit-menu-title-line-height-medium: 32px;
 //$spirit-menu-title-line-height-large: 40px;
 $spirit-menu-line-height: 20px;
+$spirit-small-menu-buffer: calc(100vh - 88px);
 //$spirit-menu-list-text-box-shadow: inset 0 -1px 0 0 $spirit-interactive-color-secondary;
 //$spirit-menu-list-image-size-sm: 72px;
 
 @mixin spirit-menu-small {
-
-  .spirit-menu__link {
-  }
-
-
-  @media screen and (min-width: $spirit-breakpoint-m) {
+  &:before {
+    background-color: rgba($spirit-color-black, .35);
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
   }
 }
 
 @mixin spirit-menu-medium {
+  margin-top: 30px; // TODO Remove, temp for demo.
   max-width: 256px;
+  position: relative;
 
-  .spirit-menu__link {
+  // Triangle
+  &:before {
+    @include spirit-elevation(3, 'blue');
+    background-color: $spirit-color-white;
+    content: '';
+    display: block;
+    height: 18px;
+    left: $spirit-space-generic-2-x;
+    position: absolute;
+    top: -9px;
+    transform: rotate(45deg);
+    width: 18px;
+  }
+
+  &--center-arrow:before {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  &--right-arrow:before {
+    left: auto;
+    right: $spirit-space-generic-2-x;
+  }
+
+  &--bottom-arrow:before {
+    bottom: -9px;
+    top: auto;
   }
 }
 
@@ -30,18 +63,59 @@ $spirit-menu-line-height: 20px;
   //padding: $spirit-space-inset-2-x;
 }
 
+@mixin spirit-menu-list-small {
+  border-top-left-radius: $spirit-border-radius-l;
+  border-top-right-radius: $spirit-border-radius-l;
+  bottom: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  max-height: $spirit-small-menu-buffer;
+  max-width: 100%;
+  overflow: auto;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  z-index: 2;
+}
+
+@mixin spirit-menu-list-medium {
+  border-radius: $spirit-border-radius-l;
+  overflow: visible;
+  position: relative;
+
+  &:before {
+    background-color: $spirit-color-white;
+    content: '';
+    display: block;
+    height: 18px;
+    left: $spirit-space-generic-2-x;
+    position: absolute;
+    top: -9px;
+    transform: rotate(45deg);
+    width: 18px;
+  }
+
+  .spirit-menu--center-arrow &:before {
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .spirit-menu--right-arrow &:before {
+    left: auto;
+    right: $spirit-space-generic-2-x;
+  }
+
+  .spirit-menu--bottom-arrow &:before {
+    bottom: -9px;
+    top: auto;
+  }
+}
+
 .spirit-menu {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
   @include spirit-menu-small;
-  @include spirit-elevation(3, 'blue');
-  background-color: $spirit-color-white;
-  border-radius: $spirit-border-radius-l;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  position: relative;
-  transition: box-shadow $spirit-transition-timing-default;
 
   &.spirit-menu--focus,
   &:focus {
@@ -49,7 +123,6 @@ $spirit-menu-line-height: 20px;
 
     &:before {
       border-color: $spirit-color-blue-30;
-      z-index: 10;
     }
   }
 
@@ -79,10 +152,18 @@ $spirit-menu-line-height: 20px;
 }
 
 .spirit-menu__list {
-  list-style: none;
-  margin: 0;
+  @include spirit-elevation(3, 'blue');
+  @include spirit-menu-list-small;
+  background-color: $spirit-color-white;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
-  padding: 0;
+  transition: box-shadow $spirit-transition-timing-default;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    @include spirit-menu-list-medium;
+    position: relative;
+  }
 }
 
 .spirit-menu__item {
@@ -92,6 +173,7 @@ $spirit-menu-line-height: 20px;
   //padding-top: $spirit-space-inset-1-x;
   position: relative;
   width: 100%;
+  z-index: 2;
 
   &:first-child {
     border-top-left-radius: $spirit-border-radius-l;
@@ -100,9 +182,11 @@ $spirit-menu-line-height: 20px;
   }
 
   &:last-child {
-    border-bottom-left-radius: $spirit-border-radius-l;
-    border-bottom-right-radius: $spirit-border-radius-l;
-    overflow: hidden;
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      border-bottom-left-radius: $spirit-border-radius-l;
+      border-bottom-right-radius: $spirit-border-radius-l;
+      overflow: hidden;
+    }
   }
 
   &:after {
@@ -113,6 +197,10 @@ $spirit-menu-line-height: 20px;
     left: $spirit-space-generic-2-x;
     position: absolute;
     right: 0;
+  }
+
+  &:last-child:after {
+    display: none;
   }
 
   .spirit-menu--has-icon &:after {

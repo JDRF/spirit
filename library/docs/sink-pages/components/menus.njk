@@ -11,57 +11,92 @@
                 </div>
             {% endcall %}
         {% endcall %}
-        {% call library.shell_main() %}
-            {% call library.container(size="large", padding_top="none") %}
-                <h2 class="hostile-sink-reset">Default</h2>
-                <div class="demo-page-grid">
-                    <div>
-                        <h5 class="hostile-sink-reset">Default</h5>
-                        {{ library.menu() }}
+        <div class="spirit-container">
+            <div class="spirit-container__inner spirit-container__inner--padding-top-none">
+                <div class="spirit-row">
+                    <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
+                        <h2 class="hostile-sink-reset">Default</h2>
+                        <div class="demo-page-grid">
+                            <div>
+                                <h5 class="hostile-sink-reset">Default</h5>
+                                {{ library.menu() }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Hover</h5>
+                                {{ library.menu(class="spirit-menu--hover") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Focus</h5>
+                                {{ library.menu(class="spirit-menu--focus") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Active</h5>
+                                {{ library.menu(class="spirit-menu--active") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Disabled</h5>
+                                {{ library.menu(class="spirit-menu--disabled") }}
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Focus</h5>
-                        {{ library.menu(class="spirit-menu--focus") }}
+
+                    <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
+                        <h2 class="hostile-sink-reset">With Icon</h2>
+                        <div class="demo-page-grid">
+                            <div>
+                                <h5 class="hostile-sink-reset">Default</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Hover</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--hover") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Focus</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--focus") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Active</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--active") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Disabled</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--disabled") }}
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Hover</h5>
-                        {{ library.menu(class="spirit-menu--hover") }}
-                    </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Active</h5>
-                        {{ library.menu(class="spirit-menu--active") }}
-                    </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Disabled</h5>
-                        {{ library.menu(class="spirit-menu--disabled") }}
+
+                    <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
+                        <h2 class="hostile-sink-reset">Arrows</h2>
+                        <div class="demo-page-grid">
+                            <div>
+                                <h5 class="hostile-sink-reset">Top Left</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Top Center</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--center-arrow") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Top Right</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--right-arrow") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Bottom Left</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--bottom-arrow") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Bottom Center</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--center-arrow") }}
+                            </div>
+                            <div>
+                                <h5 class="hostile-sink-reset">Bottom Right</h5>
+                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--right-arrow") }}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            {% endcall %}
-            {% call library.container(size="large", padding_top="xs") %}
-                <h2 class="hostile-sink-reset">With Icon</h2>
-                <div class="demo-page-grid">
-                    <div>
-                        <h5 class="hostile-sink-reset">Default</h5>
-                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon") }}
-                    </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Focus</h5>
-                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--focus") }}
-                    </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Hover</h5>
-                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--hover") }}
-                    </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Active</h5>
-                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--active") }}
-                    </div>
-                    <div>
-                        <h5 class="hostile-sink-reset">Disabled</h5>
-                        {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--disabled") }}
-                    </div>
-                </div>
-            {% endcall %}
-        {% endcall %}
+            </div>
+        </div>
     {% endcall %}
 {% endblock body %}
