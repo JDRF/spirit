@@ -12,8 +12,6 @@ $spirit-dialog-viewport-max-height: calc(100% - #{$spirit-space-generic-4-x}); /
 $spirit-dialog-viewport-max-height-med: calc(100% - (#{$spirit-dialog-top-med} * 2)); // To enable dialot do display properly in iOS with safari navbar open or closed
 $spirit-dialog-max-height: calc(100vh - #{$spirit-space-generic-4-x});
 $spirit-dialog-max-height-med: calc(100vh - (#{$spirit-dialog-top-med} * 2));
-$spirit-dialog-min-height: 300px;
-$spirit-dialog-alert-min-height: 170px;
 $spirit-dialog-content-padding: $spirit-space-inset-2-x;
 $spirit-dialog-content-padding-md: $spirit-space-inset-3-x;
 $spirit-dialog-content-padding-lg: $spirit-space-inset-4-x;
@@ -167,12 +165,10 @@ $spirit-dialog-transition-duration-short: 75ms;
   // The initial styles for .spirit-dialog__content were moved here
   // The .spirit-dialog__content was given flex-flow: row-nowrap; to contain the content
   max-width: $spirit-dialog-max-width;
-  min-height: $spirit-dialog-min-height;
 }
 
 // Alert Dialog
 .spirit-dialog__content--alert {
-  min-height: $spirit-dialog-alert-min-height;
 
   .spirit-dialog__header {
     @include spirit-elevation(0);
