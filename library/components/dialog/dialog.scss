@@ -200,6 +200,20 @@ $spirit-dialog-transition-duration-short: 75ms;
       margin-right: -16px;
     }
   }
+
+  .spirit-long-form-text {
+    p,
+    li {
+      font-size: $spirit-font-size-s;
+    }
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      p,
+      li {
+        font-size: $spirit-font-size-m;
+      }
+    }
+  }
 }
 
 .spirit-dialog__content--top {
