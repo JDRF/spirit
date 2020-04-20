@@ -333,7 +333,10 @@
             <h6>S Dialog Blank</h6>
             {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
         </div>
-        {{ library.dialog(dialog_id=dialog_id) }}
+        {% call library.dialog(dialog_id=dialog_id) %}
+            {% call library.dialog_content() %}
+            {% endcall %}
+        {% endcall %}
 
         {% set dialog_id = "dialog-demo-simple-s" %}
         <div class="spirit-long-form-text">
@@ -342,6 +345,8 @@
         </div>
         {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-simple--overlay-s" %}
@@ -351,6 +356,8 @@
         </div>
         {% call library.dialog(overlay_opacity="dark", dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Dark Overlay", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-simple-title-s" %}
@@ -360,6 +367,8 @@
         </div>
         {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-simple-mult-s" %}
@@ -369,6 +378,8 @@
         </div>
         {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Multiple Actions", dialog_id=dialog_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-simple-mult-title-s" %}
@@ -378,6 +389,8 @@
         </div>
         {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", dialog_id=dialog_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-simple-foot-s" %}
@@ -562,7 +575,10 @@
             <h6>M Dialog Blank</h6>
             {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
         </div>
-        {{ library.dialog(size="medium", dialog_id=dialog_id) }}
+        {% call library.dialog(size="medium", dialog_id=dialog_id) %}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
 
         {% set dialog_id = "dialog-demo-m" %}
         <div class="spirit-long-form-text">
@@ -571,6 +587,8 @@
         </div>
         {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-foot-m" %}
@@ -662,7 +680,10 @@
             <h6>L Dialog Blank</h6>
             {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
         </div>
-        {{ library.dialog(size="large", dialog_id=dialog_id) }}
+        {% call library.dialog(size="large", dialog_id=dialog_id) %}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
 
         {% set dialog_id = "dialog-demo-l" %}
         <div class="spirit-long-form-text">
@@ -671,6 +692,8 @@
         </div>
         {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
           {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
         {% endcall %}
 
         {% set dialog_id = "dialog-demo-foot-l" %}
