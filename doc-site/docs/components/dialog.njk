@@ -189,7 +189,7 @@
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", alert=true, has_title=true, has_close=true) %}
             {{ library.dialog_header(title_text="Discard Changes?", dialog_id=dialog_id, has_header_close=false) }}
             {% call library.dialog_content() %}
-                <div class="spirit-long-form-text">
+                <div class="spirit-long-form-text spirit-long-form-text--m">
                     <p>Your photo has changes that have not been saved. Do you want to discard changes?</p>
                 </div>
             {% endcall %}
