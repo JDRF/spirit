@@ -4,8 +4,9 @@
         <h1>Dialog</h1>
 
         <p class="spirit-subhead">Dialogs focus the user’s attention on a single task or piece of information and often require decisions. They appear over the interface and block further interactions.</p>
-        <p>Dialogs are disruptive intentionally and should be used thoughtfully and sparingly depending on the informational context and/or need.</p>
-        <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [Guidelines - JavaScript](#javascript) for information javascript usage and the necessary dependencies.</p>
+        <p>Dialogs are disruptive intentionally and should be used thoughtfully and sparingly depending.</p>
+        <p>Dialogs depend on Javascript. We are leveraging [A11y Dialog](https://edenspiekermann.github.io/a11y-dialog/) within the Spirit design system to run the dialogs. See [JavaScript Guidelines](#javascript) for information on usage and dependencies.</p>
+
     {% endfilter %}
 {% endblock %}
 
@@ -99,7 +100,7 @@
         Dialogs appear in the center of the screen and above all other elements.  If the dialog contains dynamic content that will cause it to change height, pin the dialog to the top of the screen with `.spirit-dialog__content-top`.  Pinning will provide a smoother user experience by providing an visual anchor point while the dialog content grows or shrinks.
 
         ### Trigger
-        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show="dialog-id"` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [Guidelines - JavaScript](#javascript).
+        A trigger (i.e. button, card, other interactive element) can be used to trigger the display of a dialog. To automatically target the dialog by clicking on the trigger, the trigger must have the attribute `data-a11y-dialog-show="dialog-id"` containing the unique id of the targeted dialog container (`.spirit-dialog`). For other methods of triggering the dialog, see [JavaScript Guidelines](#javascript).
 
         ## Simple
 
@@ -147,7 +148,7 @@
 
         {% set dialog_id="doc-sample-modal" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", size_break="small", modal=true, has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Edit Content", dialog_id=dialog_id, has_header_close=false) }}
+            {{ library.dialog_header(title_text="Edit Contact", dialog_id=dialog_id, has_header_close=false) }}
             {% call library.dialog_content() %}
                 {{ content_modal_form | safe }}
             {% endcall %}
@@ -172,7 +173,7 @@
     {% filter markdown %}
         * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__content` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
-        * Footer is required with buttons that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
+        * Footer is required with buttons that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [JavaScript Guidelines](#javascript) for further guidance.
         * Validate that the user's entries are acceptable before closing the dialog. Show an inline validation error near the field they must correct.
 
         ## Alert
@@ -189,7 +190,7 @@
             {{ library.dialog_header(title_text="Discard Changes?", dialog_id=dialog_id, has_header_close=false) }}
             {% call library.dialog_content() %}
                 <div class="spirit-long-form-text">
-                    <p>Your pohoto has changes that have not been saved. Do you want to discard changes?</p>
+                    <p>Your photo has changes that have not been saved. Do you want to discard changes?</p>
                 </div>
             {% endcall %}
             {% call library.dialog_footer() %}
@@ -215,7 +216,7 @@
         * Custom modifier classes for padding and sizing do not apply to the alert dialog.
         * The dialog is "locked" open and cannot be dismissed by pressing the `escape` key, or clicking outside the dialog. This is set by changing `role="dialog"` in the `.spirit-dialog__content` element to  `role="alertdialog"`.
         * No close [Icon Only](/components/buttons.html#icon-only) button is added to the header or at the top of the dialog.
-        * Footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [Guidelines - JavaScript](#javascript) for further guidance.
+        * Footer is required with action items that trigger the close of the dialog or an explicit action determined by the event. These actions require custom coding. See [JavaScript Guidelines](#javascript) for further guidance.
 
         ## Blank
 
@@ -346,7 +347,7 @@
 
         {% set dialog_id="doc-sample-fullscreen" %}
         {% call library.dialog(dialog_id=dialog_id, size="fullscreen", has_title=true, has_close=true) %}
-            {{ library.dialog_header(title_text="Edit Content", dialog_id=dialog_id, has_header_close=false) }}
+            {{ library.dialog_header(title_text="Edit Contact", dialog_id=dialog_id, has_header_close=false) }}
                 {% call library.dialog_content() %}
                     {{ content_modal_form | safe }}
                 {% endcall %}
