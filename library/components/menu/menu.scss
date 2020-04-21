@@ -114,6 +114,16 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   @include spirit-typography-reset;
   @include spirit-menu-small;
 
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    @include spirit-menu-medium;
+  }
+
+  &--hide-small { // Prevent overlapping menus on doc site at small sizes
+    @media screen and (max-width: $spirit-breakpoint-m) {
+      display: none;
+    }
+  }
+
   &.spirit-menu--focus,
   &:focus {
     outline: none;
@@ -129,10 +139,6 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 
   &.spirit-menu--active,
   &:active {
-  }
-
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    @include spirit-menu-medium;
   }
 }
 
