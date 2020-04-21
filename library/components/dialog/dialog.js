@@ -20,7 +20,7 @@ const spiritDialogs = function() {
 
     dialogs.forEach(item => {
         const dialog = new A11yDialog(item, defaults.container);
-        const spiritDialog = item.querySelector('.spirit-dialog__dialog');
+        const spiritDialog = item.querySelector('.spirit-dialog__content');
 
         const maybeDisableEscToClose = (e) => {
 
