@@ -23,8 +23,21 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 
 @mixin spirit-menu-medium {
   margin-top: 30px; // TODO Remove, temp for demo.
-  max-width: 256px;
   position: relative;
+  width: 256px;
+
+  .spirit-menu-wrapper &--center-arrow {
+    left: -50%;
+  }
+
+  .spirit-menu-wrapper &--right-arrow {
+    right: 0;
+  }
+
+  .spirit-menu-wrapper &--bottom-arrow {
+    bottom: 50px;
+    top: auto;
+  }
 
   // Triangle
   &::before {
@@ -107,6 +120,7 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 
 // Wrapper for including a trigger so that the menu shows up relative.
 .spirit-menu-wrapper {
+  display: inline;
   position: relative;
 }
 
