@@ -20,7 +20,7 @@ const spiritMenus = function() {
 
 	menus.forEach(item => {
 			const menu = new A11yDialog(item, defaults.container);
-			const spiritMenu = item.querySelector('.spirit-menu__menu');
+			const spiritMenu = item.querySelector('.spirit-menu__nav');
 
 			const maybeDisableEscToClose = (e) => {
 					if (spiritMenu && spiritMenu.getAttribute('role') === 'alertdialog' && e.which === 27) {

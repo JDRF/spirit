@@ -56,10 +56,6 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   }
 }
 
-@mixin spirit-menu-large {
-  //padding: $spirit-space-inset-2-x;
-}
-
 @mixin spirit-menu-list-small {
   border-top-left-radius: $spirit-border-radius-l;
   border-top-right-radius: $spirit-border-radius-l;
@@ -109,13 +105,34 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   }
 }
 
+// Wrapper for including a trigger so that the menu shows up relative.
+.spirit-menu-wrapper {
+  position: relative;
+}
+
 .spirit-menu {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
   @include spirit-menu-small;
+  transition: opacity .3s ease-out;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-menu-medium;
+  }
+
+  .spirit-menu-wrapper & {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .spirit-menu-wrapper &[aria-hidden='true'] {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .spirit-menu-wrapper &:not([aria-hidden='true']) {
+    opacity: 1;
+    visibility: visible;
   }
 
   &--hide-small { // Prevent overlapping menus on doc site at small sizes
@@ -132,14 +149,6 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
       border-color: $spirit-color-blue-30;
     }
   }
-
-  &.spirit-menu--hover,
-  &:hover {
-  }
-
-  &.spirit-menu--active,
-  &:active {
-  }
 }
 
 .spirit-menu--small {
@@ -148,10 +157,6 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 
 .spirit-menu--medium {
   @include spirit-menu-medium;
-}
-
-.spirit-menu--large {
-  @include spirit-menu-large;
 }
 
 .spirit-menu__list {
@@ -205,19 +210,7 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   }
 
   .spirit-menu--has-icon &::after {
-    left: $spirit-space-generic-6-x;
-  }
-
-  &:hover {
-  }
-
-  &:active {
-  }
-
-  &:hover .spirit-menu__text {
-  }
-
-  &:active .spirit-menu__text {
+    left: $spirit-space-generic-6-x + $spirit-space-generic-half-x;
   }
 
   .spirit-icon + .spirit-menu__text {

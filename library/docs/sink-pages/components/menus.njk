@@ -11,92 +11,126 @@
                 </div>
             {% endcall %}
         {% endcall %}
-        <div class="spirit-container">
-            <div class="spirit-container__inner spirit-container__inner--padding-top-none">
-                <div class="spirit-row">
-                    <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
-                        <h2 class="hostile-sink-reset">Default</h2>
-                        <div class="demo-page-grid">
-                            <div>
-                                <h5 class="hostile-sink-reset">Default</h5>
-                                {{ library.menu(class="spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Hover</h5>
-                                {{ library.menu(class="spirit-menu--hover spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Focus</h5>
-                                {{ library.menu(class="spirit-menu--focus spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Active</h5>
-                                {{ library.menu(class="spirit-menu--active spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Disabled</h5>
-                                {{ library.menu(class="spirit-menu--disabled spirit-menu--hide-small") }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
-                        <h2 class="hostile-sink-reset">With Icon</h2>
-                        <div class="demo-page-grid">
-                            <div>
-                                <h5 class="hostile-sink-reset">Default</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Hover</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--hover spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Focus</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--focus spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Active</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--active spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Disabled</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--disabled spirit-menu--hide-small") }}
+        {% call library.shell_main() %}
+            <div class="spirit-container">
+                <div class="spirit-container__inner spirit-container__inner--padding-top-none">
+                    <div class="spirit-row">
+                        <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
+                            <h2 class="hostile-sink-reset">Default</h2>
+                            <div class="demo-page-grid">
+                                {% set menu_id = "menu-demo-default" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Default</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-hover" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Hover</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--hover spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-focus" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Focus</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--focus spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-active" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Active</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--active spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-disabled" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Disabled</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--disabled spirit-menu--hide-small") }}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
-                        <h2 class="hostile-sink-reset">Arrows</h2>
-                        <div class="demo-page-grid">
-                            <div>
-                                <h5 class="hostile-sink-reset">Top Left</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--hide-small") }}
+                        <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
+                            <h2 class="hostile-sink-reset">With Icon</h2>
+                            <div class="demo-page-grid">
+                                {% set menu_id = "menu-demo-icon-default" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Default</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon") }}
+                                </div>
+                                {% set menu_id = "menu-demo-icon-hover" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Hover</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--hover spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-icon-focus" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Focus</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--focus spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-icon-active" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Active</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--active spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-icon-disabled" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Disabled</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--disabled spirit-menu--hide-small") }}
+                                </div>
                             </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Top Center</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--center-arrow spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Top Right</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--right-arrow spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Bottom Left</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Bottom Center</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--center-arrow spirit-menu--hide-small") }}
-                            </div>
-                            <div>
-                                <h5 class="hostile-sink-reset">Bottom Right</h5>
-                                {{ library.menu(has_icon=true, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--right-arrow spirit-menu--hide-small") }}
+                        </div>
+
+                        <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
+                            <h2 class="hostile-sink-reset">Arrows</h2>
+                            <div class="demo-page-grid">
+                                {% set menu_id = "menu-demo-top-left" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Top Left</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-top-center" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Top Center</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--center-arrow spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-top-right" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Top Right</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--right-arrow spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-bottom-left" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Bottom Left</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-bottom-center" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Bottom Center</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--center-arrow spirit-menu--hide-small") }}
+                                </div>
+                                {% set menu_id = "menu-demo-bottom-right" %}
+                                <div class="spirit-menu-wrapper">
+                                    <h5 class="hostile-sink-reset">Bottom Right</h5>
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", menu_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--right-arrow spirit-menu--hide-small") }}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endcall %}
     {% endcall %}
 {% endblock body %}

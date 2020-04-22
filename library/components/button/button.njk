@@ -18,7 +18,8 @@
       buttonTitle=false,
       displayIcon,
       dialog_id=false,
-      dialog_close=false
+      dialog_close=false,
+      menu_id=false
       ) %}
   {% if href %}
     {% set el = 'a' %}
@@ -43,7 +44,7 @@
 
   {% if ( el === 'checkbox' ) or ( el === 'radio' ) %}
     <div class="spirit-button spirit-button--toggle{{ ' ' + class if class }}">
-      <input 
+      <input
         class="spirit-button__input spirit-button__{{ el }}"
         type="{{el}}"
         {% if name %}
@@ -57,7 +58,7 @@
         {% endif %}
         tabindex="-1"
       />
-      <label 
+      <label
         {% if id %}
           for="{{id}}"
         {% endif %}
@@ -127,6 +128,9 @@
       {% endif %}
       {% if dialog_id %}
         data-a11y-dialog-show="{{dialog_id}}"
+      {% endif %}
+      {% if menu_id %}
+        data-a11y-dialog-show="{{menu_id}}"
       {% endif %}
       {% if dialog_close %}
         data-a11y-dialog-hide
