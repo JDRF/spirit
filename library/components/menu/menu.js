@@ -6,8 +6,16 @@ const spiritMenus = function() {
 			return;
 	}
 
+	const menuWrappers = Array.from(document.querySelectorAll('.spirit-menu-wrapper'));
+
+	// Return early if there's no wrapper classes.
+	if (!menuWrappers) {
+		return;
+	}
+
 	const menus = Array.from(document.querySelectorAll('.spirit-menu'));
 
+	// Return early if there's no menus.
 	if (!menus) {
 			return;
 	}
