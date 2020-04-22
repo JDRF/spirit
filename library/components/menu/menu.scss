@@ -7,20 +7,6 @@ $spirit-menu-line-height: 20px;
 $spirit-menu-small-buffer: calc(100vh - 88px);
 $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 
-@mixin spirit-menu-small {
-  &::before {
-    background-color: $spirit-menu-small-overlay;
-    bottom: 0;
-    content: '';
-    display: block;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-}
-
 @mixin spirit-menu-medium {
   margin-top: 30px; // TODO Remove, temp for demo.
   position: relative;
@@ -127,7 +113,6 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 .spirit-menu {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
-  @include spirit-menu-small;
   transition: opacity .3s ease-out;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
@@ -165,16 +150,11 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   }
 }
 
-.spirit-menu--small {
-  @include spirit-menu-small;
-}
-
 .spirit-menu--medium {
   @include spirit-menu-medium;
 }
 
 .spirit-menu__overlay {
-  display: none;
 
   .spirit-menu:not([aria-hidden='true']) & {
     visibility: visible;
@@ -182,14 +162,19 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 }
 
 .spirit-menu-wrapper .spirit-menu__overlay {
+  background-color: $spirit-menu-small-overlay;
   bottom: 0;
   display: block;
   left: 0;
-  opacity: 0;
+  opacity: 1;
   position: fixed;
   right: 0;
   top: 0;
   visibility: hidden;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    opacity: 0;
+  }
 }
 
 .spirit-menu__list {
