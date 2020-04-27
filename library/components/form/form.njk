@@ -501,7 +501,10 @@
             {{ icon(name=typeIcons[type], class="spirit-form__message-icon") }}
         </div>
         <div class="spirit-form__message-text">
-            {{ text | safe }}
+            <p>{{ text | safe }}</p>
+            {%- if caller -%}
+                {{ caller() }}
+            {%- endif -%}
         </div>
     </div>
 {% endmacro %}
