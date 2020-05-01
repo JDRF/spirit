@@ -44,7 +44,8 @@
                             {% if has_icon %}
                                 {{ icon(
                                     name=item.icon.name,
-                                    label=item.icon.label
+                                    label=item.icon.label,
+                                    decorative=true
                                 ) }}
                             {% endif %}
                             <span class="spirit-menu__text">{{ item.title | safe }}</span>
