@@ -6,14 +6,7 @@ const spiritMenus = function() {
 			return;
 	}
 
-	const menuWrappers = Array.from(document.querySelectorAll('.spirit-menu-wrapper'));
-
-	// Return early if there's no wrapper classes.
-	if (!menuWrappers) {
-		return;
-	}
-
-	const menus = Array.from(document.querySelectorAll('.spirit-menu'));
+	const menus = Array.from(document.querySelectorAll('.spirit-menu-wrapper > .spirit-menu'));
 
 	// Return early if there's no menus.
 	if (!menus) {
@@ -42,8 +35,8 @@ const spiritMenus = function() {
 					spiritMenu.addEventListener('transitionend', transitionEndCallback);
 
 					function transitionEndCallback() {
-							const focusableChildren = spiritMenu.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-							const focused = spiritMenu.querySelector('[autofocus]') || focusableChildren[0];
+							const focusableChildren = spiritMenu.querySelectorAll('.spirit-menu__list' );
+							const focused = focusableChildren[0];
 
 							if (focused) {
 									focused.focus();

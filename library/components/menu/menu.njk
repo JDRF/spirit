@@ -37,7 +37,7 @@
     <div class="spirit-menu{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" id="{{ menu_id if menu_id }}">
         <div class="spirit-menu__overlay" tabindex="-1" data-a11y-dialog-hide></div>
         <nav class="spirit-menu__nav" role="dialog">
-            <ul class="spirit-menu__list" role="menu">
+            <ul class="spirit-menu__list" role="menu" tabindex="0">
                 {% for item in items %}
                     <li class="spirit-menu__item">
                         <a href="{{ item.href }}" class="spirit-menu__link">

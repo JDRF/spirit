@@ -189,6 +189,10 @@ $spirit-menu-transition-timing: $spirit-transition-timing-default;
     @include spirit-menu-list-medium;
     position: relative;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .spirit-menu__item {
@@ -235,9 +239,6 @@ $spirit-menu-transition-timing: $spirit-transition-timing-default;
   }
 }
 
-.spirit-menu__text {
-}
-
 .spirit-menu__link {
   @include spirit-link;
   @include spirit-link-animated-default;
@@ -263,6 +264,7 @@ $spirit-menu-transition-timing: $spirit-transition-timing-default;
   .spirit-menu--focus & {
     background-color: $spirit-color-blue-15;
     color: $spirit-text-color-link;
+    outline: none;
   }
 
   &:disabled,
