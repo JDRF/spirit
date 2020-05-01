@@ -1,16 +1,15 @@
-@import '../../tokens/tokens';
-@import '../../styles/mixins/box-sizing';
-@import '../../styles/mixins/elevation';
-@import '../../styles/mixins/typography';
-
-$spirit-menu-line-height: 20px;
+$spirit-menu-width: 256px;
+$spirit-menu-line-height: 1.25;
 $spirit-menu-small-buffer: calc(100vh - 88px);
-$spirit-menu-small-overlay: rgba($spirit-color-black, .35);
+$spirit-menu-small-overlay: rgba($spirit-color-black, .4);
+$spirit-menu-icon-width: 20px;
+$spirit-menu-icon-height: 20px;
+$spirit-menu-transition-timing: $spirit-transition-timing-default;
 
 @mixin spirit-menu-medium {
   margin-top: 30px; // TODO Remove, temp for demo.
   position: relative;
-  width: 256px;
+  width: $spirit-menu-width;
 
   .spirit-menu-wrapper &--center-arrow {
     left: -50%;
@@ -113,7 +112,7 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
 .spirit-menu {
   @include spirit-box-sizing;
   @include spirit-typography-reset;
-  transition: opacity .3s ease-out;
+  transition: opacity $spirit-menu-transition-timing ease-out;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-menu-medium;
@@ -184,7 +183,7 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  transition: box-shadow $spirit-transition-timing-default;
+  transition: box-shadow $spirit-menu-transition-timing;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     @include spirit-menu-list-medium;
@@ -274,8 +273,8 @@ $spirit-menu-small-overlay: rgba($spirit-color-black, .35);
   .spirit-icon {
     color: $spirit-text-color-link;
     flex: 0 0 auto;
-    height: 20px;
-    width: 20px;
+    height: $spirit-menu-icon-height;
+    width: $spirit-menu-icon-width;
   }
 
   .spirit-menu--disabled & .spirit-icon {
