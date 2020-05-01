@@ -2,7 +2,6 @@
     menu_id=false,
     class=false,
     has_icon=false,
-    aria_label,
     items
     ) %}
 
@@ -35,17 +34,13 @@
         ] %}
     {% endif %}
 
-    {% if aria_label == undefined %}
-        {% set aria_label = menu_id %}
-    {% endif %}
-
-    <div class="spirit-menu{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" aria-label="{{ aria_label }}" id="{{ menu_id if menu_id }}">
+    <div class="spirit-menu{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" id="{{ menu_id if menu_id }}">
         <div class="spirit-menu__overlay" tabindex="-1" data-a11y-dialog-hide></div>
         <nav class="spirit-menu__nav" role="dialog">
             <ul class="spirit-menu__list" role="menu">
                 {% for item in items %}
                     <li class="spirit-menu__item">
-                        <a href="{{ item.href }}" class="spirit-menu__link" aria-label="{{ aria_label }}">
+                        <a href="{{ item.href }}" class="spirit-menu__link">
                             {% if has_icon %}
                                 {{ icon(
                                     name=item.icon.name,
