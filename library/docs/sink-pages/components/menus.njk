@@ -88,43 +88,43 @@
                         </div>
 
                         <div class="spirit-col spirit-col-md-6 spirit-col-lg-4">
-                            <h2 class="hostile-sink-reset">Arrows</h2>
+                            <h2 class="hostile-sink-reset">Positions</h2>
                             <div class="demo-page-grid">
-                                <h5 class="hostile-sink-reset">Top Left</h5>
+                                <h5 class="hostile-sink-reset">Below Right</h5>
                                 <div class="spirit-menu-wrapper">
-                                    {% set menu_id = "menu-demo-top-left" %}
+                                    {% set menu_id = "menu-demo-below-right" %}
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--right") }}
+                                </div>
+                                <h5 class="hostile-sink-reset">Below Center</h5>
+                                <div class="spirit-menu-wrapper">
+                                    {% set menu_id = "menu-demo-below-center" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
                                     {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon") }}
                                 </div>
-                                <h5 class="hostile-sink-reset">Top Center</h5>
+                                <h5 class="hostile-sink-reset">Below Left</h5>
                                 <div class="spirit-menu-wrapper">
-                                    {% set menu_id = "menu-demo-top-center" %}
+                                    {% set menu_id = "menu-demo-below-left" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--center-arrow") }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--left") }}
                                 </div>
-                                <h5 class="hostile-sink-reset">Top Right</h5>
+                                <h5 class="hostile-sink-reset">Above Right</h5>
                                 <div class="spirit-menu-wrapper">
-                                    {% set menu_id = "menu-demo-top-right" %}
+                                    {% set menu_id = "menu-demo-above-right" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--right-arrow") }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above spirit-menu--right") }}
                                 </div>
-                                <h5 class="hostile-sink-reset">Bottom Left</h5>
+                                <h5 class="hostile-sink-reset">Above Center</h5>
                                 <div class="spirit-menu-wrapper">
-                                    {% set menu_id = "menu-demo-bottom-left" %}
+                                    {% set menu_id = "menu-demo-above-center" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--bottom-arrow") }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above") }}
                                 </div>
-                                <h5 class="hostile-sink-reset">Bottom Center</h5>
+                                <h5 class="hostile-sink-reset">Above Left</h5>
                                 <div class="spirit-menu-wrapper">
-                                    {% set menu_id = "menu-demo-bottom-center" %}
+                                    {% set menu_id = "menu-demo-above-left" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--center-arrow") }}
-                                </div>
-                                <h5 class="hostile-sink-reset">Bottom Right</h5>
-                                <div class="spirit-menu-wrapper">
-                                    {% set menu_id = "menu-demo-bottom-right" %}
-                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--bottom-arrow spirit-menu--right-arrow") }}
+                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above spirit-menu--left") }}
                                 </div>
                             </div>
                         </div>

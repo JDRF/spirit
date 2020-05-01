@@ -9,19 +9,21 @@ $spirit-menu-arrow-height: 18px;
 $spirit-menu-arrow-width: 18px;
 
 @mixin spirit-menu-medium {
+  left: -50%;
   margin-top: 30px; // TODO Remove, temp for demo.
   position: relative;
   width: $spirit-menu-width;
 
-  .spirit-menu-wrapper &--center-arrow {
-    left: -50%;
+  .spirit-menu-wrapper &--right {
+    left: 0;
   }
 
-  .spirit-menu-wrapper &--right-arrow {
+  .spirit-menu-wrapper &--left {
+    left: auto;
     right: 0;
   }
 
-  .spirit-menu-wrapper &--bottom-arrow {
+  .spirit-menu-wrapper &--above {
     bottom: 50px;
     top: auto;
   }
@@ -33,24 +35,25 @@ $spirit-menu-arrow-width: 18px;
     content: '';
     display: block;
     height: $spirit-menu-arrow-height;
-    left: $spirit-space-generic-2-x;
+    left: 50%;
     position: absolute;
     top: -($spirit-menu-arrow-height / 2);
-    transform: rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
     width: $spirit-menu-arrow-width;
   }
 
-  &--center-arrow::before {
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
+  &--right::before {
+    left: $spirit-space-generic-2-x;
+    transform: rotate(45deg);
   }
 
-  &--right-arrow::before {
+  &--left::before {
     left: auto;
     right: $spirit-space-generic-2-x;
+    transform: rotate(45deg);
   }
 
-  &--bottom-arrow::before {
+  &--above::before {
     bottom: -($spirit-menu-arrow-height / 2);
     top: auto;
   }
@@ -82,24 +85,25 @@ $spirit-menu-arrow-width: 18px;
     content: '';
     display: block;
     height: $spirit-menu-arrow-height;
-    left: $spirit-space-generic-2-x;
+    left: 50%;
     position: absolute;
     top: -($spirit-menu-arrow-height / 2);
-    transform: rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
     width: $spirit-menu-arrow-width;
   }
 
-  .spirit-menu--center-arrow &::before {
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
+  .spirit-menu--right &::before {
+    left: $spirit-space-generic-2-x;
+    transform: rotate(45deg);
   }
 
-  .spirit-menu--right-arrow &::before {
+  .spirit-menu--left &::before {
     left: auto;
     right: $spirit-space-generic-2-x;
+    transform: rotate(45deg);
   }
 
-  .spirit-menu--bottom-arrow &::before {
+  .spirit-menu--above &::before {
     bottom: -($spirit-menu-arrow-height / 2);
     top: auto;
   }
