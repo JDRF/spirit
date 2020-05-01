@@ -18,8 +18,7 @@
       buttonTitle=false,
       displayIcon,
       dialog_id=false,
-      dialog_close=false,
-      menu_id=false
+      dialog_close=false
       ) %}
   {% if href %}
     {% set el = 'a' %}
@@ -128,9 +127,6 @@
       {% endif %}
       {% if dialog_id %}
         data-a11y-dialog-show="{{dialog_id}}"
-      {% endif %}
-      {% if menu_id %}
-        data-a11y-dialog-show="{{menu_id}}"
       {% endif %}
       {% if dialog_close %}
         data-a11y-dialog-hide
