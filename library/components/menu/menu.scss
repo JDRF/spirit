@@ -24,12 +24,6 @@ $spirit-menu-arrow-width: 18px;
     width: $spirit-menu-width;
   }
 
-  &--hide-small { // Prevent overlapping menus on doc site at small sizes
-    @media screen and (max-width: $spirit-breakpoint-m) {
-      display: none;
-    }
-  }
-
   &.spirit-menu--focus,
   &:focus {
     outline: none;
@@ -38,41 +32,48 @@ $spirit-menu-arrow-width: 18px;
       border-color: $spirit-color-blue-30;
     }
   }
+}
 
-  // Triangle background
-  &::before {
-    @media screen and (min-width: $spirit-breakpoint-m) {
-      @include spirit-elevation(3, 'blue');
-      background-color: $spirit-color-white;
-      content: '';
-      display: block;
-      height: $spirit-menu-arrow-height;
-      left: 50%;
-      position: absolute;
-      top: -($spirit-menu-arrow-height / 2);
-      transform: translateX(-50%) rotate(45deg);
-      width: $spirit-menu-arrow-width;
-    }
-  }
-
-  &--right::before {
-    left: $spirit-space-generic-2-x;
-    transform: rotate(45deg);
-  }
-
-  &--left::before {
-    left: auto;
-    right: $spirit-space-generic-2-x;
-    transform: rotate(45deg);
-  }
-
-  &--above::before {
-    bottom: -($spirit-menu-arrow-height / 2);
-    top: auto;
+// Triangle background
+.spirit-menu::before {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    @include spirit-elevation(3, 'blue');
+    background-color: $spirit-color-white;
+    content: '';
+    display: block;
+    height: $spirit-menu-arrow-height;
+    left: 50%;
+    position: absolute;
+    top: -($spirit-menu-arrow-height / 2);
+    transform: translateX(-50%) rotate(45deg);
+    width: $spirit-menu-arrow-width;
   }
 }
 
-// Styles for when the menu is inside a wrapper.
+.spirit-menu--right::before {
+  left: $spirit-space-generic-2-x;
+  transform: rotate(45deg);
+}
+
+.spirit-menu--left::before {
+  left: auto;
+  right: $spirit-space-generic-2-x;
+  transform: rotate(45deg);
+}
+
+.spirit-menu--above::before {
+  bottom: -($spirit-menu-arrow-height / 2);
+  top: auto;
+}
+
+// Prevent overlapping menus on doc site at small sizes
+.spirit-menu--hide-small {
+  @media screen and (max-width: $spirit-breakpoint-m) {
+    display: none;
+  }
+}
+
+// Positioning styles for when the menu is inside a wrapper.
 .spirit-menu-wrapper {
 
   .spirit-menu {
@@ -116,29 +117,6 @@ $spirit-menu-arrow-width: 18px;
   }
 }
 
-.spirit-menu__overlay {
-
-  .spirit-menu:not([aria-hidden='true']) & {
-    visibility: visible;
-  }
-}
-
-.spirit-menu-wrapper .spirit-menu__overlay {
-  background-color: $spirit-menu-small-overlay;
-  bottom: 0;
-  display: block;
-  left: 0;
-  opacity: 1;
-  position: fixed;
-  right: 0;
-  top: 0;
-  visibility: hidden;
-
-  @media screen and (min-width: $spirit-breakpoint-m) {
-    opacity: 0;
-  }
-}
-
 .spirit-menu__list {
   @include spirit-elevation(3, 'blue');
   background-color: $spirit-color-white;
@@ -168,37 +146,37 @@ $spirit-menu-arrow-width: 18px;
   &:focus {
     outline: none;
   }
+}
 
-  // Triangle foreground
-  &::before {
-    @media screen and (min-width: $spirit-breakpoint-m) {
-      background-color: $spirit-color-white;
-      content: '';
-      display: block;
-      height: $spirit-menu-arrow-height;
-      left: 50%;
-      position: absolute;
-      top: -($spirit-menu-arrow-height / 2);
-      transform: translateX(-50%) rotate(45deg);
-      width: $spirit-menu-arrow-width;
-    }
+// Triangle foreground
+.spirit-menu__list::before {
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    background-color: $spirit-color-white;
+    content: '';
+    display: block;
+    height: $spirit-menu-arrow-height;
+    left: 50%;
+    position: absolute;
+    top: -($spirit-menu-arrow-height / 2);
+    transform: translateX(-50%) rotate(45deg);
+    width: $spirit-menu-arrow-width;
   }
+}
 
-  .spirit-menu--right &::before {
-    left: $spirit-space-generic-2-x;
-    transform: rotate(45deg);
-  }
+.spirit-menu--right .spirit-menu__list::before {
+  left: $spirit-space-generic-2-x;
+  transform: rotate(45deg);
+}
 
-  .spirit-menu--left &::before {
-    left: auto;
-    right: $spirit-space-generic-2-x;
-    transform: rotate(45deg);
-  }
+.spirit-menu--left .spirit-menu__list::before {
+  left: auto;
+  right: $spirit-space-generic-2-x;
+  transform: rotate(45deg);
+}
 
-  .spirit-menu--above &::before {
-    bottom: -($spirit-menu-arrow-height / 2);
-    top: auto;
-  }
+.spirit-menu--above .spirit-menu__list::before {
+  bottom: -($spirit-menu-arrow-height / 2);
+  top: auto;
 }
 
 .spirit-menu__item {
@@ -220,29 +198,29 @@ $spirit-menu-arrow-width: 18px;
       border-bottom-right-radius: $spirit-border-radius-l;
       overflow: hidden;
     }
-
-    &::after {
-      display: none;
-    }
-  }
-
-  &::after {
-    background: $spirit-list-border-color;
-    bottom: 0;
-    content: '';
-    height: $spirit-list-border-width;
-    left: $spirit-space-generic-2-x;
-    position: absolute;
-    right: 0;
-  }
-
-  .spirit-menu--has-icon &::after {
-    left: $spirit-space-generic-6-x + $spirit-space-generic-half-x;
   }
 
   .spirit-icon + .spirit-menu__text {
     padding-left: $spirit-space-inset-2-x;
   }
+}
+
+.spirit-menu__item::after {
+  background: $spirit-list-border-color;
+  bottom: 0;
+  content: '';
+  height: $spirit-list-border-width;
+  left: $spirit-space-generic-2-x;
+  position: absolute;
+  right: 0;
+}
+
+.spirit-menu__item:last-child::after {
+  display: none;
+}
+
+.spirit-menu--has-icon .spirit-menu__item::after {
+  left: $spirit-space-generic-6-x + $spirit-space-generic-half-x;
 }
 
 .spirit-menu__link {
@@ -288,4 +266,24 @@ $spirit-menu-arrow-width: 18px;
   .spirit-menu--disabled & .spirit-icon {
     color: $spirit-text-color-disabled;
   }
+}
+
+.spirit-menu-wrapper .spirit-menu__overlay {
+  background-color: $spirit-menu-small-overlay;
+  bottom: 0;
+  display: block;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+
+  @media screen and (min-width: $spirit-breakpoint-m) {
+    opacity: 0;
+  }
+}
+
+.spirit-menu:not([aria-hidden='true']) .spirit-menu__overlay {
+  visibility: visible;
 }
