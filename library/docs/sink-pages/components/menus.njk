@@ -22,31 +22,51 @@
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-default" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(menu_id=menu_id) }}
+                                    {% call library.menu(menu_id=menu_id) %}
+                                        {{ library.menu_item(title="Menu Item One") }}
+                                        {{ library.menu_item(title="Menu Item Two") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Hover</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-hover" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--hover") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--hover") %}
+                                        {{ library.menu_item(title="Menu Item One") }}
+                                        {{ library.menu_item(title="Menu Item Two") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Focus</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-focus" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--focus") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--focus") %}
+                                        {{ library.menu_item(title="Menu Item One") }}
+                                        {{ library.menu_item(title="Menu Item Two") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Active</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-active" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--active") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--active") %}
+                                        {{ library.menu_item(title="Menu Item One") }}
+                                        {{ library.menu_item(title="Menu Item Two") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Disabled</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-disabled" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(menu_id=menu_id, class="spirit-menu--disabled") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--disabled") %}
+                                        {{ library.menu_item(title="Menu Item One") }}
+                                        {{ library.menu_item(title="Menu Item Two") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps") }}
+                                    {% endcall %}
                                 </div>
                             </div>
                         </div>
@@ -58,31 +78,51 @@
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-icon-default" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon") }}
+                                    {% call library.menu(menu_id=menu_id) %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Hover</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-icon-hover" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--hover") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--hover") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Focus</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-icon-focus" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--focus") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--focus") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Active</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-icon-active" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--active") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--active") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Disabled</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-icon-disabled" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--disabled") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--disabled") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                             </div>
                         </div>
@@ -94,37 +134,61 @@
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-below-right" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--right") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--right") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Below Center</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-below-center" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Below Left</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-below-left" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--left") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--left") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Above Right</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-above-right" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above spirit-menu--right") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above spirit-menu--right") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Above Center</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-above-center" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Above Left</h5>
                                 <div class="spirit-menu-wrapper">
                                     {% set menu_id = "menu-demo-above-left" %}
                                     {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
-                                    {{ library.menu(has_icon=true, menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above spirit-menu--left") }}
+                                    {% call library.menu(menu_id=menu_id, class="spirit-menu--has-icon spirit-menu--above spirit-menu--left") %}
+                                        {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
+                                        {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps", has_icon=true, icon_name="twitter", icon_label="Twitter") }}
+                                    {% endcall %}
                                 </div>
                             </div>
                         </div>

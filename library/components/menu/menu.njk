@@ -1,58 +1,38 @@
+{# Menu #}
 {% macro menu(
     menu_id=false,
-    class=false,
-    has_icon=false,
-    items
-    ) %}
-
-    {% if items == undefined %}
-        {% set items = [
-            {
-                title: "Menu Item One",
-                href: "#",
-                icon: {
-                    name: "facebook",
-                    label: "Facebook"
-                }
-            },
-            {
-                title: "Menu Item Two",
-                href: "#",
-                icon: {
-                    name: "mail",
-                    label: "Mail"
-                }
-            },
-            {
-                title: "Very Long Menu Item to Test Content Resiliency when Text Wraps",
-                href: "#",
-                icon: {
-                    name: "twitter",
-                    label: "Twitter"
-                }
-            }
-        ] %}
-    {% endif %}
-
-    <div class="spirit-menu{{ ' ' + class if class }}{{ ' ' + size_class if size_class }}" id="{{ menu_id if menu_id }}">
+    class=false
+    )
+%}
+    <div class="spirit-menu{{ ' ' + class if class }}" id="{{ menu_id if menu_id }}">
         <div class="spirit-menu__overlay" tabindex="-1" data-a11y-dialog-hide></div>
         <nav class="spirit-menu__nav" role="dialog">
             <ul class="spirit-menu__list" role="menu" tabindex="0">
-                {% for item in items %}
-                    <li class="spirit-menu__item">
-                        <a href="{{ item.href }}" class="spirit-menu__link">
-                            {% if has_icon %}
-                                {{ icon(
-                                    name=item.icon.name,
-                                    label=item.icon.label,
-                                    decorative=true
-                                ) }}
-                            {% endif %}
-                            <span class="spirit-menu__text">{{ item.title | safe }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
+                {{ caller() }}
             </ul>
         </nav>
     </div>
+{% endmacro %}
+
+{# Menu Item #}
+{% macro menu_item(
+    title="Menu Item",
+    href="#",
+    has_icon=false,
+    icon_name=false,
+    icon_label=false
+    )
+%}
+    <li class="spirit-menu__item">
+        <a href="{{ href }}" class="spirit-menu__link">
+            {% if has_icon %}
+                {{ icon(
+                    name=icon_name,
+                    label=icon_label,
+                    decorative=true
+                ) }}
+            {% endif %}
+            <span class="spirit-menu__text">{{ title | safe }}</span>
+        </a>
+    </li>
 {% endmacro %}
