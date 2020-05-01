@@ -1,5 +1,5 @@
 $spirit-menu-width: 256px;
-$spirit-menu-line-height: 1.25;
+$spirit-menu-line-height: 1.5;
 $spirit-menu-small-buffer: calc(100vh - 88px);
 $spirit-menu-small-overlay: rgba($spirit-color-black, .4);
 $spirit-menu-icon-height: 20px;
@@ -220,7 +220,7 @@ $spirit-menu-trigger-offset: 50px;
   display: none;
 }
 
-.spirit-menu--has-icon .spirit-menu__item::after {
+.spirit-menu__item--has-icon::after {
   left: $spirit-space-generic-6-x + $spirit-space-generic-half-x;
 }
 
