@@ -7,6 +7,7 @@ $spirit-menu-icon-width: 20px;
 $spirit-menu-transition-timing: $spirit-transition-timing-default;
 $spirit-menu-arrow-height: 18px;
 $spirit-menu-arrow-width: 18px;
+$spirit-menu-trigger-offset: 50px;
 
 // Wrapper for including a trigger so that the menu shows up relative.
 .spirit-menu-wrapper {
@@ -76,16 +77,6 @@ $spirit-menu-arrow-width: 18px;
 // Positioning styles for when the menu is inside a wrapper.
 .spirit-menu-wrapper {
 
-  .spirit-menu {
-    position: absolute;
-    z-index: 2;
-
-    @media screen and (min-width: $spirit-breakpoint-m) {
-      left: -50%;
-      margin-top: 30px; // TODO Remove, temp for demo.
-    }
-  }
-
   .spirit-menu[aria-hidden='true'] {
     opacity: 0;
     visibility: hidden;
@@ -94,6 +85,16 @@ $spirit-menu-arrow-width: 18px;
   .spirit-menu:not([aria-hidden='true']) {
     opacity: 1;
     visibility: visible;
+  }
+
+  .spirit-menu {
+    position: absolute;
+    z-index: 2;
+
+    @media screen and (min-width: $spirit-breakpoint-m) {
+      left: -50%;
+      top: $spirit-menu-trigger-offset;
+    }
   }
 
   .spirit-menu--right {
@@ -111,7 +112,7 @@ $spirit-menu-arrow-width: 18px;
 
   .spirit-menu--above {
     @media screen and (min-width: $spirit-breakpoint-m) {
-      bottom: 50px;
+      bottom: $spirit-menu-trigger-offset;
       top: auto;
     }
   }
