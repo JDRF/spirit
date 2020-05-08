@@ -12,7 +12,7 @@ const spiritMenuPositioning = function(selector) {
 	}
 
 	// Setup our variables.
-	const menuDistance = 80;
+	const menuDistance = 40;
 	const arrowCenter = 30;
 	const arrowHeight = 18;
 
@@ -41,6 +41,11 @@ const spiritMenuPositioning = function(selector) {
 
 		resetStyles(menu);
 
+		// Center menu by default.
+		menu.style.left = menu.getBoundingClientRect().width / -2 + trigger.getBoundingClientRect().width / 2 + 'px';
+		menu.style.top = trigger.getBoundingClientRect().height + arrowHeight + 'px';
+
+		// Get new positioning after being centered.
 		const {
 			bottom: menuBottom,
 			left: menuLeft,
@@ -53,18 +58,16 @@ const spiritMenuPositioning = function(selector) {
 			height: triggerHeight,
 		} = trigger.getBoundingClientRect();
 
-		// Center menu by default.
-		menu.style.left = menuWidth / -2 + triggerWidth / 2 + 'px';
-		menu.style.top = triggerHeight + arrowHeight + 'px';
-
 		// Test if menu should be to the right.
-		if (menuLeft < menuDistance) {
+		// If the trigger is wider than the menu, the menu can remain centered.
+		if (triggerWidth < menuWidth && menuLeft < menuDistance) {
 			menu.style.left = triggerWidth / 2 - arrowCenter + 'px';
 			menu.classList.add('spirit-menu--right');
 		}
 
 		// Test if menu should be to the left.
-		if (viewportWidth - menuRight < menuDistance) {
+		// If the trigger is wider than the menu, the menu can remain centered.
+		if (triggerWidth < menuWidth && viewportWidth - menuRight < menuDistance) {
 			menu.style.left = 'auto';
 			menu.style.right = triggerWidth / 2 - arrowCenter + 'px';
 			menu.classList.add('spirit-menu--left');

@@ -31,7 +31,7 @@
                                 <h5 class="hostile-sink-reset">Hover</h5>
                                 <div class="spirit-menu-wrapper spirit-menu-wrapper--demo">
                                     {% set menu_id = "menu-demo-hover" %}
-                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
+                                    {{ library.button(class="spirit-button--extra-small", text="Open", dialog_id=menu_id) }}
                                     {% call library.menu(menu_id=menu_id, class="spirit-menu--hover") %}
                                         {{ library.menu_item(title="Menu Item One") }}
                                         {{ library.menu_item(title="Menu Item Two") }}
@@ -77,7 +77,7 @@
                                 <h5 class="hostile-sink-reset">Default</h5>
                                 <div class="spirit-menu-wrapper spirit-menu-wrapper--demo">
                                     {% set menu_id = "menu-demo-icon-default" %}
-                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
+                                    {{ library.button(class="spirit-button--extra-small", text="A large open menu button that is wider than the menu", dialog_id=menu_id) }}
                                     {% call library.menu(menu_id=menu_id) %}
                                         {{ library.menu_item(title="Menu Item One", has_icon=true, icon_name="facebook", icon_label="Facebook") }}
                                         {{ library.menu_item(title="Menu Item Two", has_icon=true, icon_name="mail", icon_label="Mail") }}
