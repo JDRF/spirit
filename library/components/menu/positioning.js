@@ -1,6 +1,10 @@
-const spiritMenuPositioning = function() {
+const spiritMenuPositioning = function(selector) {
 
-	const menuContainers = Array.from(document.querySelectorAll('.spirit-menu-wrapper'));
+	if (!selector) {
+		selector = '.spirit-menu-wrapper';
+	}
+
+	const menuContainers = Array.from(document.querySelectorAll(selector));
 
 	// Return early if there's no menuContainers.
 	if (!menuContainers) {
@@ -12,29 +16,8 @@ const spiritMenuPositioning = function() {
 	const arrowCenter = 30;
 	const arrowHeight = 18;
 
-	// Create a debounce function for 'resize' event listener.
-	let timeout;
-	const debounce = function (fn) {
-		return function () {
-			const self = this;
-			const args = arguments;
-
-			if (timeout) {
-				window.cancelAnimationFrame(timeout);
-			}
-
-			timeout = window.requestAnimationFrame(function () {
-				fn.apply(self, args);
-			});
-		};
-	};
-
-	// Add our window 'resize' event listener.
-	window.addEventListener('resize', debounce(function() {
-		processMenus();
-	}), false);
-
-	const processMenus = () => {
+	// The main function that will run on resize.
+	const processMenus = function() {
 		// Get updated viewport sizes.
 		const viewportHeight = window.innerHeight;
 		const viewportWidth = window.innerWidth;
@@ -49,20 +32,20 @@ const spiritMenuPositioning = function() {
 				return;
 			}
 
-			positionMenus(menu, trigger, viewportHeight, viewportWidth);
+			positionMenu(menu, trigger, viewportHeight, viewportWidth);
 		});
 	};
 
 	// Handle positioning of each menu.
-	const positionMenus = function(menu, trigger, viewportHeight, viewportWidth) {
+	const positionMenu = function(menu, trigger, viewportHeight, viewportWidth) {
 
 		resetStyles(menu);
 
 		const {
 			bottom: menuBottom,
-			left: menurLeft,
-			right: menurRight,
-			width: menurWidth,
+			left: menuLeft,
+			right: menuRight,
+			width: menuWidth,
 		} = menu.getBoundingClientRect();
 
 		const {
@@ -71,17 +54,17 @@ const spiritMenuPositioning = function() {
 		} = trigger.getBoundingClientRect();
 
 		// Center menu by default.
-		menu.style.left = menurWidth / -2 + triggerWidth / 2 + 'px';
+		menu.style.left = menuWidth / -2 + triggerWidth / 2 + 'px';
 		menu.style.top = triggerHeight + arrowHeight + 'px';
 
 		// Test if menu should be to the right.
-		if (menurLeft < menuDistance) {
+		if (menuLeft < menuDistance) {
 			menu.style.left = triggerWidth / 2 - arrowCenter + 'px';
 			menu.classList.add('spirit-menu--right');
 		}
 
 		// Test if menu should be to the left.
-		if (viewportWidth - menurRight < menuDistance) {
+		if (viewportWidth - menuRight < menuDistance) {
 			menu.style.left = 'auto';
 			menu.style.right = triggerWidth / 2 - arrowCenter + 'px';
 			menu.classList.add('spirit-menu--left');
@@ -114,6 +97,31 @@ const spiritMenuPositioning = function() {
 		menu.style.right = 'auto';
 		menu.style.top = 'auto';
 	};
+
+	// Create a debounce function for 'resize' event listener.
+	let timeout;
+	const debounce = function (fn) {
+		return function () {
+			const self = this;
+			const args = arguments;
+
+			if (timeout) {
+				window.cancelAnimationFrame(timeout);
+			}
+
+			timeout = window.requestAnimationFrame(function () {
+				fn.apply(self, args);
+			});
+		};
+	};
+
+	// Run on initial page load.
+	processMenus();
+
+	// Add our window 'resize' event listener.
+	window.addEventListener('resize', debounce(function() {
+		processMenus();
+	}), false);
 };
 
-spiritMenuPositioning();
+spiritMenuPositioning('.spirit-menu-wrapper--demo');
