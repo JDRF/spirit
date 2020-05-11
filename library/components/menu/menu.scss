@@ -1,6 +1,7 @@
 $spirit-menu-width: 256px;
 $spirit-menu-line-height: 1.5;
-$spirit-menu-small-buffer: calc(100vh - 88px);
+$spirit-menu-max-height-small: calc(100vh - 88px);
+$spirit-menu-max-height-medium: 424px;
 $spirit-menu-small-overlay: rgba($spirit-color-black, .4);
 $spirit-menu-icon-height: 20px;
 $spirit-menu-icon-width: 20px;
@@ -129,7 +130,7 @@ $spirit-menu-trigger-offset: 50px;
   left: 0;
   list-style: none;
   margin: 0;
-  max-height: $spirit-menu-small-buffer;
+  max-height: $spirit-menu-max-height-small;
   max-width: 100%;
   overflow: auto;
   padding: 0;
@@ -140,7 +141,8 @@ $spirit-menu-trigger-offset: 50px;
 
   @media screen and (min-width: $spirit-breakpoint-m) {
     border-radius: $spirit-border-radius-l;
-    overflow: visible;
+    max-height: $spirit-menu-max-height-medium;
+    overflow: auto;
     position: relative;
   }
 
