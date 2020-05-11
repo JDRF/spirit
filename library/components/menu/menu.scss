@@ -11,7 +11,7 @@ $spirit-menu-trigger-offset: 50px;
 
 // Wrapper for including a trigger so that the menu shows up relative.
 .spirit-menu-wrapper {
-  display: inline-block;
+  display: inline;
   position: relative;
 }
 
@@ -52,13 +52,13 @@ $spirit-menu-trigger-offset: 50px;
 }
 
 .spirit-menu--right::before {
-  left: $spirit-space-generic-2-x + $spirit-space-generic-half-x;
+  left: $spirit-space-generic-2-x;
   transform: rotate(45deg);
 }
 
 .spirit-menu--left::before {
   left: auto;
-  right: $spirit-space-generic-2-x + $spirit-space-generic-half-x;
+  right: $spirit-space-generic-2-x;
   transform: rotate(45deg);
 }
 
@@ -165,13 +165,13 @@ $spirit-menu-trigger-offset: 50px;
 }
 
 .spirit-menu--right .spirit-menu__list::before {
-  left: $spirit-space-generic-2-x + $spirit-space-generic-half-x;
+  left: $spirit-space-generic-2-x;
   transform: rotate(45deg);
 }
 
 .spirit-menu--left .spirit-menu__list::before {
   left: auto;
-  right: $spirit-space-generic-2-x + $spirit-space-generic-half-x;
+  right: $spirit-space-generic-2-x;
   transform: rotate(45deg);
 }
 
