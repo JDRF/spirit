@@ -41,20 +41,11 @@
                                 <h5 class="hostile-sink-reset">Focus</h5>
                                 <div class="spirit-menu-wrapper spirit-menu-wrapper--demo">
                                     {% set menu_id = "menu-demo-focus" %}
-                                    {{ library.button(class="spirit-button--extra-small", text="Long Menu", dialog_id=menu_id) }}
+                                    {{ library.button(class="spirit-button--extra-small", text="Open Menu", dialog_id=menu_id) }}
                                     {% call library.menu(menu_id=menu_id, class="spirit-menu--focus") %}
                                         {{ library.menu_item(title="Menu Item One") }}
                                         {{ library.menu_item(title="Menu Item Two") }}
-                                        {{ library.menu_item(title="Menu Item Three") }}
-                                        {{ library.menu_item(title="Menu Item One") }}
-                                        {{ library.menu_item(title="Menu Item Two") }}
-                                        {{ library.menu_item(title="Menu Item Three") }}
-                                        {{ library.menu_item(title="Menu Item One") }}
-                                        {{ library.menu_item(title="Menu Item Two") }}
-                                        {{ library.menu_item(title="Menu Item Three") }}
-                                        {{ library.menu_item(title="Menu Item One") }}
-                                        {{ library.menu_item(title="Menu Item Two") }}
-                                        {{ library.menu_item(title="Menu Item Three") }}
+                                        {{ library.menu_item(title="Very Long Menu Item to Test Content Resiliency when Text Wraps") }}
                                     {% endcall %}
                                 </div>
                                 <h5 class="hostile-sink-reset">Active</h5>
