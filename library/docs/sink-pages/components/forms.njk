@@ -652,11 +652,23 @@
 
     <h2 class="hostile-sink-reset">Form Level Messages</h2>
     {{ library.form_message(type="success", text="Success confirmation message.") }}
+    {% call library.form_message(type="success", text="Success confirmation message.") %}
+      <p>Testing a <a href="#">link</a> in form messages.</p>
+    {% endcall %}
     {{ library.form_message(type="error", text="Error highlighting message.") }}
+    {% call library.form_message(type="error", text="Error highlighting message.") %}
+      <p>Testing a <a href="#">link</a> in form messages.</p>
+    {% endcall %}
     {{ library.form_message(type="info", text="Informational message.") }}
-    
+    {% call library.form_message(type="info", text="Informational message.") %}
+      <p>Testing a <a href="#">link</a> in form messages.</p>
+    {% endcall %}
+
     <h5 class="hostile-sink-reset">Content Resilience, Long Message</h5>
     {{ library.form_message(text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo molestias, recusandae animi quam tempora sint tenetur sapiente. Quos ipsam quidem numquam labore, repudiandae fugit, hic architecto, rem doloribus deserunt optio!") }}
+    {% call library.form_message() %}
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p><p>Explicabo molestias, recusandae animi quam tempora sint tenetur sapiente. Quos ipsam quidem numquam labore, repudiandae fugit, hic architecto, rem doloribus deserunt optio! Testing a <a href="#">link</a> in form messages.</p>
+    {% endcall %}
 
     <br>
     <br>

@@ -19,7 +19,16 @@
       Informational messages communicate non-critical information.
   {% endfilter %}
 
-  {{ esds_doc.code_example_pair(example=library.form_message(text="Only 21 seats remaining.")) }}
+  {% set feeback_information %}
+
+    {% call library.form_message(type="info") %}
+      <p>Only 21 seats remaining.</p>
+      <p>Visit <a href="#">jdrf.org</a> for more information.</p>
+    {% endcall %}
+
+  {% endset %}
+
+  {{ esds_doc.code_example_pair(example=feeback_information) }}
 
   {% filter markdown %}
       ### Success Messages

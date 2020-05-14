@@ -488,7 +488,7 @@
 
 {% macro form_message(
     class=false,
-    text="Some information about this form",
+    text=false,
     type="info"
     ) %}
     {% set typeIcons = {
@@ -501,7 +501,12 @@
             {{ icon(name=typeIcons[type], class="spirit-form__message-icon") }}
         </div>
         <div class="spirit-form__message-text">
-            {{ text | safe }}
+            {% if text %}
+                <p>{{ text | safe }}</p>
+            {% endif %}
+            {%- if caller -%}
+                {{ caller() }}
+            {%- endif -%}
         </div>
     </div>
 {% endmacro %}

@@ -953,6 +953,34 @@ $spirit-legend-max-width:   $spirit-form-element-max-width;
   margin: $spirit-space-stack-4-x;
   padding: $spirit-space-inset-2-x;
 
+  a:not(.spirit-button) {
+    @include spirit-dark-parent-light-text;
+    color: $spirit-text-color-primary;
+    font-weight: $spirit-font-weight-bold;
+    text-decoration: underline;
+
+    &:focus {
+      outline: $spirit-border-width-input-focus solid $spirit-text-color-primary;
+    }
+
+    &:visited {
+      color: $spirit-text-color-primary;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    margin-bottom: $spirit-space-generic-2-x;
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &.spirit-form__message--info {
     background-color: $spirit-feedback-color-background-info;
   }
