@@ -15,6 +15,21 @@
   #}
 
   {% set new %}
+    * [Dialog](/components/dialog.html) - Dialog doc site page added in Components
+  {% endset %}
+
+  {% set enhancements %}
+    * [Feedback Messages](/components/feedback-messages.html) - Add styles for `<a>` and `<p>` tags.
+    * **Brushes** - All Spirit Doodle and Watermark assets have been added to brush sprites, but not yet documented on this doc site.
+  {% endset %}
+
+  {% set fixes %}
+    * [Form Input With Password Toggle](/components/forms.html#with-password-toggle) - Fixed issue where password toggle collided with password manager icons.
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.3.0", date="5/14/2020", new=new, enhancements=enhancements, fixes=fixes) }}
+
+  {% set new %}
     * [Button With Icon](/components/buttons.html#with-icon) - Code, Sketch UI Library, Documentation
     * [Form Input With Button](/components/forms.html#with-button) - Code, Documentation
     * [Form Input With Password Toggle](/components/forms.html#with-password-toggle) - Code, Documentation
