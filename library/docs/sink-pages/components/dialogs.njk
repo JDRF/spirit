@@ -1,0 +1,910 @@
+{% extends "templates/sink.njk" %}
+{% block body %}
+
+  {% call library.shell() %}
+    {% call library.shell_header() %}
+      {% call library.container(padding_top="none", padding_bottom="none") %}
+          <div class="spirit-long-form-text">
+              <h1>
+                  Dialogs
+              </h1>
+          </div>
+          {{ header_nav_demo | safe }}
+      {% endcall %}
+    {% endcall %}
+    {% call library.shell_main() %}
+      {% call library.container(size="large", padding_top="xs") %}
+
+        {% set content_short %}
+            <div class="spirit-long-form-text">
+              <h1 class="spirit-h4 spirit-lead-heading">Content Here</h1>
+              <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            </div>
+        {% endset %}
+
+        {% set content_long %}
+          <div class="spirit-long-form-text">
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+            <p>Type 1 diabetes is an autoimmune disease that strikes both children and adults suddenly. It has nothing to do with diet or lifestyle. There is nothing you can do to prevent it. And, at present, there is no cure.</p>
+            <p>In T1D, your pancreas stops producing insulin—a hormone the body needs to get energy from food. This means a process your body does naturally and automatically becomes something that now requires your daily attention and manual intervention. If you have T1D, you must constantly monitor your blood-sugar level, inject or infuse insulin through a pump, and carefully balance these insulin doses with your eating and activity throughout the day and night.</p>
+            <p>However, insulin is not a cure for diabetes. Even with the most vigilant disease management, a significant portion of your day will be spent with either high or low blood-sugar levels. These fluctuations place people with T1D at risk for potentially life-threatening hypoglycemic and hyperglycemic episodes as well as devastating long-term complications such as kidney failure, heart attack, stroke, blindness and amputation. Learn more about T1D.</p>
+          </div>
+        {% endset %}
+
+        {% set content_list %}
+          {% call library.dialog_content() %}
+            {% call library.list() %}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+            {% endcall %}
+          {% endcall %}
+        {% endset %}
+
+        {% set content_list_small_padding %}
+          {% call library.dialog_content(padding="small") %}
+            {% call library.list() %}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+              {{ library.list_item(title_text="Name", title_meta="$000,000") }}
+            {% endcall %}
+          {% endcall %}
+        {% endset %}
+
+        {% set dialog_id = "dialog-demo-simple-alert-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Alert Dialog", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-alert-l-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert Dialog Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Alert Dialog with a Long Wrapping Title to Test Resilience When a Long Title is Used", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-alert-m" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert M Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Medium Size Alert Dialog (test)", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-alert-l" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert L Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Large Size Alert Dialog (test)", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-foot-alert-p-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert Padding Large Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Alert Padding Large Test", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content(padding="large") %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-res-foot-to-fs-alert" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert Dialog to Fullscreen Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size_break="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-fs-con-to-m-pad-s-alert" %}
+        <div class="spirit-long-form-text">
+            <h6>Alert Full Screen to Medium Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", size_break="medium", dialog_id=dialog_id, has_title=true, has_close=true, alert=true) %}
+          {{ library.dialog_header(title_text="Alert Full Screen to Medium Size Test", dialog_id=dialog_id, has_header_close=false) }}
+          {% call library.dialog_content() %}
+            <div class="spirit-long-form-text spirit-long-form-text--m">
+              <p>Alert Dialog Description.</p>
+            </div>
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Discard", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-modal-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Modal Dialog", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-modal-l-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal Dialog Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Modal Dialog with a Long Wrapping Title to Test Resilience When a Long Title is Used", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-modal-m" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal M Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Medium Size Modal Dialog (test)", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-modal-l" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal L Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Large Size Modal Dialog (test)", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-foot-modal-p-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal Padding Large Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Modal Padding Large Test", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-res-foot-to-fs-modal" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal Dialog to Fullscreen Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size_break="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-fs-con-to-m-pad-s-modal" %}
+        <div class="spirit-long-form-text">
+            <h6>Modal Full Screen to Medium Size Test</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", size_break="medium", dialog_id=dialog_id, has_title=true, has_close=true, modal=true) %}
+          {{ library.dialog_header(title_text="Modal Full Screen to Medium Size Test", dialog_id=dialog_id, has_header_close=false) }}
+          {{ content_list | safe }}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save", dialog_close=true) }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-blank-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Blank</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id) %}
+            {% call library.dialog_content() %}
+            {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple--overlay-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Dark Overlay</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(overlay_opacity="dark", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dark Overlay", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog with Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-mult-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog with Multiple Actions</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Multiple Actions", dialog_id=dialog_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-mult-title-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog with Multiple Actions and Long Title</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Edit Story Oops Title is Accidentally Way Too Long To Fit in the Header", dialog_id=dialog_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-foot-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-foot-s-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Footer padding medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Padding Medium", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="medium") %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-foot-s-large" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Footer padding large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Padding Large", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="large") %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-foot-long-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Footer Long Labels</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="This Label Is Way Too Long") }}
+              {{ library.button(class="spirit-button--small-md", text="Choose A Shorter Label") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Content Resiliance</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-foot-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Content Resiliance Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-foot-s-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Content Resiliance Footer padding medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Padding Medium", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="medium") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-foot-s-large" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Content Resiliance Footer padding large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Padding Large", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="large") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-foot-to-fs" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Content Resiliance Footer to Fullscreen</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size_break="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-foot-to-fs-padl" %}
+        <div class="spirit-long-form-text">
+            <h6>S To Fullscreen Padding Large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size_break="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="To Fullscreen Padding Large", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="large") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-top-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Top</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(position="top", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Top", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-ma-s" %}
+        <div class="spirit-long-form-text">
+            <h6>S Dialog Multiple Actions</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Multiple Actions", dialog_id=dialog_id, header_icons=[{ iconName: "search", buttonTitle: "Search" }, { iconName: "more-horizontal", buttonTitle: "More"}]) }}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-blank-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Blank</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id) %}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-foot-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-foot-long-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Footer Long Labels</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="This Label Is Way Too Long") }}
+              {{ library.button(class="spirit-button--small-md", text="Choose A Shorter Label") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-res-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Content Resiliance</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-res-ps-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Content Resiliance Small Padding</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="small") %}
+            {{ content_long | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-res-foot-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Content Resiliance Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-top-m" %}
+        <div class="spirit-long-form-text">
+            <h6>M Dialog Top</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="medium", position="top", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Top", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-blank-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog Blank</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id) %}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-foot-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-foot-long-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog Footer Long Labels</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Simple", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="This Label Is Way Too Long") }}
+              {{ library.button(class="spirit-button--small-md", text="Choose A Shorter Label") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-res-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog Content Resiliance</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-res-foot-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog Content Resiliance Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Content Resiliancy Example with Long Header Text", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-top-l" %}
+        <div class="spirit-long-form-text">
+            <h6>L Dialog Top</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", position="top", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Top", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_short | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-res-foot-l-to-fs-pads" %}
+        <div class="spirit-long-form-text">
+            <h6>L To Fullscreen Padding Small</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="large", size_break="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="To Fullscreen Padding Large", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="small") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-fs-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-fs-foot-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog Footer</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen", dialog_id=dialog_id) }}
+          {% call library.dialog_content() %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-fs-foot-s-medium" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog Footer padding medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen Padding Medium", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="medium") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-fs-foot-s-large" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog Footer padding large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen Padding Large", dialog_id=dialog_id) }}
+          {% call library.dialog_content(padding="large") %}
+            {{ content_long | safe }}
+          {% endcall %}
+          {% call library.dialog_footer() %}
+              {{ library.button(class="spirit-button--minimal spirit-button--small-md", text="Cancel") }}
+              {{ library.button(class="spirit-button--small-md", text="Save") }}
+          {% endcall %}
+        {% endcall %}
+
+        {% set dialog_id = "dialog-demo-simple-fs-con-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen", dialog_id=dialog_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-fs-con-to-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog to Small</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", size_break="small", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen", dialog_id=dialog_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-fs-con-to-m" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog to Medium</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", size_break="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen", dialog_id=dialog_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-fs-con-to-l" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog to Large</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", size_break="large", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen", dialog_id=dialog_id) }}
+          {{ content_list | safe }}
+        {% endcall %}
+
+        {% set dialog_id="dialog-demo-simple-fs-con-to-m-pad-s" %}
+        <div class="spirit-long-form-text">
+            <h6>Full Screen Dialog Padding Small to Medium Size</h6>
+            {{ library.button(class="spirit-button--extra-small", text="Open Dialog", dialog_id=dialog_id) }}
+        </div>
+        {% call library.dialog(size="fullscreen", size_break="medium", dialog_id=dialog_id, has_title=true, has_close=true) %}
+          {{ library.dialog_header(title_text="Dialog Fullscreen Pad Small to Size S", dialog_id=dialog_id) }}
+          {{ content_list_small_padding | safe }}
+        {% endcall %}
+
+      {% endcall %}
+    {% endcall %}
+    {% call library.shell_footer() %}
+        {% call library.container(padding_top="xs", padding_bottom="xs", background_color="brand") %}
+            <div class="spirit-long-form-text">
+                <h3>
+                    Footer
+                </h3>
+            </div>
+        {% endcall %}
+    {% endcall %}
+  {% endcall %}
+
+{% endblock body %}
