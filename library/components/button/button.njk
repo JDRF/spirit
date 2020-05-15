@@ -43,7 +43,7 @@
 
   {% if ( el === 'checkbox' ) or ( el === 'radio' ) %}
     <div class="spirit-button spirit-button--toggle{{ ' ' + class if class }}">
-      <input 
+      <input
         class="spirit-button__input spirit-button__{{ el }}"
         type="{{el}}"
         {% if name %}
@@ -57,7 +57,7 @@
         {% endif %}
         tabindex="-1"
       />
-      <label 
+      <label
         {% if id %}
           for="{{id}}"
         {% endif %}

@@ -1,0 +1,38 @@
+{# Menu #}
+{% macro menu(
+    menu_id=false,
+    class=false
+    )
+%}
+    <div class="spirit-menu {{class if class }}" id="{{ menu_id if menu_id }}">
+        <div class="spirit-menu__overlay" tabindex="-1" data-a11y-dialog-hide></div>
+        <nav class="spirit-menu__nav" role="dialog">
+            <ul class="spirit-menu__list" role="menu" tabindex="0">
+                {{ caller() }}
+            </ul>
+        </nav>
+    </div>
+{% endmacro %}
+
+{# Menu Item #}
+{% macro menu_item(
+    title="Menu Item",
+    href="#",
+    has_icon=false,
+    icon_name=false,
+    icon_label=false
+    )
+%}
+    <li class="spirit-menu__item {{ 'spirit-menu__item--has-icon' if has_icon }}">
+        <a href="{{ href }}" class="spirit-menu__link">
+            {% if has_icon %}
+                {{ icon(
+                    name=icon_name,
+                    label=icon_label,
+                    decorative=true
+                ) }}
+            {% endif %}
+            <span class="spirit-menu__text">{{ title | safe }}</span>
+        </a>
+    </li>
+{% endmacro %}

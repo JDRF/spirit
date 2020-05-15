@@ -1,7 +1,7 @@
 // Variables
 $spirit-dialog-breakpoint-sm-max: 767.98px;
-$spirit-dialog-overlay: rgba(0, 0, 0, .4);
-$spirit-dialog-overlay-dark: rgba(0, 0, 0, .7);
+$spirit-dialog-overlay: rgba($spirit-color-black, .4);
+$spirit-dialog-overlay-dark: rgba($spirit-color-black, .7);
 $spirit-dialog-z-index: 20;
 $spirit-dialog-width: calc(100vw - #{$spirit-space-generic-4-x});
 $spirit-dialog-max-width: 484px; // Equivelant to 6col in large container
