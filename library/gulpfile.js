@@ -107,3 +107,15 @@ gulp.task('esds-hook:post:styles:build:all', gulp.series('minify-styles'));
 gulp.task('watch:styles:minify', () => {
   return gulp.watch(['_site/latest/styles/spirit.css'], gulp.parallel('minify-styles'));
 });
+
+const {src, dest} = require('gulp')
+const sass = require('gulp-sass')
+sass.compiler = require('sass')
+
+function css () {
+  return src('./styles/scss/**/*.{scss,sass}')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(dest('dist/css'))
+}
+
+exports.css = css;
