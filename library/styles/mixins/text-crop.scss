@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @import '../../tokens/tokens';
 
 // sass-lint:disable zero-unit
@@ -9,8 +11,8 @@
   $crop-line-height: 1.2;
 
   // Apply values to calculate em-based margins that work with any font size
-  $dynamic-top-crop: max(($top-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)), 0) / $crop-font-size;
-  $dynamic-bottom-crop: max(($bottom-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)), 0) / $crop-font-size;
+  $dynamic-top-crop: math.div(max(($top-crop + ($line-height - $crop-line-height) * ($crop-font-size * .5)), 0), $crop-font-size);
+  $dynamic-bottom-crop: math.div(max(($bottom-crop + ($line-height - $crop-line-height) * ($crop-font-size * .5)), 0), $crop-font-size);
 
   // Mixin output
   line-height: $line-height;
