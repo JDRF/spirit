@@ -53,14 +53,14 @@ $grid-breakpoints: (
 
 @media (min-width: $spirit-breakpoint-grid) {
   .spirit-row {
-    margin-left: -($spirit-grid-gutter-width-lg / 2);
-    margin-right: -($spirit-grid-gutter-width-lg / 2);
+    margin-left: -($spirit-grid-gutter-width-lg * .5);
+    margin-right: -($spirit-grid-gutter-width-lg * .5);
   }
 
   .spirit-row > .spirit-col,
   .spirit-row > [class*='spirit-col-'] {
-    padding-left: ($spirit-grid-gutter-width-lg / 2);
-    padding-right: ($spirit-grid-gutter-width-lg / 2);
+    padding-left: ($spirit-grid-gutter-width-lg * .5);
+    padding-right: ($spirit-grid-gutter-width-lg * .5);
   }
 
   .spirit-row--no-gutters {
