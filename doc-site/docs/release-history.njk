@@ -14,6 +14,17 @@
     additional_content
   #}
 
+  {% set enhancements %}
+    * Migrate from Node Sass to Dart Sass
+  {% endset %}
+
+  {% set fixes %}
+    * Fixed issue related with use math.div for division in Sass
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.4.0", date="12/16/2021", new=new, enhancements=enhancements, fixes=fixes) }}
+
+
   {% set new %}
     * [Dialog](/components/dialog.html) - Dialog doc site page added in Components
   {% endset %}
