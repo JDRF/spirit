@@ -121,6 +121,19 @@ $spirit-card-list-image-size-sm: 72px;
       $font-size: $spirit-font-size-s
     );
     margin: $spirit-space-stack-1-x;
+
+    @media screen and (max-width: $spirit-breakpoint-m - 1) {
+      // Truncate body text on small screens
+      // sass-lint:disable no-vendor-prefixes property-sort-order
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre-wrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; // Number of lines you wish to display
+      max-height: #{$spirit-font-line-height-body * 2}em; // Line height * number of lines
+      // sass-lint: enable
+    }
   }
 
   .spirit-card__link {
