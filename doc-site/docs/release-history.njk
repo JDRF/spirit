@@ -15,6 +15,13 @@
   #}
 
   {% set enhancements %}
+    * [Getting Started](/getting-started.html) Doc updated
+  {% endset %}
+
+  {{ spirit_doc.release_history_detail(version="1.5.0", date="4/11/2022", enhancements=enhancements) }}
+
+
+  {% set enhancements %}
     * Migrate from Node Sass to Dart Sass
   {% endset %}
 
