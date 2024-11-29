@@ -57,7 +57,7 @@ $spirit-card-list-image-size-sm: 72px;
     margin: -$spirit-space-generic-1-x;
     padding: $spirit-space-inset-2-x;
     transition: border $spirit-transition-timing-default;
-    width: calc(100% + $spirit-space-generic-2-x);
+    width: calc(100% + #{$spirit-space-generic-2-x});
   }
 
   &:hover .spirit-card__text {
